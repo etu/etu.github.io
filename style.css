@@ -1,0 +1,455 @@
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 1;
+    position: relative;
+}
+
+body, html {
+    font-size: 17px;
+    font-family: 'Open Sans', sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+/********************************************************************
+ * HEADER
+ */
+header {
+    font-family: Monospace, 'Droid Sans Mono', Arial, sans-serif;
+
+    position: fixed;
+    z-index: 0;
+
+    top: 0;
+    right: 1rem;
+    right: 17px;
+
+    font-size: 136px;
+    font-size: 8rem;
+
+    color: #F9F9F9;
+
+    /* Disable selection of text with mouse in modern browsers */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+
+    -webkit-animation: 1s ease-in 0s normal forwards 1 fadeInHeader;
+    -moz-animation: 1s ease-in 0s normal forwards 1 fadeInHeader;
+    animation: 1s ease-in 0s normal forwards 1 fadeInHeader;
+
+    /* Woho, transition font-size! */
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+header .block {
+    -webkit-animation: 1s ease-in-out 0s normal forwards infinite sexyblink;
+    -moz-animation: 1s ease-in-out 0s normal forwards infinite sexyblink;
+    animation: 1s ease-in-out 0s normal forwards infinite sexyblink;
+}
+
+/*************************************
+ * Sexyblink
+ */
+@-webkit-keyframes sexyblink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes sexyblink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes sexyblink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/*************************************
+ * HEADER FADE IN
+ */
+@-webkit-keyframes fadeInHeader {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadeInHeader {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeInHeader {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/********************************************************************
+ * NAVIGATION
+ */
+nav {
+    background: white;
+    box-shadow: 0px 5px 10px #888;
+
+    font-family: Monospace, 'Droid Sans Mono', Arial, sans-serif;
+
+    width: 697px;
+    width: 41rem;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+
+    margin-top: 127px;
+    margin-top: 7.5rem;
+
+    overflow: auto;
+
+    font-size: 0; /* http://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
+
+    -webkit-animation: 0.3s ease-in 0s normal forwards 1 fadeInNavigation;
+    -moz-animation: 0.3s ease-in 0s normal forwards 1 fadeInNavigation;
+    animation: 0.3s ease-in 0s normal forwards 1 fadeInNavigation;
+}
+
+nav ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+nav ul li {
+    float: left;
+
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+nav ul li a {
+    display: inline-block;
+
+    font-size: 20px;
+    font-size: 1.2rem;
+
+    line-height: 51px;
+    line-height: 3rem;
+
+    padding: 0 17px 0 17px;
+    padding: 0 1rem 0 1rem;
+
+    text-decoration: none;
+    color: black;
+    outline: 0px;
+
+    width: 100%;
+}
+
+nav ul li:nth-child(1):hover {
+    background: #FFBF76;
+}
+nav ul li:nth-child(2):hover {
+    background: #BFFF76;
+}
+nav ul li:nth-child(3):hover {
+    background: #BF76FF;
+}
+
+/*************************************
+ * NAVIGATION FADE IN
+ */
+@-webkit-keyframes fadeInNavigation {
+    0% {
+        margin-top: 0;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 127px;
+        margin-top: 7.5rem;
+
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadeInNavigation {
+    0% {
+        margin-top: 0;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 127px;
+        margin-top: 7.5rem;
+
+        opacity: 1;
+    }
+}
+@keyframes fadeInNavigation {
+    0% {
+        margin-top: 0;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 127px;
+        margin-top: 7.5rem;
+
+        opacity: 1;
+    }
+}
+
+/********************************************************************
+ * BODY
+ */
+div#wrapper {
+    width: 697px;
+    width: 41rem;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 9px;
+    padding: 0.5rem;
+
+    background: white;
+    box-shadow: 0px 5px 10px #888;
+
+    overflow: hidden;
+
+    -webkit-animation: 0.3s ease-in 0s normal forwards 1 fadeInWrapper;
+    -moz-animation: 0.3s ease-in 0s normal forwards 1 fadeInWrapper;
+    animation: 0.3s ease-in 0s normal forwards 1 fadeInWrapper;
+}
+
+/*************************************
+ * BODY FADE IN
+ */
+@-webkit-keyframes fadeInWrapper {
+    0% {
+        margin-top: -20px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 9px;
+        margin-top: 0.5rem;
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadeInWrapper {
+    0% {
+        margin-top: -20px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 9px;
+        margin-top: 0.5rem;
+        opacity: 1;
+    }
+}
+@keyframes fadeInWrapper {
+    0% {
+        margin-top: -20px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 9px;
+        margin-top: 0.5rem;
+        opacity: 1;
+    }
+}
+
+/********************************************************************
+ * Hide/Show trick for sections
+ */
+div#wrapper section {
+    display: none;
+}
+
+div#wrapper section h2 {
+    font-family: Monospace, 'Droid Sans Mono', Arial, sans-serif;
+    margin: 0;
+    line-height: 1.8em;
+}
+
+div#wrapper section h3 {
+    font-family: Monospace, 'Droid Sans Mono', Arial, sans-serif;
+    margin: 0;
+    line-height: 1.8em;
+}
+
+div#wrapper section p {
+    margin-top: 9px;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+div#wrapper section ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+div#wrapper section#work ul li {
+    display: inline-block;
+
+    padding: 17px;
+    padding: 1rem;
+
+    width: 280px;
+
+    list-style: none;
+
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+div#wrapper section#work ul li img {
+    width: 280px;
+}
+
+div#wrapper section#work ul li span {
+    position: absolute;
+
+    text-align: center;
+
+    left: 17px;
+    left: 1rem;
+
+    width: 280px;
+
+    bottom: 20px;
+
+    background: #F5FFA8;
+    border: 0;
+
+    height: 0;
+
+    overflow: hidden;
+
+    -webkit-transition: height 0.2s linear;
+    -moz-transition: height 0.2s linear;
+    transition: height 0.2s linear;
+}
+
+div#wrapper section#work ul li img:hover + span, div#wrapper section#work ul li span:hover {
+    border: 2px solid #FFF4A1;
+    height: 51px;
+    height: 3rem;
+}
+
+div#wrapper section#start {
+    display: block;
+}
+
+div#wrapper section:target {
+    display: block;
+}
+
+div#wrapper section:target ~ #start {
+    display: none;
+}
+
+span.strike {
+    text-decoration: line-through;
+}
+
+/********************************************************************
+ * Hide/Show trick for sections
+ */
+@media (max-width: 700px) {
+    nav {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        top: -50px;
+    }
+    div#wrapper {
+        width: 100%;
+
+        top: -50px;
+    }
+    header {
+        font-size: 68px;
+        font-size: 4rem;
+    }
+    div#wrapper section#work ul {
+        text-align: center;
+        padding: 17px;
+        padding: 1em;
+    }
+    div#wrapper section#work ul li {
+        padding: 17px 0 17px 0;
+        padding: 1em  0 1em  0;
+    }
+    div#wrapper section#work ul li span {
+        left: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    nav ul {
+        width: 100%;
+    }
+    nav ul li {
+        width: 100%;
+        display: block;
+    }
+}
+
+/*************************************
+ * Profile Image
+ */
+img.profile {
+    float: right;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+img.profile:hover {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
