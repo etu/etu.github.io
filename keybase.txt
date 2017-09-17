@@ -1,0 +1,86 @@
+==================================================================
+https://keybase.io/etu
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://elis.nu
+  * I am etu (https://keybase.io/etu) on keybase.
+  * I have a public key with fingerprint 67FE 98F2 8C44 CF22 1828  E12F D57E FA62 5C9A 925F
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012092946355b46ef2cd30becaea9058f5f71ffc3d89172ebf090346ff0e5cef49300a",
+      "fingerprint": "67fe98f28c44cf221828e12fd57efa625c9a925f",
+      "host": "keybase.io",
+      "key_id": "d57efa625c9a925f",
+      "kid": "0101048d423166626e1e2587da85567df2cbaf3f0f6630b4c9ac9d402107c8d0eb910a",
+      "uid": "ca3bbd5c1fe06bd6ca97927a6b7b2a19",
+      "username": "etu"
+    },
+    "merkle_root": {
+      "ctime": 1505628192,
+      "hash_meta": "4988cd21367531aadd96bba728a24ff897d1d31a70c2d8a58f034e722a679f6e",
+      "seqno": 1392460
+    },
+    "revoke": {
+      "sig_ids": [
+        "2beee45fc488cc4d9995800ffd1741afa3210803a8470a3968f6b6bcde2642690f"
+      ]
+    },
+    "service": {
+      "hostname": "elis.nu",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1505628270,
+  "expire_in": 157680000,
+  "prev": "81bf0123f5be5d26e50ed6fa4daaaccc4bdb865738c329c4a508b63967e87dd2",
+  "seqno": 67,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owFtU3tMFEccBisUbECMim+MSyvGXnR2dnZ2l4bUZ9KmtQVftQF6zuzMwAp3h3cH
+Cgo+WqMmhOqphxDbUp81itHGphiptShaX6C1akJKi9ZWDBWrjdrSUDtHSpomzf4x
+2d983+/3fd/MbEp4Jiou+lpFD82pDbmjL9ylUW+fSCpdoVAfK1XSVygFvG/hhYwH
+gu4ChynpClAhsKCFsKbrFGEuoM00QLlNOLGAbgpdGKoQtsZMSzUgpwJYQENYCMB1
+mwtkaQAQxaUIx5vH/UV+xxuUbbEhuGUKaNoI2QJC1YQmV6FgusEFwVC3LWJBXUhi
+vi8QYUhxlAT4FMcna/LH3Sfvf/D9uuWHTIagpmKMIeYqh7ppMGLqOjaY9EGJ0AQQ
+GEs/SPJtiyEAVWDYJgOcWmqf7uK+djbRKGW6rQoOMGXYJpZhQYNgalBIVCsCDHC/
+l3i4RPNgsVLuUjzcX1DI3X6fLxjJ1Q46kV1VBzqGpmpB6Y0E8t0eHiSShCzTtBlU
+NWzomkoIYxamlBjQJBAJYVoGU5ncMIANmUlk9DJnbkBIsGEJzKWEAF/q9ckJmgUR
+BlKBn5f4CnhkeMDJk4kFlPRsBVLOOdKFfdKD5EgbMcuydBMAIZhqIJUIoskYTKAR
+ExmAaBY2BaaY2oxDjCC2gFByyyPj/CWO3dc+ckj95gudwBRvsZRT5PcFfbavUBbz
+g8GiQHoklGBpUQS1jFP3P3w3dbxM3g7JKOH+gOPzSgsS+d+8oAFcCl9e5Pi524kg
+dANLzQBE5vAS2dJU5eVToSZ0ynUmT1wHnGFBECOE2NInZdTEuqGZtgYtGxEdmBRL
+dwaX94LBfwPEhtRJ8mRPGZuXBIv9XCkftHGANjAqOi5qXPKEgXl/bX9YOatVGTnp
+5tT+FxUzIPKcogbFJ/VXWnMGP50X39yFhh2jG6vvHT+/eM3vK3Y9nfTV+edjQsGt
++7/ZePDD95fWbs0ADZfbyn4qm314ScrxRbdY/OPxOSO7f22LTTiARsa8t6b5pd7L
+DZ7s+aPqH7l2x0990oo6nLKPQw01D7LaXpm/ZPyM5j8Soyu1z9U6r/dq3Lq6VYei
+q+anKb1Nufvc7rSU1d3Tv+69M+TqqKSDmxw6iza6G1NGtF2ZmXAjVP0La96Zf3Df
+mJcrEnvOnWnJWp8+9+r0ic81uQ9PWHV68o9poW3Xqy+1hrd5Oi6t/DPr/jwjfe2k
+8HTfmGmuV5sy8+++iW5W/LZwiffozpPJY59d2fbCjNxDB9a1DGTfd5QtXx96J7Ym
+9fSpyh82rM8ZtfeD253HhlZtPW52dt2/Ek577d7U1BTvxGnUGnb3dt6xzvaasTmt
+NSOanty6Uf3Z3s07Gr/tLCxobE/LyPBsWbsM1bl7J9Q+bkwtTWoYXVr7+pGy3KqP
+ePe78XOqzs6qf5C4I2PLppqKL2dSZ8Og4e2Ds+4/2n2xJ+ZU1xdDdlyYsauruzJ5
+i5p85EHad77a0P6njQn1St2Lg+PaTy2a21CeneS6djZ+z+yEDQ9b9qxOvI6cmxcP
+ny7PnBx+4+e6uHDHwsW1t1PPhRdstxsCn2TvTQj0bh6tLFgdf/JRfebQE2FXS8GF
+/Ni31lWPLvFmTqsa/umNnuAyMS720NE5d5rO/A0=
+=fGKo
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/etu
+
+==================================================================
