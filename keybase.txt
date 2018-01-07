@@ -72,3 +72,77 @@ View my publicly-auditable identity here: https://keybase.io/etu
 
 ==================================================================
 
+==================================================================
+https://keybase.io/etu
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://elis.nu
+  * I am etu (https://keybase.io/etu) on keybase.
+  * I have a public key with fingerprint 67FE 98F2 8C44 CF22 1828  E12F D57E FA62 5C9A 925F
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012092946355b46ef2cd30becaea9058f5f71ffc3d89172ebf090346ff0e5cef49300a",
+      "fingerprint": "67fe98f28c44cf221828e12fd57efa625c9a925f",
+      "host": "keybase.io",
+      "key_id": "d57efa625c9a925f",
+      "kid": "0101048d423166626e1e2587da85567df2cbaf3f0f6630b4c9ac9d402107c8d0eb910a",
+      "uid": "ca3bbd5c1fe06bd6ca97927a6b7b2a19",
+      "username": "etu"
+    },
+    "service": {
+      "hostname": "elis.nu",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1515324555,
+  "expire_in": 157680000,
+  "prev": "25e3c65c4b951a81be26a781ab65546daa6db835277559f4d63f81e96133b46e",
+  "seqno": 86,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owFtUntQVFUcXgQEJBFEEXnsyB0McBa999x7zr2XJROGBicsxMlpEGi9j3PhsrC7
+7F428JWZ0YjrCNSakA4M5WOEKZPAil5KaqYEBYQ2ZkYp+GCiNG3Qwe4y8V/n/HHm
+fOf7vvP9fufUzfU3BPsNbZsUC5saLH4XboqGDesC6jcTol2uJtI2E1Y8veAyGbs0
+i1WViTSCpADJA55BNIQig7ACJJkmRSwJWOBJyClQYSlFkWiZ4ykWYFEheZJmkKKQ
+GEpYYXiaJAXCRCiqrRg7HU7Vpum2iFUwzymAkxhGUgCgOMBhCigyZLEiIAAlXuAB
+VHRhid3lU+jhRMGFl6t2HdM3lul4/8Ofya1PhpMZQFMIIYAwhQHkWFngIESsrNch
+CgqtkApCej2Mrpd4mSEBRbISJ5NY5Knp3JXTdpJAi6IMJUrBJBJlJAk8ywNWQCIr
+AoHifUQXdtqEcqyzsVZJbDUROuBWJezrqa+ImcMy1bXcVqkrHE67ZpfsZTpYomkO
+V5pPpFU7fKyXsWj5T28RVZusd09XuLHTpdptRBqlMyVN9RlSkII0YCCEJgJXOVQn
+tqg+BmQRR+rDdw9265YAYlpCUGJEHlICR4m5GCCB5ShBRBAySBYEJIscDQHLQsgr
+jIxohaMwjyia9r094SupwmYn0jikBxWKdVOXWmwTtEonJrbO2TWLDjD4BRvioxIC
+iqf2/+XJ6iOik39dMfPlAmf5/pthTkj4DPJQm/e4BLVt6ew9fmdkR+t5a2yv6m22
+lMdUlR7yjCwyTsQXtBtVa9Sja+J8bjhzzZjr6UMnLWFf1bi/+NZ1ueE4+L0PhO21
+LV01enlw4DND/IHFg6PfxzWb+xsHZiXu4JS8tNtvdXaMk/ktp+SSdfdWH2i72LLA
+HLIyvPHq4M7r74/NfqE/r7Hi9Se7PO0F3bnGkXdPwMCEnq9jViaR9UMDH0RM/fTj
+uQz/OatGU++FRxTdjftIGzwjNafear649tjufQsqxGB3inlZ7/4b8+qPtMS2G8ML
+AmuvXDo1+unhjtDQiri/Y1/aHHY8u7vjaHLrz5+/tqJnKuPgdjkUwCVnMrim6/UP
+JoNKd2StbRl7JXrFo23nSii1AawZOX1473hqfk6I8Q93gvFa0tXC+JQftLdnPzfu
+rR1+EL/8m+Rjr+7qet67LWdPz/hEVH5N64btmwKTGofmrjz1Z063N2ZTzcBS79HE
+dE+vY36zue+77McPq/Pa9iWHld3gT97dkvzGUws/3LOk15SeWpRpqoqO6h2O/C07
+c9E66gh/4pn15WXM5K3GG8cidzbEvdhz6Xax95NnrXc2TpiDui+8UxrZcf+fLlPu
+lU11CT3rsx8vy6re2K8V1Vlrbfdzzzb94q8l2s2rs94rf8JzcCrVE/Gl3VbkailU
+z1YGJabA+wuzjKlvCtkf23s6E2+eX5ye5znNd/8L
+=owr5
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/etu
+
+==================================================================
+
