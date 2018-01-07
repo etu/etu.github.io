@@ -4,7 +4,7 @@ https://keybase.io/etu
 
 I hereby claim:
 
-  * I am an admin of https://elis.nu
+  * I am an admin of https://sa.0b.se
   * I am etu (https://keybase.io/etu) on keybase.
   * I have a public key with fingerprint 67FE 98F2 8C44 CF22 1828  E12F D57E FA62 5C9A 925F
 
@@ -21,27 +21,17 @@ To do so, I am signing this object:
       "uid": "ca3bbd5c1fe06bd6ca97927a6b7b2a19",
       "username": "etu"
     },
-    "merkle_root": {
-      "ctime": 1505628192,
-      "hash_meta": "4988cd21367531aadd96bba728a24ff897d1d31a70c2d8a58f034e722a679f6e",
-      "seqno": 1392460
-    },
-    "revoke": {
-      "sig_ids": [
-        "2beee45fc488cc4d9995800ffd1741afa3210803a8470a3968f6b6bcde2642690f"
-      ]
-    },
     "service": {
-      "hostname": "elis.nu",
+      "hostname": "sa.0b.se",
       "protocol": "https:"
     },
     "type": "web_service_binding",
     "version": 1
   },
-  "ctime": 1505628270,
+  "ctime": 1515324333,
   "expire_in": 157680000,
-  "prev": "81bf0123f5be5d26e50ed6fa4daaaccc4bdb865738c329c4a508b63967e87dd2",
-  "seqno": 67,
+  "prev": "63e3b254a6e7ad893566aba6904b0825b93e0997eec2c18ff829215a8a753fdb",
+  "seqno": 85,
   "tag": "signature"
 }
 
@@ -49,33 +39,30 @@ which yields the signature:
 
 -----BEGIN PGP MESSAGE-----
 
-owFtU3tMFEccBisUbECMim+MSyvGXnR2dnZ2l4bUZ9KmtQVftQF6zuzMwAp3h3cH
-Cgo+WqMmhOqphxDbUp81itHGphiptShaX6C1akJKi9ZWDBWrjdrSUDtHSpomzf4x
-2d983+/3fd/MbEp4Jiou+lpFD82pDbmjL9ylUW+fSCpdoVAfK1XSVygFvG/hhYwH
-gu4ChynpClAhsKCFsKbrFGEuoM00QLlNOLGAbgpdGKoQtsZMSzUgpwJYQENYCMB1
-mwtkaQAQxaUIx5vH/UV+xxuUbbEhuGUKaNoI2QJC1YQmV6FgusEFwVC3LWJBXUhi
-vi8QYUhxlAT4FMcna/LH3Sfvf/D9uuWHTIagpmKMIeYqh7ppMGLqOjaY9EGJ0AQQ
-GEs/SPJtiyEAVWDYJgOcWmqf7uK+djbRKGW6rQoOMGXYJpZhQYNgalBIVCsCDHC/
-l3i4RPNgsVLuUjzcX1DI3X6fLxjJ1Q46kV1VBzqGpmpB6Y0E8t0eHiSShCzTtBlU
-NWzomkoIYxamlBjQJBAJYVoGU5ncMIANmUlk9DJnbkBIsGEJzKWEAF/q9ckJmgUR
-BlKBn5f4CnhkeMDJk4kFlPRsBVLOOdKFfdKD5EgbMcuydBMAIZhqIJUIoskYTKAR
-ExmAaBY2BaaY2oxDjCC2gFByyyPj/CWO3dc+ckj95gudwBRvsZRT5PcFfbavUBbz
-g8GiQHoklGBpUQS1jFP3P3w3dbxM3g7JKOH+gOPzSgsS+d+8oAFcCl9e5Pi524kg
-dANLzQBE5vAS2dJU5eVToSZ0ynUmT1wHnGFBECOE2NInZdTEuqGZtgYtGxEdmBRL
-dwaX94LBfwPEhtRJ8mRPGZuXBIv9XCkftHGANjAqOi5qXPKEgXl/bX9YOatVGTnp
-5tT+FxUzIPKcogbFJ/VXWnMGP50X39yFhh2jG6vvHT+/eM3vK3Y9nfTV+edjQsGt
-+7/ZePDD95fWbs0ADZfbyn4qm314ScrxRbdY/OPxOSO7f22LTTiARsa8t6b5pd7L
-DZ7s+aPqH7l2x0990oo6nLKPQw01D7LaXpm/ZPyM5j8Soyu1z9U6r/dq3Lq6VYei
-q+anKb1Nufvc7rSU1d3Tv+69M+TqqKSDmxw6iza6G1NGtF2ZmXAjVP0La96Zf3Df
-mJcrEnvOnWnJWp8+9+r0ic81uQ9PWHV68o9poW3Xqy+1hrd5Oi6t/DPr/jwjfe2k
-8HTfmGmuV5sy8+++iW5W/LZwiffozpPJY59d2fbCjNxDB9a1DGTfd5QtXx96J7Ym
-9fSpyh82rM8ZtfeD253HhlZtPW52dt2/Ek577d7U1BTvxGnUGnb3dt6xzvaasTmt
-NSOanty6Uf3Z3s07Gr/tLCxobE/LyPBsWbsM1bl7J9Q+bkwtTWoYXVr7+pGy3KqP
-ePe78XOqzs6qf5C4I2PLppqKL2dSZ8Og4e2Ds+4/2n2xJ+ZU1xdDdlyYsauruzJ5
-i5p85EHad77a0P6njQn1St2Lg+PaTy2a21CeneS6djZ+z+yEDQ9b9qxOvI6cmxcP
-ny7PnBx+4+e6uHDHwsW1t1PPhRdstxsCn2TvTQj0bh6tLFgdf/JRfebQE2FXS8GF
-/Ni31lWPLvFmTqsa/umNnuAyMS720NE5d5rO/A0=
-=fGKo
+owFtUntQVFUcXh5Lu0yUNghaUHLBbMYV7/uxDSFFo+II1IxaBK3n3HsOXKHddV+A
+ZORYMxhMGD5iCCdIKsN1fM2yCBKMomigZqKkNbOJyYhCpqI0WUz3MvJf5/xx5vzO
+933n+37nbIuJMJjCLn3wN8xvqLOF9Y9CQ96bEYcqCOhQyglrBVGMphdUoiC3x1as
+KoSVICmalGiJ5RmOgyyPMC0rDAmRDBCQSE7EHBYojGVGESVKoBHEpEQyLI8xiTgZ
+YVZiSBIQFgKr9kLkcrpUu0eT5QWMJBHTosyyMqZpSqRFRNFY4QSEAU9zsgQkmsMa
+scjh1hmaOQjcKFV1aDVtY5u29z/4Gd/aZEWFpRmK53maRxSiOVFQgMhxvKBoOSDA
+DCYxz2t5WI0vSwpL0hQpyKJCIihR076903IyYCBUOJnCiOShwstAEiRaADwUIA0o
+SQe6kcsO3kMaGnm8xCYLoRV8qoz0nuohHh+6QSoJU91IozhdDo9DdpRo1SKPx+m2
+6ixPuVOHlSJoeyxgg6pd0dqnMXzI5VYddsJKaUjZo+qKFEdxDM0yDGMhUJlTdSGb
+qiM4gRdJbej3IJ/edAYxkOZYwCMBaO+Vy3A8DyDgJZKFpEhzUGIQKUkCQjItUyLG
+Ii3RFAdEIHAMViChZ9pgdxBWkdOMgkI9jlpoBx6vCxGboreGM5GGMJMhMS4psnCq
+/l5N5nli7kvXlsz8OWO4/uEM0eZZM5V3gk9P0c2+vfGW/BWRwzX+kdBkTHDnvpTz
+z13Y2kOtW7yr+viD0M9JseZrasKxw21XAx0DeXWDV8HdNrIhrvnkiZ03subIu6K8
+waqLSzM6jOXD1z1G4Yi6cDLdKqRV31q1+v653OxvcqJG6kwUbJ/9VPXoa6FX2Ee2
+20Gvv/0LeHdjw+ohq5CYdPSng8cOHMqvtz7pMF4eqGnenRMXtaLH0WkJjP1ypurK
+oG/OuHvL8PKjI/V/9TZ9/Sm/OTxjImelGDib+e0lY6OQmm6ab53Xdyp7Sesy/3dv
+Hegd/nPdJzA2dd3uF123trs+NO/Z2te9fey0nOJqW+tfNjUE7lcuvVkwENmfvDdv
+Y+B438ne3ou/pnW3REcNNs0+5TVEz3qUnLFmorUtOKtx58HGZ41vlFUIdbVP+AIn
+wtZMtuTHvVq9PmYsKnjz3EdSgjcATd03Ql3bFh5dn/3DjtALJeauWoN1/txKx4V7
+5t7MbWmHbTj8+4SpyIbkkzu+/Lx0YVVuxcrW0rHcB8OLkk6vGruzAKxxeX2xBfup
+j7MuD/UUv7+H7Sw7K3+292aEfXlC8jhuXXvF32Rxd1QucC5K+Kpg9UTtH+cf7ouf
+/Pfd5n0vp7fkvJ3YL24oLbo9uln2S6Lzx6w7VJf3+cW5KfG/jz/sLK09sks5g9v6
+5nWYTPvbQ93mZ67/NhBWtyXx9X/m5v0H
+=qbqU
 -----END PGP MESSAGE-----
 
 And finally, I am proving ownership of this host by posting or
@@ -84,3 +71,4 @@ appending to this document.
 View my publicly-auditable identity here: https://keybase.io/etu
 
 ==================================================================
+
