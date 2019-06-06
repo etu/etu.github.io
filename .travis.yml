@@ -1,0 +1,21 @@
+language: nix
+
+os: linux
+
+env:
+  global:
+    - DEPLOY_BRANCH="source"
+    - TARGET_BRANCH="master"
+    - SOURCE_DIR="result"
+    - SSH_KEY="/tmp/deploy_rsa"
+    - GIT_EMAIL="travis-deployer@example.org"
+    - GIT_NAME="Travis-deployer"
+
+before_install:
+  - openssl aes-256-cbc -K $encrypted_a2c230c526c8_key -iv $encrypted_a2c230c526c8_iv -in .travis/deploy_rsa.enc -out $SSH_KEY -d
+
+script:
+  - nix-build -j20 .
+
+after_success:
+  - "./.travis/deploy.sh"
