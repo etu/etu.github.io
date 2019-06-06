@@ -7,8 +7,7 @@ stdenv.mkDerivation rec {
   buildInputs = with pkgs; [ ];
 
   buildPhase = ''
-    mkdir public/
-    cp -r CNAME D57EFA625C9A925F.asc Elis_Hirwing_CV.pdf imgs index.html script.js style.css public/
+    cp -vr src/ public/
   '';
 
   installPhase = ''
