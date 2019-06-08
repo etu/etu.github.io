@@ -1,0 +1,28 @@
+#+SETUPFILE: ../../org-templates/level-1.org
+#+TITLE: ~elis/work/
+
+I mostly do PHP and other Web-things for living. I have been working at
+Tailor Store, South Pole, Webhallen a few other places. I like to play around
+with new web-technology like canvas, HTML5, and other things in the same
+spectrum. I also maintain servers, networks, loadbalancing, databases and
+other services you need for a website to work.
+
+* ./work/present/
+** TVNU Sweden AB (2016-04 -- ):
+[[file:../imgs/tvnu_screenshot.png]]
+
+* ./work/previous/
+** 203 Brands AB / Shopello AB (2014-04 -- 2016-04):
+[[file:../imgs/shopello_screenshot.png]]
+
+** Tailor Store Sweden AB (2011-11 -- 2014-04):
+[[file:../imgs/tailorstore_screenshot.png]]
+
+** South Pole AB (2011-08 -- 2011-11):
+[[file:../imgs/southpole_screenshot.png]]
+
+** Webhallen Sverige AB (2011-01 -- 2011-08):
+[[file:../imgs/webhallen_screenshot.png]]
+
+** Clinicbuddy ekonomisk förening (2010-03 -- 2010-11):
+[[file:../imgs/clinicbuddy_screenshot.png]]

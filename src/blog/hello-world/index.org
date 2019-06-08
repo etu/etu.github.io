@@ -1,0 +1,28 @@
+#+SETUPFILE: ../../../org-templates/level-1.org
+#+TITLE: Hello World!
+#+DATE: <2019-06-08 Sat 20:10>
+
+Hello world! This is a test blog post.
+
+** Test of syntax highlighting
+*** elisp
+#+BEGIN_SRC elisp
+(defun hello ()
+  (message "world"))
+
+(hello)
+#+END_SRC
+
+*** Nix
+#+BEGIN_SRC nix
+{
+  hello = "world";
+}
+#+END_SRC
+
+*** PHP
+#+BEGIN_SRC php
+<?php
+
+echo "Hello world";
+#+END_SRC

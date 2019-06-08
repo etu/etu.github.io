@@ -1,0 +1,22 @@
+#+SETUPFILE: ../../org-templates/level-1.org
+#+TITLE: ~elis/about/
+
+[[file:../imgs/etu.jpg]]
+
+My name is Elis (SA0̸BSE) and I currently live and work in Stockholm, Sweden.
+
+* ./about/good-with/
+ - PHP, HTML5/XHTML, JavaScript, CSS - And other web-stuff
+ - NixOS/ArchLinux/Ubuntu/Gentoo/Linux maintenance, servers, desktops
+ - Networks with services like OpenVPN, DHCP, DNS, Netbooting, Ghosting
+ - Swedish and English (reading, writing, speaking)
+
+* ./about/enjoyment/
+ - Club-Mate, Code and Games \o/
+ - Conferences like CCC (Chaos Communication Congress)
+ - Conferences like FOSDEM (Free and Open source Software Developers
+   European Meeting)
+ - Testing new technology, languages, techniques, tools
+
+* ./about/avoiding/
+ - Accept random jobs to help someone put up a random website ever again.
