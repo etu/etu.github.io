@@ -2,8 +2,7 @@
 #+TITLE: ~elis/work/
 
 As a work life experience I mostly have been working with PHP and other
-web-related technologies. For the past 5 years I've been mostly focusing on
-the backend part of web development. Such as handling big data sets.
+web-related technologies. Since 2014 been focusing on backend development.
 
 I've also got experience with maintaining servers, networks, load balancing,
 databases, sshd, web servers among other things you need for a big website
