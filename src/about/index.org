@@ -17,7 +17,7 @@ includes for example: NixOS, ArchLinux, Ubuntu, Gentoo, CentOS, etc.
 I've also have much experience with designing, building and running big
 web-services used by a lot of people.
 
-I have experience of working with micro-services and as well monoliths.n
+I have experience of working with micro-services and as well monoliths.
 
 I'm also fluent in both English and Swedish.
 
