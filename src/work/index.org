@@ -1,11 +1,13 @@
 #+SETUPFILE: ../../org-templates/level-1.org
 #+TITLE: ~elis/work/
 
-I mostly do PHP and other Web-things for living. I have been working at
-Tailor Store, South Pole, Webhallen a few other places. I like to play around
-with new web-technology like canvas, HTML5, and other things in the same
-spectrum. I also maintain servers, networks, loadbalancing, databases and
-other services you need for a website to work.
+As a work life experience I mostly have been working with PHP and other
+web-related technologies. For the past 5 years I've been mostly focusing on
+the backend part of web development. Such as handling big data sets.
+
+I've also got experience with maintaining servers, networks, load balancing,
+databases, sshd, web servers among other things you need for a big website
+to scale and work well.
 
 * ./work/present/
 ** TVNU Sweden AB (2016-04 -- ):

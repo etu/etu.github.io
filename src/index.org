@@ -1,23 +1,20 @@
 #+SETUPFILE: ../org-templates/level-0.org
 #+TITLE: ~elis/
 
-I have a presence on places like IRC, GitHub, LinkedIn and other places.
+I'm a developer and free software enthusiast. This page has historically
+mostly been a digital contact card so people can go here to find me in other
+locations on the internet. But further on it will contain blog articles about
+my computer-related journey trough life to get to where I am now and the
+systems I use today. A lot has changed over the years, mostly for good.
 
-If you would be interested in my current and previous work, please visit the
-[[file:work/index.org][./work/]] page.
+Things I enjoy to do and talk about:
+ - [[https://nixos.org/][NixOS]]
+ - [[https://www.gnu.org/software/emacs/][Emacs]] & [[https://www.meetup.com/Stockholm-Emacs-Meetup/][Stockholm Emacs Meetup]]
+ - Computer conferences such as [[https://en.wikipedia.org/wiki/Chaos_Communication_Congress][CCC]] and [[https://en.wikipedia.org/wiki/FOSDEM][FOSDEM]].
+ - Building a web of trust with GPG/PGP
 
-* ./about/contact/
+If you wish to contact me, check the contact section on the [[file:about/index.org][about]]-page.
 
-Preferably via [[mailto:elis@hirwing.se][email]], IRC <etu@(freenode|oftc|efnet)>, [[https://github.com/etu][GitHub]] or [[https://se.linkedin.com/in/elishirwing/][LinkedIn]].
-
-My GPG fingerprint is:
-
-: 67FE 98F2 8C44 CF22 1828  E12F D57E FA62 5C9A 925F
-
-and you can download the key [[file:D57EFA625C9A925F.asc][here]] or from various keyservers.
-
-* ./about/this-page/
-
-This page is built with org-mode, elisp and nix. See
-https://github.com/etu/etu.github.io for information about how the build is
-made.
+* ~elis/src/
+This website is managed by [[https://orgmode.org/][org-mode]], then built and deployed with [[https://nixos.org/][nix]]. The
+entire build details in the repo at: [[https://github.com/etu/etu.github.io/][github/etu/etu.github.io]].

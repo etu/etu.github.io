@@ -6,17 +6,41 @@
 My name is Elis (SA0̸BSE) and I currently live and work in Stockholm, Sweden.
 
 * ./about/good-with/
- - PHP, HTML5/XHTML, JavaScript, CSS - And other web-stuff
- - NixOS/ArchLinux/Ubuntu/Gentoo/Linux maintenance, servers, desktops
- - Networks with services like OpenVPN, DHCP, DNS, Netbooting, Ghosting
- - Swedish and English (reading, writing, speaking)
+I've quite much experience working with PHP backends as well as some server
+maintenance over the years, the levels of responsibility at different
+work-places have been different.
+
+Through the past many years I've been using several Linux distributions over
+extended (at least a few years) periods of time. Distros I've been using
+includes for example: NixOS, ArchLinux, Ubuntu, Gentoo, CentOS, etc.
+
+I've also have much experience with designing, building and running big
+web-services used by a lot of people.
+
+I have experience of working with micro-services and as well monoliths.n
+
+I'm also fluent in both English and Swedish.
 
 * ./about/enjoyment/
- - Club-Mate, Code and Games \o/
- - Conferences like CCC (Chaos Communication Congress)
- - Conferences like FOSDEM (Free and Open source Software Developers
-   European Meeting)
- - Testing new technology, languages, techniques, tools
+ - I enjoy doing things with NixOS the most, it's an incredible system that I
+   always prefer to do everything with.
+ - I also enjoy using Emacs, I use Emacs for more or less everything.
+ - I enjoy to go to conferences like [[https://en.wikipedia.org/wiki/Chaos_Communication_Congress][CCC]] and [[https://en.wikipedia.org/wiki/FOSDEM][FOSDEM]].
 
-* ./about/avoiding/
- - Accept random jobs to help someone put up a random website ever again.
+* ./about/contact/
+I have a presence on places like IRC, GitHub, LinkedIn and other places
+around the internet.
+
+Ways to contact me:
+ - Email: [[mailto:elis@hirwing.se][elis@hirwing.se]] (use GPG is possible, details below)
+ - XMPP: [[mailto:etu@failar.nu][etu@failar.nu]]
+ - IRC: <etu@(freenode|oftc|efnet)>
+ - GitHub: [[https://github.com/etu][github.com/etu]]
+ - LinkedIn: [[https://se.linkedin.com/in/elishirwing/][Elis Hirwing]]
+
+** ./about/contact/gpg/
+My GPG fingerprint is:
+
+: 67FE 98F2 8C44 CF22 1828  E12F D57E FA62 5C9A 925F
+
+You can download my public key [[file:D57EFA625C9A925F.asc][here]] or from various keyservers.
