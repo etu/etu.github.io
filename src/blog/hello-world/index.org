@@ -16,13 +16,28 @@ Hello world! This is a test blog post.
 *** Nix
 #+BEGIN_SRC nix
 {
-  hello = "world";
+  hello = {}: "world";
+  message = hello {};
 }
 #+END_SRC
 
 *** PHP
 #+BEGIN_SRC php
 <?php
+function hello() {
+    echo "world";
+}
 
-echo "Hello world";
+hello();
 #+END_SRC
+
+** Sample text
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus
+ultrices in iaculis nunc sed augue lacus. Donec ac odio tempor orci dapibus
+ultrices in. Faucibus vitae aliquet nec ullamcorper sit amet risus. Pulvinar
+sapien et ligula ullamcorper malesuada proin libero. Magna sit amet purus
+gravida quis blandit turpis cursus in. Elit ullamcorper dignissim cras
+tincidunt lobortis feugiat vivamus at augue. Ut morbi tincidunt augue
+interdum. Enim ut tellus elementum sagittis vitae et. At augue eget arcu
+dictum varius duis.
