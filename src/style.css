@@ -108,6 +108,10 @@ div#postamble {
     margin-bottom: 2rem;
 }
 
+pre.src-sh::before {
+    background: #000000;
+}
+
 /********************************************************************
  * Override some styles from default org
  */
