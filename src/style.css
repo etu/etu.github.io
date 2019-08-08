@@ -112,6 +112,10 @@ pre.src-sh::before {
     background: #000000;
 }
 
+.org-src-container .src {
+    overflow: auto;
+}
+
 /********************************************************************
  * Override some styles from default org
  */
