@@ -232,7 +232,7 @@ partitions in sync.
 I have tested the entire process to make sure it works on my hardware by:
  1. Shut it down
  2. Unplug one drive
- 3. Boot it up all the way into the system and watched ZFS be a bit grump
+ 3. Boot it up all the way into the system and watched ZFS be a bit grumpy
     about some missing disk (oh what a surprise!)
  4. Shut it down
  5. Plug in he first drive and unplug the other one
