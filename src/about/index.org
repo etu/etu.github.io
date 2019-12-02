@@ -32,7 +32,7 @@ I have a presence on places like IRC, GitHub, LinkedIn and other places
 around the internet.
 
 Ways to contact me:
-| Email    | [[mailto:elis@hirwing.se][elis@hirwing.se]] (use GPG is possible, details below) |
+| Email    | [[mailto:elis@hirwing.se][elis@hirwing.se]] (use GPG if possible, details below) |
 | GitHub   | [[https://github.com/etu]]                               |
 | IRC      | <etu@(freenode,oftc,efnet)>                          |
 | LinkedIn | [[https://se.linkedin.com/in/elishirwing/][Elis Hirwing]]                                         |
