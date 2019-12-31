@@ -9,21 +9,53 @@ databases, sshd, web servers among other things you need for a big website
 to scale and work well.
 
 * ./work/present/
+:PROPERTIES:
+:CUSTOM_ID: present
+:END:
+
 ** TVNU Sweden AB (2016-04 -- ):
+:PROPERTIES:
+:CUSTOM_ID: tvnu
+:END:
+
 [[file:../imgs/tvnu_screenshot.png]]
 
 * ./work/previous/
+:PROPERTIES:
+:CUSTOM_ID: previous
+:END:
+
 ** 203 Brands AB / Shopello AB (2014-04 -- 2016-04):
+:PROPERTIES:
+:CUSTOM_ID: shopello
+:END:
+
 [[file:../imgs/shopello_screenshot.png]]
 
 ** Tailor Store Sweden AB (2011-11 -- 2014-04):
+:PROPERTIES:
+:CUSTOM_ID: tailorstore
+:END:
+
 [[file:../imgs/tailorstore_screenshot.png]]
 
 ** South Pole AB (2011-08 -- 2011-11):
+:PROPERTIES:
+:CUSTOM_ID: south-pole
+:END:
+
 [[file:../imgs/southpole_screenshot.png]]
 
 ** Webhallen Sverige AB (2011-01 -- 2011-08):
+:PROPERTIES:
+:CUSTOM_ID: webhallen
+:END:
+
 [[file:../imgs/webhallen_screenshot.png]]
 
 ** Clinicbuddy ekonomisk förening (2010-03 -- 2010-11):
+:PROPERTIES:
+:CUSTOM_ID: clinicbuddy
+:END:
+
 [[file:../imgs/clinicbuddy_screenshot.png]]
