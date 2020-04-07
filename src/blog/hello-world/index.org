@@ -7,16 +7,24 @@ Hello world! This is a test blog post.
 ** Test of syntax highlighting
 *** elisp
 #+BEGIN_SRC elisp
+;; Define the hello function
 (defun hello ()
+  "This
+   is my
+   docstring"
   (message "world"))
 
+;; Call the hello function
 (hello)
 #+END_SRC
 
 *** Nix
 #+BEGIN_SRC nix
 {
+  # Define the hello function
   hello = {}: "world";
+
+  # Call the hello function
   message = hello {};
 }
 #+END_SRC
@@ -24,10 +32,12 @@ Hello world! This is a test blog post.
 *** PHP
 #+BEGIN_SRC php
 <?php
+# Define the hello function
 function hello() {
     echo "world";
 }
 
+// Call the hello function
 hello();
 #+END_SRC
 
