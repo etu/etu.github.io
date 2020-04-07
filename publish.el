@@ -83,9 +83,10 @@ See `org-publish-sitemap-default-entry'."
                       (string-match "file:talks/index.org" file)
                       (string-match "file:work/index.org" file))
 
-            ;; Rewrite file: to file:../
-            (push (list (replace-regexp-in-string "file:" "file:../" file))
-                  filtered-list)))))
+            (let ((dir (replace-regexp-in-string "index.org" "" file)))
+              ;; Rewrite file: to file:../
+              (push (list (replace-regexp-in-string "file:" "file:../" dir))
+                    filtered-list))))))
 
     ;; Fix up the list before sending it to `org-list-to-org'.
     (let ((fixed-list (cons 'unordered filtered-list)))
@@ -126,7 +127,7 @@ See `org-publish-sitemap-default-entry'."
           :sitemap-file-entry-format "%d *%t*"
           :sitemap-style list
           :sitemap-function etu/org-publish-blog-index
-          :sitemap-sort-files anti-chronologically)
+          :sitemap-sort-files chronologically)
 
         ("site-static"
          :base-directory "./src/"
