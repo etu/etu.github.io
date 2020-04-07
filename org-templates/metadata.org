@@ -1,8 +1,6 @@
 #+AUTHOR: Elis Hirwing
 #+EMAIL: elis@hirwing.se
 #+HTML_HEAD_EXTRA: <link href="https://elis.nu/" rel="canonical">
-#+HTML_HEAD_EXTRA: <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" />
-#+HTML_HEAD_EXTRA: <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
 #+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="/style.css" />
 #+HTML_HEAD_EXTRA: <link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
 #+HTML_HEAD_EXTRA: <meta name="referrer" content="no-referrer" />
