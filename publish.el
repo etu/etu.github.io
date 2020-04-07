@@ -52,6 +52,7 @@
        <li><a href=\"/\">~elis/</a></li>
        <li><a href=\"/about/\">./about/</a></li>
        <li><a href=\"/work/\">./work/</a></li>
+       <li><a href=\"/talks/\">./talks/</a></li>
        <li><a href=\"/blog/\">./blog/</a></li>
      </ul>
    </nav>")
@@ -79,6 +80,7 @@ See `org-publish-sitemap-default-entry'."
           ;; Remove index and non blog posts
           (unless (or (string-match "file:index.org" file)
                       (string-match "file:about/index.org" file)
+                      (string-match "file:talks/index.org" file)
                       (string-match "file:work/index.org" file))
 
             ;; Rewrite file: to file:../
