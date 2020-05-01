@@ -99,7 +99,7 @@ system out there when it comes to the following properties:
 
 Example to build a PHP with exactly the extensions I want:
 #+BEGIN_SRC nix
-php.withExtensions (e: with e; [
+php.withExtensions ({ enabled, all }: with all; [
   curl imagick opcache redis pdo_mysql pdo mysqlnd
   openssl posix sodium sockets
 ])
