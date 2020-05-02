@@ -1,5 +1,5 @@
 #+SETUPFILE: ../../../../../org-templates/level-1.org
-#+TITLE: NixOS ❄️: tmpfs as root
+#+TITLE: NixOS ❄: tmpfs as root
 #+DATE: <2020-05-02 Sat 10:00>
 #+OPTIONS: toc:t
 

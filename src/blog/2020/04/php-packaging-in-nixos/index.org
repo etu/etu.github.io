@@ -1,5 +1,5 @@
 #+SETUPFILE: ../../../../../org-templates/level-1.org
-#+TITLE: PHP packaging in NixOS ❄️
+#+TITLE: PHP packaging in NixOS ❄
 #+DATE: <2020-04-05 Sun 20:00+0200>
 #+OPTIONS: toc:t
 
