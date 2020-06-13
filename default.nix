@@ -12,19 +12,19 @@ stdenv.mkDerivation rec {
       # Generate RSS feeds
       webfeeder
 
-      # Theme for code highlight
-      dracula-theme
-
       # Deps for syntax highlighting for some languages
       htmlize
       php-mode
       nix-mode
     ]))
+
+    sass
   ];
 
   buildPhase = ''
     emacs --batch --load=publish.el
     cp src/CNAME public/
+    scss --sourcemap=none --style=compressed src/style.scss public/style.css
   '';
 
   installPhase = ''

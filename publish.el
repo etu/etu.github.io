@@ -35,9 +35,6 @@
 ;; RSS feeds
 (require 'webfeeder)
 
-;; Theme for code highlight
-(require 'dracula-theme)
-
 ;; Highlighting of languages
 (require 'htmlize)
 (require 'php-mode)
@@ -104,6 +101,9 @@ See `org-publish-sitemap-default-entry'."
 
 ;; Disable the validation links in the footers.
 (setq org-html-validation-link nil)
+
+;; Don't inline the css for the color highlight in the output
+(setq org-html-htmlize-output-type "css")
 
 ;; Use custom preamble to create my menu
 (setq org-html-preamble #'etu/preamble)

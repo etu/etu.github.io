@@ -5,8 +5,8 @@
 #+HTML_HEAD_EXTRA: <link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
 #+HTML_HEAD_EXTRA: <meta name="referrer" content="no-referrer" />
 
-# Enable default CSS (also default behaviour)
-#+OPTIONS: html-style:t
+# Disable default CSS
+#+OPTIONS: html-style:nil
 
 # Disable the Table of Contents globally
 #+OPTIONS: toc:nil
