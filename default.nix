@@ -12,9 +12,6 @@ stdenv.mkDerivation rec {
       # Generate RSS feeds
       webfeeder
 
-      # Theme for code highlight
-      dracula-theme
-
       # Deps for syntax highlighting for some languages
       htmlize
       php-mode

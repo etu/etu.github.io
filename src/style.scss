@@ -132,6 +132,21 @@ pre {
             @include rem-attributes(top, -1);
             @include rem-attributes(padding, 0.2);
         }
+
+        /* background: #282A36; */
+        /* Syntax highlighting */
+        span.org- {
+            &comment, &comment-delimiter, &doc { color: #6272A4; }
+
+            &type { color: #BD93F9; }
+
+            &string, &php-string { color: #E5B151; }
+            &keyword, &php-keyword, &php-class-declaration { color: #FF77A5; font-weight: 600; }
+            &function-name, &php-function-name { color: #39B558; font-weight: 600; }
+            &variable-name { font-weight: 600; }
+
+            &php-php-tag { color: #BF5F3A; }
+        }
     }
 
     &.src-bash:before { content: 'bash'; }
