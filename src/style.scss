@@ -1,0 +1,160 @@
+/********************************************************************
+ * Variables
+ */
+
+/* Base font size in px */
+$fontSize: 16;
+
+/* Theme */
+$darkBackgroundColor: #000000;
+$darkContentDelimiters: #D9D9D9;
+$darkForegroundColor: #D9D9D9;
+$darkLinkColor: #00A2E7;
+$darkMenuHoverColor: lighten($darkBackgroundColor, 10%);
+$darkVisitedLinkColor: #CA1A70;
+
+$defaultBackgroundColor: #FFFFFF;
+$defaultContentDelimiters: #454545;
+$defaultForegroundColor: #454545;
+$defaultLinkColor: #0077AA;
+$defaultMenuHoverColor: darken($defaultBackgroundColor, 10%);
+$defaultVisitedLinkColor: #941352;
+
+/********************************************************************
+ * Functions
+ */
+@mixin rem-attributes($name, $remSize) {
+    #{$name}: #{$fontSize * $remSize}px;
+    #{$name}: #{$remSize}rem;
+}
+
+
+/********************************************************************
+ * Apply a natural box layout model to all elements
+ */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 1;
+    position: relative;
+}
+
+/********************************************************************
+ * NAVIGATION
+ */
+nav {
+    font-family: monospace;
+
+    /* Make a border on top and bottom */
+    border-width: 0;
+    @include rem-attributes(border-bottom-width, 0.2);
+    @include rem-attributes(border-top-width, 0.2);
+    border-color: $defaultContentDelimiters;
+    border-style: solid;
+
+    /* Center items */
+    text-align: center;
+
+    /* http://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
+    font-size: 0;
+
+    ul {
+        display: inline-block;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+
+        li {
+            float: left;
+
+            a {
+                display: inline-block;
+
+                @include rem-attributes(font-size, 1.2);
+                @include rem-attributes(line-height, 3.4);
+                @include rem-attributes(padding-right, 1);
+                @include rem-attributes(padding-left, 1);
+            }
+
+            &:hover {
+                background-color: $defaultMenuHoverColor;
+            }
+        }
+    }
+}
+
+/********************************************************************
+ * THEME
+ */
+html {
+    background-color: $defaultBackgroundColor;
+    color: $defaultForegroundColor;
+    font-family: sans;
+    font-size: #{$fontSize}px;
+}
+
+body {
+    line-height: 1.4;
+    margin: 2em auto;
+    max-width: 800px;
+    padding: 1em;
+    text-align: justify;
+
+    .figure p {
+        text-align: center;
+    }
+}
+
+a {
+    color: $defaultLinkColor;
+    &:visited { color: $defaultVisitedLinkColor; }
+}
+
+/* FOOTER */
+div#postamble {
+    /* Make a border on top and bottom */
+    border-width: 0;
+    @include rem-attributes(border-bottom-width, 0.2);
+    @include rem-attributes(border-top-width, 0.2);
+    border-color: $defaultContentDelimiters;
+    border-style: solid;
+
+    @include rem-attributes(padding-bottom, 1);
+    @include rem-attributes(padding-top, 1);
+
+    p { margin: 0; }
+}
+
+/********************************************************************
+ * MEDIA QUERIES
+ */
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: $darkBackgroundColor;
+        color: $darkForegroundColor;
+    }
+
+    a {
+        color: $darkLinkColor;
+        &:visited { color: $darkVisitedLinkColor; }
+    }
+
+    nav {
+        border-color: $darkContentDelimiters;
+
+        ul li a:hover {
+            background-color: $darkMenuHoverColor;
+        }
+    }
+
+    div#postamble {
+        border-color: $darkContentDelimiters;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body { text-align: left; }
+}

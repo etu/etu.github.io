@@ -20,11 +20,14 @@ stdenv.mkDerivation rec {
       php-mode
       nix-mode
     ]))
+
+    sass
   ];
 
   buildPhase = ''
     emacs --batch --load=publish.el
     cp src/CNAME public/
+    scss --sourcemap=none --style=compressed src/style.scss public/style.css
   '';
 
   installPhase = ''
