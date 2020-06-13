@@ -1,3 +1,5 @@
+@import "scss/functions";
+
 /********************************************************************
  * Variables
  */
@@ -5,29 +7,76 @@
 /* Base font size in px */
 $fontSize: 16;
 
-/* Theme */
-$darkBackgroundColor: #000000;
-$darkContentDelimiters: #D9D9D9;
-$darkForegroundColor: #D9D9D9;
-$darkLinkColor: #00A2E7;
-$darkMenuHoverColor: lighten($darkBackgroundColor, 10%);
-$darkVisitedLinkColor: #CA1A70;
-$darkCodeLanguageBoxColor: $darkMenuHoverColor;
+$codeBoldWeight: 600;
 
-$defaultBackgroundColor: #FFFFFF;
-$defaultContentDelimiters: #454545;
-$defaultForegroundColor: #454545;
-$defaultLinkColor: #0077AA;
-$defaultMenuHoverColor: darken($defaultBackgroundColor, 10%);
-$defaultVisitedLinkColor: #941352;
+/* Colors */
+$defaultBackgroundColor: #000000;
+$defaultForegroundColor: #FFFFFF;
+$lightBackgroundColor: #FFFFFF;
+$lightForegroundColor: #000000;
+
+$linkColor: #00B0FB;
+$visitedLinkColor: #FF047E;
+
+$codeCommentColor: #002EC7;
+$codeFunctionNameColor: #00F03C;
+$codeKeywordColor: #FF256F;
+$codeNixBuiltInColor: #FF6701;
+$codeNixConstantColor: #00B9F4;
+$codePhpTagColor: #802E0E;
+$codeStringColor: #F9D200;
+$codeTypeColor: #8835FF;
+
+/* Default colors */
+$defaultMenuHoverColor: lighten($defaultBackgroundColor, 10%);
 $defaultCodeLanguageBoxColor: $defaultMenuHoverColor;
+$defaultContentDelimiters: contrast-color($defaultForegroundColor, $defaultBackgroundColor);
+$defaultForegroundColor: contrast-color($defaultForegroundColor, $defaultBackgroundColor);
+
+$lightMenuHoverColor: darken($lightBackgroundColor, 10%);
+$lightCodeLanguageBoxColor: $lightMenuHoverColor;
+$lightContentDelimiters: contrast-color($lightForegroundColor, $lightBackgroundColor);
+$lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundColor);
+
 
 /********************************************************************
- * Functions
+ * Mixins
  */
 @mixin rem-attributes($name, $remSize) {
     #{$name}: #{$fontSize * $remSize}px;
     #{$name}: #{$remSize}rem;
+}
+
+@mixin color-highlights($bg) {
+    span.org- {
+        &comment, &comment-delimiter, &doc {
+            color: contrast-color($codeCommentColor, $bg);
+        };
+        &function-name, &php-function-name {
+            color: contrast-color($codeFunctionNameColor, $bg);
+            font-weight: $codeBoldWeight;
+        }
+        &keyword, &nix-keyword, &php-keyword, &php-class-declaration {
+            color: contrast-color($codeKeywordColor, $bg);
+            font-weight: $codeBoldWeight;
+        }
+        &nix-builtin {
+            color: contrast-color($codeNixBuiltInColor, $bg);
+        }
+        &nix-constant {
+            color: contrast-color($codeNixConstantColor, $bg);
+        }
+        &php-php-tag {
+            color: contrast-color($codePhpTagColor, $bg);
+        }
+        &string, &php-string {
+            color: contrast-color($codeStringColor, $bg);
+        }
+        &type {
+            color: contrast-color($codeTypeColor, $bg);
+        }
+        &variable-name, &nix-attribute { font-weight: $codeBoldWeight; }
+    }
 }
 
 
@@ -79,10 +128,21 @@ nav {
                 @include rem-attributes(line-height, 3.4);
                 @include rem-attributes(padding-right, 1);
                 @include rem-attributes(padding-left, 1);
-            }
 
-            &:hover {
-                background-color: $defaultMenuHoverColor;
+                color: contrast-color($linkColor, $defaultBackgroundColor);
+
+                &:visited {
+                    color: contrast-color($visitedLinkColor, $defaultBackgroundColor);
+                }
+
+                &:hover {
+                    background-color: $defaultMenuHoverColor;
+                    color: contrast-color($linkColor, $defaultMenuHoverColor);
+
+                    &:visited {
+                        color: contrast-color($visitedLinkColor, $defaultMenuHoverColor);
+                    }
+                }
             }
         }
     }
@@ -98,12 +158,15 @@ html {
     font-size: #{$fontSize}px;
 }
 
+h1, h2, h3, h4 {
+    font-family: sans;
+}
+
 body {
     line-height: 1.4;
     margin: 2em auto;
     max-width: 800px;
     padding: 1em;
-    text-align: justify;
 
     .figure p {
         text-align: center;
@@ -111,8 +174,11 @@ body {
 }
 
 a {
-    color: $defaultLinkColor;
-    &:visited { color: $defaultVisitedLinkColor; }
+    color: contrast-color($linkColor, $defaultBackgroundColor);
+
+    &:visited {
+        color: contrast-color($visitedLinkColor, $defaultBackgroundColor);
+    }
 }
 
 /* Org-mode code box */
@@ -127,26 +193,24 @@ pre {
 
         &:before {
             background: $defaultCodeLanguageBoxColor;
+            color: contrast-color($defaultForegroundColor, $defaultCodeLanguageBoxColor);
+
             position: absolute;
-            right: 0;
+            @include rem-attributes(right, 0.4);
             @include rem-attributes(top, -1);
-            @include rem-attributes(padding, 0.2);
+            @include rem-attributes(padding-top, 0.3);
+            @include rem-attributes(padding-bottom, 0.3);
+            @include rem-attributes(padding-left, 1);
+            @include rem-attributes(padding-right, 1);
+
+            /* Add border to language box */
+            @include rem-attributes(border-width, 0.1);
+            border-color: $defaultContentDelimiters;
+            border-style: solid;
         }
 
-        /* background: #282A36; */
         /* Syntax highlighting */
-        span.org- {
-            &comment, &comment-delimiter, &doc { color: #6272A4; }
-
-            &type { color: #BD93F9; }
-
-            &string, &php-string { color: #E5B151; }
-            &keyword, &php-keyword, &php-class-declaration { color: #FF77A5; font-weight: 600; }
-            &function-name, &php-function-name { color: #39B558; font-weight: 600; }
-            &variable-name { font-weight: 600; }
-
-            &php-php-tag { color: #BF5F3A; }
-        }
+        @include color-highlights($defaultBackgroundColor);
     }
 
     &.src-bash:before { content: 'bash'; }
@@ -171,42 +235,66 @@ div#postamble {
     @include rem-attributes(padding-bottom, 1);
     @include rem-attributes(padding-top, 1);
 
+    @include rem-attributes(margin-top, 1);
+
     p { margin: 0; }
 }
 
 /********************************************************************
  * MEDIA QUERIES
  */
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     html {
-        background-color: $darkBackgroundColor;
-        color: $darkForegroundColor;
+        background-color: $lightBackgroundColor;
+        color: $lightForegroundColor;
     }
 
     a {
-        color: $darkLinkColor;
-        &:visited { color: $darkVisitedLinkColor; }
-    }
+        color: contrast-color($linkColor, $lightBackgroundColor);
 
-    nav {
-        border-color: $darkContentDelimiters;
-
-        ul li a:hover {
-            background-color: $darkMenuHoverColor;
+        &:visited {
+            color: contrast-color($visitedLinkColor, $lightBackgroundColor);
         }
     }
 
-    pre.src:before {
-        background: $darkCodeLanguageBoxColor;
+    nav {
+        border-color: $lightContentDelimiters;
+
+        ul li a {
+            color: contrast-color($linkColor, $lightBackgroundColor);
+
+            &:visited {
+                color: contrast-color($visitedLinkColor, $lightBackgroundColor);
+            }
+
+            &:hover {
+                background-color: $lightMenuHoverColor;
+                color: contrast-color($linkColor, $lightMenuHoverColor);
+
+                &:visited {
+                    color: contrast-color($visitedLinkColor, $lightMenuHoverColor);
+                }
+            }
+        }
+    }
+
+    pre.src {
+        border-color: $lightContentDelimiters;
+
+        &:before {
+            background: $lightCodeLanguageBoxColor;
+            color: contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor);
+
+            border-color: $lightContentDelimiters;
+        }
+
+        /* Syntax highlighting */
+        @include color-highlights($lightBackgroundColor);
     }
 
     div#postamble {
-        border-color: $darkContentDelimiters;
+        border-color: $lightContentDelimiters;
     }
-}
-
-@media screen and (max-width: 500px) {
-    body { text-align: left; }
 }
 
 @media screen and (max-width: 800px) {
@@ -218,6 +306,10 @@ div#postamble {
 
         @include rem-attributes(padding-top, 2);
 
-        &:before { top: 0; }
+        &:before {
+            top: 0;
+            right: 0;
+            border-top-width: 0;
+        }
     }
 }
