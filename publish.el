@@ -138,9 +138,6 @@ See `org-publish-sitemap-default-entry'."
 
         ("site" :components ("site-org" "site-static"))))
 
-;; Configure webfeeder to generate an RSS feed
-(setq webfeeder-default-author "Elis Hirwing <elis@hirwing.se>")
-
 
 
 ;; Publish projects

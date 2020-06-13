@@ -1,4 +1,4 @@
-#+AUTHOR: Elis Hirwing
+#+AUTHOR: Elis Hirwing <elis@hirwing.se>
 #+EMAIL: elis@hirwing.se
 #+HTML_HEAD_EXTRA: <link href="https://elis.nu/" rel="canonical">
 #+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="/style.css" />
