@@ -12,6 +12,7 @@ $darkForegroundColor: #D9D9D9;
 $darkLinkColor: #00A2E7;
 $darkMenuHoverColor: lighten($darkBackgroundColor, 10%);
 $darkVisitedLinkColor: #CA1A70;
+$darkCodeLanguageBoxColor: $darkMenuHoverColor;
 
 $defaultBackgroundColor: #FFFFFF;
 $defaultContentDelimiters: #454545;
@@ -19,6 +20,7 @@ $defaultForegroundColor: #454545;
 $defaultLinkColor: #0077AA;
 $defaultMenuHoverColor: darken($defaultBackgroundColor, 10%);
 $defaultVisitedLinkColor: #941352;
+$defaultCodeLanguageBoxColor: $defaultMenuHoverColor;
 
 /********************************************************************
  * Functions
@@ -113,6 +115,35 @@ a {
     &:visited { color: $defaultVisitedLinkColor; }
 }
 
+/* Org-mode code box */
+pre {
+    &.src {
+        @include rem-attributes(border-width, 0.1);
+        border-color: $defaultContentDelimiters;
+        border-style: solid;
+
+        margin: 0;
+        @include rem-attributes(padding, 1);
+
+        &:before {
+            background: $defaultCodeLanguageBoxColor;
+            position: absolute;
+            right: 0;
+            @include rem-attributes(top, -1);
+            @include rem-attributes(padding, 0.2);
+        }
+    }
+
+    &.src-bash:before { content: 'bash'; }
+    &.src-elisp:before, &.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+    &.src-nix:before { content: 'Nix'; }
+    &.src-org:before { content: 'Org mode'; }
+    &.src-php:before { content: 'PHP'; }
+    &.src-sh:before  { content: 'sh'; }
+    &.src-sql:before { content: 'SQL'; }
+    &.src-xml:before { content: 'xml'; }
+}
+
 /* FOOTER */
 div#postamble {
     /* Make a border on top and bottom */
@@ -150,6 +181,10 @@ div#postamble {
         }
     }
 
+    pre.src:before {
+        background: $darkCodeLanguageBoxColor;
+    }
+
     div#postamble {
         border-color: $darkContentDelimiters;
     }
@@ -157,4 +192,17 @@ div#postamble {
 
 @media screen and (max-width: 500px) {
     body { text-align: left; }
+}
+
+@media screen and (max-width: 800px) {
+    /* Org-mode code box */
+    pre.src {
+        overflow-x: auto;
+        border-left-width: 0;
+        border-right-width: 0;
+
+        @include rem-attributes(padding-top, 2);
+
+        &:before { top: 0; }
+    }
 }
