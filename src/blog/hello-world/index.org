@@ -24,6 +24,10 @@ Hello world! This is a test blog post.
   # Define the hello function
   hello = {}: "world";
 
+  # More tests
+  boolean = true;
+  fileimport = import ./src/file.nix;
+
   # Call the hello function
   message = hello {};
 }
@@ -33,7 +37,7 @@ Hello world! This is a test blog post.
 #+BEGIN_SRC php
 <?php
 # Define the hello function
-function hello() {
+function hello() : void {
     echo "world";
 }
 
