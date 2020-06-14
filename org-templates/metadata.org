@@ -8,6 +8,9 @@
 # Disable default CSS
 #+OPTIONS: html-style:nil
 
+# Disable default JS
+#+OPTIONS: html-scripts:nil
+
 # Disable the Table of Contents globally
 #+OPTIONS: toc:nil
 
