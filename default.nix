@@ -1,6 +1,6 @@
-with import <nixpkgs> {};
+{ pkgs ? (import <nixpkgs> {}) }:
 
-stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation {
   name = "site";
   src = ./.;
 
