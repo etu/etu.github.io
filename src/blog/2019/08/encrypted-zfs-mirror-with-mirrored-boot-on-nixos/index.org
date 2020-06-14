@@ -237,7 +237,7 @@ I have tested the entire process to make sure it works on my hardware by:
  4. Shut it down
  5. Plug in he first drive and unplug the other one
  6. Repeat step 3 again
- 7. Shut i down
+ 7. Shut it down
  8. Boot with both disks and tell ZFS that I'm sure that there's no issue
     with my hardware and that I don't want to replace my drives.
 

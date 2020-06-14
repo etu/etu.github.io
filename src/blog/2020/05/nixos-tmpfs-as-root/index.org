@@ -210,7 +210,7 @@ content for it's own post.
 
 ** Step 4.4 - Configure the rest of your system
 :PROPERTIES:
-:CUSTOM_ID: step-4-3-configure-the-rest-of-your-system
+:CUSTOM_ID: step-4-4-configure-the-rest-of-your-system
 :END:
 
 You should make sure to go through =configuration.nix= to make all necessary
