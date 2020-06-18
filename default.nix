@@ -18,13 +18,13 @@ pkgs.stdenv.mkDerivation {
       nix-mode
     ]))
 
-    sass
+    sassc
   ];
 
   buildPhase = ''
     emacs --batch --load=publish.el
     cp src/CNAME public/
-    scss --sourcemap=none --style=compressed src/style.scss public/style.css
+    sassc --style=compressed src/style.scss public/style.css
   '';
 
   installPhase = ''
