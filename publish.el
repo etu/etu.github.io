@@ -78,6 +78,7 @@ See `org-publish-sitemap-default-entry'."
           (unless (or (string-match "file:index.org" file)
                       (string-match "file:about/index.org" file)
                       (string-match "file:talks/index.org" file)
+                      (string-match "file:health/index.org" file)
                       (string-match "file:work/index.org" file))
 
             (let ((dir (replace-regexp-in-string "index.org" "" file)))

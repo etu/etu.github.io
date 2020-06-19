@@ -1,0 +1,389 @@
+#+SETUPFILE: ../../org-templates/level-1.org
+#+TITLE: ~elis/health/
+#+DATE: <2020-06-19 Fri 23:00>
+#+OPTIONS: toc:t
+
+* Introduction
+:PROPERTIES:
+:CUSTOM_ID: introduction
+:END:
+
+The purpose of this page is to be a summary of my life when it comes to
+mainly physical health. It will include learning's and what I've applied and
+how. It's partly to have as personal notes, but also that I hope to inspire
+eventual readers to improve yourself. Change is always possible, but it has
+to come from you.
+
+If you feel that you want to talk to me about anything on this page, feel
+free to contact me through any means described on my [[../about/#contact][/about/]] page.
+
+* Early life / Teenage years
+:PROPERTIES:
+:CUSTOM_ID: early-life-teenage-years
+:END:
+
+As a child I was never really interested in physical activity, I wanted to
+stay indoors and play with computers. I also didn't care much for the gym
+class in school. I mean I went to it, but that was mostly because I had the
+sense of duty to attend. The only part of gym class that I actually can say
+that I remember or even enjoyed was the parts we did that contained swimming,
+because that I did know how to do. I'm not fast at swimming, but I'm stable,
+and I don't sink.
+
+At some point during my mid-teen years I did go to a Karate class once a week
+for one semester. But then I dropped it to spend more time on school and also
+on computers. And then I never picked that up again. But I remember that I
+liked that sense of having a group.
+
+After that, during my teenage years I passed the 110kg mark on the scale, and
+back then I never really thought about it as a bad thing. I guess it's partly
+an environmental reason with the people that you grow up with. But also what
+the average people in western society is progressing towards.
+
+But I kinda got used to be one of the "big boys" in the room. As part of this
+I started to buy all my clothes from a common line of clothes for men around
+here, that had a special store where they added "XL" to the name. And they
+only sell clothes that is 2XL-9XL in size.
+
+* Late Teenage years / early 20s
+:PROPERTIES:
+:CUSTOM_ID: late-teenage-years-early-20s
+:END:
+
+At this point I found groups of people outside of school where I finally made
+some friends. Several of them are still friends up to this day. And in this
+group there was most often someone that was a vegetarian, and when we had
+dinners together, which used to happen on Wednesdays most weeks. We mostly
+had vegetarian food. And it's something I picked up there as "nice to have
+something different" but it was never something I "brought home" as something
+that I could do for myself. Or for that matter, why would I?
+
+But around 2011 I started to realize that those 110kg+ was probably not good
+in the long run, and this was around when LCHF had started to become popular.
+At least it was where I was and where I picked up on it. And I thought it
+sounded great so I picked up on that and ran with that for a while, maybe
+half a year or so before I dropped it.
+
+* The move away from home
+:PROPERTIES:
+:CUSTOM_ID: the-move-away-from-home
+:END:
+
+Late 2011 had applied for a job in the other end of the country, this move
+happened in a way only a young person in their 20s could do. Took a big bag
+on a train and started working while finding a place to live while living on
+couches. It worked out and I had a place of my own on a second hand contract
+within two weeks.
+
+But moving across the country came with both good and bad parts, the good
+parts was that I grew a lot of confidence and learned to live by my own means
+and take care of myself. The bad parts was that I knew nobody and didn't
+really care to get to know new people.
+
+After about 5 months I managed to get a first hand rental contract for a
+bigger apartment. Quite soon after this I somehow managed to meet a person
+who moved in with me that later became my wife.
+
+During 2013 I tried to take care of my weigh again, so we, together started
+with LCHF, I mean, it kinda worked for me before. I managed to go from around
+140kg to something around 130kg. Then due to cultural reasons at that work
+place I decided that I wanted to switch jobs and that we didn't have a reason
+to stay in that part of the country. So we decided to go to Stockholm (back
+to Stockholm for me).
+
+* The move back to Stockholm
+:PROPERTIES:
+:CUSTOM_ID: the-move-back-to-stockholm
+:END:
+
+Moving to Stockholm can be hard, this is probably true for most big cities.
+But moving to another city requires two things: A steady income, A place to
+live. One kinda requires the other and the other way around.
+
+So to move to Stockholm we decided to cheat. I got a job and we moved in with
+one of my parents. Then we started looking for a place to live.
+
+During this time when we lived with my father, we kinda went into "regular
+habits" when it came to food and the amount of exercise was close to zero. I
+might have chased buses to not have to wait a long time for the next bus.
+
+When we got our own place we planned to pick up on the weigh control again
+and attempted to start to exercise at a local gym. So during the period
+<2015-09-13>--<2016-08-01> I managed to drop from 142kg to 135kg. Which to
+me was impressive at the time. Yet again with LCHF. But we stopped because
+it seemed like it kinda stopped working the last months.
+
+This is where my problems with my wrists (by using computers) started to
+show up, and became so bad that I had a week of sick leave from work. On
+<2015-12-01 Tue> I was at the doctors office about this. And the doctor,
+straight to my face told me the following:
+
+: If you're unable to use keyboards, then maybe you should find a job where
+: you don't use keyboards.
+
+Around this time I started to give up on life, especially having a healthy
+life, again. I didn't know what to do. I knew some things, but I didn't want
+them. I didn't really want to work out. Because I wasn't determined enough.
+
+* Switched job again, this time to TV.nu
+:PROPERTIES:
+:CUSTOM_ID: switched-job-again-this-time-to-tvnu
+:END:
+
+On <2016-04-18 Sat> I started working at TV.nu, I joined an already
+established team with great energy and a for me interesting product (which
+was a first for me).
+
+One thing that made a very strong impression on me when I started was that in
+the team we had one person who is a Vegetarian, and I looked up to him and
+thought "that's a cool guy" and didn't think much more about it, until a week
+later when I ended up at a restaurant named ~Burgers And Lobsters~ that
+served... Meat burgers or... Lobsters... And I had my burger, and was happy
+with it. But I looked over at this guy and felt for him, but there was
+nothing I could do about it. But the inclusiveness of the choice of place to
+eat kinda disturbed me.
+
+During this early time at this job I also started seeing a Naprapath in the
+work building to try to resolve my issues with my wrists. She though that the
+doctors statement earlier was ridiculous and that we would find another
+solution to make it work for me. And she managed to do things better by
+massage to increase blood flow.
+
+** Going vegetarian
+:PROPERTIES:
+:CUSTOM_ID: going-vegetarian
+:END:
+
+During November of 2016 me and my fiancee found a really good deal on frozen
+chicken in a food-store. So we bought a box of 2kg of chicken for not much
+money at all. Which felt very good because it was a bargain.
+
+After we was half through this box we started to get bored of chicken. It was
+about the same every day. So we decided that we wanted to "change it up" and
+try something new. So what we did was that we decided to eat up all the meat
+in our fridge and freezer, and then go Vegetarian. This limitation would
+prove to be an opportunity to force ourselves out of old habits and to try
+something new. Find new, better, different food to replace what we selected
+to out out from.
+
+By doing this choice as late in the year I also got to experience how it
+feels to be invited to a work dinner while being excluded because of the
+limited choices of food available for you. In this case it was a Christmas
+buffet where I ate potatoes, Brussels sprouts and cheese. Because it was the
+only three things I could find that I could eat. If it wasn't a dinner on a
+moving boat I would have left in the middle of the dinner to pick up Falafel
+or something...
+
+This proved to me that change was needed, and I'm not the one afraid of
+taking space about things like this.
+
+Then during the Summer of 2017 we got married, we had a small private dinner
+for family and very few friends (only people who specifically requested to
+attend the ceremony). At this point I was probably the heaviest that I've
+been in my entire life, way above 150kg (which is the maximum for normal
+scales that are sold in regular stores, and I didn't care to find a
+bigger scale).
+
+** Starting to work out (for real this time)
+:PROPERTIES:
+:CUSTOM_ID: starting-to-work-out-for-real-this-time
+:END:
+
+So during the spring of 2017 I gave up on all training and everything and
+decided that: "I'll do it after the summer".
+
+It may sound bad but I had a plan. And the plan was that I knew that I in the
+past had liked Karate and the sense of group feeling. And it was the only
+exercise that I had actually wanted to continue doing in the past. And I had
+seen a place in the general area of where we lived that had something that
+stuck out to me as something that may work for me. So during the spring I
+signed up to start with a sport called Goshindo that only exists in that one
+center and is founded by that one guy that runs the center. So I didn't know
+much about it except that they seemed to wear the same kind of clothes as
+in Karate and have similar belts -- which was good enough to me.
+
+So I started with one class a week in August of 2017 and stepped it up to two
+classes a week quite fast. When I started they didn't have white pants that
+would fit me which made me the odd one out running around the in a room of
+people dressed in white and me with my black pants. Still above 150kg.
+
+During this winter my wife also realized that she should stay away from milk
+protein, not just lactose but the protein. It made her feel better. And this
+made me stop buying fancy and nice cheese, because to me good cheese was a
+shared experience. So I went into the cheap cheese segment just to get my
+cheese to have on the sandwich.
+
+I did step on the scale, every Monday morning before I went to work I used
+to step on the scale, and watched the numbers going up, up, up, up from 0kg
+up to 149kg and then just say ~ERR~. Out of operating range. Today as well. I
+couldn't do this more than weekly due to seeing the ~ERR~ makes you go crazy.
+But some days I tried to press with a single finger on a door handle nearby
+and there wasn't much force needed to make it say ~149kg~, so I knew I was
+getting into some kind of measurable range eventually.
+
+After about 7 months of working out 2 times a week and eating vegetarian food
+it finally changed. On <2018-02-05 Mon> I could measure to ~149.3kg~. This
+was a big milestone. This was also a BMI of over 43.6. Not good, but I was on
+track to take care of it. What more can you do?
+
+** Time pass by
+:PROPERTIES:
+:CUSTOM_ID: time-pass-by
+:END:
+
+I continue eating what I think is a good vegetarian diet with quite a lot of
+cheese and dairy. Not drinking milk (I did that a lot in the past) but still
+milk products in food. And I thought the alternatives was stupid and tasted
+bad. It was for mad or allergic people. And I was neither. At least if you
+asked me back then.
+
+My wife tried to get me to stop eating cheese. I just didn't want any of it.
+I made all the classic claims that "it tastes good" and that the alternatives
+"tastes horrible" and so on. I've been there. The cheese trap is real. Cheese
+and milk is super addictive.
+
+During this time I started to loose a lot of weigh, but I will summarize
+that in the last headline to be able to expand on this page with new updates
+later on.
+
+** Going Vegan
+:PROPERTIES:
+:CUSTOM_ID: going-vegan
+:END:
+
+I have always looked up to Vegans, I have friends who are Vegans. During this
+time I recognize that I've done things to them that I would be very upset if
+people did to me today. And I can only say that I apologize for my earlier
+behavior and hope that I can do better in the future. One example I have of
+this is that before going to some friends place we went to Burger King to buy
+meat burgers to eat, and we brought them with us to their place. At the time
+I thought it was a perfectly fine thing to do, but now I see it as very
+disrespectful to bring such food into their homes.
+
+During the fall of 2019 there was a new college starting at my job, she was
+a Vegan and I looked up to her as well, like all Vegans. So cool. So "pure"
+of heart and the intent to not hurt animals and things. I didn't understand
+the full impact of veganism but it got me thinking more about it. And my wife
+was already on this train of thought.
+
+Then during the fall of 2019, the documentary The Game Changers was released
+and we happened to find it. So we watched it. And, yeah, then every changed.
+
+I decided to eat up my cheese and never by cheese again. And we went Vegan.
+
+This is probably one of the best choices I've ever done. I've never felt so
+good ever as I do now.
+
+** Resolving the wrist problems
+:PROPERTIES:
+:CUSTOM_ID: resolving-the-wrist-problems
+:END:
+
+During this time the wrist problems got less bad, but it still came back
+from time to time. Today I type on a set of ErgoDoxes which is nice but
+it still could hurt. But I went to a private doctor who scanned my wrists
+and said this:
+: I have good news and I have bad news:
+: - The good news is: I can't find anything that is broken.
+: - The bad news is: It's probably an environmental issue of something you do
+:   in your daily work that causes this.
+
+And a day earlier I had recorded a video of myself typing on my keyboard
+so I asked him if he could have a look, and he watched the video and noticed
+my very cool ergonomic keyboard. But he also noted that I had my wrists very
+hard pressed against the wrist rest. Which caused a lot of pressure there.
+
+So he suggested to have some kind of arm rest or using arm rests on the chair
+to not have as much pressure on the wrists.
+
+I haven't had the need to see a doctor since. All these years of pain and
+suffering for that. All that time spent feeling like your professional
+career as a developer is over before you turn 30 for that.
+
+* Takeaways
+:PROPERTIES:
+:CUSTOM_ID: takeaways
+:END:
+
+If you are in a situation like I was, you feel that everything is hopeless,
+you continue to eat to drain the sorrow. You grow bigger and so does the
+sorrow. Trust me, I've been there. It can change. But it has to come from
+inside. It has to be your decision.
+
+Before we moved back to Stockholm I used to drink extra fat milk, more or
+less every day. Together with eating bacon, egg, cheese etc. I've been
+through it all.
+
+Everyone has to find their own way, this page only describes my journey. But
+for pure health reasons I couldn't recommend a low fat, whole food plant
+based diet enough. And I'm not alone.
+
+Go watch [[https://www.imdb.com/title/tt7455754/][The Game Changers]] on Netflix. Or just start with
+[[https://www.youtube.com/watch?v=xnKaOL2IBPY][Michael Greger -- Food as Medicine]] on Youtube.
+
+The list of resources here could be endless. But here's a few.
+
+Good documentaries / presentations:
+ - [[https://www.youtube.com/watch?v=xnKaOL2IBPY][Michael Greger -- Food as Medicine]] (Youtube, 18:28)
+ - [[https://www.imdb.com/title/tt7455754/][The Game Changers]]
+ - [[https://www.imdb.com/title/tt1567233/][Forks Over Knives]]
+ - [[https://www.imdb.com/title/tt5541848/][What the health]]
+
+To not meantion books such as:
+ - [[https://nutritionfacts.org/book/][How to not Die -- Micheal Greger]]
+ - [[http://www.thechinastudy.com/][The China Study -- Colin Campbell]]
+ - [[https://www.amazon.com/Cheese-Trap-Breaking-Surprising-Addiction/dp/1455594687][The Cheese Trap -- Neal D Barnard]]
+ - [[http://proteinaholic.com][Proteinaholic -- Neal D Barnard]]
+
+And many more.
+
+Nothing tastes as good as the feeling of good health feels, and animal
+sources of food prevents good health. So animal sources of food is not
+worth it.
+
+And your are in control of your life. You can change your life. You just
+have to decide to do it, for real. Then make a plan and stick to that plan.
+
+* Weigh progress through the years
+:PROPERTIES:
+:CUSTOM_ID: weigh-progress-through-the-years
+:END:
+
+** Weigh progress through: 2015-2016
+:PROPERTIES:
+:CUSTOM_ID: weigh-progress-through-2015-2016
+:END:
+
+Managed to go from ~142.6kg~ on <2015-09-13 Sun> to ~135.3kg~ on
+<2016-08-01 Mon> to then bounce back to ~141.1kg~ on <2016-11-12 Sat>.
+
+** Weigh progress through: 2018
+:PROPERTIES:
+:CUSTOM_ID: weigh-progress-through-2018
+:END:
+
+But time flies from the ~149.3kg~ in February of 2018 I was down to ~124.2kg~
+by the end of the year. That's right: That's a difference of more than
+~25.1kg~ in a single year. That's from BMI of ~43.6~ to ~36.2~ within a year.
+
+** Weigh progress through: 2019
+:PROPERTIES:
+:CUSTOM_ID: weigh-progress-through-2019
+:END:
+
+And I managed to continue this trend during 2019. In 2019 I started at
+~122.7kg~ and ended it at ~103.7kg~, which is another impressive year of
+~19kg~ lost.
+
+** Weigh progress through: 2020
+:PROPERTIES:
+:CUSTOM_ID: weigh-progress-through-2020
+:END:
+
+By February of 2020 I touched at the ~100kg~ line which means that I dropped
+~50kg~ (about 33%) in 24 months flat.
+
+More to come here later in the year.
+
+#  LocalWords:  SETUPFILE toc elis LCHF stockholm tvnu Naprapath BMI
+#  LocalWords:  Falafel Goshindo ErgoDoxes
