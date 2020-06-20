@@ -181,6 +181,29 @@ a {
     }
 }
 
+blockquote {
+    margin: 0;
+    @include rem-attributes(margin-top, 0.5);
+    @include rem-attributes(margin-bottom, 0.5);
+
+    @include rem-attributes(padding-top, 0.4);
+    @include rem-attributes(padding-bottom, 0.4);
+    @include rem-attributes(padding-left, 1.5);
+    @include rem-attributes(padding-right, 1.5);
+
+    background: $defaultCodeLanguageBoxColor;
+    color: contrast-color($defaultForegroundColor, $defaultCodeLanguageBoxColor);
+
+    &:before {
+        content: '”';
+        position: absolute;
+        @include rem-attributes(top, -1);
+        right: 0;
+        @include rem-attributes(font-size, 4);
+        color: contrast-color($defaultForegroundColor, $defaultCodeLanguageBoxColor, 2);
+    }
+}
+
 /* Org-mode code box */
 pre {
     &.src {
@@ -254,6 +277,15 @@ div#postamble {
 
         &:visited {
             color: contrast-color($visitedLinkColor, $lightBackgroundColor);
+        }
+    }
+
+    blockquote {
+        background: $lightCodeLanguageBoxColor;
+        color: contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor);
+
+        &:before {
+            color: contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor, 2);
         }
     }
 
