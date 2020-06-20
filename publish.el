@@ -45,6 +45,7 @@
 (defun etu/preamble (info)
   "Return preamble as a string.  Dunno what INFO does."
   "<nav>
+     <img src=\"https://home.elis.nu/1x1.png?src=elis.nu\" />
      <ul>
        <li><a href=\"/\">~elis/</a></li>
        <li><a href=\"/about/\">./about/</a></li>
