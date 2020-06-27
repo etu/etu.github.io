@@ -15,7 +15,7 @@ matter, e.g. the closet (a.k.a the server room) where the file server lives.
 :CUSTOM_ID: my-requirements-on-this-setup
 :END:
 
-But to do this move I had a certain list of requirements.
+To do this move I had a certain list of requirements:
 1. Mirrored boot disk
 2. Mirrored ESP
 3. Encrypted ZFS
@@ -70,7 +70,7 @@ You can read more about these flags on these locations:
  - https://nixos.wiki/wiki/NixOS_on_ZFS
  - https://wiki.archlinux.org/index.php/ZFS#Advanced_Format_disks
 
-And many more places around the web...
+And many more places around the web…
 
 #+BEGIN_SRC sh
 # Some flags to consider
@@ -226,8 +226,8 @@ Then I have the following to boot with grub and keep my two grubs in sync:
 NixOS makes it really easy to set up encrypted ZFS that is reliable when it
 comes to updates and usage.
 
-And with the module system NixOS makes it very easy to keep the two ESP
-partitions in sync.
+And with the module system NixOS makes it easy to keep the two ESP partitions
+in sync.
 
 I have tested the entire process to make sure it works on my hardware by:
  1. Shut it down

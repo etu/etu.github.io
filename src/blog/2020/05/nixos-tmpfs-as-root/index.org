@@ -107,11 +107,11 @@ openssh) won't be happy with the permissions of the file system.
 
 The =size= is something you can adjust depending on how much garbage you
 are willing to store in ram until you run out of space on your root. 2G is
-for me plenty of space for this.
+usually big enough for most of my systems.
 
 #+BEGIN_SRC nix
 {
-  # ...
+  # …
 
   fileSystems."/" = {
     device = "none";
@@ -119,7 +119,7 @@ for me plenty of space for this.
     options = [ "defaults" "size=2G" "mode=755" ];
   };
 
-  # ...
+  # …
 }
 #+END_SRC
 
@@ -137,7 +137,7 @@ sense to have mutability of users if it's going to reset anyways.
 
 #+BEGIN_SRC nix
 {
-  # ...
+  # …
 
   # Don't allow mutation of users outside of the config.
   users.mutableUsers = false;
@@ -150,7 +150,7 @@ sense to have mutability of users if it's going to reset anyways.
   # $ nix-shell --run 'mkpasswd -m SHA-512 -s' -p mkpasswd
   users.users.root.initialPassword = "hunter2";
 
-  # ...
+  # …
 }
 #+END_SRC
 
@@ -169,7 +169,7 @@ Adding persistent files from etc:
 
 #+BEGIN_SRC nix
 {
-  # ...
+  # …
 
   # machine-id is used by systemd for the journal, if
   # you don't persist this file you won't be able to easily
@@ -193,15 +193,15 @@ Adding persistent files from etc:
   environment.etc."ssh/ssh_host_ed25519_key.pub".source
     = "/nix/persist/etc/ssh/ssh_host_ed25519_key.pub";
 
-  # ...
+  # …
 }
 #+END_SRC
 
 From here you can probably figure out how to do more bind-mounts and
 symbolic links in =/etc= for the files you want to live across reboots.
 
-A very useful tool to discovering files in your tmpfs is *ncdu*, I tend
-to run *sudo ncdu -x /* to walk around the directory tree to see if there's
+A useful tool to discovering files in your tmpfs is *ncdu*, I tend to run
+*sudo ncdu -x /* to walk around the directory tree to see if there's
 something I want to make persistent.
 
 You may want to make your =/home= persistent, that can be done by a mount

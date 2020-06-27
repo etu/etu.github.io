@@ -5,9 +5,9 @@
 
 This is a sneak peak into the future 20.09 release of NixOS.
 
-The PHP packaging ecosystem in NixOS has been in a quite sad state for a
-very long time. Partly because of the lack of people caring about PHP in Nix,
-but also that PHP is a bit weird when it comes to packaging.
+The PHP packaging ecosystem in NixOS has been in a quite sad state for a long
+time. Partly because of the lack of people caring about PHP in Nix, but also
+that PHP is a bit weird when it comes to packaging.
 
 * State of PHP before NixOS 20.09
 :PROPERTIES:
@@ -18,7 +18,7 @@ Due to the lack of ability to do clever things like the python community does
 with =withPackages= to compose a package with the dependencies you need we
 have defaulted to provide a huge default package to accommodate all needs.
 
-We have been quite bad at accommodating all needs though...
+We have been quite bad at accommodating all needs though…
 
 I'm gonna give a few examples.
 
@@ -30,19 +30,19 @@ PHP in NixOS has defaulted to including for example the following modules:
  - =imap=
  - =ldap=
 
-... among many other modules. Some of these are quite convenient to get (such
+… among many other modules. Some of these are quite convenient to get (such
 as database related extensions). But some of these are totally unreasonable
 to have as default in a distribution. But due to the nature of Nix and the
 lack of easily extending PHP we have just coped with having a huge
 distribution of PHP.
 
-But at the same time we have lacked some other notable extensions in the
-default build, such as =opcache=, without recompiling PHP...
+Also, at the same time we have lacked some other notable extensions in the
+default build, such as =opcache=, without recompiling PHP…
 
 So users migrating from another distribution, for example anything based on
 Debian that defaults to having opcache enabled by default will see a drastic
 performance penalty by migrating to NixOS. This can be fixed by enabling the
-opcache flag for the build and recompile the entire PHP package. How fun...
+opcache flag for the build and recompile the entire PHP package. How fun…
 
 * The road to a better PHP packaging ecosystem
 :PROPERTIES:
@@ -85,9 +85,9 @@ The things we have done:
  - We provide almost all upstream extensions and a bunch of 3rd party ones
    for inclusion into your PHP.
  - We have written the initial documentation for how to use PHP on Nix.
- - We have enabled running tests for each and every upstream extension of
-   PHP by default. And we do it when we build each extension in a sandbox
-   separate from each other (This has some issues though).
+ - We have enabled running tests for every upstream extension of PHP by
+   default. And we do it when we build each extension in a sandbox separate
+   from each other (This has some issues though).
  - We have added =opcache= as a default extension.
 
 So hereby I now make the following claim:
@@ -106,7 +106,7 @@ php.withExtensions ({ enabled, all }: with all; [
 #+END_SRC
 
 And since Nix can be used to build Docker images and be used for deployments,
-this becomes a very powerful packaging even for users that don't want to run
+this becomes a damn powerful packaging even for users that don't want to run
 NixOS but want to have the power of quickly customizing PHP to exactly their
 needs for that specific application.
 
