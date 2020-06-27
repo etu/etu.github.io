@@ -135,6 +135,10 @@ password on the next boot.
 You probably want to have immutable users as well since it doesn't make any
 sense to have mutability of users if it's going to reset anyways.
 
+*Note:* Don't use the options *password* or *hashedPassword* for users
+because it won't work. It has to be the options named *initialPassword* or
+*initialHashedPassword*.
+
 #+BEGIN_SRC nix
 {
   # …
