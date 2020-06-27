@@ -212,6 +212,9 @@ You may want to make your =/home= persistent, that can be done by a mount
 or bind-mount. I have that as tmpfs as well, but that is probably enough
 content for it's own post.
 
+*Update:* Now there's a follow-up post for putting tmpfs on =/home= as well,
+it's located here: [[file:../../06/nixos-tmpfs-as-home/][NixOS ❄: tmpfs as home]].
+
 ** Step 4.4 - Configure the rest of your system
 :PROPERTIES:
 :CUSTOM_ID: step-4-4-configure-the-rest-of-your-system
