@@ -246,6 +246,15 @@ pre {
     &.src-xml:before { content: 'xml'; }
 }
 
+/* Org-mode footnotes */
+.footdef sup {
+    float: left;
+    @include rem-attributes(padding-right, 1);
+
+    &:after { content: ']'; }
+    &:before { content: '['; }
+}
+
 /* FOOTER */
 div#postamble {
     /* Make a border on top and bottom */
