@@ -25,6 +25,8 @@ pkgs.stdenv.mkDerivation {
     emacs --batch --load=publish.el
     cp src/CNAME public/
     sassc --style=compressed src/style.scss public/style.css
+
+    cp public/imgs/etu.jpg public/imgs/favicon.jpg
   '';
 
   installPhase = ''
