@@ -248,7 +248,6 @@ pre {
 
 /* Org-mode footnotes */
 .footdef sup {
-    float: left;
     @include rem-attributes(padding-right, 1);
 
     &:after { content: ']'; }
