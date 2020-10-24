@@ -149,7 +149,7 @@ See `org-publish-sitemap-default-entry'."
                  "./public/"
                  "https://elis.nu/"
                  (delete "blog/index.html"
-                         (mapcar (lambda (f) (replace-regexp-in-string ".*/public/" "" f))
+                         (mapcar (lambda (f) (replace-regexp-in-string "public/" "" f))
                                  (directory-files-recursively "public/blog/" "index.html")))
                  :builder 'webfeeder-make-rss
                  :title "~elis/blog/"

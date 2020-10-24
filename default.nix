@@ -1,11 +1,13 @@
-{ pkgs ? (import <nixpkgs> {}) }:
+{ pkgs ? (import (builtins.fetchTarball {
+  url = https://github.com/NixOS/nixpkgs/archive/nixos-20.09.tar.gz;
+}) {}) }:
 
 pkgs.stdenv.mkDerivation {
   name = "site";
   src = ./.;
 
   buildInputs = with pkgs; [
-    (emacsWithPackages (epkgs: with epkgs; [
+    ((emacsPackagesGen emacs27-nox).emacsWithPackages (epkgs: with epkgs; [
       # Newer org-mode than built-in
       org
 
