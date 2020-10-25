@@ -347,8 +347,10 @@ Go watch [[https://www.imdb.com/title/tt7455754/][The Game Changers]] on Netflix
 The list of resources here could be endless. But here's a few.
 
 Good documentaries / presentations:
- - [[https://www.youtube.com/watch?v=xnKaOL2IBPY][Michael Greger -- Food as Medicine]] (YouTube, 18:28)
+ - [[https://www.youtube.com/watch?v=xnKaOL2IBPY][Michael Greger - Food as Medicine]] (YouTube, 18:28)
+ - [[https://www.youtube.com/watch?v=byTxzzztRBU][Ed Winters - Every Argument Against Veganism]] (YouTube, 19:30)
  - [[https://www.youtube.com/watch?v=wxs7V0I2q1Q][Michael Klaper - Vegan Nutrition: Pure and Simple]] (YouTube, 1:35:28)
+ - [[https://www.youtube.com/watch?v=es6U00LMmC4][Gary Yourofsky - Best Speech You Will Ever Hear]] (YouTube, 1:10:23)
  - [[https://www.imdb.com/title/tt7455754/][The Game Changers]]
  - [[https://www.imdb.com/title/tt1567233/][Forks Over Knives]]
  - [[https://www.imdb.com/title/tt5541848/][What the health]]
