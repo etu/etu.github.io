@@ -1,5 +1,5 @@
-#+SETUPFILE: ../../org-templates/level-1.org
-#+TITLE: ~elis/health/
+#+SETUPFILE: ../../../org-templates/level-1.org
+#+TITLE: ~elis/drafts/health/
 #+DATE: <2020-06-19 Fri 23:00>
 #+OPTIONS: toc:t
 
