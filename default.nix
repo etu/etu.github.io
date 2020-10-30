@@ -16,8 +16,9 @@ pkgs.stdenv.mkDerivation {
 
       # Deps for syntax highlighting for some languages
       htmlize
-      php-mode
+      go-mode
       nix-mode
+      php-mode
     ]))
 
     sassc

@@ -238,6 +238,7 @@ pre {
 
     &.src-bash:before { content: 'bash'; }
     &.src-elisp:before, &.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+    &.src-go:before  { content: 'Go'; }
     &.src-nix:before { content: 'Nix'; }
     &.src-org:before { content: 'Org mode'; }
     &.src-php:before { content: 'PHP'; }

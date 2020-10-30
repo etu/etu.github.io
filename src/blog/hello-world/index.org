@@ -37,6 +37,17 @@ This is a block quote element.
 }
 #+END_SRC
 
+*** Go
+#+BEGIN_SRC go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello world")
+}
+#+END_SRC
+
 *** PHP
 #+BEGIN_SRC php
 <?php

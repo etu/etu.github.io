@@ -37,8 +37,9 @@
 
 ;; Highlighting of languages
 (require 'htmlize)
-(require 'php-mode)
+(require 'go-mode)
 (require 'nix-mode)
+(require 'php-mode)
 
 
 
