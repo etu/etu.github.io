@@ -1,0 +1,31 @@
+name: "Publish blog"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: "Build and publish blog"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v12
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      # Build blog
+      - name: Build blog
+        run: nix-build default.nix
+
+      # Deploy the build artifact to another branch
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: ./result
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

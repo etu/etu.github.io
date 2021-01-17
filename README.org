@@ -1,1 +1,1 @@
-[[https://travis-ci.org/etu/etu.github.io][https://travis-ci.org/etu/etu.github.io.svg?branch=source]]
+[[https://github.com/etu/etu.github.io/actions?query=workflow%3A%22Publish+blog%22][https://github.com/etu/etu.github.io/workflows/Publish%20blog/badge.svg]]
