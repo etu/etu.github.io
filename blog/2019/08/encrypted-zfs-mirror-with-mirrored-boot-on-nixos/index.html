@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-17 Sun 08:55 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Encrypted ZFS mirror with mirrored boot on NixOS</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
+<link href="https://elis.nu/" rel="canonical">
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
+<link rel="icon" href="/imgs/favicon.jpg">
+<meta name="referrer" content="no-referrer" />
+<!-- Matomo -->
+<script type="text/javascript">
+var _paq = window._paq || [];
+/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+var u="//matomo.elis.nu/";
+_paq.push(['setTrackerUrl', u+'matomo.php']);
+_paq.push(['setSiteId', '1']);
+var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+})();
+</script>
+<noscript><p><img src="//matomo.elis.nu/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+</head>
+<body>
+<div id="preamble" class="status">
+<nav>
+     <ul>
+       <li><a href="/">~elis/</a></li>
+       <li><a href="/about/">./about/</a></li>
+       <li><a href="/work/">./work/</a></li>
+       <li><a href="/talks/">./talks/</a></li>
+       <li><a href="/blog/">./blog/</a></li>
+     </ul>
+   </nav>
+</div>
+<div id="content">
+<h1 class="title">Encrypted ZFS mirror with mirrored boot on NixOS</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#my-requirements-on-this-setup">My requirements on this setup</a></li>
+<li><a href="#step-1-partitioning">Step 1 - Partitioning</a></li>
+<li><a href="#step-2-creating-the-pool">Step 2 - Creating the pool</a></li>
+<li><a href="#step-3-creating-the-file-systems">Step 3 - Creating the file systems</a>
+<ul>
+<li><a href="#step-3-1-zfs-file-systems">Step 3.1 - ZFS file systems</a></li>
+<li><a href="#step-3-2-the-esp-partitions">Step 3.2 - The ESP partitions</a></li>
+</ul>
+</li>
+<li><a href="#step4-mounting-the-file-systems">Step 4 - Mounting the file systems</a></li>
+<li><a href="#step5-configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</div>
+</div>
+<p>
+So for a long time I have wanted to replace my file server, because it's an
+old HP Microserver that is really slow. And at the same time I have had this
+beast of a desktop tower PC that I haven't used with a Xeon and 32GiB ECC
+memory that has just been turned off due to noise. The obvious solution is
+to re-purpose that install and move it to a location where noise doesn't
+matter, e.g. the closet (a.k.a the server room) where the file server lives.
+</p>
+
+<article id="outline-container-org8c0d428" class="outline-2">
+<h2 id="my-requirements-on-this-setup">My requirements on this setup</h2>
+<div class="outline-text-2" id="text-my-requirements-on-this-setup">
+<p>
+To do this move I had a certain list of requirements:
+</p>
+<ol class="org-ol">
+<li>Mirrored boot disk</li>
+<li>Mirrored ESP</li>
+<li>Encrypted ZFS</li>
+<li>NixOS</li>
+</ol>
+
+<p>
+With these requirements, the goal is that whichever disk should be able to
+die and the system should still just boot. Without any issues. Sure the raid
+or system like a raid will complain. But the system should still come up even
+if one disk die.
+</p>
+</div>
+</article>
+
+<article id="outline-container-orgc7f71d8" class="outline-2">
+<h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
+<div class="outline-text-2" id="text-step-1-partitioning">
+<p>
+I followed these steps of partitioning grabbed from the <a href="https://nixos.wiki/wiki/NixOS_on_ZFS#Single-disk">NixOS on ZFS</a> page
+but modified my steps.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Defining some helper variables (these will be used in later</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">code blocks as well, so make sure to use the same terminal</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">session or redefine them later)</span>
+<span class="org-variable-name">DISK1</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-FIRST-DRIVE
+<span class="org-variable-name">DISK2</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-SECOND-DRIVE
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Creating partitions</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">This creates the ESP / Boot partition at the beginning of</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">the drive but numbered as the third partition:</span>
+sgdisk -n3:1M:+512M -t3:EF00 $<span class="org-variable-name">DISK1</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">This create the storage partition numbered as the</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">first partition:</span>
+sgdisk -n1:0:0 -t1:BF01 $<span class="org-variable-name">DISK1</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Clone the partitions to the second drive:</span>
+sfdisk --dump $<span class="org-variable-name">DISK1</span> | sfdisk $<span class="org-variable-name">DISK2</span>
+</pre>
+</div>
+</div>
+</article>
+
+<article id="outline-container-org89f7f8f" class="outline-2">
+<h2 id="step-2-creating-the-pool">Step 2 - Creating the pool</h2>
+<div class="outline-text-2" id="text-step-2-creating-the-pool">
+<p>
+Creating a ZFS pool can be intimidating for the first times you do it, there
+is a lot of options and flags. And you have both properties/features that use
+the flag <code>-o</code> and then you have file system properties that use <code>-O</code>.
+</p>
+
+<p>
+To me this is still confusing, but I managed to get it together after some
+fiddling around.
+</p>
+
+<p>
+You can read more about these flags on these locations:
+</p>
+<ul class="org-ul">
+<li><a href="https://nixos.wiki/wiki/NixOS_on_ZFS">https://nixos.wiki/wiki/NixOS_on_ZFS</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/ZFS#Advanced_Format_disks">https://wiki.archlinux.org/index.php/ZFS#Advanced_Format_disks</a></li>
+</ul>
+
+<p>
+And many more places around the web…
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Some flags to consider</span>
+<span class="org-comment-delimiter">#</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Disable ZFS automatic mounting:</span>
+<span class="org-comment-delimiter">#   </span><span class="org-comment">-O mountpoint=none</span>
+<span class="org-comment-delimiter">#</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Disable writing access time:</span>
+<span class="org-comment-delimiter">#   </span><span class="org-comment">-O atime=off</span>
+<span class="org-comment-delimiter">#</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Use 4K sectors on the drive, otherwise you can get really</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">bad performance:</span>
+<span class="org-comment-delimiter">#   </span><span class="org-comment">-o ashift=12</span>
+<span class="org-comment-delimiter">#</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">This is more or less required for certain things to</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">not break:</span>
+<span class="org-comment-delimiter">#   </span><span class="org-comment">-O acltype=posixacl</span>
+<span class="org-comment-delimiter">#</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">To improve performance of certain extended attributes:</span>
+<span class="org-comment-delimiter">#   </span><span class="org-comment">-O xattr=sa</span>
+<span class="org-comment-delimiter">#</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">To enable file system compression:</span>
+<span class="org-comment-delimiter">#   </span><span class="org-comment">-O compression=lz4</span>
+<span class="org-comment-delimiter">#</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">To enable encryption:</span>
+<span class="org-comment-delimiter">#   </span><span class="org-comment">-O encryption=aes-256-gcm -O keyformat=passphrase</span>
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Then we create the pool which is mirrored over both drives</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">and encrypted with ZFS native encryption (if you added</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">those flags):</span>
+zpool create &lt;FLAGS&gt; zroot mirror $<span class="org-variable-name">DISK1</span>-part1 $<span class="org-variable-name">DISK2</span>-part1
+</pre>
+</div>
+</div>
+</article>
+
+<article id="outline-container-orge10269f" class="outline-2">
+<h2 id="step-3-creating-the-file-systems">Step 3 - Creating the file systems</h2>
+<div class="outline-text-2" id="text-step-3-creating-the-file-systems">
+</div>
+
+<div id="outline-container-org3824286" class="outline-3">
+<h3 id="step-3-1-zfs-file-systems">Step 3.1 - ZFS file systems</h3>
+<div class="outline-text-3" id="text-step-3-1-zfs-file-systems">
+<p>
+Here you can create which ever you want, this is not exactly how my set up
+mine due to my usage of tmpfs as root, but that's a topic for another post.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">zfs create -o <span class="org-variable-name">mountpoint</span>=legacy zroot/root      <span class="org-comment-delimiter"># </span><span class="org-comment">For /</span>
+zfs create -o <span class="org-variable-name">mountpoint</span>=legacy zroot/root/home <span class="org-comment-delimiter"># </span><span class="org-comment">For /home</span>
+zfs create -o <span class="org-variable-name">mountpoint</span>=legacy zroot/root/nix  <span class="org-comment-delimiter"># </span><span class="org-comment">For /nix</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge95f7ce" class="outline-3">
+<h3 id="step-3-2-the-esp-partitions">Step 3.2 - The ESP partitions</h3>
+<div class="outline-text-3" id="text-step-3-2-the-esp-partitions">
+<p>
+This will seem really obvious at this point, but what's not obvious is how to
+keep them in sync. In the past (with MBR) I would make an mdraid level 1
+across the drives and have that as /boot and the system would boot fine from
+any drive. It's not that simple with UEFI.
+</p>
+
+<p>
+Although, this guy have a good write up on how to achieve this same thing on
+Debian/Ubuntu. And that probably works on other distributions as well.
+<a href="https://outflux.net/blog/archives/2018/04/19/uefi-booting-and-raid1/">https://outflux.net/blog/archives/2018/04/19/uefi-booting-and-raid1/</a>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">mkfs.vfat $<span class="org-variable-name">DISK1</span>-part3
+mkfs.vfat $<span class="org-variable-name">DISK2</span>-part3
+</pre>
+</div>
+</div>
+</div>
+</article>
+
+<article id="outline-container-orgdc52d47" class="outline-2">
+<h2 id="step4-mounting-the-file-systems">Step 4 - Mounting the file systems</h2>
+<div class="outline-text-2" id="text-step4-mounting-the-file-systems">
+<p>
+This takes a bit of work to do, many drives many steps, etc. If you have
+rebooted your live media because you need to rescue or try again in some way
+with the configuration you should start with importing the pool and loading
+the key to the encrypted disk.
+</p>
+
+<p>
+This isn't needed if you're still up and running on the same session as where
+you created your pool.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">zpool import zroot
+zfs load-key zroot
+</pre>
+</div>
+
+<p>
+To mount the file systems you probably want to do something like this:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">mount -t zfs zroot/root /mnt
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Create directories to mount file systems on</span>
+mkdir /mnt/{nix,home,boot,boot-fallback}
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Mount the rest of the ZFS file systems</span>
+mount -t zfs zroot/root/nix /mnt/nix
+mount -t zfs zroot/root/home /mnt/home
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Mount both of the ESP's</span>
+mount $<span class="org-variable-name">DISK1</span>-part3 /mnt/boot
+mount $<span class="org-variable-name">DISK2</span>-part3 /mnt/boot-fallback
+</pre>
+</div>
+</div>
+</article>
+
+<article id="outline-container-orgc247f11" class="outline-2">
+<h2 id="step5-configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</h2>
+<div class="outline-text-2" id="text-step5-configuration-of-the-boot-loader">
+<p>
+Here we have the magic of the NixOS module systems kicking in that will make
+this entire setup awesome and easy to manage.
+</p>
+
+<p>
+Just start by the regular <code>nixos-generate-config  --root /mnt</code>.
+</p>
+
+<p>
+Then you want to use grub as a boot loader and not systemd-boot.
+</p>
+
+<p>
+I have the following configured to make my system support ZFS:
+</p>
+<div class="org-src-container">
+<pre class="src src-nix">{
+  <span class="org-nix-attribute">boot.supportedFilesystems</span> = [ <span class="org-string">"zfs"</span> ];
+  <span class="org-nix-attribute">networking.hostId</span> = <span class="org-string">"&lt;8 random numbers&gt;"</span>;
+}
+</pre>
+</div>
+
+<p>
+Then I have the following to boot with grub and keep my two grubs in sync:
+</p>
+<div class="org-src-container">
+<pre class="src src-nix">{
+  <span class="org-comment"># You can probably use his one on true, but</span>
+  <span class="org-comment"># my UEFI is buggy.</span>
+  <span class="org-nix-attribute">boot.loader.efi.canTouchEfiVariables</span> = <span class="org-nix-builtin">false</span>;
+
+  <span class="org-comment"># This is the regular setup for grub on UEFI which</span>
+  <span class="org-comment"># manages /boot automatically.</span>
+  <span class="org-nix-attribute">boot.loader.grub.enable</span> = <span class="org-nix-builtin">true</span>;
+  <span class="org-nix-attribute">boot.loader.grub.efiSupport</span> = <span class="org-nix-builtin">true</span>;
+  <span class="org-nix-attribute">boot.loader.grub.device</span> = <span class="org-string">"nodev"</span>;
+
+  <span class="org-comment"># This will mirror all UEFI files, kernels, grub menus and</span>
+  <span class="org-comment"># things needed to boot to the other drive.</span>
+  <span class="org-nix-attribute">boot.loader.grub.mirroredBoots</span> = [
+    { <span class="org-nix-attribute">devices</span> = [ <span class="org-string">"/dev/disk/by-uuid/&lt;FS-ID&gt;"</span> ];
+      <span class="org-nix-attribute">path</span> = <span class="org-string">"/boot-fallback"</span>; }
+  ];
+}
+</pre>
+</div>
+</div>
+</article>
+
+<article id="outline-container-orgc309400" class="outline-2">
+<h2 id="conclusion">Conclusion</h2>
+<div class="outline-text-2" id="text-conclusion">
+<p>
+NixOS makes it really easy to set up encrypted ZFS that is reliable when it
+comes to updates and usage.
+</p>
+
+<p>
+And with the module system NixOS makes it easy to keep the two ESP partitions
+in sync.
+</p>
+
+<p>
+I have tested the entire process to make sure it works on my hardware by:
+</p>
+<ol class="org-ol">
+<li>Shut it down</li>
+<li>Unplug one drive</li>
+<li>Boot it up all the way into the system and watched ZFS be a bit grumpy
+about some missing disk (oh what a surprise!)</li>
+<li>Shut it down</li>
+<li>Plug in he first drive and unplug the other one</li>
+<li>Repeat step 3 again</li>
+<li>Shut it down</li>
+<li>Boot with both disks and tell ZFS that I'm sure that there's no issue
+with my hardware and that I don't want to replace my drives.</li>
+</ol>
+
+<p>
+So now that computer have moved to the closet (a.k.a. the server room) and
+I've configured it so I can unlock the drive over SSH on boot following:
+<a href="https://nixos.wiki/wiki/NixOS_on_ZFS#Unlock_encrypted_zfs_via_ssh_on_boot">https://nixos.wiki/wiki/NixOS_on_ZFS#Unlock_encrypted_zfs_via_ssh_on_boot</a>
+</p>
+</div>
+</article>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-08-04 Sun 10:20</p>
+<p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
+<p class="date">Created: 2021-01-17 Sun 08:55</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-01-17 Sun 08:55 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NixOS ❄: tmpfs as home</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
+<link href="https://elis.nu/" rel="canonical">
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
+<link rel="icon" href="/imgs/favicon.jpg">
+<meta name="referrer" content="no-referrer" />
+<!-- Matomo -->
+<script type="text/javascript">
+var _paq = window._paq || [];
+/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+var u="//matomo.elis.nu/";
+_paq.push(['setTrackerUrl', u+'matomo.php']);
+_paq.push(['setSiteId', '1']);
+var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+})();
+</script>
+<noscript><p><img src="//matomo.elis.nu/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+</head>
+<body>
+<div id="preamble" class="status">
+<nav>
+     <ul>
+       <li><a href="/">~elis/</a></li>
+       <li><a href="/about/">./about/</a></li>
+       <li><a href="/work/">./work/</a></li>
+       <li><a href="/talks/">./talks/</a></li>
+       <li><a href="/blog/">./blog/</a></li>
+     </ul>
+   </nav>
+</div>
+<div id="content">
+<h1 class="title">NixOS ❄: tmpfs as home</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#part-1-home-manager">Part 1 - Home Manager</a></li>
+<li><a href="#part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</a></li>
+<li><a href="#part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</a></li>
+</ul>
+</div>
+</div>
+<p>
+This is a follow-up post for my earlier post: <a href="../../05/nixos-tmpfs-as-root/">NixOS ❄: tmpfs as root</a>.
+</p>
+
+<p>
+When you start to go down the route of setting up a “pure” system that is as
+clean as you want it to be on each boot. You may start with the lazy route of
+using a persistent partition for your home directory. But it never feels
+quite right. But initially it's so convenient to choose this path.
+</p>
+
+<p>
+So if you have gone through the first steps to get to a state of having a
+“pure” system, but didn't go “all in” and left your entire home directory
+as a persistent directory. This post will explain how to take it to the next
+level of purity.
+</p>
+
+<article id="outline-container-org33ff14e" class="outline-2">
+<h2 id="part-1-home-manager">Part 1 - Home Manager</h2>
+<div class="outline-text-2" id="text-part-1-home-manager">
+<p>
+The first thing you want to do unless you already done this is to start using
+<a href="https://github.com/rycee/home-manager/">Home Manager</a> to manage the home directory. It's an excellent way to configure
+many programs as the user through a nix configuration file.
+</p>
+
+<p>
+However I would advice to use the NixOS module that home manager provides
+instead of using home manager directly. This way the updates to home manager
+is done as part of the system generations, as well as rollbacks. The set-up
+for using the module is fairly straightforward and simple.
+</p>
+
+<p>
+Sample module that can be imported into <code>configuration.nix</code> using <code>imports</code>:
+</p>
+<div class="org-src-container">
+<pre class="src src-nix">{ pkgs, ... }:
+
+<span class="org-nix-keyword">let</span>
+  <span class="org-nix-attribute">home-manager</span> = builtins.fetchTarball {
+    <span class="org-nix-attribute">url</span> = <span class="org-string">"https://github.com/rycee/home-manager/archive/master.tar.gz"</span>;
+  };
+<span class="org-nix-keyword">in</span> {
+  <span class="org-comment"># Import the home-manager module.</span>
+  <span class="org-nix-attribute">imports</span> = [ <span class="org-string">"</span><span class="org-nix-antiquote">${</span>home-manager<span class="org-nix-antiquote">}</span><span class="org-string">/nixos"</span> ];
+
+  <span class="org-comment"># Home manager configuration for user jane.</span>
+  <span class="org-nix-attribute">home-manager.users.jane</span> = { pkgs, ... }: {
+    <span class="org-nix-attribute">programs.home-manager.enable</span> = <span class="org-nix-builtin">true</span>;
+
+    <span class="org-comment"># In here you can do settings for home-manager, these are listed in the</span>
+    <span class="org-comment"># manual available in: $ man home-configuration.nix</span>
+
+    <span class="org-comment"># In here you can use the "home.file" features of home manager to link</span>
+    <span class="org-comment"># certain files to certain content. However, that's not the same as</span>
+    <span class="org-comment"># linking it to persistent storage since it will copy the file to the</span>
+    <span class="org-comment"># store where it will become read only. That may be perfectly fine for</span>
+    <span class="org-comment"># certain files. For other paths (such as "~/Downloads/"), it may be</span>
+    <span class="org-comment"># quite unsuitable.</span>
+
+    <span class="org-comment"># Example: Enable network manager applet for this user:</span>
+    <span class="org-nix-attribute">services.network-manager-applet.enable</span> = <span class="org-nix-builtin">true</span>;
+  };
+}
+</pre>
+</div>
+
+<p>
+To make this even better, <a href="https://github.com/talyz">talyz</a> spent quite some time to implement modules
+to help doing persistence handling better &#x2013; both in NixOS, but also as a
+Home Manager module. These modules became the <a href="https://github.com/nix-community/impermanence">impermanence</a> community project.
+</p>
+</div>
+</article>
+
+<article id="outline-container-org3ff874c" class="outline-2">
+<h2 id="part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</h2>
+<div class="outline-text-2" id="text-part-2-persistence-module-for-home-manager">
+<p>
+Based on the previous example we're going to extend it to use the home
+manager module.
+</p>
+
+<p>
+So we're going to extend the code sample from above:
+</p>
+<div class="org-src-container">
+<pre class="src src-nix">{ pkgs, ... }:
+
+<span class="org-nix-keyword">let</span>
+  <span class="org-nix-attribute">home-manager</span> = builtins.fetchTarball {
+    <span class="org-nix-attribute">url</span> = <span class="org-string">"https://github.com/rycee/home-manager/archive/master.tar.gz"</span>;
+  };
+  <span class="org-comment"># New: Load the module</span>
+  <span class="org-nix-attribute">impermanence</span> = builtins.fetchTarball {
+    <span class="org-nix-attribute">url</span> =
+      <span class="org-string">"https://github.com/nix-community/impermanence/archive/master.tar.gz"</span>;
+  };
+<span class="org-nix-keyword">in</span> {
+  <span class="org-comment"># Import the home-manager module.</span>
+  <span class="org-nix-attribute">imports</span> = [ <span class="org-string">"</span><span class="org-nix-antiquote">${</span>home-manager<span class="org-nix-antiquote">}</span><span class="org-string">/nixos"</span> ];
+
+  <span class="org-comment"># Home manager configuration for user jane.</span>
+  <span class="org-nix-attribute">home-manager.users.jane</span> = { pkgs, ... }: {
+    <span class="org-comment"># New: Import a persistence module for home-manager.</span>
+    <span class="org-nix-attribute">imports</span> = [ <span class="org-string">"</span><span class="org-nix-antiquote">${</span>impermanence<span class="org-nix-antiquote">}</span><span class="org-string">/home-manager.nix"</span> ];
+
+    <span class="org-nix-attribute">programs.home-manager.enable</span> = <span class="org-nix-builtin">true</span>;
+
+    <span class="org-comment"># New: Now we can use the "home.persistence" module, here's an example:</span>
+    home.persistence.<span class="org-string">"/nix/persist/home/jane"</span> = {
+      <span class="org-nix-attribute">directories</span> = [ <span class="org-string">".ssh"</span> <span class="org-string">"Downloads"</span> ];
+      <span class="org-nix-attribute">files</span> = [ <span class="org-string">".bash_history"</span> ];
+    };
+  };
+}
+</pre>
+</div>
+
+<p>
+The <code>home.persistence</code> module allows to easily select which files and
+directories you want to have symlinked from your home directory to the
+persistent storage selected.
+</p>
+
+<p>
+This also allows to have different storage for different files in your
+home directory. Say that you have different needs to backup certain files
+but that you still want persistence. Then you can put the ones you want to
+backup in a certain directory and the rest in another place.
+</p>
+</div>
+</article>
+
+<article id="outline-container-orgd454813" class="outline-2">
+<h2 id="part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</h2>
+<div class="outline-text-2" id="text-part-3-persistence-module-for-nixos">
+<p>
+This example nix file will import the persistence module for nixos and create
+some symlinks for files in <code>etc</code> that may be useful to have persistence on,
+as well making bind mounts for certain directories.
+</p>
+<div class="org-src-container">
+<pre class="src src-nix">{ ... }:
+
+<span class="org-nix-keyword">let</span>
+  <span class="org-nix-attribute">impermanence</span> = builtins.fetchTarball {
+    <span class="org-nix-attribute">url</span> =
+      <span class="org-string">"https://github.com/nix-community/impermanence/archive/master.tar.gz"</span>;
+  };
+<span class="org-nix-keyword">in</span> {
+  <span class="org-comment"># Import the nixos module.</span>
+  <span class="org-nix-attribute">imports</span> = [ <span class="org-string">"</span><span class="org-nix-antiquote">${</span>impermanence<span class="org-nix-antiquote">}</span><span class="org-string">/nixos.nix"</span> ];
+
+  environment.persistence.<span class="org-string">"/nix/persist"</span> = {
+    <span class="org-nix-attribute">directories</span> = [
+      <span class="org-string">"/etc/nixos"</span>
+      <span class="org-string">"/etc/NetworkManager/system-connections"</span>
+    ];
+    <span class="org-nix-attribute">files</span> = [
+      <span class="org-string">"/etc/machine-id"</span>
+      <span class="org-string">"/etc/ssh/ssh_host_rsa_key"</span>
+      <span class="org-string">"/etc/ssh/ssh_host_rsa_key.pub"</span>
+      <span class="org-string">"/etc/ssh/ssh_host_ed25519_key"</span>
+      <span class="org-string">"/etc/ssh/ssh_host_ed25519_key.pub"</span>
+    ];
+  };
+}
+</pre>
+</div>
+</div>
+</article>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2020-06-27 Sat 22:30</p>
+<p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
+<p class="date">Created: 2021-01-17 Sun 08:55</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,1844 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>~elis/blog/</title>
+<description>I may sometime write about things.</description>
+<generator>Emacs webfeeder.el</generator>
+<link>https://elis.nu/</link>
+<atom:link href="https://elis.nu/blog/rss.xml" rel="self" type="application/rss+xml"/>
+<lastBuildDate>Sun, 17 Jan 2021 08:55:35 +0000</lastBuildDate>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>Why I use Free Software</title>
+  <description><![CDATA[<div id="content">
+
+ <p>
+People in general may have different reasons for choosing to use Free
+Software <sup> <a id="fnr.1" class="footref" href="#fn.1">1</a></sup>, some may use it for the price, others because of
+pragmatic reasons, simply put it's the best tool for the job. Others may
+choose it for ethical reasons.
+</p>
+
+ <p>
+I didn't get into Free Software for any of the said reasons above, I got into
+Free Software because it seemed different and fun. The free price point is
+what made it possible for me as a teenager to play around with it as I did.
+</p>
+
+ <p>
+Over time it became less about fun and games to install and play with
+operating systems and more about a tool, a tool that I could rely on and
+learn from and use for day to day at work.
+</p>
+
+ <p>
+During the transition to start relying on Free Software as a tool I also
+started to learn about the ethical aspects, which completely got me hooked
+and is now my primary reason to keep using Free Software. These ethical
+aspects have pushed me in the direction to find software that is Free
+Software that match my needs, so it also happens to be, for me, simply the
+best tool for the job.
+</p>
+
+ <p>
+Over the years I've spent quite some time on thinking about the ethical
+aspects and have concluded that I find Free Software to be the only viable
+choice in terms of respecting users freedom and choice to study, improve and
+learn from software and how their computer works. Which makes sense since
+that's the reasoning for how it was founded.
+</p>
+
+ <p>
+For example: I find Free Software to be one of the best ways to close, or at
+least reduce the size of the digital divide <sup> <a id="fnr.2" class="footref" href="#fn.2">2</a></sup>. It may not do
+it on hardware, but every bit helps.
+</p>
+
+ <p>
+So to conclude, in my opinion, all the reasons stated here makes Free
+Software the only acceptable choice for people who care about human rights
+and treating people fairly. Therefore, Free Software is humane and inclusive
+software since it's mostly free of charge. This helps it to at least to
+attempt to break economic barriers and income classes.
+</p>
+
+ <p>
+This happens to go hand in hand with the ethical aspects of
+Veganism <sup> <a id="fnr.3" class="footref" href="#fn.3">3</a></sup>. This is sadly a connection I didn't get until many
+years later. There will be a follow-up post on this.
+</p>
+ <div id="footnotes">
+ <h2 class="footnotes">Footnotes: </h2>
+ <div id="text-footnotes">
+
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <a href="https://en.wikipedia.org/wiki/Free_software">https://en.wikipedia.org/wiki/Free_software</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
+ <a href="https://en.wikipedia.org/wiki/Digital_divide">https://en.wikipedia.org/wiki/Digital_divide</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
+ <a href="https://en.wikipedia.org/wiki/Veganism#Ethical_veganism">https://en.wikipedia.org/wiki/Veganism#Ethical_veganism</a>
+</p></div></div>
+
+
+</div>
+</div></div>]]></description>
+  <link>https://elis.nu/blog/2021/01/why-i-use-free-software/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2021/01/why-i-use-free-software/index.html</guid>
+  <pubDate>Sat, 16 Jan 2021 00:00:00 +0000</pubDate>
+</item>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>Weechat Android SSH relay setup</title>
+  <description><![CDATA[<div id="content">
+
+ <div id="table-of-contents">
+ <h2>Table of Contents</h2>
+ <div id="text-table-of-contents">
+ <ul> <li> <a href="#weechat-configuration">Weechat configuration</a></li>
+ <li> <a href="#weechat-android-configuration">Weechat Android configuration</a>
+ <ul> <li> <a href="#ssh-setup">SSH setup</a>
+ <ul> <li> <a href="#generating-an-ssh-key">Generating an SSH key</a></li>
+ <li> <a href="#add-the-public-key-to-your-server">Add the public key to your server</a></li>
+ <li> <a href="#connection-settings-in-weechat-android">Connection settings in Weechat Android</a></li>
+</ul></li>
+ <li> <a href="#other-weechat-android-settings">Other Weechat Android settings</a></li>
+</ul></li>
+</ul></div>
+</div>
+ <p>
+Setting up the Weechat Android <sup> <a id="fnr.1" class="footref" href="#fn.1">1</a></sup> relay client over SSH can
+be a bit tricky and quite bad at giving useful error messages. So since I'm
+going through a re-setup of that I'm also writing down my notes here.
+</p>
+
+ <article id="outline-container-org1a565a9" class="outline-2"> <h2 id="weechat-configuration">Weechat configuration</h2>
+ <div class="outline-text-2" id="text-weechat-configuration">
+ <p>
+Type the following commands into Weechat.
+</p>
+
+ <p>
+Placeholders such as  <code>{port}</code> and  <code>{password}</code> will be used here and later
+on. Suggested default port is  <code>{9000}</code>, but you need to chose something
+unique on your system. This is especially important if you have a multi
+user system. Setting a  <code>{password}</code> is also especially important if you have
+a multi user system.
+</p>
+
+ <pre class="example">
+# Add a relay
+/relay add weechat {port}
+
+# Add a relay password
+/set relay.network.password "{password}"
+</pre>
+</div>
+</article> <article id="outline-container-org56204e0" class="outline-2"> <h2 id="weechat-android-configuration">Weechat Android configuration</h2>
+ <div class="outline-text-2" id="text-weechat-android-configuration">
+</div>
+
+ <div id="outline-container-orga6932cb" class="outline-3">
+ <h3 id="ssh-setup">SSH setup</h3>
+ <div class="outline-text-3" id="text-ssh-setup">
+</div>
+
+ <div id="outline-container-org66caef6" class="outline-4">
+ <h4 id="generating-an-ssh-key">Generating an SSH key</h4>
+ <div class="outline-text-4" id="text-generating-an-ssh-key">
+ <p>
+You need to generate a separate private key for storage on the phone to be
+able to connect to the server securely. So what I do is that I generate a
+new private key on a laptop, then I transfer the private key in some secure
+enough way to the phone and then make sure to deploy the public key to the
+server where weechat runs.
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Generate a private RSA key using openssl.</span>
+openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:4096
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Get the public SSH key from the private RSA key.</span>
+ssh-keygen -y -f private.pem
+</pre>
+</div>
+
+ <p>
+I know what you're thinking: “Why not just use ssh-keygen to begin with?”.
+This is because of this which still seems to be an issue:
+ <a href="https://github.com/ubergeek42/weechat-android/issues/317#issuecomment-421756006">https://github.com/ubergeek42/weechat-android/issues/317#issuecomment-421756006</a>
+</p>
+</div>
+</div>
+
+ <div id="outline-container-org98141ce" class="outline-4">
+ <h4 id="add-the-public-key-to-your-server">Add the public key to your server</h4>
+ <div class="outline-text-4" id="text-add-the-public-key-to-your-server">
+ <p>
+Make sure to add the public ssh key to your  <code>~/.ssh/authorized_keys</code> file on
+your server to allow connections. You get the public key by running
+ <code>ssh-keygen -y -f private.pem</code> as described above.
+</p>
+
+ <p>
+If you want some extra limitations on how this key may be used you can
+prepend the key with the following string:
+</p>
+ <blockquote>
+ <p>
+no-agent-forwarding,no-X11-forwarding,permitopen="127.0.0.1:{port}",
+command="echo 'This account can only be used for weechat relays'"
+</p>
+</blockquote>
+
+ <p>
+Remember to replace  <code>{port}</code> in there. The IP in there may be replaced by
+a local host name. But that must be reflected in the relay host settings
+in the app.
+</p>
+</div>
+</div>
+
+ <div id="outline-container-orga48b9ce" class="outline-4">
+ <h4 id="connection-settings-in-weechat-android">Connection settings in Weechat Android</h4>
+ <div class="outline-text-4" id="text-connection-settings-in-weechat-android">
+ <p>
+This is also part of the tricky bit, there's a big bunch of settings and all
+of them needs to be “just right”, otherwise it will fail and you will have
+no idea why.
+</p>
+
+ <p>
+So this is an ASCII reflection of the settings menu with descriptions of
+what to insert:
+</p>
+ <pre class="example">
+Settings/
+`-- Connection/
+    |-- Connection type        => SSH tunnel
+    |-- SSH tunnel settings/
+    |   |-- SSH host           => Public DNS name or IP
+    |   |
+    |   |-- SSH port           => Public SSH port number
+    |   |
+    |   |-- SSH username       => Your SSH username
+    |   |
+    |   |-- Private key        => Paste the contents of private.pem here.
+    |   |                      => You have to find your own way of
+    |   |                      => transferring this file to your phone in
+    |   |                      => a way that you think is “secure enough”
+    |   |
+    |   `-- Known hosts        => Paste the output of the command
+    |                          => "ssh-keyscan {ssh-host}" in this field.
+    |                          => This is less sensitive than the private key
+    |                          => but it's still easiest to run it on a
+    |                          => computer and transfer it to the phone and
+    |                          => paste it.
+    |
+    |-- Relay host             => 127.0.0.1 is probably fine. This is the IP
+    |                          => to connect to after you have tunneled over
+    |                          => SSH. So that's why it becomes localhost.
+    |
+    |-- Relay port             => Port defined in weechat settings.
+    |
+    `-- Relay password         => Password defined in weechat settings.
+</pre>
+</div>
+</div>
+</div>
+
+ <div id="outline-container-orgc9c9524" class="outline-3">
+ <h3 id="other-weechat-android-settings">Other Weechat Android settings</h3>
+ <div class="outline-text-3" id="text-other-weechat-android-settings">
+ <p>
+These are more a documentation of my personal preferences, nothing really
+required for it to work. Just my preferences.
+</p>
+
+ <pre class="example">
+Settings/
+|-- Connection/
+|   |-- Reconnect on connection loss     => [X]
+|   |-- Connect on system boot           => [ ]
+|   |-- Only sync open buffers           => [ ]
+|   `-- Sync buffer read status          => [X]
+|-- Buffer list/
+|   |-- Sort buffer list                 => [ ]
+|   |-- Hide non-conversation buffers    => [X]
+|   |-- Hide hidden buffers              => [X]
+|   `-- Show buffer filter               => [ ]
+|-- Look & feel/
+|   `-- Dim down non-human lines         => [X]
+`-- Buttons/
+    |-- Show tab button                  => [X]
+    |-- Show send button                 => [X]
+    `-- Volume buttons change text size  => [ ]
+</pre>
+</div>
+</div>
+</article> <div id="footnotes">
+ <h2 class="footnotes">Footnotes: </h2>
+ <div id="text-footnotes">
+
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+Weechat Android on GitHub:  <a href="https://github.com/ubergeek42/weechat-android">https://github.com/ubergeek42/weechat-android</a>,
+Weechat Android on Play Store:  <a href="https://play.google.com/store/apps/details?id=com.ubergeek42.WeechatAndroid">https://play.google.com/store/apps/details?id=com.ubergeek42.WeechatAndroid</a>
+</p></div></div>
+
+
+</div>
+</div></div>]]></description>
+  <link>https://elis.nu/blog/2020/08/weechat-android-ssh-relay-setup/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2020/08/weechat-android-ssh-relay-setup/index.html</guid>
+  <pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>My battle with wrist pains</title>
+  <description><![CDATA[<div id="content">
+
+ <div id="table-of-contents">
+ <h2>Table of Contents</h2>
+ <div id="text-table-of-contents">
+ <ul> <li> <a href="#ergonomics-part-1">Ergonomics part 1</a></li>
+ <li> <a href="#good-health">Good health</a>
+ <ul> <li> <a href="#why-pain">Why pain?</a></li>
+ <li> <a href="#handle-inflammation">Handle inflammation</a>
+ <ul> <li> <a href="#increased-blood-flow">Increased blood flow</a></li>
+ <li> <a href="#ingestion-of-inflammation">Ingestion of inflammation</a></li>
+</ul></li>
+</ul></li>
+ <li> <a href="#ergonomics-part-2">Ergonomics part 2</a></li>
+ <li> <a href="#summary">Summary</a></li>
+</ul></div>
+</div>
+ <blockquote>
+ <p>
+ <b>Note:</b> I'm not a doctor, dietitian or ergonomics expert. I just have spent a
+lot of time to find something that works well for me. This is my experience
+and you can probably take inspiration for it, but don't do stupid things and
+seek expert advice if you need it.
+</p>
+</blockquote>
+
+ <p>
+In parts of the IT industry abbreviations like RSI <sup> <a id="fnr.1" class="footref" href="#fn.1">1</a></sup> and CTS <sup> <a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
+gets thrown around fairly often. I'm guilty myself of doing this.
+</p>
+
+ <p>
+Approximately five years ago I thought that my career as a professional
+developer was over. This was at age 25. Since then I have worked in many
+ways to address these issues that I had problems with. I now feel confident
+that I've beaten it for my own sake.
+</p>
+
+ <p>
+In this post I'm going to go through the big rough steps of what I've changed
+over time. All the steps have been worked on in parallel so this blog post
+isn't linear.
+</p>
+
+ <article id="outline-container-org62c42d0" class="outline-2"> <h2 id="ergonomics-part-1">Ergonomics part 1</h2>
+ <div class="outline-text-2" id="text-ergonomics-part-1">
+ <p>
+The first thing I did on this field was really when I switched to
+Svorak <sup> <a id="fnr.3" class="footref" href="#fn.3">3</a></sup> (A Swedish Dvorak <sup> <a id="fnr.4" class="footref" href="#fn.4">4</a></sup> layout) around 2006 because it
+was different but also later noticed that it was more comfortable.
+</p>
+
+ <p>
+Then I've gone through keyboards, wrist rests, key switches, mice, and other
+utilities that are supposed to be ergonomically and "fix this".
+</p>
+
+ <p>
+I ordered two of Keyboardio <sup> <a id="fnr.5" class="footref" href="#fn.5">5</a></sup> Model 01 from
+Kickstarter <sup> <a id="fnr.6" class="footref" href="#fn.6">6</a></sup> when it launched, one for home and one for
+work. This set me to the path of Matias Quiet Switches <sup> <a id="fnr.7" class="footref" href="#fn.7">7</a></sup> as a
+good idea.
+</p>
+
+ <p>
+The delivery time was long enough so I never actually started to use it
+because I jumped on a groupby for the ErgoDox Infinity <sup> <a id="fnr.8" class="footref" href="#fn.8">8</a></sup>
+that that was launched way later but got shipped much faster. So I got two of
+that one as well to have one at work and one at home. They also happened to
+support the Matias Quiet Switches <sup> <a id="fnr.7.100" class="footref" href="#fn.7">7</a></sup>.
+</p>
+
+ <p>
+I've experienced quality issues with my Matias Switches which pushed me
+to move back to Cherry MX or at least something Cherry MX compatible. At a
+Keyboard meetup I got the chance to try out an ErgoDox with
+Zealios V2 <sup> <a id="fnr.9" class="footref" href="#fn.9">9</a></sup>. Which I later ordered switches for and it's now my
+main keyboard, together with the MX Ergo <sup> <a id="fnr.10" class="footref" href="#fn.10">10</a></sup> that replaced my
+previous M570 <sup> <a id="fnr.11" class="footref" href="#fn.11">11</a></sup>.
+</p>
+
+ <p>
+All this costed me a lot of money on hardware, it haven't solved all problems
+just magically. More has been needed.
+</p>
+</div>
+</article> <article id="outline-container-orge4b6e87" class="outline-2"> <h2 id="good-health">Good health</h2>
+ <div class="outline-text-2" id="text-good-health">
+ <p>
+Good health is the source of having a good healthy life. A lot of health
+comes from working out properly and eating good food.
+</p>
+</div>
+
+ <div id="outline-container-org9556b1e" class="outline-3">
+ <h3 id="why-pain">Why pain?</h3>
+ <div class="outline-text-3" id="text-why-pain">
+ <p>
+At the worst point I had so much pain that I went to a doctor regarding my
+issues. This was both a terrible experience but it thought me something.
+</p>
+
+ <p>
+The doctor told me this:
+</p>
+ <blockquote>
+ <p>
+If you're unable to use keyboards, then maybe you should find a job where you
+don't use keyboards.
+</p>
+</blockquote>
+
+ <p>
+The doctor also thought me that the source of the pain is
+inflammation <sup> <a id="fnr.12" class="footref" href="#fn.12">12</a></sup> that ends up in my wrists and joins and causes
+the pain. To lower the immediate pain, I got pain pills.
+</p>
+</div>
+</div>
+
+ <div id="outline-container-org0edae1e" class="outline-3">
+ <h3 id="handle-inflammation">Handle inflammation</h3>
+ <div class="outline-text-3" id="text-handle-inflammation">
+ <p>
+The thing with inflammation is that we all have a bit of inflammation in us
+all the time, from living. But it's not really a problem. Because the body
+can handle inflammation on it's own as long it's small quantities. I've found
+two primary ways to help the body to handle inflammation better.
+</p>
+</div>
+
+ <div id="outline-container-org829680a" class="outline-4">
+ <h4 id="increased-blood-flow">Increased blood flow</h4>
+ <div class="outline-text-4" id="text-increased-blood-flow">
+ <p>
+Increased blood flow to the regions with inflammation will help the body
+getting rid if inflammation faster.
+</p>
+
+ <p>
+As far as I see it, there's two reasonable ways to increase blood flow:
+</p>
+ <ul class="org-ul"> <li>If you're numb, massage may help to let blood through.</li>
+ <li>Doing activities that increase blood flow, for example physical activities
+such as running, cycling, etc. Any form of workout that raises the pulse.</li>
+</ul> <p>
+In the past three years I've gone from loathing physical activities to
+wanting more of it and actually miss it if it's not present.
+</p>
+</div>
+</div>
+
+ <div id="outline-container-org359e4dd" class="outline-4">
+ <h4 id="ingestion-of-inflammation">Ingestion of inflammation</h4>
+ <div class="outline-text-4" id="text-ingestion-of-inflammation">
+ <p>
+I started by going vegetarian several years ago as a "crazy experiment",
+without really knowing anything about the benefits. During the years it's
+over and over again has proved to be the right choice.
+</p>
+
+ <p>
+Since then, during the years I've read several books on the topic of diet.
+I've learned that all animal sources of food contains
+inflammation <sup> <a id="fnr.13" class="footref" href="#fn.13">13</a></sup>. I'm also pretty sure that adding extra
+inflammation to your body when you have problems with inflammation seems to
+be a bad idea.
+</p>
+
+ <p>
+Something that I believe have helped me greatly is to reduce the amount of
+animal sources of food down to zero.
+</p>
+
+ <p>
+So today I aim to follow a whole-food plant based diet <sup> <a id="fnr.14" class="footref" href="#fn.14">14</a></sup>
+that is low on fat.
+</p>
+
+ <p>
+Good documentaries / presentations:
+</p>
+ <ul class="org-ul"> <li> <a href="https://www.imdb.com/title/tt7455754/">The Game Changers</a> (IMDB link)</li>
+ <li> <a href="https://www.imdb.com/title/tt1567233/">Forks Over Knives</a> (IMDB link)</li>
+ <li> <a href="https://www.youtube.com/watch?v=xnKaOL2IBPY">Michael Greger – Food as Medicine</a> (YouTube, 18:28)</li>
+ <li> <a href="https://www.youtube.com/watch?v=wxs7V0I2q1Q">Michael Klaper - Vegan Nutrition: Pure and Simple</a> (YouTube, 1:35:28)</li>
+</ul> <p>
+To not mention books such as:
+</p>
+ <ul class="org-ul"> <li> <a href="https://nutritionfacts.org/book/">How to not Die – Micheal Greger</a></li>
+ <li> <a href="http://www.thechinastudy.com/">The China Study – Colin Campbell</a></li>
+ <li> <a href="https://www.amazon.com/Cheese-Trap-Breaking-Surprising-Addiction/dp/1455594687">The Cheese Trap – Neal D Barnard</a></li>
+ <li> <a href="http://proteinaholic.com">Proteinaholic – Garth Davis</a></li>
+</ul></div>
+</div>
+</div>
+</article> <article id="outline-container-org368e0ca" class="outline-2"> <h2 id="ergonomics-part-2">Ergonomics part 2</h2>
+ <div class="outline-text-2" id="text-ergonomics-part-2">
+ <p>
+During the spring of 2020, I went to a private doctor that did a ultrasound
+scan of my wrists. The doctor scanned my wrists and said this:
+</p>
+ <blockquote>
+ <p>
+I have good news and I have bad news:
+</p>
+ <ul class="org-ul"> <li>I can't find anything that is broken.</li>
+ <li>It's probably an environmental issue of something you do in your daily
+work that causes this.</li>
+</ul></blockquote>
+
+ <p>
+I've also had recorded a video of me typing on my ErgoDoxes just the week
+before which I offered to show the doctor.
+</p>
+
+ <p>
+He was impressed by the pretty keyboard but also immediately spotted a
+potential problem: How I used my wrist rests.
+</p>
+
+ <p>
+I did put too much pressure on my wrist rests and needed to rest my arms
+more to have less pressure on the wrists. This combined with avoiding weird
+angles using the wrists to hold the laptop in place and avoiding weird angles
+of using my phone has made the pain manageable.
+</p>
+
+ <p>
+I can now feel the pain from what I do, and I can stop it by not working in
+that position or doing that particular thing. I have the tools to not have
+pain even after 8-10 hours of keyboard use in a single day. And I can work
+a full time job without any problems.
+</p>
+</div>
+</article> <article id="outline-container-org75303a9" class="outline-2"> <h2 id="summary">Summary</h2>
+ <div class="outline-text-2" id="text-summary">
+ <p>
+A TL DR of my actions that made the pain manageable:
+</p>
+ <ul class="org-ul"> <li>Ergonomic keyboard with wrist and arm rests for long time use</li>
+ <li>Sticking to a fully plant based diet <sup> <a id="fnr.14.100" class="footref" href="#fn.14">14</a></sup></li>
+ <li>Working out three to four times a week</li>
+</ul> <p>
+It's still a daily struggle, but it's manageable and easy to live with
+compared to how it was in the past.
+</p>
+</div>
+</article> <div id="footnotes">
+ <h2 class="footnotes">Footnotes: </h2>
+ <div id="text-footnotes">
+
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+RSI - Repetitive Strain Injury:
+ <a href="https://en.wikipedia.org/wiki/Repetitive_strain_injury">https://en.wikipedia.org/wiki/Repetitive_strain_injury</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
+CTS - Carpal tunnel syndrome:
+ <a href="https://en.wikipedia.org/wiki/Carpal_tunnel_syndrome">https://en.wikipedia.org/wiki/Carpal_tunnel_syndrome</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
+Svorak is one of the Swedish Dvoraks:  <a href="http://aoeu.info">http://aoeu.info</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"> <p class="footpara">
+Dvorak keyboard layout:
+ <a href="https://en.wikipedia.org/wiki/Dvorak_keyboard_layout">https://en.wikipedia.org/wiki/Dvorak_keyboard_layout</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"> <p class="footpara">
+Keyboardio web shop:  <a href="https://keyboard.io/">https://keyboard.io/</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"> <p class="footpara">
+The Model 01: an heirloom-grade keyboard for serious typists:
+ <a href="https://www.kickstarter.com/projects/keyboardio/the-model-01-an-heirloom-grade-keyboard-for-seriou">https://www.kickstarter.com/projects/keyboardio/the-model-01-an-heirloom-grade-keyboard-for-seriou</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"> <p class="footpara">
+Matias quiet click switches:
+ <a href="http://matias.ca/switches/quiet/">http://matias.ca/switches/quiet/</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara"> <p class="footpara">
+Infinity ErgoDox Mechanical Keyboard:
+ <a href="https://input.club/devices/infinity-ergodox/">https://input.club/devices/infinity-ergodox/</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara"> <p class="footpara">
+Purple Zealios V2 Switches (Tactile):
+ <a href="https://zealpc.net/products/zealio">https://zealpc.net/products/zealio</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.10" class="footnum" href="#fnr.10">10</a></sup> <div class="footpara"> <p class="footpara">
+Logitech MX Ergo trackball:
+ <a href="https://www.logitech.com/en-us/product/mx-ergo-wireless-trackball-mouse">https://www.logitech.com/en-us/product/mx-ergo-wireless-trackball-mouse</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.11" class="footnum" href="#fnr.11">11</a></sup> <div class="footpara"> <p class="footpara">
+Logitech M570 trackball:
+ <a href="https://www.logitech.com/en-us/product/wireless-trackball-m570">https://www.logitech.com/en-us/product/wireless-trackball-m570</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.12" class="footnum" href="#fnr.12">12</a></sup> <div class="footpara"> <p class="footpara">
+Wikipedia about inflammation:
+ <a href="https://en.wikipedia.org/wiki/Inflammation">https://en.wikipedia.org/wiki/Inflammation</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.13" class="footnum" href="#fnr.13">13</a></sup> <div class="footpara"> <p class="footpara">
+Nutrition Facts page about inflammation:
+ <a href="https://nutritionfacts.org/topics/inflammation/">https://nutritionfacts.org/topics/inflammation/</a>
+</p></div></div>
+
+ <div class="footdef"> <sup> <a id="fn.14" class="footnum" href="#fnr.14">14</a></sup> <div class="footpara"> <p class="footpara">
+Nutrition Facts page about plant based diets:
+ <a href="https://nutritionfacts.org/topics/plant-based-diets/">https://nutritionfacts.org/topics/plant-based-diets/</a>
+</p></div></div>
+
+
+</div>
+</div></div>]]></description>
+  <link>https://elis.nu/blog/2020/08/my-battle-with-wrist-pains/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2020/08/my-battle-with-wrist-pains/index.html</guid>
+  <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>NixOS ❄: tmpfs as home</title>
+  <description><![CDATA[<div id="content">
+
+ <div id="table-of-contents">
+ <h2>Table of Contents</h2>
+ <div id="text-table-of-contents">
+ <ul> <li> <a href="#part-1-home-manager">Part 1 - Home Manager</a></li>
+ <li> <a href="#part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</a></li>
+ <li> <a href="#part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</a></li>
+</ul></div>
+</div>
+ <p>
+This is a follow-up post for my earlier post:  <a href="../../05/nixos-tmpfs-as-root/">NixOS ❄: tmpfs as root</a>.
+</p>
+
+ <p>
+When you start to go down the route of setting up a “pure” system that is as
+clean as you want it to be on each boot. You may start with the lazy route of
+using a persistent partition for your home directory. But it never feels
+quite right. But initially it's so convenient to choose this path.
+</p>
+
+ <p>
+So if you have gone through the first steps to get to a state of having a
+“pure” system, but didn't go “all in” and left your entire home directory
+as a persistent directory. This post will explain how to take it to the next
+level of purity.
+</p>
+
+ <article id="outline-container-org33ff14e" class="outline-2"> <h2 id="part-1-home-manager">Part 1 - Home Manager</h2>
+ <div class="outline-text-2" id="text-part-1-home-manager">
+ <p>
+The first thing you want to do unless you already done this is to start using
+ <a href="https://github.com/rycee/home-manager/">Home Manager</a> to manage the home directory. It's an excellent way to configure
+many programs as the user through a nix configuration file.
+</p>
+
+ <p>
+However I would advice to use the NixOS module that home manager provides
+instead of using home manager directly. This way the updates to home manager
+is done as part of the system generations, as well as rollbacks. The set-up
+for using the module is fairly straightforward and simple.
+</p>
+
+ <p>
+Sample module that can be imported into  <code>configuration.nix</code> using  <code>imports</code>:
+</p>
+ <div class="org-src-container">
+ <pre class="src src-nix">{ pkgs, ... }:
+
+ <span class="org-nix-keyword">let</span>
+   <span class="org-nix-attribute">home-manager</span> = builtins.fetchTarball {
+     <span class="org-nix-attribute">url</span> =  <span class="org-string">"https://github.com/rycee/home-manager/archive/master.tar.gz"</span>;
+  };
+ <span class="org-nix-keyword">in</span> {
+   <span class="org-comment"># Import the home-manager module.</span>
+   <span class="org-nix-attribute">imports</span> = [  <span class="org-string">"</span> <span class="org-nix-antiquote">${</span>home-manager <span class="org-nix-antiquote">}</span> <span class="org-string">/nixos"</span> ];
+
+   <span class="org-comment"># Home manager configuration for user jane.</span>
+   <span class="org-nix-attribute">home-manager.users.jane</span> = { pkgs, ... }: {
+     <span class="org-nix-attribute">programs.home-manager.enable</span> =  <span class="org-nix-builtin">true</span>;
+
+     <span class="org-comment"># In here you can do settings for home-manager, these are listed in the</span>
+     <span class="org-comment"># manual available in: $ man home-configuration.nix</span>
+
+     <span class="org-comment"># In here you can use the "home.file" features of home manager to link</span>
+     <span class="org-comment"># certain files to certain content. However, that's not the same as</span>
+     <span class="org-comment"># linking it to persistent storage since it will copy the file to the</span>
+     <span class="org-comment"># store where it will become read only. That may be perfectly fine for</span>
+     <span class="org-comment"># certain files. For other paths (such as "~/Downloads/"), it may be</span>
+     <span class="org-comment"># quite unsuitable.</span>
+
+     <span class="org-comment"># Example: Enable network manager applet for this user:</span>
+     <span class="org-nix-attribute">services.network-manager-applet.enable</span> =  <span class="org-nix-builtin">true</span>;
+  };
+}
+</pre>
+</div>
+
+ <p>
+To make this even better,  <a href="https://github.com/talyz">talyz</a> spent quite some time to implement modules
+to help doing persistence handling better – both in NixOS, but also as a
+Home Manager module. These modules became the  <a href="https://github.com/nix-community/impermanence">impermanence</a> community project.
+</p>
+</div>
+</article> <article id="outline-container-org3ff874c" class="outline-2"> <h2 id="part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</h2>
+ <div class="outline-text-2" id="text-part-2-persistence-module-for-home-manager">
+ <p>
+Based on the previous example we're going to extend it to use the home
+manager module.
+</p>
+
+ <p>
+So we're going to extend the code sample from above:
+</p>
+ <div class="org-src-container">
+ <pre class="src src-nix">{ pkgs, ... }:
+
+ <span class="org-nix-keyword">let</span>
+   <span class="org-nix-attribute">home-manager</span> = builtins.fetchTarball {
+     <span class="org-nix-attribute">url</span> =  <span class="org-string">"https://github.com/rycee/home-manager/archive/master.tar.gz"</span>;
+  };
+   <span class="org-comment"># New: Load the module</span>
+   <span class="org-nix-attribute">impermanence</span> = builtins.fetchTarball {
+     <span class="org-nix-attribute">url</span> =
+       <span class="org-string">"https://github.com/nix-community/impermanence/archive/master.tar.gz"</span>;
+  };
+ <span class="org-nix-keyword">in</span> {
+   <span class="org-comment"># Import the home-manager module.</span>
+   <span class="org-nix-attribute">imports</span> = [  <span class="org-string">"</span> <span class="org-nix-antiquote">${</span>home-manager <span class="org-nix-antiquote">}</span> <span class="org-string">/nixos"</span> ];
+
+   <span class="org-comment"># Home manager configuration for user jane.</span>
+   <span class="org-nix-attribute">home-manager.users.jane</span> = { pkgs, ... }: {
+     <span class="org-comment"># New: Import a persistence module for home-manager.</span>
+     <span class="org-nix-attribute">imports</span> = [  <span class="org-string">"</span> <span class="org-nix-antiquote">${</span>impermanence <span class="org-nix-antiquote">}</span> <span class="org-string">/home-manager.nix"</span> ];
+
+     <span class="org-nix-attribute">programs.home-manager.enable</span> =  <span class="org-nix-builtin">true</span>;
+
+     <span class="org-comment"># New: Now we can use the "home.persistence" module, here's an example:</span>
+    home.persistence. <span class="org-string">"/nix/persist/home/jane"</span> = {
+       <span class="org-nix-attribute">directories</span> = [  <span class="org-string">".ssh"</span>  <span class="org-string">"Downloads"</span> ];
+       <span class="org-nix-attribute">files</span> = [  <span class="org-string">".bash_history"</span> ];
+    };
+  };
+}
+</pre>
+</div>
+
+ <p>
+The  <code>home.persistence</code> module allows to easily select which files and
+directories you want to have symlinked from your home directory to the
+persistent storage selected.
+</p>
+
+ <p>
+This also allows to have different storage for different files in your
+home directory. Say that you have different needs to backup certain files
+but that you still want persistence. Then you can put the ones you want to
+backup in a certain directory and the rest in another place.
+</p>
+</div>
+</article> <article id="outline-container-orgd454813" class="outline-2"> <h2 id="part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</h2>
+ <div class="outline-text-2" id="text-part-3-persistence-module-for-nixos">
+ <p>
+This example nix file will import the persistence module for nixos and create
+some symlinks for files in  <code>etc</code> that may be useful to have persistence on,
+as well making bind mounts for certain directories.
+</p>
+ <div class="org-src-container">
+ <pre class="src src-nix">{ ... }:
+
+ <span class="org-nix-keyword">let</span>
+   <span class="org-nix-attribute">impermanence</span> = builtins.fetchTarball {
+     <span class="org-nix-attribute">url</span> =
+       <span class="org-string">"https://github.com/nix-community/impermanence/archive/master.tar.gz"</span>;
+  };
+ <span class="org-nix-keyword">in</span> {
+   <span class="org-comment"># Import the nixos module.</span>
+   <span class="org-nix-attribute">imports</span> = [  <span class="org-string">"</span> <span class="org-nix-antiquote">${</span>impermanence <span class="org-nix-antiquote">}</span> <span class="org-string">/nixos.nix"</span> ];
+
+  environment.persistence. <span class="org-string">"/nix/persist"</span> = {
+     <span class="org-nix-attribute">directories</span> = [
+       <span class="org-string">"/etc/nixos"</span>
+       <span class="org-string">"/etc/NetworkManager/system-connections"</span>
+    ];
+     <span class="org-nix-attribute">files</span> = [
+       <span class="org-string">"/etc/machine-id"</span>
+       <span class="org-string">"/etc/ssh/ssh_host_rsa_key"</span>
+       <span class="org-string">"/etc/ssh/ssh_host_rsa_key.pub"</span>
+       <span class="org-string">"/etc/ssh/ssh_host_ed25519_key"</span>
+       <span class="org-string">"/etc/ssh/ssh_host_ed25519_key.pub"</span>
+    ];
+  };
+}
+</pre>
+</div>
+</div>
+</article></div>]]></description>
+  <link>https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/index.html</guid>
+  <pubDate>Sat, 27 Jun 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>NixOS ❄: tmpfs as root</title>
+  <description><![CDATA[<div id="content">
+
+ <div id="table-of-contents">
+ <h2>Table of Contents</h2>
+ <div id="text-table-of-contents">
+ <ul> <li> <a href="#step-1-partitioning">Step 1 - Partitioning</a></li>
+ <li> <a href="#step-2-creating-the-file-systems">Step 2 - Creating the file systems</a></li>
+ <li> <a href="#step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</a></li>
+ <li> <a href="#step-4-configuration">Step 4 - Configuration</a>
+ <ul> <li> <a href="#step-4-1-configure-disks">Step 4.1 - Configure disks</a></li>
+ <li> <a href="#step-4-2-configure-users">Step 4.2 - Configure users</a></li>
+ <li> <a href="#step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</a></li>
+ <li> <a href="#step-4-4-configure-the-rest-of-your-system">Step 4.4 - Configure the rest of your system</a></li>
+</ul></li>
+ <li> <a href="#step-5-perform-install">Step 5 - Perform install</a></li>
+</ul></div>
+</div>
+ <p>
+One fairly unique property of NixOS is the ability to boot with only  <code>/boot</code>
+and  <code>/nix</code>. Nothing else is actually required. This supports doing all sorts
+of weird things with your root file system.
+</p>
+
+ <p>
+One way is to do like  <a href="https://grahamc.com/blog/erase-your-darlings">Graham's post "erase your darlings"</a> describes and empty
+your root file system each boot using ZFS snapshots. This way have some cool
+things that you could do on top of his setup, such as doing snapshots when
+it's running and roll-back to empty on boot. That way you actually can go
+back to recover files you lost but still have an empty state.
+</p>
+
+ <p>
+Another way is to go the tmpfs way which is probably why you're here. So I'm
+going to walk through the install with tmpfs as root file system.
+</p>
+
+ <article id="outline-container-orgcb7e069" class="outline-2"> <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
+ <div class="outline-text-2" id="text-step-1-partitioning">
+ <p>
+I'm going to do the most basic setup when it comes to file systems, just a
+ <code>/boot</code> as  <code>fat32</code> and  <code>/nix</code> as  <code>ext4</code> without encryption. If you want to
+have another file system or use LUKS or something it should be trivial to just
+format the drive differently and mount it.
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Defining a helper variable to make the</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">following commands shorter.</span>
+ <span class="org-variable-name">DISK</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Create partition table</span>
+parted $ <span class="org-variable-name">DISK</span> -- mklabel gpt
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Create a /boot as $DISK-part1</span>
+parted $ <span class="org-variable-name">DISK</span> -- mkpart ESP fat32 1MiB 512MiB
+parted $ <span class="org-variable-name">DISK</span> -- set 1 boot on
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Create a /nix as $DISK-part2</span>
+parted $ <span class="org-variable-name">DISK</span> -- mkpart Nix 512MiB 100%
+</pre>
+</div>
+</div>
+</article> <article id="outline-container-org723680c" class="outline-2"> <h2 id="step-2-creating-the-file-systems">Step 2 - Creating the file systems</h2>
+ <div class="outline-text-2" id="text-step-2-creating-the-file-systems">
+ <p>
+This is fairly straight forward in my example:
+</p>
+ <div class="org-src-container">
+ <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">/boot partition</span>
+mkfs.vfat $ <span class="org-variable-name">DISK</span>-part1
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">/nix partition</span>
+mkfs.ext4 $ <span class="org-variable-name">DISK</span>-part2
+</pre>
+</div>
+</div>
+</article> <article id="outline-container-orga7691e3" class="outline-2"> <h2 id="step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</h2>
+ <div class="outline-text-2" id="text-step-3-mounting-the-file-systems">
+ <p>
+Here we do one of the neat tricks, we mount tmpfs instead of a partition and
+then we mount the partitions we just created.
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Mount your root file system</span>
+mount -t tmpfs none /mnt
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Create directories</span>
+mkdir -p /mnt/{boot,nix,etc/nixos,var/log}
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Mount /boot and /nix</span>
+mount $ <span class="org-variable-name">DISK</span>-part1 /mnt/boot
+mount $ <span class="org-variable-name">DISK</span>-part2 /mnt/nix
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Create a directory for persistent directories</span>
+mkdir -p /mnt/nix/persist/{etc/nixos,var/log}
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Bind mount the persistent configuration / logs</span>
+mount -o bind /mnt/nix/persist/etc/nixos /mnt/etc/nixos
+mount -o bind /mnt/nix/persist/var/log /mnt/var/log
+</pre>
+</div>
+</div>
+</article> <article id="outline-container-org3d365e6" class="outline-2"> <h2 id="step-4-configuration">Step 4 - Configuration</h2>
+ <div class="outline-text-2" id="text-step-4-configuration">
+ <p>
+Then go ahead and do a  <code>nixos-generate-config --root /mnt</code> to get a basic
+configuration for your system.
+</p>
+</div>
+
+ <div id="outline-container-orgfd2f327" class="outline-3">
+ <h3 id="step-4-1-configure-disks">Step 4.1 - Configure disks</h3>
+ <div class="outline-text-3" id="text-step-4-1-configure-disks">
+ <p>
+One thing you  <i>want</i> to do that isn't needed when you install on a normal
+file system is that you want to set options for your root file system.
+</p>
+
+ <p>
+So go ahead, open up  <code>hardware-configuration.nix</code> and add the following
+options to your root file system.
+</p>
+
+ <p>
+The most important bit is the  <code>mode</code>, otherwise certain software (such as
+openssh) won't be happy with the permissions of the file system.
+</p>
+
+ <p>
+The  <code>size</code> is something you can adjust depending on how much garbage you
+are willing to store in ram until you run out of space on your root. 2G is
+usually big enough for most of my systems.
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-nix">{
+   <span class="org-comment"># …</span>
+
+  fileSystems. <span class="org-string">"/"</span> = {
+     <span class="org-nix-attribute">device</span> =  <span class="org-string">"none"</span>;
+     <span class="org-nix-attribute">fsType</span> =  <span class="org-string">"tmpfs"</span>;
+     <span class="org-nix-attribute">options</span> = [  <span class="org-string">"defaults"</span>  <span class="org-string">"size=2G"</span>  <span class="org-string">"mode=755"</span> ];
+  };
+
+   <span class="org-comment"># …</span>
+}
+</pre>
+</div>
+</div>
+</div>
+
+ <div id="outline-container-org6955611" class="outline-3">
+ <h3 id="step-4-2-configure-users">Step 4.2 - Configure users</h3>
+ <div class="outline-text-3" id="text-step-4-2-configure-users">
+ <p>
+When you have a system with a tmpfs root you have to configure all users and
+passwords in  <code>configuration.nix</code>, otherwise you won't have any user or a
+password on the next boot.
+</p>
+
+ <p>
+You probably want to have immutable users as well since it doesn't make any
+sense to have mutability of users if it's going to reset anyways.
+</p>
+
+ <p>
+ <b>Note:</b> Don't use the options  <b>password</b> or  <b>hashedPassword</b> for users
+because it won't work. It has to be the options named  <b>initialPassword</b> or
+ <b>initialHashedPassword</b>.
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-nix">{
+   <span class="org-comment"># …</span>
+
+   <span class="org-comment"># Don't allow mutation of users outside of the config.</span>
+   <span class="org-nix-attribute">users.mutableUsers</span> =  <span class="org-nix-builtin">false</span>;
+
+   <span class="org-comment"># Set a root password, consider using</span>
+   <span class="org-comment"># initialHashedPassword instead.</span>
+   <span class="org-comment">#</span>
+   <span class="org-comment"># To generate a hash to put in initialHashedPassword</span>
+   <span class="org-comment"># you can do this:</span>
+   <span class="org-comment"># $ nix-shell --run 'mkpasswd -m SHA-512 -s' -p mkpasswd</span>
+   <span class="org-nix-attribute">users.users.root.initialPassword</span> =  <span class="org-string">"hunter2"</span>;
+
+   <span class="org-comment"># …</span>
+}
+</pre>
+</div>
+
+ <p>
+Make sure to add your own user with a password. The password for the root
+user is of course optional. But it may be quite useful.
+</p>
+</div>
+</div>
+
+ <div id="outline-container-org1eaad44" class="outline-3">
+ <h3 id="step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</h3>
+ <div class="outline-text-3" id="text-step-4-3-configure-persistent-files-directories">
+ <p>
+You probably want to have some more persistent files than the two bind mounts
+we already have created during the setup.
+</p>
+
+ <p>
+Adding persistent files from etc:
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-nix">{
+   <span class="org-comment"># …</span>
+
+   <span class="org-comment"># machine-id is used by systemd for the journal, if</span>
+   <span class="org-comment"># you don't persist this file you won't be able to easily</span>
+   <span class="org-comment"># use journalctl to look at journals for previous boots.</span>
+  environment.etc. <span class="org-string">"machine-id"</span>.source
+    =  <span class="org-string">"/nix/persist/etc/machine-id"</span>;
+
+
+   <span class="org-comment"># if you want to run an openssh daemon, you may want to</span>
+   <span class="org-comment"># store the host keys across reboots.</span>
+   <span class="org-comment">#</span>
+   <span class="org-comment"># For this to work you will need to create the</span>
+   <span class="org-comment"># directory yourself:</span>
+   <span class="org-comment"># $ mkdir /nix/persist/etc/ssh</span>
+  environment.etc. <span class="org-string">"ssh/ssh_host_rsa_key"</span>.source
+    =  <span class="org-string">"/nix/persist/etc/ssh/ssh_host_rsa_key"</span>;
+  environment.etc. <span class="org-string">"ssh/ssh_host_rsa_key.pub"</span>.source
+    =  <span class="org-string">"/nix/persist/etc/ssh/ssh_host_rsa_key.pub"</span>;
+  environment.etc. <span class="org-string">"ssh/ssh_host_ed25519_key"</span>.source
+    =  <span class="org-string">"/nix/persist/etc/ssh/ssh_host_ed25519_key"</span>;
+  environment.etc. <span class="org-string">"ssh/ssh_host_ed25519_key.pub"</span>.source
+    =  <span class="org-string">"/nix/persist/etc/ssh/ssh_host_ed25519_key.pub"</span>;
+
+   <span class="org-comment"># …</span>
+}
+</pre>
+</div>
+
+ <p>
+From here you can probably figure out how to do more bind-mounts and
+symbolic links in  <code>/etc</code> for the files you want to live across reboots.
+</p>
+
+ <p>
+A useful tool to discovering files in your tmpfs is  <b>ncdu</b>, I tend to run
+ <b>sudo ncdu -x /</b> to walk around the directory tree to see if there's
+something I want to make persistent.
+</p>
+
+ <p>
+You may want to make your  <code>/home</code> persistent, that can be done by a mount
+or bind-mount. I have that as tmpfs as well, but that is probably enough
+content for it's own post.
+</p>
+
+ <p>
+ <b>Update:</b> Now there's a follow-up post for putting tmpfs on  <code>/home</code> as well,
+it's located here:  <a href="../../06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as home</a>.
+</p>
+</div>
+</div>
+
+ <div id="outline-container-orgcb9c9f2" class="outline-3">
+ <h3 id="step-4-4-configure-the-rest-of-your-system">Step 4.4 - Configure the rest of your system</h3>
+ <div class="outline-text-3" id="text-step-4-4-configure-the-rest-of-your-system">
+ <p>
+You should make sure to go through  <code>configuration.nix</code> to make all necessary
+configuration you want such as boot loader,  <code>hostname</code>,  <code>timezone</code>,
+keymap, personal user, network settings, etc.
+</p>
+</div>
+</div>
+</article> <article id="outline-container-org1929e21" class="outline-2"> <h2 id="step-5-perform-install">Step 5 - Perform install</h2>
+ <div class="outline-text-2" id="text-step-5-perform-install">
+ <p>
+Perform the actual install. We can ignore setting the roots password at the
+end of the install since it won't be there after reboot anyway.
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-sh">nixos-install --no-root-passwd
+</pre>
+</div>
+</div>
+</article></div>]]></description>
+  <link>https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/index.html</guid>
+  <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>PHP packaging in NixOS ❄</title>
+  <description><![CDATA[<div id="content">
+
+ <div id="table-of-contents">
+ <h2>Table of Contents</h2>
+ <div id="text-table-of-contents">
+ <ul> <li> <a href="#state-of-php-before-nixos-20.09">State of PHP before NixOS 20.09</a></li>
+ <li> <a href="#the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</a></li>
+ <li> <a href="#state-of-php-in-nixos-in-20.09-and-beyond">State of PHP in NixOS in 20.09 and beyond</a></li>
+</ul></div>
+</div>
+ <p>
+This is a sneak peak into the future 20.09 release of NixOS.
+</p>
+
+ <p>
+The PHP packaging ecosystem in NixOS has been in a quite sad state for a long
+time. Partly because of the lack of people caring about PHP in Nix, but also
+that PHP is a bit weird when it comes to packaging.
+</p>
+
+ <article id="outline-container-orgdca16dd" class="outline-2"> <h2 id="state-of-php-before-nixos-20.09">State of PHP before NixOS 20.09</h2>
+ <div class="outline-text-2" id="text-state-of-php-before-nixos-20.09">
+ <p>
+Due to the lack of ability to do clever things like the python community does
+with  <code>withPackages</code> to compose a package with the dependencies you need we
+have defaulted to provide a huge default package to accommodate all needs.
+</p>
+
+ <p>
+We have been quite bad at accommodating all needs though…
+</p>
+
+ <p>
+I'm gonna give a few examples.
+</p>
+
+ <p>
+PHP in NixOS has defaulted to including for example the following modules:
+</p>
+ <ul class="org-ul"> <li> <code>curl</code></li>
+ <li> <code>pdo_mysql</code></li>
+ <li> <code>pdo_odbc</code></li>
+ <li> <code>pdo_pgsql</code></li>
+ <li> <code>imap</code></li>
+ <li> <code>ldap</code></li>
+</ul> <p>
+… among many other modules. Some of these are quite convenient to get (such
+as database related extensions). But some of these are totally unreasonable
+to have as default in a distribution. But due to the nature of Nix and the
+lack of easily extending PHP we have just coped with having a huge
+distribution of PHP.
+</p>
+
+ <p>
+Also, at the same time we have lacked some other notable extensions in the
+default build, such as  <code>opcache</code>, without recompiling PHP…
+</p>
+
+ <p>
+So users migrating from another distribution, for example anything based on
+Debian that defaults to having opcache enabled by default will see a drastic
+performance penalty by migrating to NixOS. This can be fixed by enabling the
+opcache flag for the build and recompile the entire PHP package. How fun…
+</p>
+</div>
+</article> <article id="outline-container-org775cccc" class="outline-2"> <h2 id="the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</h2>
+ <div class="outline-text-2" id="text-the-road-to-a-better-php-packaging-ecosystem">
+ <p>
+Real work and thought into this project started in December 2019 when I had
+a chat with Grahamc about a packaging in PHP. And he referred me to talk to a
+another person that was doing a modular PHP setup. I got some notes and
+started to work on it but it proved to be a huge project. So it kinda died
+off there.
+</p>
+
+ <p>
+Then  <a href="https://github.com/NixOS/nixpkgs/pull/79377">PHP: buildEnv function for additional config on the CLI SAPI</a> happened
+that made it easier to extend PHP as it was, and I was really happy to see
+this work happening since it really followed along some of the things I
+wanted to do. So I set off and made  <a href="https://github.com/NixOS/nixpkgs/pull/82348">PHP extensions as packages</a> to package
+almost all PHP extensions as separate packages. With this it would be easier
+to pull in official PHP extensions into the PHP package without the need to
+recompile it.
+</p>
+
+ <p>
+This led to the end game to have a really small PHP as base, but it's easy
+to extend. This led me to the path to start with  <a href="https://github.com/NixOS/nixpkgs/pull/82794">PHP: Make the default
+package more sane</a> of the first iteration. But it proved to be a big project,
+so  <a href="https://github.com/talyz/">@talyz</a> and me teamed up with to bring this project to what we wanted
+to achieve.
+</p>
+
+ <p>
+This finally ended up as the following pull request:
+ <a href="https://github.com/NixOS/nixpkgs/pull/83896">PHP: Make the default package more sane (v3)</a>. That now has been merged into
+nixpkgs. This PR change the entire PHP ecosystem in NixOS.
+</p>
+</div>
+</article> <article id="outline-container-org065bac0" class="outline-2"> <h2 id="state-of-php-in-nixos-in-20.09-and-beyond">State of PHP in NixOS in 20.09 and beyond</h2>
+ <div class="outline-text-2" id="text-state-of-php-in-nixos-in-20.09-and-beyond">
+ <p>
+The things we have done:
+</p>
+ <ul class="org-ul"> <li>We have made a really small PHP as base</li>
+ <li>But we extend it by default to contain a bigger set of packages to not
+for break our users.</li>
+ <li>We provide almost all upstream extensions and a bunch of 3rd party ones
+for inclusion into your PHP.</li>
+ <li>We have written the initial documentation for how to use PHP on Nix.</li>
+ <li>We have enabled running tests for every upstream extension of PHP by
+default. And we do it when we build each extension in a sandbox separate
+from each other (This has some issues though).</li>
+ <li>We have added  <code>opcache</code> as a default extension.</li>
+</ul> <p>
+So hereby I now make the following claim:
+</p>
+
+ <p>
+NixOS now have the best packaging of PHP on any distribution of any operating
+system out there when it comes to the following properties:
+</p>
+ <ul class="org-ul"> <li>Opportunity for minimalist install</li>
+ <li>Flexibility to select exactly which extensions you want</li>
+</ul> <p>
+Example to build a PHP with exactly the extensions I want:
+</p>
+ <div class="org-src-container">
+ <pre class="src src-nix">php.withExtensions ({ enabled, all }:  <span class="org-nix-keyword">with</span> all; [
+  curl imagick opcache redis pdo_mysql pdo mysqlnd
+  openssl posix sodium sockets
+])
+</pre>
+</div>
+
+ <p>
+And since Nix can be used to build Docker images and be used for deployments,
+this becomes a damn powerful packaging even for users that don't want to run
+NixOS but want to have the power of quickly customizing PHP to exactly their
+needs for that specific application.
+</p>
+
+ <p>
+ <b>Let's say it again:</b>
+NixOS now has the single best PHP packaging that exists in terms of
+flexibility, being reproducible and being minimalistic at the same time.
+</p>
+</div>
+</article></div>]]></description>
+  <link>https://elis.nu/blog/2020/04/php-packaging-in-nixos/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2020/04/php-packaging-in-nixos/index.html</guid>
+  <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>Double stitched Penguin Beanie</title>
+  <description><![CDATA[<div id="content">
+
+ <div id="table-of-contents">
+ <h2>Table of Contents</h2>
+ <div id="text-table-of-contents">
+ <ul> <li> <a href="#pattern-chart">Pattern chart</a></li>
+ <li> <a href="#pattern-description">Pattern description</a></li>
+ <li> <a href="#pictures">Pictures</a>
+ <ul> <li> <a href="#friendly-penguin">Friendly penguin</a></li>
+ <li> <a href="#evil-penguin-inside">Evil penguin inside</a></li>
+</ul></li>
+</ul></div>
+</div>
+
+ <div class="figure">
+ <p> <img src="./friendly_penguin_frond_and_side_thumb.png" alt="friendly_penguin_frond_and_side_thumb.png"></img></p>
+</div>
+
+ <p>
+This is a quite unusual post for this blog, it's not what I've expected to
+put on here. But I wanted to share it somewhere more permanent than many
+other places where I hang out on the internet. So here it goes.
+</p>
+
+ <p>
+I've been knitting for a bunch of years now, and some years ago I was
+intrigued by a knitting method that is called double knitting. In theory it's
+fairly simple because you basically make two knitting's at the same time in
+parallel and mirror the pattern.
+</p>
+
+ <p>
+And I haven't tried this before but I wanted to make a penguin beanie. And
+I'm pretty happy with the result. It's symmetric so the inside is the inverse
+of the outside. And the inside kinda became the evil twin of the outside.
+</p>
+
+ <article id="outline-container-org4762afc" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
+ <div class="outline-text-2" id="text-pattern-chart">
+
+ <div class="figure">
+ <p> <img src="./small_chart.png" alt="small_chart.png"></img></p>
+</div>
+
+ <p>
+ <a href="./medium_chart.png">Link to bigger chart</a>.  <a href="https://www.stitchfiddle.com/en/c/sifm3s-xp37/quickview">Link to full pattern</a>.
+</p>
+</div>
+</article> <article id="outline-container-org4e7d062" class="outline-2"> <h2 id="pattern-description">Pattern description</h2>
+ <div class="outline-text-2" id="text-pattern-description">
+ <p>
+So this is what I used:
+</p>
+ <ul class="org-ul"> <li>3.5mm circular needle</li>
+ <li>Black, White and Orange yarn for that needle size</li>
+</ul> <p>
+Cast on 162 stitches with black and white at the same time as one thread. I
+made sure to have black and white were in the right order. So it was always
+black-white repeating for the first 56 stitches. Then I switched to
+white-black for 50 stitches and then 56 more black-white ones.
+</p>
+
+ <p>
+I started with the friendly penguin as outside, so I started with black knits
+and white purls. And when I got to the piece with white first I switched the
+threads to get a white knit and a black purl. This becomes natural and will
+follow the chart above.
+</p>
+
+ <p>
+When you get to the beak, you should do both knit and purl with orange to get
+it on both sides and make sure to transport the white and black yarn between
+those two stitches so they aren't visible from any outside. And when you get
+sequential rows on the beak you want to backtrack the orange yarn in between
+the stitches from previous rows so the yarn ends up at the start of the
+segment of the beak, without hanging on the outside of the layers.
+</p>
+
+ <p>
+When the knitting reaches ~18cm (line 40 in my case), you want to start to
+decrease the amount of stitches.
+</p>
+
+ <p>
+This is done by removing 8 stitches per line every second line (as the chart
+above suggests). But they should be spread out evenly around the hat. To make
+a single decrease you lift over a black stitch to the right needle, lift over
+a white stitch to a separate needle behind the right needle. Then you lift
+over a second black stitch to the same as the first black stitch. Then you
+put the white stitch back together with a white stitch. And then transfer
+back both black stitches from the right needle. Now you can stitch two knits
+together in black and two purl together in white without mixing the colors.
+</p>
+
+ <p>
+Repeat this decrease 6 times. Now you have 66 stitches (33 black, 33 white).
+</p>
+
+ <p>
+Now it's time for the final decrease, this is done by knitting all stitches
+together, this will result in an odd amount. So you'll decrease 16 times as
+described above so you get to 34 stitches (17 black, 17 white) and have one
+that doesn't decrease.
+</p>
+
+ <p>
+Then you do a normal round again and a last decrease round with knitting all
+stitches together as above, with the same oddity, so you'll decrease 8 times
+and end up with 18 stitches (9 black, 9 white).
+</p>
+
+ <p>
+And then you do a final round before pulling the black yarn through the last
+black stitches and the white yarn through the final white stitches.
+</p>
+</div>
+</article> <article id="outline-container-org4875c2a" class="outline-2"> <h2 id="pictures">Pictures</h2>
+ <div class="outline-text-2" id="text-pictures">
+</div>
+
+ <div id="outline-container-org3b6edd0" class="outline-3">
+ <h3 id="friendly-penguin">Friendly penguin</h3>
+ <div class="outline-text-3" id="text-friendly-penguin">
+
+ <div class="figure">
+ <p> <img src="./friendly_penguin_front_thumb.jpg" alt="friendly_penguin_front_thumb.jpg"></img></p>
+</div>
+
+ <p>
+ <a href="./friendly_penguin_front.jpg">Friendly Penguin Front in bigger size</a>
+</p>
+
+
+
+ <div class="figure">
+ <p> <img src="./friendly_penguin_side_thumb.jpg" alt="friendly_penguin_side_thumb.jpg"></img></p>
+</div>
+
+ <p>
+ <a href="./friendly_penguin_side.jpg">Friendly Penguin Side in bigger size</a>
+</p>
+</div>
+</div>
+
+ <div id="outline-container-org6db0aaf" class="outline-3">
+ <h3 id="evil-penguin-inside">Evil penguin inside</h3>
+ <div class="outline-text-3" id="text-evil-penguin-inside">
+
+ <div class="figure">
+ <p> <img src="./evil_penguin_front_thumb.jpg" alt="evil_penguin_front_thumb.jpg"></img></p>
+</div>
+
+ <p>
+ <a href="./evil_penguin_front.jpg">Evil Penguin Front in bigger size</a>
+</p>
+
+
+ <div class="figure">
+ <p> <img src="./evil_penguin_side_thumb.jpg" alt="evil_penguin_side_thumb.jpg"></img></p>
+</div>
+
+ <p>
+ <a href="./evil_penguin_side.jpg">Evil Penguin Side in bigger size</a>
+</p>
+</div>
+</div>
+</article></div>]]></description>
+  <link>https://elis.nu/blog/2020/02/double-stitched-penguin-beanie/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2020/02/double-stitched-penguin-beanie/index.html</guid>
+  <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+</item>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>Encrypted ZFS mirror with mirrored boot on NixOS</title>
+  <description><![CDATA[<div id="content">
+
+ <div id="table-of-contents">
+ <h2>Table of Contents</h2>
+ <div id="text-table-of-contents">
+ <ul> <li> <a href="#my-requirements-on-this-setup">My requirements on this setup</a></li>
+ <li> <a href="#step-1-partitioning">Step 1 - Partitioning</a></li>
+ <li> <a href="#step-2-creating-the-pool">Step 2 - Creating the pool</a></li>
+ <li> <a href="#step-3-creating-the-file-systems">Step 3 - Creating the file systems</a>
+ <ul> <li> <a href="#step-3-1-zfs-file-systems">Step 3.1 - ZFS file systems</a></li>
+ <li> <a href="#step-3-2-the-esp-partitions">Step 3.2 - The ESP partitions</a></li>
+</ul></li>
+ <li> <a href="#step4-mounting-the-file-systems">Step 4 - Mounting the file systems</a></li>
+ <li> <a href="#step5-configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</a></li>
+ <li> <a href="#conclusion">Conclusion</a></li>
+</ul></div>
+</div>
+ <p>
+So for a long time I have wanted to replace my file server, because it's an
+old HP Microserver that is really slow. And at the same time I have had this
+beast of a desktop tower PC that I haven't used with a Xeon and 32GiB ECC
+memory that has just been turned off due to noise. The obvious solution is
+to re-purpose that install and move it to a location where noise doesn't
+matter, e.g. the closet (a.k.a the server room) where the file server lives.
+</p>
+
+ <article id="outline-container-org8c0d428" class="outline-2"> <h2 id="my-requirements-on-this-setup">My requirements on this setup</h2>
+ <div class="outline-text-2" id="text-my-requirements-on-this-setup">
+ <p>
+To do this move I had a certain list of requirements:
+</p>
+ <ol class="org-ol"> <li>Mirrored boot disk</li>
+ <li>Mirrored ESP</li>
+ <li>Encrypted ZFS</li>
+ <li>NixOS</li>
+</ol> <p>
+With these requirements, the goal is that whichever disk should be able to
+die and the system should still just boot. Without any issues. Sure the raid
+or system like a raid will complain. But the system should still come up even
+if one disk die.
+</p>
+</div>
+</article> <article id="outline-container-orgc7f71d8" class="outline-2"> <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
+ <div class="outline-text-2" id="text-step-1-partitioning">
+ <p>
+I followed these steps of partitioning grabbed from the  <a href="https://nixos.wiki/wiki/NixOS_on_ZFS#Single-disk">NixOS on ZFS</a> page
+but modified my steps.
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Defining some helper variables (these will be used in later</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">code blocks as well, so make sure to use the same terminal</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">session or redefine them later)</span>
+ <span class="org-variable-name">DISK1</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-FIRST-DRIVE
+ <span class="org-variable-name">DISK2</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-SECOND-DRIVE
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Creating partitions</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">This creates the ESP / Boot partition at the beginning of</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">the drive but numbered as the third partition:</span>
+sgdisk -n3:1M:+512M -t3:EF00 $ <span class="org-variable-name">DISK1</span>
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">This create the storage partition numbered as the</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">first partition:</span>
+sgdisk -n1:0:0 -t1:BF01 $ <span class="org-variable-name">DISK1</span>
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Clone the partitions to the second drive:</span>
+sfdisk --dump $ <span class="org-variable-name">DISK1</span> | sfdisk $ <span class="org-variable-name">DISK2</span>
+</pre>
+</div>
+</div>
+</article> <article id="outline-container-org89f7f8f" class="outline-2"> <h2 id="step-2-creating-the-pool">Step 2 - Creating the pool</h2>
+ <div class="outline-text-2" id="text-step-2-creating-the-pool">
+ <p>
+Creating a ZFS pool can be intimidating for the first times you do it, there
+is a lot of options and flags. And you have both properties/features that use
+the flag  <code>-o</code> and then you have file system properties that use  <code>-O</code>.
+</p>
+
+ <p>
+To me this is still confusing, but I managed to get it together after some
+fiddling around.
+</p>
+
+ <p>
+You can read more about these flags on these locations:
+</p>
+ <ul class="org-ul"> <li> <a href="https://nixos.wiki/wiki/NixOS_on_ZFS">https://nixos.wiki/wiki/NixOS_on_ZFS</a></li>
+ <li> <a href="https://wiki.archlinux.org/index.php/ZFS#Advanced_Format_disks">https://wiki.archlinux.org/index.php/ZFS#Advanced_Format_disks</a></li>
+</ul> <p>
+And many more places around the web…
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Some flags to consider</span>
+ <span class="org-comment-delimiter">#</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Disable ZFS automatic mounting:</span>
+ <span class="org-comment-delimiter">#   </span> <span class="org-comment">-O mountpoint=none</span>
+ <span class="org-comment-delimiter">#</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Disable writing access time:</span>
+ <span class="org-comment-delimiter">#   </span> <span class="org-comment">-O atime=off</span>
+ <span class="org-comment-delimiter">#</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Use 4K sectors on the drive, otherwise you can get really</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">bad performance:</span>
+ <span class="org-comment-delimiter">#   </span> <span class="org-comment">-o ashift=12</span>
+ <span class="org-comment-delimiter">#</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">This is more or less required for certain things to</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">not break:</span>
+ <span class="org-comment-delimiter">#   </span> <span class="org-comment">-O acltype=posixacl</span>
+ <span class="org-comment-delimiter">#</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">To improve performance of certain extended attributes:</span>
+ <span class="org-comment-delimiter">#   </span> <span class="org-comment">-O xattr=sa</span>
+ <span class="org-comment-delimiter">#</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">To enable file system compression:</span>
+ <span class="org-comment-delimiter">#   </span> <span class="org-comment">-O compression=lz4</span>
+ <span class="org-comment-delimiter">#</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">To enable encryption:</span>
+ <span class="org-comment-delimiter">#   </span> <span class="org-comment">-O encryption=aes-256-gcm -O keyformat=passphrase</span>
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Then we create the pool which is mirrored over both drives</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">and encrypted with ZFS native encryption (if you added</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">those flags):</span>
+zpool create <FLAGS> zroot mirror $ <span class="org-variable-name">DISK1</span>-part1 $ <span class="org-variable-name">DISK2</span>-part1
+</pre>
+</div>
+</div>
+</article> <article id="outline-container-orge10269f" class="outline-2"> <h2 id="step-3-creating-the-file-systems">Step 3 - Creating the file systems</h2>
+ <div class="outline-text-2" id="text-step-3-creating-the-file-systems">
+</div>
+
+ <div id="outline-container-org3824286" class="outline-3">
+ <h3 id="step-3-1-zfs-file-systems">Step 3.1 - ZFS file systems</h3>
+ <div class="outline-text-3" id="text-step-3-1-zfs-file-systems">
+ <p>
+Here you can create which ever you want, this is not exactly how my set up
+mine due to my usage of tmpfs as root, but that's a topic for another post.
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-sh">zfs create -o  <span class="org-variable-name">mountpoint</span>=legacy zroot/root       <span class="org-comment-delimiter"># </span> <span class="org-comment">For /</span>
+zfs create -o  <span class="org-variable-name">mountpoint</span>=legacy zroot/root/home  <span class="org-comment-delimiter"># </span> <span class="org-comment">For /home</span>
+zfs create -o  <span class="org-variable-name">mountpoint</span>=legacy zroot/root/nix   <span class="org-comment-delimiter"># </span> <span class="org-comment">For /nix</span>
+</pre>
+</div>
+</div>
+</div>
+
+ <div id="outline-container-orge95f7ce" class="outline-3">
+ <h3 id="step-3-2-the-esp-partitions">Step 3.2 - The ESP partitions</h3>
+ <div class="outline-text-3" id="text-step-3-2-the-esp-partitions">
+ <p>
+This will seem really obvious at this point, but what's not obvious is how to
+keep them in sync. In the past (with MBR) I would make an mdraid level 1
+across the drives and have that as /boot and the system would boot fine from
+any drive. It's not that simple with UEFI.
+</p>
+
+ <p>
+Although, this guy have a good write up on how to achieve this same thing on
+Debian/Ubuntu. And that probably works on other distributions as well.
+ <a href="https://outflux.net/blog/archives/2018/04/19/uefi-booting-and-raid1/">https://outflux.net/blog/archives/2018/04/19/uefi-booting-and-raid1/</a>
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-sh">mkfs.vfat $ <span class="org-variable-name">DISK1</span>-part3
+mkfs.vfat $ <span class="org-variable-name">DISK2</span>-part3
+</pre>
+</div>
+</div>
+</div>
+</article> <article id="outline-container-orgdc52d47" class="outline-2"> <h2 id="step4-mounting-the-file-systems">Step 4 - Mounting the file systems</h2>
+ <div class="outline-text-2" id="text-step4-mounting-the-file-systems">
+ <p>
+This takes a bit of work to do, many drives many steps, etc. If you have
+rebooted your live media because you need to rescue or try again in some way
+with the configuration you should start with importing the pool and loading
+the key to the encrypted disk.
+</p>
+
+ <p>
+This isn't needed if you're still up and running on the same session as where
+you created your pool.
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-sh">zpool import zroot
+zfs load-key zroot
+</pre>
+</div>
+
+ <p>
+To mount the file systems you probably want to do something like this:
+</p>
+ <div class="org-src-container">
+ <pre class="src src-sh">mount -t zfs zroot/root /mnt
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Create directories to mount file systems on</span>
+mkdir /mnt/{nix,home,boot,boot-fallback}
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Mount the rest of the ZFS file systems</span>
+mount -t zfs zroot/root/nix /mnt/nix
+mount -t zfs zroot/root/home /mnt/home
+
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Mount both of the ESP's</span>
+mount $ <span class="org-variable-name">DISK1</span>-part3 /mnt/boot
+mount $ <span class="org-variable-name">DISK2</span>-part3 /mnt/boot-fallback
+</pre>
+</div>
+</div>
+</article> <article id="outline-container-orgc247f11" class="outline-2"> <h2 id="step5-configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</h2>
+ <div class="outline-text-2" id="text-step5-configuration-of-the-boot-loader">
+ <p>
+Here we have the magic of the NixOS module systems kicking in that will make
+this entire setup awesome and easy to manage.
+</p>
+
+ <p>
+Just start by the regular  <code>nixos-generate-config  --root /mnt</code>.
+</p>
+
+ <p>
+Then you want to use grub as a boot loader and not systemd-boot.
+</p>
+
+ <p>
+I have the following configured to make my system support ZFS:
+</p>
+ <div class="org-src-container">
+ <pre class="src src-nix">{
+   <span class="org-nix-attribute">boot.supportedFilesystems</span> = [  <span class="org-string">"zfs"</span> ];
+   <span class="org-nix-attribute">networking.hostId</span> =  <span class="org-string">"<8 random numbers>"</span>;
+}
+</pre>
+</div>
+
+ <p>
+Then I have the following to boot with grub and keep my two grubs in sync:
+</p>
+ <div class="org-src-container">
+ <pre class="src src-nix">{
+   <span class="org-comment"># You can probably use his one on true, but</span>
+   <span class="org-comment"># my UEFI is buggy.</span>
+   <span class="org-nix-attribute">boot.loader.efi.canTouchEfiVariables</span> =  <span class="org-nix-builtin">false</span>;
+
+   <span class="org-comment"># This is the regular setup for grub on UEFI which</span>
+   <span class="org-comment"># manages /boot automatically.</span>
+   <span class="org-nix-attribute">boot.loader.grub.enable</span> =  <span class="org-nix-builtin">true</span>;
+   <span class="org-nix-attribute">boot.loader.grub.efiSupport</span> =  <span class="org-nix-builtin">true</span>;
+   <span class="org-nix-attribute">boot.loader.grub.device</span> =  <span class="org-string">"nodev"</span>;
+
+   <span class="org-comment"># This will mirror all UEFI files, kernels, grub menus and</span>
+   <span class="org-comment"># things needed to boot to the other drive.</span>
+   <span class="org-nix-attribute">boot.loader.grub.mirroredBoots</span> = [
+    {  <span class="org-nix-attribute">devices</span> = [  <span class="org-string">"/dev/disk/by-uuid/<FS-ID>"</span> ];
+       <span class="org-nix-attribute">path</span> =  <span class="org-string">"/boot-fallback"</span>; }
+  ];
+}
+</pre>
+</div>
+</div>
+</article> <article id="outline-container-orgc309400" class="outline-2"> <h2 id="conclusion">Conclusion</h2>
+ <div class="outline-text-2" id="text-conclusion">
+ <p>
+NixOS makes it really easy to set up encrypted ZFS that is reliable when it
+comes to updates and usage.
+</p>
+
+ <p>
+And with the module system NixOS makes it easy to keep the two ESP partitions
+in sync.
+</p>
+
+ <p>
+I have tested the entire process to make sure it works on my hardware by:
+</p>
+ <ol class="org-ol"> <li>Shut it down</li>
+ <li>Unplug one drive</li>
+ <li>Boot it up all the way into the system and watched ZFS be a bit grumpy
+about some missing disk (oh what a surprise!)</li>
+ <li>Shut it down</li>
+ <li>Plug in he first drive and unplug the other one</li>
+ <li>Repeat step 3 again</li>
+ <li>Shut it down</li>
+ <li>Boot with both disks and tell ZFS that I'm sure that there's no issue
+with my hardware and that I don't want to replace my drives.</li>
+</ol> <p>
+So now that computer have moved to the closet (a.k.a. the server room) and
+I've configured it so I can unlock the drive over SSH on boot following:
+ <a href="https://nixos.wiki/wiki/NixOS_on_ZFS#Unlock_encrypted_zfs_via_ssh_on_boot">https://nixos.wiki/wiki/NixOS_on_ZFS#Unlock_encrypted_zfs_via_ssh_on_boot</a>
+</p>
+</div>
+</article></div>]]></description>
+  <link>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/index.html</guid>
+  <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+</item>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>Hello World!</title>
+  <description><![CDATA[<div id="content">
+
+ <p>
+Hello world! This is a test blog post.
+</p>
+
+ <blockquote>
+ <p>
+This is a block quote element.
+</p>
+</blockquote>
+
+ <article id="outline-container-org6662103" class="outline-2"> <h2 id="org6662103">Test of syntax highlighting</h2>
+ <div class="outline-text-2" id="text-org6662103">
+</div>
+ <div id="outline-container-orga0fec82" class="outline-3">
+ <h3 id="orga0fec82">elisp</h3>
+ <div class="outline-text-3" id="text-orga0fec82">
+ <div class="org-src-container">
+ <pre class="src src-elisp"> <span class="org-comment-delimiter">;; </span> <span class="org-comment">Define the hello function</span>
+( <span class="org-keyword">defun</span>  <span class="org-function-name">hello</span> ()
+   <span class="org-doc">"This</span>
+ <span class="org-doc">   is my</span>
+ <span class="org-doc">   docstring"</span>
+  (message  <span class="org-string">"world"</span>))
+
+ <span class="org-comment-delimiter">;; </span> <span class="org-comment">Call the hello function</span>
+(hello)
+</pre>
+</div>
+</div>
+</div>
+
+ <div id="outline-container-orga7bb774" class="outline-3">
+ <h3 id="orga7bb774">Nix</h3>
+ <div class="outline-text-3" id="text-orga7bb774">
+ <div class="org-src-container">
+ <pre class="src src-nix">{
+   <span class="org-comment"># Define the hello function</span>
+   <span class="org-nix-attribute">hello</span> = {}:  <span class="org-string">"world"</span>;
+
+   <span class="org-comment"># More tests</span>
+   <span class="org-nix-attribute">boolean</span> =  <span class="org-nix-builtin">true</span>;
+   <span class="org-nix-attribute">fileimport</span> =  <span class="org-nix-builtin">import</span>  <span class="org-nix-constant">./src/file.nix</span>;
+
+   <span class="org-comment"># Call the hello function</span>
+   <span class="org-nix-attribute">message</span> = hello {};
+}
+</pre>
+</div>
+</div>
+</div>
+
+ <div id="outline-container-org7655f91" class="outline-3">
+ <h3 id="org7655f91">Go</h3>
+ <div class="outline-text-3" id="text-org7655f91">
+ <div class="org-src-container">
+ <pre class="src src-go"> <span class="org-keyword">package</span> main
+
+ <span class="org-keyword">import</span>  <span class="org-string">"fmt"</span>
+
+ <span class="org-keyword">func</span>  <span class="org-function-name">main</span>() {
+        fmt. <span class="org-function-name">Println</span>( <span class="org-string">"Hello world"</span>)
+}
+</pre>
+</div>
+</div>
+</div>
+
+ <div id="outline-container-orgb63789c" class="outline-3">
+ <h3 id="orgb63789c">PHP</h3>
+ <div class="outline-text-3" id="text-orgb63789c">
+ <div class="org-src-container">
+ <pre class="src src-php"> <span class="org-php-php-tag"><?php</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Define the hello function</span>
+ <span class="org-php-keyword">function</span>  <span class="org-php-function-name">hello</span>() :  <span class="org-type">void</span> {
+     <span class="org-php-keyword">echo</span>  <span class="org-php-string">"world"</span>;
+}
+
+ <span class="org-comment-delimiter">// </span> <span class="org-comment">Call the hello function</span>
+ <span class="org-php-function-call">hello</span>();
+</pre>
+</div>
+</div>
+</div>
+</article> <article id="outline-container-org689b13e" class="outline-2"> <h2 id="org689b13e">Sample text</h2>
+ <div class="outline-text-2" id="text-org689b13e">
+ <p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus
+ultrices in iaculis nunc sed augue lacus. Donec ac odio tempor orci dapibus
+ultrices in. Faucibus vitae aliquet nec ullamcorper sit amet risus. Pulvinar
+sapien et ligula ullamcorper malesuada proin libero. Magna sit amet purus
+gravida quis blandit turpis cursus in. Elit ullamcorper dignissim cras
+tincidunt lobortis feugiat vivamus at augue. Ut morbi tincidunt augue
+interdum. Enim ut tellus elementum sagittis vitae et. At augue eget arcu
+dictum varius duis.
+</p>
+</div>
+</article></div>]]></description>
+  <link>https://elis.nu/blog/hello-world/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/hello-world/index.html</guid>
+  <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
+</item>
+</channel>
+</rss>
