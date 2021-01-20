@@ -41,9 +41,9 @@ attempt to break economic barriers and income classes.
 
 This happens to go hand in hand with the ethical aspects of
 Veganism[fn:veganism]. This is sadly a connection I didn't get until many
-years later. There will be a follow-up post on this.
+years later. This is in a follow up post: [[../why-i-got-into-veganism][Why I got into Veganism]].
 
 * Footnotes
-[fn:free-software] https://en.wikipedia.org/wiki/Free_software
 [fn:digital-divide] https://en.wikipedia.org/wiki/Digital_divide
+[fn:free-software] https://en.wikipedia.org/wiki/Free_software
 [fn:veganism] https://en.wikipedia.org/wiki/Veganism#Ethical_veganism
