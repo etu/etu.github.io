@@ -65,6 +65,8 @@ environment. Since Free Software is humane software, I can only conclude that
 Free Software is Vegan software - but a less important issue due to the
 victims that Veganism wants to protect.
 
+[[file:./metric-for-ethics.jpg]]
+
 * Footnotes
 [fn:avoiding-meat-and-dairy-environment] [[https://www.theguardian.com/environment/2018/may/31/avoiding-meat-and-dairy-is-single-biggest-way-to-reduce-your-impact-on-earth][The Guardian: Avoiding meat and dairy is ‘single biggest way’ to reduce your impact on Earth]]
 [fn:dairy-is-scary] [[https://www.youtube.com/watch?v=UcN7SGGoCNI][Youtube - Erin Janus - Dairy is scary!]]
