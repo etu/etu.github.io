@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-21 Thu 06:55 -->
+<!-- 2021-01-26 Tue 20:27 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NixOS ❄: tmpfs as root</title>
@@ -81,7 +81,7 @@ Another way is to go the tmpfs way which is probably why you're here. So I'm
 going to walk through the install with tmpfs as root file system.
 </p>
 
-<article id="outline-container-orgc5d2215" class="outline-2">
+<article id="outline-container-orge7bcc92" class="outline-2">
 <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
 <div class="outline-text-2" id="text-step-1-partitioning">
 <p>
@@ -110,7 +110,7 @@ parted $<span class="org-variable-name">DISK</span> -- mkpart Nix 512MiB 100%
 </div>
 </article>
 
-<article id="outline-container-org1bc73fb" class="outline-2">
+<article id="outline-container-org8aef6d8" class="outline-2">
 <h2 id="step-2-creating-the-file-systems">Step 2 - Creating the file systems</h2>
 <div class="outline-text-2" id="text-step-2-creating-the-file-systems">
 <p>
@@ -127,7 +127,7 @@ mkfs.ext4 $<span class="org-variable-name">DISK</span>-part2
 </div>
 </article>
 
-<article id="outline-container-org9ae4f05" class="outline-2">
+<article id="outline-container-org845091b" class="outline-2">
 <h2 id="step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</h2>
 <div class="outline-text-2" id="text-step-3-mounting-the-file-systems">
 <p>
@@ -157,7 +157,7 @@ mount -o bind /mnt/nix/persist/var/log /mnt/var/log
 </div>
 </article>
 
-<article id="outline-container-org674f2b3" class="outline-2">
+<article id="outline-container-org5eb1ca8" class="outline-2">
 <h2 id="step-4-configuration">Step 4 - Configuration</h2>
 <div class="outline-text-2" id="text-step-4-configuration">
 <p>
@@ -166,7 +166,7 @@ configuration for your system.
 </p>
 </div>
 
-<div id="outline-container-org012e60f" class="outline-3">
+<div id="outline-container-org7eaa14d" class="outline-3">
 <h3 id="step-4-1-configure-disks">Step 4.1 - Configure disks</h3>
 <div class="outline-text-3" id="text-step-4-1-configure-disks">
 <p>
@@ -207,7 +207,7 @@ usually big enough for most of my systems.
 </div>
 </div>
 
-<div id="outline-container-orga0b927c" class="outline-3">
+<div id="outline-container-orga06d78d" class="outline-3">
 <h3 id="step-4-2-configure-users">Step 4.2 - Configure users</h3>
 <div class="outline-text-3" id="text-step-4-2-configure-users">
 <p>
@@ -254,7 +254,7 @@ user is of course optional. But it may be quite useful.
 </div>
 </div>
 
-<div id="outline-container-orgdaf0fbb" class="outline-3">
+<div id="outline-container-org47c09be" class="outline-3">
 <h3 id="step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</h3>
 <div class="outline-text-3" id="text-step-4-3-configure-persistent-files-directories">
 <p>
@@ -321,7 +321,7 @@ it's located here: <a href="../../06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as h
 </div>
 </div>
 
-<div id="outline-container-org9c792d6" class="outline-3">
+<div id="outline-container-orgf1f9dd1" class="outline-3">
 <h3 id="step-4-4-configure-the-rest-of-your-system">Step 4.4 - Configure the rest of your system</h3>
 <div class="outline-text-3" id="text-step-4-4-configure-the-rest-of-your-system">
 <p>
@@ -333,7 +333,7 @@ keymap, personal user, network settings, etc.
 </div>
 </article>
 
-<article id="outline-container-org784f5c1" class="outline-2">
+<article id="outline-container-org48f9843" class="outline-2">
 <h2 id="step-5-perform-install">Step 5 - Perform install</h2>
 <div class="outline-text-2" id="text-step-5-perform-install">
 <p>
@@ -351,7 +351,7 @@ end of the install since it won't be there after reboot anyway.
 <div id="postamble" class="status">
 <p class="date">Date: 2020-05-02 Sat 10:00</p>
 <p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-<p class="date">Created: 2021-01-21 Thu 06:55</p>
+<p class="date">Created: 2021-01-26 Tue 20:27</p>
 </div>
 </body>
 </html>

@@ -6,14 +6,109 @@
 <generator>Emacs webfeeder.el</generator>
 <link>https://elis.nu/</link>
 <atom:link href="https://elis.nu/blog/rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Thu, 21 Jan 2021 06:55:36 +0000</lastBuildDate>
+<lastBuildDate>Tue, 26 Jan 2021 20:27:37 +0000</lastBuildDate>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>I find food habits at Free Software events weird</title>
+  <description><![CDATA[<div id="content">
+
+ <p>
+This is a follow-up on:  <a href="../why-i-use-free-software/">Why I use Free Software</a>,  <a href="../why-i-got-into-veganism/">Why I got into Veganism</a>.
+</p>
+
+ <p>
+Since the Free Software movement in it's core is an ethical movement, which
+cares about human rights and humans access and ability to study, share and
+improve on the software they use. I'm well aware that not everyone in the
+Free Software community is in it for ethical reasons - but I'm pretty sure
+that there's enough of us that care about ethics for this to be important.
+</p>
+
+ <p>
+The Vegan movement is by definition an ethical movement that cares primarily
+about the ethics when it comes to animals - but this often extends to being
+nice towards human animals as well.
+</p>
+
+ <p>
+So by having both of these ideologies in mind I can only come to the
+following conclusions.
+</p>
+
+ <article id="outline-container-orgfe34530" class="outline-2"> <h2 id="orgfe34530">Conclusions about the free software communities</h2>
+ <div class="outline-text-2" id="text-orgfe34530">
+ <p>
+It's only natural for an ethical community that is ethical towards human
+animals to extend these ethical values to non-human animals as well.
+</p>
+
+ <p>
+Therefore I see issues with some of the views on food that is easy to find
+within several Free Software communities that I've observed or experienced
+which seems conflicting to me. For example, in certain places: It's quite
+common that people talk a lot about BBQ of animal flesh and secretions.
+</p>
+
+ <p>
+I don't find promotion of consumption of these items to fit within the
+extended ethical values of the Free Software movement.
+</p>
+</div>
+</article> <article id="outline-container-org61ea08a" class="outline-2"> <h2 id="org61ea08a">Conclusions about vegans views on software</h2>
+ <div class="outline-text-2" id="text-org61ea08a">
+ <p>
+My experiences with Vegans is quite limited, but within my own circles I
+happen to see that most Vegans use primarily Free Software - but I don't
+think that this is a representative view of all Vegans combined. Since both
+Veganism and ethical Free software use are both ethical and niche.
+</p>
+
+ <p>
+This leads me to conclude that most Vegans either isn't aware of the ethics
+of software freedom or simply think there's more important things to care
+about - which I totally get and respect, especially if this non-free software
+is used to promote veganism, which I nowadays find to be of higher value.
+</p>
+</div>
+</article> <article id="outline-container-org6925f4b" class="outline-2"> <h2 id="org6925f4b">General conclusions</h2>
+ <div class="outline-text-2" id="text-org6925f4b">
+ <p>
+As a general rule in today's society one can say the following: "vote with
+your wallet"
+</p>
+
+ <p>
+Or in other words:
+</p>
+ <ul class="org-ul"> <li>Use the software that follows your ethical values, you want to support and
+see more of.</li>
+ <li>Buy and eat the food that follows your ethical values, you want to support
+and want to see more of.</li>
+</ul> <p>
+If you care about ethics, make the ethical choice - all the time. Regardless
+if it's towards human animals or non-human animals. Ethics isn't something
+that you do "sometimes", it's somethings applied all the times.
+</p>
+
+ <p>
+But running non-free software on top of a Free Software stack is arguable
+breaking ethics in less bad ways than eating non-vegan food since nobody dies
+when you run a non-free program.
+</p>
+</div>
+</article></div>]]></description>
+  <link>https://elis.nu/blog/2021/01/i-find-food-habits-at-free-software-events-weird/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2021/01/i-find-food-habits-at-free-software-events-weird/index.html</guid>
+  <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
+</item>
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Why I got into Veganism</title>
   <description><![CDATA[<div id="content">
 
  <p>
-This is a follow up post of:  <a href="../why-i-use-free-software/">Why I use Free Software</a>.
+This is a follow-up on:  <a href="../why-i-use-free-software/">Why I use Free Software</a>.
+This has been followed up by:  <a href="../i-find-food-habits-at-free-software-events-weird">I find food habits at Free Software events weird</a>.
 </p>
 
  <p>
@@ -146,6 +241,10 @@ victims that Veganism wants to protect.
   <description><![CDATA[<div id="content">
 
  <p>
+This has been followed up by:  <a href="../why-i-got-into-veganism">Why I got into Veganism</a>,  <a href="../i-find-food-habits-at-free-software-events-weird">I find food habits at Free Software events weird</a>.
+</p>
+
+ <p>
 People in general may have different reasons for choosing to use Free
 Software <sup> <a id="fnr.1" class="footref" href="#fn.1">1</a></sup>, some may use it for the price, others because of
 pragmatic reasons, simply put it's the best tool for the job. Others may
@@ -248,7 +347,7 @@ be a bit tricky and quite bad at giving useful error messages. So since I'm
 going through a re-setup of that I'm also writing down my notes here.
 </p>
 
- <article id="outline-container-orgdb8e9ac" class="outline-2"> <h2 id="weechat-configuration">Weechat configuration</h2>
+ <article id="outline-container-org7aea15b" class="outline-2"> <h2 id="weechat-configuration">Weechat configuration</h2>
  <div class="outline-text-2" id="text-weechat-configuration">
  <p>
 Type the following commands into Weechat.
@@ -270,16 +369,16 @@ a multi user system.
 /set relay.network.password "{password}"
 </pre>
 </div>
-</article> <article id="outline-container-org84e1cc7" class="outline-2"> <h2 id="weechat-android-configuration">Weechat Android configuration</h2>
+</article> <article id="outline-container-orgc71e10f" class="outline-2"> <h2 id="weechat-android-configuration">Weechat Android configuration</h2>
  <div class="outline-text-2" id="text-weechat-android-configuration">
 </div>
 
- <div id="outline-container-org7620b18" class="outline-3">
+ <div id="outline-container-orgde4bd1c" class="outline-3">
  <h3 id="ssh-setup">SSH setup</h3>
  <div class="outline-text-3" id="text-ssh-setup">
 </div>
 
- <div id="outline-container-orgfa82619" class="outline-4">
+ <div id="outline-container-orgfb63d3f" class="outline-4">
  <h4 id="generating-an-ssh-key">Generating an SSH key</h4>
  <div class="outline-text-4" id="text-generating-an-ssh-key">
  <p>
@@ -307,7 +406,7 @@ This is because of this which still seems to be an issue:
 </div>
 </div>
 
- <div id="outline-container-orgb1a06c6" class="outline-4">
+ <div id="outline-container-org0d638bb" class="outline-4">
  <h4 id="add-the-public-key-to-your-server">Add the public key to your server</h4>
  <div class="outline-text-4" id="text-add-the-public-key-to-your-server">
  <p>
@@ -335,7 +434,7 @@ in the app.
 </div>
 </div>
 
- <div id="outline-container-org9e9e70e" class="outline-4">
+ <div id="outline-container-org943882a" class="outline-4">
  <h4 id="connection-settings-in-weechat-android">Connection settings in Weechat Android</h4>
  <div class="outline-text-4" id="text-connection-settings-in-weechat-android">
  <p>
@@ -383,7 +482,7 @@ Settings/
 </div>
 </div>
 
- <div id="outline-container-org29a8e04" class="outline-3">
+ <div id="outline-container-org8751cc5" class="outline-3">
  <h3 id="other-weechat-android-settings">Other Weechat Android settings</h3>
  <div class="outline-text-3" id="text-other-weechat-android-settings">
  <p>
@@ -475,7 +574,7 @@ over time. All the steps have been worked on in parallel so this blog post
 isn't linear.
 </p>
 
- <article id="outline-container-org08d3744" class="outline-2"> <h2 id="ergonomics-part-1">Ergonomics part 1</h2>
+ <article id="outline-container-orgd046998" class="outline-2"> <h2 id="ergonomics-part-1">Ergonomics part 1</h2>
  <div class="outline-text-2" id="text-ergonomics-part-1">
  <p>
 The first thing I did on this field was really when I switched to
@@ -517,7 +616,7 @@ All this costed me a lot of money on hardware, it haven't solved all problems
 just magically. More has been needed.
 </p>
 </div>
-</article> <article id="outline-container-org9edebe7" class="outline-2"> <h2 id="good-health">Good health</h2>
+</article> <article id="outline-container-org0138890" class="outline-2"> <h2 id="good-health">Good health</h2>
  <div class="outline-text-2" id="text-good-health">
  <p>
 Good health is the source of having a good healthy life. A lot of health
@@ -525,7 +624,7 @@ comes from working out properly and eating good food.
 </p>
 </div>
 
- <div id="outline-container-org70a35a6" class="outline-3">
+ <div id="outline-container-org2c5b759" class="outline-3">
  <h3 id="why-pain">Why pain?</h3>
  <div class="outline-text-3" id="text-why-pain">
  <p>
@@ -551,7 +650,7 @@ the pain. To lower the immediate pain, I got pain pills.
 </div>
 </div>
 
- <div id="outline-container-orgafee84f" class="outline-3">
+ <div id="outline-container-orgbfb470b" class="outline-3">
  <h3 id="handle-inflammation">Handle inflammation</h3>
  <div class="outline-text-3" id="text-handle-inflammation">
  <p>
@@ -562,7 +661,7 @@ two primary ways to help the body to handle inflammation better.
 </p>
 </div>
 
- <div id="outline-container-org0a0491a" class="outline-4">
+ <div id="outline-container-org702ec03" class="outline-4">
  <h4 id="increased-blood-flow">Increased blood flow</h4>
  <div class="outline-text-4" id="text-increased-blood-flow">
  <p>
@@ -583,7 +682,7 @@ wanting more of it and actually miss it if it's not present.
 </div>
 </div>
 
- <div id="outline-container-org8ca212b" class="outline-4">
+ <div id="outline-container-org25346de" class="outline-4">
  <h4 id="ingestion-of-inflammation">Ingestion of inflammation</h4>
  <div class="outline-text-4" id="text-ingestion-of-inflammation">
  <p>
@@ -627,7 +726,7 @@ To not mention books such as:
 </ul></div>
 </div>
 </div>
-</article> <article id="outline-container-orgcba5b08" class="outline-2"> <h2 id="ergonomics-part-2">Ergonomics part 2</h2>
+</article> <article id="outline-container-org446589c" class="outline-2"> <h2 id="ergonomics-part-2">Ergonomics part 2</h2>
  <div class="outline-text-2" id="text-ergonomics-part-2">
  <p>
 During the spring of 2020, I went to a private doctor that did a ultrasound
@@ -666,7 +765,7 @@ pain even after 8-10 hours of keyboard use in a single day. And I can work
 a full time job without any problems.
 </p>
 </div>
-</article> <article id="outline-container-orgd24caaf" class="outline-2"> <h2 id="summary">Summary</h2>
+</article> <article id="outline-container-orgc838eaa" class="outline-2"> <h2 id="summary">Summary</h2>
  <div class="outline-text-2" id="text-summary">
  <p>
 A TL DR of my actions that made the pain manageable:
@@ -789,7 +888,7 @@ as a persistent directory. This post will explain how to take it to the next
 level of purity.
 </p>
 
- <article id="outline-container-org7aed7db" class="outline-2"> <h2 id="part-1-home-manager">Part 1 - Home Manager</h2>
+ <article id="outline-container-org1e20081" class="outline-2"> <h2 id="part-1-home-manager">Part 1 - Home Manager</h2>
  <div class="outline-text-2" id="text-part-1-home-manager">
  <p>
 The first thing you want to do unless you already done this is to start using
@@ -845,7 +944,7 @@ to help doing persistence handling better – both in NixOS, but also as a
 Home Manager module. These modules became the  <a href="https://github.com/nix-community/impermanence">impermanence</a> community project.
 </p>
 </div>
-</article> <article id="outline-container-orgcbb19c4" class="outline-2"> <h2 id="part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</h2>
+</article> <article id="outline-container-org1c744fe" class="outline-2"> <h2 id="part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</h2>
  <div class="outline-text-2" id="text-part-2-persistence-module-for-home-manager">
  <p>
 Based on the previous example we're going to extend it to use the home
@@ -901,7 +1000,7 @@ but that you still want persistence. Then you can put the ones you want to
 backup in a certain directory and the rest in another place.
 </p>
 </div>
-</article> <article id="outline-container-orgf7fa47f" class="outline-2"> <h2 id="part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</h2>
+</article> <article id="outline-container-orge5f7f7a" class="outline-2"> <h2 id="part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</h2>
  <div class="outline-text-2" id="text-part-3-persistence-module-for-nixos">
  <p>
 This example nix file will import the persistence module for nixos and create
@@ -981,7 +1080,7 @@ Another way is to go the tmpfs way which is probably why you're here. So I'm
 going to walk through the install with tmpfs as root file system.
 </p>
 
- <article id="outline-container-orgc5d2215" class="outline-2"> <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
+ <article id="outline-container-orge7bcc92" class="outline-2"> <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
  <div class="outline-text-2" id="text-step-1-partitioning">
  <p>
 I'm going to do the most basic setup when it comes to file systems, just a
@@ -1007,7 +1106,7 @@ parted $ <span class="org-variable-name">DISK</span> -- mkpart Nix 512MiB 100%
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org1bc73fb" class="outline-2"> <h2 id="step-2-creating-the-file-systems">Step 2 - Creating the file systems</h2>
+</article> <article id="outline-container-org8aef6d8" class="outline-2"> <h2 id="step-2-creating-the-file-systems">Step 2 - Creating the file systems</h2>
  <div class="outline-text-2" id="text-step-2-creating-the-file-systems">
  <p>
 This is fairly straight forward in my example:
@@ -1021,7 +1120,7 @@ mkfs.ext4 $ <span class="org-variable-name">DISK</span>-part2
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org9ae4f05" class="outline-2"> <h2 id="step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</h2>
+</article> <article id="outline-container-org845091b" class="outline-2"> <h2 id="step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</h2>
  <div class="outline-text-2" id="text-step-3-mounting-the-file-systems">
  <p>
 Here we do one of the neat tricks, we mount tmpfs instead of a partition and
@@ -1048,7 +1147,7 @@ mount -o bind /mnt/nix/persist/var/log /mnt/var/log
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org674f2b3" class="outline-2"> <h2 id="step-4-configuration">Step 4 - Configuration</h2>
+</article> <article id="outline-container-org5eb1ca8" class="outline-2"> <h2 id="step-4-configuration">Step 4 - Configuration</h2>
  <div class="outline-text-2" id="text-step-4-configuration">
  <p>
 Then go ahead and do a  <code>nixos-generate-config --root /mnt</code> to get a basic
@@ -1056,7 +1155,7 @@ configuration for your system.
 </p>
 </div>
 
- <div id="outline-container-org012e60f" class="outline-3">
+ <div id="outline-container-org7eaa14d" class="outline-3">
  <h3 id="step-4-1-configure-disks">Step 4.1 - Configure disks</h3>
  <div class="outline-text-3" id="text-step-4-1-configure-disks">
  <p>
@@ -1097,7 +1196,7 @@ usually big enough for most of my systems.
 </div>
 </div>
 
- <div id="outline-container-orga0b927c" class="outline-3">
+ <div id="outline-container-orga06d78d" class="outline-3">
  <h3 id="step-4-2-configure-users">Step 4.2 - Configure users</h3>
  <div class="outline-text-3" id="text-step-4-2-configure-users">
  <p>
@@ -1144,7 +1243,7 @@ user is of course optional. But it may be quite useful.
 </div>
 </div>
 
- <div id="outline-container-orgdaf0fbb" class="outline-3">
+ <div id="outline-container-org47c09be" class="outline-3">
  <h3 id="step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</h3>
  <div class="outline-text-3" id="text-step-4-3-configure-persistent-files-directories">
  <p>
@@ -1211,7 +1310,7 @@ it's located here:  <a href="../../06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as 
 </div>
 </div>
 
- <div id="outline-container-org9c792d6" class="outline-3">
+ <div id="outline-container-orgf1f9dd1" class="outline-3">
  <h3 id="step-4-4-configure-the-rest-of-your-system">Step 4.4 - Configure the rest of your system</h3>
  <div class="outline-text-3" id="text-step-4-4-configure-the-rest-of-your-system">
  <p>
@@ -1221,7 +1320,7 @@ keymap, personal user, network settings, etc.
 </p>
 </div>
 </div>
-</article> <article id="outline-container-org784f5c1" class="outline-2"> <h2 id="step-5-perform-install">Step 5 - Perform install</h2>
+</article> <article id="outline-container-org48f9843" class="outline-2"> <h2 id="step-5-perform-install">Step 5 - Perform install</h2>
  <div class="outline-text-2" id="text-step-5-perform-install">
  <p>
 Perform the actual install. We can ignore setting the roots password at the
@@ -1261,7 +1360,7 @@ time. Partly because of the lack of people caring about PHP in Nix, but also
 that PHP is a bit weird when it comes to packaging.
 </p>
 
- <article id="outline-container-org5f7e882" class="outline-2"> <h2 id="state-of-php-before-nixos-20.09">State of PHP before NixOS 20.09</h2>
+ <article id="outline-container-orge41dcc3" class="outline-2"> <h2 id="state-of-php-before-nixos-20.09">State of PHP before NixOS 20.09</h2>
  <div class="outline-text-2" id="text-state-of-php-before-nixos-20.09">
  <p>
 Due to the lack of ability to do clever things like the python community does
@@ -1306,7 +1405,7 @@ performance penalty by migrating to NixOS. This can be fixed by enabling the
 opcache flag for the build and recompile the entire PHP package. How fun…
 </p>
 </div>
-</article> <article id="outline-container-org230d291" class="outline-2"> <h2 id="the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</h2>
+</article> <article id="outline-container-org604aa3b" class="outline-2"> <h2 id="the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</h2>
  <div class="outline-text-2" id="text-the-road-to-a-better-php-packaging-ecosystem">
  <p>
 Real work and thought into this project started in December 2019 when I had
@@ -1340,7 +1439,7 @@ This finally ended up as the following pull request:
 nixpkgs. This PR change the entire PHP ecosystem in NixOS.
 </p>
 </div>
-</article> <article id="outline-container-org2e11c5c" class="outline-2"> <h2 id="state-of-php-in-nixos-in-20.09-and-beyond">State of PHP in NixOS in 20.09 and beyond</h2>
+</article> <article id="outline-container-org3c1227a" class="outline-2"> <h2 id="state-of-php-in-nixos-in-20.09-and-beyond">State of PHP in NixOS in 20.09 and beyond</h2>
  <div class="outline-text-2" id="text-state-of-php-in-nixos-in-20.09-and-beyond">
  <p>
 The things we have done:
@@ -1434,7 +1533,7 @@ I'm pretty happy with the result. It's symmetric so the inside is the inverse
 of the outside. And the inside kinda became the evil twin of the outside.
 </p>
 
- <article id="outline-container-org7ad5f8c" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
+ <article id="outline-container-org1528441" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
  <div class="outline-text-2" id="text-pattern-chart">
 
  <div class="figure">
@@ -1445,7 +1544,7 @@ of the outside. And the inside kinda became the evil twin of the outside.
  <a href="./medium_chart.png">Link to bigger chart</a>.  <a href="https://www.stitchfiddle.com/en/c/sifm3s-xp37/quickview">Link to full pattern</a>.
 </p>
 </div>
-</article> <article id="outline-container-org0972016" class="outline-2"> <h2 id="pattern-description">Pattern description</h2>
+</article> <article id="outline-container-orgfa9524d" class="outline-2"> <h2 id="pattern-description">Pattern description</h2>
  <div class="outline-text-2" id="text-pattern-description">
  <p>
 So this is what I used:
@@ -1513,11 +1612,11 @@ And then you do a final round before pulling the black yarn through the last
 black stitches and the white yarn through the final white stitches.
 </p>
 </div>
-</article> <article id="outline-container-orgde35e67" class="outline-2"> <h2 id="pictures">Pictures</h2>
+</article> <article id="outline-container-orgcb6c78a" class="outline-2"> <h2 id="pictures">Pictures</h2>
  <div class="outline-text-2" id="text-pictures">
 </div>
 
- <div id="outline-container-org2358d87" class="outline-3">
+ <div id="outline-container-org331223e" class="outline-3">
  <h3 id="friendly-penguin">Friendly penguin</h3>
  <div class="outline-text-3" id="text-friendly-penguin">
 
@@ -1541,7 +1640,7 @@ black stitches and the white yarn through the final white stitches.
 </div>
 </div>
 
- <div id="outline-container-org04a05db" class="outline-3">
+ <div id="outline-container-orgdecad2c" class="outline-3">
  <h3 id="evil-penguin-inside">Evil penguin inside</h3>
  <div class="outline-text-3" id="text-evil-penguin-inside">
 
@@ -1597,7 +1696,7 @@ to re-purpose that install and move it to a location where noise doesn't
 matter, e.g. the closet (a.k.a the server room) where the file server lives.
 </p>
 
- <article id="outline-container-orgc6ef4e7" class="outline-2"> <h2 id="my-requirements-on-this-setup">My requirements on this setup</h2>
+ <article id="outline-container-orgebedaad" class="outline-2"> <h2 id="my-requirements-on-this-setup">My requirements on this setup</h2>
  <div class="outline-text-2" id="text-my-requirements-on-this-setup">
  <p>
 To do this move I had a certain list of requirements:
@@ -1613,7 +1712,7 @@ or system like a raid will complain. But the system should still come up even
 if one disk die.
 </p>
 </div>
-</article> <article id="outline-container-org6207151" class="outline-2"> <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
+</article> <article id="outline-container-org7ed3dbf" class="outline-2"> <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
  <div class="outline-text-2" id="text-step-1-partitioning">
  <p>
 I followed these steps of partitioning grabbed from the  <a href="https://nixos.wiki/wiki/NixOS_on_ZFS#Single-disk">NixOS on ZFS</a> page
@@ -1641,7 +1740,7 @@ sfdisk --dump $ <span class="org-variable-name">DISK1</span> | sfdisk $ <span cl
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org14a064f" class="outline-2"> <h2 id="step-2-creating-the-pool">Step 2 - Creating the pool</h2>
+</article> <article id="outline-container-orgb8c8c68" class="outline-2"> <h2 id="step-2-creating-the-pool">Step 2 - Creating the pool</h2>
  <div class="outline-text-2" id="text-step-2-creating-the-pool">
  <p>
 Creating a ZFS pool can be intimidating for the first times you do it, there
@@ -1696,11 +1795,11 @@ zpool create <FLAGS> zroot mirror $ <span class="org-variable-name">DISK1</span>
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org3ca4458" class="outline-2"> <h2 id="step-3-creating-the-file-systems">Step 3 - Creating the file systems</h2>
+</article> <article id="outline-container-orgdc2f7aa" class="outline-2"> <h2 id="step-3-creating-the-file-systems">Step 3 - Creating the file systems</h2>
  <div class="outline-text-2" id="text-step-3-creating-the-file-systems">
 </div>
 
- <div id="outline-container-org6799f65" class="outline-3">
+ <div id="outline-container-org5404490" class="outline-3">
  <h3 id="step-3-1-zfs-file-systems">Step 3.1 - ZFS file systems</h3>
  <div class="outline-text-3" id="text-step-3-1-zfs-file-systems">
  <p>
@@ -1717,7 +1816,7 @@ zfs create -o  <span class="org-variable-name">mountpoint</span>=legacy zroot/ro
 </div>
 </div>
 
- <div id="outline-container-org15f3e2f" class="outline-3">
+ <div id="outline-container-org554a760" class="outline-3">
  <h3 id="step-3-2-the-esp-partitions">Step 3.2 - The ESP partitions</h3>
  <div class="outline-text-3" id="text-step-3-2-the-esp-partitions">
  <p>
@@ -1740,7 +1839,7 @@ mkfs.vfat $ <span class="org-variable-name">DISK2</span>-part3
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org44dae31" class="outline-2"> <h2 id="step4-mounting-the-file-systems">Step 4 - Mounting the file systems</h2>
+</article> <article id="outline-container-org0e572f5" class="outline-2"> <h2 id="step4-mounting-the-file-systems">Step 4 - Mounting the file systems</h2>
  <div class="outline-text-2" id="text-step4-mounting-the-file-systems">
  <p>
 This takes a bit of work to do, many drives many steps, etc. If you have
@@ -1779,7 +1878,7 @@ mount $ <span class="org-variable-name">DISK2</span>-part3 /mnt/boot-fallback
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-orgbb0ca30" class="outline-2"> <h2 id="step5-configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</h2>
+</article> <article id="outline-container-org14c9b50" class="outline-2"> <h2 id="step5-configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</h2>
  <div class="outline-text-2" id="text-step5-configuration-of-the-boot-loader">
  <p>
 Here we have the magic of the NixOS module systems kicking in that will make
@@ -1830,7 +1929,7 @@ Then I have the following to boot with grub and keep my two grubs in sync:
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-orgcf276ba" class="outline-2"> <h2 id="conclusion">Conclusion</h2>
+</article> <article id="outline-container-org10c3af5" class="outline-2"> <h2 id="conclusion">Conclusion</h2>
  <div class="outline-text-2" id="text-conclusion">
  <p>
 NixOS makes it really easy to set up encrypted ZFS that is reliable when it
@@ -1881,12 +1980,12 @@ This is a block quote element.
 </p>
 </blockquote>
 
- <article id="outline-container-org73598ec" class="outline-2"> <h2 id="org73598ec">Test of syntax highlighting</h2>
- <div class="outline-text-2" id="text-org73598ec">
+ <article id="outline-container-orga6d504b" class="outline-2"> <h2 id="orga6d504b">Test of syntax highlighting</h2>
+ <div class="outline-text-2" id="text-orga6d504b">
 </div>
- <div id="outline-container-orgeddd17b" class="outline-3">
- <h3 id="orgeddd17b">elisp</h3>
- <div class="outline-text-3" id="text-orgeddd17b">
+ <div id="outline-container-org00b65c1" class="outline-3">
+ <h3 id="org00b65c1">elisp</h3>
+ <div class="outline-text-3" id="text-org00b65c1">
  <div class="org-src-container">
  <pre class="src src-elisp"> <span class="org-comment-delimiter">;; </span> <span class="org-comment">Define the hello function</span>
 ( <span class="org-keyword">defun</span>  <span class="org-function-name">hello</span> ()
@@ -1902,9 +2001,9 @@ This is a block quote element.
 </div>
 </div>
 
- <div id="outline-container-org890523f" class="outline-3">
- <h3 id="org890523f">Nix</h3>
- <div class="outline-text-3" id="text-org890523f">
+ <div id="outline-container-orga7fde0e" class="outline-3">
+ <h3 id="orga7fde0e">Nix</h3>
+ <div class="outline-text-3" id="text-orga7fde0e">
  <div class="org-src-container">
  <pre class="src src-nix">{
    <span class="org-comment"># Define the hello function</span>
@@ -1922,9 +2021,9 @@ This is a block quote element.
 </div>
 </div>
 
- <div id="outline-container-org0c9ba98" class="outline-3">
- <h3 id="org0c9ba98">Go</h3>
- <div class="outline-text-3" id="text-org0c9ba98">
+ <div id="outline-container-org4671b6e" class="outline-3">
+ <h3 id="org4671b6e">Go</h3>
+ <div class="outline-text-3" id="text-org4671b6e">
  <div class="org-src-container">
  <pre class="src src-go"> <span class="org-keyword">package</span> main
 
@@ -1938,9 +2037,9 @@ This is a block quote element.
 </div>
 </div>
 
- <div id="outline-container-org46e47ac" class="outline-3">
- <h3 id="org46e47ac">PHP</h3>
- <div class="outline-text-3" id="text-org46e47ac">
+ <div id="outline-container-org3d5c9c1" class="outline-3">
+ <h3 id="org3d5c9c1">PHP</h3>
+ <div class="outline-text-3" id="text-org3d5c9c1">
  <div class="org-src-container">
  <pre class="src src-php"> <span class="org-php-php-tag"><?php</span>
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Define the hello function</span>
@@ -1954,8 +2053,8 @@ This is a block quote element.
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org886e748" class="outline-2"> <h2 id="org886e748">Sample text</h2>
- <div class="outline-text-2" id="text-org886e748">
+</article> <article id="outline-container-orgb3d8e1c" class="outline-2"> <h2 id="orgb3d8e1c">Sample text</h2>
+ <div class="outline-text-2" id="text-orgb3d8e1c">
  <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus
