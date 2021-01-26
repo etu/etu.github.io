@@ -3,7 +3,8 @@
 #+DATE: <2021-01-20 Wed 21:00>
 #+OPTIONS: toc:t
 
-This is a follow up post of: [[../why-i-use-free-software/][Why I use Free Software]].
+This is a follow-up on: [[../why-i-use-free-software/][Why I use Free Software]].
+This has been followed up by: [[../i-find-food-habits-at-free-software-events-weird][I find food habits at Free Software events weird]].
 
 People who turn to Veganism[fn:veganism] can do this for different reasons,
 some do it for health reasons, others for climate reasons. But in it's core,

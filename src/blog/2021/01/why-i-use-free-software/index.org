@@ -3,6 +3,8 @@
 #+DATE: <2021-01-16 Sat 23:30>
 #+OPTIONS: toc:t
 
+This has been followed up by: [[../why-i-got-into-veganism][Why I got into Veganism]], [[../i-find-food-habits-at-free-software-events-weird][I find food habits at Free Software events weird]].
+
 People in general may have different reasons for choosing to use Free
 Software[fn:free-software], some may use it for the price, others because of
 pragmatic reasons, simply put it's the best tool for the job. Others may
