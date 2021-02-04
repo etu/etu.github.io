@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-27 Wed 10:52 -->
+<!-- 2021-02-04 Thu 07:11 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NixOS ❄: tmpfs as home</title>
@@ -71,12 +71,12 @@ as a persistent directory. This post will explain how to take it to the next
 level of purity.
 </p>
 
-<article id="outline-container-org66c8787" class="outline-2">
+<article id="outline-container-org0c35d21" class="outline-2">
 <h2 id="part-1-home-manager">Part 1 - Home Manager</h2>
 <div class="outline-text-2" id="text-part-1-home-manager">
 <p>
 The first thing you want to do unless you already done this is to start using
-<a href="https://github.com/rycee/home-manager/">Home Manager</a> to manage the home directory. It's an excellent way to configure
+<a href="https://github.com/nix-community/home-manager/">Home Manager</a> to manage the home directory. It's an excellent way to configure
 many programs as the user through a nix configuration file.
 </p>
 
@@ -95,7 +95,7 @@ Sample module that can be imported into <code>configuration.nix</code> using <co
 
 <span class="org-nix-keyword">let</span>
   <span class="org-nix-attribute">home-manager</span> = builtins.fetchTarball {
-    <span class="org-nix-attribute">url</span> = <span class="org-string">"https://github.com/rycee/home-manager/archive/master.tar.gz"</span>;
+    <span class="org-nix-attribute">url</span> = <span class="org-string">"https://github.com/nix-community/home-manager/archive/master.tar.gz"</span>;
   };
 <span class="org-nix-keyword">in</span> {
   <span class="org-comment"># Import the home-manager module.</span>
@@ -130,7 +130,7 @@ Home Manager module. These modules became the <a href="https://github.com/nix-co
 </div>
 </article>
 
-<article id="outline-container-org802250d" class="outline-2">
+<article id="outline-container-org8e82b0f" class="outline-2">
 <h2 id="part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</h2>
 <div class="outline-text-2" id="text-part-2-persistence-module-for-home-manager">
 <p>
@@ -146,7 +146,7 @@ So we're going to extend the code sample from above:
 
 <span class="org-nix-keyword">let</span>
   <span class="org-nix-attribute">home-manager</span> = builtins.fetchTarball {
-    <span class="org-nix-attribute">url</span> = <span class="org-string">"https://github.com/rycee/home-manager/archive/master.tar.gz"</span>;
+    <span class="org-nix-attribute">url</span> = <span class="org-string">"https://github.com/nix-community/home-manager/archive/master.tar.gz"</span>;
   };
   <span class="org-comment"># New: Load the module</span>
   <span class="org-nix-attribute">impermanence</span> = builtins.fetchTarball {
@@ -189,7 +189,7 @@ backup in a certain directory and the rest in another place.
 </div>
 </article>
 
-<article id="outline-container-org3c63948" class="outline-2">
+<article id="outline-container-org01dbaf5" class="outline-2">
 <h2 id="part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</h2>
 <div class="outline-text-2" id="text-part-3-persistence-module-for-nixos">
 <p>
@@ -231,7 +231,7 @@ as well making bind mounts for certain directories.
 <div id="postamble" class="status">
 <p class="date">Date: 2020-06-27 Sat 22:30</p>
 <p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-<p class="date">Created: 2021-01-27 Wed 10:52</p>
+<p class="date">Created: 2021-02-04 Thu 07:11</p>
 </div>
 </body>
 </html>
