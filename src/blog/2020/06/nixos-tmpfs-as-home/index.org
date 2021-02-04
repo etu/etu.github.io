@@ -21,7 +21,7 @@ level of purity.
 :END:
 
 The first thing you want to do unless you already done this is to start using
-[[https://github.com/rycee/home-manager/][Home Manager]] to manage the home directory. It's an excellent way to configure
+[[https://github.com/nix-community/home-manager/][Home Manager]] to manage the home directory. It's an excellent way to configure
 many programs as the user through a nix configuration file.
 
 However I would advice to use the NixOS module that home manager provides
@@ -35,7 +35,7 @@ Sample module that can be imported into ~configuration.nix~ using ~imports~:
 
 let
   home-manager = builtins.fetchTarball {
-    url = "https://github.com/rycee/home-manager/archive/master.tar.gz";
+    url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   };
 in {
   # Import the home-manager module.
@@ -79,7 +79,7 @@ So we're going to extend the code sample from above:
 
 let
   home-manager = builtins.fetchTarball {
-    url = "https://github.com/rycee/home-manager/archive/master.tar.gz";
+    url = "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   };
   # New: Load the module
   impermanence = builtins.fetchTarball {
