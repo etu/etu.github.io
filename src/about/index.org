@@ -46,6 +46,7 @@ around the internet.
 Ways to contact me:
 | Email    | [[mailto:elis@hirwing.se][elis@hirwing.se]] (use GPG if possible, details below) |
 | GitHub   | [[https://github.com/etu]]                               |
+| Matrix   | [[https://matrix.to/#/@etu:semi.social][@etu:semi.social]]                                     |
 | IRC      | <etu@(freenode,oftc,efnet)>                          |
 | LinkedIn | [[https://se.linkedin.com/in/elishirwing/][Elis Hirwing]]                                         |
 | Mastodon | [[https://chaos.social/@sa0bse]]                         |
