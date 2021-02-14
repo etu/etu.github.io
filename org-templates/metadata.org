@@ -6,23 +6,6 @@
 #+HTML_HEAD_EXTRA: <link rel="icon" href="/imgs/favicon.jpg">
 #+HTML_HEAD_EXTRA: <meta name="referrer" content="no-referrer" />
 
-#+HTML_HEAD_EXTRA: <!-- Matomo -->
-#+HTML_HEAD_EXTRA: <script type="text/javascript">
-#+HTML_HEAD_EXTRA:   var _paq = window._paq || [];
-#+HTML_HEAD_EXTRA:   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-#+HTML_HEAD_EXTRA:   _paq.push(['trackPageView']);
-#+HTML_HEAD_EXTRA:   _paq.push(['enableLinkTracking']);
-#+HTML_HEAD_EXTRA:   (function() {
-#+HTML_HEAD_EXTRA:     var u="//matomo.elis.nu/";
-#+HTML_HEAD_EXTRA:     _paq.push(['setTrackerUrl', u+'matomo.php']);
-#+HTML_HEAD_EXTRA:     _paq.push(['setSiteId', '1']);
-#+HTML_HEAD_EXTRA:     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-#+HTML_HEAD_EXTRA:     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-#+HTML_HEAD_EXTRA:   })();
-#+HTML_HEAD_EXTRA: </script>
-#+HTML_HEAD_EXTRA: <noscript><p><img src="//matomo.elis.nu/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
-#+HTML_HEAD_EXTRA: <!-- End Matomo Code -->
-
 # Disable default CSS
 #+OPTIONS: html-style:nil
 
