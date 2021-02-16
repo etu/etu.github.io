@@ -6,7 +6,7 @@
 <generator>Emacs webfeeder.el</generator>
 <link>https://elis.nu/</link>
 <atom:link href="https://elis.nu/blog/rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Mon, 15 Feb 2021 20:17:54 +0000</lastBuildDate>
+<lastBuildDate>Tue, 16 Feb 2021 18:47:17 +0000</lastBuildDate>
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Ultra wide monitor</title>
@@ -28,11 +28,11 @@ Here are some sketches l've made of how big and wide this monster really is.
 
 
  <div class="figure">
- <p> <img src="./drawing_thumb.png" alt="drawing_thumb.png"></img></p>
+ <p> <img src="/blog/2021/02/ultra-wide-monitor/drawing_thumb.png" alt="drawing_thumb.png"></img></p>
 </div>
 
  <p>
- <a href="./drawing.png">Drawing in full resolution</a>
+ <a href="/blog/2021/02/ultra-wide-monitor/drawing.png">Drawing in full resolution</a>
 </p>
 
  <p>
@@ -41,39 +41,39 @@ It truly have been a boost in productivity, much more that I expected.
 
  <p>
 For a long time l've been of the opinion that the perfect size and resolution
-of a desktop monitor is 27" at a QHD <sup> <a id="fnr.1" class="footref" href="#fn.1">1</a></sup> resolution. This gives me a size
+of a desktop monitor is 27" at a QHD <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.1">1</a></sup> resolution. This gives me a size
 of things that is easy for me to read without the need to scale my desktop.
 </p>
 
  <p>
-A QHD <sup> <a id="fnr.1.100" class="footref" href="#fn.1">1</a></sup> resolution also gives 33% more space to use as a workspace
-(compared to FHD <sup> <a id="fnr.2" class="footref" href="#fn.2">2</a></sup>). QFHD <sup> <a id="fnr.3" class="footref" href="#fn.3">3</a></sup> doesn't really work for me without
-scaling, otherwise  everything becomes too small. To make QFHD <sup> <a id="fnr.3.100" class="footref" href="#fn.3">3</a></sup> work
-would have to scale it down to 1.5 to get about QHD <sup> <a id="fnr.1.100" class="footref" href="#fn.1">1</a></sup>. This can
+A QHD <sup> <a id="fnr.1.100" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.1">1</a></sup> resolution also gives 33% more space to use as a workspace
+(compared to FHD <sup> <a id="fnr.2" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.2">2</a></sup>). QFHD <sup> <a id="fnr.3" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.3">3</a></sup> doesn't really work for me without
+scaling, otherwise  everything becomes too small. To make QFHD <sup> <a id="fnr.3.100" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.3">3</a></sup> work
+would have to scale it down to 1.5 to get about QHD <sup> <a id="fnr.1.100" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.1">1</a></sup>. This can
 sometimes be hard to get it right and look good. So a scaling of 2 is more
 natural. Then I lost my extra space just to get better looking fonts.
 </p>
 
  <p>
 Given time I've realized that I don't really need the extra 33% width that
-QHD <sup> <a id="fnr.1.100" class="footref" href="#fn.1">1</a></sup> gives me over FHD <sup> <a id="fnr.2.100" class="footref" href="#fn.2">2</a></sup>. I have more use for the extra 33%
-height. It's even rare that I need the full FHD <sup> <a id="fnr.2.100" class="footref" href="#fn.2">2</a></sup> width.
+QHD <sup> <a id="fnr.1.100" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.1">1</a></sup> gives me over FHD <sup> <a id="fnr.2.100" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.2">2</a></sup>. I have more use for the extra 33%
+height. It's even rare that I need the full FHD <sup> <a id="fnr.2.100" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.2">2</a></sup> width.
 </p>
 
- <article id="outline-container-orge065982" class="outline-2"> <h2 id="orge065982">So why go ultra wide?</h2>
- <div class="outline-text-2" id="text-orge065982">
+ <article id="outline-container-org5811562" class="outline-2"> <h2 id="org5811562">So why go ultra wide?</h2>
+ <div class="outline-text-2" id="text-org5811562">
  <p>
-This ultra wide monitor has the size of two 27" QHD <sup> <a id="fnr.1.100" class="footref" href="#fn.1">1</a></sup> displays in one
+This ultra wide monitor has the size of two 27" QHD <sup> <a id="fnr.1.100" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.1">1</a></sup> displays in one
 panel. This gives me the insane resolution of 5120×1440. It still gives me
-the extra 33% height compared to FHD <sup> <a id="fnr.2.100" class="footref" href="#fn.2">2</a></sup>. Then I have the extra width
+the extra 33% height compared to FHD <sup> <a id="fnr.2.100" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.2">2</a></sup>. Then I have the extra width
 without a bezel,  <code>5120px / 3 = 1706px</code>,  <code>1706px</code> is slightly less than the
-width of FHD <sup> <a id="fnr.2.100" class="footref" href="#fn.2">2</a></sup>. This means the width is plenty enough to run three
+width of FHD <sup> <a id="fnr.2.100" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.2">2</a></sup>. This means the width is plenty enough to run three
 applications side by side without feeling cramped. Try to do that on 2
-separate QHD <sup> <a id="fnr.1.100" class="footref" href="#fn.1">1</a></sup> monitors.
+separate QHD <sup> <a id="fnr.1.100" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.1">1</a></sup> monitors.
 </p>
 
  <p>
-This makes this single monitor be as useful as three QHD <sup> <a id="fnr.1.100" class="footref" href="#fn.1">1</a></sup> monitors
+This makes this single monitor be as useful as three QHD <sup> <a id="fnr.1.100" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.1">1</a></sup> monitors
 side by side - but in one display. Despite being huge, it saves space.
 </p>
 
@@ -85,18 +85,18 @@ This monitor: 10/10 - would pay full price.
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/02/ultra-wide-monitor/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
 QHD is the resolution  <code>2560×1440</code>, think 4 times 720p in a grid.
 This is sometimes called 2k since it's less than 4k and more than 2000 pixels
 wide. But it's much more fair to call this 2.5k and reserve 2k for FHD.
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/02/ultra-wide-monitor/#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
 FHD is the resolution  <code>1920×1080</code>, also known as 1080p.
 This could be called 2k since it's half the width of 4k.
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/02/ultra-wide-monitor/#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
 QFHD is the resolution  <code>3840×2160</code>, think 4 times FHD in a grid.
 This is also known as 4k because the width is almost 4000 pixels.
 </p></div></div>
@@ -136,8 +136,8 @@ So by having both of these ideologies in mind I can only come to the
 following conclusions.
 </p>
 
- <article id="outline-container-orga0031f4" class="outline-2"> <h2 id="orga0031f4">Conclusions about the free software communities</h2>
- <div class="outline-text-2" id="text-orga0031f4">
+ <article id="outline-container-org54183aa" class="outline-2"> <h2 id="org54183aa">Conclusions about the free software communities</h2>
+ <div class="outline-text-2" id="text-org54183aa">
  <p>
 It's only natural for an ethical community that is ethical towards human
 animals to extend these ethical values to non-human animals as well.
@@ -155,8 +155,8 @@ I don't find promotion of consumption of these items to fit within the
 extended ethical values of the Free Software movement.
 </p>
 </div>
-</article> <article id="outline-container-org46f18ad" class="outline-2"> <h2 id="org46f18ad">Conclusions about vegans views on software</h2>
- <div class="outline-text-2" id="text-org46f18ad">
+</article> <article id="outline-container-org61932ca" class="outline-2"> <h2 id="org61932ca">Conclusions about vegans views on software</h2>
+ <div class="outline-text-2" id="text-org61932ca">
  <p>
 My experiences with Vegans is quite limited, but within my own circles I
 happen to see that most Vegans use primarily Free Software - but I don't
@@ -171,8 +171,8 @@ about - which I totally get and respect, especially if this non-free software
 is used to promote veganism, which I nowadays find to be of higher value.
 </p>
 </div>
-</article> <article id="outline-container-orga62f124" class="outline-2"> <h2 id="orga62f124">General conclusions</h2>
- <div class="outline-text-2" id="text-orga62f124">
+</article> <article id="outline-container-org87932d8" class="outline-2"> <h2 id="org87932d8">General conclusions</h2>
+ <div class="outline-text-2" id="text-org87932d8">
  <p>
 A general rule in today's society is the following: "vote with your wallet".
 </p>
@@ -212,7 +212,7 @@ This has been followed up by:  <a href="../i-find-food-habits-at-free-software-e
 </p>
 
  <p>
-People who turn to Veganism <sup> <a id="fnr.1" class="footref" href="#fn.1">1</a></sup> can do this for different reasons,
+People who turn to Veganism <sup> <a id="fnr.1" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.1">1</a></sup> can do this for different reasons,
 some do it for health reasons, others for climate reasons. But in it's core,
 the Vegan movement in itself is an ethical movement about saving the animals.
 The other reasons are more or less side effects.
@@ -220,7 +220,7 @@ The other reasons are more or less side effects.
 
  <p>
 When my journey to Veganism started I didn't get into Veganism at all to
-begin with. I got into Vegetarianism <sup> <a id="fnr.2" class="footref" href="#fn.2">2</a></sup> because wanted to
+begin with. I got into Vegetarianism <sup> <a id="fnr.2" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.2">2</a></sup> because wanted to
 challenge myself by forcing myself to change and experience a different
 pallet of foods, but also for health reasons.
 </p>
@@ -230,14 +230,14 @@ Over time I've learned more about the ethical aspects of Veganism which
 partly made me question the point of Vegetarianism and more towards ethical
 Veganism. I still to this day don't know the point of Vegetarianism, not
 after learning some of the horrible things that happens within the dairy
-industry <sup> <a id="fnr.3" class="footref" href="#fn.3">3</a></sup>.
+industry <sup> <a id="fnr.3" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.3">3</a></sup>.
 </p>
 
  <p>
 Before I became a Vegan I thought that I was doing something good for the
-animals and the environment. How bad can milk be <sup> <a id="fnr.3.100" class="footref" href="#fn.3">3</a></sup>? How bad
-can wool be <sup> <a id="fnr.4" class="footref" href="#fn.4">4</a></sup>? It also turns out that the best thing anyone
-can do for the environment <sup> <a id="fnr.5" class="footref" href="#fn.5">5</a></sup> is also
+animals and the environment. How bad can milk be <sup> <a id="fnr.3.100" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.3">3</a></sup>? How bad
+can wool be <sup> <a id="fnr.4" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.4">4</a></sup>? It also turns out that the best thing anyone
+can do for the environment <sup> <a id="fnr.5" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.5">5</a></sup> is also
 the best thing for the animals.
 </p>
 
@@ -277,7 +277,7 @@ I've found that they are surprisingly similar.
 
  <p>
 There's some key differences though. Proprietary
-Software <sup> <a id="fnr.6" class="footref" href="#fn.6">6</a></sup> usually doesn't involve:
+Software <sup> <a id="fnr.6" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.6">6</a></sup> usually doesn't involve:
 </p>
 
  <ul class="org-ul"> <li>Killing of billions of animals including using actual gas chambers.</li>
@@ -286,7 +286,7 @@ Software <sup> <a id="fnr.6" class="footref" href="#fn.6">6</a></sup> usually do
 feces that comes out in the water supplies.</li>
 </ul> <p>
 Veganism is the only humane lifestyle that isn't pushing for more
-Speciesism <sup> <a id="fnr.7" class="footref" href="#fn.7">7</a></sup>, which benefits both humans, animals and the
+Speciesism <sup> <a id="fnr.7" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.7">7</a></sup>, which benefits both humans, animals and the
 environment. Since Free Software is humane software, I can only conclude that
 Free Software is Vegan software - but a less important issue due to the
 victims that Veganism wants to protect.
@@ -294,37 +294,37 @@ victims that Veganism wants to protect.
 
 
  <div class="figure">
- <p> <img src="./metric-for-ethics.jpg" alt="metric-for-ethics.jpg"></img></p>
+ <p> <img src="/blog/2021/01/why-i-got-into-veganism/metric-for-ethics.jpg" alt="metric-for-ethics.jpg"></img></p>
 </div>
  <div id="footnotes">
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Veganism#Ethical_veganism">https://en.wikipedia.org/wiki/Veganism#Ethical_veganism</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Vegetarianism">https://en.wikipedia.org/wiki/Vegetarianism</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
  <a href="https://www.youtube.com/watch?v=UcN7SGGoCNI">Youtube - Erin Janus - Dairy is scary!</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.4" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.4">4</a></sup> <div class="footpara"> <p class="footpara">
  <a href="https://www.youtube.com/watch?v=siTvjWE2aVw">Youtube - Erin Janus - Wool industry exposed</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.5" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.5">5</a></sup> <div class="footpara"> <p class="footpara">
  <a href="https://www.theguardian.com/environment/2018/may/31/avoiding-meat-and-dairy-is-single-biggest-way-to-reduce-your-impact-on-earth">The Guardian: Avoiding meat and dairy is ‘single biggest way’ to reduce your impact on Earth</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.6" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.6">6</a></sup> <div class="footpara"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Proprietary_software">https://en.wikipedia.org/wiki/Proprietary_software</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.7" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.7">7</a></sup> <div class="footpara"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Speciesism">https://en.wikipedia.org/wiki/Speciesism</a>
 </p></div></div>
 
@@ -346,7 +346,7 @@ This has been followed up by:  <a href="../why-i-got-into-veganism">Why I got in
 
  <p>
 People in general may have different reasons for choosing to use Free
-Software <sup> <a id="fnr.1" class="footref" href="#fn.1">1</a></sup>, some may use it for the price, others because of
+Software <sup> <a id="fnr.1" class="footref" href="/blog/2021/01/why-i-use-free-software/#fn.1">1</a></sup>, some may use it for the price, others because of
 pragmatic reasons, simply put it's the best tool for the job. Others may
 choose it for ethical reasons.
 </p>
@@ -382,7 +382,7 @@ that's the reasoning for how it was founded.
 
  <p>
 For example: I find Free Software to be one of the best ways to close, or at
-least reduce the size of the digital divide <sup> <a id="fnr.2" class="footref" href="#fn.2">2</a></sup>. It may not do
+least reduce the size of the digital divide <sup> <a id="fnr.2" class="footref" href="/blog/2021/01/why-i-use-free-software/#fn.2">2</a></sup>. It may not do
 it on hardware, but every bit helps.
 </p>
 
@@ -396,22 +396,22 @@ attempt to break economic barriers and income classes.
 
  <p>
 This happens to go hand in hand with the ethical aspects of
-Veganism <sup> <a id="fnr.3" class="footref" href="#fn.3">3</a></sup>. This is sadly a connection I didn't get until many
+Veganism <sup> <a id="fnr.3" class="footref" href="/blog/2021/01/why-i-use-free-software/#fn.3">3</a></sup>. This is sadly a connection I didn't get until many
 years later. This is in a follow up post:  <a href="../why-i-got-into-veganism">Why I got into Veganism</a>.
 </p>
  <div id="footnotes">
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/01/why-i-use-free-software/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Free_software">https://en.wikipedia.org/wiki/Free_software</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/01/why-i-use-free-software/#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Digital_divide">https://en.wikipedia.org/wiki/Digital_divide</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/01/why-i-use-free-software/#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Veganism#Ethical_veganism">https://en.wikipedia.org/wiki/Veganism#Ethical_veganism</a>
 </p></div></div>
 
@@ -430,24 +430,24 @@ years later. This is in a follow up post:  <a href="../why-i-got-into-veganism">
  <div id="table-of-contents">
  <h2>Table of Contents</h2>
  <div id="text-table-of-contents">
- <ul> <li> <a href="#weechat-configuration">Weechat configuration</a></li>
- <li> <a href="#weechat-android-configuration">Weechat Android configuration</a>
- <ul> <li> <a href="#ssh-setup">SSH setup</a>
- <ul> <li> <a href="#generating-an-ssh-key">Generating an SSH key</a></li>
- <li> <a href="#add-the-public-key-to-your-server">Add the public key to your server</a></li>
- <li> <a href="#connection-settings-in-weechat-android">Connection settings in Weechat Android</a></li>
+ <ul> <li> <a href="/blog/2020/08/weechat-android-ssh-relay-setup/#weechat-configuration">Weechat configuration</a></li>
+ <li> <a href="/blog/2020/08/weechat-android-ssh-relay-setup/#weechat-android-configuration">Weechat Android configuration</a>
+ <ul> <li> <a href="/blog/2020/08/weechat-android-ssh-relay-setup/#ssh-setup">SSH setup</a>
+ <ul> <li> <a href="/blog/2020/08/weechat-android-ssh-relay-setup/#generating-an-ssh-key">Generating an SSH key</a></li>
+ <li> <a href="/blog/2020/08/weechat-android-ssh-relay-setup/#add-the-public-key-to-your-server">Add the public key to your server</a></li>
+ <li> <a href="/blog/2020/08/weechat-android-ssh-relay-setup/#connection-settings-in-weechat-android">Connection settings in Weechat Android</a></li>
 </ul></li>
- <li> <a href="#other-weechat-android-settings">Other Weechat Android settings</a></li>
+ <li> <a href="/blog/2020/08/weechat-android-ssh-relay-setup/#other-weechat-android-settings">Other Weechat Android settings</a></li>
 </ul></li>
 </ul></div>
 </div>
  <p>
-Setting up the Weechat Android <sup> <a id="fnr.1" class="footref" href="#fn.1">1</a></sup> relay client over SSH can
+Setting up the Weechat Android <sup> <a id="fnr.1" class="footref" href="/blog/2020/08/weechat-android-ssh-relay-setup/#fn.1">1</a></sup> relay client over SSH can
 be a bit tricky and quite bad at giving useful error messages. So since I'm
 going through a re-setup of that I'm also writing down my notes here.
 </p>
 
- <article id="outline-container-org706b9da" class="outline-2"> <h2 id="weechat-configuration">Weechat configuration</h2>
+ <article id="outline-container-orgb3b060e" class="outline-2"> <h2 id="weechat-configuration">Weechat configuration</h2>
  <div class="outline-text-2" id="text-weechat-configuration">
  <p>
 Type the following commands into Weechat.
@@ -469,16 +469,16 @@ a multi user system.
 /set relay.network.password "{password}"
 </pre>
 </div>
-</article> <article id="outline-container-org5780dbf" class="outline-2"> <h2 id="weechat-android-configuration">Weechat Android configuration</h2>
+</article> <article id="outline-container-org590b656" class="outline-2"> <h2 id="weechat-android-configuration">Weechat Android configuration</h2>
  <div class="outline-text-2" id="text-weechat-android-configuration">
 </div>
 
- <div id="outline-container-org6444271" class="outline-3">
+ <div id="outline-container-org1974f3f" class="outline-3">
  <h3 id="ssh-setup">SSH setup</h3>
  <div class="outline-text-3" id="text-ssh-setup">
 </div>
 
- <div id="outline-container-orgd0b6b7b" class="outline-4">
+ <div id="outline-container-org62de7ae" class="outline-4">
  <h4 id="generating-an-ssh-key">Generating an SSH key</h4>
  <div class="outline-text-4" id="text-generating-an-ssh-key">
  <p>
@@ -506,7 +506,7 @@ This is because of this which still seems to be an issue:
 </div>
 </div>
 
- <div id="outline-container-org87bbea8" class="outline-4">
+ <div id="outline-container-org774e605" class="outline-4">
  <h4 id="add-the-public-key-to-your-server">Add the public key to your server</h4>
  <div class="outline-text-4" id="text-add-the-public-key-to-your-server">
  <p>
@@ -534,7 +534,7 @@ in the app.
 </div>
 </div>
 
- <div id="outline-container-orgfbcecae" class="outline-4">
+ <div id="outline-container-orge293ddb" class="outline-4">
  <h4 id="connection-settings-in-weechat-android">Connection settings in Weechat Android</h4>
  <div class="outline-text-4" id="text-connection-settings-in-weechat-android">
  <p>
@@ -582,7 +582,7 @@ Settings/
 </div>
 </div>
 
- <div id="outline-container-org7415aa7" class="outline-3">
+ <div id="outline-container-orga85ecd6" class="outline-3">
  <h3 id="other-weechat-android-settings">Other Weechat Android settings</h3>
  <div class="outline-text-3" id="text-other-weechat-android-settings">
  <p>
@@ -615,7 +615,7 @@ Settings/
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2020/08/weechat-android-ssh-relay-setup/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
 Weechat Android on GitHub:  <a href="https://github.com/ubergeek42/weechat-android">https://github.com/ubergeek42/weechat-android</a>,
 Weechat Android on Play Store:  <a href="https://play.google.com/store/apps/details?id=com.ubergeek42.WeechatAndroid">https://play.google.com/store/apps/details?id=com.ubergeek42.WeechatAndroid</a>
 </p></div></div>
@@ -635,16 +635,16 @@ Weechat Android on Play Store:  <a href="https://play.google.com/store/apps/deta
  <div id="table-of-contents">
  <h2>Table of Contents</h2>
  <div id="text-table-of-contents">
- <ul> <li> <a href="#ergonomics-part-1">Ergonomics part 1</a></li>
- <li> <a href="#good-health">Good health</a>
- <ul> <li> <a href="#why-pain">Why pain?</a></li>
- <li> <a href="#handle-inflammation">Handle inflammation</a>
- <ul> <li> <a href="#increased-blood-flow">Increased blood flow</a></li>
- <li> <a href="#ingestion-of-inflammation">Ingestion of inflammation</a></li>
+ <ul> <li> <a href="/blog/2020/08/my-battle-with-wrist-pains/#ergonomics-part-1">Ergonomics part 1</a></li>
+ <li> <a href="/blog/2020/08/my-battle-with-wrist-pains/#good-health">Good health</a>
+ <ul> <li> <a href="/blog/2020/08/my-battle-with-wrist-pains/#why-pain">Why pain?</a></li>
+ <li> <a href="/blog/2020/08/my-battle-with-wrist-pains/#handle-inflammation">Handle inflammation</a>
+ <ul> <li> <a href="/blog/2020/08/my-battle-with-wrist-pains/#increased-blood-flow">Increased blood flow</a></li>
+ <li> <a href="/blog/2020/08/my-battle-with-wrist-pains/#ingestion-of-inflammation">Ingestion of inflammation</a></li>
 </ul></li>
 </ul></li>
- <li> <a href="#ergonomics-part-2">Ergonomics part 2</a></li>
- <li> <a href="#summary">Summary</a></li>
+ <li> <a href="/blog/2020/08/my-battle-with-wrist-pains/#ergonomics-part-2">Ergonomics part 2</a></li>
+ <li> <a href="/blog/2020/08/my-battle-with-wrist-pains/#summary">Summary</a></li>
 </ul></div>
 </div>
  <blockquote>
@@ -657,7 +657,7 @@ seek expert advice if you need it.
 </blockquote>
 
  <p>
-In parts of the IT industry abbreviations like RSI <sup> <a id="fnr.1" class="footref" href="#fn.1">1</a></sup> and CTS <sup> <a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
+In parts of the IT industry abbreviations like RSI <sup> <a id="fnr.1" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.1">1</a></sup> and CTS <sup> <a id="fnr.2" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.2">2</a></sup>
 gets thrown around fairly often. I'm guilty myself of doing this.
 </p>
 
@@ -674,11 +674,11 @@ over time. All the steps have been worked on in parallel so this blog post
 isn't linear.
 </p>
 
- <article id="outline-container-org35aea02" class="outline-2"> <h2 id="ergonomics-part-1">Ergonomics part 1</h2>
+ <article id="outline-container-org03555d8" class="outline-2"> <h2 id="ergonomics-part-1">Ergonomics part 1</h2>
  <div class="outline-text-2" id="text-ergonomics-part-1">
  <p>
 The first thing I did on this field was really when I switched to
-Svorak <sup> <a id="fnr.3" class="footref" href="#fn.3">3</a></sup> (A Swedish Dvorak <sup> <a id="fnr.4" class="footref" href="#fn.4">4</a></sup> layout) around 2006 because it
+Svorak <sup> <a id="fnr.3" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.3">3</a></sup> (A Swedish Dvorak <sup> <a id="fnr.4" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.4">4</a></sup> layout) around 2006 because it
 was different but also later noticed that it was more comfortable.
 </p>
 
@@ -688,27 +688,27 @@ utilities that are supposed to be ergonomically and "fix this".
 </p>
 
  <p>
-I ordered two of Keyboardio <sup> <a id="fnr.5" class="footref" href="#fn.5">5</a></sup> Model 01 from
-Kickstarter <sup> <a id="fnr.6" class="footref" href="#fn.6">6</a></sup> when it launched, one for home and one for
-work. This set me to the path of Matias Quiet Switches <sup> <a id="fnr.7" class="footref" href="#fn.7">7</a></sup> as a
+I ordered two of Keyboardio <sup> <a id="fnr.5" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.5">5</a></sup> Model 01 from
+Kickstarter <sup> <a id="fnr.6" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.6">6</a></sup> when it launched, one for home and one for
+work. This set me to the path of Matias Quiet Switches <sup> <a id="fnr.7" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.7">7</a></sup> as a
 good idea.
 </p>
 
  <p>
 The delivery time was long enough so I never actually started to use it
-because I jumped on a groupby for the ErgoDox Infinity <sup> <a id="fnr.8" class="footref" href="#fn.8">8</a></sup>
+because I jumped on a groupby for the ErgoDox Infinity <sup> <a id="fnr.8" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.8">8</a></sup>
 that that was launched way later but got shipped much faster. So I got two of
 that one as well to have one at work and one at home. They also happened to
-support the Matias Quiet Switches <sup> <a id="fnr.7.100" class="footref" href="#fn.7">7</a></sup>.
+support the Matias Quiet Switches <sup> <a id="fnr.7.100" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.7">7</a></sup>.
 </p>
 
  <p>
 I've experienced quality issues with my Matias Switches which pushed me
 to move back to Cherry MX or at least something Cherry MX compatible. At a
 Keyboard meetup I got the chance to try out an ErgoDox with
-Zealios V2 <sup> <a id="fnr.9" class="footref" href="#fn.9">9</a></sup>. Which I later ordered switches for and it's now my
-main keyboard, together with the MX Ergo <sup> <a id="fnr.10" class="footref" href="#fn.10">10</a></sup> that replaced my
-previous M570 <sup> <a id="fnr.11" class="footref" href="#fn.11">11</a></sup>.
+Zealios V2 <sup> <a id="fnr.9" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.9">9</a></sup>. Which I later ordered switches for and it's now my
+main keyboard, together with the MX Ergo <sup> <a id="fnr.10" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.10">10</a></sup> that replaced my
+previous M570 <sup> <a id="fnr.11" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.11">11</a></sup>.
 </p>
 
  <p>
@@ -716,7 +716,7 @@ All this costed me a lot of money on hardware, it haven't solved all problems
 just magically. More has been needed.
 </p>
 </div>
-</article> <article id="outline-container-org935edfa" class="outline-2"> <h2 id="good-health">Good health</h2>
+</article> <article id="outline-container-org3e31651" class="outline-2"> <h2 id="good-health">Good health</h2>
  <div class="outline-text-2" id="text-good-health">
  <p>
 Good health is the source of having a good healthy life. A lot of health
@@ -724,7 +724,7 @@ comes from working out properly and eating good food.
 </p>
 </div>
 
- <div id="outline-container-org21d8166" class="outline-3">
+ <div id="outline-container-orgcf6b270" class="outline-3">
  <h3 id="why-pain">Why pain?</h3>
  <div class="outline-text-3" id="text-why-pain">
  <p>
@@ -744,13 +744,13 @@ don't use keyboards.
 
  <p>
 The doctor also thought me that the source of the pain is
-inflammation <sup> <a id="fnr.12" class="footref" href="#fn.12">12</a></sup> that ends up in my wrists and joins and causes
+inflammation <sup> <a id="fnr.12" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.12">12</a></sup> that ends up in my wrists and joins and causes
 the pain. To lower the immediate pain, I got pain pills.
 </p>
 </div>
 </div>
 
- <div id="outline-container-orgd0d757f" class="outline-3">
+ <div id="outline-container-org75814e2" class="outline-3">
  <h3 id="handle-inflammation">Handle inflammation</h3>
  <div class="outline-text-3" id="text-handle-inflammation">
  <p>
@@ -761,7 +761,7 @@ two primary ways to help the body to handle inflammation better.
 </p>
 </div>
 
- <div id="outline-container-orge2cd887" class="outline-4">
+ <div id="outline-container-org4ef54d7" class="outline-4">
  <h4 id="increased-blood-flow">Increased blood flow</h4>
  <div class="outline-text-4" id="text-increased-blood-flow">
  <p>
@@ -782,7 +782,7 @@ wanting more of it and actually miss it if it's not present.
 </div>
 </div>
 
- <div id="outline-container-org75de8e3" class="outline-4">
+ <div id="outline-container-org9193374" class="outline-4">
  <h4 id="ingestion-of-inflammation">Ingestion of inflammation</h4>
  <div class="outline-text-4" id="text-ingestion-of-inflammation">
  <p>
@@ -794,7 +794,7 @@ over and over again has proved to be the right choice.
  <p>
 Since then, during the years I've read several books on the topic of diet.
 I've learned that all animal sources of food contains
-inflammation <sup> <a id="fnr.13" class="footref" href="#fn.13">13</a></sup>. I'm also pretty sure that adding extra
+inflammation <sup> <a id="fnr.13" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.13">13</a></sup>. I'm also pretty sure that adding extra
 inflammation to your body when you have problems with inflammation seems to
 be a bad idea.
 </p>
@@ -805,7 +805,7 @@ animal sources of food down to zero.
 </p>
 
  <p>
-So today I aim to follow a whole-food plant based diet <sup> <a id="fnr.14" class="footref" href="#fn.14">14</a></sup>
+So today I aim to follow a whole-food plant based diet <sup> <a id="fnr.14" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.14">14</a></sup>
 that is low on fat.
 </p>
 
@@ -826,7 +826,7 @@ To not mention books such as:
 </ul></div>
 </div>
 </div>
-</article> <article id="outline-container-org972ed45" class="outline-2"> <h2 id="ergonomics-part-2">Ergonomics part 2</h2>
+</article> <article id="outline-container-org24cd94a" class="outline-2"> <h2 id="ergonomics-part-2">Ergonomics part 2</h2>
  <div class="outline-text-2" id="text-ergonomics-part-2">
  <p>
 During the spring of 2020, I went to a private doctor that did a ultrasound
@@ -865,13 +865,13 @@ pain even after 8-10 hours of keyboard use in a single day. And I can work
 a full time job without any problems.
 </p>
 </div>
-</article> <article id="outline-container-org9067a07" class="outline-2"> <h2 id="summary">Summary</h2>
+</article> <article id="outline-container-org660af99" class="outline-2"> <h2 id="summary">Summary</h2>
  <div class="outline-text-2" id="text-summary">
  <p>
 A TL DR of my actions that made the pain manageable:
 </p>
  <ul class="org-ul"> <li>Ergonomic keyboard with wrist and arm rests for long time use</li>
- <li>Sticking to a fully plant based diet <sup> <a id="fnr.14.100" class="footref" href="#fn.14">14</a></sup></li>
+ <li>Sticking to a fully plant based diet <sup> <a id="fnr.14.100" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.14">14</a></sup></li>
  <li>Working out three to four times a week</li>
 </ul> <p>
 It's still a daily struggle, but it's manageable and easy to live with
@@ -882,70 +882,70 @@ compared to how it was in the past.
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
 RSI - Repetitive Strain Injury:
  <a href="https://en.wikipedia.org/wiki/Repetitive_strain_injury">https://en.wikipedia.org/wiki/Repetitive_strain_injury</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
 CTS - Carpal tunnel syndrome:
  <a href="https://en.wikipedia.org/wiki/Carpal_tunnel_syndrome">https://en.wikipedia.org/wiki/Carpal_tunnel_syndrome</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
 Svorak is one of the Swedish Dvoraks:  <a href="http://aoeu.info">http://aoeu.info</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.4" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.4">4</a></sup> <div class="footpara"> <p class="footpara">
 Dvorak keyboard layout:
  <a href="https://en.wikipedia.org/wiki/Dvorak_keyboard_layout">https://en.wikipedia.org/wiki/Dvorak_keyboard_layout</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.5" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.5">5</a></sup> <div class="footpara"> <p class="footpara">
 Keyboardio web shop:  <a href="https://keyboard.io/">https://keyboard.io/</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.6" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.6">6</a></sup> <div class="footpara"> <p class="footpara">
 The Model 01: an heirloom-grade keyboard for serious typists:
  <a href="https://www.kickstarter.com/projects/keyboardio/the-model-01-an-heirloom-grade-keyboard-for-seriou">https://www.kickstarter.com/projects/keyboardio/the-model-01-an-heirloom-grade-keyboard-for-seriou</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.7" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.7">7</a></sup> <div class="footpara"> <p class="footpara">
 Matias quiet click switches:
  <a href="http://matias.ca/switches/quiet/">http://matias.ca/switches/quiet/</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.8" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.8">8</a></sup> <div class="footpara"> <p class="footpara">
 Infinity ErgoDox Mechanical Keyboard:
  <a href="https://input.club/devices/infinity-ergodox/">https://input.club/devices/infinity-ergodox/</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.9" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.9">9</a></sup> <div class="footpara"> <p class="footpara">
 Purple Zealios V2 Switches (Tactile):
  <a href="https://zealpc.net/products/zealio">https://zealpc.net/products/zealio</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.10" class="footnum" href="#fnr.10">10</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.10" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.10">10</a></sup> <div class="footpara"> <p class="footpara">
 Logitech MX Ergo trackball:
  <a href="https://www.logitech.com/en-us/product/mx-ergo-wireless-trackball-mouse">https://www.logitech.com/en-us/product/mx-ergo-wireless-trackball-mouse</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.11" class="footnum" href="#fnr.11">11</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.11" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.11">11</a></sup> <div class="footpara"> <p class="footpara">
 Logitech M570 trackball:
  <a href="https://www.logitech.com/en-us/product/wireless-trackball-m570">https://www.logitech.com/en-us/product/wireless-trackball-m570</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.12" class="footnum" href="#fnr.12">12</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.12" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.12">12</a></sup> <div class="footpara"> <p class="footpara">
 Wikipedia about inflammation:
  <a href="https://en.wikipedia.org/wiki/Inflammation">https://en.wikipedia.org/wiki/Inflammation</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.13" class="footnum" href="#fnr.13">13</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.13" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.13">13</a></sup> <div class="footpara"> <p class="footpara">
 Nutrition Facts page about inflammation:
  <a href="https://nutritionfacts.org/topics/inflammation/">https://nutritionfacts.org/topics/inflammation/</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.14" class="footnum" href="#fnr.14">14</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.14" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.14">14</a></sup> <div class="footpara"> <p class="footpara">
 Nutrition Facts page about plant based diets:
  <a href="https://nutritionfacts.org/topics/plant-based-diets/">https://nutritionfacts.org/topics/plant-based-diets/</a>
 </p></div></div>
@@ -965,9 +965,9 @@ Nutrition Facts page about plant based diets:
  <div id="table-of-contents">
  <h2>Table of Contents</h2>
  <div id="text-table-of-contents">
- <ul> <li> <a href="#part-1-home-manager">Part 1 - Home Manager</a></li>
- <li> <a href="#part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</a></li>
- <li> <a href="#part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</a></li>
+ <ul> <li> <a href="/blog/2020/06/nixos-tmpfs-as-home/#part-1-home-manager">Part 1 - Home Manager</a></li>
+ <li> <a href="/blog/2020/06/nixos-tmpfs-as-home/#part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</a></li>
+ <li> <a href="/blog/2020/06/nixos-tmpfs-as-home/#part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</a></li>
 </ul></div>
 </div>
  <p>
@@ -988,7 +988,7 @@ as a persistent directory. This post will explain how to take it to the next
 level of purity.
 </p>
 
- <article id="outline-container-org67c0d1b" class="outline-2"> <h2 id="part-1-home-manager">Part 1 - Home Manager</h2>
+ <article id="outline-container-org420e5fc" class="outline-2"> <h2 id="part-1-home-manager">Part 1 - Home Manager</h2>
  <div class="outline-text-2" id="text-part-1-home-manager">
  <p>
 The first thing you want to do unless you already done this is to start using
@@ -1044,7 +1044,7 @@ to help doing persistence handling better – both in NixOS, but also as a
 Home Manager module. These modules became the  <a href="https://github.com/nix-community/impermanence">impermanence</a> community project.
 </p>
 </div>
-</article> <article id="outline-container-org9a2a888" class="outline-2"> <h2 id="part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</h2>
+</article> <article id="outline-container-orge00f4d1" class="outline-2"> <h2 id="part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</h2>
  <div class="outline-text-2" id="text-part-2-persistence-module-for-home-manager">
  <p>
 Based on the previous example we're going to extend it to use the home
@@ -1100,7 +1100,7 @@ but that you still want persistence. Then you can put the ones you want to
 backup in a certain directory and the rest in another place.
 </p>
 </div>
-</article> <article id="outline-container-orgde70b59" class="outline-2"> <h2 id="part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</h2>
+</article> <article id="outline-container-org9f89a65" class="outline-2"> <h2 id="part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</h2>
  <div class="outline-text-2" id="text-part-3-persistence-module-for-nixos">
  <p>
 This example nix file will import the persistence module for nixos and create
@@ -1149,16 +1149,16 @@ as well making bind mounts for certain directories.
  <div id="table-of-contents">
  <h2>Table of Contents</h2>
  <div id="text-table-of-contents">
- <ul> <li> <a href="#step-1-partitioning">Step 1 - Partitioning</a></li>
- <li> <a href="#step-2-creating-the-file-systems">Step 2 - Creating the file systems</a></li>
- <li> <a href="#step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</a></li>
- <li> <a href="#step-4-configuration">Step 4 - Configuration</a>
- <ul> <li> <a href="#step-4-1-configure-disks">Step 4.1 - Configure disks</a></li>
- <li> <a href="#step-4-2-configure-users">Step 4.2 - Configure users</a></li>
- <li> <a href="#step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</a></li>
- <li> <a href="#step-4-4-configure-the-rest-of-your-system">Step 4.4 - Configure the rest of your system</a></li>
+ <ul> <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-1-partitioning">Step 1 - Partitioning</a></li>
+ <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-2-creating-the-file-systems">Step 2 - Creating the file systems</a></li>
+ <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</a></li>
+ <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-configuration">Step 4 - Configuration</a>
+ <ul> <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-1-configure-disks">Step 4.1 - Configure disks</a></li>
+ <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-2-configure-users">Step 4.2 - Configure users</a></li>
+ <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</a></li>
+ <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-4-configure-the-rest-of-your-system">Step 4.4 - Configure the rest of your system</a></li>
 </ul></li>
- <li> <a href="#step-5-perform-install">Step 5 - Perform install</a></li>
+ <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-5-perform-install">Step 5 - Perform install</a></li>
 </ul></div>
 </div>
  <p>
@@ -1180,7 +1180,7 @@ Another way is to go the tmpfs way which is probably why you're here. So I'm
 going to walk through the install with tmpfs as root file system.
 </p>
 
- <article id="outline-container-org42dec4a" class="outline-2"> <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
+ <article id="outline-container-org3ae94f5" class="outline-2"> <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
  <div class="outline-text-2" id="text-step-1-partitioning">
  <p>
 I'm going to do the most basic setup when it comes to file systems, just a
@@ -1206,7 +1206,7 @@ parted $ <span class="org-variable-name">DISK</span> -- mkpart Nix 512MiB 100%
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org41e2bbf" class="outline-2"> <h2 id="step-2-creating-the-file-systems">Step 2 - Creating the file systems</h2>
+</article> <article id="outline-container-orgd9fea9f" class="outline-2"> <h2 id="step-2-creating-the-file-systems">Step 2 - Creating the file systems</h2>
  <div class="outline-text-2" id="text-step-2-creating-the-file-systems">
  <p>
 This is fairly straight forward in my example:
@@ -1220,7 +1220,7 @@ mkfs.ext4 $ <span class="org-variable-name">DISK</span>-part2
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-orgeaa7aef" class="outline-2"> <h2 id="step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</h2>
+</article> <article id="outline-container-org42d10ce" class="outline-2"> <h2 id="step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</h2>
  <div class="outline-text-2" id="text-step-3-mounting-the-file-systems">
  <p>
 Here we do one of the neat tricks, we mount tmpfs instead of a partition and
@@ -1247,7 +1247,7 @@ mount -o bind /mnt/nix/persist/var/log /mnt/var/log
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org96ee2ba" class="outline-2"> <h2 id="step-4-configuration">Step 4 - Configuration</h2>
+</article> <article id="outline-container-org33c5b4e" class="outline-2"> <h2 id="step-4-configuration">Step 4 - Configuration</h2>
  <div class="outline-text-2" id="text-step-4-configuration">
  <p>
 Then go ahead and do a  <code>nixos-generate-config --root /mnt</code> to get a basic
@@ -1255,7 +1255,7 @@ configuration for your system.
 </p>
 </div>
 
- <div id="outline-container-org73c62ec" class="outline-3">
+ <div id="outline-container-org738ca47" class="outline-3">
  <h3 id="step-4-1-configure-disks">Step 4.1 - Configure disks</h3>
  <div class="outline-text-3" id="text-step-4-1-configure-disks">
  <p>
@@ -1296,7 +1296,7 @@ usually big enough for most of my systems.
 </div>
 </div>
 
- <div id="outline-container-orga340293" class="outline-3">
+ <div id="outline-container-org34f7050" class="outline-3">
  <h3 id="step-4-2-configure-users">Step 4.2 - Configure users</h3>
  <div class="outline-text-3" id="text-step-4-2-configure-users">
  <p>
@@ -1343,7 +1343,7 @@ user is of course optional. But it may be quite useful.
 </div>
 </div>
 
- <div id="outline-container-org743bb2f" class="outline-3">
+ <div id="outline-container-org13fbb90" class="outline-3">
  <h3 id="step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</h3>
  <div class="outline-text-3" id="text-step-4-3-configure-persistent-files-directories">
  <p>
@@ -1410,7 +1410,7 @@ it's located here:  <a href="../../06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as 
 </div>
 </div>
 
- <div id="outline-container-org5a15edb" class="outline-3">
+ <div id="outline-container-org0f09257" class="outline-3">
  <h3 id="step-4-4-configure-the-rest-of-your-system">Step 4.4 - Configure the rest of your system</h3>
  <div class="outline-text-3" id="text-step-4-4-configure-the-rest-of-your-system">
  <p>
@@ -1420,7 +1420,7 @@ keymap, personal user, network settings, etc.
 </p>
 </div>
 </div>
-</article> <article id="outline-container-org0623db3" class="outline-2"> <h2 id="step-5-perform-install">Step 5 - Perform install</h2>
+</article> <article id="outline-container-org6899dd8" class="outline-2"> <h2 id="step-5-perform-install">Step 5 - Perform install</h2>
  <div class="outline-text-2" id="text-step-5-perform-install">
  <p>
 Perform the actual install. We can ignore setting the roots password at the
@@ -1445,9 +1445,9 @@ end of the install since it won't be there after reboot anyway.
  <div id="table-of-contents">
  <h2>Table of Contents</h2>
  <div id="text-table-of-contents">
- <ul> <li> <a href="#state-of-php-before-nixos-20.09">State of PHP before NixOS 20.09</a></li>
- <li> <a href="#the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</a></li>
- <li> <a href="#state-of-php-in-nixos-in-20.09-and-beyond">State of PHP in NixOS in 20.09 and beyond</a></li>
+ <ul> <li> <a href="/blog/2020/04/php-packaging-in-nixos/#state-of-php-before-nixos-20.09">State of PHP before NixOS 20.09</a></li>
+ <li> <a href="/blog/2020/04/php-packaging-in-nixos/#the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</a></li>
+ <li> <a href="/blog/2020/04/php-packaging-in-nixos/#state-of-php-in-nixos-in-20.09-and-beyond">State of PHP in NixOS in 20.09 and beyond</a></li>
 </ul></div>
 </div>
  <p>
@@ -1460,7 +1460,7 @@ time. Partly because of the lack of people caring about PHP in Nix, but also
 that PHP is a bit weird when it comes to packaging.
 </p>
 
- <article id="outline-container-org9dd0e13" class="outline-2"> <h2 id="state-of-php-before-nixos-20.09">State of PHP before NixOS 20.09</h2>
+ <article id="outline-container-org138964f" class="outline-2"> <h2 id="state-of-php-before-nixos-20.09">State of PHP before NixOS 20.09</h2>
  <div class="outline-text-2" id="text-state-of-php-before-nixos-20.09">
  <p>
 Due to the lack of ability to do clever things like the python community does
@@ -1505,7 +1505,7 @@ performance penalty by migrating to NixOS. This can be fixed by enabling the
 opcache flag for the build and recompile the entire PHP package. How fun…
 </p>
 </div>
-</article> <article id="outline-container-org58aac1d" class="outline-2"> <h2 id="the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</h2>
+</article> <article id="outline-container-org3652382" class="outline-2"> <h2 id="the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</h2>
  <div class="outline-text-2" id="text-the-road-to-a-better-php-packaging-ecosystem">
  <p>
 Real work and thought into this project started in December 2019 when I had
@@ -1539,7 +1539,7 @@ This finally ended up as the following pull request:
 nixpkgs. This PR change the entire PHP ecosystem in NixOS.
 </p>
 </div>
-</article> <article id="outline-container-org07ab414" class="outline-2"> <h2 id="state-of-php-in-nixos-in-20.09-and-beyond">State of PHP in NixOS in 20.09 and beyond</h2>
+</article> <article id="outline-container-orga5e2d3a" class="outline-2"> <h2 id="state-of-php-in-nixos-in-20.09-and-beyond">State of PHP in NixOS in 20.09 and beyond</h2>
  <div class="outline-text-2" id="text-state-of-php-in-nixos-in-20.09-and-beyond">
  <p>
 The things we have done:
@@ -1601,17 +1601,17 @@ flexibility, being reproducible and being minimalistic at the same time.
  <div id="table-of-contents">
  <h2>Table of Contents</h2>
  <div id="text-table-of-contents">
- <ul> <li> <a href="#pattern-chart">Pattern chart</a></li>
- <li> <a href="#pattern-description">Pattern description</a></li>
- <li> <a href="#pictures">Pictures</a>
- <ul> <li> <a href="#friendly-penguin">Friendly penguin</a></li>
- <li> <a href="#evil-penguin-inside">Evil penguin inside</a></li>
+ <ul> <li> <a href="/blog/2020/02/double-stitched-penguin-beanie/#pattern-chart">Pattern chart</a></li>
+ <li> <a href="/blog/2020/02/double-stitched-penguin-beanie/#pattern-description">Pattern description</a></li>
+ <li> <a href="/blog/2020/02/double-stitched-penguin-beanie/#pictures">Pictures</a>
+ <ul> <li> <a href="/blog/2020/02/double-stitched-penguin-beanie/#friendly-penguin">Friendly penguin</a></li>
+ <li> <a href="/blog/2020/02/double-stitched-penguin-beanie/#evil-penguin-inside">Evil penguin inside</a></li>
 </ul></li>
 </ul></div>
 </div>
 
  <div class="figure">
- <p> <img src="./friendly_penguin_frond_and_side_thumb.png" alt="friendly_penguin_frond_and_side_thumb.png"></img></p>
+ <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/friendly_penguin_frond_and_side_thumb.png" alt="friendly_penguin_frond_and_side_thumb.png"></img></p>
 </div>
 
  <p>
@@ -1633,18 +1633,18 @@ I'm pretty happy with the result. It's symmetric so the inside is the inverse
 of the outside. And the inside kinda became the evil twin of the outside.
 </p>
 
- <article id="outline-container-orgacc117c" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
+ <article id="outline-container-org718257e" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
  <div class="outline-text-2" id="text-pattern-chart">
 
  <div class="figure">
- <p> <img src="./small_chart.png" alt="small_chart.png"></img></p>
+ <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/small_chart.png" alt="small_chart.png"></img></p>
 </div>
 
  <p>
- <a href="./medium_chart.png">Link to bigger chart</a>.  <a href="https://www.stitchfiddle.com/en/c/sifm3s-xp37/quickview">Link to full pattern</a>.
+ <a href="/blog/2020/02/double-stitched-penguin-beanie/medium_chart.png">Link to bigger chart</a>.  <a href="https://www.stitchfiddle.com/en/c/sifm3s-xp37/quickview">Link to full pattern</a>.
 </p>
 </div>
-</article> <article id="outline-container-org39e75f0" class="outline-2"> <h2 id="pattern-description">Pattern description</h2>
+</article> <article id="outline-container-orgf62a2d9" class="outline-2"> <h2 id="pattern-description">Pattern description</h2>
  <div class="outline-text-2" id="text-pattern-description">
  <p>
 So this is what I used:
@@ -1712,53 +1712,53 @@ And then you do a final round before pulling the black yarn through the last
 black stitches and the white yarn through the final white stitches.
 </p>
 </div>
-</article> <article id="outline-container-org9d550a5" class="outline-2"> <h2 id="pictures">Pictures</h2>
+</article> <article id="outline-container-org9eb4242" class="outline-2"> <h2 id="pictures">Pictures</h2>
  <div class="outline-text-2" id="text-pictures">
 </div>
 
- <div id="outline-container-org0541e8e" class="outline-3">
+ <div id="outline-container-org997300a" class="outline-3">
  <h3 id="friendly-penguin">Friendly penguin</h3>
  <div class="outline-text-3" id="text-friendly-penguin">
 
  <div class="figure">
- <p> <img src="./friendly_penguin_front_thumb.jpg" alt="friendly_penguin_front_thumb.jpg"></img></p>
+ <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/friendly_penguin_front_thumb.jpg" alt="friendly_penguin_front_thumb.jpg"></img></p>
 </div>
 
  <p>
- <a href="./friendly_penguin_front.jpg">Friendly Penguin Front in bigger size</a>
+ <a href="/blog/2020/02/double-stitched-penguin-beanie/friendly_penguin_front.jpg">Friendly Penguin Front in bigger size</a>
 </p>
 
 
 
  <div class="figure">
- <p> <img src="./friendly_penguin_side_thumb.jpg" alt="friendly_penguin_side_thumb.jpg"></img></p>
+ <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/friendly_penguin_side_thumb.jpg" alt="friendly_penguin_side_thumb.jpg"></img></p>
 </div>
 
  <p>
- <a href="./friendly_penguin_side.jpg">Friendly Penguin Side in bigger size</a>
+ <a href="/blog/2020/02/double-stitched-penguin-beanie/friendly_penguin_side.jpg">Friendly Penguin Side in bigger size</a>
 </p>
 </div>
 </div>
 
- <div id="outline-container-org69856ed" class="outline-3">
+ <div id="outline-container-orga076412" class="outline-3">
  <h3 id="evil-penguin-inside">Evil penguin inside</h3>
  <div class="outline-text-3" id="text-evil-penguin-inside">
 
  <div class="figure">
- <p> <img src="./evil_penguin_front_thumb.jpg" alt="evil_penguin_front_thumb.jpg"></img></p>
+ <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/evil_penguin_front_thumb.jpg" alt="evil_penguin_front_thumb.jpg"></img></p>
 </div>
 
  <p>
- <a href="./evil_penguin_front.jpg">Evil Penguin Front in bigger size</a>
+ <a href="/blog/2020/02/double-stitched-penguin-beanie/evil_penguin_front.jpg">Evil Penguin Front in bigger size</a>
 </p>
 
 
  <div class="figure">
- <p> <img src="./evil_penguin_side_thumb.jpg" alt="evil_penguin_side_thumb.jpg"></img></p>
+ <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/evil_penguin_side_thumb.jpg" alt="evil_penguin_side_thumb.jpg"></img></p>
 </div>
 
  <p>
- <a href="./evil_penguin_side.jpg">Evil Penguin Side in bigger size</a>
+ <a href="/blog/2020/02/double-stitched-penguin-beanie/evil_penguin_side.jpg">Evil Penguin Side in bigger size</a>
 </p>
 </div>
 </div>
@@ -1775,16 +1775,16 @@ black stitches and the white yarn through the final white stitches.
  <div id="table-of-contents">
  <h2>Table of Contents</h2>
  <div id="text-table-of-contents">
- <ul> <li> <a href="#my-requirements-on-this-setup">My requirements on this setup</a></li>
- <li> <a href="#step-1-partitioning">Step 1 - Partitioning</a></li>
- <li> <a href="#step-2-creating-the-pool">Step 2 - Creating the pool</a></li>
- <li> <a href="#step-3-creating-the-file-systems">Step 3 - Creating the file systems</a>
- <ul> <li> <a href="#step-3-1-zfs-file-systems">Step 3.1 - ZFS file systems</a></li>
- <li> <a href="#step-3-2-the-esp-partitions">Step 3.2 - The ESP partitions</a></li>
+ <ul> <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#my-requirements-on-this-setup">My requirements on this setup</a></li>
+ <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#step-1-partitioning">Step 1 - Partitioning</a></li>
+ <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#step-2-creating-the-pool">Step 2 - Creating the pool</a></li>
+ <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#step-3-creating-the-file-systems">Step 3 - Creating the file systems</a>
+ <ul> <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#step-3-1-zfs-file-systems">Step 3.1 - ZFS file systems</a></li>
+ <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#step-3-2-the-esp-partitions">Step 3.2 - The ESP partitions</a></li>
 </ul></li>
- <li> <a href="#step4-mounting-the-file-systems">Step 4 - Mounting the file systems</a></li>
- <li> <a href="#step5-configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</a></li>
- <li> <a href="#conclusion">Conclusion</a></li>
+ <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#step4-mounting-the-file-systems">Step 4 - Mounting the file systems</a></li>
+ <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#step5-configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</a></li>
+ <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#conclusion">Conclusion</a></li>
 </ul></div>
 </div>
  <p>
@@ -1796,7 +1796,7 @@ to re-purpose that install and move it to a location where noise doesn't
 matter, e.g. the closet (a.k.a the server room) where the file server lives.
 </p>
 
- <article id="outline-container-org18f95bd" class="outline-2"> <h2 id="my-requirements-on-this-setup">My requirements on this setup</h2>
+ <article id="outline-container-org23349bd" class="outline-2"> <h2 id="my-requirements-on-this-setup">My requirements on this setup</h2>
  <div class="outline-text-2" id="text-my-requirements-on-this-setup">
  <p>
 To do this move I had a certain list of requirements:
@@ -1812,7 +1812,7 @@ or system like a raid will complain. But the system should still come up even
 if one disk die.
 </p>
 </div>
-</article> <article id="outline-container-org5c0268c" class="outline-2"> <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
+</article> <article id="outline-container-org0770162" class="outline-2"> <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
  <div class="outline-text-2" id="text-step-1-partitioning">
  <p>
 I followed these steps of partitioning grabbed from the  <a href="https://nixos.wiki/wiki/NixOS_on_ZFS#Single-disk">NixOS on ZFS</a> page
@@ -1840,7 +1840,7 @@ sfdisk --dump $ <span class="org-variable-name">DISK1</span> | sfdisk $ <span cl
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org369865d" class="outline-2"> <h2 id="step-2-creating-the-pool">Step 2 - Creating the pool</h2>
+</article> <article id="outline-container-org787de49" class="outline-2"> <h2 id="step-2-creating-the-pool">Step 2 - Creating the pool</h2>
  <div class="outline-text-2" id="text-step-2-creating-the-pool">
  <p>
 Creating a ZFS pool can be intimidating for the first times you do it, there
@@ -1895,11 +1895,11 @@ zpool create <FLAGS> zroot mirror $ <span class="org-variable-name">DISK1</span>
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org9bb315e" class="outline-2"> <h2 id="step-3-creating-the-file-systems">Step 3 - Creating the file systems</h2>
+</article> <article id="outline-container-org6ab18da" class="outline-2"> <h2 id="step-3-creating-the-file-systems">Step 3 - Creating the file systems</h2>
  <div class="outline-text-2" id="text-step-3-creating-the-file-systems">
 </div>
 
- <div id="outline-container-org856ea2a" class="outline-3">
+ <div id="outline-container-org5ebec22" class="outline-3">
  <h3 id="step-3-1-zfs-file-systems">Step 3.1 - ZFS file systems</h3>
  <div class="outline-text-3" id="text-step-3-1-zfs-file-systems">
  <p>
@@ -1916,7 +1916,7 @@ zfs create -o  <span class="org-variable-name">mountpoint</span>=legacy zroot/ro
 </div>
 </div>
 
- <div id="outline-container-orge7f604b" class="outline-3">
+ <div id="outline-container-org2ffef9c" class="outline-3">
  <h3 id="step-3-2-the-esp-partitions">Step 3.2 - The ESP partitions</h3>
  <div class="outline-text-3" id="text-step-3-2-the-esp-partitions">
  <p>
@@ -1939,7 +1939,7 @@ mkfs.vfat $ <span class="org-variable-name">DISK2</span>-part3
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org2c116bf" class="outline-2"> <h2 id="step4-mounting-the-file-systems">Step 4 - Mounting the file systems</h2>
+</article> <article id="outline-container-orgf5193cf" class="outline-2"> <h2 id="step4-mounting-the-file-systems">Step 4 - Mounting the file systems</h2>
  <div class="outline-text-2" id="text-step4-mounting-the-file-systems">
  <p>
 This takes a bit of work to do, many drives many steps, etc. If you have
@@ -1978,7 +1978,7 @@ mount $ <span class="org-variable-name">DISK2</span>-part3 /mnt/boot-fallback
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-orga87b742" class="outline-2"> <h2 id="step5-configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</h2>
+</article> <article id="outline-container-org380f98f" class="outline-2"> <h2 id="step5-configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</h2>
  <div class="outline-text-2" id="text-step5-configuration-of-the-boot-loader">
  <p>
 Here we have the magic of the NixOS module systems kicking in that will make
@@ -2029,7 +2029,7 @@ Then I have the following to boot with grub and keep my two grubs in sync:
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-orgcdaa7b4" class="outline-2"> <h2 id="conclusion">Conclusion</h2>
+</article> <article id="outline-container-org43fb056" class="outline-2"> <h2 id="conclusion">Conclusion</h2>
  <div class="outline-text-2" id="text-conclusion">
  <p>
 NixOS makes it really easy to set up encrypted ZFS that is reliable when it
@@ -2080,12 +2080,12 @@ This is a block quote element.
 </p>
 </blockquote>
 
- <article id="outline-container-orgd2281d2" class="outline-2"> <h2 id="orgd2281d2">Test of syntax highlighting</h2>
- <div class="outline-text-2" id="text-orgd2281d2">
+ <article id="outline-container-org978d405" class="outline-2"> <h2 id="org978d405">Test of syntax highlighting</h2>
+ <div class="outline-text-2" id="text-org978d405">
 </div>
- <div id="outline-container-org30d7d54" class="outline-3">
- <h3 id="org30d7d54">elisp</h3>
- <div class="outline-text-3" id="text-org30d7d54">
+ <div id="outline-container-org5e9f096" class="outline-3">
+ <h3 id="org5e9f096">elisp</h3>
+ <div class="outline-text-3" id="text-org5e9f096">
  <div class="org-src-container">
  <pre class="src src-elisp"> <span class="org-comment-delimiter">;; </span> <span class="org-comment">Define the hello function</span>
 ( <span class="org-keyword">defun</span>  <span class="org-function-name">hello</span> ()
@@ -2101,9 +2101,9 @@ This is a block quote element.
 </div>
 </div>
 
- <div id="outline-container-org053707c" class="outline-3">
- <h3 id="org053707c">Nix</h3>
- <div class="outline-text-3" id="text-org053707c">
+ <div id="outline-container-org605ac60" class="outline-3">
+ <h3 id="org605ac60">Nix</h3>
+ <div class="outline-text-3" id="text-org605ac60">
  <div class="org-src-container">
  <pre class="src src-nix">{
    <span class="org-comment"># Define the hello function</span>
@@ -2121,9 +2121,9 @@ This is a block quote element.
 </div>
 </div>
 
- <div id="outline-container-org75f9e30" class="outline-3">
- <h3 id="org75f9e30">Go</h3>
- <div class="outline-text-3" id="text-org75f9e30">
+ <div id="outline-container-orgb66e1d0" class="outline-3">
+ <h3 id="orgb66e1d0">Go</h3>
+ <div class="outline-text-3" id="text-orgb66e1d0">
  <div class="org-src-container">
  <pre class="src src-go"> <span class="org-keyword">package</span> main
 
@@ -2137,9 +2137,9 @@ This is a block quote element.
 </div>
 </div>
 
- <div id="outline-container-org14115d3" class="outline-3">
- <h3 id="org14115d3">PHP</h3>
- <div class="outline-text-3" id="text-org14115d3">
+ <div id="outline-container-org7882f6c" class="outline-3">
+ <h3 id="org7882f6c">PHP</h3>
+ <div class="outline-text-3" id="text-org7882f6c">
  <div class="org-src-container">
  <pre class="src src-php"> <span class="org-php-php-tag"><?php</span>
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Define the hello function</span>
@@ -2153,8 +2153,8 @@ This is a block quote element.
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org8175de3" class="outline-2"> <h2 id="org8175de3">Sample text</h2>
- <div class="outline-text-2" id="text-org8175de3">
+</article> <article id="outline-container-org70270ae" class="outline-2"> <h2 id="org70270ae">Sample text</h2>
+ <div class="outline-text-2" id="text-org70270ae">
  <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus
