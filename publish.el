@@ -95,6 +95,46 @@ See `org-publish-sitemap-default-entry'."
               "\n\n"
               (org-list-to-org fixed-list)))))
 
+(defun etu/org-html-publish-to-html (plist filename pub-dir)
+  "Same as `org-html-publish-to-html' but modifies html before finishing."
+  ;; Publish using the original function
+  (let ((file-path (org-html-publish-to-html plist filename pub-dir)))
+    ;; Open the published file
+    (with-current-buffer (find-file-noselect file-path)
+      (goto-char (point-min))
+
+      ;; Find contents of page
+      (search-forward "<div id=\"content\">")
+
+      ;; Replace away build environment path to have a web root relative path
+      ;; Also store where the content div is so we can back up there easily.
+      (let ((relative-path (replace-regexp-in-string ".+public/" "/" default-directory))
+            (content-point (point)))
+
+        ;; Replace locally relative clickable links
+        (while (search-forward "href=\"./" nil t)
+          (replace-match (concat "href=\"" relative-path)))
+
+        ;; Go to content
+        (goto-char content-point)
+
+        ;; Replace locally relative image paths
+        (while (search-forward "src=\"./" nil t)
+          (replace-match (concat "src=\"" relative-path)))
+
+        ;; Go to content
+        (goto-char content-point)
+
+        ;; Replace anchor links
+        (while (search-forward "href=\"#" nil t)
+          (replace-match (concat "href=\"" relative-path "#"))))
+
+      (save-buffer)
+      (kill-buffer))
+
+    ;; Return file path for publishing
+    file-path))
+
 
 
 ;; Configure org to not put timestamps in the home directory since that breaks
@@ -117,7 +157,7 @@ See `org-publish-sitemap-default-entry'."
           :base-extension "org"
           :publishing-directory "./public/"
           :recursive t
-          :publishing-function org-html-publish-to-html
+          :publishing-function etu/org-html-publish-to-html
           :headline-levels 4
           :auto-preamble t
 
