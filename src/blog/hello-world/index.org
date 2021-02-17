@@ -8,6 +8,8 @@ Hello world! This is a test blog post.
 This is a block quote element.
 #+END_QUOTE
 
+This is an inline =code= block.
+
 ** Test of syntax highlighting
 *** elisp
 #+BEGIN_SRC elisp

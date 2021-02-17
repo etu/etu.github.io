@@ -27,6 +27,8 @@ $codePhpTagColor: #802E0E;
 $codeStringColor: #F9D200;
 $codeTypeColor: #8835FF;
 
+$codeTagForegroundColor: #5b1e77;
+
 /* Default colors */
 $defaultMenuHoverColor: lighten($defaultBackgroundColor, 10%);
 $defaultCodeLanguageBoxColor: $defaultMenuHoverColor;
@@ -247,6 +249,13 @@ pre {
     &.src-xml:before { content: 'xml'; }
 }
 
+code {
+    color: contrast-color($codeTagForegroundColor, darken($defaultBackgroundColor, 5%));
+    background: darken($defaultBackgroundColor, 5%);
+    font-family: monospace;
+    padding: 4px;
+}
+
 /* Org-mode footnotes */
 .footdef sup {
     @include rem-attributes(padding-right, 1);
@@ -331,6 +340,11 @@ div#postamble {
 
         /* Syntax highlighting */
         @include color-highlights($lightBackgroundColor);
+    }
+
+    code {
+        color: contrast-color($codeTagForegroundColor, darken($lightBackgroundColor, 5%));
+        background: darken($lightBackgroundColor, 5%);
     }
 
     div#postamble {
