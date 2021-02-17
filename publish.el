@@ -108,19 +108,19 @@ See `org-publish-sitemap-default-entry'."
 
       ;; Replace away build environment path to have a web root relative path
       ;; Also store where the content div is so we can back up there easily.
-      (let ((relative-path (replace-regexp-in-string ".+public/" "/" default-directory))
+      (let ((relative-path (replace-regexp-in-string ".+/public" "" default-directory))
             (content-point (point)))
 
         ;; Replace locally relative clickable links
-        (while (search-forward "href=\"./" nil t)
-          (replace-match (concat "href=\"" relative-path)))
+        (while (search-forward "href=\"." nil t)
+          (replace-match (concat "href=\"" relative-path ".")))
 
         ;; Go to content
         (goto-char content-point)
 
         ;; Replace locally relative image paths
-        (while (search-forward "src=\"./" nil t)
-          (replace-match (concat "src=\"" relative-path)))
+        (while (search-forward "src=\"." nil t)
+          (replace-match (concat "src=\"" relative-path ".")))
 
         ;; Go to content
         (goto-char content-point)
