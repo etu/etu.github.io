@@ -69,6 +69,9 @@ now I hope it's mainlined before Emacs 28.
 * Screen sharing
 It works! =*=
 
+See [[../detailed-setup-of-screen-sharing-in-sway][Detailed setup of screen sharing in Wayland (Sway)]] for more detailed
+notes on getting this to work.
+
 =*= It works to do full screen sharing using =pipewire=,
 =xdg-desktop-portals= and =xdg-desktop-portals-wlr=. This requires the right
 environment variables - then it works fine, with the limitation that you can
