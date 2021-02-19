@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-19 Fri 07:21 -->
+<!-- 2021-02-19 Fri 21:53 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Encrypted ZFS mirror with mirrored boot on NixOS</title>
@@ -63,7 +63,7 @@ to re-purpose that install and move it to a location where noise doesn't
 matter, e.g. the closet (a.k.a the server room) where the file server lives.
 </p>
 
-<article id="outline-container-orgb86fb79" class="outline-2">
+<article id="outline-container-org0e36c6c" class="outline-2">
 <h2 id="my-requirements-on-this-setup">My requirements on this setup</h2>
 <div class="outline-text-2" id="text-my-requirements-on-this-setup">
 <p>
@@ -85,7 +85,7 @@ if one disk die.
 </div>
 </article>
 
-<article id="outline-container-org3289527" class="outline-2">
+<article id="outline-container-org0d5bae4" class="outline-2">
 <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
 <div class="outline-text-2" id="text-step-1-partitioning">
 <p>
@@ -116,7 +116,7 @@ sfdisk --dump $<span class="org-variable-name">DISK1</span> | sfdisk $<span clas
 </div>
 </article>
 
-<article id="outline-container-orgebde598" class="outline-2">
+<article id="outline-container-org68cb882" class="outline-2">
 <h2 id="step-2-creating-the-pool">Step 2 - Creating the pool</h2>
 <div class="outline-text-2" id="text-step-2-creating-the-pool">
 <p>
@@ -177,12 +177,12 @@ zpool create &lt;FLAGS&gt; zroot mirror $<span class="org-variable-name">DISK1</
 </div>
 </article>
 
-<article id="outline-container-org48784db" class="outline-2">
+<article id="outline-container-org309bc22" class="outline-2">
 <h2 id="step-3-creating-the-file-systems">Step 3 - Creating the file systems</h2>
 <div class="outline-text-2" id="text-step-3-creating-the-file-systems">
 </div>
 
-<div id="outline-container-org8f3e33b" class="outline-3">
+<div id="outline-container-org182c8c0" class="outline-3">
 <h3 id="step-3-1-zfs-file-systems">Step 3.1 - ZFS file systems</h3>
 <div class="outline-text-3" id="text-step-3-1-zfs-file-systems">
 <p>
@@ -199,7 +199,7 @@ zfs create -o <span class="org-variable-name">mountpoint</span>=legacy zroot/roo
 </div>
 </div>
 
-<div id="outline-container-org2c4239a" class="outline-3">
+<div id="outline-container-org26a9b48" class="outline-3">
 <h3 id="step-3-2-the-esp-partitions">Step 3.2 - The ESP partitions</h3>
 <div class="outline-text-3" id="text-step-3-2-the-esp-partitions">
 <p>
@@ -224,7 +224,7 @@ mkfs.vfat $<span class="org-variable-name">DISK2</span>-part3
 </div>
 </article>
 
-<article id="outline-container-org7d9b565" class="outline-2">
+<article id="outline-container-org094ad45" class="outline-2">
 <h2 id="step4-mounting-the-file-systems">Step 4 - Mounting the file systems</h2>
 <div class="outline-text-2" id="text-step4-mounting-the-file-systems">
 <p>
@@ -266,7 +266,7 @@ mount $<span class="org-variable-name">DISK2</span>-part3 /mnt/boot-fallback
 </div>
 </article>
 
-<article id="outline-container-org217f34f" class="outline-2">
+<article id="outline-container-org618a548" class="outline-2">
 <h2 id="step5-configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</h2>
 <div class="outline-text-2" id="text-step5-configuration-of-the-boot-loader">
 <p>
@@ -320,7 +320,7 @@ Then I have the following to boot with grub and keep my two grubs in sync:
 </div>
 </article>
 
-<article id="outline-container-orgfdf7578" class="outline-2">
+<article id="outline-container-orgb2c3803" class="outline-2">
 <h2 id="conclusion">Conclusion</h2>
 <div class="outline-text-2" id="text-conclusion">
 <p>
@@ -360,7 +360,7 @@ I've configured it so I can unlock the drive over SSH on boot following:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-08-04 Sun 10:20</p>
 <p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-<p class="date">Created: 2021-02-19 Fri 07:21</p>
+<p class="date">Created: 2021-02-19 Fri 21:53</p>
 </div>
 </body>
 </html>

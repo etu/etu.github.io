@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-02-19 Fri 21:53 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detailed setup of screen sharing in Wayland (Sway)</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
+<link href="https://elis.nu/" rel="canonical">
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
+<link rel="icon" href="/imgs/favicon.jpg">
+<meta name="referrer" content="no-referrer" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z9NBYBDY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-52Z9NBYBDY');
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav>
+     <ul>
+       <li><a href="/">~elis/</a></li>
+       <li><a href="/about/">./about/</a></li>
+       <li><a href="/work/">./work/</a></li>
+       <li><a href="/talks/">./talks/</a></li>
+       <li><a href="/blog/">./blog/</a></li>
+     </ul>
+   </nav>
+</div>
+<div id="content">
+<h1 class="title">Detailed setup of screen sharing in Wayland (Sway)</h1>
+<p>
+Getting screen sharing to work on Wayland seems to be surprisingly hard.
+Maybe it is compared to X11 that doesn't require any additional setup at all.
+</p>
+
+<p>
+To have working screen sharing on Sway you really need three components
+installed and set up with correct environment variables.
+</p>
+
+<p>
+These three components are:
+</p>
+<ul class="org-ul">
+<li><code>pipewire</code></li>
+<li><code>xdg-desktop-portal</code></li>
+<li><code>xdg-desktop-portal-wlr</code></li>
+</ul>
+
+<p>
+These three components has to have systemd user services. You should be able
+to see them in the list if you run <code>systemctl --user</code>, just look for the
+different programs name ending in <code>.service</code>.
+</p>
+
+<p>
+You can also check on each service individually by running:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">systemctl --user status pipewire.service
+systemctl --user status xdg-desktop-portal.service
+systemctl --user status xdg-desktop-portal-wlr.service
+</pre>
+</div>
+
+<p>
+Environment variables needed:
+</p>
+<ul class="org-ul">
+<li><code>XDG_SESSION_TYPE=wayland</code> and <code>XDG_CURRENT_DESKTOP=sway</code></li>
+</ul>
+
+<p>
+How you set this may very depending on your distribution, in NixOS I did set
+these in a global way. But this, surprisingly to me wasn't enough to make
+them apply all the way through to systemd user services. So I had to add the
+following to command to run before I log into sway:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">systemctl --user import-environment
+</pre>
+</div>
+
+<p>
+It may be fine to start it after sway is launched as well, it probably just
+have to be executed before you attempt any screen sharing. To this command
+you can also pass specific environment variables to be imported.
+</p>
+
+<p>
+Don't worry if they don't run at this point. They should be started by socket
+activation when you start sharing your screen.
+</p>
+
+<article id="outline-container-orgc98d313" class="outline-2">
+<h2 id="orgc98d313">Testing screen sharing</h2>
+<div class="outline-text-2" id="text-orgc98d313">
+<p>
+Testing screen sharing can easily be done with a patched<sup><a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
+Firefox started with <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
+with the <code>pipewire</code> flag enabled in <code>about://flags</code>.
+</p>
+
+<p>
+To actually test screen sharing I'd recommend using Mozilla's <a href="https://mozilla.github.io/webrtc-landing/gum_test.html">gUM Test Page</a>,
+then just start your screen share on that page.
+</p>
+</div>
+</article>
+
+<article id="outline-container-org3ed3f4a" class="outline-2">
+<h2 id="org3ed3f4a">What should happen?</h2>
+<div class="outline-text-2" id="text-org3ed3f4a">
+<p>
+When starting the screen share the socket activation for the user services of
+<code>pipewire.service</code>, <code>xdg-desktop-portal.service</code> and
+<code>xdg-desktop-portal-wlr.service</code> should kick in and start those services
+automatically. There's no real use to start them manually if they weren't
+started automatically since they require the environment variables to work.
+</p>
+</div>
+</article>
+
+<article id="outline-container-orgbd622bb" class="outline-2">
+<h2 id="orgbd622bb">What if the services doesn't start?</h2>
+<div class="outline-text-2" id="text-orgbd622bb">
+<p>
+Then it doesn't work. You can just stop the services that may have started,
+then try to adjust your environment variables and try again.
+</p>
+
+<p>
+You can check on each service with the commands above. If you want to stop
+all or specific services you can run the following to do so:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">systemctl --user stop pipewire.service
+systemctl --user stop xdg-desktop-portal.service
+systemctl --user stop xdg-desktop-portal-wlr.service
+</pre>
+</div>
+</div>
+</article>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+NixOS has pulled in a patch for Firefox (older than 83)
+to support Pipewire. This should mean that it doesn't need patching if it's
+newer than 83. <a href="https://github.com/NixOS/nixpkgs/blob/f30c67cc99b56f3380fe417f361fe84492ee77de/pkgs/applications/networking/browsers/firefox/common.nix#L134-L140">Link to source</a>.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-02-19 Fri 23:00</p>
+<p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
+<p class="date">Created: 2021-02-19 Fri 21:53</p>
+</div>
+</body>
+</html>
