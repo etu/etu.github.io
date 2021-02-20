@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-20 Sat 08:01 -->
+<!-- 2021-02-20 Sat 08:05 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Detailed setup of screen sharing in Wayland (Sway)</title>
@@ -49,9 +49,9 @@ installed and set up with correct environment variables.
 These three components are:
 </p>
 <ul class="org-ul">
-<li><code>pipewire</code></li>
-<li><code>xdg-desktop-portal</code></li>
-<li><code>xdg-desktop-portal-wlr</code></li>
+<li><code>pipewire</code> (I have version: 0.3.21)</li>
+<li><code>xdg-desktop-portal</code> (I have version: 1.8.0)</li>
+<li><code>xdg-desktop-portal-wlr</code> (I have version: 0.1.0)</li>
 </ul>
 
 <p>
@@ -70,9 +70,9 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
-<article id="outline-container-org243f56b" class="outline-2">
-<h2 id="org243f56b">Required environment variables</h2>
-<div class="outline-text-2" id="text-org243f56b">
+<article id="outline-container-org063fd04" class="outline-2">
+<h2 id="org063fd04">Required environment variables</h2>
+<div class="outline-text-2" id="text-org063fd04">
 <ul class="org-ul">
 <li><code>XDG_SESSION_TYPE=wayland</code> and <code>XDG_CURRENT_DESKTOP=sway</code></li>
 </ul>
@@ -102,9 +102,9 @@ activation when you start sharing your screen.
 </div>
 </article>
 
-<article id="outline-container-orgd6d5088" class="outline-2">
-<h2 id="orgd6d5088">Testing screen sharing</h2>
-<div class="outline-text-2" id="text-orgd6d5088">
+<article id="outline-container-org448cf57" class="outline-2">
+<h2 id="org448cf57">Testing screen sharing</h2>
+<div class="outline-text-2" id="text-org448cf57">
 <p>
 Testing screen sharing can easily be done with a patched<sup><a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
 Firefox started with <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
@@ -118,9 +118,9 @@ then just start your screen share on that page.
 </div>
 </article>
 
-<article id="outline-container-org77e4503" class="outline-2">
-<h2 id="org77e4503">What should happen?</h2>
-<div class="outline-text-2" id="text-org77e4503">
+<article id="outline-container-orgb0319e8" class="outline-2">
+<h2 id="orgb0319e8">What should happen?</h2>
+<div class="outline-text-2" id="text-orgb0319e8">
 <p>
 Starting the screen share should trigger the socket activation for the user
 services for <code>pipewire.service</code>, <code>xdg-desktop-portal.service</code> and
@@ -136,9 +136,9 @@ they run or not.
 </div>
 </article>
 
-<article id="outline-container-org09fa751" class="outline-2">
-<h2 id="org09fa751">What if the services doesn't start?</h2>
-<div class="outline-text-2" id="text-org09fa751">
+<article id="outline-container-org4219a22" class="outline-2">
+<h2 id="org4219a22">What if the services doesn't start?</h2>
+<div class="outline-text-2" id="text-org4219a22">
 <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
@@ -172,7 +172,7 @@ newer than 83. <a href="https://github.com/NixOS/nixpkgs/blob/f30c67cc99b56f3380
 <div id="postamble" class="status">
 <p class="date">Date: 2021-02-19 Fri 23:00</p>
 <p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-<p class="date">Created: 2021-02-20 Sat 08:01</p>
+<p class="date">Created: 2021-02-20 Sat 08:05</p>
 </div>
 </body>
 </html>
