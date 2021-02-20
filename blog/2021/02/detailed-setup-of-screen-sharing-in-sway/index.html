@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-02-20 Sat 08:39 -->
+<!-- 2021-02-20 Sat 08:41 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Detailed setup of screen sharing in Wayland (Sway)</title>
@@ -70,9 +70,9 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
-<article id="outline-container-org19ac38e" class="outline-2">
-<h2 id="org19ac38e">Required environment variables</h2>
-<div class="outline-text-2" id="text-org19ac38e">
+<article id="outline-container-org17f5073" class="outline-2">
+<h2 id="org17f5073">Required environment variables</h2>
+<div class="outline-text-2" id="text-org17f5073">
 <ul class="org-ul">
 <li><code>XDG_SESSION_TYPE=wayland</code> and <code>XDG_CURRENT_DESKTOP=sway</code></li>
 </ul>
@@ -105,9 +105,9 @@ activation when you start sharing your screen.
 </div>
 </article>
 
-<article id="outline-container-org984b8fe" class="outline-2">
-<h2 id="org984b8fe">Testing screen sharing</h2>
-<div class="outline-text-2" id="text-org984b8fe">
+<article id="outline-container-org0bd3b91" class="outline-2">
+<h2 id="org0bd3b91">Testing screen sharing</h2>
+<div class="outline-text-2" id="text-org0bd3b91">
 <p>
 Testing screen sharing can easily be done with a patched<sup><a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
 Firefox started with <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
@@ -121,9 +121,9 @@ then just start your screen share on that page.
 </div>
 </article>
 
-<article id="outline-container-orgfa50457" class="outline-2">
-<h2 id="orgfa50457">What should happen?</h2>
-<div class="outline-text-2" id="text-orgfa50457">
+<article id="outline-container-orgdb15d5b" class="outline-2">
+<h2 id="orgdb15d5b">What should happen?</h2>
+<div class="outline-text-2" id="text-orgdb15d5b">
 <p>
 Starting the screen share should trigger the socket activation for the user
 services for <code>pipewire.service</code>, <code>xdg-desktop-portal.service</code> and
@@ -139,9 +139,9 @@ they run or not.
 </div>
 </article>
 
-<article id="outline-container-org2d8aac6" class="outline-2">
-<h2 id="org2d8aac6">What if the services doesn't start?</h2>
-<div class="outline-text-2" id="text-org2d8aac6">
+<article id="outline-container-orgeb6c4d3" class="outline-2">
+<h2 id="orgeb6c4d3">What if the services doesn't start?</h2>
+<div class="outline-text-2" id="text-orgeb6c4d3">
 <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
@@ -175,7 +175,7 @@ newer than 83. <a href="https://github.com/NixOS/nixpkgs/blob/f30c67cc99b56f3380
 <div id="postamble" class="status">
 <p class="date">Date: 2021-02-19 Fri 23:00</p>
 <p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-<p class="date">Created: 2021-02-20 Sat 08:39</p>
+<p class="date">Created: 2021-02-20 Sat 08:41</p>
 </div>
 </body>
 </html>
