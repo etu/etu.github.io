@@ -108,7 +108,7 @@ See `org-publish-sitemap-default-entry'."
 
       ;; Replace away build environment path to have a web root relative path
       ;; Also store where the content div is so we can back up there easily.
-      (let ((relative-path (replace-regexp-in-string ".+/public" "" default-directory))
+      (let ((relative-path (replace-regexp-in-string ".+/output/html" "" default-directory))
             (content-point (point)))
 
         ;; Replace locally relative clickable links
@@ -155,7 +155,7 @@ See `org-publish-sitemap-default-entry'."
       '(("site-org"
          :base-directory "./src/"
          :base-extension "org"
-         :publishing-directory "./public/"
+         :publishing-directory "./output/html/"
          :recursive t
          :publishing-function etu/org-html-publish-to-html
          :headline-levels 4
@@ -174,7 +174,7 @@ See `org-publish-sitemap-default-entry'."
         ("site-static"
          :base-directory "./src/"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|asc"
-         :publishing-directory "./public/"
+         :publishing-directory "./output/html/"
          :publishing-function org-publish-attachment
          :recursive t)
 
@@ -187,11 +187,11 @@ See `org-publish-sitemap-default-entry'."
 
 ;; Generate RSS feed
 (webfeeder-build "blog/rss.xml"
-                 "./public/"
+                 "./output/html/"
                  "https://elis.nu/"
                  (delete "blog/index.html"
-                         (mapcar (lambda (f) (replace-regexp-in-string "public/" "" f))
-                                 (directory-files-recursively "public/blog/" "index.html")))
+                         (mapcar (lambda (f) (replace-regexp-in-string "output/html/" "" f))
+                                 (directory-files-recursively "output/html/blog/" "index.html")))
                  :builder 'webfeeder-make-rss
                  :title "~elis/blog/"
                  :description "I may sometime write about things.")

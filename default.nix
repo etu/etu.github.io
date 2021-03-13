@@ -25,14 +25,16 @@ pkgs.stdenv.mkDerivation {
   ];
 
   buildPhase = ''
-    emacs --batch --load=publish.el
-    cp src/CNAME public/
-    sassc --style=compressed src/style.scss public/style.css
+    mkdir -p output/html/
 
-    cp public/imgs/etu.jpg public/imgs/favicon.jpg
+    emacs --batch --load=publish.el
+    cp src/CNAME output/html/
+    sassc --style=compressed src/style.scss output/html/style.css
+
+    cp output/html/imgs/etu.jpg output/html/imgs/favicon.jpg
   '';
 
   installPhase = ''
-    cp -vr public/ $out
+    cp -vr output/html/ $out
   '';
 }
