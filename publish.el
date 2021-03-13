@@ -153,23 +153,23 @@ See `org-publish-sitemap-default-entry'."
 ;; Define org projects
 (setq org-publish-project-alist
       '(("site-org"
-          :base-directory "./src/"
-          :base-extension "org"
-          :publishing-directory "./public/"
-          :recursive t
-          :publishing-function etu/org-html-publish-to-html
-          :headline-levels 4
-          :auto-preamble t
+         :base-directory "./src/"
+         :base-extension "org"
+         :publishing-directory "./public/"
+         :recursive t
+         :publishing-function etu/org-html-publish-to-html
+         :headline-levels 4
+         :auto-preamble t
 
-          ;; Blog Index
-          :auto-sitemap t
-          :sitemap-format-entry etu/org-publish-blog-entry
-          :sitemap-title "blog"
-          :sitemap-filename "blog/index.org"
-          :sitemap-file-entry-format "%d *%t*"
-          :sitemap-style list
-          :sitemap-function etu/org-publish-blog-index
-          :sitemap-sort-files chronologically)
+         ;; Blog Index
+         :auto-sitemap t
+         :sitemap-format-entry etu/org-publish-blog-entry
+         :sitemap-title "blog"
+         :sitemap-filename "blog/index.org"
+         :sitemap-file-entry-format "%d *%t*"
+         :sitemap-style list
+         :sitemap-function etu/org-publish-blog-index
+         :sitemap-sort-files chronologically)
 
         ("site-static"
          :base-directory "./src/"
