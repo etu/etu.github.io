@@ -86,7 +86,7 @@ After about 5 months I managed to get a first hand rental contract for a
 bigger apartment. Quite soon after this I somehow managed to meet a person
 who moved in with me that later became my wife.
 
-During 2013 I tried to take care of my weigh again, so we, together started
+During 2013 I tried to take care of my weight again, so we, together started
 with LCHF, I mean, it kinda worked for me before. I managed to go from around
 140kg to something around 130kg.
 
@@ -110,11 +110,11 @@ During this time when we lived with my father, we kinda went into "regular
 habits" when it came to food and the amount of exercise was close to zero. I
 might have chased buses to not have to wait a long time for the next bus.
 
-When we got our own place we planned to pick up on the weigh control again
+When we got our own place we planned to pick up on the weight control again
 and attempted to start to exercise at a local gym. During the period the
 period of September 2019 to August 2016 I managed to drop from 142kg down to
 135kg. Which to me was impressive at the time, yet again with LCHF. After
-that we stopped because I didn't see any weigh loss for the last couple of
+that we stopped because I didn't see any weight loss for the last couple of
 months, so I gave up.
 
 This is where my problems with my wrists (by using computers) started to
@@ -262,7 +262,7 @@ I made all the classic claims that "it tastes good" and that the alternatives
 "tastes horrible" and so on. I've been there. The cheese trap is real. Cheese
 and milk is super addictive.
 
-During this time I started to loose a lot of weigh, but I will summarize
+During this time I started to loose a lot of weight, but I will summarize
 that in the last headline to be able to expand on this page with new updates
 later on.
 
@@ -374,14 +374,14 @@ live by, for the rest of your life. Don't diet according to some weird rules
 for half a year to then gain it all back again. It doesn't work. You need
 to find a healthy lifestyle that suits you.
 
-* Weigh progress through the years
+* Weight progress through the years
 :PROPERTIES:
-:CUSTOM_ID: weigh-progress-through-the-years
+:CUSTOM_ID: weight-progress-through-the-years
 :END:
 
-** Weigh progress through: 2015-2016
+** Weight progress through: 2015-2016
 :PROPERTIES:
-:CUSTOM_ID: weigh-progress-through-2015-2016
+:CUSTOM_ID: weight-progress-through-2015-2016
 :END:
 
 From mid September 2015 to August 2016 I managed to go from ~142.6~ to
@@ -389,9 +389,9 @@ From mid September 2015 to August 2016 I managed to go from ~142.6~ to
 
 Then it just went downhill to ~>150kg~.
 
-** Weigh progress through: 2018
+** Weight progress through: 2018
 :PROPERTIES:
-:CUSTOM_ID: weigh-progress-through-2018
+:CUSTOM_ID: weight-progress-through-2018
 :END:
 
 I finally reached ~149.3kg~ in February 2018, which made me measure daily. By
@@ -399,9 +399,9 @@ the end of the year I was down to ~124.2kg~.
 
 That's right: That's a difference of more than ~25.1kg~ in a single year.
 
-** Weigh progress through: 2019
+** Weight progress through: 2019
 :PROPERTIES:
-:CUSTOM_ID: weigh-progress-through-2019
+:CUSTOM_ID: weight-progress-through-2019
 :END:
 
 This trend continued during 2019.
@@ -409,17 +409,25 @@ This trend continued during 2019.
 I started the year at ~122.7kg~ and ended it at ~103.7kg~, which is a
 difference of about ~19kg~ in a year.
 
-** Weigh progress through: 2020
+** Weight progress through: 2020
 :PROPERTIES:
-:CUSTOM_ID: weigh-progress-through-2020
+:CUSTOM_ID: weight-progress-through-2020
 :END:
 
 By February 2020 I touched the ~100kg~ line which means that i dropped ~50kg~
 in two years.
 
-Now in the middle of the summer I've started to reach down to about ~94kg~.
+I started the year at ~104.4kg~ and ended it at ~84.2kg~, which is a
+difference of about ~20kg~ in a year.
 
-PS. Now at the end of October I've reached an average of about ~87kg~.
+** Weight progress through: 2021
+:PROPERTIES:
+:CUSTOM_ID: weight-progress-through-2021
+:END:
+
+I started the year at ~84.0kg~.
+
+By middle of March I've reached ~80.0kg~.
 
 More to come here later in the year.
 
