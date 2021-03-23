@@ -4,7 +4,7 @@
 <!-- 2021-03-23 Tue 18:32 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NixOS ❄: tmpfs as root (UEFI edition)</title>
+<title>NixOS ❄: tmpfs as root (legacy boot edition)</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
 <link href="https://elis.nu/" rel="canonical">
@@ -34,58 +34,39 @@ gtag('config', 'G-52Z9NBYBDY');
    </nav>
 </div>
 <div id="content">
-<h1 class="title">NixOS ❄: tmpfs as root (UEFI edition)</h1>
+<h1 class="title">NixOS ❄: tmpfs as root (legacy boot edition)</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-1-partitioning">Step 1 - Partitioning</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-2-creating-the-file-systems">Step 2 - Creating the file systems</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-configuration">Step 4 - Configuration</a>
+<li><a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/#step-1-partitioning">Step 1 - Partitioning</a></li>
+<li><a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/#step-2-creating-the-file-systems">Step 2 - Creating the file systems</a></li>
+<li><a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/#step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</a></li>
+<li><a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/#step-4-configuration">Step 4 - Configuration</a>
 <ul>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-1-configure-disks">Step 4.1 - Configure disks</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-2-configure-users">Step 4.2 - Configure users</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-4-the-boot-loader">Step 4.4 - Configure the boot loader</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-5-configure-the-rest-of-your-system">Step 4.5 - Configure the rest of your system</a></li>
+<li><a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/#step-4-1-configure-disks">Step 4.1 - Configure disks</a></li>
+<li><a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/#step-4-2-configure-users">Step 4.2 - Configure users</a></li>
+<li><a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/#step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</a></li>
+<li><a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/#step-4-4-the-boot-loader">Step 4.4 - Configure the boot loader</a></li>
+<li><a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/#step-4-5-configure-the-rest-of-your-system">Step 4.5 - Configure the rest of your system</a></li>
 </ul>
 </li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-5-perform-install">Step 5 - Perform install</a></li>
+<li><a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/#step-5-perform-install">Step 5 - Perform install</a></li>
 </ul>
 </div>
 </div>
 <p>
-If you're on MBR or Legacy boot, I'd recommend to read my follow-up post
-targeting specifically this kind of setups:
-<a href="/blog/2020/05/nixos-tmpfs-as-root/../../../2021/03/nixos-tmpfs-as-root-legacy-boot-edition/">NixOS ❄: tmpfs as root (legacy boot edition)</a>.
+This is a follow up post to one of my most popular posts ever which is
+<a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/../../../2020/05/nixos-tmpfs-as-root/">NixOS ❄: tmpfs as root</a>, the previous post was targeted at UEFI systems.
+This is the MBR or Legacy Boot edition.
 </p>
 
-<p>
-One fairly unique property of NixOS is the ability to boot with only <code>/boot</code>
-and <code>/nix</code>. Nothing else is actually required. This supports doing all sorts
-of weird things with your root file system.
-</p>
-
-<p>
-One way is to do like <a href="https://grahamc.com/blog/erase-your-darlings">Graham's post "erase your darlings"</a> describes and empty
-your root file system each boot using ZFS snapshots. This way have some cool
-things that you could do on top of his setup, such as doing snapshots when
-it's running and roll-back to empty on boot. That way you actually can go
-back to recover files you lost but still have an empty state.
-</p>
-
-<p>
-Another way is to go the tmpfs way which is probably why you're here. So I'm
-going to walk through the install with tmpfs as root file system.
-</p>
-
-<article id="outline-container-org6bbab22" class="outline-2">
+<article id="outline-container-org307a74b" class="outline-2">
 <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
 <div class="outline-text-2" id="text-step-1-partitioning">
 <p>
 I'm going to do the most basic setup when it comes to file systems, just a
-<code>/boot</code> as <code>fat32</code> and <code>/nix</code> as <code>ext4</code> without encryption. If you want to
+<code>/boot</code> as <code>ext4</code> and <code>/nix</code> as <code>ext4</code> without encryption. If you want to
 have another file system or use LUKS or something it should be trivial to
 just format the drive differently and mount it.
 </p>
@@ -96,20 +77,20 @@ just format the drive differently and mount it.
 <span class="org-variable-name">DISK</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Create partition table</span>
-parted $<span class="org-variable-name">DISK</span> -- mklabel gpt
+parted $<span class="org-variable-name">DISK</span> -- mklabel msdos
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Create a /boot as $DISK-part1</span>
-parted $<span class="org-variable-name">DISK</span> -- mkpart ESP fat32 1MiB 512MiB
+parted $<span class="org-variable-name">DISK</span> -- mkpart primary ext4 1M 512M
 parted $<span class="org-variable-name">DISK</span> -- set 1 boot on
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Create a /nix as $DISK-part2</span>
-parted $<span class="org-variable-name">DISK</span> -- mkpart Nix 512MiB 100%
+parted $<span class="org-variable-name">DISK</span> -- mkpart primary ext4 512MiB 100%
 </pre>
 </div>
 </div>
 </article>
 
-<article id="outline-container-orgf94a3dc" class="outline-2">
+<article id="outline-container-orgc4d32bb" class="outline-2">
 <h2 id="step-2-creating-the-file-systems">Step 2 - Creating the file systems</h2>
 <div class="outline-text-2" id="text-step-2-creating-the-file-systems">
 <p>
@@ -117,7 +98,7 @@ This is fairly straight forward in my example:
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">/boot partition</span>
-mkfs.vfat $<span class="org-variable-name">DISK</span>-part1
+mkfs.ext4 $<span class="org-variable-name">DISK</span>-part1
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">/nix partition</span>
 mkfs.ext4 $<span class="org-variable-name">DISK</span>-part2
@@ -126,7 +107,7 @@ mkfs.ext4 $<span class="org-variable-name">DISK</span>-part2
 </div>
 </article>
 
-<article id="outline-container-org9b15ca1" class="outline-2">
+<article id="outline-container-orgc10bc33" class="outline-2">
 <h2 id="step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</h2>
 <div class="outline-text-2" id="text-step-3-mounting-the-file-systems">
 <p>
@@ -156,7 +137,7 @@ mount -o bind /mnt/nix/persist/var/log /mnt/var/log
 </div>
 </article>
 
-<article id="outline-container-org76fd930" class="outline-2">
+<article id="outline-container-org778f80a" class="outline-2">
 <h2 id="step-4-configuration">Step 4 - Configuration</h2>
 <div class="outline-text-2" id="text-step-4-configuration">
 <p>
@@ -165,7 +146,7 @@ configuration for your system.
 </p>
 </div>
 
-<div id="outline-container-org4df6ae7" class="outline-3">
+<div id="outline-container-orgd5a94f0" class="outline-3">
 <h3 id="step-4-1-configure-disks">Step 4.1 - Configure disks</h3>
 <div class="outline-text-3" id="text-step-4-1-configure-disks">
 <p>
@@ -206,7 +187,7 @@ usually big enough for most of my systems.
 </div>
 </div>
 
-<div id="outline-container-orge9a2d94" class="outline-3">
+<div id="outline-container-orgd437eb6" class="outline-3">
 <h3 id="step-4-2-configure-users">Step 4.2 - Configure users</h3>
 <div class="outline-text-3" id="text-step-4-2-configure-users">
 <p>
@@ -245,15 +226,10 @@ because it won't work. It has to be the options named <b>initialPassword</b> or
 }
 </pre>
 </div>
-
-<p>
-Make sure to add your own user with a password. The password for the root
-user is of course optional. But it may be quite useful.
-</p>
 </div>
 </div>
 
-<div id="outline-container-org7afffb4" class="outline-3">
+<div id="outline-container-org8ed264d" class="outline-3">
 <h3 id="step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</h3>
 <div class="outline-text-3" id="text-step-4-3-configure-persistent-files-directories">
 <p>
@@ -315,30 +291,26 @@ content for it's own post.
 
 <p>
 <b>Update:</b> Now there's a follow-up post for putting tmpfs on <code>/home</code> as well,
-it's located here: <a href="/blog/2020/05/nixos-tmpfs-as-root/../../06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as home</a>.
+it's located here: <a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-edition/../../../2020/06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as home</a>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgc6983d1" class="outline-3">
+<div id="outline-container-orgd273457" class="outline-3">
 <h3 id="step-4-4-the-boot-loader">Step 4.4 - Configure the boot loader</h3>
 <div class="outline-text-3" id="text-step-4-4-the-boot-loader">
 <p>
-Here you can choose your boot loader.
+Here's a set up of grub to boot the system.
 </p>
 
 <div class="org-src-container">
 <pre class="src src-nix">{
   <span class="org-comment"># &#8230;</span>
 
-  <span class="org-comment"># Use systemd boot.</span>
-  <span class="org-nix-attribute">boot.loader.systemd-boot.enable</span> = <span class="org-nix-builtin">true</span>;
-  <span class="org-nix-attribute">boot.loader.efi.canTouchEfiVariables</span> = <span class="org-nix-builtin">true</span>;
-
   <span class="org-comment"># Use the GRUB 2 boot loader.</span>
   <span class="org-nix-attribute">boot.loader.grub.enable</span> = <span class="org-nix-builtin">true</span>;
-  <span class="org-nix-attribute">boot.loader.grub.efiSupport</span> = <span class="org-nix-builtin">true</span>;
-  <span class="org-nix-attribute">boot.loader.grub.device</span> = <span class="org-string">"nodev"</span>;
+  <span class="org-nix-attribute">boot.loader.grub.version</span> = 2;
+  <span class="org-nix-attribute">boot.loader.grub.device</span> = <span class="org-string">"/dev/sda"</span>;
 
   <span class="org-comment"># &#8230;</span>
 }
@@ -347,19 +319,20 @@ Here you can choose your boot loader.
 </div>
 </div>
 
-<div id="outline-container-org84a865c" class="outline-3">
+
+<div id="outline-container-orgb423cc4" class="outline-3">
 <h3 id="step-4-5-configure-the-rest-of-your-system">Step 4.5 - Configure the rest of your system</h3>
 <div class="outline-text-3" id="text-step-4-5-configure-the-rest-of-your-system">
 <p>
 You should make sure to go through <code>configuration.nix</code> to make all necessary
-configuration you want such as boot loader, <code>hostname</code>, <code>timezone</code>,
-keymap, personal user, network settings, etc.
+configuration you want such as <code>hostname</code>, <code>timezone</code>, keymap, personal user,
+network settings, etc.
 </p>
 </div>
 </div>
 </article>
 
-<article id="outline-container-org546e0b8" class="outline-2">
+<article id="outline-container-orgebb1038" class="outline-2">
 <h2 id="step-5-perform-install">Step 5 - Perform install</h2>
 <div class="outline-text-2" id="text-step-5-perform-install">
 <p>
@@ -375,7 +348,7 @@ end of the install since it won't be there after reboot anyway.
 </article>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2020-05-02 Sat 10:00</p>
+<p class="date">Date: 2021-03-23 Tue 20:00</p>
 <p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
 <p class="date">Created: 2021-03-23 Tue 18:32</p>
 </div>
