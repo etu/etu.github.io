@@ -1,7 +1,11 @@
 #+SETUPFILE: ../../../../../org-templates/level-1.org
-#+TITLE: NixOS ❄: tmpfs as root
+#+TITLE: NixOS ❄: tmpfs as root (UEFI edition)
 #+DATE: <2020-05-02 Sat 10:00>
 #+OPTIONS: toc:t
+
+If you're on MBR or Legacy boot, I'd recommend to read my follow-up post
+targeting specifically this kind of setups:
+[[../../../2021/03/nixos-tmpfs-as-root-legacy-boot-edition/][NixOS ❄: tmpfs as root (legacy boot edition)]].
 
 One fairly unique property of NixOS is the ability to boot with only =/boot=
 and =/nix=. Nothing else is actually required. This supports doing all sorts
@@ -23,8 +27,8 @@ going to walk through the install with tmpfs as root file system.
 
 I'm going to do the most basic setup when it comes to file systems, just a
 =/boot= as =fat32= and =/nix= as =ext4= without encryption. If you want to
-have another file system or use LUKS or something it should be trivial to just
-format the drive differently and mount it.
+have another file system or use LUKS or something it should be trivial to
+just format the drive differently and mount it.
 
 #+BEGIN_SRC sh
 # Defining a helper variable to make the
@@ -215,9 +219,33 @@ content for it's own post.
 *Update:* Now there's a follow-up post for putting tmpfs on =/home= as well,
 it's located here: [[file:../../06/nixos-tmpfs-as-home/][NixOS ❄: tmpfs as home]].
 
-** Step 4.4 - Configure the rest of your system
+** Step 4.4 - Configure the boot loader
 :PROPERTIES:
-:CUSTOM_ID: step-4-4-configure-the-rest-of-your-system
+:CUSTOM_ID: step-4-4-the-boot-loader
+:END:
+
+Here you can choose your boot loader.
+
+#+BEGIN_SRC nix
+{
+  # …
+
+  # Use systemd boot.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Use the GRUB 2 boot loader.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.device = "nodev";
+
+  # …
+}
+#+END_SRC
+
+** Step 4.5 - Configure the rest of your system
+:PROPERTIES:
+:CUSTOM_ID: step-4-5-configure-the-rest-of-your-system
 :END:
 
 You should make sure to go through =configuration.nix= to make all necessary
