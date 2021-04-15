@@ -36,15 +36,25 @@ them apply all the way through to systemd user services.
 So I had to add the following to command to run before I log into sway:
 
 #+BEGIN_SRC sh
-systemctl --user import-environment
+systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
 #+END_SRC
 
 It may be fine to start it after sway is launched as well, it probably just
-has to be executed before you attempt to do any screen sharing. This command
-also accepts specific environment variables to be imported.
+has to be executed before you attempt to do any screen sharing.
 
 Don't worry if they don't run at this point. They should be started by socket
 activation when you start sharing your screen.
+
+** Update: A recent update to sway 1.6 in nixpkgs broke screen sharing
+Reported issue here [[https://github.com/NixOS/nixpkgs/issues/119445]].
+
+Currently screen sharing works if you have the following lines in your sway
+config to import the right things to the right places:
+
+#+BEGIN_SRC sh
+  exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+  exec dbus-update-activation-environment WAYLAND_DISPLAY
+#+END_SRC
 
 * Testing screen sharing
 Testing screen sharing can easily be done with a patched[fn:patched-firefox]
