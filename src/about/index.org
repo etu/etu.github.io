@@ -3,7 +3,8 @@
 
 [[file:../imgs/etu.jpg]]
 
-My name is Elis (SA0̸BSE) and I currently live and work in Stockholm, Sweden.
+My name is Elis (SA4BSE) and I currently live in Arvika, Sweden and work
+remotely in Stockholm, Sweden.
 
 * ./about/good-with/
 :PROPERTIES:
