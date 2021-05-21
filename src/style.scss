@@ -214,15 +214,18 @@ pre {
         border-style: solid;
 
         margin: 0;
+
+        overflow-x: auto;
         @include rem-attributes(padding, 1);
 
         &:before {
+            top: 0;
+            right: 0;
+
             background: $defaultCodeLanguageBoxColor;
             color: contrast-color($defaultForegroundColor, $defaultCodeLanguageBoxColor);
 
             position: absolute;
-            @include rem-attributes(right, 0.4);
-            @include rem-attributes(top, -1);
             @include rem-attributes(padding-top, 0.3);
             @include rem-attributes(padding-bottom, 0.3);
             @include rem-attributes(padding-left, 1);
@@ -355,15 +358,11 @@ div#postamble {
 @media screen and (max-width: 800px) {
     /* Org-mode code box */
     pre.src {
-        overflow-x: auto;
         border-left-width: 0;
         border-right-width: 0;
-
         @include rem-attributes(padding-top, 2);
 
         &:before {
-            top: 0;
-            right: 0;
             border-top-width: 0;
         }
     }
