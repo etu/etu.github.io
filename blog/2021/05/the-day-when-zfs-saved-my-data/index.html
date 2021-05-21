@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-05-21 Fri 18:59 -->
+<!-- 2021-05-21 Fri 19:03 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The day when ZFS saved my data</title>
@@ -84,7 +84,7 @@ that I would loose data.
 This was the point where it got to me how bad it was.
 </p>
 
-<article id="outline-container-org17bea8f" class="outline-2">
+<article id="outline-container-org79f99c0" class="outline-2">
 <h2 id="looking-up-how-bad-it-was">Looking up how bad it was</h2>
 <div class="outline-text-2" id="text-looking-up-how-bad-it-was">
 <p>
@@ -97,32 +97,32 @@ then scrubbed the pool to confirm how bad it was.
 This was the output from <code>zpool status -v</code>:
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">[root@nixos:/home/nixos]# zpool status -v
+<pre class="src src-plain">[root@nixos:/home/nixos]# zpool status -v
   pool: zroot
  state: DEGRADED
-status: One or more devices has experienced an error resulting<span class="org-keyword"> in</span> data
-        corruption.  Applications may be affected.
-action: Restore the file<span class="org-keyword"> in</span> question if possible. Otherwise restore the
-        entire pool from backup.
+status: One or more devices has experienced an error resulting in data
+	corruption.  Applications may be affected.
+action: Restore the file in question if possible. Otherwise restore the
+	entire pool from backup.
    see: https://openzfs.github.io/openzfs-docs/asg/2FS-8000-BA
-  scan: scrub<span class="org-keyword"> in</span> progress since Fri May 21 07:20:10 2021
-        131G scanned at 649M/s, 70.2G issued at 347M/s, 143G total
-        180K repaired, 49.18% done, 00:03:33 to go
+  scan: scrub in progress since Fri May 21 07:20:10 2021
+	131G scanned at 649M/s, 70.2G issued at 347M/s, 143G total
+	180K repaired, 49.18% done, 00:03:33 to go
 config:
 
-        NAME                                                     STATE      READ WRITE CKSUM
-        zroot                                                    DEGRADED      0     0     0
-          nvme-LENSE30256GMSP34MEAT3TA_FBBS19071030004166-part1  DEGRADED    206     0    96  too many errors  (reparing)
+	NAME                                                     STATE      READ WRITE CKSUM
+	zroot                                                    DEGRADED      0     0     0
+	  nvme-LENSE30256GMSP34MEAT3TA_FBBS19071030004166-part1  DEGRADED    206     0    96  too many errors  (reparing)
 
-errors: Permanent errors have been detected<span class="org-keyword"> in</span> the following files:
+errors: Permanent errors have been detected in the following files:
 
-        zroot/nix:&lt;0x0&gt;
-        zroot/home@zfs-auto-snap_frequent-2021-05-21-08h15:&lt;0x0&gt;
-        zroot/home@zfs-auto-snap_frequent-2021-05-21-08h15:/etu/.mozilla/firefox/&lt;redacted&gt;
-        zroot/home:&lt;0x0&gt;
-        zroot/home:/etu/.mozilla/firefox/&lt;redacted&gt;
-        zroot/home:/etu/.mozilla/firefox/&lt;redacted&gt;
-        zroot/home:/etu/.mozilla/firefox/&lt;redacted&gt;
+	zroot/nix:&lt;0x0&gt;
+	zroot/home@zfs-auto-snap_frequent-2021-05-21-08h15:&lt;0x0&gt;
+	zroot/home@zfs-auto-snap_frequent-2021-05-21-08h15:/etu/.mozilla/firefox/&lt;redacted&gt;
+	zroot/home:&lt;0x0&gt;
+	zroot/home:/etu/.mozilla/firefox/&lt;redacted&gt;
+	zroot/home:/etu/.mozilla/firefox/&lt;redacted&gt;
+	zroot/home:/etu/.mozilla/firefox/&lt;redacted&gt;
 </pre>
 </div>
 
@@ -130,14 +130,14 @@ errors: Permanent errors have been detected<span class="org-keyword"> in</span> 
 While doing this scrub I had my kernel spamming messages like this flooding:
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">[ 358.895359] blk_update_request: critical medium error, dev nvme0n1, sector
-              279163624 op 0x0:(READ) flags 0x0 phys_seg 11 prio class 0
+<pre class="src src-plain">[ 358.895359] blk_update_request: critical medium error, dev nvme0n1, sector
+	      279163624 op 0x0:(READ) flags 0x0 phys_seg 11 prio class 0
 </pre>
 </div>
 </div>
 </article>
 
-<article id="outline-container-orgd338294" class="outline-2">
+<article id="outline-container-org33926bc" class="outline-2">
 <h2 id="starting-to-recover">Starting to recover</h2>
 <div class="outline-text-2" id="text-starting-to-recover">
 <p>
@@ -166,7 +166,7 @@ The transfer of this snapshot was successful.
 </div>
 </article>
 
-<article id="outline-container-org1db7146" class="outline-2">
+<article id="outline-container-org53af702" class="outline-2">
 <h2 id="setting-up-a-work-environment">Setting up a work environment</h2>
 <div class="outline-text-2" id="text-setting-up-a-work-environment">
 <p>
@@ -190,7 +190,7 @@ rebuild some docker containers and such.
 </div>
 </article>
 
-<article id="outline-container-org555107a" class="outline-2">
+<article id="outline-container-orgf1177e5" class="outline-2">
 <h2 id="takeaways-from-today">Takeaways from today</h2>
 <div class="outline-text-2" id="text-takeaways-from-today">
 <p>
@@ -222,7 +222,7 @@ really good tool for creating backups based on.
 <div id="postamble" class="status">
 <p class="date">Date: 2021-05-21 Fri 20:45</p>
 <p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-<p class="date">Created: 2021-05-21 Fri 18:59</p>
+<p class="date">Created: 2021-05-21 Fri 19:03</p>
 </div>
 </body>
 </html>
