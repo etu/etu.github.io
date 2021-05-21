@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-05-21 Fri 18:47 -->
+<!-- 2021-05-21 Fri 18:59 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NixOS ❄: tmpfs as root (legacy boot edition)</title>
@@ -61,7 +61,7 @@ This is a follow up post to one of my most popular posts ever which is
 This is the MBR or Legacy Boot edition.
 </p>
 
-<article id="outline-container-orga67a213" class="outline-2">
+<article id="outline-container-org7b48b03" class="outline-2">
 <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
 <div class="outline-text-2" id="text-step-1-partitioning">
 <p>
@@ -90,7 +90,7 @@ parted $<span class="org-variable-name">DISK</span> -- mkpart primary ext4 512Mi
 </div>
 </article>
 
-<article id="outline-container-org2967229" class="outline-2">
+<article id="outline-container-org4983ec7" class="outline-2">
 <h2 id="step-2-creating-the-file-systems">Step 2 - Creating the file systems</h2>
 <div class="outline-text-2" id="text-step-2-creating-the-file-systems">
 <p>
@@ -107,7 +107,7 @@ mkfs.ext4 $<span class="org-variable-name">DISK</span>-part2
 </div>
 </article>
 
-<article id="outline-container-orgf59bf48" class="outline-2">
+<article id="outline-container-orge91a8f7" class="outline-2">
 <h2 id="step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</h2>
 <div class="outline-text-2" id="text-step-3-mounting-the-file-systems">
 <p>
@@ -137,7 +137,7 @@ mount -o bind /mnt/nix/persist/var/log /mnt/var/log
 </div>
 </article>
 
-<article id="outline-container-org0d58da6" class="outline-2">
+<article id="outline-container-org23ed330" class="outline-2">
 <h2 id="step-4-configuration">Step 4 - Configuration</h2>
 <div class="outline-text-2" id="text-step-4-configuration">
 <p>
@@ -146,7 +146,7 @@ configuration for your system.
 </p>
 </div>
 
-<div id="outline-container-org6238f24" class="outline-3">
+<div id="outline-container-org4f043ae" class="outline-3">
 <h3 id="step-4-1-configure-disks">Step 4.1 - Configure disks</h3>
 <div class="outline-text-3" id="text-step-4-1-configure-disks">
 <p>
@@ -187,7 +187,7 @@ usually big enough for most of my systems.
 </div>
 </div>
 
-<div id="outline-container-org864d5e9" class="outline-3">
+<div id="outline-container-orgab4ca4f" class="outline-3">
 <h3 id="step-4-2-configure-users">Step 4.2 - Configure users</h3>
 <div class="outline-text-3" id="text-step-4-2-configure-users">
 <p>
@@ -229,7 +229,7 @@ because it won't work. It has to be the options named <b>initialPassword</b> or
 </div>
 </div>
 
-<div id="outline-container-org38ede79" class="outline-3">
+<div id="outline-container-org19c9586" class="outline-3">
 <h3 id="step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</h3>
 <div class="outline-text-3" id="text-step-4-3-configure-persistent-files-directories">
 <p>
@@ -296,7 +296,7 @@ it's located here: <a href="/blog/2021/03/nixos-tmpfs-as-root-legacy-boot-editio
 </div>
 </div>
 
-<div id="outline-container-orgbd02338" class="outline-3">
+<div id="outline-container-org6c57ae5" class="outline-3">
 <h3 id="step-4-4-the-boot-loader">Step 4.4 - Configure the boot loader</h3>
 <div class="outline-text-3" id="text-step-4-4-the-boot-loader">
 <p>
@@ -320,7 +320,7 @@ Here's a set up of grub to boot the system.
 </div>
 
 
-<div id="outline-container-org7c66d86" class="outline-3">
+<div id="outline-container-org6be19c3" class="outline-3">
 <h3 id="step-4-5-configure-the-rest-of-your-system">Step 4.5 - Configure the rest of your system</h3>
 <div class="outline-text-3" id="text-step-4-5-configure-the-rest-of-your-system">
 <p>
@@ -332,7 +332,7 @@ network settings, etc.
 </div>
 </article>
 
-<article id="outline-container-org483ba28" class="outline-2">
+<article id="outline-container-org8bc2dd5" class="outline-2">
 <h2 id="step-5-perform-install">Step 5 - Perform install</h2>
 <div class="outline-text-2" id="text-step-5-perform-install">
 <p>
@@ -350,7 +350,7 @@ end of the install since it won't be there after reboot anyway.
 <div id="postamble" class="status">
 <p class="date">Date: 2021-03-23 Tue 20:00</p>
 <p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-<p class="date">Created: 2021-05-21 Fri 18:47</p>
+<p class="date">Created: 2021-05-21 Fri 18:59</p>
 </div>
 </body>
 </html>
