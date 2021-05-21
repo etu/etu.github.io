@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-05-21 Fri 18:43 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The day when ZFS saved my data</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
+<link href="https://elis.nu/" rel="canonical">
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
+<link rel="icon" href="/imgs/favicon.jpg">
+<meta name="referrer" content="no-referrer" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z9NBYBDY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-52Z9NBYBDY');
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav>
+     <ul>
+       <li><a href="/">~elis/</a></li>
+       <li><a href="/about/">./about/</a></li>
+       <li><a href="/work/">./work/</a></li>
+       <li><a href="/talks/">./talks/</a></li>
+       <li><a href="/blog/">./blog/</a></li>
+     </ul>
+   </nav>
+</div>
+<div id="content">
+<h1 class="title">The day when ZFS saved my data</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="/blog/2021/05/the-day-when-zfs-saved-my-data/#looking-up-how-bad-it-was">Looking up how bad it was</a></li>
+<li><a href="/blog/2021/05/the-day-when-zfs-saved-my-data/#starting-to-recover">Starting to recover</a></li>
+<li><a href="/blog/2021/05/the-day-when-zfs-saved-my-data/#setting-up-a-work-environment">Setting up a work environment</a></li>
+<li><a href="/blog/2021/05/the-day-when-zfs-saved-my-data/#takeaways-from-today">Takeaways from today</a></li>
+</ul>
+</div>
+</div>
+<p>
+Today my work day didn't turn out the way I expected. It started like a
+normal day, I woke up around the regular time, did my morning routine, sat at
+my desk and started my work-issued laptop.
+</p>
+
+<p>
+It booted up just fine, I connected it to my Ultrawide display, started going
+through Slack and Email and catch up on some news while drinking my morning
+tea and waking up.
+</p>
+
+<p>
+Then after around an hour of work things started to hang up, most notably
+Firefox totally froze up. I could launch a new terminal but not start <code>htop</code>,
+I had a <code>htop</code> session in a terminal already because it's part of what I
+usually have running. So I went there to look.
+</p>
+
+<p>
+In my <code>htop</code> I had ever increasing load increasing with more than <code>1.0</code> in
+load per second but nothing actually using any resources for real. Something
+was definitely bad, probably with disk access. I tried to run <code>ls</code>, and it
+just locked up.
+</p>
+
+<p>
+Then I rebooted my laptop, started it up, the EFI took ages to show up and to
+pass through to <code>systemd-boot</code>, but it eventually did, so the disk wasn't
+fully dead. Then I went on to boot my system and the ZFS pool wouldn't import
+and it said something along the lines that recovery would be possible but
+that I would loose data.
+</p>
+
+<p>
+This was the point where it got to me how bad it was.
+</p>
+
+<article id="outline-container-org6667ef3" class="outline-2">
+<h2 id="looking-up-how-bad-it-was">Looking up how bad it was</h2>
+<div class="outline-text-2" id="text-looking-up-how-bad-it-was">
+<p>
+So I took my personal laptop, set up a NixOS to create a NixOS live USB stick
+since that supports ZFS. Booted it up. I could indeed import the ZFS pool. I
+then scrubbed the pool to confirm how bad it was.
+</p>
+
+<p>
+This was the output from <code>zpool status -v</code>:
+</p>
+<pre class="example">
+[root@nixos:/home/nixos]# zpool status -v
+  pool: zroot
+ state: DEGRADED
+status: One or more devices has experienced an error resulting in data
+	corruption.  Applications may be affected.
+action: Restore the file in question if possible. Otherwise restore the
+	entire pool from backup.
+   see: https://openzfs.github.io/openzfs-docs/asg/2FS-8000-BA
+  scan: scrub in progress since Fri May 21 07:20:10 2021
+	131G scanned at 649M/s, 70.2G issued at 347M/s, 143G total
+	180K repaired, 49.18% done, 00:03:33 to go
+config:
+
+	NAME                                                     STATE      READ WRITE CKSUM
+	zroot                                                    DEGRADED      0     0     0
+	  nvme-LENSE30256GMSP34MEAT3TA_FBBS19071030004166-part1  DEGRADED    206     0    96  too many errors  (reparing)
+
+errors: Permanent errors have been detected in the following files:
+
+	zroot/nix:&lt;0x0&gt;
+	zroot/home@zfs-auto-snap_frequent-2021-05-21-08h15:&lt;0x0&gt;
+	zroot/home@zfs-auto-snap_frequent-2021-05-21-08h15:/etu/.mozilla/firefox/&lt;redacted&gt;
+	zroot/home:&lt;0x0&gt;
+	zroot/home:/etu/.mozilla/firefox/&lt;redacted&gt;
+	zroot/home:/etu/.mozilla/firefox/&lt;redacted&gt;
+	zroot/home:/etu/.mozilla/firefox/&lt;redacted&gt;
+</pre>
+
+<p>
+While doing this scrub I had my kernel spamming messages like this flooding:
+</p>
+<pre class="example">
+[ 358.895359] blk_update_request: critical medium error, dev nvme0n1, sector
+	      279163624 op 0x0:(READ) flags 0x0 phys_seg 11 prio class 0
+</pre>
+</div>
+</article>
+
+<article id="outline-container-org45f7b26" class="outline-2">
+<h2 id="starting-to-recover">Starting to recover</h2>
+<div class="outline-text-2" id="text-starting-to-recover">
+<p>
+So obviously some of my Firefox state was damaged, no big deal, but my
+snapshot created at 08:00 this morning was intact it seemed. So I managed to
+do a ZFS send to back this snapshot up to my file server at home.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">zfs send zroot/home@zfs-auto-snap_frequent-2021-05-21-08h00 | pv |
+    ssh my-user@my-home-server <span class="org-string">'cat &gt; backups/work/home-filesystem.zfs'</span>
+</pre>
+</div>
+
+<p>
+This took a while because it was 25G worth of data. Most of which is "backed
+up" in terms of repositories on GitHub or in form of database dumps that I
+can do again. Then I would loose all my shell history and some miscellaneous
+files that were in neither of these places. I also didn't want to sort all of
+these things out from scratch.
+</p>
+
+<p>
+The transfer of this snapshot was successful.
+</p>
+</div>
+</article>
+
+<article id="outline-container-org3725941" class="outline-2">
+<h2 id="setting-up-a-work-environment">Setting up a work environment</h2>
+<div class="outline-text-2" id="text-setting-up-a-work-environment">
+<p>
+As a temporary measure I've imported my work NixOS modules on my private
+laptop, then I got all utilities and tools needed to do my job. Sure still
+needed some passwords and SSH-keys, but passwords I could get from the
+password manager and SSH-keys could be added. So no biggie there.
+</p>
+
+<p>
+Then I imported the ZFS snapshot that I've managed to recover from the work
+laptop onto a new ZFS filesystem in the ZFS pool on my private laptop and
+changed my private laptops NixOS configuration to mount the work home folder
+instead of the regular one.
+</p>
+
+<p>
+A NixOS rebuild later and I was back in business except that I needed to
+rebuild some docker containers and such.
+</p>
+</div>
+</article>
+
+<article id="outline-container-orgdaadda3" class="outline-2">
+<h2 id="takeaways-from-today">Takeaways from today</h2>
+<div class="outline-text-2" id="text-takeaways-from-today">
+<p>
+I need a real and proper backup strategy, I was damn aware that I didn't have
+one and I was sure about that I wouldn't be as scared or sad if this sort of
+thing would happen since "most things are in git anyways".
+</p>
+
+<p>
+This has proved to me that I need to set this up as soon as possible.
+</p>
+
+<p>
+I was lucky that I had ZFS telling me so clearly what was wrong, how it was
+wrong, what I could recover, what I couldn't recover so when I did recover my
+data I'm sure that I managed to recover every single bit of data that I cared
+about backing up. If it wasn't for ZFS I'm not sure that I would have noticed
+as early as I did and I'm not sure that I would have been able to save any
+of the data.
+</p>
+
+<p>
+Snapshots on the machine you use isn't a replacement for backups, but it's a
+really good tool for creating backups based on.
+</p>
+</div>
+</article>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-05-21 Fri 20:45</p>
+<p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
+<p class="date">Created: 2021-05-21 Fri 18:43</p>
+</div>
+</body>
+</html>
