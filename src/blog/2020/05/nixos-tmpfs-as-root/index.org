@@ -1,11 +1,9 @@
 #+SETUPFILE: ../../../../../org-templates/level-1.org
-#+TITLE: NixOS ❄: tmpfs as root (UEFI edition)
+#+TITLE: NixOS ❄: tmpfs as root
 #+DATE: <2020-05-02 Sat 10:00>
 #+OPTIONS: toc:t
 
-If you're on MBR or Legacy boot, I'd recommend to read my follow-up post
-targeting specifically this kind of setups:
-[[../../../2021/03/nixos-tmpfs-as-root-legacy-boot-edition/][NixOS ❄: tmpfs as root (legacy boot edition)]].
+This post covers both EFI and legacy boot setups.
 
 One fairly unique property of NixOS is the ability to boot with only =/boot=
 and =/nix=. Nothing else is actually required. This supports doing all sorts
@@ -20,7 +18,7 @@ back to recover files you lost but still have an empty state.
 Another way is to go the tmpfs way which is probably why you're here. So I'm
 going to walk through the install with tmpfs as root file system.
 
-* Step 1 - Partitioning
+* Step 1 - Partitioning on EFI
 :PROPERTIES:
 :CUSTOM_ID: step-1-partitioning
 :END:
@@ -46,6 +44,32 @@ parted $DISK -- set 1 boot on
 parted $DISK -- mkpart Nix 512MiB 100%
 #+END_SRC
 
+* Step 1 - Partitioning for legacy boot
+:PROPERTIES:
+:CUSTOM_ID: step-1-partitioning-for-legacy-boot
+:END:
+
+I'm going to do the most basic setup when it comes to file systems, just a
+=/boot= as =ext4= and =/nix= as =ext4= without encryption. If you want to
+have another file system or use LUKS or something it should be trivial to
+just format the drive differently and mount it.
+
+#+BEGIN_SRC sh
+# Defining a helper variable to make the
+# following commands shorter.
+DISK=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
+
+# Create partition table
+parted $DISK -- mklabel msdos
+
+# Create a /boot as $DISK-part1
+parted $DISK -- mkpart primary ext4 1M 512M
+parted $DISK -- set 1 boot on
+
+# Create a /nix as $DISK-part2
+parted $DISK -- mkpart primary ext4 512MiB 100%
+#+END_SRC
+
 * Step 2 - Creating the file systems
 :PROPERTIES:
 :CUSTOM_ID: step-2-creating-the-file-systems
@@ -53,8 +77,11 @@ parted $DISK -- mkpart Nix 512MiB 100%
 
 This is fairly straight forward in my example:
 #+BEGIN_SRC sh
-# /boot partition
+# /boot partition for EFI
 mkfs.vfat $DISK-part1
+
+# /boot partition for legacy boot
+mkfs.ext4 $DISK-part1
 
 # /nix partition
 mkfs.ext4 $DISK-part2
@@ -230,14 +257,20 @@ Here you can choose your boot loader.
 {
   # …
 
-  # Use systemd boot.
+  # Use systemd boot (EFI only)
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use the GRUB 2 boot loader.
+  # Use the GRUB 2 boot loader (Both EFI and legacy boot supported).
   boot.loader.grub.enable = true;
+
+  # This is for GRUB in EFI mode
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.device = "nodev";
+
+  # This is for GRUB for legacy boot
+  boot.loader.grub.version = 2;
+  boot.loader.grub.device = "/dev/sda";
 
   # …
 }
