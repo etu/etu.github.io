@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-05-21 Fri 19:13 -->
+<!-- 2021-05-22 Sat 12:31 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NixOS ❄: tmpfs as root (UEFI edition)</title>
+<title>NixOS ❄: tmpfs as root</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
 <link href="https://elis.nu/" rel="canonical">
@@ -34,12 +34,13 @@ gtag('config', 'G-52Z9NBYBDY');
    </nav>
 </div>
 <div id="content">
-<h1 class="title">NixOS ❄: tmpfs as root (UEFI edition)</h1>
+<h1 class="title">NixOS ❄: tmpfs as root</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-1-partitioning">Step 1 - Partitioning</a></li>
+<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-1-partitioning">Step 1 - Partitioning on EFI</a></li>
+<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-1-partitioning-for-legacy-boot">Step 1 - Partitioning for legacy boot</a></li>
 <li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-2-creating-the-file-systems">Step 2 - Creating the file systems</a></li>
 <li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</a></li>
 <li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-configuration">Step 4 - Configuration</a>
@@ -56,9 +57,7 @@ gtag('config', 'G-52Z9NBYBDY');
 </div>
 </div>
 <p>
-If you're on MBR or Legacy boot, I'd recommend to read my follow-up post
-targeting specifically this kind of setups:
-<a href="/blog/2020/05/nixos-tmpfs-as-root/../../../2021/03/nixos-tmpfs-as-root-legacy-boot-edition/">NixOS ❄: tmpfs as root (legacy boot edition)</a>.
+This post covers both EFI and legacy boot setups.
 </p>
 
 <p>
@@ -80,8 +79,8 @@ Another way is to go the tmpfs way which is probably why you're here. So I'm
 going to walk through the install with tmpfs as root file system.
 </p>
 
-<article id="outline-container-org54d86d6" class="outline-2">
-<h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
+<article id="outline-container-org7309e85" class="outline-2">
+<h2 id="step-1-partitioning">Step 1 - Partitioning on EFI</h2>
 <div class="outline-text-2" id="text-step-1-partitioning">
 <p>
 I'm going to do the most basic setup when it comes to file systems, just a
@@ -109,15 +108,47 @@ parted $<span class="org-variable-name">DISK</span> -- mkpart Nix 512MiB 100%
 </div>
 </article>
 
-<article id="outline-container-org00362fa" class="outline-2">
+<article id="outline-container-orgc0bdbfe" class="outline-2">
+<h2 id="step-1-partitioning-for-legacy-boot">Step 1 - Partitioning for legacy boot</h2>
+<div class="outline-text-2" id="text-step-1-partitioning-for-legacy-boot">
+<p>
+I'm going to do the most basic setup when it comes to file systems, just a
+<code>/boot</code> as <code>ext4</code> and <code>/nix</code> as <code>ext4</code> without encryption. If you want to
+have another file system or use LUKS or something it should be trivial to
+just format the drive differently and mount it.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Defining a helper variable to make the</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">following commands shorter.</span>
+<span class="org-variable-name">DISK</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Create partition table</span>
+parted $<span class="org-variable-name">DISK</span> -- mklabel msdos
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Create a /boot as $DISK-part1</span>
+parted $<span class="org-variable-name">DISK</span> -- mkpart primary ext4 1M 512M
+parted $<span class="org-variable-name">DISK</span> -- set 1 boot on
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">Create a /nix as $DISK-part2</span>
+parted $<span class="org-variable-name">DISK</span> -- mkpart primary ext4 512MiB 100%
+</pre>
+</div>
+</div>
+</article>
+
+<article id="outline-container-orgba6629d" class="outline-2">
 <h2 id="step-2-creating-the-file-systems">Step 2 - Creating the file systems</h2>
 <div class="outline-text-2" id="text-step-2-creating-the-file-systems">
 <p>
 This is fairly straight forward in my example:
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">/boot partition</span>
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">/boot partition for EFI</span>
 mkfs.vfat $<span class="org-variable-name">DISK</span>-part1
+
+<span class="org-comment-delimiter"># </span><span class="org-comment">/boot partition for legacy boot</span>
+mkfs.ext4 $<span class="org-variable-name">DISK</span>-part1
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">/nix partition</span>
 mkfs.ext4 $<span class="org-variable-name">DISK</span>-part2
@@ -126,7 +157,7 @@ mkfs.ext4 $<span class="org-variable-name">DISK</span>-part2
 </div>
 </article>
 
-<article id="outline-container-org0c8ecd9" class="outline-2">
+<article id="outline-container-org1db90e1" class="outline-2">
 <h2 id="step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</h2>
 <div class="outline-text-2" id="text-step-3-mounting-the-file-systems">
 <p>
@@ -156,7 +187,7 @@ mount -o bind /mnt/nix/persist/var/log /mnt/var/log
 </div>
 </article>
 
-<article id="outline-container-org8f4c766" class="outline-2">
+<article id="outline-container-org673a55d" class="outline-2">
 <h2 id="step-4-configuration">Step 4 - Configuration</h2>
 <div class="outline-text-2" id="text-step-4-configuration">
 <p>
@@ -165,7 +196,7 @@ configuration for your system.
 </p>
 </div>
 
-<div id="outline-container-orgb1e66e8" class="outline-3">
+<div id="outline-container-org37c5f61" class="outline-3">
 <h3 id="step-4-1-configure-disks">Step 4.1 - Configure disks</h3>
 <div class="outline-text-3" id="text-step-4-1-configure-disks">
 <p>
@@ -206,7 +237,7 @@ usually big enough for most of my systems.
 </div>
 </div>
 
-<div id="outline-container-org70bd897" class="outline-3">
+<div id="outline-container-orgbb4f1bf" class="outline-3">
 <h3 id="step-4-2-configure-users">Step 4.2 - Configure users</h3>
 <div class="outline-text-3" id="text-step-4-2-configure-users">
 <p>
@@ -253,7 +284,7 @@ user is of course optional. But it may be quite useful.
 </div>
 </div>
 
-<div id="outline-container-org627fcfd" class="outline-3">
+<div id="outline-container-org0139639" class="outline-3">
 <h3 id="step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</h3>
 <div class="outline-text-3" id="text-step-4-3-configure-persistent-files-directories">
 <p>
@@ -320,7 +351,7 @@ it's located here: <a href="/blog/2020/05/nixos-tmpfs-as-root/../../06/nixos-tmp
 </div>
 </div>
 
-<div id="outline-container-org7e91d53" class="outline-3">
+<div id="outline-container-orgd4fcf52" class="outline-3">
 <h3 id="step-4-4-the-boot-loader">Step 4.4 - Configure the boot loader</h3>
 <div class="outline-text-3" id="text-step-4-4-the-boot-loader">
 <p>
@@ -331,14 +362,20 @@ Here you can choose your boot loader.
 <pre class="src src-nix">{
   <span class="org-comment"># &#8230;</span>
 
-  <span class="org-comment"># Use systemd boot.</span>
+  <span class="org-comment"># Use systemd boot (EFI only)</span>
   <span class="org-nix-attribute">boot.loader.systemd-boot.enable</span> = <span class="org-nix-builtin">true</span>;
   <span class="org-nix-attribute">boot.loader.efi.canTouchEfiVariables</span> = <span class="org-nix-builtin">true</span>;
 
-  <span class="org-comment"># Use the GRUB 2 boot loader.</span>
+  <span class="org-comment"># Use the GRUB 2 boot loader (Both EFI and legacy boot supported).</span>
   <span class="org-nix-attribute">boot.loader.grub.enable</span> = <span class="org-nix-builtin">true</span>;
+
+  <span class="org-comment"># This is for GRUB in EFI mode</span>
   <span class="org-nix-attribute">boot.loader.grub.efiSupport</span> = <span class="org-nix-builtin">true</span>;
   <span class="org-nix-attribute">boot.loader.grub.device</span> = <span class="org-string">"nodev"</span>;
+
+  <span class="org-comment"># This is for GRUB for legacy boot</span>
+  <span class="org-nix-attribute">boot.loader.grub.version</span> = 2;
+  <span class="org-nix-attribute">boot.loader.grub.device</span> = <span class="org-string">"/dev/sda"</span>;
 
   <span class="org-comment"># &#8230;</span>
 }
@@ -347,7 +384,7 @@ Here you can choose your boot loader.
 </div>
 </div>
 
-<div id="outline-container-org3083631" class="outline-3">
+<div id="outline-container-org6c54c11" class="outline-3">
 <h3 id="step-4-5-configure-the-rest-of-your-system">Step 4.5 - Configure the rest of your system</h3>
 <div class="outline-text-3" id="text-step-4-5-configure-the-rest-of-your-system">
 <p>
@@ -359,7 +396,7 @@ keymap, personal user, network settings, etc.
 </div>
 </article>
 
-<article id="outline-container-orgf8aa749" class="outline-2">
+<article id="outline-container-org33047b3" class="outline-2">
 <h2 id="step-5-perform-install">Step 5 - Perform install</h2>
 <div class="outline-text-2" id="text-step-5-perform-install">
 <p>
@@ -377,7 +414,7 @@ end of the install since it won't be there after reboot anyway.
 <div id="postamble" class="status">
 <p class="date">Date: 2020-05-02 Sat 10:00</p>
 <p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-<p class="date">Created: 2021-05-21 Fri 19:13</p>
+<p class="date">Created: 2021-05-22 Sat 12:31</p>
 </div>
 </body>
 </html>
