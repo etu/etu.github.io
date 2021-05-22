@@ -233,6 +233,8 @@ pre {
 
             /* Add border to language box */
             @include rem-attributes(border-width, 0.1);
+            border-top-width: 0;
+            border-right-width: 0;
             border-color: $defaultContentDelimiters;
             border-style: solid;
         }
@@ -363,7 +365,7 @@ div#postamble {
         @include rem-attributes(padding-top, 2);
 
         &:before {
-            border-top-width: 0;
+            @include rem-attributes(border-right-width, 0.1);
         }
     }
 }
