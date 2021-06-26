@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-06-26 Sat 20:45 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
+<link href="https://elis.nu/" rel="canonical">
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
+<link rel="icon" href="/imgs/favicon.jpg">
+<meta name="referrer" content="no-referrer" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z9NBYBDY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-52Z9NBYBDY');
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav>
+     <ul>
+       <li><a href="/">~elis/</a></li>
+       <li><a href="/about/">./about/</a></li>
+       <li><a href="/work/">./work/</a></li>
+       <li><a href="/talks/">./talks/</a></li>
+       <li><a href="/blog/">./blog/</a></li>
+     </ul>
+   </nav>
+</div>
+<div id="content">
+<h1 class="title">NixOS: Setting up Push To Talk in Mumble on Sway</h1>
+<p>
+Switching to Wayland has it's side-effects, one of which is the improved
+security from X11 where applications can't just randomly spy on each other at
+any point.
+</p>
+
+<p>
+This is both good news and bad news.
+</p>
+
+<p>
+The good news:
+</p>
+<ul class="org-ul">
+<li>Applications can't just randomly spy on each other.</li>
+</ul>
+
+<p>
+The bad news:
+</p>
+<ul class="org-ul">
+<li>Things like global hot-keys in for example Mumble won't work.</li>
+</ul>
+
+<p>
+Back from complaining to actually solving the problem though.
+</p>
+
+<article id="outline-container-org0a7fb3e" class="outline-2">
+<h2 id="org0a7fb3e">Mumble does have a patch for a future release</h2>
+<div class="outline-text-2" id="text-org0a7fb3e">
+<p>
+So there's the issue about <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
+been followed up by a patch <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
+patch will land in the 1.4.0 release though while current stable is 1.3.4.
+</p>
+
+<p>
+A thing with mumble is that they aren't quick at releasing new versions,
+so sitting around and waiting for a new release might… take a while.
+</p>
+</div>
+</article>
+
+<article id="outline-container-org7750dd3" class="outline-2">
+<h2 id="org7750dd3">Sway has patches for this</h2>
+<div class="outline-text-2" id="text-org7750dd3">
+<p>
+Since version 1.5 Sway has a patch to be able to bind keys that doesn't
+repeat it's action, but it still works to bind them to trigger a release
+event which sounds a lot like a push to talk buttons function to me.
+</p>
+
+<p>
+Here's the patch that was applied to Sway: <a href="https://github.com/swaywm/sway/pull/5132">add &#x2013;no-repeat option for bindings</a>.
+</p>
+</div>
+</article>
+
+<article id="outline-container-orgf9a1a0a" class="outline-2">
+<h2 id="orgf9a1a0a">Actually making use of these things in NixOS</h2>
+<div class="outline-text-2" id="text-orgf9a1a0a">
+<p>
+I started by patching mumble to support the dbus calls:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nix">{
+  <span class="org-comment"># &#8230;</span>
+
+  <span class="org-nix-attribute">environment.systemPackages</span> = [
+    <span class="org-comment"># Add a patch to mumble to be able to use dbus for push to talk</span>
+    (pkgs.mumble.overrideAttrs (oa: {
+      <span class="org-comment"># Here we keep the patches from the package while we import the</span>
+      <span class="org-comment"># patch from the pull request that did add the dbus features needed.</span>
+      <span class="org-nix-attribute">patches</span> = oa.patches ++ [
+  <span class="org-comment"># Download the patch from pull request 3675.</span>
+  (pkgs.fetchpatch {
+    <span class="org-nix-attribute">url</span> = <span class="org-string">"https://github.com/mumble-voip/mumble/pull/3675.patch"</span>;
+    <span class="org-nix-attribute">sha256</span> = <span class="org-string">"1zmqb8gl2cp0mcw85x9wn5rjw2mih7d2x96jxxqabjcx1kvgyhh3"</span>;
+  })
+      ];
+    }))
+  ];
+
+   <span class="org-comment"># &#8230;</span>
+}
+</pre>
+</div>
+
+<p>
+Then I've added the following lines to my sway configuration:
+</p>
+<div class="org-src-container">
+<pre class="src src-conf"><span class="org-comment-delimiter"># </span><span class="org-comment">Add PTT button for mumble:</span>
+bindsym --no-repeat           Super_L exec gdbus call -e -d net.sourceforge.mumble.mumble -o / -m net.sourceforge.mumble.Mumble.startTalking
+bindsym --no-repeat --release Super_L exec gdbus call -e -d net.sourceforge.mumble.mumble -o / -m net.sourceforge.mumble.Mumble.stopTalking
+</pre>
+</div>
+
+<p>
+(Note, <code>gdbus</code> comes from the package <code>glib</code>)
+</p>
+
+<p>
+Now you can launch up Mumble, you don't have to actually bind any keybinding
+for this to work since it's not actually a key bind but a dbus event. This
+also means that you can't test this while not connected to a server. When
+connected to a server and in a room where you have permissions to speak it
+works perfectly fine like a Push To Talk button.
+</p>
+</div>
+</article>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-06-26 Sat 22:40</p>
+<p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
+<p class="date">Created: 2021-06-26 Sat 20:45</p>
+</div>
+</body>
+</html>

@@ -6,7 +6,116 @@
 <generator>Emacs webfeeder.el</generator>
 <link>https://elis.nu/</link>
 <atom:link href="https://elis.nu/blog/rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sat, 26 Jun 2021 20:39:24 +0000</lastBuildDate>
+<lastBuildDate>Sat, 26 Jun 2021 20:45:14 +0000</lastBuildDate>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
+  <description><![CDATA[<div id="content">
+
+ <p>
+Switching to Wayland has it's side-effects, one of which is the improved
+security from X11 where applications can't just randomly spy on each other at
+any point.
+</p>
+
+ <p>
+This is both good news and bad news.
+</p>
+
+ <p>
+The good news:
+</p>
+ <ul class="org-ul"> <li>Applications can't just randomly spy on each other.</li>
+</ul> <p>
+The bad news:
+</p>
+ <ul class="org-ul"> <li>Things like global hot-keys in for example Mumble won't work.</li>
+</ul> <p>
+Back from complaining to actually solving the problem though.
+</p>
+
+ <article id="outline-container-org0a7fb3e" class="outline-2"> <h2 id="org0a7fb3e">Mumble does have a patch for a future release</h2>
+ <div class="outline-text-2" id="text-org0a7fb3e">
+ <p>
+So there's the issue about  <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
+been followed up by a patch  <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
+patch will land in the 1.4.0 release though while current stable is 1.3.4.
+</p>
+
+ <p>
+A thing with mumble is that they aren't quick at releasing new versions,
+so sitting around and waiting for a new release might… take a while.
+</p>
+</div>
+</article> <article id="outline-container-org7750dd3" class="outline-2"> <h2 id="org7750dd3">Sway has patches for this</h2>
+ <div class="outline-text-2" id="text-org7750dd3">
+ <p>
+Since version 1.5 Sway has a patch to be able to bind keys that doesn't
+repeat it's action, but it still works to bind them to trigger a release
+event which sounds a lot like a push to talk buttons function to me.
+</p>
+
+ <p>
+Here's the patch that was applied to Sway:  <a href="https://github.com/swaywm/sway/pull/5132">add –no-repeat option for bindings</a>.
+</p>
+</div>
+</article> <article id="outline-container-orgf9a1a0a" class="outline-2"> <h2 id="orgf9a1a0a">Actually making use of these things in NixOS</h2>
+ <div class="outline-text-2" id="text-orgf9a1a0a">
+ <p>
+I started by patching mumble to support the dbus calls:
+</p>
+
+ <div class="org-src-container">
+ <pre class="src src-nix">{
+   <span class="org-comment"># …</span>
+
+   <span class="org-nix-attribute">environment.systemPackages</span> = [
+     <span class="org-comment"># Add a patch to mumble to be able to use dbus for push to talk</span>
+    (pkgs.mumble.overrideAttrs (oa: {
+       <span class="org-comment"># Here we keep the patches from the package while we import the</span>
+       <span class="org-comment"># patch from the pull request that did add the dbus features needed.</span>
+       <span class="org-nix-attribute">patches</span> = oa.patches ++ [
+   <span class="org-comment"># Download the patch from pull request 3675.</span>
+  (pkgs.fetchpatch {
+     <span class="org-nix-attribute">url</span> =  <span class="org-string">"https://github.com/mumble-voip/mumble/pull/3675.patch"</span>;
+     <span class="org-nix-attribute">sha256</span> =  <span class="org-string">"1zmqb8gl2cp0mcw85x9wn5rjw2mih7d2x96jxxqabjcx1kvgyhh3"</span>;
+  })
+      ];
+    }))
+  ];
+
+    <span class="org-comment"># …</span>
+}
+</pre>
+</div>
+
+ <p>
+Then I've added the following lines to my sway configuration:
+</p>
+ <div class="org-src-container">
+ <pre class="src src-conf"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Add PTT button for mumble:</span>
+bindsym --no-repeat           Super_L exec gdbus call -e -d net.sourceforge.mumble.mumble -o / -m net.sourceforge.mumble.Mumble.startTalking
+bindsym --no-repeat --release Super_L exec gdbus call -e -d net.sourceforge.mumble.mumble -o / -m net.sourceforge.mumble.Mumble.stopTalking
+</pre>
+</div>
+
+ <p>
+(Note,  <code>gdbus</code> comes from the package  <code>glib</code>)
+</p>
+
+ <p>
+Now you can launch up Mumble, you don't have to actually bind any keybinding
+for this to work since it's not actually a key bind but a dbus event. This
+also means that you can't test this while not connected to a server. When
+connected to a server and in a room where you have permissions to speak it
+works perfectly fine like a Push To Talk button.
+</p>
+</div>
+</article></div>]]></description>
+  <link>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/index.html</guid>
+  <pubDate>Sat, 26 Jun 2021 00:00:00 +0000</pubDate>
+</item>
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>The day when ZFS saved my data</title>
@@ -224,8 +333,8 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
- <article id="outline-container-orga0368c2" class="outline-2"> <h2 id="orga0368c2">Required environment variables</h2>
- <div class="outline-text-2" id="text-orga0368c2">
+ <article id="outline-container-org4525448" class="outline-2"> <h2 id="org4525448">Required environment variables</h2>
+ <div class="outline-text-2" id="text-org4525448">
  <ul class="org-ul"> <li> <code>XDG_SESSION_TYPE=wayland</code></li>
  <li> <code>XDG_CURRENT_DESKTOP=sway</code></li>
 </ul> <p>
@@ -254,9 +363,9 @@ activation when you start sharing your screen.
 </p>
 </div>
 
- <div id="outline-container-org2b07819" class="outline-3">
- <h3 id="org2b07819">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
- <div class="outline-text-3" id="text-org2b07819">
+ <div id="outline-container-org14dbd55" class="outline-3">
+ <h3 id="org14dbd55">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
+ <div class="outline-text-3" id="text-org14dbd55">
  <p>
 Reported issue here  <a href="https://github.com/NixOS/nixpkgs/issues/119445">https://github.com/NixOS/nixpkgs/issues/119445</a>.
 </p>
@@ -273,8 +382,8 @@ config to import the right things to the right places:
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org4147859" class="outline-2"> <h2 id="org4147859">Testing screen sharing</h2>
- <div class="outline-text-2" id="text-org4147859">
+</article> <article id="outline-container-org51a3d8b" class="outline-2"> <h2 id="org51a3d8b">Testing screen sharing</h2>
+ <div class="outline-text-2" id="text-org51a3d8b">
  <p>
 Testing screen sharing can easily be done with a patched <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
 Firefox started with  <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
@@ -286,8 +395,8 @@ To actually test screen sharing I'd recommend using Mozilla's  <a href="https://
 then just start your screen share on that page.
 </p>
 </div>
-</article> <article id="outline-container-org50f497e" class="outline-2"> <h2 id="org50f497e">What should happen?</h2>
- <div class="outline-text-2" id="text-org50f497e">
+</article> <article id="outline-container-orga8000c5" class="outline-2"> <h2 id="orga8000c5">What should happen?</h2>
+ <div class="outline-text-2" id="text-orga8000c5">
  <p>
 Starting the screen share should trigger the socket activation for the user
 services for  <code>pipewire.service</code>,  <code>xdg-desktop-portal.service</code> and
@@ -301,8 +410,8 @@ point since they require the environment variables to work regardless if
 they run or not.
 </p>
 </div>
-</article> <article id="outline-container-org634331d" class="outline-2"> <h2 id="org634331d">What if the services doesn't start?</h2>
- <div class="outline-text-2" id="text-org634331d">
+</article> <article id="outline-container-org786c3ad" class="outline-2"> <h2 id="org786c3ad">What if the services doesn't start?</h2>
+ <div class="outline-text-2" id="text-org786c3ad">
  <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
@@ -357,8 +466,8 @@ project was new. At that point (if I remember correctly), not even the window
 decorations looked like the ones in i3wm.
 </p>
 
- <article id="outline-container-orgda4ec9c" class="outline-2"> <h2 id="orgda4ec9c">Key map</h2>
- <div class="outline-text-2" id="text-orgda4ec9c">
+ <article id="outline-container-orga004c58" class="outline-2"> <h2 id="orga004c58">Key map</h2>
+ <div class="outline-text-2" id="text-orga004c58">
  <p>
 As a US Dvorak typist that sometimes types Swedish, I have opinions about
 key maps. Since I used xmodmap before to customize my key map to make it work
@@ -401,8 +510,8 @@ configuration:
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org6a14e71" class="outline-2"> <h2 id="org6a14e71">Browsers</h2>
- <div class="outline-text-2" id="text-org6a14e71">
+</article> <article id="outline-container-org36e9e87" class="outline-2"> <h2 id="org36e9e87">Browsers</h2>
+ <div class="outline-text-2" id="text-org36e9e87">
  <p>
 I use Firefox as my main browser, it works mostly fine native on Wayland. It
 happens now and then that I encounter things that are less than perfect
@@ -415,8 +524,8 @@ Firefox just needs some convincing with  <code>MOZ_ENABLE_WAYLAND=1</code> in th
 environment set.
 </p>
 </div>
-</article> <article id="outline-container-org3878b1a" class="outline-2"> <h2 id="org3878b1a">Editor</h2>
- <div class="outline-text-2" id="text-org3878b1a">
+</article> <article id="outline-container-org492777b" class="outline-2"> <h2 id="org492777b">Editor</h2>
+ <div class="outline-text-2" id="text-org492777b">
  <p>
 As a long time Emacs user I'll just keep using Emacs. To begin with I did so
 in Xwayland - but it had some issues at some point which pushed me to try
@@ -425,8 +534,8 @@ using it and that branch is now accepted as a feature branch on Savannah, so
 now I hope it's mainlined before Emacs 28.
 </p>
 </div>
-</article> <article id="outline-container-org98ec92e" class="outline-2"> <h2 id="org98ec92e">Screen sharing</h2>
- <div class="outline-text-2" id="text-org98ec92e">
+</article> <article id="outline-container-org6088d02" class="outline-2"> <h2 id="org6088d02">Screen sharing</h2>
+ <div class="outline-text-2" id="text-org6088d02">
  <p>
 It works!  <code>*</code>
 </p>
@@ -467,8 +576,8 @@ specify which screen to share. I'm not sure how to manage that easily in
 a multi screen environment.
 </p>
 </div>
-</article> <article id="outline-container-orgd58b0c8" class="outline-2"> <h2 id="orgd58b0c8">Miscellaneous applications</h2>
- <div class="outline-text-2" id="text-orgd58b0c8">
+</article> <article id="outline-container-orgff8ca6a" class="outline-2"> <h2 id="orgff8ca6a">Miscellaneous applications</h2>
+ <div class="outline-text-2" id="text-orgff8ca6a">
  <ul class="org-ul"> <li>Screenshots:  <code>grim -g $(slurp) - | swappy -f -</code></li>
  <li>Back light:  <code>acpiilight</code></li>
  <li>Lock screen:  <code>swaylock</code> &  <code>swayidle</code></li>
@@ -479,8 +588,8 @@ a multi screen environment.
  <li>Graphical display settings:  <code>wdisplays</code> is great!</li>
  <li>Command line display settings:  <code>wlr-randr</code></li>
 </ul></div>
-</article> <article id="outline-container-org3ce1cb0" class="outline-2"> <h2 id="org3ce1cb0">Conclusions</h2>
- <div class="outline-text-2" id="text-org3ce1cb0">
+</article> <article id="outline-container-org78397d9" class="outline-2"> <h2 id="org78397d9">Conclusions</h2>
+ <div class="outline-text-2" id="text-org78397d9">
  <p>
 My road to Wayland with Sway have for sure have had a couple of road bumps.
 The only real bump that has been a software limitation has been how screen
@@ -544,7 +653,7 @@ Here are some sketches l've made of how big and wide this monster really is.
 </p>
 
 
- <div id="org0dd5c75" class="figure">
+ <div id="orgadb6f0a" class="figure">
  <p> <img src="/blog/2021/02/ultra-wide-monitor/./drawing_thumb.png" alt="drawing_thumb.png"></img></p>
 </div>
 
@@ -577,8 +686,8 @@ QHD gives me over FHD. I have more use for the extra 33% height. It's even
 rare that I need the full FHD width.
 </p>
 
- <article id="outline-container-org77a08cd" class="outline-2"> <h2 id="org77a08cd">So why go ultra wide?</h2>
- <div class="outline-text-2" id="text-org77a08cd">
+ <article id="outline-container-org212f05b" class="outline-2"> <h2 id="org212f05b">So why go ultra wide?</h2>
+ <div class="outline-text-2" id="text-org212f05b">
  <p>
 This ultra wide monitor has the size of two 27" QHD displays in one panel.
 This gives me the insane resolution of 5120×1440. It still gives me the extra
@@ -652,8 +761,8 @@ So by having both of these ideologies in mind I can only come to the
 following conclusions.
 </p>
 
- <article id="outline-container-org7152ecd" class="outline-2"> <h2 id="org7152ecd">Conclusions about the free software communities</h2>
- <div class="outline-text-2" id="text-org7152ecd">
+ <article id="outline-container-org74cb2d7" class="outline-2"> <h2 id="org74cb2d7">Conclusions about the free software communities</h2>
+ <div class="outline-text-2" id="text-org74cb2d7">
  <p>
 It's only natural for an ethical community that is ethical towards human
 animals to extend these ethical values to non-human animals as well.
@@ -671,8 +780,8 @@ I don't find promotion of consumption of these items to fit within the
 extended ethical values of the Free Software movement.
 </p>
 </div>
-</article> <article id="outline-container-org4b8fe11" class="outline-2"> <h2 id="org4b8fe11">Conclusions about vegans views on software</h2>
- <div class="outline-text-2" id="text-org4b8fe11">
+</article> <article id="outline-container-org0205b64" class="outline-2"> <h2 id="org0205b64">Conclusions about vegans views on software</h2>
+ <div class="outline-text-2" id="text-org0205b64">
  <p>
 My experiences with Vegans is quite limited, but within my own circles I
 happen to see that most Vegans use primarily Free Software - but I don't
@@ -687,8 +796,8 @@ about - which I totally get and respect, especially if this non-free software
 is used to promote veganism, which I nowadays find to be of higher value.
 </p>
 </div>
-</article> <article id="outline-container-org11cad26" class="outline-2"> <h2 id="org11cad26">General conclusions</h2>
- <div class="outline-text-2" id="text-org11cad26">
+</article> <article id="outline-container-orgb60c6d8" class="outline-2"> <h2 id="orgb60c6d8">General conclusions</h2>
+ <div class="outline-text-2" id="text-orgb60c6d8">
  <p>
 A general rule in today's society is the following: "vote with your wallet".
 </p>
@@ -809,7 +918,7 @@ victims that Veganism wants to protect.
 </p>
 
 
- <div id="orgdb4a8ec" class="figure">
+ <div id="org8b391a1" class="figure">
  <p> <img src="/blog/2021/01/why-i-got-into-veganism/./metric-for-ethics.jpg" alt="metric-for-ethics.jpg"></img></p>
 </div>
  <div id="footnotes">
@@ -2194,7 +2303,7 @@ flexibility, being reproducible and being minimalistic at the same time.
 </ul></div>
 </div>
 
- <div id="orgf19f1fc" class="figure">
+ <div id="org75d58f9" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_frond_and_side_thumb.png" alt="friendly_penguin_frond_and_side_thumb.png"></img></p>
 </div>
 
@@ -2220,7 +2329,7 @@ of the outside. And the inside kinda became the evil twin of the outside.
  <article id="outline-container-pattern-chart" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
  <div class="outline-text-2" id="text-pattern-chart">
 
- <div id="orgd170ab8" class="figure">
+ <div id="orgf348f95" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./small_chart.png" alt="small_chart.png"></img></p>
 </div>
 
@@ -2304,7 +2413,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="friendly-penguin">Friendly penguin</h3>
  <div class="outline-text-3" id="text-friendly-penguin">
 
- <div id="org5f26d5c" class="figure">
+ <div id="org6d25fd7" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_front_thumb.jpg" alt="friendly_penguin_front_thumb.jpg"></img></p>
 </div>
 
@@ -2314,7 +2423,7 @@ black stitches and the white yarn through the final white stitches.
 
 
 
- <div id="org64024bd" class="figure">
+ <div id="org6437d57" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_side_thumb.jpg" alt="friendly_penguin_side_thumb.jpg"></img></p>
 </div>
 
@@ -2328,7 +2437,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="evil-penguin-inside">Evil penguin inside</h3>
  <div class="outline-text-3" id="text-evil-penguin-inside">
 
- <div id="org594d278" class="figure">
+ <div id="orgabb9ccd" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_front_thumb.jpg" alt="evil_penguin_front_thumb.jpg"></img></p>
 </div>
 
@@ -2337,7 +2446,7 @@ black stitches and the white yarn through the final white stitches.
 </p>
 
 
- <div id="orgd20afe9" class="figure">
+ <div id="org1a8ecdb" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_side_thumb.jpg" alt="evil_penguin_side_thumb.jpg"></img></p>
 </div>
 
@@ -2668,12 +2777,12 @@ This is a block quote element.
 This is an inline  <code>code</code> block.
 </p>
 
- <article id="outline-container-org6c06471" class="outline-2"> <h2 id="org6c06471">Test of syntax highlighting</h2>
- <div class="outline-text-2" id="text-org6c06471">
+ <article id="outline-container-orgb61d453" class="outline-2"> <h2 id="orgb61d453">Test of syntax highlighting</h2>
+ <div class="outline-text-2" id="text-orgb61d453">
 </div>
- <div id="outline-container-orgc4207ac" class="outline-3">
- <h3 id="orgc4207ac">elisp</h3>
- <div class="outline-text-3" id="text-orgc4207ac">
+ <div id="outline-container-org0cbdb7d" class="outline-3">
+ <h3 id="org0cbdb7d">elisp</h3>
+ <div class="outline-text-3" id="text-org0cbdb7d">
  <div class="org-src-container">
  <pre class="src src-elisp"> <span class="org-comment-delimiter">;; </span> <span class="org-comment">Define the hello function</span>
 ( <span class="org-keyword">defun</span>  <span class="org-function-name">hello</span> ()
@@ -2689,9 +2798,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-orgde481b0" class="outline-3">
- <h3 id="orgde481b0">Nix</h3>
- <div class="outline-text-3" id="text-orgde481b0">
+ <div id="outline-container-org00b6ad9" class="outline-3">
+ <h3 id="org00b6ad9">Nix</h3>
+ <div class="outline-text-3" id="text-org00b6ad9">
  <div class="org-src-container">
  <pre class="src src-nix">{
    <span class="org-comment"># Define the hello function</span>
@@ -2709,9 +2818,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-org30c9749" class="outline-3">
- <h3 id="org30c9749">Go</h3>
- <div class="outline-text-3" id="text-org30c9749">
+ <div id="outline-container-orgf623931" class="outline-3">
+ <h3 id="orgf623931">Go</h3>
+ <div class="outline-text-3" id="text-orgf623931">
  <div class="org-src-container">
  <pre class="src src-go"> <span class="org-keyword">package</span> main
 
@@ -2725,9 +2834,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-org1fc235c" class="outline-3">
- <h3 id="org1fc235c">PHP</h3>
- <div class="outline-text-3" id="text-org1fc235c">
+ <div id="outline-container-orgca512cd" class="outline-3">
+ <h3 id="orgca512cd">PHP</h3>
+ <div class="outline-text-3" id="text-orgca512cd">
  <div class="org-src-container">
  <pre class="src src-php"> <span class="org-php-php-tag"><?php</span>
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Define the hello function</span>
@@ -2741,8 +2850,8 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org48a19c4" class="outline-2"> <h2 id="org48a19c4">Sample text</h2>
- <div class="outline-text-2" id="text-org48a19c4">
+</article> <article id="outline-container-org594de3f" class="outline-2"> <h2 id="org594de3f">Sample text</h2>
+ <div class="outline-text-2" id="text-org594de3f">
  <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus
