@@ -1,5 +1,5 @@
 { pkgs ? (import (builtins.fetchTarball {
-  url = https://github.com/NixOS/nixpkgs/archive/nixos-20.09.tar.gz;
+  url = https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
 }) {}) }:
 
 pkgs.stdenv.mkDerivation {
