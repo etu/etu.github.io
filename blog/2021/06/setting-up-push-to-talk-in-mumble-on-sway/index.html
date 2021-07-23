@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-06-26 Sat 20:45 -->
+<!-- 2021-07-23 Fri 14:24 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
@@ -63,9 +63,9 @@ The bad news:
 Back from complaining to actually solving the problem though.
 </p>
 
-<article id="outline-container-org0a7fb3e" class="outline-2">
-<h2 id="org0a7fb3e">Mumble does have a patch for a future release</h2>
-<div class="outline-text-2" id="text-org0a7fb3e">
+<article id="outline-container-org0cf9c5e" class="outline-2">
+<h2 id="org0cf9c5e">Mumble does have a patch for a future release</h2>
+<div class="outline-text-2" id="text-org0cf9c5e">
 <p>
 So there's the issue about <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
 been followed up by a patch <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
@@ -79,9 +79,9 @@ so sitting around and waiting for a new release might… take a while.
 </div>
 </article>
 
-<article id="outline-container-org7750dd3" class="outline-2">
-<h2 id="org7750dd3">Sway has patches for this</h2>
-<div class="outline-text-2" id="text-org7750dd3">
+<article id="outline-container-org2cef249" class="outline-2">
+<h2 id="org2cef249">Sway has patches for this</h2>
+<div class="outline-text-2" id="text-org2cef249">
 <p>
 Since version 1.5 Sway has a patch to be able to bind keys that doesn't
 repeat it's action, but it still works to bind them to trigger a release
@@ -94,9 +94,9 @@ Here's the patch that was applied to Sway: <a href="https://github.com/swaywm/sw
 </div>
 </article>
 
-<article id="outline-container-orgf9a1a0a" class="outline-2">
-<h2 id="orgf9a1a0a">Actually making use of these things in NixOS</h2>
-<div class="outline-text-2" id="text-orgf9a1a0a">
+<article id="outline-container-org9fe877e" class="outline-2">
+<h2 id="org9fe877e">Actually making use of these things in NixOS</h2>
+<div class="outline-text-2" id="text-org9fe877e">
 <p>
 I started by patching mumble to support the dbus calls:
 </p>
@@ -152,7 +152,7 @@ works perfectly fine like a Push To Talk button.
 <div id="postamble" class="status">
 <p class="date">Date: 2021-06-26 Sat 22:40</p>
 <p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-<p class="date">Created: 2021-06-26 Sat 20:45</p>
+<p class="date">Created: 2021-07-23 Fri 14:24</p>
 </div>
 </body>
 </html>
