@@ -181,6 +181,18 @@ a {
     &:visited {
         color: contrast-color($visitedLinkColor, $defaultBackgroundColor);
     }
+
+    &[href^="mailto"]::after,&[href^="http"]::after,&[href^="https://"]::after {
+        content: "";
+        width: 11px;
+        height: 11px;
+        margin-left: 4px;
+        background-image: url("/imgs/external-arrow-light.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: inline-block;
+    }
 }
 
 blockquote {
@@ -300,6 +312,10 @@ div#postamble {
 
         &:visited {
             color: contrast-color($visitedLinkColor, $lightBackgroundColor);
+        }
+
+        &[href^="mailto"]::after,&[href^="http"]::after,&[href^="https://"]::after {
+            background-image: url("/imgs/external-arrow-dark.svg");
         }
     }
 

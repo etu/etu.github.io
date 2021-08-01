@@ -173,7 +173,7 @@ See `org-publish-sitemap-default-entry'."
 
         ("site-static"
          :base-directory "./src/"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|asc"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|asc\\|svg"
          :publishing-directory "./output/html/"
          :publishing-function org-publish-attachment
          :recursive t)
