@@ -6,7 +6,105 @@
 <generator>Emacs webfeeder.el</generator>
 <link>https://elis.nu/</link>
 <atom:link href="https://elis.nu/blog/rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Fri, 23 Jul 2021 14:40:13 +0000</lastBuildDate>
+<lastBuildDate>Mon, 02 Aug 2021 19:47:07 +0000</lastBuildDate>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>Mobile org-mode use with Orgzly and Syncthing</title>
+  <description><![CDATA[<div id="content">
+
+ <p>
+I've been an Emacs user for 13+ years, during this time I've been using
+ <a href="https://orgmode.org/">org-mode</a> on and off for different thing.
+</p>
+
+ <p>
+Some examples where I currently use org-mode:
+</p>
+ <ul class="org-ul"> <li>Deployment of this website</li>
+ <li>Making of presentation slides</li>
+ <li>Project read me files</li>
+ <li>Notes files</li>
+ <li>Time reporting</li>
+</ul> <p>
+I've tried to use it for to do's but never really managed, partly because I
+wanted to have a good interface for my to do's on my phone. Then I wanted
+quick synchronization to my computers to be able to pick up the changes there.
+</p>
+
+ <p>
+Most of my personal files is in a personal git repository which I sync around
+to all the computers where I need them. I'd wish to have the security and
+reliability of git when handling my to do lists just to know that they ever
+get corrupted or lost.
+</p>
+
+ <article id="outline-container-enter-orgzly" class="outline-2"> <h2 id="enter-orgzly">Enter Orgzly</h2>
+ <div class="outline-text-2" id="text-enter-orgzly">
+ <p>
+I've known about  <a href="http://www.orgzly.com/">Orgzly</a> for quite some time. It's an Android app which is
+available on both  <a href="https://f-droid.org/packages/com.orgzly/">Orgzly on F-Droid</a> and  <a href="https://play.google.com/store/apps/details?id=com.orgzly">Orgzly on Play Store</a>. The thing
+that's been stopping me to actually try Orgzly out is the lack of options
+when it comes to synchronization. For example I would like to synchronize
+using git. There's an open issue for this  <a href="https://github.com/orgzly/orgzly-android/issues/24">git synchroniztion #24</a>, it's been
+open since  <span class="timestamp-wrapper"> <span class="timestamp"><2017-02-27 Mon></span></span>, so I'm not having high hopes to see it resolved
+any day soon.
+</p>
+
+ <p>
+I've also spent some time thinking about this and came to the conclusion that
+I probably don't want git as a synchronization mechanism for something as
+volatile as to do lists and notes. But I still want it somewhere in the back
+end of my system as a way to make sure what changes are actually stored and
+backed up.
+</p>
+
+ <p>
+This is when I started to look into Orgzly's other synchronization options,
+this is, as of writing in the current version of the app (1.8.5) the
+available options:
+</p>
+ <dl class="org-dl"> <dt> <b>Dropbox</b></dt> <dd>I'm not a customer of Dropbox so this was a no-go to begin with.</dd>
+
+ <dt> <b>WebDAV</b></dt> <dd>As far as I know I don't have an easily available WebDAV server that I can
+use which makes it easy to get the files to my laptops and desktop systems
+where I can use them with Emacs without doing any fancy scripting to sync
+the files by hand.</dd>
+
+ <dt> <b>Directory</b></dt> <dd>This just syncs to a directory on the device, doesn't sound like much. But
+it's the option I went for.</dd>
+</dl></div>
+</article> <article id="outline-container-enter-syncthing" class="outline-2"> <h2 id="enter-syncthing">Enter Syncthing</h2>
+ <div class="outline-text-2" id="text-enter-syncthing">
+ <p>
+ <a href="https://syncthing.net/">Syncthing</a> is a project I've heard a lot of good things about through the
+years, both from people, but also in chat rooms, blogs and podcasts. So I've
+decided to try it out.
+</p>
+
+ <p>
+From my limited testing it seems to sync P2P (at least while on the same
+network). It seems fairly reliable in it's syncing and it picks up the
+changes almost instantly. I'm impressed by it so far.
+</p>
+</div>
+</article> <article id="outline-container-conclusions" class="outline-2"> <h2 id="conclusions">Concusions</h2>
+ <div class="outline-text-2" id="text-conclusions">
+ <p>
+I've set up Syncthing to synchronize  <code>~/org</code> for me to my phone to a folder
+that I've named  <code>org-files</code> in the home directory. Then I've configured
+Orgzly to synchronize to this folder on disk. Now I have near instant
+synchronization between my phone and my computer. So I can access and make
+changes to my notes and to do list on either device. Then when I'm at my
+computer and have "a batch of changes" that I want to make sure to have
+saved, I can always commit them to git. Because this  <code>~/org</code> directory is
+part of a git repository, and has always been.
+</p>
+</div>
+</article></div>]]></description>
+  <link>https://elis.nu/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/index.html</guid>
+  <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
+</item>
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Simple deployments of NixOS machines with nixus</title>
@@ -45,8 +143,8 @@ right after activation to make sure that you'd never lock yourself out, multi
 system management and it's own secrets support.
 </p>
 
- <article id="outline-container-orgebb6617" class="outline-2"> <h2 id="orgebb6617">Pulling in the nixus module using  <code>niv</code></h2>
- <div class="outline-text-2" id="text-orgebb6617">
+ <article id="outline-container-orgd4a657a" class="outline-2"> <h2 id="orgd4a657a">Pulling in the nixus module using  <code>niv</code></h2>
+ <div class="outline-text-2" id="text-orgd4a657a">
  <p>
 I've use  <code>niv</code> to pull in the nixus modules:
 </p>
@@ -62,8 +160,8 @@ parses a file called  <code>sources.json</code> which contains the repositories 
 by  <code>niv</code> and which git commit they are locked to.
 </p>
 </div>
-</article> <article id="outline-container-org74bc901" class="outline-2"> <h2 id="org74bc901">Setting up a deployment file using nixus</h2>
- <div class="outline-text-2" id="text-org74bc901">
+</article> <article id="outline-container-org4f1c129" class="outline-2"> <h2 id="org4f1c129">Setting up a deployment file using nixus</h2>
+ <div class="outline-text-2" id="text-org4f1c129">
  <p>
 This is also fairly straightforward, it needs to import the nixus module from
 niv to then use it to declare a nixus module.
@@ -121,8 +219,8 @@ nixus ({ config, ... }: {
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-orgd89ca01" class="outline-2"> <h2 id="orgd89ca01">Building and deploying systems</h2>
- <div class="outline-text-2" id="text-orgd89ca01">
+</article> <article id="outline-container-orgc7c59d8" class="outline-2"> <h2 id="orgc7c59d8">Building and deploying systems</h2>
+ <div class="outline-text-2" id="text-orgc7c59d8">
  <p>
 Building and deploying your system couldn't be simpler! It's as easy as
 running  <code>nix-build path/to/deployment.nix</code> where the path is to the file that
@@ -164,8 +262,8 @@ The bad news:
 Back from complaining to actually solving the problem though.
 </p>
 
- <article id="outline-container-orge3cf288" class="outline-2"> <h2 id="orge3cf288">Mumble does have a patch for a future release</h2>
- <div class="outline-text-2" id="text-orge3cf288">
+ <article id="outline-container-org0e1a898" class="outline-2"> <h2 id="org0e1a898">Mumble does have a patch for a future release</h2>
+ <div class="outline-text-2" id="text-org0e1a898">
  <p>
 So there's the issue about  <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
 been followed up by a patch  <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
@@ -177,8 +275,8 @@ A thing with mumble is that they aren't quick at releasing new versions,
 so sitting around and waiting for a new release might… take a while.
 </p>
 </div>
-</article> <article id="outline-container-org04ea536" class="outline-2"> <h2 id="org04ea536">Sway has patches for this</h2>
- <div class="outline-text-2" id="text-org04ea536">
+</article> <article id="outline-container-org7af488c" class="outline-2"> <h2 id="org7af488c">Sway has patches for this</h2>
+ <div class="outline-text-2" id="text-org7af488c">
  <p>
 Since version 1.5 Sway has a patch to be able to bind keys that doesn't
 repeat it's action, but it still works to bind them to trigger a release
@@ -189,8 +287,8 @@ event which sounds a lot like a push to talk buttons function to me.
 Here's the patch that was applied to Sway:  <a href="https://github.com/swaywm/sway/pull/5132">add –no-repeat option for bindings</a>.
 </p>
 </div>
-</article> <article id="outline-container-orgdcff480" class="outline-2"> <h2 id="orgdcff480">Actually making use of these things in NixOS</h2>
- <div class="outline-text-2" id="text-orgdcff480">
+</article> <article id="outline-container-orgcaba3c7" class="outline-2"> <h2 id="orgcaba3c7">Actually making use of these things in NixOS</h2>
+ <div class="outline-text-2" id="text-orgcaba3c7">
  <p>
 I started by patching mumble to support the dbus calls:
 </p>
@@ -463,8 +561,8 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
- <article id="outline-container-org4e6093a" class="outline-2"> <h2 id="org4e6093a">Required environment variables</h2>
- <div class="outline-text-2" id="text-org4e6093a">
+ <article id="outline-container-org3477304" class="outline-2"> <h2 id="org3477304">Required environment variables</h2>
+ <div class="outline-text-2" id="text-org3477304">
  <ul class="org-ul"> <li> <code>XDG_SESSION_TYPE=wayland</code></li>
  <li> <code>XDG_CURRENT_DESKTOP=sway</code></li>
 </ul> <p>
@@ -493,9 +591,9 @@ activation when you start sharing your screen.
 </p>
 </div>
 
- <div id="outline-container-orgb3bde32" class="outline-3">
- <h3 id="orgb3bde32">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
- <div class="outline-text-3" id="text-orgb3bde32">
+ <div id="outline-container-org11ff62c" class="outline-3">
+ <h3 id="org11ff62c">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
+ <div class="outline-text-3" id="text-org11ff62c">
  <p>
 Reported issue here  <a href="https://github.com/NixOS/nixpkgs/issues/119445">https://github.com/NixOS/nixpkgs/issues/119445</a>.
 </p>
@@ -512,8 +610,8 @@ config to import the right things to the right places:
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org7379638" class="outline-2"> <h2 id="org7379638">Testing screen sharing</h2>
- <div class="outline-text-2" id="text-org7379638">
+</article> <article id="outline-container-org7ac7852" class="outline-2"> <h2 id="org7ac7852">Testing screen sharing</h2>
+ <div class="outline-text-2" id="text-org7ac7852">
  <p>
 Testing screen sharing can easily be done with a patched <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
 Firefox started with  <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
@@ -525,8 +623,8 @@ To actually test screen sharing I'd recommend using Mozilla's  <a href="https://
 then just start your screen share on that page.
 </p>
 </div>
-</article> <article id="outline-container-org667e5a1" class="outline-2"> <h2 id="org667e5a1">What should happen?</h2>
- <div class="outline-text-2" id="text-org667e5a1">
+</article> <article id="outline-container-orgf118840" class="outline-2"> <h2 id="orgf118840">What should happen?</h2>
+ <div class="outline-text-2" id="text-orgf118840">
  <p>
 Starting the screen share should trigger the socket activation for the user
 services for  <code>pipewire.service</code>,  <code>xdg-desktop-portal.service</code> and
@@ -540,8 +638,8 @@ point since they require the environment variables to work regardless if
 they run or not.
 </p>
 </div>
-</article> <article id="outline-container-org36c397d" class="outline-2"> <h2 id="org36c397d">What if the services doesn't start?</h2>
- <div class="outline-text-2" id="text-org36c397d">
+</article> <article id="outline-container-org1c48b64" class="outline-2"> <h2 id="org1c48b64">What if the services doesn't start?</h2>
+ <div class="outline-text-2" id="text-org1c48b64">
  <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
@@ -596,8 +694,8 @@ project was new. At that point (if I remember correctly), not even the window
 decorations looked like the ones in i3wm.
 </p>
 
- <article id="outline-container-org75467b2" class="outline-2"> <h2 id="org75467b2">Key map</h2>
- <div class="outline-text-2" id="text-org75467b2">
+ <article id="outline-container-orgd7e0ac6" class="outline-2"> <h2 id="orgd7e0ac6">Key map</h2>
+ <div class="outline-text-2" id="text-orgd7e0ac6">
  <p>
 As a US Dvorak typist that sometimes types Swedish, I have opinions about
 key maps. Since I used xmodmap before to customize my key map to make it work
@@ -640,8 +738,8 @@ configuration:
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org6a0a75e" class="outline-2"> <h2 id="org6a0a75e">Browsers</h2>
- <div class="outline-text-2" id="text-org6a0a75e">
+</article> <article id="outline-container-orgd728846" class="outline-2"> <h2 id="orgd728846">Browsers</h2>
+ <div class="outline-text-2" id="text-orgd728846">
  <p>
 I use Firefox as my main browser, it works mostly fine native on Wayland. It
 happens now and then that I encounter things that are less than perfect
@@ -654,8 +752,8 @@ Firefox just needs some convincing with  <code>MOZ_ENABLE_WAYLAND=1</code> in th
 environment set.
 </p>
 </div>
-</article> <article id="outline-container-org383d502" class="outline-2"> <h2 id="org383d502">Editor</h2>
- <div class="outline-text-2" id="text-org383d502">
+</article> <article id="outline-container-org6721bc5" class="outline-2"> <h2 id="org6721bc5">Editor</h2>
+ <div class="outline-text-2" id="text-org6721bc5">
  <p>
 As a long time Emacs user I'll just keep using Emacs. To begin with I did so
 in Xwayland - but it had some issues at some point which pushed me to try
@@ -664,8 +762,8 @@ using it and that branch is now accepted as a feature branch on Savannah, so
 now I hope it's mainlined before Emacs 28.
 </p>
 </div>
-</article> <article id="outline-container-org4f5944e" class="outline-2"> <h2 id="org4f5944e">Screen sharing</h2>
- <div class="outline-text-2" id="text-org4f5944e">
+</article> <article id="outline-container-org5e2fc47" class="outline-2"> <h2 id="org5e2fc47">Screen sharing</h2>
+ <div class="outline-text-2" id="text-org5e2fc47">
  <p>
 It works!  <code>*</code>
 </p>
@@ -706,8 +804,8 @@ specify which screen to share. I'm not sure how to manage that easily in
 a multi screen environment.
 </p>
 </div>
-</article> <article id="outline-container-org445404e" class="outline-2"> <h2 id="org445404e">Miscellaneous applications</h2>
- <div class="outline-text-2" id="text-org445404e">
+</article> <article id="outline-container-org15de916" class="outline-2"> <h2 id="org15de916">Miscellaneous applications</h2>
+ <div class="outline-text-2" id="text-org15de916">
  <ul class="org-ul"> <li>Screenshots:  <code>grim -g $(slurp) - | swappy -f -</code></li>
  <li>Back light:  <code>acpiilight</code></li>
  <li>Lock screen:  <code>swaylock</code> &  <code>swayidle</code></li>
@@ -718,8 +816,8 @@ a multi screen environment.
  <li>Graphical display settings:  <code>wdisplays</code> is great!</li>
  <li>Command line display settings:  <code>wlr-randr</code></li>
 </ul></div>
-</article> <article id="outline-container-org87924bf" class="outline-2"> <h2 id="org87924bf">Conclusions</h2>
- <div class="outline-text-2" id="text-org87924bf">
+</article> <article id="outline-container-org67dc4a4" class="outline-2"> <h2 id="org67dc4a4">Conclusions</h2>
+ <div class="outline-text-2" id="text-org67dc4a4">
  <p>
 My road to Wayland with Sway have for sure have had a couple of road bumps.
 The only real bump that has been a software limitation has been how screen
@@ -783,7 +881,7 @@ Here are some sketches l've made of how big and wide this monster really is.
 </p>
 
 
- <div id="org4b3e536" class="figure">
+ <div id="org7b7b2b0" class="figure">
  <p> <img src="/blog/2021/02/ultra-wide-monitor/./drawing_thumb.png" alt="drawing_thumb.png"></img></p>
 </div>
 
@@ -816,8 +914,8 @@ QHD gives me over FHD. I have more use for the extra 33% height. It's even
 rare that I need the full FHD width.
 </p>
 
- <article id="outline-container-org63ecb44" class="outline-2"> <h2 id="org63ecb44">So why go ultra wide?</h2>
- <div class="outline-text-2" id="text-org63ecb44">
+ <article id="outline-container-orgb84ce2e" class="outline-2"> <h2 id="orgb84ce2e">So why go ultra wide?</h2>
+ <div class="outline-text-2" id="text-orgb84ce2e">
  <p>
 This ultra wide monitor has the size of two 27" QHD displays in one panel.
 This gives me the insane resolution of 5120×1440. It still gives me the extra
@@ -891,8 +989,8 @@ So by having both of these ideologies in mind I can only come to the
 following conclusions.
 </p>
 
- <article id="outline-container-org12f1b69" class="outline-2"> <h2 id="org12f1b69">Conclusions about the free software communities</h2>
- <div class="outline-text-2" id="text-org12f1b69">
+ <article id="outline-container-org4f15684" class="outline-2"> <h2 id="org4f15684">Conclusions about the free software communities</h2>
+ <div class="outline-text-2" id="text-org4f15684">
  <p>
 It's only natural for an ethical community that is ethical towards human
 animals to extend these ethical values to non-human animals as well.
@@ -910,8 +1008,8 @@ I don't find promotion of consumption of these items to fit within the
 extended ethical values of the Free Software movement.
 </p>
 </div>
-</article> <article id="outline-container-org9efe475" class="outline-2"> <h2 id="org9efe475">Conclusions about vegans views on software</h2>
- <div class="outline-text-2" id="text-org9efe475">
+</article> <article id="outline-container-org98e0b2d" class="outline-2"> <h2 id="org98e0b2d">Conclusions about vegans views on software</h2>
+ <div class="outline-text-2" id="text-org98e0b2d">
  <p>
 My experiences with Vegans is quite limited, but within my own circles I
 happen to see that most Vegans use primarily Free Software - but I don't
@@ -926,8 +1024,8 @@ about - which I totally get and respect, especially if this non-free software
 is used to promote veganism, which I nowadays find to be of higher value.
 </p>
 </div>
-</article> <article id="outline-container-org2766b9d" class="outline-2"> <h2 id="org2766b9d">General conclusions</h2>
- <div class="outline-text-2" id="text-org2766b9d">
+</article> <article id="outline-container-org0a2444d" class="outline-2"> <h2 id="org0a2444d">General conclusions</h2>
+ <div class="outline-text-2" id="text-org0a2444d">
  <p>
 A general rule in today's society is the following: "vote with your wallet".
 </p>
@@ -1048,7 +1146,7 @@ victims that Veganism wants to protect.
 </p>
 
 
- <div id="org761092e" class="figure">
+ <div id="orga4a0fba" class="figure">
  <p> <img src="/blog/2021/01/why-i-got-into-veganism/./metric-for-ethics.jpg" alt="metric-for-ethics.jpg"></img></p>
 </div>
  <div id="footnotes">
@@ -2433,7 +2531,7 @@ flexibility, being reproducible and being minimalistic at the same time.
 </ul></div>
 </div>
 
- <div id="org68dd9a3" class="figure">
+ <div id="org982febd" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_frond_and_side_thumb.png" alt="friendly_penguin_frond_and_side_thumb.png"></img></p>
 </div>
 
@@ -2459,7 +2557,7 @@ of the outside. And the inside kinda became the evil twin of the outside.
  <article id="outline-container-pattern-chart" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
  <div class="outline-text-2" id="text-pattern-chart">
 
- <div id="org26b5177" class="figure">
+ <div id="org685f26e" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./small_chart.png" alt="small_chart.png"></img></p>
 </div>
 
@@ -2543,7 +2641,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="friendly-penguin">Friendly penguin</h3>
  <div class="outline-text-3" id="text-friendly-penguin">
 
- <div id="orgd3d3043" class="figure">
+ <div id="orgf16912a" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_front_thumb.jpg" alt="friendly_penguin_front_thumb.jpg"></img></p>
 </div>
 
@@ -2553,7 +2651,7 @@ black stitches and the white yarn through the final white stitches.
 
 
 
- <div id="orgf5b7cdf" class="figure">
+ <div id="org17d31f5" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_side_thumb.jpg" alt="friendly_penguin_side_thumb.jpg"></img></p>
 </div>
 
@@ -2567,7 +2665,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="evil-penguin-inside">Evil penguin inside</h3>
  <div class="outline-text-3" id="text-evil-penguin-inside">
 
- <div id="org2d6dd04" class="figure">
+ <div id="orgca5e8a5" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_front_thumb.jpg" alt="evil_penguin_front_thumb.jpg"></img></p>
 </div>
 
@@ -2576,7 +2674,7 @@ black stitches and the white yarn through the final white stitches.
 </p>
 
 
- <div id="org8f53ec2" class="figure">
+ <div id="orgf83f483" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_side_thumb.jpg" alt="evil_penguin_side_thumb.jpg"></img></p>
 </div>
 
@@ -2907,12 +3005,12 @@ This is a block quote element.
 This is an inline  <code>code</code> block.
 </p>
 
- <article id="outline-container-orgdfbbda4" class="outline-2"> <h2 id="orgdfbbda4">Test of syntax highlighting</h2>
- <div class="outline-text-2" id="text-orgdfbbda4">
+ <article id="outline-container-org1c9a482" class="outline-2"> <h2 id="org1c9a482">Test of syntax highlighting</h2>
+ <div class="outline-text-2" id="text-org1c9a482">
 </div>
- <div id="outline-container-org9774bd9" class="outline-3">
- <h3 id="org9774bd9">elisp</h3>
- <div class="outline-text-3" id="text-org9774bd9">
+ <div id="outline-container-orgd9e3925" class="outline-3">
+ <h3 id="orgd9e3925">elisp</h3>
+ <div class="outline-text-3" id="text-orgd9e3925">
  <div class="org-src-container">
  <pre class="src src-elisp"> <span class="org-comment-delimiter">;; </span> <span class="org-comment">Define the hello function</span>
 ( <span class="org-keyword">defun</span>  <span class="org-function-name">hello</span> ()
@@ -2928,9 +3026,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-org44bc07e" class="outline-3">
- <h3 id="org44bc07e">Nix</h3>
- <div class="outline-text-3" id="text-org44bc07e">
+ <div id="outline-container-org0c62a2a" class="outline-3">
+ <h3 id="org0c62a2a">Nix</h3>
+ <div class="outline-text-3" id="text-org0c62a2a">
  <div class="org-src-container">
  <pre class="src src-nix">{
    <span class="org-comment"># Define the hello function</span>
@@ -2948,9 +3046,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-org19e8cae" class="outline-3">
- <h3 id="org19e8cae">Go</h3>
- <div class="outline-text-3" id="text-org19e8cae">
+ <div id="outline-container-orgda370ce" class="outline-3">
+ <h3 id="orgda370ce">Go</h3>
+ <div class="outline-text-3" id="text-orgda370ce">
  <div class="org-src-container">
  <pre class="src src-go"> <span class="org-keyword">package</span> main
 
@@ -2964,9 +3062,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-orgc3612c1" class="outline-3">
- <h3 id="orgc3612c1">PHP</h3>
- <div class="outline-text-3" id="text-orgc3612c1">
+ <div id="outline-container-org8c3f5f1" class="outline-3">
+ <h3 id="org8c3f5f1">PHP</h3>
+ <div class="outline-text-3" id="text-org8c3f5f1">
  <div class="org-src-container">
  <pre class="src src-php"> <span class="org-php-php-tag"><?php</span>
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Define the hello function</span>
@@ -2980,8 +3078,8 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org63f88b0" class="outline-2"> <h2 id="org63f88b0">Sample text</h2>
- <div class="outline-text-2" id="text-org63f88b0">
+</article> <article id="outline-container-org7045142" class="outline-2"> <h2 id="org7045142">Sample text</h2>
+ <div class="outline-text-2" id="text-org7045142">
  <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus

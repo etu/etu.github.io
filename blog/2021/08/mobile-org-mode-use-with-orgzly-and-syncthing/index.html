@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2021-08-02 Mon 19:47 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobile org-mode use with Orgzly and Syncthing</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
+<link href="https://elis.nu/" rel="canonical">
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
+<link rel="icon" href="/imgs/favicon.jpg">
+<meta name="referrer" content="no-referrer" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z9NBYBDY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-52Z9NBYBDY');
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav>
+     <ul>
+       <li><a href="/">~elis/</a></li>
+       <li><a href="/about/">./about/</a></li>
+       <li><a href="/work/">./work/</a></li>
+       <li><a href="/talks/">./talks/</a></li>
+       <li><a href="/blog/">./blog/</a></li>
+     </ul>
+   </nav>
+</div>
+<div id="content">
+<h1 class="title">Mobile org-mode use with Orgzly and Syncthing</h1>
+<p>
+I've been an Emacs user for 13+ years, during this time I've been using
+<a href="https://orgmode.org/">org-mode</a> on and off for different thing.
+</p>
+
+<p>
+Some examples where I currently use org-mode:
+</p>
+<ul class="org-ul">
+<li>Deployment of this website</li>
+<li>Making of presentation slides</li>
+<li>Project read me files</li>
+<li>Notes files</li>
+<li>Time reporting</li>
+</ul>
+
+<p>
+I've tried to use it for to do's but never really managed, partly because I
+wanted to have a good interface for my to do's on my phone. Then I wanted
+quick synchronization to my computers to be able to pick up the changes there.
+</p>
+
+<p>
+Most of my personal files is in a personal git repository which I sync around
+to all the computers where I need them. I'd wish to have the security and
+reliability of git when handling my to do lists just to know that they ever
+get corrupted or lost.
+</p>
+
+<article id="outline-container-enter-orgzly" class="outline-2">
+<h2 id="enter-orgzly">Enter Orgzly</h2>
+<div class="outline-text-2" id="text-enter-orgzly">
+<p>
+I've known about <a href="http://www.orgzly.com/">Orgzly</a> for quite some time. It's an Android app which is
+available on both <a href="https://f-droid.org/packages/com.orgzly/">Orgzly on F-Droid</a> and <a href="https://play.google.com/store/apps/details?id=com.orgzly">Orgzly on Play Store</a>. The thing
+that's been stopping me to actually try Orgzly out is the lack of options
+when it comes to synchronization. For example I would like to synchronize
+using git. There's an open issue for this <a href="https://github.com/orgzly/orgzly-android/issues/24">git synchroniztion #24</a>, it's been
+open since <span class="timestamp-wrapper"><span class="timestamp">&lt;2017-02-27 Mon&gt;</span></span>, so I'm not having high hopes to see it resolved
+any day soon.
+</p>
+
+<p>
+I've also spent some time thinking about this and came to the conclusion that
+I probably don't want git as a synchronization mechanism for something as
+volatile as to do lists and notes. But I still want it somewhere in the back
+end of my system as a way to make sure what changes are actually stored and
+backed up.
+</p>
+
+<p>
+This is when I started to look into Orgzly's other synchronization options,
+this is, as of writing in the current version of the app (1.8.5) the
+available options:
+</p>
+<dl class="org-dl">
+<dt><b>Dropbox</b></dt><dd>I'm not a customer of Dropbox so this was a no-go to begin with.</dd>
+
+<dt><b>WebDAV</b></dt><dd>As far as I know I don't have an easily available WebDAV server that I can
+use which makes it easy to get the files to my laptops and desktop systems
+where I can use them with Emacs without doing any fancy scripting to sync
+the files by hand.</dd>
+
+<dt><b>Directory</b></dt><dd>This just syncs to a directory on the device, doesn't sound like much. But
+it's the option I went for.</dd>
+</dl>
+</div>
+</article>
+
+<article id="outline-container-enter-syncthing" class="outline-2">
+<h2 id="enter-syncthing">Enter Syncthing</h2>
+<div class="outline-text-2" id="text-enter-syncthing">
+<p>
+<a href="https://syncthing.net/">Syncthing</a> is a project I've heard a lot of good things about through the
+years, both from people, but also in chat rooms, blogs and podcasts. So I've
+decided to try it out.
+</p>
+
+<p>
+From my limited testing it seems to sync P2P (at least while on the same
+network). It seems fairly reliable in it's syncing and it picks up the
+changes almost instantly. I'm impressed by it so far.
+</p>
+</div>
+</article>
+
+<article id="outline-container-conclusions" class="outline-2">
+<h2 id="conclusions">Concusions</h2>
+<div class="outline-text-2" id="text-conclusions">
+<p>
+I've set up Syncthing to synchronize <code>~/org</code> for me to my phone to a folder
+that I've named <code>org-files</code> in the home directory. Then I've configured
+Orgzly to synchronize to this folder on disk. Now I have near instant
+synchronization between my phone and my computer. So I can access and make
+changes to my notes and to do list on either device. Then when I'm at my
+computer and have "a batch of changes" that I want to make sure to have
+saved, I can always commit them to git. Because this <code>~/org</code> directory is
+part of a git repository, and has always been.
+</p>
+</div>
+</article>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-08-02 Mon 21:30</p>
+<p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
+<p class="date">Created: 2021-08-02 Mon 19:47</p>
+</div>
+</body>
+</html>
