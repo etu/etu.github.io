@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-08-03 Tue 19:13 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Simple deployments of NixOS machines with nixus</title>
@@ -68,9 +67,9 @@ right after activation to make sure that you'd never lock yourself out, multi
 system management and it's own secrets support.
 </p>
 
-<article id="outline-container-orge007fcf" class="outline-2">
-<h2 id="orge007fcf">Pulling in the nixus module using <code>niv</code></h2>
-<div class="outline-text-2" id="text-orge007fcf">
+<article id="outline-container-orgfadefc2" class="outline-2">
+<h2 id="orgfadefc2">Pulling in the nixus module using <code>niv</code></h2>
+<div class="outline-text-2" id="text-orgfadefc2">
 <p>
 I've use <code>niv</code> to pull in the nixus modules:
 </p>
@@ -88,9 +87,9 @@ by <code>niv</code> and which git commit they are locked to.
 </div>
 </article>
 
-<article id="outline-container-orgf54ef3e" class="outline-2">
-<h2 id="orgf54ef3e">Setting up a deployment file using nixus</h2>
-<div class="outline-text-2" id="text-orgf54ef3e">
+<article id="outline-container-org03a7e4a" class="outline-2">
+<h2 id="org03a7e4a">Setting up a deployment file using nixus</h2>
+<div class="outline-text-2" id="text-org03a7e4a">
 <p>
 This is also fairly straightforward, it needs to import the nixus module from
 niv to then use it to declare a nixus module.
@@ -150,9 +149,9 @@ nixus ({ config, ... }: {
 </div>
 </article>
 
-<article id="outline-container-org1186b4e" class="outline-2">
-<h2 id="org1186b4e">Building and deploying systems</h2>
-<div class="outline-text-2" id="text-org1186b4e">
+<article id="outline-container-org7d434df" class="outline-2">
+<h2 id="org7d434df">Building and deploying systems</h2>
+<div class="outline-text-2" id="text-org7d434df">
 <p>
 Building and deploying your system couldn't be simpler! It's as easy as
 running <code>nix-build path/to/deployment.nix</code> where the path is to the file that
@@ -167,7 +166,6 @@ output is a shell script that will run the deploy. So just go ahead and run
 <div id="postamble" class="status">
 <p class="date">Date: 2021-07-23 Fri 16:30</p>
 <p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-<p class="date">Created: 2021-08-03 Tue 19:13</p>
 </div>
 </body>
 </html>
