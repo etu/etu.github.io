@@ -15,6 +15,9 @@
 #+HTML_HEAD_EXTRA:   gtag('config', 'G-52Z9NBYBDY');
 #+HTML_HEAD_EXTRA: </script>
 
+# Disable timestamp of when page was exported by org mode.
+#+OPTIONS: timestamp:nil
+
 # Disable default CSS
 #+OPTIONS: html-style:nil
 
