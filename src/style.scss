@@ -10,8 +10,8 @@ $fontSize: 16;
 $codeBoldWeight: 600;
 
 /* Colors */
-$defaultBackgroundColor: #171717;
-$defaultForegroundColor: #FFFFFF;
+$darkBackgroundColor: #171717;
+$darkForegroundColor: #FFFFFF;
 $lightBackgroundColor: #F4F4F4;
 $lightForegroundColor: #000000;
 
@@ -29,11 +29,11 @@ $codeTypeColor: #8835FF;
 
 $codeTagForegroundColor: #4400FF;
 
-/* Default colors */
-$defaultMenuHoverColor: lighten($defaultBackgroundColor, 10%);
-$defaultCodeLanguageBoxColor: $defaultMenuHoverColor;
-$defaultContentDelimiters: contrast-color($defaultForegroundColor, $defaultBackgroundColor);
-$defaultForegroundColor: contrast-color($defaultForegroundColor, $defaultBackgroundColor);
+/* Dark colors */
+$darkMenuHoverColor: lighten($darkBackgroundColor, 10%);
+$darkCodeLanguageBoxColor: $darkMenuHoverColor;
+$darkContentDelimiters: contrast-color($darkForegroundColor, $darkBackgroundColor);
+$darkForegroundColor: contrast-color($darkForegroundColor, $darkBackgroundColor);
 
 $lightMenuHoverColor: darken($lightBackgroundColor, 10%);
 $lightCodeLanguageBoxColor: $lightMenuHoverColor;
@@ -49,39 +49,6 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
     #{$name}: #{$remSize}rem;
 }
 
-@mixin color-highlights($bg) {
-    span.org- {
-        &comment, &comment-delimiter, &doc {
-            color: contrast-color($codeCommentColor, $bg);
-        };
-        &function-name, &php-function-name {
-            color: contrast-color($codeFunctionNameColor, $bg);
-            font-weight: $codeBoldWeight;
-        }
-        &keyword, &nix-keyword, &php-keyword, &php-class-declaration {
-            color: contrast-color($codeKeywordColor, $bg);
-            font-weight: $codeBoldWeight;
-        }
-        &nix-builtin {
-            color: contrast-color($codeNixBuiltInColor, $bg);
-        }
-        &nix-constant {
-            color: contrast-color($codeNixConstantColor, $bg);
-        }
-        &php-php-tag {
-            color: contrast-color($codePhpTagColor, $bg);
-        }
-        &string, &php-string {
-            color: contrast-color($codeStringColor, $bg);
-        }
-        &type {
-            color: contrast-color($codeTypeColor, $bg);
-        }
-        &variable-name, &nix-attribute { font-weight: $codeBoldWeight; }
-    }
-}
-
-
 /********************************************************************
  * Apply a natural box layout model to all elements
  */
@@ -94,6 +61,71 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
 }
 
 /********************************************************************
+ * Define CSS variables for theme support
+ */
+
+:root {
+    --font-size: #{$fontSize}px;
+
+    --background-color: #{$lightBackgroundColor};
+    --blockquote-background-color: #{$lightCodeLanguageBoxColor};
+    --blockquote-before-foreground-color: #{contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor, 2)};
+    --blockquote-foreground-color: #{contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor)};
+    --code-background-color: #{darken($lightBackgroundColor, 5%)};
+    --code-bold-weight: #{$codeBoldWeight};
+    --code-comment-color: #{contrast-color($codeCommentColor, $lightBackgroundColor)};
+    --code-foreground-color: #{contrast-color($codeTagForegroundColor, darken($lightBackgroundColor, 5%))};
+    --code-function-name-color: #{contrast-color($codeFunctionNameColor, $lightBackgroundColor)};
+    --code-keyword-color: #{contrast-color($codeKeywordColor, $lightBackgroundColor)};
+    --code-nix-builtin-color: #{contrast-color($codeNixBuiltInColor, $lightBackgroundColor)};
+    --code-nix-constant-color: #{contrast-color($codeNixConstantColor, $lightBackgroundColor)};
+    --code-php-tag-color: #{contrast-color($codePhpTagColor, $lightBackgroundColor)};
+    --code-string-color: #{contrast-color($codeStringColor, $lightBackgroundColor)};
+    --code-type-color: #{contrast-color($codeTypeColor, $lightBackgroundColor)};
+    --content-delimiter-color: #{$lightContentDelimiters};
+    --external-link-image: url("/imgs/external-arrow-dark.svg");
+    --foreground-color: #{$lightForegroundColor};
+    --link-color: #{contrast-color($linkColor, $lightBackgroundColor)};
+    --link-menu-hover-visited-color: #{contrast-color($visitedLinkColor, $lightMenuHoverColor)};
+    --link-visited-color: #{contrast-color($visitedLinkColor, $lightBackgroundColor)};
+    --menu-hover-background-color: #{$lightMenuHoverColor};
+    --menu-hover-foreground-color: #{contrast-color($linkColor, $lightMenuHoverColor)};
+    --pre-before-background-color: #{$lightCodeLanguageBoxColor};
+    --pre-before-foreground-color: #{contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor)};
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #{$darkBackgroundColor};
+        --blockquote-background-color: #{$darkCodeLanguageBoxColor};
+        --blockquote-before-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor, 2)};
+        --blockquote-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor)};
+        --code-background-color: #{darken($darkBackgroundColor, 5%)};
+        --code-bold-weight: #{$codeBoldWeight};
+        --code-comment-color: #{contrast-color($codeCommentColor, $darkBackgroundColor)};
+        --code-foreground-color: #{contrast-color($codeTagForegroundColor, darken($darkBackgroundColor, 5%))};
+        --code-function-name-color: #{contrast-color($codeFunctionNameColor, $darkBackgroundColor)};
+        --code-keyword-color: #{contrast-color($codeKeywordColor, $darkBackgroundColor)};
+        --code-nix-builtin-color: #{contrast-color($codeNixBuiltInColor, $darkBackgroundColor)};
+        --code-nix-constant-color: #{contrast-color($codeNixConstantColor, $darkBackgroundColor)};
+        --code-php-tag-color: #{contrast-color($codePhpTagColor, $darkBackgroundColor)};
+        --code-string-color: #{contrast-color($codeStringColor, $darkBackgroundColor)};
+        --code-type-color: #{contrast-color($codeTypeColor, $darkBackgroundColor)};
+        --content-delimiter-color: #{$darkContentDelimiters};
+        --external-link-image: url("/imgs/external-arrow-light.svg");
+        --foreground-color: #{$darkForegroundColor};
+        --link-color: #{contrast-color($linkColor, $darkBackgroundColor)};
+        --link-menu-hover-visited-color: #{contrast-color($visitedLinkColor, $darkMenuHoverColor)};
+        --link-visited-color: #{contrast-color($visitedLinkColor, $darkBackgroundColor)};
+        --menu-hover-background-color: #{$darkMenuHoverColor};
+        --menu-hover-foreground-color: #{contrast-color($linkColor, $darkMenuHoverColor)};
+        --pre-before-background-color: #{$darkCodeLanguageBoxColor};
+        --pre-before-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor)};
+    }
+}
+
+
+/********************************************************************
  * NAVIGATION
  */
 nav {
@@ -103,7 +135,7 @@ nav {
     border-width: 0;
     @include rem-attributes(border-bottom-width, 0.2);
     @include rem-attributes(border-top-width, 0.2);
-    border-color: $defaultContentDelimiters;
+    border-color: var(--content-delimiter-color);
     border-style: solid;
 
     /* Center items */
@@ -131,18 +163,18 @@ nav {
                 @include rem-attributes(padding-right, 1);
                 @include rem-attributes(padding-left, 1);
 
-                color: contrast-color($linkColor, $defaultBackgroundColor);
+                color: var(--link-color);
 
                 &:visited {
-                    color: contrast-color($visitedLinkColor, $defaultBackgroundColor);
+                    color: var(--link-visited-color);
                 }
 
                 &:hover {
-                    background-color: $defaultMenuHoverColor;
-                    color: contrast-color($linkColor, $defaultMenuHoverColor);
+                    background-color: var(--menu-hover-background-color);
+                    color: var(--menu-hover-foreground-color);
 
                     &:visited {
-                        color: contrast-color($visitedLinkColor, $defaultMenuHoverColor);
+                        color: var(--link-menu-hover-visited-color);
                     }
                 }
             }
@@ -154,10 +186,10 @@ nav {
  * THEME
  */
 html {
-    background-color: $defaultBackgroundColor;
-    color: $defaultForegroundColor;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
     font-family: sans;
-    font-size: #{$fontSize}px;
+    font-size: var(--font-size);
 }
 
 h1, h2, h3, h4 {
@@ -176,10 +208,10 @@ body {
 }
 
 a {
-    color: contrast-color($linkColor, $defaultBackgroundColor);
+    color: var(--link-color);
 
     &:visited {
-        color: contrast-color($visitedLinkColor, $defaultBackgroundColor);
+        color: var(--link-visited-color);
     }
 
     &[href^="mailto"]::after,&[href^="http"]::after,&[href^="https://"]::after {
@@ -187,7 +219,7 @@ a {
         width: 11px;
         height: 11px;
         margin-left: 4px;
-        background-image: url("/imgs/external-arrow-light.svg");
+        background-image: var(--external-link-image);
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -205,8 +237,8 @@ blockquote {
     @include rem-attributes(padding-left, 1.5);
     @include rem-attributes(padding-right, 1.5);
 
-    background: $defaultCodeLanguageBoxColor;
-    color: contrast-color($defaultForegroundColor, $defaultCodeLanguageBoxColor);
+    background: var(--blockquote-background-color);
+    color: var(--blockquote-foreground-color);
 
     &:before {
         content: '”';
@@ -214,7 +246,7 @@ blockquote {
         @include rem-attributes(top, -1);
         right: 0;
         @include rem-attributes(font-size, 4);
-        color: contrast-color($defaultForegroundColor, $defaultCodeLanguageBoxColor, 2);
+        color: var(--blockquote-before-foreground-color);
     }
 }
 
@@ -222,7 +254,7 @@ blockquote {
 pre {
     &.src {
         @include rem-attributes(border-width, 0.1);
-        border-color: $defaultContentDelimiters;
+        border-color: var(--content-delimiter-color);
         border-style: solid;
 
         margin: 0;
@@ -234,8 +266,8 @@ pre {
             top: 0;
             right: 0;
 
-            background: $defaultCodeLanguageBoxColor;
-            color: contrast-color($defaultForegroundColor, $defaultCodeLanguageBoxColor);
+            background: var(--pre-before-background-color);
+            color: var(--pre-before-foreground-color);
 
             position: absolute;
             @include rem-attributes(padding-top, 0.3);
@@ -247,12 +279,42 @@ pre {
             @include rem-attributes(border-width, 0.1);
             border-top-width: 0;
             border-right-width: 0;
-            border-color: $defaultContentDelimiters;
+            border-color: var(--content-delimiter-color);
             border-style: solid;
         }
 
         /* Syntax highlighting */
-        @include color-highlights($defaultBackgroundColor);
+        span.org- {
+            &comment, &comment-delimiter, &doc {
+                color: var(--code-comment-color);
+            };
+            &function-name, &php-function-name {
+                color: var(--code-function-name-color);
+                font-weight: var(--code-bold-weight);
+            }
+            &keyword, &nix-keyword, &php-keyword, &php-class-declaration {
+                color: var(--code-keyword-color);
+                font-weight: var(--code-bold-weight);
+            }
+            &nix-builtin {
+                color: var(--code-nix-builtin-color);
+            }
+            &nix-constant {
+                color: var(--code-nix-constant-color);
+            }
+            &php-php-tag {
+                color: var(--code-php-tag-color);
+            }
+            &string, &php-string {
+                color: var(--code-string-color);
+            }
+            &type {
+                color: var(--code-type-color);
+            }
+            &variable-name, &nix-attribute {
+                font-weight: var(--code-bold-weight);
+            }
+        }
     }
 
     &.src-bash:before { content: 'bash'; }
@@ -267,8 +329,8 @@ pre {
 }
 
 code {
-    color: contrast-color($codeTagForegroundColor, darken($defaultBackgroundColor, 5%));
-    background: darken($defaultBackgroundColor, 5%);
+    color: var(--code-foreground-color);
+    background: var(--code-background-color);
     font-family: monospace;
     padding: 4px;
 }
@@ -287,7 +349,7 @@ div#postamble {
     border-width: 0;
     @include rem-attributes(border-bottom-width, 0.2);
     @include rem-attributes(border-top-width, 0.2);
-    border-color: $defaultContentDelimiters;
+    border-color: var(--content-delimiter-color);
     border-style: solid;
 
     @include rem-attributes(padding-bottom, 1);
@@ -301,78 +363,6 @@ div#postamble {
 /********************************************************************
  * MEDIA QUERIES
  */
-@media (prefers-color-scheme: light) {
-    html {
-        background-color: $lightBackgroundColor;
-        color: $lightForegroundColor;
-    }
-
-    a {
-        color: contrast-color($linkColor, $lightBackgroundColor);
-
-        &:visited {
-            color: contrast-color($visitedLinkColor, $lightBackgroundColor);
-        }
-
-        &[href^="mailto"]::after,&[href^="http"]::after,&[href^="https://"]::after {
-            background-image: url("/imgs/external-arrow-dark.svg");
-        }
-    }
-
-    blockquote {
-        background: $lightCodeLanguageBoxColor;
-        color: contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor);
-
-        &:before {
-            color: contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor, 2);
-        }
-    }
-
-    nav {
-        border-color: $lightContentDelimiters;
-
-        ul li a {
-            color: contrast-color($linkColor, $lightBackgroundColor);
-
-            &:visited {
-                color: contrast-color($visitedLinkColor, $lightBackgroundColor);
-            }
-
-            &:hover {
-                background-color: $lightMenuHoverColor;
-                color: contrast-color($linkColor, $lightMenuHoverColor);
-
-                &:visited {
-                    color: contrast-color($visitedLinkColor, $lightMenuHoverColor);
-                }
-            }
-        }
-    }
-
-    pre.src {
-        border-color: $lightContentDelimiters;
-
-        &:before {
-            background: $lightCodeLanguageBoxColor;
-            color: contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor);
-
-            border-color: $lightContentDelimiters;
-        }
-
-        /* Syntax highlighting */
-        @include color-highlights($lightBackgroundColor);
-    }
-
-    code {
-        color: contrast-color($codeTagForegroundColor, darken($lightBackgroundColor, 5%));
-        background: darken($lightBackgroundColor, 5%);
-    }
-
-    div#postamble {
-        border-color: $lightContentDelimiters;
-    }
-}
-
 @media screen and (max-width: 800px) {
     /* Org-mode code box */
     pre.src {
