@@ -4,6 +4,8 @@
 
 Hello world! This is a test blog post.
 
+This is an external link [[https://example.org/][example.org]]. Internal link [[/][start page]].
+
 #+BEGIN_QUOTE
 This is a block quote element.
 #+END_QUOTE
