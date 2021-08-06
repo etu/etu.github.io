@@ -50,16 +50,6 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
     #{$name}: #{$remSize}rem;
 }
 
-/********************************************************************
- * Apply a natural box layout model to all elements
- */
-*, *:before, *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    z-index: 1;
-    position: relative;
-}
 
 /********************************************************************
  * Define CSS variables for theme support
@@ -123,6 +113,18 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
         --pre-before-background-color: #{$darkCodeLanguageBoxColor};
         --pre-before-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor)};
     }
+}
+
+
+/********************************************************************
+ * Apply a natural box layout model to all elements
+ */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 1;
+    position: relative;
 }
 
 
