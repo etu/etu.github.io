@@ -6,7 +6,7 @@
 <generator>Emacs webfeeder.el</generator>
 <link>https://elis.nu/</link>
 <atom:link href="https://elis.nu/blog/rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Fri, 06 Aug 2021 08:27:14 +0000</lastBuildDate>
+<lastBuildDate>Fri, 06 Aug 2021 08:36:59 +0000</lastBuildDate>
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Mobile org-mode use with Orgzly and Syncthing</title>
@@ -143,8 +143,8 @@ right after activation to make sure that you'd never lock yourself out, multi
 system management and it's own secrets support.
 </p>
 
- <article id="outline-container-org5d4566b" class="outline-2"> <h2 id="org5d4566b">Pulling in the nixus module using  <code>niv</code></h2>
- <div class="outline-text-2" id="text-org5d4566b">
+ <article id="outline-container-org37f7026" class="outline-2"> <h2 id="org37f7026">Pulling in the nixus module using  <code>niv</code></h2>
+ <div class="outline-text-2" id="text-org37f7026">
  <p>
 I've use  <code>niv</code> to pull in the nixus modules:
 </p>
@@ -160,8 +160,8 @@ parses a file called  <code>sources.json</code> which contains the repositories 
 by  <code>niv</code> and which git commit they are locked to.
 </p>
 </div>
-</article> <article id="outline-container-org9adac4a" class="outline-2"> <h2 id="org9adac4a">Setting up a deployment file using nixus</h2>
- <div class="outline-text-2" id="text-org9adac4a">
+</article> <article id="outline-container-org65b23e7" class="outline-2"> <h2 id="org65b23e7">Setting up a deployment file using nixus</h2>
+ <div class="outline-text-2" id="text-org65b23e7">
  <p>
 This is also fairly straightforward, it needs to import the nixus module from
 niv to then use it to declare a nixus module.
@@ -219,8 +219,8 @@ nixus ({ config, ... }: {
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org3d3da7f" class="outline-2"> <h2 id="org3d3da7f">Building and deploying systems</h2>
- <div class="outline-text-2" id="text-org3d3da7f">
+</article> <article id="outline-container-org355eb75" class="outline-2"> <h2 id="org355eb75">Building and deploying systems</h2>
+ <div class="outline-text-2" id="text-org355eb75">
  <p>
 Building and deploying your system couldn't be simpler! It's as easy as
 running  <code>nix-build path/to/deployment.nix</code> where the path is to the file that
@@ -262,8 +262,8 @@ The bad news:
 Back from complaining to actually solving the problem though.
 </p>
 
- <article id="outline-container-org52ab2ef" class="outline-2"> <h2 id="org52ab2ef">Mumble does have a patch for a future release</h2>
- <div class="outline-text-2" id="text-org52ab2ef">
+ <article id="outline-container-org85a9a95" class="outline-2"> <h2 id="org85a9a95">Mumble does have a patch for a future release</h2>
+ <div class="outline-text-2" id="text-org85a9a95">
  <p>
 So there's the issue about  <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
 been followed up by a patch  <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
@@ -275,8 +275,8 @@ A thing with mumble is that they aren't quick at releasing new versions,
 so sitting around and waiting for a new release might… take a while.
 </p>
 </div>
-</article> <article id="outline-container-orgfe8a2a6" class="outline-2"> <h2 id="orgfe8a2a6">Sway has patches for this</h2>
- <div class="outline-text-2" id="text-orgfe8a2a6">
+</article> <article id="outline-container-org43da753" class="outline-2"> <h2 id="org43da753">Sway has patches for this</h2>
+ <div class="outline-text-2" id="text-org43da753">
  <p>
 Since version 1.5 Sway has a patch to be able to bind keys that doesn't
 repeat it's action, but it still works to bind them to trigger a release
@@ -287,8 +287,8 @@ event which sounds a lot like a push to talk buttons function to me.
 Here's the patch that was applied to Sway:  <a href="https://github.com/swaywm/sway/pull/5132">add –no-repeat option for bindings</a>.
 </p>
 </div>
-</article> <article id="outline-container-org36ecc52" class="outline-2"> <h2 id="org36ecc52">Actually making use of these things in NixOS</h2>
- <div class="outline-text-2" id="text-org36ecc52">
+</article> <article id="outline-container-org5cc04be" class="outline-2"> <h2 id="org5cc04be">Actually making use of these things in NixOS</h2>
+ <div class="outline-text-2" id="text-org5cc04be">
  <p>
 I started by patching mumble to support the dbus calls:
 </p>
@@ -561,8 +561,8 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
- <article id="outline-container-org5db332f" class="outline-2"> <h2 id="org5db332f">Required environment variables</h2>
- <div class="outline-text-2" id="text-org5db332f">
+ <article id="outline-container-orgc950cd2" class="outline-2"> <h2 id="orgc950cd2">Required environment variables</h2>
+ <div class="outline-text-2" id="text-orgc950cd2">
  <ul class="org-ul"> <li> <code>XDG_SESSION_TYPE=wayland</code></li>
  <li> <code>XDG_CURRENT_DESKTOP=sway</code></li>
 </ul> <p>
@@ -591,9 +591,9 @@ activation when you start sharing your screen.
 </p>
 </div>
 
- <div id="outline-container-org84b03ed" class="outline-3">
- <h3 id="org84b03ed">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
- <div class="outline-text-3" id="text-org84b03ed">
+ <div id="outline-container-orga2bd50c" class="outline-3">
+ <h3 id="orga2bd50c">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
+ <div class="outline-text-3" id="text-orga2bd50c">
  <p>
 Reported issue here  <a href="https://github.com/NixOS/nixpkgs/issues/119445">https://github.com/NixOS/nixpkgs/issues/119445</a>.
 </p>
@@ -610,8 +610,8 @@ config to import the right things to the right places:
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org88f046d" class="outline-2"> <h2 id="org88f046d">Testing screen sharing</h2>
- <div class="outline-text-2" id="text-org88f046d">
+</article> <article id="outline-container-org19907f4" class="outline-2"> <h2 id="org19907f4">Testing screen sharing</h2>
+ <div class="outline-text-2" id="text-org19907f4">
  <p>
 Testing screen sharing can easily be done with a patched <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
 Firefox started with  <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
@@ -623,8 +623,8 @@ To actually test screen sharing I'd recommend using Mozilla's  <a href="https://
 then just start your screen share on that page.
 </p>
 </div>
-</article> <article id="outline-container-org20f3aea" class="outline-2"> <h2 id="org20f3aea">What should happen?</h2>
- <div class="outline-text-2" id="text-org20f3aea">
+</article> <article id="outline-container-orga7724fd" class="outline-2"> <h2 id="orga7724fd">What should happen?</h2>
+ <div class="outline-text-2" id="text-orga7724fd">
  <p>
 Starting the screen share should trigger the socket activation for the user
 services for  <code>pipewire.service</code>,  <code>xdg-desktop-portal.service</code> and
@@ -638,8 +638,8 @@ point since they require the environment variables to work regardless if
 they run or not.
 </p>
 </div>
-</article> <article id="outline-container-org569cbba" class="outline-2"> <h2 id="org569cbba">What if the services doesn't start?</h2>
- <div class="outline-text-2" id="text-org569cbba">
+</article> <article id="outline-container-orge31b3fc" class="outline-2"> <h2 id="orge31b3fc">What if the services doesn't start?</h2>
+ <div class="outline-text-2" id="text-orge31b3fc">
  <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
@@ -694,8 +694,8 @@ project was new. At that point (if I remember correctly), not even the window
 decorations looked like the ones in i3wm.
 </p>
 
- <article id="outline-container-org3a8015c" class="outline-2"> <h2 id="org3a8015c">Key map</h2>
- <div class="outline-text-2" id="text-org3a8015c">
+ <article id="outline-container-org8b73f4c" class="outline-2"> <h2 id="org8b73f4c">Key map</h2>
+ <div class="outline-text-2" id="text-org8b73f4c">
  <p>
 As a US Dvorak typist that sometimes types Swedish, I have opinions about
 key maps. Since I used xmodmap before to customize my key map to make it work
@@ -738,8 +738,8 @@ configuration:
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-orgec58906" class="outline-2"> <h2 id="orgec58906">Browsers</h2>
- <div class="outline-text-2" id="text-orgec58906">
+</article> <article id="outline-container-orge8ec7b0" class="outline-2"> <h2 id="orge8ec7b0">Browsers</h2>
+ <div class="outline-text-2" id="text-orge8ec7b0">
  <p>
 I use Firefox as my main browser, it works mostly fine native on Wayland. It
 happens now and then that I encounter things that are less than perfect
@@ -752,8 +752,8 @@ Firefox just needs some convincing with  <code>MOZ_ENABLE_WAYLAND=1</code> in th
 environment set.
 </p>
 </div>
-</article> <article id="outline-container-orgc13bed2" class="outline-2"> <h2 id="orgc13bed2">Editor</h2>
- <div class="outline-text-2" id="text-orgc13bed2">
+</article> <article id="outline-container-org9045787" class="outline-2"> <h2 id="org9045787">Editor</h2>
+ <div class="outline-text-2" id="text-org9045787">
  <p>
 As a long time Emacs user I'll just keep using Emacs. To begin with I did so
 in Xwayland - but it had some issues at some point which pushed me to try
@@ -762,8 +762,8 @@ using it and that branch is now accepted as a feature branch on Savannah, so
 now I hope it's mainlined before Emacs 28.
 </p>
 </div>
-</article> <article id="outline-container-org1bc039c" class="outline-2"> <h2 id="org1bc039c">Screen sharing</h2>
- <div class="outline-text-2" id="text-org1bc039c">
+</article> <article id="outline-container-org7a6ce54" class="outline-2"> <h2 id="org7a6ce54">Screen sharing</h2>
+ <div class="outline-text-2" id="text-org7a6ce54">
  <p>
 It works!  <code>*</code>
 </p>
@@ -804,8 +804,8 @@ specify which screen to share. I'm not sure how to manage that easily in
 a multi screen environment.
 </p>
 </div>
-</article> <article id="outline-container-org94f1106" class="outline-2"> <h2 id="org94f1106">Miscellaneous applications</h2>
- <div class="outline-text-2" id="text-org94f1106">
+</article> <article id="outline-container-org439970c" class="outline-2"> <h2 id="org439970c">Miscellaneous applications</h2>
+ <div class="outline-text-2" id="text-org439970c">
  <ul class="org-ul"> <li>Screenshots:  <code>grim -g $(slurp) - | swappy -f -</code></li>
  <li>Back light:  <code>acpiilight</code></li>
  <li>Lock screen:  <code>swaylock</code> &  <code>swayidle</code></li>
@@ -816,8 +816,8 @@ a multi screen environment.
  <li>Graphical display settings:  <code>wdisplays</code> is great!</li>
  <li>Command line display settings:  <code>wlr-randr</code></li>
 </ul></div>
-</article> <article id="outline-container-orgb0acdd5" class="outline-2"> <h2 id="orgb0acdd5">Conclusions</h2>
- <div class="outline-text-2" id="text-orgb0acdd5">
+</article> <article id="outline-container-org307741b" class="outline-2"> <h2 id="org307741b">Conclusions</h2>
+ <div class="outline-text-2" id="text-org307741b">
  <p>
 My road to Wayland with Sway have for sure have had a couple of road bumps.
 The only real bump that has been a software limitation has been how screen
@@ -881,7 +881,7 @@ Here are some sketches l've made of how big and wide this monster really is.
 </p>
 
 
- <div id="org7522c9a" class="figure">
+ <div id="org3e33bba" class="figure">
  <p> <img src="/blog/2021/02/ultra-wide-monitor/./drawing_thumb.png" alt="drawing_thumb.png"></img></p>
 </div>
 
@@ -914,8 +914,8 @@ QHD gives me over FHD. I have more use for the extra 33% height. It's even
 rare that I need the full FHD width.
 </p>
 
- <article id="outline-container-orgfd0cdfb" class="outline-2"> <h2 id="orgfd0cdfb">So why go ultra wide?</h2>
- <div class="outline-text-2" id="text-orgfd0cdfb">
+ <article id="outline-container-org2ed9b7f" class="outline-2"> <h2 id="org2ed9b7f">So why go ultra wide?</h2>
+ <div class="outline-text-2" id="text-org2ed9b7f">
  <p>
 This ultra wide monitor has the size of two 27" QHD displays in one panel.
 This gives me the insane resolution of 5120×1440. It still gives me the extra
@@ -989,8 +989,8 @@ So by having both of these ideologies in mind I can only come to the
 following conclusions.
 </p>
 
- <article id="outline-container-orgc5122fa" class="outline-2"> <h2 id="orgc5122fa">Conclusions about the free software communities</h2>
- <div class="outline-text-2" id="text-orgc5122fa">
+ <article id="outline-container-org324a1ec" class="outline-2"> <h2 id="org324a1ec">Conclusions about the free software communities</h2>
+ <div class="outline-text-2" id="text-org324a1ec">
  <p>
 It's only natural for an ethical community that is ethical towards human
 animals to extend these ethical values to non-human animals as well.
@@ -1008,8 +1008,8 @@ I don't find promotion of consumption of these items to fit within the
 extended ethical values of the Free Software movement.
 </p>
 </div>
-</article> <article id="outline-container-org836c8b1" class="outline-2"> <h2 id="org836c8b1">Conclusions about vegans views on software</h2>
- <div class="outline-text-2" id="text-org836c8b1">
+</article> <article id="outline-container-orgbde026c" class="outline-2"> <h2 id="orgbde026c">Conclusions about vegans views on software</h2>
+ <div class="outline-text-2" id="text-orgbde026c">
  <p>
 My experiences with Vegans is quite limited, but within my own circles I
 happen to see that most Vegans use primarily Free Software - but I don't
@@ -1024,8 +1024,8 @@ about - which I totally get and respect, especially if this non-free software
 is used to promote veganism, which I nowadays find to be of higher value.
 </p>
 </div>
-</article> <article id="outline-container-orgcd884a4" class="outline-2"> <h2 id="orgcd884a4">General conclusions</h2>
- <div class="outline-text-2" id="text-orgcd884a4">
+</article> <article id="outline-container-org7db4e5f" class="outline-2"> <h2 id="org7db4e5f">General conclusions</h2>
+ <div class="outline-text-2" id="text-org7db4e5f">
  <p>
 A general rule in today's society is the following: "vote with your wallet".
 </p>
@@ -1146,7 +1146,7 @@ victims that Veganism wants to protect.
 </p>
 
 
- <div id="org929566d" class="figure">
+ <div id="orgffaca33" class="figure">
  <p> <img src="/blog/2021/01/why-i-got-into-veganism/./metric-for-ethics.jpg" alt="metric-for-ethics.jpg"></img></p>
 </div>
  <div id="footnotes">
@@ -2531,7 +2531,7 @@ flexibility, being reproducible and being minimalistic at the same time.
 </ul></div>
 </div>
 
- <div id="org282a9f7" class="figure">
+ <div id="org9dee17b" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_frond_and_side_thumb.png" alt="friendly_penguin_frond_and_side_thumb.png"></img></p>
 </div>
 
@@ -2557,7 +2557,7 @@ of the outside. And the inside kinda became the evil twin of the outside.
  <article id="outline-container-pattern-chart" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
  <div class="outline-text-2" id="text-pattern-chart">
 
- <div id="orga962dbe" class="figure">
+ <div id="orga16f781" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./small_chart.png" alt="small_chart.png"></img></p>
 </div>
 
@@ -2641,7 +2641,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="friendly-penguin">Friendly penguin</h3>
  <div class="outline-text-3" id="text-friendly-penguin">
 
- <div id="org5db0d5f" class="figure">
+ <div id="org17fa05d" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_front_thumb.jpg" alt="friendly_penguin_front_thumb.jpg"></img></p>
 </div>
 
@@ -2651,7 +2651,7 @@ black stitches and the white yarn through the final white stitches.
 
 
 
- <div id="org3aa1a6d" class="figure">
+ <div id="orgb03278d" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_side_thumb.jpg" alt="friendly_penguin_side_thumb.jpg"></img></p>
 </div>
 
@@ -2665,7 +2665,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="evil-penguin-inside">Evil penguin inside</h3>
  <div class="outline-text-3" id="text-evil-penguin-inside">
 
- <div id="org5bebf57" class="figure">
+ <div id="orgca8819a" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_front_thumb.jpg" alt="evil_penguin_front_thumb.jpg"></img></p>
 </div>
 
@@ -2674,7 +2674,7 @@ black stitches and the white yarn through the final white stitches.
 </p>
 
 
- <div id="org7f5df5c" class="figure">
+ <div id="org3307cc6" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_side_thumb.jpg" alt="evil_penguin_side_thumb.jpg"></img></p>
 </div>
 
@@ -3009,12 +3009,12 @@ This is a block quote element.
 This is an inline  <code>code</code> block.
 </p>
 
- <article id="outline-container-org615efc8" class="outline-2"> <h2 id="org615efc8">Test of syntax highlighting</h2>
- <div class="outline-text-2" id="text-org615efc8">
+ <article id="outline-container-org58b3264" class="outline-2"> <h2 id="org58b3264">Test of syntax highlighting</h2>
+ <div class="outline-text-2" id="text-org58b3264">
 </div>
- <div id="outline-container-orga929a6c" class="outline-3">
- <h3 id="orga929a6c">elisp</h3>
- <div class="outline-text-3" id="text-orga929a6c">
+ <div id="outline-container-org2ac6040" class="outline-3">
+ <h3 id="org2ac6040">elisp</h3>
+ <div class="outline-text-3" id="text-org2ac6040">
  <div class="org-src-container">
  <pre class="src src-elisp"> <span class="org-comment-delimiter">;; </span> <span class="org-comment">Define the hello function</span>
 ( <span class="org-keyword">defun</span>  <span class="org-function-name">hello</span> ()
@@ -3030,9 +3030,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-orgd43185b" class="outline-3">
- <h3 id="orgd43185b">Nix</h3>
- <div class="outline-text-3" id="text-orgd43185b">
+ <div id="outline-container-org48592c1" class="outline-3">
+ <h3 id="org48592c1">Nix</h3>
+ <div class="outline-text-3" id="text-org48592c1">
  <div class="org-src-container">
  <pre class="src src-nix">{
    <span class="org-comment"># Define the hello function</span>
@@ -3050,9 +3050,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-org5764fa3" class="outline-3">
- <h3 id="org5764fa3">Go</h3>
- <div class="outline-text-3" id="text-org5764fa3">
+ <div id="outline-container-orgbe818e6" class="outline-3">
+ <h3 id="orgbe818e6">Go</h3>
+ <div class="outline-text-3" id="text-orgbe818e6">
  <div class="org-src-container">
  <pre class="src src-go"> <span class="org-keyword">package</span> main
 
@@ -3066,9 +3066,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-org6a014f6" class="outline-3">
- <h3 id="org6a014f6">PHP</h3>
- <div class="outline-text-3" id="text-org6a014f6">
+ <div id="outline-container-org551a5c0" class="outline-3">
+ <h3 id="org551a5c0">PHP</h3>
+ <div class="outline-text-3" id="text-org551a5c0">
  <div class="org-src-container">
  <pre class="src src-php"> <span class="org-php-php-tag"><?php</span>
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Define the hello function</span>
@@ -3082,8 +3082,8 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 </div>
-</article> <article id="outline-container-orgfb27107" class="outline-2"> <h2 id="orgfb27107">Sample text</h2>
- <div class="outline-text-2" id="text-orgfb27107">
+</article> <article id="outline-container-org36e7f32" class="outline-2"> <h2 id="org36e7f32">Sample text</h2>
+ <div class="outline-text-2" id="text-org36e7f32">
  <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus
