@@ -6,6 +6,7 @@
 
 /* Base font size in px */
 $fontSize: 16;
+$pageWidth: #{$fontSize * 50}px;
 
 $codeBoldWeight: 600;
 
@@ -199,7 +200,7 @@ h1, h2, h3, h4 {
 body {
     line-height: 1.5;
     margin: 2em auto;
-    max-width: 800px;
+    max-width: $pageWidth;
     padding: 1em;
 
     .figure p {
@@ -216,9 +217,9 @@ a {
 
     &[href^="mailto"]::after,&[href^="http"]::after,&[href^="https://"]::after {
         content: "";
-        width: 11px;
-        height: 11px;
-        margin-left: 4px;
+        @include rem-attributes(width, 0.7);
+        @include rem-attributes(height, 0.7);
+        @include rem-attributes(margin-left, 0.3);
         background-image: var(--external-link-image);
         background-position: center;
         background-repeat: no-repeat;
@@ -332,7 +333,7 @@ code {
     color: var(--code-foreground-color);
     background: var(--code-background-color);
     font-family: monospace;
-    padding: 4px;
+    @include rem-attributes(padding, 0.3);
 }
 
 /* Org-mode footnotes */
@@ -363,7 +364,7 @@ div#postamble {
 /********************************************************************
  * MEDIA QUERIES
  */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: $pageWidth) {
     /* Org-mode code box */
     pre.src {
         border-left-width: 0;
