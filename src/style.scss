@@ -50,14 +50,8 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
     #{$name}: #{$remSize}rem;
 }
 
-
-/********************************************************************
- * Define CSS variables for theme support
- */
-
-:root {
-    --font-size: #{$fontSize}px;
-
+// Mixins with the variables for the color themes.
+@mixin light-theme() {
     --background-color: #{$lightBackgroundColor};
     --blockquote-background-color: #{$lightCodeLanguageBoxColor};
     --blockquote-before-foreground-color: #{contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor, 2)};
@@ -85,33 +79,48 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
     --pre-before-foreground-color: #{contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor)};
 }
 
+@mixin dark-theme() {
+    --background-color: #{$darkBackgroundColor};
+    --blockquote-background-color: #{$darkCodeLanguageBoxColor};
+    --blockquote-before-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor, 2)};
+    --blockquote-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor)};
+    --code-background-color: #{darken($darkBackgroundColor, 5%)};
+    --code-bold-weight: #{$codeBoldWeight};
+    --code-comment-color: #{contrast-color($codeCommentColor, $darkBackgroundColor)};
+    --code-foreground-color: #{contrast-color($codeTagForegroundColor, darken($darkBackgroundColor, 5%))};
+    --code-function-name-color: #{contrast-color($codeFunctionNameColor, $darkBackgroundColor)};
+    --code-keyword-color: #{contrast-color($codeKeywordColor, $darkBackgroundColor)};
+    --code-nix-builtin-color: #{contrast-color($codeNixBuiltInColor, $darkBackgroundColor)};
+    --code-nix-constant-color: #{contrast-color($codeNixConstantColor, $darkBackgroundColor)};
+    --code-php-tag-color: #{contrast-color($codePhpTagColor, $darkBackgroundColor)};
+    --code-string-color: #{contrast-color($codeStringColor, $darkBackgroundColor)};
+    --code-type-color: #{contrast-color($codeTypeColor, $darkBackgroundColor)};
+    --content-delimiter-color: #{$darkContentDelimiters};
+    --external-link-image: url("/imgs/external-arrow-light.svg");
+    --foreground-color: #{$darkForegroundColor};
+    --link-color: #{contrast-color($linkColor, $darkBackgroundColor)};
+    --link-menu-hover-visited-color: #{contrast-color($visitedLinkColor, $darkMenuHoverColor)};
+    --link-visited-color: #{contrast-color($visitedLinkColor, $darkBackgroundColor)};
+    --menu-hover-background-color: #{$darkMenuHoverColor};
+    --menu-hover-foreground-color: #{contrast-color($linkColor, $darkMenuHoverColor)};
+    --pre-before-background-color: #{$darkCodeLanguageBoxColor};
+    --pre-before-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor)};
+}
+
+
+/********************************************************************
+ * Define CSS variables for theme support
+ */
+
+:root {
+    --font-size: #{$fontSize}px;
+
+    @include light-theme();
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
-        --background-color: #{$darkBackgroundColor};
-        --blockquote-background-color: #{$darkCodeLanguageBoxColor};
-        --blockquote-before-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor, 2)};
-        --blockquote-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor)};
-        --code-background-color: #{darken($darkBackgroundColor, 5%)};
-        --code-bold-weight: #{$codeBoldWeight};
-        --code-comment-color: #{contrast-color($codeCommentColor, $darkBackgroundColor)};
-        --code-foreground-color: #{contrast-color($codeTagForegroundColor, darken($darkBackgroundColor, 5%))};
-        --code-function-name-color: #{contrast-color($codeFunctionNameColor, $darkBackgroundColor)};
-        --code-keyword-color: #{contrast-color($codeKeywordColor, $darkBackgroundColor)};
-        --code-nix-builtin-color: #{contrast-color($codeNixBuiltInColor, $darkBackgroundColor)};
-        --code-nix-constant-color: #{contrast-color($codeNixConstantColor, $darkBackgroundColor)};
-        --code-php-tag-color: #{contrast-color($codePhpTagColor, $darkBackgroundColor)};
-        --code-string-color: #{contrast-color($codeStringColor, $darkBackgroundColor)};
-        --code-type-color: #{contrast-color($codeTypeColor, $darkBackgroundColor)};
-        --content-delimiter-color: #{$darkContentDelimiters};
-        --external-link-image: url("/imgs/external-arrow-light.svg");
-        --foreground-color: #{$darkForegroundColor};
-        --link-color: #{contrast-color($linkColor, $darkBackgroundColor)};
-        --link-menu-hover-visited-color: #{contrast-color($visitedLinkColor, $darkMenuHoverColor)};
-        --link-visited-color: #{contrast-color($visitedLinkColor, $darkBackgroundColor)};
-        --menu-hover-background-color: #{$darkMenuHoverColor};
-        --menu-hover-foreground-color: #{contrast-color($linkColor, $darkMenuHoverColor)};
-        --pre-before-background-color: #{$darkCodeLanguageBoxColor};
-        --pre-before-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor)};
+        @include dark-theme();
     }
 }
 
