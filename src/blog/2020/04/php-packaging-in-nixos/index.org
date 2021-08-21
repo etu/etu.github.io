@@ -23,12 +23,12 @@ We have been quite bad at accommodating all needs though…
 I'm gonna give a few examples.
 
 PHP in NixOS has defaulted to including for example the following modules:
- - =curl=
- - =pdo_mysql=
- - =pdo_odbc=
- - =pdo_pgsql=
- - =imap=
- - =ldap=
+- =curl=
+- =pdo_mysql=
+- =pdo_odbc=
+- =pdo_pgsql=
+- =imap=
+- =ldap=
 
 … among many other modules. Some of these are quite convenient to get (such
 as database related extensions). But some of these are totally unreasonable
@@ -49,8 +49,8 @@ opcache flag for the build and recompile the entire PHP package. How fun…
 :CUSTOM_ID: the-road-to-a-better-php-packaging-ecosystem
 :END:
 
-Real work and thought into this project started in December 2019 when I had
-a chat with Grahamc about a packaging in PHP. And he referred me to talk to a
+Real work and thought into this project started in December 2019 when I had a
+chat with Grahamc about a packaging in PHP. And he referred me to talk to a
 another person that was doing a modular PHP setup. I got some notes and
 started to work on it but it proved to be a huge project. So it kinda died
 off there.
@@ -63,15 +63,15 @@ almost all PHP extensions as separate packages. With this it would be easier
 to pull in official PHP extensions into the PHP package without the need to
 recompile it.
 
-This led to the end game to have a really small PHP as base, but it's easy
-to extend. This led me to the path to start with [[https://github.com/NixOS/nixpkgs/pull/82794][PHP: Make the default
-package more sane]] of the first iteration. But it proved to be a big project,
-so [[https://github.com/talyz/][@talyz]] and me teamed up with to bring this project to what we wanted
-to achieve.
+This led to the end game to have a really small PHP as base, but it's easy to
+extend. This led me to the path to start with [[https://github.com/NixOS/nixpkgs/pull/82794][PHP: Make the default package
+more sane]] of the first iteration. But it proved to be a big project, so
+[[https://github.com/talyz/][@talyz]] and me teamed up with to bring this project to what we wanted to
+achieve.
 
-This finally ended up as the following pull request:
-[[https://github.com/NixOS/nixpkgs/pull/83896][PHP: Make the default package more sane (v3)]]. That now has been merged into
-nixpkgs. This PR change the entire PHP ecosystem in NixOS.
+This finally ended up as the following pull request: [[https://github.com/NixOS/nixpkgs/pull/83896][PHP: Make the default
+package more sane (v3)]]. That now has been merged into nixpkgs. This PR change
+the entire PHP ecosystem in NixOS.
 
 * State of PHP in NixOS in 20.09 and beyond
 :PROPERTIES:
@@ -79,30 +79,30 @@ nixpkgs. This PR change the entire PHP ecosystem in NixOS.
 :END:
 
 The things we have done:
- - We have made a really small PHP as base
- - But we extend it by default to contain a bigger set of packages to not
-   for break our users.
- - We provide almost all upstream extensions and a bunch of 3rd party ones
-   for inclusion into your PHP.
- - We have written the initial documentation for how to use PHP on Nix.
- - We have enabled running tests for every upstream extension of PHP by
-   default. And we do it when we build each extension in a sandbox separate
-   from each other (This has some issues though).
- - We have added =opcache= as a default extension.
+- We have made a really small PHP as base
+- But we extend it by default to contain a bigger set of packages to not for
+  break our users.
+- We provide almost all upstream extensions and a bunch of 3rd party ones for
+  inclusion into your PHP.
+- We have written the initial documentation for how to use PHP on Nix.
+- We have enabled running tests for every upstream extension of PHP by
+  default. And we do it when we build each extension in a sandbox separate
+  from each other (This has some issues though).
+- We have added =opcache= as a default extension.
 
 So hereby I now make the following claim:
 
 NixOS now have the best packaging of PHP on any distribution of any operating
 system out there when it comes to the following properties:
- - Opportunity for minimalist install
- - Flexibility to select exactly which extensions you want
+- Opportunity for minimalist install
+- Flexibility to select exactly which extensions you want
 
 Example to build a PHP with exactly the extensions I want:
 #+BEGIN_SRC nix
-php.withExtensions ({ enabled, all }: with all; [
-  curl imagick opcache redis pdo_mysql pdo mysqlnd
-  openssl posix sodium sockets
-])
+  php.withExtensions ({ enabled, all }: with all; [
+    curl imagick opcache redis pdo_mysql pdo mysqlnd
+    openssl posix sodium sockets
+  ])
 #+END_SRC
 
 And since Nix can be used to build Docker images and be used for deployments,

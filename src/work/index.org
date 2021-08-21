@@ -5,8 +5,8 @@ As a work life experience I mostly have been working with PHP and other
 web-related technologies. Since 2014 been focusing on backend development.
 
 I've also got experience with maintaining servers, networks, load balancing,
-databases, sshd, web servers among other things you need for a big website
-to scale and work well.
+databases, sshd, web servers among other things you need for a big website to
+scale and work well.
 
 * ./work/present/
 :PROPERTIES:
@@ -37,9 +37,9 @@ interface to be able to do manual changes in the data easily.
 :END:
 
 This was more a pure backend position than my previous roles. We designed
-APIs for external users where we had to consider API versioning, compabilitiy
-and communication to these external users about breakage. We also managed
-huge data imports of product data to make available in the API.
+APIs for external users where we had to consider API versioning,
+compatibility and communication to these external users about breakage. We
+also managed huge data imports of product data to make available in the API.
 
 [[file:../imgs/screenshot_shopello.png]]
 

@@ -14,9 +14,9 @@ In parts of the IT industry abbreviations like RSI[fn:rsi] and CTS[fn:cts]
 gets thrown around fairly often. I'm guilty myself of doing this.
 
 Approximately five years ago I thought that my career as a professional
-developer was over. This was at age 25. Since then I have worked in many
-ways to address these issues that I had problems with. I now feel confident
-that I've beaten it for my own sake.
+developer was over. This was at age 25. Since then I have worked in many ways
+to address these issues that I had problems with. I now feel confident that
+I've beaten it for my own sake.
 
 In this post I'm going to go through the big rough steps of what I've changed
 over time. All the steps have been worked on in parallel so this blog post
@@ -45,12 +45,12 @@ that that was launched way later but got shipped much faster. So I got two of
 that one as well to have one at work and one at home. They also happened to
 support the Matias Quiet Switches[fn:matias-quiet].
 
-I've experienced quality issues with my Matias Switches which pushed me
-to move back to Cherry MX or at least something Cherry MX compatible. At a
-Keyboard meetup I got the chance to try out an ErgoDox with
-Zealios V2[fn:zealios]. Which I later ordered switches for and it's now my
-main keyboard, together with the MX Ergo[fn:mx-ergo] that replaced my
-previous M570[fn:m570].
+I've experienced quality issues with my Matias Switches which pushed me to
+move back to Cherry MX or at least something Cherry MX compatible. At a
+Keyboard meetup I got the chance to try out an ErgoDox with Zealios
+V2[fn:zealios]. Which I later ordered switches for and it's now my main
+keyboard, together with the MX Ergo[fn:mx-ergo] that replaced my previous
+M570[fn:m570].
 
 All this costed me a lot of money on hardware, it haven't solved all problems
 just magically. More has been needed.
@@ -100,9 +100,9 @@ Increased blood flow to the regions with inflammation will help the body
 getting rid if inflammation faster.
 
 As far as I see it, there's two reasonable ways to increase blood flow:
- - If you're numb, massage may help to let blood through.
- - Doing activities that increase blood flow, for example physical activities
-   such as running, cycling, etc. Any form of workout that raises the pulse.
+- If you're numb, massage may help to let blood through.
+- Doing activities that increase blood flow, for example physical activities
+  such as running, cycling, etc. Any form of workout that raises the pulse.
 
 In the past three years I've gone from loathing physical activities to
 wanting more of it and actually miss it if it's not present.
@@ -149,9 +149,9 @@ During the spring of 2020, I went to a private doctor that did a ultrasound
 scan of my wrists. The doctor scanned my wrists and said this:
 #+BEGIN_QUOTE
 I have good news and I have bad news:
- - I can't find anything that is broken.
- - It's probably an environmental issue of something you do in your daily
-   work that causes this.
+- I can't find anything that is broken.
+- It's probably an environmental issue of something you do in your daily work
+  that causes this.
 #+END_QUOTE
 
 I've also had recorded a video of me typing on my ErgoDoxes just the week
@@ -160,15 +160,15 @@ before which I offered to show the doctor.
 He was impressed by the pretty keyboard but also immediately spotted a
 potential problem: How I used my wrist rests.
 
-I did put too much pressure on my wrist rests and needed to rest my arms
-more to have less pressure on the wrists. This combined with avoiding weird
-angles using the wrists to hold the laptop in place and avoiding weird angles
-of using my phone has made the pain manageable.
+I did put too much pressure on my wrist rests and needed to rest my arms more
+to have less pressure on the wrists. This combined with avoiding weird angles
+using the wrists to hold the laptop in place and avoiding weird angles of
+using my phone has made the pain manageable.
 
 I can now feel the pain from what I do, and I can stop it by not working in
 that position or doing that particular thing. I have the tools to not have
-pain even after 8-10 hours of keyboard use in a single day. And I can work
-a full time job without any problems.
+pain even after 8-10 hours of keyboard use in a single day. And I can work a
+full time job without any problems.
 
 * Summary
 :PROPERTIES:
@@ -176,9 +176,9 @@ a full time job without any problems.
 :END:
 
 A TL DR of my actions that made the pain manageable:
- - Ergonomic keyboard with wrist and arm rests for long time use
- - Sticking to a fully plant based diet[fn:plant-based-diets]
- - Working out three to four times a week
+- Ergonomic keyboard with wrist and arm rests for long time use
+- Sticking to a fully plant based diet[fn:plant-based-diets]
+- Working out three to four times a week
 
 It's still a daily struggle, but it's manageable and easy to live with
 compared to how it was in the past.

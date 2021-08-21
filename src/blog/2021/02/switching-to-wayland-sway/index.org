@@ -16,38 +16,38 @@ project was new. At that point (if I remember correctly), not even the window
 decorations looked like the ones in i3wm.
 
 * Key map
-As a US Dvorak typist that sometimes types Swedish, I have opinions about
-key maps. Since I used xmodmap before to customize my key map to make it work
-for me, I needed to replicate this for Sway.
+As a US Dvorak typist that sometimes types Swedish, I have opinions about key
+maps. Since I used xmodmap before to customize my key map to make it work for
+me, I needed to replicate this for Sway.
 
 It took some tinkering, but I've ended up with the following custom key map:
 #+BEGIN_SRC conf
-// This file defines my own custom keymap. More information about which
-// parts that gets included are available in the different subfolders in:
-// /usr/share/X11/xkb/
-xkb_keymap {
-  xkb_keycodes { include "evdev+aliases(qwerty)" };
-  xkb_types    { include "default" };
-  xkb_compat   { include "complete" };
-  xkb_symbols  {
-    include "pc+us(dvorak)+inet(evdev)+ctrl(nocaps)+eurosign(e)+kpdl(dot)"
+  // This file defines my own custom keymap. More information about
+  // which parts that gets included are available in the different
+  // subfolders in: /usr/share/X11/xkb/
+  xkb_keymap {
+    xkb_keycodes { include "evdev+aliases(qwerty)" };
+    xkb_types    { include "default" };
+    xkb_compat   { include "complete" };
+    xkb_symbols  {
+      include "pc+us(dvorak)+inet(evdev)+ctrl(nocaps)+eurosign(e)+kpdl(dot)"
 
-    // Less than/Greater than/Pipe key on Swedish keyboards becomes Compose
-    replace key <LSGT> { [ Multi_key ] };
+      // Less than/Greater than/Pipe key on Swedish keyboards becomes Compose
+      replace key <LSGT> { [ Multi_key ] };
 
-    // Scroll Lock becomes Compose
-    replace key <SCLK> { [ Multi_key ] };
+      // Scroll Lock becomes Compose
+      replace key <SCLK> { [ Multi_key ] };
+    };
+    xkb_geometry { include "pc(pc105)" };
   };
-  xkb_geometry { include "pc(pc105)" };
-};
 #+END_SRC
 
 I put that as a file somewhere, and then I have the following in my sway
 configuration:
 #+BEGIN_SRC conf
-input "type:keyboard" {
-  xkb_file /path/to/xkb/file
-}
+  input "type:keyboard" {
+    xkb_file /path/to/xkb/file
+  }
 #+END_SRC
 
 * Browsers
@@ -61,10 +61,10 @@ environment set.
 
 * Editor
 As a long time Emacs user I'll just keep using Emacs. To begin with I did so
-in Xwayland - but it had some issues at some point which pushed me to try
-out the pgtk branch from a user on GitHub. It's been great since I started
-using it and that branch is now accepted as a feature branch on Savannah, so
-now I hope it's mainlined before Emacs 28.
+in Xwayland - but it had some issues at some point which pushed me to try out
+the pgtk branch from a user on GitHub. It's been great since I started using
+it and that branch is now accepted as a feature branch on Savannah, so now I
+hope it's mainlined before Emacs 28.
 
 * Screen sharing
 It works! =*=
@@ -90,19 +90,19 @@ Fedora, then you just run it in Wayland mode and it's fine.
 Chrome has a flag to enable pipewire support.
 
 I know there's a flag that can be provided to =xdg-desktop-portals-wlr= to
-specify which screen to share. I'm not sure how to manage that easily in
-a multi screen environment.
+specify which screen to share. I'm not sure how to manage that easily in a
+multi screen environment.
 
 * Miscellaneous applications
- - Screenshots: =grim -g $(slurp) - | swappy -f -=
- - Back light: =acpiilight=
- - Lock screen: =swaylock= & =swayidle=
- - Notifications: =mako=
- - PDF Viewer: =emacs= with =pdf-tools=
- - Launcher: =rofi= in Xwayland (I should look into =wofi= some day)
- - Image viewer: =emacs= or =feh= in Xwayland
- - Graphical display settings: =wdisplays= is great!
- - Command line display settings: =wlr-randr=
+- Screenshots: =grim -g $(slurp) - | swappy -f -=
+- Back light: =acpiilight=
+- Lock screen: =swaylock= & =swayidle=
+- Notifications: =mako=
+- PDF Viewer: =emacs= with =pdf-tools=
+- Launcher: =rofi= in Xwayland (I should look into =wofi= some day)
+- Image viewer: =emacs= or =feh= in Xwayland
+- Graphical display settings: =wdisplays= is great!
+- Command line display settings: =wlr-randr=
 
 * Conclusions
 My road to Wayland with Sway have for sure have had a couple of road bumps.

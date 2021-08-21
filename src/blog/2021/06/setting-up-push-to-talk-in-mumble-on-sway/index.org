@@ -10,10 +10,10 @@ any point.
 This is both good news and bad news.
 
 The good news:
- - Applications can't just randomly spy on each other.
+- Applications can't just randomly spy on each other.
 
 The bad news:
- - Things like global hot-keys in for example Mumble won't work.
+- Things like global hot-keys in for example Mumble won't work.
 
 Back from complaining to actually solving the problem though.
 
@@ -22,15 +22,16 @@ So there's the issue about [[https://github.com/mumble-voip/mumble/issues/3243][
 been followed up by a patch [[https://github.com/mumble-voip/mumble/pull/3675][Add DBus calls to de/-activate push to talk]]. This
 patch will land in the 1.4.0 release though while current stable is 1.3.4.
 
-A thing with mumble is that they aren't quick at releasing new versions,
-so sitting around and waiting for a new release might… take a while.
+A thing with mumble is that they aren't quick at releasing new versions, so
+sitting around and waiting for a new release might… take a while.
 
 * Sway has patches for this
 Since version 1.5 Sway has a patch to be able to bind keys that doesn't
 repeat it's action, but it still works to bind them to trigger a release
 event which sounds a lot like a push to talk buttons function to me.
 
-Here's the patch that was applied to Sway: [[https://github.com/swaywm/sway/pull/5132][add --no-repeat option for bindings]].
+Here's the patch that was applied to Sway: [[https://github.com/swaywm/sway/pull/5132][add --no-repeat option for
+bindings]].
 
 * Actually making use of these things in NixOS
 I started by patching mumble to support the dbus calls:

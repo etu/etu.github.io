@@ -40,38 +40,38 @@ then scrubbed the pool to confirm how bad it was.
 
 This was the output from =zpool status -v=:
 #+BEGIN_SRC plain
-[root@nixos:/home/nixos]# zpool status -v
-  pool: zroot
- state: DEGRADED
-status: One or more devices has experienced an error resulting in data
-        corruption.  Applications may be affected.
-action: Restore the file in question if possible. Otherwise restore the
-        entire pool from backup.
-   see: https://openzfs.github.io/openzfs-docs/msg/ZFS-8000-8A
-  scan: scrub in progress since Fri May 21 07:20:10 2021
-        131G scanned at 649M/s, 70.2G issued at 347M/s, 143G total
-        180K repaired, 49.18% done, 00:03:33 to go
-config:
+  [root@nixos:/home/nixos]# zpool status -v
+    pool: zroot
+   state: DEGRADED
+  status: One or more devices has experienced an error resulting in data
+          corruption.  Applications may be affected.
+  action: Restore the file in question if possible. Otherwise restore the
+          entire pool from backup.
+     see: https://openzfs.github.io/openzfs-docs/msg/ZFS-8000-8A
+    scan: scrub in progress since Fri May 21 07:20:10 2021
+          131G scanned at 649M/s, 70.2G issued at 347M/s, 143G total
+          180K repaired, 49.18% done, 00:03:33 to go
+  config:
 
-        NAME                                                     STATE      READ WRITE CKSUM
-        zroot                                                    DEGRADED      0     0     0
-          nvme-LENSE30256GMSP34MEAT3TA_FBBS19071030004166-part1  DEGRADED    206     0    96  too many errors  (reparing)
+          NAME                                                     STATE      READ WRITE CKSUM
+          zroot                                                    DEGRADED      0     0     0
+            nvme-LENSE30256GMSP34MEAT3TA_FBBS19071030004166-part1  DEGRADED    206     0    96  too many errors  (reparing)
 
-errors: Permanent errors have been detected in the following files:
+  errors: Permanent errors have been detected in the following files:
 
-        zroot/nix:<0x0>
-        zroot/home@zfs-auto-snap_frequent-2021-05-21-08h15:<0x0>
-        zroot/home@zfs-auto-snap_frequent-2021-05-21-08h15:/etu/.mozilla/firefox/<redacted>
-        zroot/home:<0x0>
-        zroot/home:/etu/.mozilla/firefox/<redacted>
-        zroot/home:/etu/.mozilla/firefox/<redacted>
-        zroot/home:/etu/.mozilla/firefox/<redacted>
+          zroot/nix:<0x0>
+          zroot/home@zfs-auto-snap_frequent-2021-05-21-08h15:<0x0>
+          zroot/home@zfs-auto-snap_frequent-2021-05-21-08h15:/etu/.mozilla/firefox/<redacted>
+          zroot/home:<0x0>
+          zroot/home:/etu/.mozilla/firefox/<redacted>
+          zroot/home:/etu/.mozilla/firefox/<redacted>
+          zroot/home:/etu/.mozilla/firefox/<redacted>
 #+END_SRC
 
 While doing this scrub I had my kernel spamming messages like this:
 #+BEGIN_SRC plain
-[ 358.895359] blk_update_request: critical medium error, dev nvme0n1, sector
-              279163624 op 0x0:(READ) flags 0x0 phys_seg 11 prio class 0
+  [ 358.895359] blk_update_request: critical medium error, dev nvme0n1, sector
+                279163624 op 0x0:(READ) flags 0x0 phys_seg 11 prio class 0
 #+END_SRC
 
 * Starting to recover
@@ -84,8 +84,8 @@ snapshot created at 08:00 this morning was intact it seemed. So I managed to
 do a ZFS send to back this snapshot up to my file server at home.
 
 #+BEGIN_SRC sh
-zfs send zroot/home@zfs-auto-snap_frequent-2021-05-21-08h00 | pv |
-    ssh my-user@my-home-server 'cat > backups/work/home-filesystem.zfs'
+  zfs send zroot/home@zfs-auto-snap_frequent-2021-05-21-08h00 | pv |
+      ssh my-user@my-home-server 'cat > backups/work/home-filesystem.zfs'
 #+END_SRC
 
 This took a while because it was 25G worth of data. Most of which is "backed
@@ -129,8 +129,8 @@ I was lucky that I had ZFS telling me so clearly what was wrong, how it was
 wrong, what I could recover, what I couldn't recover so when I did recover my
 data I'm sure that I managed to recover every single bit of data that I cared
 about backing up. If it wasn't for ZFS I'm not sure that I would have noticed
-as early as I did and I'm not sure that I would have been able to save any
-of the data.
+as early as I did and I'm not sure that I would have been able to save any of
+the data.
 
 Snapshots on the machine you use isn't a replacement for backups, but it's a
 really good tool for creating backups based on.

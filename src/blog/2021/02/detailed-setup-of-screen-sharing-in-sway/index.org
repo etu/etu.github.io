@@ -10,9 +10,9 @@ To have working screen sharing on Sway you really need three components
 installed and set up with correct environment variables.
 
 These three components are:
- - =pipewire= (I have version: 0.3.21)
- - =xdg-desktop-portal= (I have version: 1.8.0)
- - =xdg-desktop-portal-wlr= (I have version: 0.1.0)
+- =pipewire= (I have version: 0.3.21)
+- =xdg-desktop-portal= (I have version: 1.8.0)
+- =xdg-desktop-portal-wlr= (I have version: 0.1.0)
 
 These three components has to have systemd user services. You should be able
 to see them in the list if you run =systemctl --user=, just look for the
@@ -20,14 +20,14 @@ different programs name ending in =.service=.
 
 You can also check on each service individually by running:
 #+BEGIN_SRC sh
-systemctl --user status pipewire.service
-systemctl --user status xdg-desktop-portal.service
-systemctl --user status xdg-desktop-portal-wlr.service
+  systemctl --user status pipewire.service
+  systemctl --user status xdg-desktop-portal.service
+  systemctl --user status xdg-desktop-portal-wlr.service
 #+END_SRC
 
 * Required environment variables
- - =XDG_SESSION_TYPE=wayland=
- - =XDG_CURRENT_DESKTOP=sway=
+- =XDG_SESSION_TYPE=wayland=
+- =XDG_CURRENT_DESKTOP=sway=
 
 How you set this may vary depending on your distribution, in NixOS I did set
 these in a global way. But this, surprisingly to me wasn't enough to make
@@ -36,7 +36,7 @@ them apply all the way through to systemd user services.
 So I had to add the following to command to run before I log into sway:
 
 #+BEGIN_SRC sh
-systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+  systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
 #+END_SRC
 
 It may be fine to start it after sway is launched as well, it probably just
@@ -71,8 +71,8 @@ services for =pipewire.service=, =xdg-desktop-portal.service= and
 *should* be started automatically when you start sharing your screen.
 
 There's no real use to start them manually if they aren't running at this
-point since they require the environment variables to work regardless if
-they run or not.
+point since they require the environment variables to work regardless if they
+run or not.
 
 * What if the services doesn't start?
 Then it doesn't work. You can just stop the services that may have started,
@@ -81,9 +81,9 @@ then try to adjust your environment variables and try again.
 You can check on each service with the commands above. If you want to stop
 all or specific services you can run the following to do so:
 #+BEGIN_SRC sh
-systemctl --user stop pipewire.service
-systemctl --user stop xdg-desktop-portal.service
-systemctl --user stop xdg-desktop-portal-wlr.service
+  systemctl --user stop pipewire.service
+  systemctl --user stop xdg-desktop-portal.service
+  systemctl --user stop xdg-desktop-portal-wlr.service
 #+END_SRC
 
 * Footnotes

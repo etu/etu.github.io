@@ -15,53 +15,53 @@ This is an inline =code= block.
 ** Test of syntax highlighting
 *** elisp
 #+BEGIN_SRC elisp
-;; Define the hello function
-(defun hello ()
-  "This
-   is my
-   docstring"
-  (message "world"))
+  ;; Define the hello function
+  (defun hello ()
+    "This
+     is my
+     docstring"
+    (message "world"))
 
-;; Call the hello function
-(hello)
+  ;; Call the hello function
+  (hello)
 #+END_SRC
 
 *** Nix
 #+BEGIN_SRC nix
-{
-  # Define the hello function
-  hello = {}: "world";
+  {
+    # Define the hello function
+    hello = {}: "world";
 
-  # More tests
-  boolean = true;
-  fileimport = import ./src/file.nix;
+    # More tests
+    boolean = true;
+    fileimport = import ./src/file.nix;
 
-  # Call the hello function
-  message = hello {};
-}
+    # Call the hello function
+    message = hello {};
+  }
 #+END_SRC
 
 *** Go
 #+BEGIN_SRC go
-package main
+  package main
 
-import "fmt"
+  import "fmt"
 
-func main() {
-	fmt.Println("Hello world")
-}
+  func main() {
+      fmt.Println("Hello world")
+  }
 #+END_SRC
 
 *** PHP
 #+BEGIN_SRC php
-<?php
-# Define the hello function
-function hello() : void {
-    echo "world";
-}
+  <?php
+  # Define the hello function
+  function hello() : void {
+      echo "world";
+  }
 
-// Call the hello function
-hello();
+  // Call the hello function
+  hello();
 #+END_SRC
 
 ** Sample text

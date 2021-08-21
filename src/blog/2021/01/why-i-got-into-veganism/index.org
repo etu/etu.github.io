@@ -3,8 +3,8 @@
 #+DATE: <2021-01-20 Wed 21:00>
 #+OPTIONS: toc:t
 
-This is a follow-up on: [[../why-i-use-free-software/][Why I use Free Software]].
-This has been followed up by: [[../i-find-food-habits-at-free-software-events-weird][I find food habits at Free Software events weird]].
+This is a follow-up on: [[../why-i-use-free-software/][Why I use Free Software]]. This has been followed up
+by: [[../i-find-food-habits-at-free-software-events-weird][I find food habits at Free Software events weird]].
 
 People who turn to Veganism[fn:veganism] can do this for different reasons,
 some do it for health reasons, others for climate reasons. But in it's core,
@@ -32,8 +32,8 @@ Before I started this journey into Veganism I was the typical meat eating
 guy. I even used to make inappropriate jokes like this:
 
 #+BEGIN_QUOTE
-Pig bacon on Cow burgers is good because that insures that at least two
-different animals have died for this meal.
+  Pig bacon on Cow burgers is good because that insures that at least two
+  different animals have died for this meal.
 #+END_QUOTE
 
 This was a morbid joke back then, it hasn't aged well. I'm also upset with
@@ -55,10 +55,10 @@ I've found that they are surprisingly similar.
 There's some key differences though. Proprietary
 Software[fn:proprietary-software] usually doesn't involve:
 
- - Killing of billions of animals including using actual gas chambers.
- - Breed the animals to be able to kill them.
- - Produce toxic waste from having millions of sentient beings in the form of
-   feces that comes out in the water supplies.
+- Killing of billions of animals including using actual gas chambers.
+- Breed the animals to be able to kill them.
+- Produce toxic waste from having millions of sentient beings in the form of
+  feces that comes out in the water supplies.
 
 Veganism is the only humane lifestyle that isn't pushing for more
 Speciesism[fn:speciesism], which benefits both humans, animals and the

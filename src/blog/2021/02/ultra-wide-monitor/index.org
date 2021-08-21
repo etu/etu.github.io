@@ -52,8 +52,8 @@ This monitor: 10/10 - would pay full price.
 This is sometimes called 2k since it's less than 4k and more than 2000 pixels
 wide. But it's much more fair to call this 2.5k and reserve 2k for FHD.
 
-[fn:FHD] FHD is the resolution =1920×1080=, also known as 1080p.
-This could be called 2k since it's half the width of 4k.
+[fn:FHD] FHD is the resolution =1920×1080=, also known as 1080p.  This could
+be called 2k since it's half the width of 4k.
 
 [fn:QFHD] QFHD is the resolution =3840×2160=, think 4 times FHD in a grid.
 This is also known as 4k because the width is almost 4000 pixels.
