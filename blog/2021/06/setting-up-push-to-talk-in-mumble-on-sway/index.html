@@ -62,9 +62,9 @@ The bad news:
 Back from complaining to actually solving the problem though.
 </p>
 
-<article id="outline-container-org061ce31" class="outline-2">
-<h2 id="org061ce31">Mumble does have a patch for a future release</h2>
-<div class="outline-text-2" id="text-org061ce31">
+<article id="outline-container-org6d13f2d" class="outline-2">
+<h2 id="org6d13f2d">Mumble does have a patch for a future release</h2>
+<div class="outline-text-2" id="text-org6d13f2d">
 <p>
 So there's the issue about <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
 been followed up by a patch <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
@@ -72,15 +72,15 @@ patch will land in the 1.4.0 release though while current stable is 1.3.4.
 </p>
 
 <p>
-A thing with mumble is that they aren't quick at releasing new versions,
-so sitting around and waiting for a new release might… take a while.
+A thing with mumble is that they aren't quick at releasing new versions, so
+sitting around and waiting for a new release might… take a while.
 </p>
 </div>
 </article>
 
-<article id="outline-container-org8fe3edc" class="outline-2">
-<h2 id="org8fe3edc">Sway has patches for this</h2>
-<div class="outline-text-2" id="text-org8fe3edc">
+<article id="outline-container-orgf050cef" class="outline-2">
+<h2 id="orgf050cef">Sway has patches for this</h2>
+<div class="outline-text-2" id="text-orgf050cef">
 <p>
 Since version 1.5 Sway has a patch to be able to bind keys that doesn't
 repeat it's action, but it still works to bind them to trigger a release
@@ -88,14 +88,15 @@ event which sounds a lot like a push to talk buttons function to me.
 </p>
 
 <p>
-Here's the patch that was applied to Sway: <a href="https://github.com/swaywm/sway/pull/5132">add &#x2013;no-repeat option for bindings</a>.
+Here's the patch that was applied to Sway: <a href="https://github.com/swaywm/sway/pull/5132">add &#x2013;no-repeat option for
+bindings</a>.
 </p>
 </div>
 </article>
 
-<article id="outline-container-orga73525a" class="outline-2">
-<h2 id="orga73525a">Actually making use of these things in NixOS</h2>
-<div class="outline-text-2" id="text-orga73525a">
+<article id="outline-container-org8550465" class="outline-2">
+<h2 id="org8550465">Actually making use of these things in NixOS</h2>
+<div class="outline-text-2" id="text-org8550465">
 <p>
 I started by patching mumble to support the dbus calls:
 </p>

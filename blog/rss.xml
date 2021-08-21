@@ -6,7 +6,7 @@
 <generator>Emacs webfeeder.el</generator>
 <link>https://elis.nu/</link>
 <atom:link href="https://elis.nu/blog/rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Fri, 06 Aug 2021 09:00:36 +0000</lastBuildDate>
+<lastBuildDate>Sat, 21 Aug 2021 19:38:07 +0000</lastBuildDate>
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Mobile org-mode use with Orgzly and Syncthing</title>
@@ -28,7 +28,8 @@ Some examples where I currently use org-mode:
 </ul> <p>
 I've tried to use it for to do's but never really managed, partly because I
 wanted to have a good interface for my to do's on my phone. Then I wanted
-quick synchronization to my computers to be able to pick up the changes there.
+quick synchronization to my computers to be able to pick up the changes
+there.
 </p>
 
  <p>
@@ -63,15 +64,16 @@ This is when I started to look into Orgzly's other synchronization options,
 this is, as of writing in the current version of the app (1.8.5) the
 available options:
 </p>
- <dl class="org-dl"> <dt> <b>Dropbox</b></dt> <dd>I'm not a customer of Dropbox so this was a no-go to begin with.</dd>
+ <dl class="org-dl"> <dt> <b>Dropbox</b></dt> <dd>I'm not a customer of Dropbox so this was a no-go to begin
+with.</dd>
 
- <dt> <b>WebDAV</b></dt> <dd>As far as I know I don't have an easily available WebDAV server that I can
-use which makes it easy to get the files to my laptops and desktop systems
-where I can use them with Emacs without doing any fancy scripting to sync
-the files by hand.</dd>
+ <dt> <b>WebDAV</b></dt> <dd>As far as I know I don't have an easily available WebDAV server
+that I can use which makes it easy to get the files to my laptops and
+desktop systems where I can use them with Emacs without doing any fancy
+scripting to sync the files by hand.</dd>
 
- <dt> <b>Directory</b></dt> <dd>This just syncs to a directory on the device, doesn't sound like much. But
-it's the option I went for.</dd>
+ <dt> <b>Directory</b></dt> <dd>This just syncs to a directory on the device, doesn't sound
+like much. But it's the option I went for.</dd>
 </dl></div>
 </article> <article id="outline-container-enter-syncthing" class="outline-2"> <h2 id="enter-syncthing">Enter Syncthing</h2>
  <div class="outline-text-2" id="text-enter-syncthing">
@@ -143,8 +145,8 @@ right after activation to make sure that you'd never lock yourself out, multi
 system management and it's own secrets support.
 </p>
 
- <article id="outline-container-org4f00c47" class="outline-2"> <h2 id="org4f00c47">Pulling in the nixus module using  <code>niv</code></h2>
- <div class="outline-text-2" id="text-org4f00c47">
+ <article id="outline-container-org17a5cc5" class="outline-2"> <h2 id="org17a5cc5">Pulling in the nixus module using  <code>niv</code></h2>
+ <div class="outline-text-2" id="text-org17a5cc5">
  <p>
 I've use  <code>niv</code> to pull in the nixus modules:
 </p>
@@ -160,8 +162,8 @@ parses a file called  <code>sources.json</code> which contains the repositories 
 by  <code>niv</code> and which git commit they are locked to.
 </p>
 </div>
-</article> <article id="outline-container-org158e4e3" class="outline-2"> <h2 id="org158e4e3">Setting up a deployment file using nixus</h2>
- <div class="outline-text-2" id="text-org158e4e3">
+</article> <article id="outline-container-orge17459d" class="outline-2"> <h2 id="orge17459d">Setting up a deployment file using nixus</h2>
+ <div class="outline-text-2" id="text-orge17459d">
  <p>
 This is also fairly straightforward, it needs to import the nixus module from
 niv to then use it to declare a nixus module.
@@ -219,8 +221,8 @@ nixus ({ config, ... }: {
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-orgd84c17a" class="outline-2"> <h2 id="orgd84c17a">Building and deploying systems</h2>
- <div class="outline-text-2" id="text-orgd84c17a">
+</article> <article id="outline-container-orgf6f256c" class="outline-2"> <h2 id="orgf6f256c">Building and deploying systems</h2>
+ <div class="outline-text-2" id="text-orgf6f256c">
  <p>
 Building and deploying your system couldn't be simpler! It's as easy as
 running  <code>nix-build path/to/deployment.nix</code> where the path is to the file that
@@ -262,8 +264,8 @@ The bad news:
 Back from complaining to actually solving the problem though.
 </p>
 
- <article id="outline-container-org061ce31" class="outline-2"> <h2 id="org061ce31">Mumble does have a patch for a future release</h2>
- <div class="outline-text-2" id="text-org061ce31">
+ <article id="outline-container-org6d13f2d" class="outline-2"> <h2 id="org6d13f2d">Mumble does have a patch for a future release</h2>
+ <div class="outline-text-2" id="text-org6d13f2d">
  <p>
 So there's the issue about  <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
 been followed up by a patch  <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
@@ -271,12 +273,12 @@ patch will land in the 1.4.0 release though while current stable is 1.3.4.
 </p>
 
  <p>
-A thing with mumble is that they aren't quick at releasing new versions,
-so sitting around and waiting for a new release might… take a while.
+A thing with mumble is that they aren't quick at releasing new versions, so
+sitting around and waiting for a new release might… take a while.
 </p>
 </div>
-</article> <article id="outline-container-org8fe3edc" class="outline-2"> <h2 id="org8fe3edc">Sway has patches for this</h2>
- <div class="outline-text-2" id="text-org8fe3edc">
+</article> <article id="outline-container-orgf050cef" class="outline-2"> <h2 id="orgf050cef">Sway has patches for this</h2>
+ <div class="outline-text-2" id="text-orgf050cef">
  <p>
 Since version 1.5 Sway has a patch to be able to bind keys that doesn't
 repeat it's action, but it still works to bind them to trigger a release
@@ -284,11 +286,12 @@ event which sounds a lot like a push to talk buttons function to me.
 </p>
 
  <p>
-Here's the patch that was applied to Sway:  <a href="https://github.com/swaywm/sway/pull/5132">add –no-repeat option for bindings</a>.
+Here's the patch that was applied to Sway:  <a href="https://github.com/swaywm/sway/pull/5132">add –no-repeat option for
+bindings</a>.
 </p>
 </div>
-</article> <article id="outline-container-orga73525a" class="outline-2"> <h2 id="orga73525a">Actually making use of these things in NixOS</h2>
- <div class="outline-text-2" id="text-orga73525a">
+</article> <article id="outline-container-org8550465" class="outline-2"> <h2 id="org8550465">Actually making use of these things in NixOS</h2>
+ <div class="outline-text-2" id="text-org8550465">
  <p>
 I started by patching mumble to support the dbus calls:
 </p>
@@ -510,8 +513,8 @@ I was lucky that I had ZFS telling me so clearly what was wrong, how it was
 wrong, what I could recover, what I couldn't recover so when I did recover my
 data I'm sure that I managed to recover every single bit of data that I cared
 about backing up. If it wasn't for ZFS I'm not sure that I would have noticed
-as early as I did and I'm not sure that I would have been able to save any
-of the data.
+as early as I did and I'm not sure that I would have been able to save any of
+the data.
 </p>
 
  <p>
@@ -561,8 +564,8 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
- <article id="outline-container-org5a7dc95" class="outline-2"> <h2 id="org5a7dc95">Required environment variables</h2>
- <div class="outline-text-2" id="text-org5a7dc95">
+ <article id="outline-container-orgc381a26" class="outline-2"> <h2 id="orgc381a26">Required environment variables</h2>
+ <div class="outline-text-2" id="text-orgc381a26">
  <ul class="org-ul"> <li> <code>XDG_SESSION_TYPE=wayland</code></li>
  <li> <code>XDG_CURRENT_DESKTOP=sway</code></li>
 </ul> <p>
@@ -591,9 +594,9 @@ activation when you start sharing your screen.
 </p>
 </div>
 
- <div id="outline-container-orga8874c6" class="outline-3">
- <h3 id="orga8874c6">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
- <div class="outline-text-3" id="text-orga8874c6">
+ <div id="outline-container-org2a9e2f6" class="outline-3">
+ <h3 id="org2a9e2f6">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
+ <div class="outline-text-3" id="text-org2a9e2f6">
  <p>
 Reported issue here  <a href="https://github.com/NixOS/nixpkgs/issues/119445">https://github.com/NixOS/nixpkgs/issues/119445</a>.
 </p>
@@ -610,8 +613,8 @@ config to import the right things to the right places:
 </div>
 </div>
 </div>
-</article> <article id="outline-container-orgbb89786" class="outline-2"> <h2 id="orgbb89786">Testing screen sharing</h2>
- <div class="outline-text-2" id="text-orgbb89786">
+</article> <article id="outline-container-org2f28841" class="outline-2"> <h2 id="org2f28841">Testing screen sharing</h2>
+ <div class="outline-text-2" id="text-org2f28841">
  <p>
 Testing screen sharing can easily be done with a patched <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
 Firefox started with  <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
@@ -623,8 +626,8 @@ To actually test screen sharing I'd recommend using Mozilla's  <a href="https://
 then just start your screen share on that page.
 </p>
 </div>
-</article> <article id="outline-container-orgfee2d0d" class="outline-2"> <h2 id="orgfee2d0d">What should happen?</h2>
- <div class="outline-text-2" id="text-orgfee2d0d">
+</article> <article id="outline-container-org1e6e229" class="outline-2"> <h2 id="org1e6e229">What should happen?</h2>
+ <div class="outline-text-2" id="text-org1e6e229">
  <p>
 Starting the screen share should trigger the socket activation for the user
 services for  <code>pipewire.service</code>,  <code>xdg-desktop-portal.service</code> and
@@ -634,12 +637,12 @@ services for  <code>pipewire.service</code>,  <code>xdg-desktop-portal.service</
 
  <p>
 There's no real use to start them manually if they aren't running at this
-point since they require the environment variables to work regardless if
-they run or not.
+point since they require the environment variables to work regardless if they
+run or not.
 </p>
 </div>
-</article> <article id="outline-container-org4226439" class="outline-2"> <h2 id="org4226439">What if the services doesn't start?</h2>
- <div class="outline-text-2" id="text-org4226439">
+</article> <article id="outline-container-org5c7466f" class="outline-2"> <h2 id="org5c7466f">What if the services doesn't start?</h2>
+ <div class="outline-text-2" id="text-org5c7466f">
  <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
@@ -694,21 +697,21 @@ project was new. At that point (if I remember correctly), not even the window
 decorations looked like the ones in i3wm.
 </p>
 
- <article id="outline-container-org49d7356" class="outline-2"> <h2 id="org49d7356">Key map</h2>
- <div class="outline-text-2" id="text-org49d7356">
+ <article id="outline-container-org5b17d4a" class="outline-2"> <h2 id="org5b17d4a">Key map</h2>
+ <div class="outline-text-2" id="text-org5b17d4a">
  <p>
-As a US Dvorak typist that sometimes types Swedish, I have opinions about
-key maps. Since I used xmodmap before to customize my key map to make it work
-for me, I needed to replicate this for Sway.
+As a US Dvorak typist that sometimes types Swedish, I have opinions about key
+maps. Since I used xmodmap before to customize my key map to make it work for
+me, I needed to replicate this for Sway.
 </p>
 
  <p>
 It took some tinkering, but I've ended up with the following custom key map:
 </p>
  <div class="org-src-container">
- <pre class="src src-conf">// This file defines my own custom keymap. More information about which
-// parts that gets included are available in the different subfolders in:
-// /usr/share/X11/xkb/
+ <pre class="src src-conf">// This file defines my own custom keymap. More information about
+// which parts that gets included are available in the different
+// subfolders in: /usr/share/X11/xkb/
  <span class="org-type">xkb_keymap</span> {
   xkb_keycodes { include  <span class="org-string">"evdev+aliases(qwerty)"</span> };
   xkb_types    { include  <span class="org-string">"default"</span> };
@@ -738,8 +741,8 @@ configuration:
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org5351eb7" class="outline-2"> <h2 id="org5351eb7">Browsers</h2>
- <div class="outline-text-2" id="text-org5351eb7">
+</article> <article id="outline-container-org3014a3c" class="outline-2"> <h2 id="org3014a3c">Browsers</h2>
+ <div class="outline-text-2" id="text-org3014a3c">
  <p>
 I use Firefox as my main browser, it works mostly fine native on Wayland. It
 happens now and then that I encounter things that are less than perfect
@@ -752,18 +755,18 @@ Firefox just needs some convincing with  <code>MOZ_ENABLE_WAYLAND=1</code> in th
 environment set.
 </p>
 </div>
-</article> <article id="outline-container-orgb1c1a7c" class="outline-2"> <h2 id="orgb1c1a7c">Editor</h2>
- <div class="outline-text-2" id="text-orgb1c1a7c">
+</article> <article id="outline-container-org75099e2" class="outline-2"> <h2 id="org75099e2">Editor</h2>
+ <div class="outline-text-2" id="text-org75099e2">
  <p>
 As a long time Emacs user I'll just keep using Emacs. To begin with I did so
-in Xwayland - but it had some issues at some point which pushed me to try
-out the pgtk branch from a user on GitHub. It's been great since I started
-using it and that branch is now accepted as a feature branch on Savannah, so
-now I hope it's mainlined before Emacs 28.
+in Xwayland - but it had some issues at some point which pushed me to try out
+the pgtk branch from a user on GitHub. It's been great since I started using
+it and that branch is now accepted as a feature branch on Savannah, so now I
+hope it's mainlined before Emacs 28.
 </p>
 </div>
-</article> <article id="outline-container-org9cf8410" class="outline-2"> <h2 id="org9cf8410">Screen sharing</h2>
- <div class="outline-text-2" id="text-org9cf8410">
+</article> <article id="outline-container-orga52d795" class="outline-2"> <h2 id="orga52d795">Screen sharing</h2>
+ <div class="outline-text-2" id="text-orga52d795">
  <p>
 It works!  <code>*</code>
 </p>
@@ -800,12 +803,12 @@ Chrome has a flag to enable pipewire support.
 
  <p>
 I know there's a flag that can be provided to  <code>xdg-desktop-portals-wlr</code> to
-specify which screen to share. I'm not sure how to manage that easily in
-a multi screen environment.
+specify which screen to share. I'm not sure how to manage that easily in a
+multi screen environment.
 </p>
 </div>
-</article> <article id="outline-container-orgc35e2a8" class="outline-2"> <h2 id="orgc35e2a8">Miscellaneous applications</h2>
- <div class="outline-text-2" id="text-orgc35e2a8">
+</article> <article id="outline-container-org8aeea18" class="outline-2"> <h2 id="org8aeea18">Miscellaneous applications</h2>
+ <div class="outline-text-2" id="text-org8aeea18">
  <ul class="org-ul"> <li>Screenshots:  <code>grim -g $(slurp) - | swappy -f -</code></li>
  <li>Back light:  <code>acpiilight</code></li>
  <li>Lock screen:  <code>swaylock</code> &  <code>swayidle</code></li>
@@ -816,8 +819,8 @@ a multi screen environment.
  <li>Graphical display settings:  <code>wdisplays</code> is great!</li>
  <li>Command line display settings:  <code>wlr-randr</code></li>
 </ul></div>
-</article> <article id="outline-container-org7e1f01f" class="outline-2"> <h2 id="org7e1f01f">Conclusions</h2>
- <div class="outline-text-2" id="text-org7e1f01f">
+</article> <article id="outline-container-orgead02c1" class="outline-2"> <h2 id="orgead02c1">Conclusions</h2>
+ <div class="outline-text-2" id="text-orgead02c1">
  <p>
 My road to Wayland with Sway have for sure have had a couple of road bumps.
 The only real bump that has been a software limitation has been how screen
@@ -881,7 +884,7 @@ Here are some sketches l've made of how big and wide this monster really is.
 </p>
 
 
- <div id="org9ef583c" class="figure">
+ <div id="org9d059ea" class="figure">
  <p> <img src="/blog/2021/02/ultra-wide-monitor/./drawing_thumb.png" alt="drawing_thumb.png"></img></p>
 </div>
 
@@ -914,8 +917,8 @@ QHD gives me over FHD. I have more use for the extra 33% height. It's even
 rare that I need the full FHD width.
 </p>
 
- <article id="outline-container-orgbe029b3" class="outline-2"> <h2 id="orgbe029b3">So why go ultra wide?</h2>
- <div class="outline-text-2" id="text-orgbe029b3">
+ <article id="outline-container-orgb588c89" class="outline-2"> <h2 id="orgb588c89">So why go ultra wide?</h2>
+ <div class="outline-text-2" id="text-orgb588c89">
  <p>
 This ultra wide monitor has the size of two 27" QHD displays in one panel.
 This gives me the insane resolution of 5120×1440. It still gives me the extra
@@ -945,8 +948,8 @@ wide. But it's much more fair to call this 2.5k and reserve 2k for FHD.
 </p></div></div>
 
  <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/02/ultra-wide-monitor/#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
-FHD is the resolution  <code>1920×1080</code>, also known as 1080p.
-This could be called 2k since it's half the width of 4k.
+FHD is the resolution  <code>1920×1080</code>, also known as 1080p.  This could
+be called 2k since it's half the width of 4k.
 </p></div></div>
 
  <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/02/ultra-wide-monitor/#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
@@ -989,8 +992,8 @@ So by having both of these ideologies in mind I can only come to the
 following conclusions.
 </p>
 
- <article id="outline-container-org615b5b1" class="outline-2"> <h2 id="org615b5b1">Conclusions about the free software communities</h2>
- <div class="outline-text-2" id="text-org615b5b1">
+ <article id="outline-container-org283d573" class="outline-2"> <h2 id="org283d573">Conclusions about the free software communities</h2>
+ <div class="outline-text-2" id="text-org283d573">
  <p>
 It's only natural for an ethical community that is ethical towards human
 animals to extend these ethical values to non-human animals as well.
@@ -1008,8 +1011,8 @@ I don't find promotion of consumption of these items to fit within the
 extended ethical values of the Free Software movement.
 </p>
 </div>
-</article> <article id="outline-container-orgca69d06" class="outline-2"> <h2 id="orgca69d06">Conclusions about vegans views on software</h2>
- <div class="outline-text-2" id="text-orgca69d06">
+</article> <article id="outline-container-org6d890c6" class="outline-2"> <h2 id="org6d890c6">Conclusions about vegans views on software</h2>
+ <div class="outline-text-2" id="text-org6d890c6">
  <p>
 My experiences with Vegans is quite limited, but within my own circles I
 happen to see that most Vegans use primarily Free Software - but I don't
@@ -1024,8 +1027,8 @@ about - which I totally get and respect, especially if this non-free software
 is used to promote veganism, which I nowadays find to be of higher value.
 </p>
 </div>
-</article> <article id="outline-container-org6e8d686" class="outline-2"> <h2 id="org6e8d686">General conclusions</h2>
- <div class="outline-text-2" id="text-org6e8d686">
+</article> <article id="outline-container-org70db745" class="outline-2"> <h2 id="org70db745">General conclusions</h2>
+ <div class="outline-text-2" id="text-org70db745">
  <p>
 A general rule in today's society is the following: "vote with your wallet".
 </p>
@@ -1060,8 +1063,8 @@ when you run a non-free program.
   <description><![CDATA[<div id="content">
 
  <p>
-This is a follow-up on:  <a href="/blog/2021/01/why-i-got-into-veganism/../why-i-use-free-software/">Why I use Free Software</a>.
-This has been followed up by:  <a href="/blog/2021/01/why-i-got-into-veganism/../i-find-food-habits-at-free-software-events-weird">I find food habits at Free Software events weird</a>.
+This is a follow-up on:  <a href="/blog/2021/01/why-i-got-into-veganism/../why-i-use-free-software/">Why I use Free Software</a>. This has been followed up
+by:  <a href="/blog/2021/01/why-i-got-into-veganism/../i-find-food-habits-at-free-software-events-weird">I find food habits at Free Software events weird</a>.
 </p>
 
  <p>
@@ -1146,7 +1149,7 @@ victims that Veganism wants to protect.
 </p>
 
 
- <div id="org5a01332" class="figure">
+ <div id="org5814e23" class="figure">
  <p> <img src="/blog/2021/01/why-i-got-into-veganism/./metric-for-ethics.jpg" alt="metric-for-ethics.jpg"></img></p>
 </div>
  <div id="footnotes">
@@ -1194,7 +1197,8 @@ victims that Veganism wants to protect.
   <description><![CDATA[<div id="content">
 
  <p>
-This has been followed up by:  <a href="/blog/2021/01/why-i-use-free-software/../why-i-got-into-veganism">Why I got into Veganism</a>,  <a href="/blog/2021/01/why-i-use-free-software/../i-find-food-habits-at-free-software-events-weird">I find food habits at Free Software events weird</a>.
+This has been followed up by:  <a href="/blog/2021/01/why-i-use-free-software/../why-i-got-into-veganism">Why I got into Veganism</a>,  <a href="/blog/2021/01/why-i-use-free-software/../i-find-food-habits-at-free-software-events-weird">I find food habits at
+Free Software events weird</a>.
 </p>
 
  <p>
@@ -1309,9 +1313,9 @@ Type the following commands into Weechat.
  <p>
 Placeholders such as  <code>{port}</code> and  <code>{password}</code> will be used here and later
 on. Suggested default port is  <code>{9000}</code>, but you need to chose something
-unique on your system. This is especially important if you have a multi
-user system. Setting a  <code>{password}</code> is also especially important if you have
-a multi user system.
+unique on your system. This is especially important if you have a multi user
+system. Setting a  <code>{password}</code> is also especially important if you have a
+multi user system.
 </p>
 
  <pre class="example">
@@ -1336,8 +1340,8 @@ a multi user system.
  <div class="outline-text-4" id="text-generating-an-ssh-key">
  <p>
 You need to generate a separate private key for storage on the phone to be
-able to connect to the server securely. So what I do is that I generate a
-new private key on a laptop, then I transfer the private key in some secure
+able to connect to the server securely. So what I do is that I generate a new
+private key on a laptop, then I transfer the private key in some secure
 enough way to the phone and then make sure to deploy the public key to the
 server where weechat runs.
 </p>
@@ -1380,9 +1384,9 @@ command="echo 'This account can only be used for weechat relays'"
 </blockquote>
 
  <p>
-Remember to replace  <code>{port}</code> in there. The IP in there may be replaced by
-a local host name. But that must be reflected in the relay host settings
-in the app.
+Remember to replace  <code>{port}</code> in there. The IP in there may be replaced by a
+local host name. But that must be reflected in the relay host settings in the
+app.
 </p>
 </div>
 </div>
@@ -1392,13 +1396,13 @@ in the app.
  <div class="outline-text-4" id="text-connection-settings-in-weechat-android">
  <p>
 This is also part of the tricky bit, there's a big bunch of settings and all
-of them needs to be “just right”, otherwise it will fail and you will have
-no idea why.
+of them needs to be “just right”, otherwise it will fail and you will have no
+idea why.
 </p>
 
  <p>
-So this is an ASCII reflection of the settings menu with descriptions of
-what to insert:
+So this is an ASCII reflection of the settings menu with descriptions of what
+to insert:
 </p>
  <pre class="example">
 Settings/
@@ -1516,9 +1520,9 @@ gets thrown around fairly often. I'm guilty myself of doing this.
 
  <p>
 Approximately five years ago I thought that my career as a professional
-developer was over. This was at age 25. Since then I have worked in many
-ways to address these issues that I had problems with. I now feel confident
-that I've beaten it for my own sake.
+developer was over. This was at age 25. Since then I have worked in many ways
+to address these issues that I had problems with. I now feel confident that
+I've beaten it for my own sake.
 </p>
 
  <p>
@@ -1556,12 +1560,12 @@ support the Matias Quiet Switches <sup> <a id="fnr.7.100" class="footref" href="
 </p>
 
  <p>
-I've experienced quality issues with my Matias Switches which pushed me
-to move back to Cherry MX or at least something Cherry MX compatible. At a
-Keyboard meetup I got the chance to try out an ErgoDox with
-Zealios V2 <sup> <a id="fnr.9" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.9">9</a></sup>. Which I later ordered switches for and it's now my
-main keyboard, together with the MX Ergo <sup> <a id="fnr.10" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.10">10</a></sup> that replaced my
-previous M570 <sup> <a id="fnr.11" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.11">11</a></sup>.
+I've experienced quality issues with my Matias Switches which pushed me to
+move back to Cherry MX or at least something Cherry MX compatible. At a
+Keyboard meetup I got the chance to try out an ErgoDox with Zealios
+V2 <sup> <a id="fnr.9" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.9">9</a></sup>. Which I later ordered switches for and it's now my main
+keyboard, together with the MX Ergo <sup> <a id="fnr.10" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.10">10</a></sup> that replaced my previous
+M570 <sup> <a id="fnr.11" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.11">11</a></sup>.
 </p>
 
  <p>
@@ -1690,8 +1694,8 @@ scan of my wrists. The doctor scanned my wrists and said this:
 I have good news and I have bad news:
 </p>
  <ul class="org-ul"> <li>I can't find anything that is broken.</li>
- <li>It's probably an environmental issue of something you do in your daily
-work that causes this.</li>
+ <li>It's probably an environmental issue of something you do in your daily work
+that causes this.</li>
 </ul></blockquote>
 
  <p>
@@ -1705,17 +1709,17 @@ potential problem: How I used my wrist rests.
 </p>
 
  <p>
-I did put too much pressure on my wrist rests and needed to rest my arms
-more to have less pressure on the wrists. This combined with avoiding weird
-angles using the wrists to hold the laptop in place and avoiding weird angles
-of using my phone has made the pain manageable.
+I did put too much pressure on my wrist rests and needed to rest my arms more
+to have less pressure on the wrists. This combined with avoiding weird angles
+using the wrists to hold the laptop in place and avoiding weird angles of
+using my phone has made the pain manageable.
 </p>
 
  <p>
 I can now feel the pain from what I do, and I can stop it by not working in
 that position or doing that particular thing. I have the tools to not have
-pain even after 8-10 hours of keyboard use in a single day. And I can work
-a full time job without any problems.
+pain even after 8-10 hours of keyboard use in a single day. And I can work a
+full time job without any problems.
 </p>
 </div>
 </article> <article id="outline-container-summary" class="outline-2"> <h2 id="summary">Summary</h2>
@@ -1836,8 +1840,8 @@ quite right. But initially it's so convenient to choose this path.
 
  <p>
 So if you have gone through the first steps to get to a state of having a
-“pure” system, but didn't go “all in” and left your entire home directory
-as a persistent directory. This post will explain how to take it to the next
+“pure” system, but didn't go “all in” and left your entire home directory as
+a persistent directory. This post will explain how to take it to the next
 level of purity.
 </p>
 
@@ -1874,15 +1878,15 @@ Sample module that can be imported into  <code>configuration.nix</code> using  <
    <span class="org-nix-attribute">home-manager.users.jane</span> = { pkgs, ... }: {
      <span class="org-nix-attribute">programs.home-manager.enable</span> =  <span class="org-nix-builtin">true</span>;
 
-     <span class="org-comment"># In here you can do settings for home-manager, these are listed in the</span>
-     <span class="org-comment"># manual available in: $ man home-configuration.nix</span>
+     <span class="org-comment"># In here you can do settings for home-manager, these are listed</span>
+     <span class="org-comment"># in the manual available in: $ man home-configuration.nix</span>
 
-     <span class="org-comment"># In here you can use the "home.file" features of home manager to link</span>
-     <span class="org-comment"># certain files to certain content. However, that's not the same as</span>
-     <span class="org-comment"># linking it to persistent storage since it will copy the file to the</span>
-     <span class="org-comment"># store where it will become read only. That may be perfectly fine for</span>
-     <span class="org-comment"># certain files. For other paths (such as "~/Downloads/"), it may be</span>
-     <span class="org-comment"># quite unsuitable.</span>
+     <span class="org-comment"># In here you can use the "home.file" features of home manager to</span>
+     <span class="org-comment"># link certain files to certain content. However, that's not the</span>
+     <span class="org-comment"># same as linking it to persistent storage since it will copy the</span>
+     <span class="org-comment"># file to the store where it will become read only. That may be</span>
+     <span class="org-comment"># perfectly fine for certain files. For other paths (such as</span>
+     <span class="org-comment"># "~/Downloads/"), it may be quite unsuitable.</span>
 
      <span class="org-comment"># Example: Enable network manager applet for this user:</span>
      <span class="org-nix-attribute">services.network-manager-applet.enable</span> =  <span class="org-nix-builtin">true</span>;
@@ -1892,9 +1896,9 @@ Sample module that can be imported into  <code>configuration.nix</code> using  <
 </div>
 
  <p>
-To make this even better,  <a href="https://github.com/talyz">talyz</a> spent quite some time to implement modules
-to help doing persistence handling better – both in NixOS, but also as a
-Home Manager module. These modules became the  <a href="https://github.com/nix-community/impermanence">impermanence</a> community project.
+To make this even better,  <a href="https://github.com/talyz">talyz</a> spent quite some time to implement modules to
+help doing persistence handling better – both in NixOS, but also as a Home
+Manager module. These modules became the  <a href="https://github.com/nix-community/impermanence">impermanence</a> community project.
 </p>
 </div>
 </article> <article id="outline-container-part-2-persistence-module-for-home-manager" class="outline-2"> <h2 id="part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</h2>
@@ -1947,10 +1951,10 @@ persistent storage selected.
 </p>
 
  <p>
-This also allows to have different storage for different files in your
-home directory. Say that you have different needs to backup certain files
-but that you still want persistence. Then you can put the ones you want to
-backup in a certain directory and the rest in another place.
+This also allows to have different storage for different files in your home
+directory. Say that you have different needs to backup certain files but that
+you still want persistence. Then you can put the ones you want to backup in a
+certain directory and the rest in another place.
 </p>
 </div>
 </article> <article id="outline-container-part-3-persistence-module-for-nixos" class="outline-2"> <h2 id="part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</h2>
@@ -2049,8 +2053,7 @@ just format the drive differently and mount it.
 </p>
 
  <div class="org-src-container">
- <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Defining a helper variable to make the</span>
- <span class="org-comment-delimiter"># </span> <span class="org-comment">following commands shorter.</span>
+ <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Defining a helper variable to make the following commands shorter.</span>
  <span class="org-variable-name">DISK</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
 
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Create partition table</span>
@@ -2075,8 +2078,7 @@ just format the drive differently and mount it.
 </p>
 
  <div class="org-src-container">
- <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Defining a helper variable to make the</span>
- <span class="org-comment-delimiter"># </span> <span class="org-comment">following commands shorter.</span>
+ <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Defining a helper variable to make the following commands shorter.</span>
  <span class="org-variable-name">DISK</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
 
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Create partition table</span>
@@ -2162,8 +2164,8 @@ openssh) won't be happy with the permissions of the file system.
 </p>
 
  <p>
-The  <code>size</code> is something you can adjust depending on how much garbage you
-are willing to store in ram until you run out of space on your root. 2G is
+The  <code>size</code> is something you can adjust depending on how much garbage you are
+willing to store in ram until you run out of space on your root. 2G is
 usually big enough for most of my systems.
 </p>
 
@@ -2211,8 +2213,7 @@ because it won't work. It has to be the options named  <b>initialPassword</b> or
    <span class="org-comment"># Don't allow mutation of users outside of the config.</span>
    <span class="org-nix-attribute">users.mutableUsers</span> =  <span class="org-nix-builtin">false</span>;
 
-   <span class="org-comment"># Set a root password, consider using</span>
-   <span class="org-comment"># initialHashedPassword instead.</span>
+   <span class="org-comment"># Set a root password, consider using initialHashedPassword instead.</span>
    <span class="org-comment">#</span>
    <span class="org-comment"># To generate a hash to put in initialHashedPassword</span>
    <span class="org-comment"># you can do this:</span>
@@ -2247,18 +2248,17 @@ Adding persistent files from etc:
  <pre class="src src-nix">{
    <span class="org-comment"># …</span>
 
-   <span class="org-comment"># machine-id is used by systemd for the journal, if</span>
-   <span class="org-comment"># you don't persist this file you won't be able to easily</span>
-   <span class="org-comment"># use journalctl to look at journals for previous boots.</span>
+   <span class="org-comment"># machine-id is used by systemd for the journal, if you don't</span>
+   <span class="org-comment"># persist this file you won't be able to easily use journalctl to</span>
+   <span class="org-comment"># look at journals for previous boots.</span>
   environment.etc. <span class="org-string">"machine-id"</span>.source
     =  <span class="org-string">"/nix/persist/etc/machine-id"</span>;
 
 
-   <span class="org-comment"># if you want to run an openssh daemon, you may want to</span>
-   <span class="org-comment"># store the host keys across reboots.</span>
+   <span class="org-comment"># if you want to run an openssh daemon, you may want to store the</span>
+   <span class="org-comment"># host keys across reboots.</span>
    <span class="org-comment">#</span>
-   <span class="org-comment"># For this to work you will need to create the</span>
-   <span class="org-comment"># directory yourself:</span>
+   <span class="org-comment"># For this to work you will need to create the directory yourself:</span>
    <span class="org-comment"># $ mkdir /nix/persist/etc/ssh</span>
   environment.etc. <span class="org-string">"ssh/ssh_host_rsa_key"</span>.source
     =  <span class="org-string">"/nix/persist/etc/ssh/ssh_host_rsa_key"</span>;
@@ -2275,8 +2275,8 @@ Adding persistent files from etc:
 </div>
 
  <p>
-From here you can probably figure out how to do more bind-mounts and
-symbolic links in  <code>/etc</code> for the files you want to live across reboots.
+From here you can probably figure out how to do more bind-mounts and symbolic
+links in  <code>/etc</code> for the files you want to live across reboots.
 </p>
 
  <p>
@@ -2286,9 +2286,9 @@ something I want to make persistent.
 </p>
 
  <p>
-You may want to make your  <code>/home</code> persistent, that can be done by a mount
-or bind-mount. I have that as tmpfs as well, but that is probably enough
-content for it's own post.
+You may want to make your  <code>/home</code> persistent, that can be done by a mount or
+bind-mount. I have that as tmpfs as well, but that is probably enough content
+for it's own post.
 </p>
 
  <p>
@@ -2336,8 +2336,8 @@ Here you can choose your boot loader.
  <div class="outline-text-3" id="text-step-4-5-configure-the-rest-of-your-system">
  <p>
 You should make sure to go through  <code>configuration.nix</code> to make all necessary
-configuration you want such as boot loader,  <code>hostname</code>,  <code>timezone</code>,
-keymap, personal user, network settings, etc.
+configuration you want such as boot loader,  <code>hostname</code>,  <code>timezone</code>, keymap,
+personal user, network settings, etc.
 </p>
 </div>
 </div>
@@ -2429,8 +2429,8 @@ opcache flag for the build and recompile the entire PHP package. How fun…
 </article> <article id="outline-container-the-road-to-a-better-php-packaging-ecosystem" class="outline-2"> <h2 id="the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</h2>
  <div class="outline-text-2" id="text-the-road-to-a-better-php-packaging-ecosystem">
  <p>
-Real work and thought into this project started in December 2019 when I had
-a chat with Grahamc about a packaging in PHP. And he referred me to talk to a
+Real work and thought into this project started in December 2019 when I had a
+chat with Grahamc about a packaging in PHP. And he referred me to talk to a
 another person that was doing a modular PHP setup. I got some notes and
 started to work on it but it proved to be a huge project. So it kinda died
 off there.
@@ -2447,17 +2447,17 @@ recompile it.
 </p>
 
  <p>
-This led to the end game to have a really small PHP as base, but it's easy
-to extend. This led me to the path to start with  <a href="https://github.com/NixOS/nixpkgs/pull/82794">PHP: Make the default
-package more sane</a> of the first iteration. But it proved to be a big project,
-so  <a href="https://github.com/talyz/">@talyz</a> and me teamed up with to bring this project to what we wanted
-to achieve.
+This led to the end game to have a really small PHP as base, but it's easy to
+extend. This led me to the path to start with  <a href="https://github.com/NixOS/nixpkgs/pull/82794">PHP: Make the default package
+more sane</a> of the first iteration. But it proved to be a big project, so
+ <a href="https://github.com/talyz/">@talyz</a> and me teamed up with to bring this project to what we wanted to
+achieve.
 </p>
 
  <p>
-This finally ended up as the following pull request:
- <a href="https://github.com/NixOS/nixpkgs/pull/83896">PHP: Make the default package more sane (v3)</a>. That now has been merged into
-nixpkgs. This PR change the entire PHP ecosystem in NixOS.
+This finally ended up as the following pull request:  <a href="https://github.com/NixOS/nixpkgs/pull/83896">PHP: Make the default
+package more sane (v3)</a>. That now has been merged into nixpkgs. This PR change
+the entire PHP ecosystem in NixOS.
 </p>
 </div>
 </article> <article id="outline-container-state-of-php-in-nixos-in-20.09-and-beyond" class="outline-2"> <h2 id="state-of-php-in-nixos-in-20.09-and-beyond">State of PHP in NixOS in 20.09 and beyond</h2>
@@ -2466,10 +2466,10 @@ nixpkgs. This PR change the entire PHP ecosystem in NixOS.
 The things we have done:
 </p>
  <ul class="org-ul"> <li>We have made a really small PHP as base</li>
- <li>But we extend it by default to contain a bigger set of packages to not
-for break our users.</li>
- <li>We provide almost all upstream extensions and a bunch of 3rd party ones
-for inclusion into your PHP.</li>
+ <li>But we extend it by default to contain a bigger set of packages to not for
+break our users.</li>
+ <li>We provide almost all upstream extensions and a bunch of 3rd party ones for
+inclusion into your PHP.</li>
  <li>We have written the initial documentation for how to use PHP on Nix.</li>
  <li>We have enabled running tests for every upstream extension of PHP by
 default. And we do it when we build each extension in a sandbox separate
@@ -2531,7 +2531,7 @@ flexibility, being reproducible and being minimalistic at the same time.
 </ul></div>
 </div>
 
- <div id="orge515743" class="figure">
+ <div id="org86919b5" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_frond_and_side_thumb.png" alt="friendly_penguin_frond_and_side_thumb.png"></img></p>
 </div>
 
@@ -2557,7 +2557,7 @@ of the outside. And the inside kinda became the evil twin of the outside.
  <article id="outline-container-pattern-chart" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
  <div class="outline-text-2" id="text-pattern-chart">
 
- <div id="orgd155d2e" class="figure">
+ <div id="org7e242b7" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./small_chart.png" alt="small_chart.png"></img></p>
 </div>
 
@@ -2641,7 +2641,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="friendly-penguin">Friendly penguin</h3>
  <div class="outline-text-3" id="text-friendly-penguin">
 
- <div id="org57a5d01" class="figure">
+ <div id="org397e232" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_front_thumb.jpg" alt="friendly_penguin_front_thumb.jpg"></img></p>
 </div>
 
@@ -2651,7 +2651,7 @@ black stitches and the white yarn through the final white stitches.
 
 
 
- <div id="org5030255" class="figure">
+ <div id="org0c9325f" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_side_thumb.jpg" alt="friendly_penguin_side_thumb.jpg"></img></p>
 </div>
 
@@ -2665,7 +2665,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="evil-penguin-inside">Evil penguin inside</h3>
  <div class="outline-text-3" id="text-evil-penguin-inside">
 
- <div id="org673c1dc" class="figure">
+ <div id="orgff67dff" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_front_thumb.jpg" alt="evil_penguin_front_thumb.jpg"></img></p>
 </div>
 
@@ -2674,7 +2674,7 @@ black stitches and the white yarn through the final white stitches.
 </p>
 
 
- <div id="org230cbac" class="figure">
+ <div id="org308e444" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_side_thumb.jpg" alt="evil_penguin_side_thumb.jpg"></img></p>
 </div>
 
@@ -2712,9 +2712,9 @@ black stitches and the white yarn through the final white stitches.
 So for a long time I have wanted to replace my file server, because it's an
 old HP Microserver that is really slow. And at the same time I have had this
 beast of a desktop tower PC that I haven't used with a Xeon and 32GiB ECC
-memory that has just been turned off due to noise. The obvious solution is
-to re-purpose that install and move it to a location where noise doesn't
-matter, e.g. the closet (a.k.a the server room) where the file server lives.
+memory that has just been turned off due to noise. The obvious solution is to
+re-purpose that install and move it to a location where noise doesn't matter,
+e.g. the closet (a.k.a the server room) where the file server lives.
 </p>
 
  <article id="outline-container-my-requirements-on-this-setup" class="outline-2"> <h2 id="my-requirements-on-this-setup">My requirements on this setup</h2>
@@ -2736,20 +2736,20 @@ if one disk die.
 </article> <article id="outline-container-step-1-partitioning" class="outline-2"> <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
  <div class="outline-text-2" id="text-step-1-partitioning">
  <p>
-I followed these steps of partitioning grabbed from the  <a href="https://nixos.wiki/wiki/NixOS_on_ZFS#Single-disk">NixOS on ZFS</a> page
-but modified my steps.
+I followed these steps of partitioning grabbed from the  <a href="https://nixos.wiki/wiki/NixOS_on_ZFS#Single-disk">NixOS on ZFS</a> page but
+modified my steps.
 </p>
 
  <div class="org-src-container">
- <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Defining some helper variables (these will be used in later</span>
- <span class="org-comment-delimiter"># </span> <span class="org-comment">code blocks as well, so make sure to use the same terminal</span>
- <span class="org-comment-delimiter"># </span> <span class="org-comment">session or redefine them later)</span>
+ <pre class="src src-sh"> <span class="org-comment-delimiter"># </span> <span class="org-comment">Defining some helper variables (these will be used in later code</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">blocks as well, so make sure to use the same terminal session or</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">redefine them later)</span>
  <span class="org-variable-name">DISK1</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-FIRST-DRIVE
  <span class="org-variable-name">DISK2</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-SECOND-DRIVE
 
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Creating partitions</span>
- <span class="org-comment-delimiter"># </span> <span class="org-comment">This creates the ESP / Boot partition at the beginning of</span>
- <span class="org-comment-delimiter"># </span> <span class="org-comment">the drive but numbered as the third partition:</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">This creates the ESP / Boot partition at the beginning of the drive</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">but numbered as the third partition:</span>
 sgdisk -n3:1M:+512M -t3:EF00 $ <span class="org-variable-name">DISK1</span>
 
  <span class="org-comment-delimiter"># </span> <span class="org-comment">This create the storage partition numbered as the</span>
@@ -2809,9 +2809,8 @@ And many more places around the web…
  <span class="org-comment-delimiter"># </span> <span class="org-comment">To enable encryption:</span>
  <span class="org-comment-delimiter">#   </span> <span class="org-comment">-O encryption=aes-256-gcm -O keyformat=passphrase</span>
 
- <span class="org-comment-delimiter"># </span> <span class="org-comment">Then we create the pool which is mirrored over both drives</span>
- <span class="org-comment-delimiter"># </span> <span class="org-comment">and encrypted with ZFS native encryption (if you added</span>
- <span class="org-comment-delimiter"># </span> <span class="org-comment">those flags):</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">Then we create the pool which is mirrored over both drives and</span>
+ <span class="org-comment-delimiter"># </span> <span class="org-comment">encrypted with ZFS native encryption (if you added those flags):</span>
 zpool create <FLAGS> zroot mirror $ <span class="org-variable-name">DISK1</span>-part1 $ <span class="org-variable-name">DISK2</span>-part1
 </pre>
 </div>
@@ -2907,7 +2906,7 @@ this entire setup awesome and easy to manage.
 </p>
 
  <p>
-Just start by the regular  <code>nixos-generate-config  --root /mnt</code>.
+Just start by the regular  <code>nixos-generate-config --root /mnt</code>.
 </p>
 
  <p>
@@ -2930,18 +2929,17 @@ Then I have the following to boot with grub and keep my two grubs in sync:
 </p>
  <div class="org-src-container">
  <pre class="src src-nix">{
-   <span class="org-comment"># You can probably use his one on true, but</span>
-   <span class="org-comment"># my UEFI is buggy.</span>
+   <span class="org-comment"># You can probably use his one on true, but my UEFI is buggy.</span>
    <span class="org-nix-attribute">boot.loader.efi.canTouchEfiVariables</span> =  <span class="org-nix-builtin">false</span>;
 
-   <span class="org-comment"># This is the regular setup for grub on UEFI which</span>
-   <span class="org-comment"># manages /boot automatically.</span>
+   <span class="org-comment"># This is the regular setup for grub on UEFI which manages /boot</span>
+   <span class="org-comment"># automatically.</span>
    <span class="org-nix-attribute">boot.loader.grub.enable</span> =  <span class="org-nix-builtin">true</span>;
    <span class="org-nix-attribute">boot.loader.grub.efiSupport</span> =  <span class="org-nix-builtin">true</span>;
    <span class="org-nix-attribute">boot.loader.grub.device</span> =  <span class="org-string">"nodev"</span>;
 
-   <span class="org-comment"># This will mirror all UEFI files, kernels, grub menus and</span>
-   <span class="org-comment"># things needed to boot to the other drive.</span>
+   <span class="org-comment"># This will mirror all UEFI files, kernels, grub menus and things</span>
+   <span class="org-comment"># needed to boot to the other drive.</span>
    <span class="org-nix-attribute">boot.loader.grub.mirroredBoots</span> = [
     {  <span class="org-nix-attribute">devices</span> = [  <span class="org-string">"/dev/disk/by-uuid/<FS-ID>"</span> ];
        <span class="org-nix-attribute">path</span> =  <span class="org-string">"/boot-fallback"</span>; }
@@ -2973,8 +2971,8 @@ about some missing disk (oh what a surprise!)</li>
  <li>Plug in he first drive and unplug the other one</li>
  <li>Repeat step 3 again</li>
  <li>Shut it down</li>
- <li>Boot with both disks and tell ZFS that I'm sure that there's no issue
-with my hardware and that I don't want to replace my drives.</li>
+ <li>Boot with both disks and tell ZFS that I'm sure that there's no issue with
+my hardware and that I don't want to replace my drives.</li>
 </ol> <p>
 So now that computer have moved to the closet (a.k.a. the server room) and
 I've configured it so I can unlock the drive over SSH on boot following:
@@ -3009,12 +3007,12 @@ This is a block quote element.
 This is an inline  <code>code</code> block.
 </p>
 
- <article id="outline-container-org9a22adb" class="outline-2"> <h2 id="org9a22adb">Test of syntax highlighting</h2>
- <div class="outline-text-2" id="text-org9a22adb">
+ <article id="outline-container-org213452d" class="outline-2"> <h2 id="org213452d">Test of syntax highlighting</h2>
+ <div class="outline-text-2" id="text-org213452d">
 </div>
- <div id="outline-container-org41ef819" class="outline-3">
- <h3 id="org41ef819">elisp</h3>
- <div class="outline-text-3" id="text-org41ef819">
+ <div id="outline-container-orge71424f" class="outline-3">
+ <h3 id="orge71424f">elisp</h3>
+ <div class="outline-text-3" id="text-orge71424f">
  <div class="org-src-container">
  <pre class="src src-elisp"> <span class="org-comment-delimiter">;; </span> <span class="org-comment">Define the hello function</span>
 ( <span class="org-keyword">defun</span>  <span class="org-function-name">hello</span> ()
@@ -3030,9 +3028,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-orgef73b87" class="outline-3">
- <h3 id="orgef73b87">Nix</h3>
- <div class="outline-text-3" id="text-orgef73b87">
+ <div id="outline-container-orgb1366dc" class="outline-3">
+ <h3 id="orgb1366dc">Nix</h3>
+ <div class="outline-text-3" id="text-orgb1366dc">
  <div class="org-src-container">
  <pre class="src src-nix">{
    <span class="org-comment"># Define the hello function</span>
@@ -3050,25 +3048,25 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-org19d222d" class="outline-3">
- <h3 id="org19d222d">Go</h3>
- <div class="outline-text-3" id="text-org19d222d">
+ <div id="outline-container-org2cf18f4" class="outline-3">
+ <h3 id="org2cf18f4">Go</h3>
+ <div class="outline-text-3" id="text-org2cf18f4">
  <div class="org-src-container">
  <pre class="src src-go"> <span class="org-keyword">package</span> main
 
  <span class="org-keyword">import</span>  <span class="org-string">"fmt"</span>
 
  <span class="org-keyword">func</span>  <span class="org-function-name">main</span>() {
-        fmt. <span class="org-function-name">Println</span>( <span class="org-string">"Hello world"</span>)
+    fmt. <span class="org-function-name">Println</span>( <span class="org-string">"Hello world"</span>)
 }
 </pre>
 </div>
 </div>
 </div>
 
- <div id="outline-container-org2436c51" class="outline-3">
- <h3 id="org2436c51">PHP</h3>
- <div class="outline-text-3" id="text-org2436c51">
+ <div id="outline-container-org3c6f96a" class="outline-3">
+ <h3 id="org3c6f96a">PHP</h3>
+ <div class="outline-text-3" id="text-org3c6f96a">
  <div class="org-src-container">
  <pre class="src src-php"> <span class="org-php-php-tag"><?php</span>
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Define the hello function</span>
@@ -3082,8 +3080,8 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 </div>
-</article> <article id="outline-container-orgd5715e0" class="outline-2"> <h2 id="orgd5715e0">Sample text</h2>
- <div class="outline-text-2" id="text-orgd5715e0">
+</article> <article id="outline-container-org93b0345" class="outline-2"> <h2 id="org93b0345">Sample text</h2>
+ <div class="outline-text-2" id="text-org93b0345">
  <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus

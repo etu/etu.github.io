@@ -57,8 +57,8 @@ quite right. But initially it's so convenient to choose this path.
 
 <p>
 So if you have gone through the first steps to get to a state of having a
-“pure” system, but didn't go “all in” and left your entire home directory
-as a persistent directory. This post will explain how to take it to the next
+“pure” system, but didn't go “all in” and left your entire home directory as
+a persistent directory. This post will explain how to take it to the next
 level of purity.
 </p>
 
@@ -96,15 +96,15 @@ Sample module that can be imported into <code>configuration.nix</code> using <co
   <span class="org-nix-attribute">home-manager.users.jane</span> = { pkgs, ... }: {
     <span class="org-nix-attribute">programs.home-manager.enable</span> = <span class="org-nix-builtin">true</span>;
 
-    <span class="org-comment"># In here you can do settings for home-manager, these are listed in the</span>
-    <span class="org-comment"># manual available in: $ man home-configuration.nix</span>
+    <span class="org-comment"># In here you can do settings for home-manager, these are listed</span>
+    <span class="org-comment"># in the manual available in: $ man home-configuration.nix</span>
 
-    <span class="org-comment"># In here you can use the "home.file" features of home manager to link</span>
-    <span class="org-comment"># certain files to certain content. However, that's not the same as</span>
-    <span class="org-comment"># linking it to persistent storage since it will copy the file to the</span>
-    <span class="org-comment"># store where it will become read only. That may be perfectly fine for</span>
-    <span class="org-comment"># certain files. For other paths (such as "~/Downloads/"), it may be</span>
-    <span class="org-comment"># quite unsuitable.</span>
+    <span class="org-comment"># In here you can use the "home.file" features of home manager to</span>
+    <span class="org-comment"># link certain files to certain content. However, that's not the</span>
+    <span class="org-comment"># same as linking it to persistent storage since it will copy the</span>
+    <span class="org-comment"># file to the store where it will become read only. That may be</span>
+    <span class="org-comment"># perfectly fine for certain files. For other paths (such as</span>
+    <span class="org-comment"># "~/Downloads/"), it may be quite unsuitable.</span>
 
     <span class="org-comment"># Example: Enable network manager applet for this user:</span>
     <span class="org-nix-attribute">services.network-manager-applet.enable</span> = <span class="org-nix-builtin">true</span>;
@@ -114,9 +114,9 @@ Sample module that can be imported into <code>configuration.nix</code> using <co
 </div>
 
 <p>
-To make this even better, <a href="https://github.com/talyz">talyz</a> spent quite some time to implement modules
-to help doing persistence handling better &#x2013; both in NixOS, but also as a
-Home Manager module. These modules became the <a href="https://github.com/nix-community/impermanence">impermanence</a> community project.
+To make this even better, <a href="https://github.com/talyz">talyz</a> spent quite some time to implement modules to
+help doing persistence handling better &#x2013; both in NixOS, but also as a Home
+Manager module. These modules became the <a href="https://github.com/nix-community/impermanence">impermanence</a> community project.
 </p>
 </div>
 </article>
@@ -172,10 +172,10 @@ persistent storage selected.
 </p>
 
 <p>
-This also allows to have different storage for different files in your
-home directory. Say that you have different needs to backup certain files
-but that you still want persistence. Then you can put the ones you want to
-backup in a certain directory and the rest in another place.
+This also allows to have different storage for different files in your home
+directory. Say that you have different needs to backup certain files but that
+you still want persistence. Then you can put the ones you want to backup in a
+certain directory and the rest in another place.
 </p>
 </div>
 </article>

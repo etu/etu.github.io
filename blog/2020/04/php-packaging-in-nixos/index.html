@@ -109,8 +109,8 @@ opcache flag for the build and recompile the entire PHP package. How fun…
 <h2 id="the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</h2>
 <div class="outline-text-2" id="text-the-road-to-a-better-php-packaging-ecosystem">
 <p>
-Real work and thought into this project started in December 2019 when I had
-a chat with Grahamc about a packaging in PHP. And he referred me to talk to a
+Real work and thought into this project started in December 2019 when I had a
+chat with Grahamc about a packaging in PHP. And he referred me to talk to a
 another person that was doing a modular PHP setup. I got some notes and
 started to work on it but it proved to be a huge project. So it kinda died
 off there.
@@ -127,17 +127,17 @@ recompile it.
 </p>
 
 <p>
-This led to the end game to have a really small PHP as base, but it's easy
-to extend. This led me to the path to start with <a href="https://github.com/NixOS/nixpkgs/pull/82794">PHP: Make the default
-package more sane</a> of the first iteration. But it proved to be a big project,
-so <a href="https://github.com/talyz/">@talyz</a> and me teamed up with to bring this project to what we wanted
-to achieve.
+This led to the end game to have a really small PHP as base, but it's easy to
+extend. This led me to the path to start with <a href="https://github.com/NixOS/nixpkgs/pull/82794">PHP: Make the default package
+more sane</a> of the first iteration. But it proved to be a big project, so
+<a href="https://github.com/talyz/">@talyz</a> and me teamed up with to bring this project to what we wanted to
+achieve.
 </p>
 
 <p>
-This finally ended up as the following pull request:
-<a href="https://github.com/NixOS/nixpkgs/pull/83896">PHP: Make the default package more sane (v3)</a>. That now has been merged into
-nixpkgs. This PR change the entire PHP ecosystem in NixOS.
+This finally ended up as the following pull request: <a href="https://github.com/NixOS/nixpkgs/pull/83896">PHP: Make the default
+package more sane (v3)</a>. That now has been merged into nixpkgs. This PR change
+the entire PHP ecosystem in NixOS.
 </p>
 </div>
 </article>
@@ -150,10 +150,10 @@ The things we have done:
 </p>
 <ul class="org-ul">
 <li>We have made a really small PHP as base</li>
-<li>But we extend it by default to contain a bigger set of packages to not
-for break our users.</li>
-<li>We provide almost all upstream extensions and a bunch of 3rd party ones
-for inclusion into your PHP.</li>
+<li>But we extend it by default to contain a bigger set of packages to not for
+break our users.</li>
+<li>We provide almost all upstream extensions and a bunch of 3rd party ones for
+inclusion into your PHP.</li>
 <li>We have written the initial documentation for how to use PHP on Nix.</li>
 <li>We have enabled running tests for every upstream extension of PHP by
 default. And we do it when we build each extension in a sandbox separate

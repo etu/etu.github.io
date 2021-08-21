@@ -57,9 +57,9 @@ gtag('config', 'G-52Z9NBYBDY');
 So for a long time I have wanted to replace my file server, because it's an
 old HP Microserver that is really slow. And at the same time I have had this
 beast of a desktop tower PC that I haven't used with a Xeon and 32GiB ECC
-memory that has just been turned off due to noise. The obvious solution is
-to re-purpose that install and move it to a location where noise doesn't
-matter, e.g. the closet (a.k.a the server room) where the file server lives.
+memory that has just been turned off due to noise. The obvious solution is to
+re-purpose that install and move it to a location where noise doesn't matter,
+e.g. the closet (a.k.a the server room) where the file server lives.
 </p>
 
 <article id="outline-container-my-requirements-on-this-setup" class="outline-2">
@@ -88,20 +88,20 @@ if one disk die.
 <h2 id="step-1-partitioning">Step 1 - Partitioning</h2>
 <div class="outline-text-2" id="text-step-1-partitioning">
 <p>
-I followed these steps of partitioning grabbed from the <a href="https://nixos.wiki/wiki/NixOS_on_ZFS#Single-disk">NixOS on ZFS</a> page
-but modified my steps.
+I followed these steps of partitioning grabbed from the <a href="https://nixos.wiki/wiki/NixOS_on_ZFS#Single-disk">NixOS on ZFS</a> page but
+modified my steps.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Defining some helper variables (these will be used in later</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">code blocks as well, so make sure to use the same terminal</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">session or redefine them later)</span>
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Defining some helper variables (these will be used in later code</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">blocks as well, so make sure to use the same terminal session or</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">redefine them later)</span>
 <span class="org-variable-name">DISK1</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-FIRST-DRIVE
 <span class="org-variable-name">DISK2</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-SECOND-DRIVE
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Creating partitions</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">This creates the ESP / Boot partition at the beginning of</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">the drive but numbered as the third partition:</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">This creates the ESP / Boot partition at the beginning of the drive</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">but numbered as the third partition:</span>
 sgdisk -n3:1M:+512M -t3:EF00 $<span class="org-variable-name">DISK1</span>
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">This create the storage partition numbered as the</span>
@@ -167,9 +167,8 @@ And many more places around the web…
 <span class="org-comment-delimiter"># </span><span class="org-comment">To enable encryption:</span>
 <span class="org-comment-delimiter">#   </span><span class="org-comment">-O encryption=aes-256-gcm -O keyformat=passphrase</span>
 
-<span class="org-comment-delimiter"># </span><span class="org-comment">Then we create the pool which is mirrored over both drives</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">and encrypted with ZFS native encryption (if you added</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">those flags):</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">Then we create the pool which is mirrored over both drives and</span>
+<span class="org-comment-delimiter"># </span><span class="org-comment">encrypted with ZFS native encryption (if you added those flags):</span>
 zpool create &lt;FLAGS&gt; zroot mirror $<span class="org-variable-name">DISK1</span>-part1 $<span class="org-variable-name">DISK2</span>-part1
 </pre>
 </div>
@@ -274,7 +273,7 @@ this entire setup awesome and easy to manage.
 </p>
 
 <p>
-Just start by the regular <code>nixos-generate-config  --root /mnt</code>.
+Just start by the regular <code>nixos-generate-config --root /mnt</code>.
 </p>
 
 <p>
@@ -297,18 +296,17 @@ Then I have the following to boot with grub and keep my two grubs in sync:
 </p>
 <div class="org-src-container">
 <pre class="src src-nix">{
-  <span class="org-comment"># You can probably use his one on true, but</span>
-  <span class="org-comment"># my UEFI is buggy.</span>
+  <span class="org-comment"># You can probably use his one on true, but my UEFI is buggy.</span>
   <span class="org-nix-attribute">boot.loader.efi.canTouchEfiVariables</span> = <span class="org-nix-builtin">false</span>;
 
-  <span class="org-comment"># This is the regular setup for grub on UEFI which</span>
-  <span class="org-comment"># manages /boot automatically.</span>
+  <span class="org-comment"># This is the regular setup for grub on UEFI which manages /boot</span>
+  <span class="org-comment"># automatically.</span>
   <span class="org-nix-attribute">boot.loader.grub.enable</span> = <span class="org-nix-builtin">true</span>;
   <span class="org-nix-attribute">boot.loader.grub.efiSupport</span> = <span class="org-nix-builtin">true</span>;
   <span class="org-nix-attribute">boot.loader.grub.device</span> = <span class="org-string">"nodev"</span>;
 
-  <span class="org-comment"># This will mirror all UEFI files, kernels, grub menus and</span>
-  <span class="org-comment"># things needed to boot to the other drive.</span>
+  <span class="org-comment"># This will mirror all UEFI files, kernels, grub menus and things</span>
+  <span class="org-comment"># needed to boot to the other drive.</span>
   <span class="org-nix-attribute">boot.loader.grub.mirroredBoots</span> = [
     { <span class="org-nix-attribute">devices</span> = [ <span class="org-string">"/dev/disk/by-uuid/&lt;FS-ID&gt;"</span> ];
       <span class="org-nix-attribute">path</span> = <span class="org-string">"/boot-fallback"</span>; }
@@ -344,8 +342,8 @@ about some missing disk (oh what a surprise!)</li>
 <li>Plug in he first drive and unplug the other one</li>
 <li>Repeat step 3 again</li>
 <li>Shut it down</li>
-<li>Boot with both disks and tell ZFS that I'm sure that there's no issue
-with my hardware and that I don't want to replace my drives.</li>
+<li>Boot with both disks and tell ZFS that I'm sure that there's no issue with
+my hardware and that I don't want to replace my drives.</li>
 </ol>
 
 <p>

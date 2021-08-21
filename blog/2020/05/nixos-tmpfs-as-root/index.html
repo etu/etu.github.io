@@ -89,8 +89,7 @@ just format the drive differently and mount it.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Defining a helper variable to make the</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">following commands shorter.</span>
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Defining a helper variable to make the following commands shorter.</span>
 <span class="org-variable-name">DISK</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Create partition table</span>
@@ -118,8 +117,7 @@ just format the drive differently and mount it.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Defining a helper variable to make the</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">following commands shorter.</span>
+<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Defining a helper variable to make the following commands shorter.</span>
 <span class="org-variable-name">DISK</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
 
 <span class="org-comment-delimiter"># </span><span class="org-comment">Create partition table</span>
@@ -214,8 +212,8 @@ openssh) won't be happy with the permissions of the file system.
 </p>
 
 <p>
-The <code>size</code> is something you can adjust depending on how much garbage you
-are willing to store in ram until you run out of space on your root. 2G is
+The <code>size</code> is something you can adjust depending on how much garbage you are
+willing to store in ram until you run out of space on your root. 2G is
 usually big enough for most of my systems.
 </p>
 
@@ -263,8 +261,7 @@ because it won't work. It has to be the options named <b>initialPassword</b> or
   <span class="org-comment"># Don't allow mutation of users outside of the config.</span>
   <span class="org-nix-attribute">users.mutableUsers</span> = <span class="org-nix-builtin">false</span>;
 
-  <span class="org-comment"># Set a root password, consider using</span>
-  <span class="org-comment"># initialHashedPassword instead.</span>
+  <span class="org-comment"># Set a root password, consider using initialHashedPassword instead.</span>
   <span class="org-comment">#</span>
   <span class="org-comment"># To generate a hash to put in initialHashedPassword</span>
   <span class="org-comment"># you can do this:</span>
@@ -299,18 +296,17 @@ Adding persistent files from etc:
 <pre class="src src-nix">{
   <span class="org-comment"># &#8230;</span>
 
-  <span class="org-comment"># machine-id is used by systemd for the journal, if</span>
-  <span class="org-comment"># you don't persist this file you won't be able to easily</span>
-  <span class="org-comment"># use journalctl to look at journals for previous boots.</span>
+  <span class="org-comment"># machine-id is used by systemd for the journal, if you don't</span>
+  <span class="org-comment"># persist this file you won't be able to easily use journalctl to</span>
+  <span class="org-comment"># look at journals for previous boots.</span>
   environment.etc.<span class="org-string">"machine-id"</span>.source
     = <span class="org-string">"/nix/persist/etc/machine-id"</span>;
 
 
-  <span class="org-comment"># if you want to run an openssh daemon, you may want to</span>
-  <span class="org-comment"># store the host keys across reboots.</span>
+  <span class="org-comment"># if you want to run an openssh daemon, you may want to store the</span>
+  <span class="org-comment"># host keys across reboots.</span>
   <span class="org-comment">#</span>
-  <span class="org-comment"># For this to work you will need to create the</span>
-  <span class="org-comment"># directory yourself:</span>
+  <span class="org-comment"># For this to work you will need to create the directory yourself:</span>
   <span class="org-comment"># $ mkdir /nix/persist/etc/ssh</span>
   environment.etc.<span class="org-string">"ssh/ssh_host_rsa_key"</span>.source
     = <span class="org-string">"/nix/persist/etc/ssh/ssh_host_rsa_key"</span>;
@@ -327,8 +323,8 @@ Adding persistent files from etc:
 </div>
 
 <p>
-From here you can probably figure out how to do more bind-mounts and
-symbolic links in <code>/etc</code> for the files you want to live across reboots.
+From here you can probably figure out how to do more bind-mounts and symbolic
+links in <code>/etc</code> for the files you want to live across reboots.
 </p>
 
 <p>
@@ -338,9 +334,9 @@ something I want to make persistent.
 </p>
 
 <p>
-You may want to make your <code>/home</code> persistent, that can be done by a mount
-or bind-mount. I have that as tmpfs as well, but that is probably enough
-content for it's own post.
+You may want to make your <code>/home</code> persistent, that can be done by a mount or
+bind-mount. I have that as tmpfs as well, but that is probably enough content
+for it's own post.
 </p>
 
 <p>
@@ -388,8 +384,8 @@ Here you can choose your boot loader.
 <div class="outline-text-3" id="text-step-4-5-configure-the-rest-of-your-system">
 <p>
 You should make sure to go through <code>configuration.nix</code> to make all necessary
-configuration you want such as boot loader, <code>hostname</code>, <code>timezone</code>,
-keymap, personal user, network settings, etc.
+configuration you want such as boot loader, <code>hostname</code>, <code>timezone</code>, keymap,
+personal user, network settings, etc.
 </p>
 </div>
 </div>
