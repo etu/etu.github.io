@@ -300,11 +300,11 @@ pre {
             &comment, &comment-delimiter, &doc {
                 color: var(--code-comment-color);
             };
-            &function-name, &php-function-name {
+            &function-name, &php-function-name, &css-selector {
                 color: var(--code-function-name-color);
                 font-weight: var(--code-bold-weight);
             }
-            &keyword, &nix-keyword, &php-keyword, &php-class-declaration {
+            &keyword, &nix-keyword, &php-keyword, &php-class-declaration, &css-property {
                 color: var(--code-keyword-color);
                 font-weight: var(--code-bold-weight);
             }
@@ -335,6 +335,7 @@ pre {
     &.src-nix:before { content: 'Nix'; }
     &.src-org:before { content: 'Org mode'; }
     &.src-php:before { content: 'PHP'; }
+    &.src-scss:before { content: 'SCSS'; }
     &.src-sh:before  { content: 'sh'; }
     &.src-sql:before { content: 'SQL'; }
     &.src-xml:before { content: 'xml'; }
