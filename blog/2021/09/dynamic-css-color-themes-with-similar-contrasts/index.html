@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dynamic CSS color themes with similar contrasts</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
+<link href="https://elis.nu/" rel="canonical">
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
+<link rel="icon" href="/imgs/favicon.jpg">
+<meta name="referrer" content="no-referrer" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z9NBYBDY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-52Z9NBYBDY');
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<nav>
+     <ul>
+       <li><a href="/">~elis/</a></li>
+       <li><a href="/about/">./about/</a></li>
+       <li><a href="/work/">./work/</a></li>
+       <li><a href="/talks/">./talks/</a></li>
+       <li><a href="/blog/">./blog/</a></li>
+     </ul>
+   </nav>
+</div>
+<div id="content">
+<h1 class="title">Dynamic CSS color themes with similar contrasts</h1>
+<p>
+This blog is built with Emacs, SCSS using Nix and deployed as static files to
+GitHub Pages. This blog also has quite some colors due to the syntax
+highlighting for code that is performed using CSS rules on HTML classes.
+</p>
+
+<p>
+So in total I have 15 different colors defined, in which four of them is
+background and foreground colors, two of them is related to link and visited
+link colors. Then I have nine colors remaining which are related to syntax
+highlighting of code.
+</p>
+
+<p>
+Colors like that can't just be used together with a good result, one have to
+consider the different contrasts of colors against each other. I didn't feel
+like making up all the colors for both the light and the dark background, I
+wanted the same color-scheme for both themes. So what I did was to write a
+SCSS function to adjust the color to get a specific contrast compared to the
+background where it's supposed to be used.
+</p>
+
+<p>
+So how do I use these colors is practice?
+</p>
+
+<article id="outline-container-orgece1110" class="outline-2">
+<h2 id="orgece1110">Raw color themes</h2>
+<div class="outline-text-2" id="text-orgece1110">
+
+<div id="orgaed6a6d" class="figure">
+<p><img src="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/./raw-themes.png" alt="raw-themes.png">
+</p>
+</div>
+</div>
+</article>
+
+<article id="outline-container-org6eeceeb" class="outline-2">
+<h2 id="org6eeceeb">Adjusted contrast themes</h2>
+<div class="outline-text-2" id="text-org6eeceeb">
+
+<div id="orgae64275" class="figure">
+<p><img src="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/./adjusted-themes.png" alt="adjusted-themes.png">
+</p>
+</div>
+</div>
+</article>
+
+<article id="outline-container-orgc8ffbf5" class="outline-2">
+<h2 id="orgc8ffbf5">How is this accomplished at build time?</h2>
+<div class="outline-text-2" id="text-orgc8ffbf5">
+<p>
+Mozilla has a page about <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast">Color contrast</a>, they also refer to <a href="https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio">Web Content
+Accessibility Guidelines (WCAG) 2.1</a>. So there's a clear definition to how to
+calculate the color contrast. It required a bunch of math and calculations to
+do a single comparison.
+</p>
+
+<p>
+I've found some functions on the internet that already had been written that
+I've improved upon. So I have the plain math functions in my <a href="https://github.com/etu/etu.github.io/blob/master/src/scss/math.scss"><code>math.scss</code></a>
+file. With some additional functions to calculate the contrast I've found in
+other places that resulted in a function named <code>contrast-color</code> located in
+<a href="https://github.com/etu/etu.github.io/blob/master/src/scss/functions.scss"><code>functions.scss</code></a>.
+</p>
+
+<p>
+The usage of these functions is quite simple, here's a SCSS example:
+</p>
+<div class="org-src-container">
+<pre class="src src-scss"><span class="org-builtin">@import</span> <span class="org-string">"path/to/functions/file"</span>;
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">Background colors to calculate the</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">colors against.</span>
+<span class="org-variable-name">$darkBackgroundColor</span>: <span class="custom-2">#171717</span>;
+<span class="org-variable-name">$lightBackgroundColor</span>: <span class="custom-1">#F4F4F4</span>;
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">The foreground color to use against</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">the background colors.</span>
+<span class="org-variable-name">$codeKeywordColor</span>: <span class="custom">#FF256F</span>;
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">Define the color themes as CSS</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">variables for the light theme.</span>
+<span class="org-css-selector">:root</span> {
+  <span class="org-variable-name">--background</span>: #{<span class="org-variable-name">$lightBackgroundColor</span>};
+  <span class="org-variable-name">--code-keyword-color</span>: #{contrast-color(
+    <span class="org-variable-name">$codeKeywordColor</span>, <span class="org-variable-name">$lightBackgroundColor</span>)};
+}
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">Define the color themes as CSS</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">variables for the dark theme.</span>
+<span class="org-builtin">@media</span> (prefers-color-scheme: dark) {
+  <span class="org-css-selector">:root</span> {
+    <span class="org-variable-name">--background</span>: #{<span class="org-variable-name">$darkBackgroundColor</span>};
+    <span class="org-variable-name">--code-keyword-color</span>: #{contrast-color(
+      <span class="org-variable-name">$codeKeywordColor</span>, <span class="org-variable-name">$darkBackgroundColor</span>)};
+  }
+}
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">Use the colors in your theme</span>
+<span class="org-css-selector">div </span>{
+  <span class="org-css-property">background</span>: var(<span class="org-variable-name">--background</span>);
+  <span class="org-css-property">color</span>: var(<span class="org-variable-name">--code-keyword-color</span>);
+}
+</pre>
+</div>
+
+<p>
+So now I can select key colors once and get a consistent color contrast of
+about 7 on all of the colors on the page to not have some colors <i>screaming</i>
+while others have too little contrast that makes them hard to read.
+</p>
+</div>
+</article>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-09-30 Thu 21:10</p>
+<p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
+</div>
+</body>
+</html>
