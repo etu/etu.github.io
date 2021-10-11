@@ -6,7 +6,6 @@
 <title>Detailed setup of screen sharing in Wayland (Sway)</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
-<link href="https://elis.nu/" rel="canonical">
 <link rel="stylesheet" type="text/css" href="/style.css" />
 <link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
 <link rel="icon" href="/imgs/favicon.jpg">
@@ -69,9 +68,9 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
-<article id="outline-container-orgd7e1967" class="outline-2">
-<h2 id="orgd7e1967">Required environment variables</h2>
-<div class="outline-text-2" id="text-orgd7e1967">
+<article id="outline-container-org449b634" class="outline-2">
+<h2 id="org449b634">Required environment variables</h2>
+<div class="outline-text-2" id="text-org449b634">
 <ul class="org-ul">
 <li><code>XDG_SESSION_TYPE=wayland</code></li>
 <li><code>XDG_CURRENT_DESKTOP=sway</code></li>
@@ -103,9 +102,9 @@ activation when you start sharing your screen.
 </p>
 </div>
 
-<div id="outline-container-org4c50b9b" class="outline-3">
-<h3 id="org4c50b9b">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
-<div class="outline-text-3" id="text-org4c50b9b">
+<div id="outline-container-org3296f30" class="outline-3">
+<h3 id="org3296f30">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
+<div class="outline-text-3" id="text-org3296f30">
 <p>
 Reported issue here <a href="https://github.com/NixOS/nixpkgs/issues/119445">https://github.com/NixOS/nixpkgs/issues/119445</a>.
 </p>
@@ -124,9 +123,9 @@ config to import the right things to the right places:
 </div>
 </article>
 
-<article id="outline-container-org12d52c0" class="outline-2">
-<h2 id="org12d52c0">Testing screen sharing</h2>
-<div class="outline-text-2" id="text-org12d52c0">
+<article id="outline-container-org2ea5692" class="outline-2">
+<h2 id="org2ea5692">Testing screen sharing</h2>
+<div class="outline-text-2" id="text-org2ea5692">
 <p>
 Testing screen sharing can easily be done with a patched<sup><a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
 Firefox started with <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
@@ -140,9 +139,9 @@ then just start your screen share on that page.
 </div>
 </article>
 
-<article id="outline-container-orgf113d98" class="outline-2">
-<h2 id="orgf113d98">What should happen?</h2>
-<div class="outline-text-2" id="text-orgf113d98">
+<article id="outline-container-orgf28cd0b" class="outline-2">
+<h2 id="orgf28cd0b">What should happen?</h2>
+<div class="outline-text-2" id="text-orgf28cd0b">
 <p>
 Starting the screen share should trigger the socket activation for the user
 services for <code>pipewire.service</code>, <code>xdg-desktop-portal.service</code> and
@@ -158,9 +157,9 @@ run or not.
 </div>
 </article>
 
-<article id="outline-container-org7c41473" class="outline-2">
-<h2 id="org7c41473">What if the services doesn't start?</h2>
-<div class="outline-text-2" id="text-org7c41473">
+<article id="outline-container-orgbdf2672" class="outline-2">
+<h2 id="orgbdf2672">What if the services doesn't start?</h2>
+<div class="outline-text-2" id="text-orgbdf2672">
 <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
