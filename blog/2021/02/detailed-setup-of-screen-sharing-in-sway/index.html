@@ -68,9 +68,9 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
-<article id="outline-container-orga1bafc9" class="outline-2">
-<h2 id="orga1bafc9">Required environment variables</h2>
-<div class="outline-text-2" id="text-orga1bafc9">
+<article id="outline-container-org432e645" class="outline-2">
+<h2 id="org432e645">Required environment variables</h2>
+<div class="outline-text-2" id="text-org432e645">
 <ul class="org-ul">
 <li><code>XDG_SESSION_TYPE=wayland</code></li>
 <li><code>XDG_CURRENT_DESKTOP=sway</code></li>
@@ -102,9 +102,9 @@ activation when you start sharing your screen.
 </p>
 </div>
 
-<div id="outline-container-orgbc7871c" class="outline-3">
-<h3 id="orgbc7871c">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
-<div class="outline-text-3" id="text-orgbc7871c">
+<div id="outline-container-org40bda4e" class="outline-3">
+<h3 id="org40bda4e">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
+<div class="outline-text-3" id="text-org40bda4e">
 <p>
 Reported issue here <a href="https://github.com/NixOS/nixpkgs/issues/119445">https://github.com/NixOS/nixpkgs/issues/119445</a>.
 </p>
@@ -123,9 +123,9 @@ config to import the right things to the right places:
 </div>
 </article>
 
-<article id="outline-container-org8f36585" class="outline-2">
-<h2 id="org8f36585">Testing screen sharing</h2>
-<div class="outline-text-2" id="text-org8f36585">
+<article id="outline-container-org49f309b" class="outline-2">
+<h2 id="org49f309b">Testing screen sharing</h2>
+<div class="outline-text-2" id="text-org49f309b">
 <p>
 Testing screen sharing can easily be done with a patched<sup><a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
 Firefox started with <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
@@ -139,9 +139,9 @@ then just start your screen share on that page.
 </div>
 </article>
 
-<article id="outline-container-org3286832" class="outline-2">
-<h2 id="org3286832">What should happen?</h2>
-<div class="outline-text-2" id="text-org3286832">
+<article id="outline-container-org0e94261" class="outline-2">
+<h2 id="org0e94261">What should happen?</h2>
+<div class="outline-text-2" id="text-org0e94261">
 <p>
 Starting the screen share should trigger the socket activation for the user
 services for <code>pipewire.service</code>, <code>xdg-desktop-portal.service</code> and
@@ -157,9 +157,9 @@ run or not.
 </div>
 </article>
 
-<article id="outline-container-org35bbfc7" class="outline-2">
-<h2 id="org35bbfc7">What if the services doesn't start?</h2>
-<div class="outline-text-2" id="text-org35bbfc7">
+<article id="outline-container-org9df1efd" class="outline-2">
+<h2 id="org9df1efd">What if the services doesn't start?</h2>
+<div class="outline-text-2" id="text-org9df1efd">
 <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
