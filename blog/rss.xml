@@ -6,7 +6,7 @@
 <generator>Emacs webfeeder.el</generator>
 <link>https://elis.nu/</link>
 <atom:link href="https://elis.nu/blog/rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sat, 16 Oct 2021 05:36:15 +0000</lastBuildDate>
+<lastBuildDate>Sat, 16 Oct 2021 05:43:52 +0000</lastBuildDate>
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>First impressions of Purism Librem 5</title>
@@ -34,7 +34,7 @@
  <li> <a href="/blog/2021/10/first-impressions-of-purism-librem-5/#resulting-photo">Resulting photo</a></li>
  <li> <a href="/blog/2021/10/first-impressions-of-purism-librem-5/#reference-photo">Reference in same light and place with my OnePlus Nord</a></li>
  <li> <a href="/blog/2021/10/first-impressions-of-purism-librem-5/#swedish-dvorak-is-qwerty">Swedish Dvorak seems to be… QWERTY</a></li>
- <li> <a href="/blog/2021/10/first-impressions-of-purism-librem-5/#emoji-keyboard">The emoji keyboard is completely impossible to navigate</a></li>
+ <li> <a href="/blog/2021/10/first-impressions-of-purism-librem-5/#emoji-keyboard">Emoji keyboard</a></li>
  <li> <a href="/blog/2021/10/first-impressions-of-purism-librem-5/#xmpp-client">XMPP client</a></li>
  <li> <a href="/blog/2021/10/first-impressions-of-purism-librem-5/#this-phone-is-a-laptop">Apparently this phone thinks it's a laptop</a></li>
 </ul></li>
@@ -218,7 +218,7 @@ WiFi details among other things.
  <h5 id="issues-downloading-updates-gui">Had some problem downloading updates in the GUI application</h5>
  <div class="outline-text-5" id="text-issues-downloading-updates-gui">
 
- <div id="org7e05b77" class="figure">
+ <div id="org68484ab" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./failed-upgrade.png" alt="failed-upgrade.png"></img></p>
 </div>
 </div>
@@ -228,7 +228,7 @@ WiFi details among other things.
  <h5 id="apt-upgrade">However, upgrading using  <code>apt</code> in the terminal worked fine though</h5>
  <div class="outline-text-5" id="text-apt-upgrade">
 
- <div id="org031f5b6" class="figure">
+ <div id="orga2db8f4" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./terminal-upgrade.png" alt="terminal-upgrade.png"></img></p>
 </div>
 </div>
@@ -238,7 +238,7 @@ WiFi details among other things.
  <h5 id="kernel-version">Kernel version</h5>
  <div class="outline-text-5" id="text-kernel-version">
 
- <div id="orge27fe5b" class="figure">
+ <div id="orgc90a8ae" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./kernel.png" alt="kernel.png"></img></p>
 </div>
 </div>
@@ -248,7 +248,7 @@ WiFi details among other things.
  <h5 id="mounted-filesystems">Mounted filesystems</h5>
  <div class="outline-text-5" id="text-mounted-filesystems">
 
- <div id="orgaca00a3" class="figure">
+ <div id="org8167a5a" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./mounts.png" alt="mounts.png"></img></p>
 </div>
 </div>
@@ -258,7 +258,7 @@ WiFi details among other things.
  <h5 id="app-drawer-and-workspace">App drawer and workspace</h5>
  <div class="outline-text-5" id="text-app-drawer-and-workspace">
 
- <div id="orge23dc21" class="figure">
+ <div id="orgf2070ea" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./app-drawer.png" alt="app-drawer.png"></img></p>
 </div>
 </div>
@@ -268,7 +268,7 @@ WiFi details among other things.
  <h5 id="browser">Browser</h5>
  <div class="outline-text-5" id="text-browser">
 
- <div id="orge50ad17" class="figure">
+ <div id="org9c35ec8" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./browser.png" alt="browser.png"></img></p>
 </div>
 </div>
@@ -278,7 +278,7 @@ WiFi details among other things.
  <h5 id="app-drawer-and-switcher">App drawer and switcher</h5>
  <div class="outline-text-5" id="text-app-drawer-and-switcher">
 
- <div id="org4bc03cd" class="figure">
+ <div id="orgbd43c2f" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./app-drawer-and-switcher.png" alt="app-drawer-and-switcher.png"></img></p>
 </div>
 </div>
@@ -288,7 +288,7 @@ WiFi details among other things.
  <h5 id="camera-live-preview">Camera live preview</h5>
  <div class="outline-text-5" id="text-camera-live-preview">
 
- <div id="org972f5dd" class="figure">
+ <div id="orgbe75002" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./camera-live-preview.png" alt="camera-live-preview.png"></img></p>
 </div>
 </div>
@@ -298,7 +298,7 @@ WiFi details among other things.
  <h5 id="resulting-photo">Resulting photo</h5>
  <div class="outline-text-5" id="text-resulting-photo">
 
- <div id="orgfc68855" class="figure">
+ <div id="org28ffe8c" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./camera-resulting-image.png" alt="camera-resulting-image.png"></img></p>
 </div>
 </div>
@@ -308,7 +308,7 @@ WiFi details among other things.
  <h5 id="reference-photo">Reference in same light and place with my OnePlus Nord</h5>
  <div class="outline-text-5" id="text-reference-photo">
 
- <div id="orgd84b636" class="figure">
+ <div id="orgdcdd397" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./oneplus-nord-reference-photo.png" alt="oneplus-nord-reference-photo.png"></img></p>
 </div>
 </div>
@@ -318,17 +318,23 @@ WiFi details among other things.
  <h5 id="swedish-dvorak-is-qwerty">Swedish Dvorak seems to be… QWERTY</h5>
  <div class="outline-text-5" id="text-swedish-dvorak-is-qwerty">
 
- <div id="org358087b" class="figure">
+ <div id="org4f3ed52" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./swedish-dvorak-seems-to-be-qwerty.png" alt="swedish-dvorak-seems-to-be-qwerty.png"></img></p>
 </div>
 </div>
 </div>
 
  <div id="outline-container-emoji-keyboard" class="outline-5">
- <h5 id="emoji-keyboard">The emoji keyboard is completely impossible to navigate</h5>
+ <h5 id="emoji-keyboard">Emoji keyboard</h5>
  <div class="outline-text-5" id="text-emoji-keyboard">
+ <p>
+The emoji keyboard is split up in pages and is mostly randomly organized
+which makes it hard to navigate. One can probably learn which page your
+favorite emoji is.
+</p>
 
- <div id="org2d160a7" class="figure">
+
+ <div id="org9a4771a" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./emoji-keyboard.png" alt="emoji-keyboard.png"></img></p>
 </div>
 </div>
@@ -343,7 +349,7 @@ people, in chat rooms it seems fine:
 </p>
 
 
- <div id="orgaab69d1" class="figure">
+ <div id="orgf116581" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./unencrypted-chat-fails-on-encryption.png" alt="unencrypted-chat-fails-on-encryption.png"></img></p>
 </div>
 </div>
@@ -353,7 +359,7 @@ people, in chat rooms it seems fine:
  <h5 id="this-phone-is-a-laptop">Apparently this phone thinks it's a laptop</h5>
  <div class="outline-text-5" id="text-this-phone-is-a-laptop">
 
- <div id="org6cf1867" class="figure">
+ <div id="orgd0bf717" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./this-phone-is-a-laptop.png" alt="this-phone-is-a-laptop.png"></img></p>
 </div>
 </div>
@@ -415,22 +421,22 @@ background where it's supposed to be used.
 So how do I use these colors is practice?
 </p>
 
- <article id="outline-container-org785787d" class="outline-2"> <h2 id="org785787d">Raw color themes</h2>
- <div class="outline-text-2" id="text-org785787d">
+ <article id="outline-container-orgc92dfa8" class="outline-2"> <h2 id="orgc92dfa8">Raw color themes</h2>
+ <div class="outline-text-2" id="text-orgc92dfa8">
 
- <div id="org5e96fc8" class="figure">
+ <div id="orgbee470b" class="figure">
  <p> <img src="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/./raw-themes.png" alt="raw-themes.png"></img></p>
 </div>
 </div>
-</article> <article id="outline-container-org582a865" class="outline-2"> <h2 id="org582a865">Adjusted contrast themes</h2>
- <div class="outline-text-2" id="text-org582a865">
+</article> <article id="outline-container-org7634bc6" class="outline-2"> <h2 id="org7634bc6">Adjusted contrast themes</h2>
+ <div class="outline-text-2" id="text-org7634bc6">
 
- <div id="org2cf20ab" class="figure">
+ <div id="org3c8bb9e" class="figure">
  <p> <img src="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/./adjusted-themes.png" alt="adjusted-themes.png"></img></p>
 </div>
 </div>
-</article> <article id="outline-container-orgb76f095" class="outline-2"> <h2 id="orgb76f095">How is this accomplished at build time?</h2>
- <div class="outline-text-2" id="text-orgb76f095">
+</article> <article id="outline-container-org76cce77" class="outline-2"> <h2 id="org76cce77">How is this accomplished at build time?</h2>
+ <div class="outline-text-2" id="text-org76cce77">
  <p>
 Mozilla has a page about  <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast">Color contrast</a>, they also refer to  <a href="https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio">Web Content
 Accessibility Guidelines (WCAG) 2.1</a>. So there's a clear definition to how to
@@ -636,8 +642,8 @@ right after activation to make sure that you'd never lock yourself out, multi
 system management and it's own secrets support.
 </p>
 
- <article id="outline-container-orgdb54388" class="outline-2"> <h2 id="orgdb54388">Pulling in the nixus module using  <code>niv</code></h2>
- <div class="outline-text-2" id="text-orgdb54388">
+ <article id="outline-container-org8c1fdba" class="outline-2"> <h2 id="org8c1fdba">Pulling in the nixus module using  <code>niv</code></h2>
+ <div class="outline-text-2" id="text-org8c1fdba">
  <p>
 I've use  <code>niv</code> to pull in the nixus modules:
 </p>
@@ -653,8 +659,8 @@ parses a file called  <code>sources.json</code> which contains the repositories 
 by  <code>niv</code> and which git commit they are locked to.
 </p>
 </div>
-</article> <article id="outline-container-orgf0d44ab" class="outline-2"> <h2 id="orgf0d44ab">Setting up a deployment file using nixus</h2>
- <div class="outline-text-2" id="text-orgf0d44ab">
+</article> <article id="outline-container-org3f1ec71" class="outline-2"> <h2 id="org3f1ec71">Setting up a deployment file using nixus</h2>
+ <div class="outline-text-2" id="text-org3f1ec71">
  <p>
 This is also fairly straightforward, it needs to import the nixus module from
 niv to then use it to declare a nixus module.
@@ -712,8 +718,8 @@ nixus ({ config, ... }: {
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-orgd7b83cc" class="outline-2"> <h2 id="orgd7b83cc">Building and deploying systems</h2>
- <div class="outline-text-2" id="text-orgd7b83cc">
+</article> <article id="outline-container-org7368cce" class="outline-2"> <h2 id="org7368cce">Building and deploying systems</h2>
+ <div class="outline-text-2" id="text-org7368cce">
  <p>
 Building and deploying your system couldn't be simpler! It's as easy as
 running  <code>nix-build path/to/deployment.nix</code> where the path is to the file that
@@ -755,8 +761,8 @@ The bad news:
 Back from complaining to actually solving the problem though.
 </p>
 
- <article id="outline-container-orgfec584b" class="outline-2"> <h2 id="orgfec584b">Mumble does have a patch for a future release</h2>
- <div class="outline-text-2" id="text-orgfec584b">
+ <article id="outline-container-orga426750" class="outline-2"> <h2 id="orga426750">Mumble does have a patch for a future release</h2>
+ <div class="outline-text-2" id="text-orga426750">
  <p>
 So there's the issue about  <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
 been followed up by a patch  <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
@@ -768,8 +774,8 @@ A thing with mumble is that they aren't quick at releasing new versions, so
 sitting around and waiting for a new release might… take a while.
 </p>
 </div>
-</article> <article id="outline-container-orgeb9b06e" class="outline-2"> <h2 id="orgeb9b06e">Sway has patches for this</h2>
- <div class="outline-text-2" id="text-orgeb9b06e">
+</article> <article id="outline-container-org59d004f" class="outline-2"> <h2 id="org59d004f">Sway has patches for this</h2>
+ <div class="outline-text-2" id="text-org59d004f">
  <p>
 Since version 1.5 Sway has a patch to be able to bind keys that doesn't
 repeat it's action, but it still works to bind them to trigger a release
@@ -781,8 +787,8 @@ Here's the patch that was applied to Sway:  <a href="https://github.com/swaywm/s
 bindings</a>.
 </p>
 </div>
-</article> <article id="outline-container-orgce971b1" class="outline-2"> <h2 id="orgce971b1">Actually making use of these things in NixOS</h2>
- <div class="outline-text-2" id="text-orgce971b1">
+</article> <article id="outline-container-orgdeea057" class="outline-2"> <h2 id="orgdeea057">Actually making use of these things in NixOS</h2>
+ <div class="outline-text-2" id="text-orgdeea057">
  <p>
 I started by patching mumble to support the dbus calls:
 </p>
@@ -1055,8 +1061,8 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
- <article id="outline-container-org432e645" class="outline-2"> <h2 id="org432e645">Required environment variables</h2>
- <div class="outline-text-2" id="text-org432e645">
+ <article id="outline-container-orge003308" class="outline-2"> <h2 id="orge003308">Required environment variables</h2>
+ <div class="outline-text-2" id="text-orge003308">
  <ul class="org-ul"> <li> <code>XDG_SESSION_TYPE=wayland</code></li>
  <li> <code>XDG_CURRENT_DESKTOP=sway</code></li>
 </ul> <p>
@@ -1085,9 +1091,9 @@ activation when you start sharing your screen.
 </p>
 </div>
 
- <div id="outline-container-org40bda4e" class="outline-3">
- <h3 id="org40bda4e">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
- <div class="outline-text-3" id="text-org40bda4e">
+ <div id="outline-container-orgd00e903" class="outline-3">
+ <h3 id="orgd00e903">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
+ <div class="outline-text-3" id="text-orgd00e903">
  <p>
 Reported issue here  <a href="https://github.com/NixOS/nixpkgs/issues/119445">https://github.com/NixOS/nixpkgs/issues/119445</a>.
 </p>
@@ -1104,8 +1110,8 @@ config to import the right things to the right places:
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org49f309b" class="outline-2"> <h2 id="org49f309b">Testing screen sharing</h2>
- <div class="outline-text-2" id="text-org49f309b">
+</article> <article id="outline-container-org629e8bc" class="outline-2"> <h2 id="org629e8bc">Testing screen sharing</h2>
+ <div class="outline-text-2" id="text-org629e8bc">
  <p>
 Testing screen sharing can easily be done with a patched <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
 Firefox started with  <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
@@ -1117,8 +1123,8 @@ To actually test screen sharing I'd recommend using Mozilla's  <a href="https://
 then just start your screen share on that page.
 </p>
 </div>
-</article> <article id="outline-container-org0e94261" class="outline-2"> <h2 id="org0e94261">What should happen?</h2>
- <div class="outline-text-2" id="text-org0e94261">
+</article> <article id="outline-container-org4f68cdf" class="outline-2"> <h2 id="org4f68cdf">What should happen?</h2>
+ <div class="outline-text-2" id="text-org4f68cdf">
  <p>
 Starting the screen share should trigger the socket activation for the user
 services for  <code>pipewire.service</code>,  <code>xdg-desktop-portal.service</code> and
@@ -1132,8 +1138,8 @@ point since they require the environment variables to work regardless if they
 run or not.
 </p>
 </div>
-</article> <article id="outline-container-org9df1efd" class="outline-2"> <h2 id="org9df1efd">What if the services doesn't start?</h2>
- <div class="outline-text-2" id="text-org9df1efd">
+</article> <article id="outline-container-org12a60c0" class="outline-2"> <h2 id="org12a60c0">What if the services doesn't start?</h2>
+ <div class="outline-text-2" id="text-org12a60c0">
  <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
@@ -1188,8 +1194,8 @@ project was new. At that point (if I remember correctly), not even the window
 decorations looked like the ones in i3wm.
 </p>
 
- <article id="outline-container-orgab1abcb" class="outline-2"> <h2 id="orgab1abcb">Key map</h2>
- <div class="outline-text-2" id="text-orgab1abcb">
+ <article id="outline-container-orgc1fa6d5" class="outline-2"> <h2 id="orgc1fa6d5">Key map</h2>
+ <div class="outline-text-2" id="text-orgc1fa6d5">
  <p>
 As a US Dvorak typist that sometimes types Swedish, I have opinions about key
 maps. Since I used xmodmap before to customize my key map to make it work for
@@ -1232,8 +1238,8 @@ configuration:
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org1a6d492" class="outline-2"> <h2 id="org1a6d492">Browsers</h2>
- <div class="outline-text-2" id="text-org1a6d492">
+</article> <article id="outline-container-org3c3fb01" class="outline-2"> <h2 id="org3c3fb01">Browsers</h2>
+ <div class="outline-text-2" id="text-org3c3fb01">
  <p>
 I use Firefox as my main browser, it works mostly fine native on Wayland. It
 happens now and then that I encounter things that are less than perfect
@@ -1246,8 +1252,8 @@ Firefox just needs some convincing with  <code>MOZ_ENABLE_WAYLAND=1</code> in th
 environment set.
 </p>
 </div>
-</article> <article id="outline-container-orgcfa8516" class="outline-2"> <h2 id="orgcfa8516">Editor</h2>
- <div class="outline-text-2" id="text-orgcfa8516">
+</article> <article id="outline-container-org6dbc042" class="outline-2"> <h2 id="org6dbc042">Editor</h2>
+ <div class="outline-text-2" id="text-org6dbc042">
  <p>
 As a long time Emacs user I'll just keep using Emacs. To begin with I did so
 in Xwayland - but it had some issues at some point which pushed me to try out
@@ -1256,8 +1262,8 @@ it and that branch is now accepted as a feature branch on Savannah, so now I
 hope it's mainlined before Emacs 28.
 </p>
 </div>
-</article> <article id="outline-container-orga04ed62" class="outline-2"> <h2 id="orga04ed62">Screen sharing</h2>
- <div class="outline-text-2" id="text-orga04ed62">
+</article> <article id="outline-container-orga1b63c0" class="outline-2"> <h2 id="orga1b63c0">Screen sharing</h2>
+ <div class="outline-text-2" id="text-orga1b63c0">
  <p>
 It works!  <code>*</code>
 </p>
@@ -1298,8 +1304,8 @@ specify which screen to share. I'm not sure how to manage that easily in a
 multi screen environment.
 </p>
 </div>
-</article> <article id="outline-container-orgee0b5ea" class="outline-2"> <h2 id="orgee0b5ea">Miscellaneous applications</h2>
- <div class="outline-text-2" id="text-orgee0b5ea">
+</article> <article id="outline-container-org1d53c8c" class="outline-2"> <h2 id="org1d53c8c">Miscellaneous applications</h2>
+ <div class="outline-text-2" id="text-org1d53c8c">
  <ul class="org-ul"> <li>Screenshots:  <code>grim -g $(slurp) - | swappy -f -</code></li>
  <li>Back light:  <code>acpiilight</code></li>
  <li>Lock screen:  <code>swaylock</code> &  <code>swayidle</code></li>
@@ -1310,8 +1316,8 @@ multi screen environment.
  <li>Graphical display settings:  <code>wdisplays</code> is great!</li>
  <li>Command line display settings:  <code>wlr-randr</code></li>
 </ul></div>
-</article> <article id="outline-container-orgb8da1bf" class="outline-2"> <h2 id="orgb8da1bf">Conclusions</h2>
- <div class="outline-text-2" id="text-orgb8da1bf">
+</article> <article id="outline-container-org3568de7" class="outline-2"> <h2 id="org3568de7">Conclusions</h2>
+ <div class="outline-text-2" id="text-org3568de7">
  <p>
 My road to Wayland with Sway have for sure have had a couple of road bumps.
 The only real bump that has been a software limitation has been how screen
@@ -1375,7 +1381,7 @@ Here are some sketches l've made of how big and wide this monster really is.
 </p>
 
 
- <div id="org7c2c368" class="figure">
+ <div id="org9b6bafa" class="figure">
  <p> <img src="/blog/2021/02/ultra-wide-monitor/./drawing_thumb.png" alt="drawing_thumb.png"></img></p>
 </div>
 
@@ -1408,8 +1414,8 @@ QHD gives me over FHD. I have more use for the extra 33% height. It's even
 rare that I need the full FHD width.
 </p>
 
- <article id="outline-container-orgda650a1" class="outline-2"> <h2 id="orgda650a1">So why go ultra wide?</h2>
- <div class="outline-text-2" id="text-orgda650a1">
+ <article id="outline-container-org5955e2a" class="outline-2"> <h2 id="org5955e2a">So why go ultra wide?</h2>
+ <div class="outline-text-2" id="text-org5955e2a">
  <p>
 This ultra wide monitor has the size of two 27" QHD displays in one panel.
 This gives me the insane resolution of 5120×1440. It still gives me the extra
@@ -1483,8 +1489,8 @@ So by having both of these ideologies in mind I can only come to the
 following conclusions.
 </p>
 
- <article id="outline-container-org0a9dffe" class="outline-2"> <h2 id="org0a9dffe">Conclusions about the free software communities</h2>
- <div class="outline-text-2" id="text-org0a9dffe">
+ <article id="outline-container-org3ce3eaf" class="outline-2"> <h2 id="org3ce3eaf">Conclusions about the free software communities</h2>
+ <div class="outline-text-2" id="text-org3ce3eaf">
  <p>
 It's only natural for an ethical community that is ethical towards human
 animals to extend these ethical values to non-human animals as well.
@@ -1502,8 +1508,8 @@ I don't find promotion of consumption of these items to fit within the
 extended ethical values of the Free Software movement.
 </p>
 </div>
-</article> <article id="outline-container-org66b7df4" class="outline-2"> <h2 id="org66b7df4">Conclusions about vegans views on software</h2>
- <div class="outline-text-2" id="text-org66b7df4">
+</article> <article id="outline-container-orgd21d8eb" class="outline-2"> <h2 id="orgd21d8eb">Conclusions about vegans views on software</h2>
+ <div class="outline-text-2" id="text-orgd21d8eb">
  <p>
 My experiences with Vegans is quite limited, but within my own circles I
 happen to see that most Vegans use primarily Free Software - but I don't
@@ -1518,8 +1524,8 @@ about - which I totally get and respect, especially if this non-free software
 is used to promote veganism, which I nowadays find to be of higher value.
 </p>
 </div>
-</article> <article id="outline-container-org05ec24c" class="outline-2"> <h2 id="org05ec24c">General conclusions</h2>
- <div class="outline-text-2" id="text-org05ec24c">
+</article> <article id="outline-container-orgf7bd222" class="outline-2"> <h2 id="orgf7bd222">General conclusions</h2>
+ <div class="outline-text-2" id="text-orgf7bd222">
  <p>
 A general rule in today's society is the following: "vote with your wallet".
 </p>
@@ -1640,7 +1646,7 @@ victims that Veganism wants to protect.
 </p>
 
 
- <div id="org99a6efe" class="figure">
+ <div id="org3d5946a" class="figure">
  <p> <img src="/blog/2021/01/why-i-got-into-veganism/./metric-for-ethics.jpg" alt="metric-for-ethics.jpg"></img></p>
 </div>
  <div id="footnotes">
@@ -3022,7 +3028,7 @@ flexibility, being reproducible and being minimalistic at the same time.
 </ul></div>
 </div>
 
- <div id="org77c50a9" class="figure">
+ <div id="orgb822879" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_frond_and_side_thumb.png" alt="friendly_penguin_frond_and_side_thumb.png"></img></p>
 </div>
 
@@ -3048,7 +3054,7 @@ of the outside. And the inside kinda became the evil twin of the outside.
  <article id="outline-container-pattern-chart" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
  <div class="outline-text-2" id="text-pattern-chart">
 
- <div id="orga28b0b6" class="figure">
+ <div id="orgec4f425" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./small_chart.png" alt="small_chart.png"></img></p>
 </div>
 
@@ -3132,7 +3138,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="friendly-penguin">Friendly penguin</h3>
  <div class="outline-text-3" id="text-friendly-penguin">
 
- <div id="org7e00a96" class="figure">
+ <div id="orgb67092e" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_front_thumb.jpg" alt="friendly_penguin_front_thumb.jpg"></img></p>
 </div>
 
@@ -3142,7 +3148,7 @@ black stitches and the white yarn through the final white stitches.
 
 
 
- <div id="org8368a43" class="figure">
+ <div id="orgd14fe7b" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_side_thumb.jpg" alt="friendly_penguin_side_thumb.jpg"></img></p>
 </div>
 
@@ -3156,7 +3162,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="evil-penguin-inside">Evil penguin inside</h3>
  <div class="outline-text-3" id="text-evil-penguin-inside">
 
- <div id="org896645e" class="figure">
+ <div id="org79c455e" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_front_thumb.jpg" alt="evil_penguin_front_thumb.jpg"></img></p>
 </div>
 
@@ -3165,7 +3171,7 @@ black stitches and the white yarn through the final white stitches.
 </p>
 
 
- <div id="org2ef3b78" class="figure">
+ <div id="org8c697b0" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_side_thumb.jpg" alt="evil_penguin_side_thumb.jpg"></img></p>
 </div>
 
@@ -3498,12 +3504,12 @@ This is a block quote element.
 This is an inline  <code>code</code> block.
 </p>
 
- <article id="outline-container-orgf9b0392" class="outline-2"> <h2 id="orgf9b0392">Test of syntax highlighting</h2>
- <div class="outline-text-2" id="text-orgf9b0392">
+ <article id="outline-container-org9a685ee" class="outline-2"> <h2 id="org9a685ee">Test of syntax highlighting</h2>
+ <div class="outline-text-2" id="text-org9a685ee">
 </div>
- <div id="outline-container-org6c73ddc" class="outline-3">
- <h3 id="org6c73ddc">elisp</h3>
- <div class="outline-text-3" id="text-org6c73ddc">
+ <div id="outline-container-org0a7d77e" class="outline-3">
+ <h3 id="org0a7d77e">elisp</h3>
+ <div class="outline-text-3" id="text-org0a7d77e">
  <div class="org-src-container">
  <pre class="src src-elisp"> <span class="org-comment-delimiter">;; </span> <span class="org-comment">Define the hello function</span>
 ( <span class="org-keyword">defun</span>  <span class="org-function-name">hello</span> ()
@@ -3519,9 +3525,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-org0bccd91" class="outline-3">
- <h3 id="org0bccd91">Nix</h3>
- <div class="outline-text-3" id="text-org0bccd91">
+ <div id="outline-container-org538fcb8" class="outline-3">
+ <h3 id="org538fcb8">Nix</h3>
+ <div class="outline-text-3" id="text-org538fcb8">
  <div class="org-src-container">
  <pre class="src src-nix">{
    <span class="org-comment"># Define the hello function</span>
@@ -3539,9 +3545,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-orgaa50fa7" class="outline-3">
- <h3 id="orgaa50fa7">Go</h3>
- <div class="outline-text-3" id="text-orgaa50fa7">
+ <div id="outline-container-org981198b" class="outline-3">
+ <h3 id="org981198b">Go</h3>
+ <div class="outline-text-3" id="text-org981198b">
  <div class="org-src-container">
  <pre class="src src-go"> <span class="org-keyword">package</span> main
 
@@ -3555,9 +3561,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-orgae33cb0" class="outline-3">
- <h3 id="orgae33cb0">PHP</h3>
- <div class="outline-text-3" id="text-orgae33cb0">
+ <div id="outline-container-org1cb560b" class="outline-3">
+ <h3 id="org1cb560b">PHP</h3>
+ <div class="outline-text-3" id="text-org1cb560b">
  <div class="org-src-container">
  <pre class="src src-php"> <span class="org-php-php-tag"><?php</span>
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Define the hello function</span>
@@ -3571,8 +3577,8 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 </div>
-</article> <article id="outline-container-orga1c5a96" class="outline-2"> <h2 id="orga1c5a96">Sample text</h2>
- <div class="outline-text-2" id="text-orga1c5a96">
+</article> <article id="outline-container-orgf71a1cc" class="outline-2"> <h2 id="orgf71a1cc">Sample text</h2>
+ <div class="outline-text-2" id="text-orgf71a1cc">
  <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus
