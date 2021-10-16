@@ -24,7 +24,9 @@ resposible for imports of data (both streaming and linear TV data). We also
 take care of the ops parts of taking care of the servers and build an admin
 interface to be able to do manual changes in the data easily.
 
-[[file:../imgs/screenshot_tvnu.png]]
+#+CAPTION: Screenshot of TVNU website as of 2016
+#+ATTR_HTML: :alt Screenshot of TVNU website as of 2016
+[[../imgs/screenshot_tvnu.png]]
 
 * ./work/previous/
 :PROPERTIES:
@@ -41,7 +43,9 @@ APIs for external users where we had to consider API versioning,
 compatibility and communication to these external users about breakage. We
 also managed huge data imports of product data to make available in the API.
 
-[[file:../imgs/screenshot_shopello.png]]
+#+CAPTION: Screenshot of Shopello website as of 2014
+#+ATTR_HTML: :alt Screenshot of Shopello website as of 2014
+[[../imgs/screenshot_shopello.png]]
 
 ** Tailor Store Sweden AB (2011-11 -- 2014-04)
 :PROPERTIES:
@@ -52,7 +56,9 @@ At this position I was part of the development team. I was also taking care
 of the office networks, VPN, servers, ops in general. But I was also part of
 development to build API's, build frontend, backend, admin systems, etc.
 
-[[file:../imgs/screenshot_tailorstore.png]]
+#+CAPTION: Screenshot of Tailor Store website as of 2011
+#+ATTR_HTML: :alt Screenshot of Tailor Store website as of 2011
+[[../imgs/screenshot_tailorstore.png]]
 
 ** South Pole AB (2011-08 -- 2011-11)
 :PROPERTIES:
@@ -63,7 +69,9 @@ At this position I was part of building physical servers for cluster usage at
 universities. So we built 400 servers at the time. Then we tested the
 hardware so it worked and shipped it off on trucks pre-mounted in racks.
 
-[[file:../imgs/screenshot_southpole.png]]
+#+CAPTION: Screenshot of Southpole website as of 2011
+#+ATTR_HTML: :alt Screenshot of Southpole website as of 2011
+[[../imgs/screenshot_southpole.png]]
 
 ** Webhallen Sverige AB (2011-01 -- 2011-08)
 :PROPERTIES:
@@ -75,7 +83,9 @@ backend as well as frontend and admin system. One of the things I did while
 there was to implement the feature to buy digital games via a third party and
 to deliver game keys and download links in the users profile.
 
-[[file:../imgs/screenshot_webhallen.png]]
+#+CAPTION: Screenshot of Webhallen website as of 2011
+#+ATTR_HTML: :alt Screenshot of Webhallen website as of 2011
+[[../imgs/screenshot_webhallen.png]]
 
 ** Clinicbuddy ekonomisk förening (2010-03 -- 2010-11)
 :PROPERTIES:
@@ -87,4 +97,6 @@ the in-house developed journaling system for private physicians. But I also
 did some server-side development to make it easier to deploy certain fixes
 faster in case of changes of remote endpoints.
 
-[[file:../imgs/screenshot_clinicbuddy.png]]
+#+CAPTION: Screenshot of Clinicbuddy website as of 2010
+#+ATTR_HTML: :alt Screenshot of Clinicbuddy website as of 2010
+[[../imgs/screenshot_clinicbuddy.png]]

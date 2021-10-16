@@ -22,9 +22,13 @@ background where it's supposed to be used.
 So how do I use these colors is practice?
 
 ** Raw color themes
+#+CAPTION: Raw color themes which have some colors with too little contrast and some with too much contrast.
+#+ATTR_HTML: :alt Raw color themes which have some colors with too little contrast and some with too much contrast.
 [[./raw-themes.png]]
 
 ** Adjusted contrast themes
+#+CAPTION: Adjusted color themes which have all the colors contrast adjusted to the background.
+#+ATTR_HTML: :alt Adjusted color themes which have all the colors contrast adjusted to the background.
 [[./adjusted-themes.png]]
 
 ** How is this accomplished at build time?

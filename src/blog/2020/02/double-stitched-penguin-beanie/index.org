@@ -3,7 +3,9 @@
 #+DATE: <2020-02-08 Sat 17:00+0100>
 #+OPTIONS: toc:t
 
-[[./friendly_penguin_frond_and_side_thumb.png]]
+#+CAPTION: Friendly front and side of penguin beanie
+#+ATTR_HTML: :alt Friendly front and side of penguin beanie
+[[./friendly_penguin_front_and_side_thumb.png]]
 
 This is a quite unusual post for this blog, it's not what I've expected to
 put on here. But I wanted to share it somewhere more permanent than many
@@ -23,6 +25,8 @@ of the outside. And the inside kinda became the evil twin of the outside.
 :CUSTOM_ID: pattern-chart
 :END:
 
+#+CAPTION: Chart of the knitting pattern
+#+ATTR_HTML: :alt Chart of the knitting pattern
 [[./small_chart.png]]
 
 [[./medium_chart.png][Link to bigger chart]]. [[https://www.stitchfiddle.com/en/c/sifm3s-xp37/quickview][Link to full pattern]].
@@ -89,11 +93,14 @@ black stitches and the white yarn through the final white stitches.
 :CUSTOM_ID: friendly-penguin
 :END:
 
+#+CAPTION: Friendly penguin front
+#+ATTR_HTML: :alt Friendly penguin front
 [[./friendly_penguin_front_thumb.jpg]]
 
 [[./friendly_penguin_front.jpg][Friendly Penguin Front in bigger size]]
 
-
+#+CAPTION: Friendly penguin side
+#+ATTR_HTML: :alt Friendly penguin side
 [[./friendly_penguin_side_thumb.jpg]]
 
 [[./friendly_penguin_side.jpg][Friendly Penguin Side in bigger size]]
@@ -103,10 +110,14 @@ black stitches and the white yarn through the final white stitches.
 :CUSTOM_ID: evil-penguin-inside
 :END:
 
+#+CAPTION: Evil penguin front
+#+ATTR_HTML: :alt Evil penguin front
 [[./evil_penguin_front_thumb.jpg]]
 
 [[./evil_penguin_front.jpg][Evil Penguin Front in bigger size]]
 
+#+CAPTION: Evil penguin side
+#+ATTR_HTML: :alt Evil penguin side
 [[./evil_penguin_side_thumb.jpg]]
 
 [[./evil_penguin_side.jpg][Evil Penguin Side in bigger size]]

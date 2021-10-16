@@ -13,6 +13,8 @@ item to a store.
 
 Here are some sketches l've made of how big and wide this monster really is.
 
+#+CAPTION: Drawn sketch of the monitor size
+#+ATTR_HTML: :alt Drawn sketch of the monitor size
 [[./drawing_thumb.png]]
 
 [[./drawing.png][Drawing in full resolution]]
