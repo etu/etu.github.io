@@ -151,6 +151,8 @@ WiFi details among other things.
 :CUSTOM_ID: issues-downloading-updates-gui
 :END:
 
+#+CAPTION: Failure to download upgrades from the store
+#+ATTR_HTML: :alt Failure to download upgrades from the store
 [[./failed-upgrade.png]]
 
 **** However, upgrading using ~apt~ in the terminal worked fine though
@@ -158,6 +160,8 @@ WiFi details among other things.
 :CUSTOM_ID: apt-upgrade
 :END:
 
+#+CAPTION: Successful upgrade using ~apt~ in the terminal
+#+ATTR_HTML: :alt Successful upgrade using apt in the terminal
 [[./terminal-upgrade.png]]
 
 **** Kernel version
@@ -165,6 +169,8 @@ WiFi details among other things.
 :CUSTOM_ID: kernel-version
 :END:
 
+#+CAPTION: It's using a 5.13.0 mainline kernel
+#+ATTR_HTML: :alt It's using a 5.13.0 mainline kernel
 [[./kernel.png]]
 
 **** Mounted filesystems
@@ -172,6 +178,8 @@ WiFi details among other things.
 :CUSTOM_ID: mounted-filesystems
 :END:
 
+#+CAPTION: We have a two partition layout with ext2 boot and encrypted ext4 root
+#+ATTR_HTML: :alt We have a two partition layout with ext2 boot and encrypted ext4 root
 [[./mounts.png]]
 
 **** App drawer and workspace
@@ -179,6 +187,8 @@ WiFi details among other things.
 :CUSTOM_ID: app-drawer-and-workspace
 :END:
 
+#+CAPTION: Searchable app drawer seems to be the main workspace
+#+ATTR_HTML: :alt Searchable app drawer seems to be the main workspace
 [[./app-drawer.png]]
 
 **** Browser
@@ -186,6 +196,8 @@ WiFi details among other things.
 :CUSTOM_ID: browser
 :END:
 
+#+CAPTION: Web browser with my website, defaults to blocking ads and tracking
+#+ATTR_HTML: :alt Web browser with my website, defaults to blocking ads and tracking
 [[./browser.png]]
 
 **** App drawer and switcher
@@ -193,6 +205,8 @@ WiFi details among other things.
 :CUSTOM_ID: app-drawer-and-switcher
 :END:
 
+#+CAPTION: App drawer when having apps running also shows the app switcher on top
+#+ATTR_HTML: :alt App drawer when having apps running also shows the app switcher on top
 [[./app-drawer-and-switcher.png]]
 
 **** Camera live preview
@@ -200,6 +214,8 @@ WiFi details among other things.
 :CUSTOM_ID: camera-live-preview
 :END:
 
+#+CAPTION: Camera preview before taking a photo is super dark, even in bright light
+#+ATTR_HTML: :alt Camera preview before taking a photo is super dark, even in bright light
 [[./camera-live-preview.png]]
 
 **** Resulting photo
@@ -207,6 +223,8 @@ WiFi details among other things.
 :CUSTOM_ID: resulting-photo
 :END:
 
+#+CAPTION: Resulting photo is better than the preview, but nowhere close to what anyone would like to use
+#+ATTR_HTML: :alt Resulting photo is better than the preview, but nowhere close to what anyone would like to use
 [[./camera-resulting-image.png]]
 
 **** Reference in same light and place with my OnePlus Nord
@@ -214,6 +232,8 @@ WiFi details among other things.
 :CUSTOM_ID: reference-photo
 :END:
 
+#+CAPTION: Reference photo in the same light taken with a OnePlus Nord
+#+ATTR_HTML: :alt Reference photo in the same light taken with a OnePlus Nord
 [[./oneplus-nord-reference-photo.png]]
 
 **** Swedish Dvorak seems to be… QWERTY
@@ -221,6 +241,8 @@ WiFi details among other things.
 :CUSTOM_ID: swedish-dvorak-is-qwerty
 :END:
 
+#+CAPTION: The Swedish Dvorak layout known as Svorak has the same layout as Swedish Qwerty
+#+ATTR_HTML: :alt The Swedish Dvorak layout known as Svorak has the same layout as Swedish Qwerty
 [[./swedish-dvorak-seems-to-be-qwerty.png]]
 
 **** Emoji keyboard
@@ -232,6 +254,8 @@ The emoji keyboard is split up in pages and is mostly randomly organized
 which makes it hard to navigate. One can probably learn which page your
 favorite emoji is.
 
+#+CAPTION: Emoji Keyboard with numeric paginations to find other emojis
+#+ATTR_HTML: :alt Emoji Keyboard with numeric paginations to find other emojis
 [[./emoji-keyboard.png]]
 
 **** XMPP client
@@ -242,6 +266,8 @@ favorite emoji is.
 The XMPP client seems to fail on encryption in non encrypted chats to other
 people, in chat rooms it seems fine:
 
+#+CAPTION: XMPP client complaining about encryption errors in an un-encrypted chat
+#+ATTR_HTML: :alt XMPP client complaining about encryption errors in an un-encrypted chat
 [[./unencrypted-chat-fails-on-encryption.png]]
 
 **** Apparently this phone thinks it's a laptop
@@ -249,6 +275,8 @@ people, in chat rooms it seems fine:
 :CUSTOM_ID: this-phone-is-a-laptop
 :END:
 
+#+CAPTION: Notification regarding critically low battery saying that the "Laptop" battery is low
+#+ATTR_HTML: :alt Notification regarding critically low battery saying that the "Laptop" battery is low
 [[./this-phone-is-a-laptop.png]]
 
 * Summary of first impressions
