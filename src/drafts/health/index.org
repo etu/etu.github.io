@@ -147,7 +147,7 @@ actually use.
 One thing that made a strong impression on me when I started was that in the
 team we had one person who is a vegetarian, I looked up to him and thought
 "that's a cool guy" but didn't think much more about it, until a week when
-the team and I ended up at a restaurant named ~Burger & Lobsters~ that
+the team and I ended up at a restaurant named /Burger & Lobsters/ that
 served… Meat burgers or… Lobsters… That was the menu. I had my burger, I was
 happy with it. I looked over at this guy and felt for him, there was nothing
 I could do about it. But the inclusiveness of the choice of place to eat
@@ -180,7 +180,7 @@ from.
 Doing this choice as late in the year I also got to experience how it feels
 to be invited to a work dinner while being excluded because of the limited
 choices of food available for you. In this case it was a Christmas buffet
-where I ate potatoes, Brussels sprout and cheese. Because it was the only
+where I ate potatoes, brussels sprouts and cheese. Because it was the only
 three things I could find that I could eat. If it wasn't a dinner on a moving
 boat I would have left in the middle of the dinner to pick up Falafel or
 something…
@@ -207,7 +207,7 @@ a gym over and over again.
 
 I started looking around for something in the general area of where I lived,
 and got reminded of a place nearby named [[https://sportgarden.com/][Sportgarden]] that I've seen while
-I've been on walks. They had names such "Ju-Jutsu", "Goshindo", "Kickboxing"
+I've been on walks. They had names such /Ju-Jutsu/, /Goshindo/, /Kickboxing/
 printed on their windows. I couldn't find any good information about Goshindo
 on the internet, but decided to sign up to the next semester that started in
 August 2017.
@@ -234,14 +234,14 @@ the cheap cheese segment just to get my cheese to have on the sandwich.
 
 I had a routine: I stepped on the scale once a week, every Monday morning
 before I went to work. Then I watched the numbers going up, up, up, up from
-0kg up to 149kg and then just say ~ERR~, out of operating range, today as
-well. I didn't want to do this more than weekly due to seeing that ~ERR~ too
+0kg up to 149kg and then just say =ERR=, out of operating range, today as
+well. I didn't want to do this more than weekly due to seeing that =ERR= too
 often makes you go crazy. Some days I tried to press with a single finger on
 a door handle nearby, I realized that there wasn't much force needed to make
-it say ~149kg~, so I knew I was getting into measurable range eventually.
+it say =149kg=, so I knew I was getting into measurable range eventually.
 
 After about 7 months of working out 2 times a week and eating vegetarian food
-it finally changed: Early February 2018, the scale told me ~149.3kg~. This
+it finally changed: Early February 2018, the scale told me =149.3kg=. This
 was a big milestone. This was also a BMI of over 43.6. Not good, but I was on
 track to take care of it, I was determined. And with the ability to get real
 numbers I also felt the sense of control of the situation.
@@ -386,20 +386,20 @@ a healthy lifestyle that suits you.
 :CUSTOM_ID: weight-progress-through-2015-2016
 :END:
 
-From mid September 2015 to August 2016 I managed to go from ~142.6~ to
-~135.3kg~, then I bounched back to ~141.1kg~ by November 2016.
+From mid September 2015 to August 2016 I managed to go from =142.6= to
+=135.3kg=, then I bounced back to =141.1kg= by November 2016.
 
-Then it just went downhill to ~>150kg~.
+Then it just went downhill to =>150kg=.
 
 ** Weight progress through: 2018
 :PROPERTIES:
 :CUSTOM_ID: weight-progress-through-2018
 :END:
 
-I finally reached ~149.3kg~ in February 2018, which made me measure daily. By
-the end of the year I was down to ~124.2kg~.
+I finally reached =149.3kg= in February 2018, which made me measure daily. By
+the end of the year I was down to =124.2kg=.
 
-That's right: That's a difference of more than ~25.1kg~ in a single year.
+That's right: That's a difference of more than =25.1kg= in a single year.
 
 ** Weight progress through: 2019
 :PROPERTIES:
@@ -408,28 +408,28 @@ That's right: That's a difference of more than ~25.1kg~ in a single year.
 
 This trend continued during 2019.
 
-I started the year at ~122.7kg~ and ended it at ~103.7kg~, which is a
-difference of about ~19kg~ in a year.
+I started the year at =122.7kg= and ended it at =103.7kg=, which is a
+difference of about =19kg= in a year.
 
 ** Weight progress through: 2020
 :PROPERTIES:
 :CUSTOM_ID: weight-progress-through-2020
 :END:
 
-By February 2020 I touched the ~100kg~ line which means that i dropped ~50kg~
+By February 2020 I touched the =100kg= line which means that i dropped =50kg=
 in two years.
 
-I started the year at ~104.4kg~ and ended it at ~84.2kg~, which is a
-difference of about ~20kg~ in a year.
+I started the year at =104.4kg= and ended it at =84.2kg=, which is a
+difference of about =20kg= in a year.
 
 ** Weight progress through: 2021
 :PROPERTIES:
 :CUSTOM_ID: weight-progress-through-2021
 :END:
 
-I started the year at ~84.0kg~.
+I started the year at =84.0kg=.
 
-By middle of March I've reached ~80.0kg~.
+By middle of March I've reached =80.0kg=.
 
 More to come here later in the year.
 
