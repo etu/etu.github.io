@@ -104,7 +104,7 @@ See `org-publish-sitemap-default-entry'."
       (goto-char (point-min))
 
       ;; Find contents of page
-      (search-forward "<div id=\"content\">")
+      (search-forward "<div id=\"content\"")
 
       ;; Replace away build environment path to have a web root relative path
       ;; Also store where the content div is so we can back up there easily.
