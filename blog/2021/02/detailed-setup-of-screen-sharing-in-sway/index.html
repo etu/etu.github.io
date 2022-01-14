@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Detailed setup of screen sharing in Wayland (Sway)</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
+<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;" />
+<meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="/style.css" />
 <link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
 <link rel="icon" href="/imgs/favicon.jpg">
@@ -31,7 +31,7 @@ gtag('config', 'G-52Z9NBYBDY');
      </ul>
    </nav>
 </div>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Detailed setup of screen sharing in Wayland (Sway)</h1>
 <p>
 Getting screen sharing to work on Wayland seems to be surprisingly hard.
@@ -68,9 +68,9 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
-<article id="outline-container-org40e03f5" class="outline-2">
-<h2 id="org40e03f5">Required environment variables</h2>
-<div class="outline-text-2" id="text-org40e03f5">
+<article id="outline-container-org57f095a" class="outline-2">
+<h2 id="org57f095a">Required environment variables</h2>
+<div class="outline-text-2" id="text-org57f095a">
 <ul class="org-ul">
 <li><code>XDG_SESSION_TYPE=wayland</code></li>
 <li><code>XDG_CURRENT_DESKTOP=sway</code></li>
@@ -102,9 +102,9 @@ activation when you start sharing your screen.
 </p>
 </div>
 
-<div id="outline-container-orgd42c9e1" class="outline-3">
-<h3 id="orgd42c9e1">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
-<div class="outline-text-3" id="text-orgd42c9e1">
+<div id="outline-container-orga91b409" class="outline-3">
+<h3 id="orga91b409">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
+<div class="outline-text-3" id="text-orga91b409">
 <p>
 Reported issue here <a href="https://github.com/NixOS/nixpkgs/issues/119445">https://github.com/NixOS/nixpkgs/issues/119445</a>.
 </p>
@@ -123,11 +123,11 @@ config to import the right things to the right places:
 </div>
 </article>
 
-<article id="outline-container-org3e1f78d" class="outline-2">
-<h2 id="org3e1f78d">Testing screen sharing</h2>
-<div class="outline-text-2" id="text-org3e1f78d">
+<article id="outline-container-org2dc72cc" class="outline-2">
+<h2 id="org2dc72cc">Testing screen sharing</h2>
+<div class="outline-text-2" id="text-org2dc72cc">
 <p>
-Testing screen sharing can easily be done with a patched<sup><a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
+Testing screen sharing can easily be done with a patched<sup><a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1" role="doc-backlink">1</a></sup>
 Firefox started with <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
 with the <code>pipewire</code> flag enabled in <code>about://flags</code>.
 </p>
@@ -139,9 +139,9 @@ then just start your screen share on that page.
 </div>
 </article>
 
-<article id="outline-container-orga37a273" class="outline-2">
-<h2 id="orga37a273">What should happen?</h2>
-<div class="outline-text-2" id="text-orga37a273">
+<article id="outline-container-orgb979456" class="outline-2">
+<h2 id="orgb979456">What should happen?</h2>
+<div class="outline-text-2" id="text-orgb979456">
 <p>
 Starting the screen share should trigger the socket activation for the user
 services for <code>pipewire.service</code>, <code>xdg-desktop-portal.service</code> and
@@ -157,9 +157,9 @@ run or not.
 </div>
 </article>
 
-<article id="outline-container-orgc939c10" class="outline-2">
-<h2 id="orgc939c10">What if the services doesn't start?</h2>
-<div class="outline-text-2" id="text-orgc939c10">
+<article id="outline-container-org271486a" class="outline-2">
+<h2 id="org271486a">What if the services doesn't start?</h2>
+<div class="outline-text-2" id="text-org271486a">
 <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
@@ -181,7 +181,7 @@ systemctl --user stop xdg-desktop-portal-wlr.service
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 NixOS has pulled in a patch for Firefox (older than 83)
 to support Pipewire. This should mean that it doesn't need patching if it's
 newer than 83. <a href="https://github.com/NixOS/nixpkgs/blob/f30c67cc99b56f3380fe417f361fe84492ee77de/pkgs/applications/networking/browsers/firefox/common.nix#L134-L140">Link to source</a>.

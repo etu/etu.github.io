@@ -6,15 +6,15 @@
 <generator>Emacs webfeeder.el</generator>
 <link>https://elis.nu/</link>
 <atom:link href="https://elis.nu/blog/rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Wed, 17 Nov 2021 07:14:08 +0000</lastBuildDate>
+<lastBuildDate>Fri, 14 Jan 2022 12:05:07 +0000</lastBuildDate>
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>First impressions of Purism Librem 5</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
- <div id="table-of-contents">
+ <div id="table-of-contents" role="doc-toc">
  <h2>Table of Contents</h2>
- <div id="text-table-of-contents">
+ <div id="text-table-of-contents" role="doc-toc">
  <ul> <li> <a href="/blog/2021/10/first-impressions-of-purism-librem-5/#delays-and-more-delays">Delays and more delays</a></li>
  <li> <a href="/blog/2021/10/first-impressions-of-purism-librem-5/#delivery">Delivery</a></li>
  <li> <a href="/blog/2021/10/first-impressions-of-purism-librem-5/#first-impressions">First Impressions</a>
@@ -218,7 +218,7 @@ WiFi details among other things.
  <h5 id="issues-downloading-updates-gui">Had some problem downloading updates in the GUI application</h5>
  <div class="outline-text-5" id="text-issues-downloading-updates-gui">
 
- <div id="org722c63e" class="figure">
+ <div id="orge5fba86" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./failed-upgrade.png" alt="Failure to download upgrades from the store"></img></p>
  <p> <span class="figure-number">Figure 1: </span>Failure to download upgrades from the store</p>
 </div>
@@ -229,7 +229,7 @@ WiFi details among other things.
  <h5 id="apt-upgrade">However, upgrading using  <code>apt</code> in the terminal worked fine though</h5>
  <div class="outline-text-5" id="text-apt-upgrade">
 
- <div id="orge81013f" class="figure">
+ <div id="org033d060" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./terminal-upgrade.png" alt="Successful upgrade using apt in the terminal"></img></p>
  <p> <span class="figure-number">Figure 2: </span>Successful upgrade using  <code>apt</code> in the terminal</p>
 </div>
@@ -240,7 +240,7 @@ WiFi details among other things.
  <h5 id="kernel-version">Kernel version</h5>
  <div class="outline-text-5" id="text-kernel-version">
 
- <div id="org976f1f1" class="figure">
+ <div id="orgd4fea41" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./kernel.png" alt="It's using a 5.13.0 mainline kernel"></img></p>
  <p> <span class="figure-number">Figure 3: </span>It's using a 5.13.0 mainline kernel</p>
 </div>
@@ -251,7 +251,7 @@ WiFi details among other things.
  <h5 id="mounted-filesystems">Mounted filesystems</h5>
  <div class="outline-text-5" id="text-mounted-filesystems">
 
- <div id="org434ba31" class="figure">
+ <div id="org926a52e" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./mounts.png" alt="We have a two partition layout with ext2 boot and encrypted ext4 root"></img></p>
  <p> <span class="figure-number">Figure 4: </span>We have a two partition layout with ext2 boot and encrypted ext4 root</p>
 </div>
@@ -262,7 +262,7 @@ WiFi details among other things.
  <h5 id="app-drawer-and-workspace">App drawer and workspace</h5>
  <div class="outline-text-5" id="text-app-drawer-and-workspace">
 
- <div id="org69becdb" class="figure">
+ <div id="orgc5c3716" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./app-drawer.png" alt="Searchable app drawer seems to be the main workspace"></img></p>
  <p> <span class="figure-number">Figure 5: </span>Searchable app drawer seems to be the main workspace</p>
 </div>
@@ -273,7 +273,7 @@ WiFi details among other things.
  <h5 id="browser">Browser</h5>
  <div class="outline-text-5" id="text-browser">
 
- <div id="orgaf1c69c" class="figure">
+ <div id="orgcda5a2e" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./browser.png" alt="Web browser with my website, defaults to blocking ads and tracking"></img></p>
  <p> <span class="figure-number">Figure 6: </span>Web browser with my website, defaults to blocking ads and tracking</p>
 </div>
@@ -284,7 +284,7 @@ WiFi details among other things.
  <h5 id="app-drawer-and-switcher">App drawer and switcher</h5>
  <div class="outline-text-5" id="text-app-drawer-and-switcher">
 
- <div id="org5b82f9f" class="figure">
+ <div id="org5f17ccf" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./app-drawer-and-switcher.png" alt="App drawer when having apps running also shows the app switcher on top"></img></p>
  <p> <span class="figure-number">Figure 7: </span>App drawer when having apps running also shows the app switcher on top</p>
 </div>
@@ -295,7 +295,7 @@ WiFi details among other things.
  <h5 id="camera-live-preview">Camera live preview</h5>
  <div class="outline-text-5" id="text-camera-live-preview">
 
- <div id="orgfb3e93f" class="figure">
+ <div id="orgdff6a3a" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./camera-live-preview.png" alt="Camera preview before taking a photo is super dark, even in bright light"></img></p>
  <p> <span class="figure-number">Figure 8: </span>Camera preview before taking a photo is super dark, even in bright light</p>
 </div>
@@ -306,7 +306,7 @@ WiFi details among other things.
  <h5 id="resulting-photo">Resulting photo</h5>
  <div class="outline-text-5" id="text-resulting-photo">
 
- <div id="org18bf0f8" class="figure">
+ <div id="org826c23a" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./camera-resulting-image.png" alt="Resulting photo is better than the preview, but nowhere close to what anyone would like to use"></img></p>
  <p> <span class="figure-number">Figure 9: </span>Resulting photo is better than the preview, but nowhere close to what anyone would like to use</p>
 </div>
@@ -317,7 +317,7 @@ WiFi details among other things.
  <h5 id="reference-photo">Reference in same light and place with my OnePlus Nord</h5>
  <div class="outline-text-5" id="text-reference-photo">
 
- <div id="org3c9a93f" class="figure">
+ <div id="org4d3a6c2" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./oneplus-nord-reference-photo.png" alt="Reference photo in the same light taken with a OnePlus Nord"></img></p>
  <p> <span class="figure-number">Figure 10: </span>Reference photo in the same light taken with a OnePlus Nord</p>
 </div>
@@ -328,7 +328,7 @@ WiFi details among other things.
  <h5 id="swedish-dvorak-is-qwerty">Swedish Dvorak seems to be… QWERTY</h5>
  <div class="outline-text-5" id="text-swedish-dvorak-is-qwerty">
 
- <div id="org6c9c32f" class="figure">
+ <div id="orgae3b89a" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./swedish-dvorak-seems-to-be-qwerty.png" alt="The Swedish Dvorak layout known as Svorak has the same layout as Swedish Qwerty"></img></p>
  <p> <span class="figure-number">Figure 11: </span>The Swedish Dvorak layout known as Svorak has the same layout as Swedish Qwerty</p>
 </div>
@@ -345,7 +345,7 @@ favorite emoji is.
 </p>
 
 
- <div id="org04ae8b4" class="figure">
+ <div id="org45a459b" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./emoji-keyboard.png" alt="Emoji Keyboard with numeric paginations to find other emojis"></img></p>
  <p> <span class="figure-number">Figure 12: </span>Emoji Keyboard with numeric paginations to find other emojis</p>
 </div>
@@ -361,7 +361,7 @@ people, in chat rooms it seems fine:
 </p>
 
 
- <div id="org444f35a" class="figure">
+ <div id="org441e16c" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./unencrypted-chat-fails-on-encryption.png" alt="XMPP client complaining about encryption errors in an un-encrypted chat"></img></p>
  <p> <span class="figure-number">Figure 13: </span>XMPP client complaining about encryption errors in an un-encrypted chat</p>
 </div>
@@ -372,7 +372,7 @@ people, in chat rooms it seems fine:
  <h5 id="this-phone-is-a-laptop">Apparently this phone thinks it's a laptop</h5>
  <div class="outline-text-5" id="text-this-phone-is-a-laptop">
 
- <div id="org0e52be0" class="figure">
+ <div id="orgd4c7fdb" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./this-phone-is-a-laptop.png" alt="Notification regarding critically low battery saying that the "Laptop" battery is low"></img></p>
  <p> <span class="figure-number">Figure 14: </span>Notification regarding critically low battery saying that the "Laptop" battery is low</p>
 </div>
@@ -407,7 +407,7 @@ They… have a lot to work on to get this to a usable state.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Dynamic CSS color themes with similar contrasts</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
  <p>
 This blog is built with Emacs, SCSS using Nix and deployed as static files to
@@ -435,24 +435,24 @@ background where it's supposed to be used.
 So how do I use these colors is practice?
 </p>
 
- <article id="outline-container-org1a2fd03" class="outline-2"> <h2 id="org1a2fd03">Raw color themes</h2>
- <div class="outline-text-2" id="text-org1a2fd03">
+ <article id="outline-container-org3fafe58" class="outline-2"> <h2 id="org3fafe58">Raw color themes</h2>
+ <div class="outline-text-2" id="text-org3fafe58">
 
- <div id="org6580084" class="figure">
+ <div id="orga82379c" class="figure">
  <p> <img src="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/./raw-themes.png" alt="Raw color themes which have some colors with too little contrast and some with too much contrast."></img></p>
  <p> <span class="figure-number">Figure 1: </span>Raw color themes which have some colors with too little contrast and some with too much contrast.</p>
 </div>
 </div>
-</article> <article id="outline-container-org1039e60" class="outline-2"> <h2 id="org1039e60">Adjusted contrast themes</h2>
- <div class="outline-text-2" id="text-org1039e60">
+</article> <article id="outline-container-org096e481" class="outline-2"> <h2 id="org096e481">Adjusted contrast themes</h2>
+ <div class="outline-text-2" id="text-org096e481">
 
- <div id="orgffa21ce" class="figure">
+ <div id="org66e4c50" class="figure">
  <p> <img src="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/./adjusted-themes.png" alt="Adjusted color themes which have all the colors contrast adjusted to the background."></img></p>
  <p> <span class="figure-number">Figure 2: </span>Adjusted color themes which have all the colors contrast adjusted to the background.</p>
 </div>
 </div>
-</article> <article id="outline-container-org42dace5" class="outline-2"> <h2 id="org42dace5">How is this accomplished at build time?</h2>
- <div class="outline-text-2" id="text-org42dace5">
+</article> <article id="outline-container-orgca00f9c" class="outline-2"> <h2 id="orgca00f9c">How is this accomplished at build time?</h2>
+ <div class="outline-text-2" id="text-orgca00f9c">
  <p>
 Mozilla has a page about  <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast">Color contrast</a>, they also refer to  <a href="https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio">Web Content
 Accessibility Guidelines (WCAG) 2.1</a>. So there's a clear definition to how to
@@ -523,7 +523,7 @@ while others have too little contrast that makes them hard to read.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Mobile org-mode use with Orgzly and Syncthing</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
  <p>
 I've been an Emacs user for 13+ years, during this time I've been using
@@ -623,7 +623,7 @@ part of a git repository, and has always been.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Simple deployments of NixOS machines with nixus</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
  <p>
 Since I've started using NixOS about four years ago I haven't really used any
@@ -658,8 +658,8 @@ right after activation to make sure that you'd never lock yourself out, multi
 system management and it's own secrets support.
 </p>
 
- <article id="outline-container-org39acb89" class="outline-2"> <h2 id="org39acb89">Pulling in the nixus module using  <code>niv</code></h2>
- <div class="outline-text-2" id="text-org39acb89">
+ <article id="outline-container-org139d8b3" class="outline-2"> <h2 id="org139d8b3">Pulling in the nixus module using  <code>niv</code></h2>
+ <div class="outline-text-2" id="text-org139d8b3">
  <p>
 I've use  <code>niv</code> to pull in the nixus modules:
 </p>
@@ -675,8 +675,8 @@ parses a file called  <code>sources.json</code> which contains the repositories 
 by  <code>niv</code> and which git commit they are locked to.
 </p>
 </div>
-</article> <article id="outline-container-orgd727b25" class="outline-2"> <h2 id="orgd727b25">Setting up a deployment file using nixus</h2>
- <div class="outline-text-2" id="text-orgd727b25">
+</article> <article id="outline-container-org4607955" class="outline-2"> <h2 id="org4607955">Setting up a deployment file using nixus</h2>
+ <div class="outline-text-2" id="text-org4607955">
  <p>
 This is also fairly straightforward, it needs to import the nixus module from
 niv to then use it to declare a nixus module.
@@ -734,8 +734,8 @@ nixus ({ config, ... }: {
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org571be02" class="outline-2"> <h2 id="org571be02">Building and deploying systems</h2>
- <div class="outline-text-2" id="text-org571be02">
+</article> <article id="outline-container-org1c45a4c" class="outline-2"> <h2 id="org1c45a4c">Building and deploying systems</h2>
+ <div class="outline-text-2" id="text-org1c45a4c">
  <p>
 Building and deploying your system couldn't be simpler! It's as easy as
 running  <code>nix-build path/to/deployment.nix</code> where the path is to the file that
@@ -753,7 +753,7 @@ output is a shell script that will run the deploy. So just go ahead and run
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
  <p>
 Switching to Wayland has it's side-effects, one of which is the improved
@@ -777,8 +777,8 @@ The bad news:
 Back from complaining to actually solving the problem though.
 </p>
 
- <article id="outline-container-org4d0ad05" class="outline-2"> <h2 id="org4d0ad05">Mumble does have a patch for a future release</h2>
- <div class="outline-text-2" id="text-org4d0ad05">
+ <article id="outline-container-orgf06df61" class="outline-2"> <h2 id="orgf06df61">Mumble does have a patch for a future release</h2>
+ <div class="outline-text-2" id="text-orgf06df61">
  <p>
 So there's the issue about  <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
 been followed up by a patch  <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
@@ -790,8 +790,8 @@ A thing with mumble is that they aren't quick at releasing new versions, so
 sitting around and waiting for a new release might… take a while.
 </p>
 </div>
-</article> <article id="outline-container-orgfc4cb8b" class="outline-2"> <h2 id="orgfc4cb8b">Sway has patches for this</h2>
- <div class="outline-text-2" id="text-orgfc4cb8b">
+</article> <article id="outline-container-org6e1f293" class="outline-2"> <h2 id="org6e1f293">Sway has patches for this</h2>
+ <div class="outline-text-2" id="text-org6e1f293">
  <p>
 Since version 1.5 Sway has a patch to be able to bind keys that doesn't
 repeat it's action, but it still works to bind them to trigger a release
@@ -803,8 +803,8 @@ Here's the patch that was applied to Sway:  <a href="https://github.com/swaywm/s
 bindings</a>.
 </p>
 </div>
-</article> <article id="outline-container-org97c1f73" class="outline-2"> <h2 id="org97c1f73">Actually making use of these things in NixOS</h2>
- <div class="outline-text-2" id="text-org97c1f73">
+</article> <article id="outline-container-org5dc69b8" class="outline-2"> <h2 id="org5dc69b8">Actually making use of these things in NixOS</h2>
+ <div class="outline-text-2" id="text-org5dc69b8">
  <p>
 I started by patching mumble to support the dbus calls:
 </p>
@@ -863,11 +863,11 @@ works perfectly fine like a Push To Talk button.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>The day when ZFS saved my data</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
- <div id="table-of-contents">
+ <div id="table-of-contents" role="doc-toc">
  <h2>Table of Contents</h2>
- <div id="text-table-of-contents">
+ <div id="text-table-of-contents" role="doc-toc">
  <ul> <li> <a href="/blog/2021/05/the-day-when-zfs-saved-my-data/#looking-up-how-bad-it-was">Looking up how bad it was</a></li>
  <li> <a href="/blog/2021/05/the-day-when-zfs-saved-my-data/#starting-to-recover">Starting to recover</a></li>
  <li> <a href="/blog/2021/05/the-day-when-zfs-saved-my-data/#setting-up-a-work-environment">Setting up a work environment</a></li>
@@ -1043,7 +1043,7 @@ really good tool for creating backups based on.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Detailed setup of screen sharing in Wayland (Sway)</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
  <p>
 Getting screen sharing to work on Wayland seems to be surprisingly hard.
@@ -1077,8 +1077,8 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
- <article id="outline-container-org40e03f5" class="outline-2"> <h2 id="org40e03f5">Required environment variables</h2>
- <div class="outline-text-2" id="text-org40e03f5">
+ <article id="outline-container-org57f095a" class="outline-2"> <h2 id="org57f095a">Required environment variables</h2>
+ <div class="outline-text-2" id="text-org57f095a">
  <ul class="org-ul"> <li> <code>XDG_SESSION_TYPE=wayland</code></li>
  <li> <code>XDG_CURRENT_DESKTOP=sway</code></li>
 </ul> <p>
@@ -1107,9 +1107,9 @@ activation when you start sharing your screen.
 </p>
 </div>
 
- <div id="outline-container-orgd42c9e1" class="outline-3">
- <h3 id="orgd42c9e1">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
- <div class="outline-text-3" id="text-orgd42c9e1">
+ <div id="outline-container-orga91b409" class="outline-3">
+ <h3 id="orga91b409">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
+ <div class="outline-text-3" id="text-orga91b409">
  <p>
 Reported issue here  <a href="https://github.com/NixOS/nixpkgs/issues/119445">https://github.com/NixOS/nixpkgs/issues/119445</a>.
 </p>
@@ -1126,10 +1126,10 @@ config to import the right things to the right places:
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org3e1f78d" class="outline-2"> <h2 id="org3e1f78d">Testing screen sharing</h2>
- <div class="outline-text-2" id="text-org3e1f78d">
+</article> <article id="outline-container-org2dc72cc" class="outline-2"> <h2 id="org2dc72cc">Testing screen sharing</h2>
+ <div class="outline-text-2" id="text-org2dc72cc">
  <p>
-Testing screen sharing can easily be done with a patched <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1">1</a></sup>
+Testing screen sharing can easily be done with a patched <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1" role="doc-backlink">1</a></sup>
 Firefox started with  <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
 with the  <code>pipewire</code> flag enabled in  <code>about://flags</code>.
 </p>
@@ -1139,8 +1139,8 @@ To actually test screen sharing I'd recommend using Mozilla's  <a href="https://
 then just start your screen share on that page.
 </p>
 </div>
-</article> <article id="outline-container-orga37a273" class="outline-2"> <h2 id="orga37a273">What should happen?</h2>
- <div class="outline-text-2" id="text-orga37a273">
+</article> <article id="outline-container-orgb979456" class="outline-2"> <h2 id="orgb979456">What should happen?</h2>
+ <div class="outline-text-2" id="text-orgb979456">
  <p>
 Starting the screen share should trigger the socket activation for the user
 services for  <code>pipewire.service</code>,  <code>xdg-desktop-portal.service</code> and
@@ -1154,8 +1154,8 @@ point since they require the environment variables to work regardless if they
 run or not.
 </p>
 </div>
-</article> <article id="outline-container-orgc939c10" class="outline-2"> <h2 id="orgc939c10">What if the services doesn't start?</h2>
- <div class="outline-text-2" id="text-orgc939c10">
+</article> <article id="outline-container-org271486a" class="outline-2"> <h2 id="org271486a">What if the services doesn't start?</h2>
+ <div class="outline-text-2" id="text-org271486a">
  <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
@@ -1176,7 +1176,7 @@ systemctl --user stop xdg-desktop-portal-wlr.service
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 NixOS has pulled in a patch for Firefox (older than 83)
 to support Pipewire. This should mean that it doesn't need patching if it's
 newer than 83.  <a href="https://github.com/NixOS/nixpkgs/blob/f30c67cc99b56f3380fe417f361fe84492ee77de/pkgs/applications/networking/browsers/firefox/common.nix#L134-L140">Link to source</a>.
@@ -1192,26 +1192,26 @@ newer than 83.  <a href="https://github.com/NixOS/nixpkgs/blob/f30c67cc99b56f338
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Switching to Wayland (Sway)</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
  <p>
 Like every other desktop Linux user for the past many years I've used X11. I
-was on i3wm <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.1">1</a></sup> for quite some time until I was introduced to
-EXWM <sup> <a id="fnr.2" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.2">2</a></sup> which I used exclusively for about 18 months, I've even held a
-talk <sup> <a id="fnr.3" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.3">3</a></sup> about it. But at some point it got too annoying, for
+was on i3wm <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.1" role="doc-backlink">1</a></sup> for quite some time until I was introduced to
+EXWM <sup> <a id="fnr.2" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.2" role="doc-backlink">2</a></sup> which I used exclusively for about 18 months, I've even held a
+talk <sup> <a id="fnr.3" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.3" role="doc-backlink">3</a></sup> about it. But at some point it got too annoying, for
 example in multi monitor use cases.
 </p>
 
  <p>
 At this point my first step was to go back to set up i3wm again. With that
-set up I wanted to give SwayWM <sup> <a id="fnr.4" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.4">4</a></sup> another attempt, it was years ago
+set up I wanted to give SwayWM <sup> <a id="fnr.4" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.4" role="doc-backlink">4</a></sup> another attempt, it was years ago
 I've checked it out before. I think my previous experience was when the
 project was new. At that point (if I remember correctly), not even the window
 decorations looked like the ones in i3wm.
 </p>
 
- <article id="outline-container-org8fcc24a" class="outline-2"> <h2 id="org8fcc24a">Key map</h2>
- <div class="outline-text-2" id="text-org8fcc24a">
+ <article id="outline-container-org8607369" class="outline-2"> <h2 id="org8607369">Key map</h2>
+ <div class="outline-text-2" id="text-org8607369">
  <p>
 As a US Dvorak typist that sometimes types Swedish, I have opinions about key
 maps. Since I used xmodmap before to customize my key map to make it work for
@@ -1254,8 +1254,8 @@ configuration:
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-orge79dcb3" class="outline-2"> <h2 id="orge79dcb3">Browsers</h2>
- <div class="outline-text-2" id="text-orge79dcb3">
+</article> <article id="outline-container-org538e211" class="outline-2"> <h2 id="org538e211">Browsers</h2>
+ <div class="outline-text-2" id="text-org538e211">
  <p>
 I use Firefox as my main browser, it works mostly fine native on Wayland. It
 happens now and then that I encounter things that are less than perfect
@@ -1268,8 +1268,8 @@ Firefox just needs some convincing with  <code>MOZ_ENABLE_WAYLAND=1</code> in th
 environment set.
 </p>
 </div>
-</article> <article id="outline-container-org9f67172" class="outline-2"> <h2 id="org9f67172">Editor</h2>
- <div class="outline-text-2" id="text-org9f67172">
+</article> <article id="outline-container-orgd0ad071" class="outline-2"> <h2 id="orgd0ad071">Editor</h2>
+ <div class="outline-text-2" id="text-orgd0ad071">
  <p>
 As a long time Emacs user I'll just keep using Emacs. To begin with I did so
 in Xwayland - but it had some issues at some point which pushed me to try out
@@ -1278,8 +1278,8 @@ it and that branch is now accepted as a feature branch on Savannah, so now I
 hope it's mainlined before Emacs 28.
 </p>
 </div>
-</article> <article id="outline-container-org303cf42" class="outline-2"> <h2 id="org303cf42">Screen sharing</h2>
- <div class="outline-text-2" id="text-org303cf42">
+</article> <article id="outline-container-org7c0a968" class="outline-2"> <h2 id="org7c0a968">Screen sharing</h2>
+ <div class="outline-text-2" id="text-org7c0a968">
  <p>
 It works!  <code>*</code>
 </p>
@@ -1298,7 +1298,7 @@ only share the entire screen - but not single windows.
 
  <p>
 This limitation is extra annoying when using an ultra wide
-monitor <sup> <a id="fnr.5" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.5">5</a></sup> since nobody else can actually see this stream
+monitor <sup> <a id="fnr.5" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.5" role="doc-backlink">5</a></sup> since nobody else can actually see this stream
 properly. One hacky workaround I have for this is to run a browser in
 Xwayland which makes it possible to share other Xwayland applications. Then
 to have an Emacs instance running in Xwayland, then I can share that Emacs
@@ -1320,8 +1320,8 @@ specify which screen to share. I'm not sure how to manage that easily in a
 multi screen environment.
 </p>
 </div>
-</article> <article id="outline-container-org5c7bbb5" class="outline-2"> <h2 id="org5c7bbb5">Miscellaneous applications</h2>
- <div class="outline-text-2" id="text-org5c7bbb5">
+</article> <article id="outline-container-org7cf11b2" class="outline-2"> <h2 id="org7cf11b2">Miscellaneous applications</h2>
+ <div class="outline-text-2" id="text-org7cf11b2">
  <ul class="org-ul"> <li>Screenshots:  <code>grim -g $(slurp) - | swappy -f -</code></li>
  <li>Back light:  <code>acpiilight</code></li>
  <li>Lock screen:  <code>swaylock</code> &  <code>swayidle</code></li>
@@ -1332,8 +1332,8 @@ multi screen environment.
  <li>Graphical display settings:  <code>wdisplays</code> is great!</li>
  <li>Command line display settings:  <code>wlr-randr</code></li>
 </ul></div>
-</article> <article id="outline-container-org2a7938f" class="outline-2"> <h2 id="org2a7938f">Conclusions</h2>
- <div class="outline-text-2" id="text-org2a7938f">
+</article> <article id="outline-container-orge747272" class="outline-2"> <h2 id="orge747272">Conclusions</h2>
+ <div class="outline-text-2" id="text-orge747272">
  <p>
 My road to Wayland with Sway have for sure have had a couple of road bumps.
 The only real bump that has been a software limitation has been how screen
@@ -1350,23 +1350,23 @@ tearing, everything just gives the perception and feels faster and smoother.
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 i3wm –  <a href="https://i3wm.org/">https://i3wm.org/</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Emacs X Window Manager –  <a href="https://github.com/ch11ng/exwm">https://github.com/ch11ng/exwm</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 EXWM Talk –  <a href="/blog/2021/02/switching-to-wayland-sway/../../../../talks/">~/talks/</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.4" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.4">4</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.4" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 SwayWM –  <a href="https://swaywm.org/">https://swaywm.org/</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.5" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.5">5</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.5" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Previous post:  <a href="/blog/2021/02/switching-to-wayland-sway/../ultra-wide-monitor/">Ultra wide monitor</a>
 </p></div></div>
 
@@ -1380,7 +1380,7 @@ Previous post:  <a href="/blog/2021/02/switching-to-wayland-sway/../ultra-wide-m
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Ultra wide monitor</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
  <p>
 A couple of months (after at least half a year of thinking) I finally decided
@@ -1397,7 +1397,7 @@ Here are some sketches l've made of how big and wide this monster really is.
 </p>
 
 
- <div id="org76508c7" class="figure">
+ <div id="org0e93c8c" class="figure">
  <p> <img src="/blog/2021/02/ultra-wide-monitor/./drawing_thumb.png" alt="Drawn sketch of the monitor size"></img></p>
  <p> <span class="figure-number">Figure 1: </span>Drawn sketch of the monitor size</p>
 </div>
@@ -1412,13 +1412,13 @@ It truly have been a boost in productivity, much more that I expected.
 
  <p>
 For a long time l've been of the opinion that the perfect size and resolution
-of a desktop monitor is 27" at a QHD <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.1">1</a></sup> resolution. This gives me a size
+of a desktop monitor is 27" at a QHD <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.1" role="doc-backlink">1</a></sup> resolution. This gives me a size
 of things that is easy for me to read without the need to scale my desktop.
 </p>
 
  <p>
 A QHD resolution also gives 33% more space to use as a workspace (compared to
-FHD <sup> <a id="fnr.2" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.2">2</a></sup>). QFHD <sup> <a id="fnr.3" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.3">3</a></sup> doesn't really work for me without scaling,
+FHD <sup> <a id="fnr.2" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.2" role="doc-backlink">2</a></sup>). QFHD <sup> <a id="fnr.3" class="footref" href="/blog/2021/02/ultra-wide-monitor/#fn.3" role="doc-backlink">3</a></sup> doesn't really work for me without scaling,
 otherwise everything becomes too small. To make QFHD work would have to scale
 it down to 1.5 to get about QHD. This can sometimes be hard to get it right
 and look good. So a scaling of 2 is more natural. Then I lost my extra space
@@ -1431,8 +1431,8 @@ QHD gives me over FHD. I have more use for the extra 33% height. It's even
 rare that I need the full FHD width.
 </p>
 
- <article id="outline-container-org496ecec" class="outline-2"> <h2 id="org496ecec">So why go ultra wide?</h2>
- <div class="outline-text-2" id="text-org496ecec">
+ <article id="outline-container-orgd0ea018" class="outline-2"> <h2 id="orgd0ea018">So why go ultra wide?</h2>
+ <div class="outline-text-2" id="text-orgd0ea018">
  <p>
 This ultra wide monitor has the size of two 27" QHD displays in one panel.
 This gives me the insane resolution of 5120×1440. It still gives me the extra
@@ -1455,18 +1455,18 @@ This monitor: 10/10 - would pay full price.
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/02/ultra-wide-monitor/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/02/ultra-wide-monitor/#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 QHD is the resolution  <code>2560×1440</code>, think 4 times 720p in a grid.
 This is sometimes called 2k since it's less than 4k and more than 2000 pixels
 wide. But it's much more fair to call this 2.5k and reserve 2k for FHD.
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/02/ultra-wide-monitor/#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/02/ultra-wide-monitor/#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 FHD is the resolution  <code>1920×1080</code>, also known as 1080p.  This could
 be called 2k since it's half the width of 4k.
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/02/ultra-wide-monitor/#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/02/ultra-wide-monitor/#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 QFHD is the resolution  <code>3840×2160</code>, think 4 times FHD in a grid.
 This is also known as 4k because the width is almost 4000 pixels.
 </p></div></div>
@@ -1481,7 +1481,7 @@ This is also known as 4k because the width is almost 4000 pixels.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>I find food habits at Free Software events weird</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
  <p>
 This is a follow-up on:  <a href="/blog/2021/01/i-find-food-habits-at-free-software-events-weird/../why-i-use-free-software/">Why I use Free Software</a>,  <a href="/blog/2021/01/i-find-food-habits-at-free-software-events-weird/../why-i-got-into-veganism/">Why I got into Veganism</a>.
@@ -1506,8 +1506,8 @@ So by having both of these ideologies in mind I can only come to the
 following conclusions.
 </p>
 
- <article id="outline-container-org73683fb" class="outline-2"> <h2 id="org73683fb">Conclusions about the free software communities</h2>
- <div class="outline-text-2" id="text-org73683fb">
+ <article id="outline-container-org9b2b7df" class="outline-2"> <h2 id="org9b2b7df">Conclusions about the free software communities</h2>
+ <div class="outline-text-2" id="text-org9b2b7df">
  <p>
 It's only natural for an ethical community that is ethical towards human
 animals to extend these ethical values to non-human animals as well.
@@ -1525,8 +1525,8 @@ I don't find promotion of consumption of these items to fit within the
 extended ethical values of the Free Software movement.
 </p>
 </div>
-</article> <article id="outline-container-orgd4c505d" class="outline-2"> <h2 id="orgd4c505d">Conclusions about vegans views on software</h2>
- <div class="outline-text-2" id="text-orgd4c505d">
+</article> <article id="outline-container-org5337e5b" class="outline-2"> <h2 id="org5337e5b">Conclusions about vegans views on software</h2>
+ <div class="outline-text-2" id="text-org5337e5b">
  <p>
 My experiences with Vegans is quite limited, but within my own circles I
 happen to see that most Vegans use primarily Free Software - but I don't
@@ -1541,8 +1541,8 @@ about - which I totally get and respect, especially if this non-free software
 is used to promote veganism, which I nowadays find to be of higher value.
 </p>
 </div>
-</article> <article id="outline-container-orgc745bc2" class="outline-2"> <h2 id="orgc745bc2">General conclusions</h2>
- <div class="outline-text-2" id="text-orgc745bc2">
+</article> <article id="outline-container-org3a7996d" class="outline-2"> <h2 id="org3a7996d">General conclusions</h2>
+ <div class="outline-text-2" id="text-org3a7996d">
  <p>
 A general rule in today's society is the following: "vote with your wallet".
 </p>
@@ -1574,7 +1574,7 @@ when you run a non-free program.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Why I got into Veganism</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
  <p>
 This is a follow-up on:  <a href="/blog/2021/01/why-i-got-into-veganism/../why-i-use-free-software/">Why I use Free Software</a>. This has been followed up
@@ -1582,7 +1582,7 @@ by:  <a href="/blog/2021/01/why-i-got-into-veganism/../i-find-food-habits-at-fre
 </p>
 
  <p>
-People who turn to Veganism <sup> <a id="fnr.1" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.1">1</a></sup> can do this for different reasons,
+People who turn to Veganism <sup> <a id="fnr.1" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.1" role="doc-backlink">1</a></sup> can do this for different reasons,
 some do it for health reasons, others for climate reasons. But in it's core,
 the Vegan movement in itself is an ethical movement about saving the animals.
 The other reasons are more or less side effects.
@@ -1590,7 +1590,7 @@ The other reasons are more or less side effects.
 
  <p>
 When my journey to Veganism started I didn't get into Veganism at all to
-begin with. I got into Vegetarianism <sup> <a id="fnr.2" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.2">2</a></sup> because wanted to
+begin with. I got into Vegetarianism <sup> <a id="fnr.2" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.2" role="doc-backlink">2</a></sup> because wanted to
 challenge myself by forcing myself to change and experience a different
 pallet of foods, but also for health reasons.
 </p>
@@ -1600,14 +1600,14 @@ Over time I've learned more about the ethical aspects of Veganism which
 partly made me question the point of Vegetarianism and more towards ethical
 Veganism. I still to this day don't know the point of Vegetarianism, not
 after learning some of the horrible things that happens within the dairy
-industry <sup> <a id="fnr.3" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.3">3</a></sup>.
+industry <sup> <a id="fnr.3" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.3" role="doc-backlink">3</a></sup>.
 </p>
 
  <p>
 Before I became a Vegan I thought that I was doing something good for the
-animals and the environment. How bad can milk be <sup> <a id="fnr.3.100" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.3">3</a></sup>? How bad
-can wool be <sup> <a id="fnr.4" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.4">4</a></sup>? It also turns out that the best thing anyone
-can do for the environment <sup> <a id="fnr.5" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.5">5</a></sup> is also
+animals and the environment. How bad can milk be <sup> <a id="fnr.3.100" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.3" role="doc-backlink">3</a></sup>? How bad
+can wool be <sup> <a id="fnr.4" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.4" role="doc-backlink">4</a></sup>? It also turns out that the best thing anyone
+can do for the environment <sup> <a id="fnr.5" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.5" role="doc-backlink">5</a></sup> is also
 the best thing for the animals.
 </p>
 
@@ -1647,7 +1647,7 @@ I've found that they are surprisingly similar.
 
  <p>
 There's some key differences though. Proprietary
-Software <sup> <a id="fnr.6" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.6">6</a></sup> usually doesn't involve:
+Software <sup> <a id="fnr.6" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.6" role="doc-backlink">6</a></sup> usually doesn't involve:
 </p>
 
  <ul class="org-ul"> <li>Killing of billions of animals including using actual gas chambers.</li>
@@ -1656,45 +1656,45 @@ Software <sup> <a id="fnr.6" class="footref" href="/blog/2021/01/why-i-got-into-
 feces that comes out in the water supplies.</li>
 </ul> <p>
 Veganism is the only humane lifestyle that isn't pushing for more
-Speciesism <sup> <a id="fnr.7" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.7">7</a></sup>, which benefits both humans, animals and the
+Speciesism <sup> <a id="fnr.7" class="footref" href="/blog/2021/01/why-i-got-into-veganism/#fn.7" role="doc-backlink">7</a></sup>, which benefits both humans, animals and the
 environment. Since Free Software is humane software, I can only conclude that
 Free Software is Vegan software - but a less important issue due to the
 victims that Veganism wants to protect.
 </p>
 
 
- <div id="org199531b" class="figure">
+ <div id="orga3536c6" class="figure">
  <p> <img src="/blog/2021/01/why-i-got-into-veganism/./metric-for-ethics.jpg" alt="metric-for-ethics.jpg"></img></p>
 </div>
  <div id="footnotes">
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Veganism#Ethical_veganism">https://en.wikipedia.org/wiki/Veganism#Ethical_veganism</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Vegetarianism">https://en.wikipedia.org/wiki/Vegetarianism</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
  <a href="https://www.youtube.com/watch?v=UcN7SGGoCNI">Youtube - Erin Janus - Dairy is scary!</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.4" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.4">4</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.4" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
  <a href="https://www.youtube.com/watch?v=siTvjWE2aVw">Youtube - Erin Janus - Wool industry exposed</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.5" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.5">5</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.5" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
  <a href="https://www.theguardian.com/environment/2018/may/31/avoiding-meat-and-dairy-is-single-biggest-way-to-reduce-your-impact-on-earth">The Guardian: Avoiding meat and dairy is ‘single biggest way’ to reduce your impact on Earth</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.6" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.6">6</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.6" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Proprietary_software">https://en.wikipedia.org/wiki/Proprietary_software</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.7" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.7">7</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.7" class="footnum" href="/blog/2021/01/why-i-got-into-veganism/#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Speciesism">https://en.wikipedia.org/wiki/Speciesism</a>
 </p></div></div>
 
@@ -1708,7 +1708,7 @@ victims that Veganism wants to protect.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Why I use Free Software</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
  <p>
 This has been followed up by:  <a href="/blog/2021/01/why-i-use-free-software/../why-i-got-into-veganism">Why I got into Veganism</a>,  <a href="/blog/2021/01/why-i-use-free-software/../i-find-food-habits-at-free-software-events-weird">I find food habits at
@@ -1717,7 +1717,7 @@ Free Software events weird</a>.
 
  <p>
 People in general may have different reasons for choosing to use Free
-Software <sup> <a id="fnr.1" class="footref" href="/blog/2021/01/why-i-use-free-software/#fn.1">1</a></sup>, some may use it for the price, others because of
+Software <sup> <a id="fnr.1" class="footref" href="/blog/2021/01/why-i-use-free-software/#fn.1" role="doc-backlink">1</a></sup>, some may use it for the price, others because of
 pragmatic reasons, simply put it's the best tool for the job. Others may
 choose it for ethical reasons.
 </p>
@@ -1753,7 +1753,7 @@ that's the reasoning for how it was founded.
 
  <p>
 For example: I find Free Software to be one of the best ways to close, or at
-least reduce the size of the digital divide <sup> <a id="fnr.2" class="footref" href="/blog/2021/01/why-i-use-free-software/#fn.2">2</a></sup>. It may not do
+least reduce the size of the digital divide <sup> <a id="fnr.2" class="footref" href="/blog/2021/01/why-i-use-free-software/#fn.2" role="doc-backlink">2</a></sup>. It may not do
 it on hardware, but every bit helps.
 </p>
 
@@ -1767,22 +1767,22 @@ attempt to break economic barriers and income classes.
 
  <p>
 This happens to go hand in hand with the ethical aspects of
-Veganism <sup> <a id="fnr.3" class="footref" href="/blog/2021/01/why-i-use-free-software/#fn.3">3</a></sup>. This is sadly a connection I didn't get until many
+Veganism <sup> <a id="fnr.3" class="footref" href="/blog/2021/01/why-i-use-free-software/#fn.3" role="doc-backlink">3</a></sup>. This is sadly a connection I didn't get until many
 years later. This is in a follow up post:  <a href="/blog/2021/01/why-i-use-free-software/../why-i-got-into-veganism">Why I got into Veganism</a>.
 </p>
  <div id="footnotes">
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/01/why-i-use-free-software/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2021/01/why-i-use-free-software/#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Free_software">https://en.wikipedia.org/wiki/Free_software</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/01/why-i-use-free-software/#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2021/01/why-i-use-free-software/#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Digital_divide">https://en.wikipedia.org/wiki/Digital_divide</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/01/why-i-use-free-software/#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2021/01/why-i-use-free-software/#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
  <a href="https://en.wikipedia.org/wiki/Veganism#Ethical_veganism">https://en.wikipedia.org/wiki/Veganism#Ethical_veganism</a>
 </p></div></div>
 
@@ -1796,11 +1796,11 @@ years later. This is in a follow up post:  <a href="/blog/2021/01/why-i-use-free
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Weechat Android SSH relay setup</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
- <div id="table-of-contents">
+ <div id="table-of-contents" role="doc-toc">
  <h2>Table of Contents</h2>
- <div id="text-table-of-contents">
+ <div id="text-table-of-contents" role="doc-toc">
  <ul> <li> <a href="/blog/2020/08/weechat-android-ssh-relay-setup/#weechat-configuration">Weechat configuration</a></li>
  <li> <a href="/blog/2020/08/weechat-android-ssh-relay-setup/#weechat-android-configuration">Weechat Android configuration</a>
  <ul> <li> <a href="/blog/2020/08/weechat-android-ssh-relay-setup/#ssh-setup">SSH setup</a>
@@ -1813,7 +1813,7 @@ years later. This is in a follow up post:  <a href="/blog/2021/01/why-i-use-free
 </ul></div>
 </div>
  <p>
-Setting up the Weechat Android <sup> <a id="fnr.1" class="footref" href="/blog/2020/08/weechat-android-ssh-relay-setup/#fn.1">1</a></sup> relay client over SSH can
+Setting up the Weechat Android <sup> <a id="fnr.1" class="footref" href="/blog/2020/08/weechat-android-ssh-relay-setup/#fn.1" role="doc-backlink">1</a></sup> relay client over SSH can
 be a bit tricky and quite bad at giving useful error messages. So since I'm
 going through a re-setup of that I'm also writing down my notes here.
 </p>
@@ -1986,7 +1986,7 @@ Settings/
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2020/08/weechat-android-ssh-relay-setup/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2020/08/weechat-android-ssh-relay-setup/#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Weechat Android on GitHub:  <a href="https://github.com/ubergeek42/weechat-android">https://github.com/ubergeek42/weechat-android</a>,
 Weechat Android on Play Store:  <a href="https://play.google.com/store/apps/details?id=com.ubergeek42.WeechatAndroid">https://play.google.com/store/apps/details?id=com.ubergeek42.WeechatAndroid</a>
 </p></div></div>
@@ -2001,11 +2001,11 @@ Weechat Android on Play Store:  <a href="https://play.google.com/store/apps/deta
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>My battle with wrist pains</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
- <div id="table-of-contents">
+ <div id="table-of-contents" role="doc-toc">
  <h2>Table of Contents</h2>
- <div id="text-table-of-contents">
+ <div id="text-table-of-contents" role="doc-toc">
  <ul> <li> <a href="/blog/2020/08/my-battle-with-wrist-pains/#ergonomics-part-1">Ergonomics part 1</a></li>
  <li> <a href="/blog/2020/08/my-battle-with-wrist-pains/#good-health">Good health</a>
  <ul> <li> <a href="/blog/2020/08/my-battle-with-wrist-pains/#why-pain">Why pain?</a></li>
@@ -2028,7 +2028,7 @@ seek expert advice if you need it.
 </blockquote>
 
  <p>
-In parts of the IT industry abbreviations like RSI <sup> <a id="fnr.1" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.1">1</a></sup> and CTS <sup> <a id="fnr.2" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.2">2</a></sup>
+In parts of the IT industry abbreviations like RSI <sup> <a id="fnr.1" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.1" role="doc-backlink">1</a></sup> and CTS <sup> <a id="fnr.2" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.2" role="doc-backlink">2</a></sup>
 gets thrown around fairly often. I'm guilty myself of doing this.
 </p>
 
@@ -2049,7 +2049,7 @@ isn't linear.
  <div class="outline-text-2" id="text-ergonomics-part-1">
  <p>
 The first thing I did on this field was really when I switched to
-Svorak <sup> <a id="fnr.3" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.3">3</a></sup> (A Swedish Dvorak <sup> <a id="fnr.4" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.4">4</a></sup> layout) around 2006 because it
+Svorak <sup> <a id="fnr.3" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.3" role="doc-backlink">3</a></sup> (A Swedish Dvorak <sup> <a id="fnr.4" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.4" role="doc-backlink">4</a></sup> layout) around 2006 because it
 was different but also later noticed that it was more comfortable.
 </p>
 
@@ -2059,27 +2059,27 @@ utilities that are supposed to be ergonomically and "fix this".
 </p>
 
  <p>
-I ordered two of Keyboardio <sup> <a id="fnr.5" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.5">5</a></sup> Model 01 from
-Kickstarter <sup> <a id="fnr.6" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.6">6</a></sup> when it launched, one for home and one for
-work. This set me to the path of Matias Quiet Switches <sup> <a id="fnr.7" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.7">7</a></sup> as a
+I ordered two of Keyboardio <sup> <a id="fnr.5" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.5" role="doc-backlink">5</a></sup> Model 01 from
+Kickstarter <sup> <a id="fnr.6" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.6" role="doc-backlink">6</a></sup> when it launched, one for home and one for
+work. This set me to the path of Matias Quiet Switches <sup> <a id="fnr.7" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.7" role="doc-backlink">7</a></sup> as a
 good idea.
 </p>
 
  <p>
 The delivery time was long enough so I never actually started to use it
-because I jumped on a groupby for the ErgoDox Infinity <sup> <a id="fnr.8" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.8">8</a></sup>
+because I jumped on a groupby for the ErgoDox Infinity <sup> <a id="fnr.8" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.8" role="doc-backlink">8</a></sup>
 that that was launched way later but got shipped much faster. So I got two of
 that one as well to have one at work and one at home. They also happened to
-support the Matias Quiet Switches <sup> <a id="fnr.7.100" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.7">7</a></sup>.
+support the Matias Quiet Switches <sup> <a id="fnr.7.100" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.7" role="doc-backlink">7</a></sup>.
 </p>
 
  <p>
 I've experienced quality issues with my Matias Switches which pushed me to
 move back to Cherry MX or at least something Cherry MX compatible. At a
 Keyboard meetup I got the chance to try out an ErgoDox with Zealios
-V2 <sup> <a id="fnr.9" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.9">9</a></sup>. Which I later ordered switches for and it's now my main
-keyboard, together with the MX Ergo <sup> <a id="fnr.10" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.10">10</a></sup> that replaced my previous
-M570 <sup> <a id="fnr.11" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.11">11</a></sup>.
+V2 <sup> <a id="fnr.9" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.9" role="doc-backlink">9</a></sup>. Which I later ordered switches for and it's now my main
+keyboard, together with the MX Ergo <sup> <a id="fnr.10" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.10" role="doc-backlink">10</a></sup> that replaced my previous
+M570 <sup> <a id="fnr.11" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.11" role="doc-backlink">11</a></sup>.
 </p>
 
  <p>
@@ -2115,7 +2115,7 @@ don't use keyboards.
 
  <p>
 The doctor also thought me that the source of the pain is
-inflammation <sup> <a id="fnr.12" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.12">12</a></sup> that ends up in my wrists and joins and causes
+inflammation <sup> <a id="fnr.12" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.12" role="doc-backlink">12</a></sup> that ends up in my wrists and joins and causes
 the pain. To lower the immediate pain, I got pain pills.
 </p>
 </div>
@@ -2165,7 +2165,7 @@ over and over again has proved to be the right choice.
  <p>
 Since then, during the years I've read several books on the topic of diet.
 I've learned that all animal sources of food contains
-inflammation <sup> <a id="fnr.13" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.13">13</a></sup>. I'm also pretty sure that adding extra
+inflammation <sup> <a id="fnr.13" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.13" role="doc-backlink">13</a></sup>. I'm also pretty sure that adding extra
 inflammation to your body when you have problems with inflammation seems to
 be a bad idea.
 </p>
@@ -2176,7 +2176,7 @@ animal sources of food down to zero.
 </p>
 
  <p>
-So today I aim to follow a whole-food plant based diet <sup> <a id="fnr.14" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.14">14</a></sup>
+So today I aim to follow a whole-food plant based diet <sup> <a id="fnr.14" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.14" role="doc-backlink">14</a></sup>
 that is low on fat.
 </p>
 
@@ -2242,7 +2242,7 @@ full time job without any problems.
 A TL DR of my actions that made the pain manageable:
 </p>
  <ul class="org-ul"> <li>Ergonomic keyboard with wrist and arm rests for long time use</li>
- <li>Sticking to a fully plant based diet <sup> <a id="fnr.14.100" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.14">14</a></sup></li>
+ <li>Sticking to a fully plant based diet <sup> <a id="fnr.14.100" class="footref" href="/blog/2020/08/my-battle-with-wrist-pains/#fn.14" role="doc-backlink">14</a></sup></li>
  <li>Working out three to four times a week</li>
 </ul> <p>
 It's still a daily struggle, but it's manageable and easy to live with
@@ -2253,70 +2253,70 @@ compared to how it was in the past.
  <h2 class="footnotes">Footnotes: </h2>
  <div id="text-footnotes">
 
- <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.1">1</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.1" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 RSI - Repetitive Strain Injury:
  <a href="https://en.wikipedia.org/wiki/Repetitive_strain_injury">https://en.wikipedia.org/wiki/Repetitive_strain_injury</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.2">2</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.2" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 CTS - Carpal tunnel syndrome:
  <a href="https://en.wikipedia.org/wiki/Carpal_tunnel_syndrome">https://en.wikipedia.org/wiki/Carpal_tunnel_syndrome</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.3">3</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.3" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Svorak is one of the Swedish Dvoraks:  <a href="http://aoeu.info">http://aoeu.info</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.4" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.4">4</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.4" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Dvorak keyboard layout:
  <a href="https://en.wikipedia.org/wiki/Dvorak_keyboard_layout">https://en.wikipedia.org/wiki/Dvorak_keyboard_layout</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.5" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.5">5</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.5" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Keyboardio web shop:  <a href="https://keyboard.io/">https://keyboard.io/</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.6" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.6">6</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.6" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 The Model 01: an heirloom-grade keyboard for serious typists:
  <a href="https://www.kickstarter.com/projects/keyboardio/the-model-01-an-heirloom-grade-keyboard-for-seriou">https://www.kickstarter.com/projects/keyboardio/the-model-01-an-heirloom-grade-keyboard-for-seriou</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.7" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.7">7</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.7" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.7" role="doc-backlink">7</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Matias quiet click switches:
  <a href="http://matias.ca/switches/quiet/">http://matias.ca/switches/quiet/</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.8" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.8">8</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.8" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.8" role="doc-backlink">8</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Infinity ErgoDox Mechanical Keyboard:
  <a href="https://input.club/devices/infinity-ergodox/">https://input.club/devices/infinity-ergodox/</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.9" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.9">9</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.9" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.9" role="doc-backlink">9</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Purple Zealios V2 Switches (Tactile):
  <a href="https://zealpc.net/products/zealio">https://zealpc.net/products/zealio</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.10" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.10">10</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.10" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.10" role="doc-backlink">10</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Logitech MX Ergo trackball:
  <a href="https://www.logitech.com/en-us/product/mx-ergo-wireless-trackball-mouse">https://www.logitech.com/en-us/product/mx-ergo-wireless-trackball-mouse</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.11" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.11">11</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.11" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.11" role="doc-backlink">11</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Logitech M570 trackball:
  <a href="https://www.logitech.com/en-us/product/wireless-trackball-m570">https://www.logitech.com/en-us/product/wireless-trackball-m570</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.12" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.12">12</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.12" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.12" role="doc-backlink">12</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Wikipedia about inflammation:
  <a href="https://en.wikipedia.org/wiki/Inflammation">https://en.wikipedia.org/wiki/Inflammation</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.13" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.13">13</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.13" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.13" role="doc-backlink">13</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Nutrition Facts page about inflammation:
  <a href="https://nutritionfacts.org/topics/inflammation/">https://nutritionfacts.org/topics/inflammation/</a>
 </p></div></div>
 
- <div class="footdef"> <sup> <a id="fn.14" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.14">14</a></sup> <div class="footpara"> <p class="footpara">
+ <div class="footdef"> <sup> <a id="fn.14" class="footnum" href="/blog/2020/08/my-battle-with-wrist-pains/#fnr.14" role="doc-backlink">14</a></sup> <div class="footpara" role="doc-footnote"> <p class="footpara">
 Nutrition Facts page about plant based diets:
  <a href="https://nutritionfacts.org/topics/plant-based-diets/">https://nutritionfacts.org/topics/plant-based-diets/</a>
 </p></div></div>
@@ -2331,11 +2331,11 @@ Nutrition Facts page about plant based diets:
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>NixOS ❄: tmpfs as home</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
- <div id="table-of-contents">
+ <div id="table-of-contents" role="doc-toc">
  <h2>Table of Contents</h2>
- <div id="text-table-of-contents">
+ <div id="text-table-of-contents" role="doc-toc">
  <ul> <li> <a href="/blog/2020/06/nixos-tmpfs-as-home/#part-1-home-manager">Part 1 - Home Manager</a></li>
  <li> <a href="/blog/2020/06/nixos-tmpfs-as-home/#part-2-persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</a></li>
  <li> <a href="/blog/2020/06/nixos-tmpfs-as-home/#part-3-persistence-module-for-nixos">Part 3 - Persistence module for NixOS</a></li>
@@ -2515,11 +2515,11 @@ as well making bind mounts for certain directories.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>NixOS ❄: tmpfs as root</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
- <div id="table-of-contents">
+ <div id="table-of-contents" role="doc-toc">
  <h2>Table of Contents</h2>
- <div id="text-table-of-contents">
+ <div id="text-table-of-contents" role="doc-toc">
  <ul> <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-1-partitioning">Step 1 - Partitioning on EFI</a></li>
  <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-1-partitioning-for-legacy-boot">Step 1 - Partitioning for legacy boot</a></li>
  <li> <a href="/blog/2020/05/nixos-tmpfs-as-root/#step-2-creating-the-file-systems">Step 2 - Creating the file systems</a></li>
@@ -2875,11 +2875,11 @@ end of the install since it won't be there after reboot anyway.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>PHP packaging in NixOS ❄</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
- <div id="table-of-contents">
+ <div id="table-of-contents" role="doc-toc">
  <h2>Table of Contents</h2>
- <div id="text-table-of-contents">
+ <div id="text-table-of-contents" role="doc-toc">
  <ul> <li> <a href="/blog/2020/04/php-packaging-in-nixos/#state-of-php-before-nixos-20.09">State of PHP before NixOS 20.09</a></li>
  <li> <a href="/blog/2020/04/php-packaging-in-nixos/#the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</a></li>
  <li> <a href="/blog/2020/04/php-packaging-in-nixos/#state-of-php-in-nixos-in-20.09-and-beyond">State of PHP in NixOS in 20.09 and beyond</a></li>
@@ -3031,11 +3031,11 @@ flexibility, being reproducible and being minimalistic at the same time.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Double stitched Penguin Beanie</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
- <div id="table-of-contents">
+ <div id="table-of-contents" role="doc-toc">
  <h2>Table of Contents</h2>
- <div id="text-table-of-contents">
+ <div id="text-table-of-contents" role="doc-toc">
  <ul> <li> <a href="/blog/2020/02/double-stitched-penguin-beanie/#pattern-chart">Pattern chart</a></li>
  <li> <a href="/blog/2020/02/double-stitched-penguin-beanie/#pattern-description">Pattern description</a></li>
  <li> <a href="/blog/2020/02/double-stitched-penguin-beanie/#pictures">Pictures</a>
@@ -3045,7 +3045,7 @@ flexibility, being reproducible and being minimalistic at the same time.
 </ul></div>
 </div>
 
- <div id="org0fb7323" class="figure">
+ <div id="orgc23681e" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_front_and_side_thumb.png" alt="Friendly front and side of penguin beanie"></img></p>
  <p> <span class="figure-number">Figure 1: </span>Friendly front and side of penguin beanie</p>
 </div>
@@ -3072,7 +3072,7 @@ of the outside. And the inside kinda became the evil twin of the outside.
  <article id="outline-container-pattern-chart" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
  <div class="outline-text-2" id="text-pattern-chart">
 
- <div id="org9dc9c28" class="figure">
+ <div id="orgb583501" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./small_chart.png" alt="Chart of the knitting pattern"></img></p>
  <p> <span class="figure-number">Figure 2: </span>Chart of the knitting pattern</p>
 </div>
@@ -3157,7 +3157,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="friendly-penguin">Friendly penguin</h3>
  <div class="outline-text-3" id="text-friendly-penguin">
 
- <div id="org5c6d9a4" class="figure">
+ <div id="org5ccec41" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_front_thumb.jpg" alt="Friendly penguin front"></img></p>
  <p> <span class="figure-number">Figure 3: </span>Friendly penguin front</p>
 </div>
@@ -3167,7 +3167,7 @@ black stitches and the white yarn through the final white stitches.
 </p>
 
 
- <div id="org1e75b04" class="figure">
+ <div id="org3275785" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_side_thumb.jpg" alt="Friendly penguin side"></img></p>
  <p> <span class="figure-number">Figure 4: </span>Friendly penguin side</p>
 </div>
@@ -3182,7 +3182,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="evil-penguin-inside">Evil penguin inside</h3>
  <div class="outline-text-3" id="text-evil-penguin-inside">
 
- <div id="org29cff09" class="figure">
+ <div id="orge7b4477" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_front_thumb.jpg" alt="Evil penguin front"></img></p>
  <p> <span class="figure-number">Figure 5: </span>Evil penguin front</p>
 </div>
@@ -3192,7 +3192,7 @@ black stitches and the white yarn through the final white stitches.
 </p>
 
 
- <div id="orgbbd042b" class="figure">
+ <div id="org8fc66fb" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_side_thumb.jpg" alt="Evil penguin side"></img></p>
  <p> <span class="figure-number">Figure 6: </span>Evil penguin side</p>
 </div>
@@ -3210,11 +3210,11 @@ black stitches and the white yarn through the final white stitches.
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Encrypted ZFS mirror with mirrored boot on NixOS</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
- <div id="table-of-contents">
+ <div id="table-of-contents" role="doc-toc">
  <h2>Table of Contents</h2>
- <div id="text-table-of-contents">
+ <div id="text-table-of-contents" role="doc-toc">
  <ul> <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#my-requirements-on-this-setup">My requirements on this setup</a></li>
  <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#step-1-partitioning">Step 1 - Partitioning</a></li>
  <li> <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/#step-2-creating-the-pool">Step 2 - Creating the pool</a></li>
@@ -3506,7 +3506,7 @@ I've configured it so I can unlock the drive over SSH on boot following:
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Hello World!</title>
-  <description><![CDATA[<div id="content">
+  <description><![CDATA[<div id="content" class="content">
 
  <p>
 Hello world! This is a test blog post.
@@ -3526,12 +3526,12 @@ This is a block quote element.
 This is an inline  <code>code</code> block.
 </p>
 
- <article id="outline-container-org29d21e4" class="outline-2"> <h2 id="org29d21e4">Test of syntax highlighting</h2>
- <div class="outline-text-2" id="text-org29d21e4">
+ <article id="outline-container-orgb54fce4" class="outline-2"> <h2 id="orgb54fce4">Test of syntax highlighting</h2>
+ <div class="outline-text-2" id="text-orgb54fce4">
 </div>
- <div id="outline-container-org5d84065" class="outline-3">
- <h3 id="org5d84065">elisp</h3>
- <div class="outline-text-3" id="text-org5d84065">
+ <div id="outline-container-orgd62a73a" class="outline-3">
+ <h3 id="orgd62a73a">elisp</h3>
+ <div class="outline-text-3" id="text-orgd62a73a">
  <div class="org-src-container">
  <pre class="src src-elisp"> <span class="org-comment-delimiter">;; </span> <span class="org-comment">Define the hello function</span>
 ( <span class="org-keyword">defun</span>  <span class="org-function-name">hello</span> ()
@@ -3547,9 +3547,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-orgb425bf6" class="outline-3">
- <h3 id="orgb425bf6">Nix</h3>
- <div class="outline-text-3" id="text-orgb425bf6">
+ <div id="outline-container-orgc949f4f" class="outline-3">
+ <h3 id="orgc949f4f">Nix</h3>
+ <div class="outline-text-3" id="text-orgc949f4f">
  <div class="org-src-container">
  <pre class="src src-nix">{
    <span class="org-comment"># Define the hello function</span>
@@ -3567,9 +3567,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-org4763fa4" class="outline-3">
- <h3 id="org4763fa4">Go</h3>
- <div class="outline-text-3" id="text-org4763fa4">
+ <div id="outline-container-org68c7fe1" class="outline-3">
+ <h3 id="org68c7fe1">Go</h3>
+ <div class="outline-text-3" id="text-org68c7fe1">
  <div class="org-src-container">
  <pre class="src src-go"> <span class="org-keyword">package</span> main
 
@@ -3583,9 +3583,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-orgd3853db" class="outline-3">
- <h3 id="orgd3853db">PHP</h3>
- <div class="outline-text-3" id="text-orgd3853db">
+ <div id="outline-container-orge173bd6" class="outline-3">
+ <h3 id="orge173bd6">PHP</h3>
+ <div class="outline-text-3" id="text-orge173bd6">
  <div class="org-src-container">
  <pre class="src src-php"> <span class="org-php-php-tag"><?php</span>
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Define the hello function</span>
@@ -3599,8 +3599,8 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 </div>
-</article> <article id="outline-container-orgdf74ab7" class="outline-2"> <h2 id="orgdf74ab7">Sample text</h2>
- <div class="outline-text-2" id="text-orgdf74ab7">
+</article> <article id="outline-container-org610c01c" class="outline-2"> <h2 id="org610c01c">Sample text</h2>
+ <div class="outline-text-2" id="text-org610c01c">
  <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus

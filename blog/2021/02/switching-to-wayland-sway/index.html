@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Switching to Wayland (Sway)</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;">
+<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;" />
+<meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="/style.css" />
 <link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
 <link rel="icon" href="/imgs/favicon.jpg">
@@ -31,27 +31,27 @@ gtag('config', 'G-52Z9NBYBDY');
      </ul>
    </nav>
 </div>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Switching to Wayland (Sway)</h1>
 <p>
 Like every other desktop Linux user for the past many years I've used X11. I
-was on i3wm<sup><a id="fnr.1" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.1">1</a></sup> for quite some time until I was introduced to
-EXWM<sup><a id="fnr.2" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.2">2</a></sup> which I used exclusively for about 18 months, I've even held a
-talk<sup><a id="fnr.3" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.3">3</a></sup> about it. But at some point it got too annoying, for
+was on i3wm<sup><a id="fnr.1" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.1" role="doc-backlink">1</a></sup> for quite some time until I was introduced to
+EXWM<sup><a id="fnr.2" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.2" role="doc-backlink">2</a></sup> which I used exclusively for about 18 months, I've even held a
+talk<sup><a id="fnr.3" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.3" role="doc-backlink">3</a></sup> about it. But at some point it got too annoying, for
 example in multi monitor use cases.
 </p>
 
 <p>
 At this point my first step was to go back to set up i3wm again. With that
-set up I wanted to give SwayWM<sup><a id="fnr.4" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.4">4</a></sup> another attempt, it was years ago
+set up I wanted to give SwayWM<sup><a id="fnr.4" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.4" role="doc-backlink">4</a></sup> another attempt, it was years ago
 I've checked it out before. I think my previous experience was when the
 project was new. At that point (if I remember correctly), not even the window
 decorations looked like the ones in i3wm.
 </p>
 
-<article id="outline-container-org8fcc24a" class="outline-2">
-<h2 id="org8fcc24a">Key map</h2>
-<div class="outline-text-2" id="text-org8fcc24a">
+<article id="outline-container-org8607369" class="outline-2">
+<h2 id="org8607369">Key map</h2>
+<div class="outline-text-2" id="text-org8607369">
 <p>
 As a US Dvorak typist that sometimes types Swedish, I have opinions about key
 maps. Since I used xmodmap before to customize my key map to make it work for
@@ -96,9 +96,9 @@ configuration:
 </div>
 </article>
 
-<article id="outline-container-orge79dcb3" class="outline-2">
-<h2 id="orge79dcb3">Browsers</h2>
-<div class="outline-text-2" id="text-orge79dcb3">
+<article id="outline-container-org538e211" class="outline-2">
+<h2 id="org538e211">Browsers</h2>
+<div class="outline-text-2" id="text-org538e211">
 <p>
 I use Firefox as my main browser, it works mostly fine native on Wayland. It
 happens now and then that I encounter things that are less than perfect
@@ -113,9 +113,9 @@ environment set.
 </div>
 </article>
 
-<article id="outline-container-org9f67172" class="outline-2">
-<h2 id="org9f67172">Editor</h2>
-<div class="outline-text-2" id="text-org9f67172">
+<article id="outline-container-orgd0ad071" class="outline-2">
+<h2 id="orgd0ad071">Editor</h2>
+<div class="outline-text-2" id="text-orgd0ad071">
 <p>
 As a long time Emacs user I'll just keep using Emacs. To begin with I did so
 in Xwayland - but it had some issues at some point which pushed me to try out
@@ -126,9 +126,9 @@ hope it's mainlined before Emacs 28.
 </div>
 </article>
 
-<article id="outline-container-org303cf42" class="outline-2">
-<h2 id="org303cf42">Screen sharing</h2>
-<div class="outline-text-2" id="text-org303cf42">
+<article id="outline-container-org7c0a968" class="outline-2">
+<h2 id="org7c0a968">Screen sharing</h2>
+<div class="outline-text-2" id="text-org7c0a968">
 <p>
 It works! <code>*</code>
 </p>
@@ -147,7 +147,7 @@ only share the entire screen - but not single windows.
 
 <p>
 This limitation is extra annoying when using an ultra wide
-monitor<sup><a id="fnr.5" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.5">5</a></sup> since nobody else can actually see this stream
+monitor<sup><a id="fnr.5" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.5" role="doc-backlink">5</a></sup> since nobody else can actually see this stream
 properly. One hacky workaround I have for this is to run a browser in
 Xwayland which makes it possible to share other Xwayland applications. Then
 to have an Emacs instance running in Xwayland, then I can share that Emacs
@@ -171,9 +171,9 @@ multi screen environment.
 </div>
 </article>
 
-<article id="outline-container-org5c7bbb5" class="outline-2">
-<h2 id="org5c7bbb5">Miscellaneous applications</h2>
-<div class="outline-text-2" id="text-org5c7bbb5">
+<article id="outline-container-org7cf11b2" class="outline-2">
+<h2 id="org7cf11b2">Miscellaneous applications</h2>
+<div class="outline-text-2" id="text-org7cf11b2">
 <ul class="org-ul">
 <li>Screenshots: <code>grim -g $(slurp) - | swappy -f -</code></li>
 <li>Back light: <code>acpiilight</code></li>
@@ -188,9 +188,9 @@ multi screen environment.
 </div>
 </article>
 
-<article id="outline-container-org2a7938f" class="outline-2">
-<h2 id="org2a7938f">Conclusions</h2>
-<div class="outline-text-2" id="text-org2a7938f">
+<article id="outline-container-orge747272" class="outline-2">
+<h2 id="orge747272">Conclusions</h2>
+<div class="outline-text-2" id="text-orge747272">
 <p>
 My road to Wayland with Sway have for sure have had a couple of road bumps.
 The only real bump that has been a software limitation has been how screen
@@ -208,23 +208,23 @@ tearing, everything just gives the perception and feels faster and smoother.
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 i3wm &#x2013; <a href="https://i3wm.org/">https://i3wm.org/</a>
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 Emacs X Window Manager &#x2013; <a href="https://github.com/ch11ng/exwm">https://github.com/ch11ng/exwm</a>
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.3" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 EXWM Talk &#x2013; <a href="/blog/2021/02/switching-to-wayland-sway/../../../../talks/">~/talks/</a>
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.4" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 SwayWM &#x2013; <a href="https://swaywm.org/">https://swaywm.org/</a>
 </p></div></div>
 
-<div class="footdef"><sup><a id="fn.5" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
 Previous post: <a href="/blog/2021/02/switching-to-wayland-sway/../ultra-wide-monitor/">Ultra wide monitor</a>
 </p></div></div>
 
