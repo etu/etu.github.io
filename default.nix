@@ -7,7 +7,7 @@ pkgs.stdenv.mkDerivation {
   src = ./.;
 
   buildInputs = with pkgs; [
-    ((emacsPackagesGen emacs27-nox).emacsWithPackages (epkgs: with epkgs; [
+    ((emacsPackagesFor emacs-nox).emacsWithPackages (epkgs: with epkgs; [
       # Newer org-mode than built-in
       org
 
@@ -15,8 +15,8 @@ pkgs.stdenv.mkDerivation {
       webfeeder
 
       # Deps for syntax highlighting for some languages
-      htmlize
       go-mode
+      htmlize
       nix-mode
       php-mode
     ]))
