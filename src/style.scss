@@ -343,6 +343,7 @@ pre {
     &.src-sh:before  { content: 'sh'; }
     &.src-sql:before { content: 'SQL'; }
     &.src-xml:before { content: 'xml'; }
+    &.src-yaml:before { content: 'YAML'; }
 }
 
 code {

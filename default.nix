@@ -19,6 +19,7 @@ pkgs.stdenv.mkDerivation {
       htmlize
       nix-mode
       php-mode
+      yaml-mode
     ]))
 
     sassc

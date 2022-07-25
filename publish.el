@@ -40,6 +40,7 @@
 (require 'go-mode)
 (require 'nix-mode)
 (require 'php-mode)
+(require 'yaml-mode)
 
 
 
