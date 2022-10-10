@@ -116,27 +116,21 @@ that are in the cache.nixos.org cache) so it's really plenty enough for me.
 So first, go to cachix, then you need to configure your systems to use cachix
 like this:
 </p>
-<div class="CODE" id="org0b0d773">
-<p>
-{
-</p>
+<div class="org-src-container">
+<pre class="src src-nix">{
+  <span class="org-comment"># &#8230;</span>
 
-<p>
-nix.settings.substituters = [
-  "<a href="https://yourname.cachix.org">https://yourname.cachix.org</a>"
-];
-</p>
+  <span class="org-nix-attribute">nix.settings.substituters</span> = [
+    <span class="org-string">"https://YOURNAME.cachix.org"</span>
+  ];
 
-<p>
-nix.settings.trusted-public-keys = [
-  "YOURNAME.cachix.org-…"
-];
-</p>
+  <span class="org-nix-attribute">nix.settings.trusted-public-keys</span> = [
+    <span class="org-string">"YOURNAME.cachix.org-&#8230;"</span>
+  ];
 
-<p>
+  <span class="org-comment"># &#8230;</span>
 }
-</p>
-
+</pre>
 </div>
 </div>
 
@@ -148,53 +142,40 @@ This is really quite simple, you create a <a href="https://app.cachix.org/person
 then you create a GitHub workflow in your repository. So I just created the
 file named <code>.github/workflows/cachix.yml</code>:
 </p>
-<div class="CODE" id="org515b320">
-<p>
-name: Cachix
-</p>
+<div class="org-src-container">
+<pre class="src src-yaml"><span class="org-variable-name">name</span>: Cachix
 
-<p>
-on:
-  push:
-    branches:
-</p>
-<ul class="org-ul">
-<li>main</li>
-</ul>
+<span class="org-variable-name">on</span>:
+  <span class="org-variable-name">push</span>:
+    <span class="org-variable-name">branches</span>:
+      - main
 
-<p>
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-</p>
+<span class="org-variable-name">jobs</span>:
+  <span class="org-variable-name">build</span>:
+    <span class="org-variable-name">runs-on</span>: ubuntu-latest
+    <span class="org-variable-name">steps</span>:
+      <span class="org-comment-delimiter"># </span><span class="org-comment">Clone repo</span>
+      - <span class="org-variable-name">uses</span>: actions/checkout@v3
+<span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
+<span class="org-yaml-tab">        </span><span class="org-variable-name">  submodules</span>: recursive
+      <span class="org-comment-delimiter"># </span><span class="org-comment">Install nix</span>
+      - <span class="org-variable-name">uses</span>: cachix/install-nix-action@v17
+      - <span class="org-variable-name">name</span>: Cachix setup
+<span class="org-yaml-tab">        </span><span class="org-variable-name">uses</span>: cachix/cachix-action@v10
+<span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
+<span class="org-yaml-tab">        </span><span class="org-variable-name">  name</span>: YOURNAME
+<span class="org-yaml-tab">        </span>  <span class="org-comment-delimiter"># </span><span class="org-comment">you need to create the secret named CACHIX_AUTH_TOKEN</span>
+<span class="org-yaml-tab">        </span>  <span class="org-comment-delimiter"># </span><span class="org-comment">with the personal access token created.</span>
+<span class="org-yaml-tab">        </span><span class="org-variable-name">  authToken</span>: <span class="org-string">'${{ secrets.CACHIX_AUTH_TOKEN }}'</span>
+<span class="org-yaml-tab">        </span><span class="org-variable-name">  skipPush</span>: <span class="org-constant">true</span>
 
-<ul class="org-ul">
-<li>uses: actions/checkout@v3
-with:
-  submodules: recursive</li>
-</ul>
+      <span class="org-comment-delimiter"># </span><span class="org-comment">Build a configuration.nix file that doesn't use flakes</span>
+      <span class="org-comment-delimiter"># </span><span class="org-comment">and push to cachix.</span>
+      - <span class="org-variable-name">name</span>: Build private-laptop system derivation
+<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: nix-build <span class="org-string">'&lt;nixpkgs/nixos&gt;'</span> -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system --no-out-link | cachix push YOURNAME
 
-<ul class="org-ul">
-<li>uses: cachix/install-nix-action@v17</li>
-<li><p>
-name: Cachix setup
-uses: cachix/cachix-action@v10
-with:
-  name: YOURNAME
-</p>
-
-<p>
-authToken: '${{ secrets.CACHIX<sub>AUTH</sub><sub>TOKEN</sub> }}'
-skipPush: true
-</p></li>
-</ul>
-
-<ul class="org-ul">
-<li>name: Build private-laptop system derivation
-run: nix-build '&lt;nixpkgs/nixos&gt;' -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system &#x2013;no-out-link | cachix push YOURNAME</li>
-</ul>
-
+      <span class="org-comment-delimiter"># </span><span class="org-comment">Add additional builds here&#8230;</span>
+</pre>
 </div>
 
 <p>
@@ -214,65 +195,50 @@ additional step, which is to update nixpkgs and all other dependencies.
 <p>
 So I have a file named <code>.github/workflows/update.yml</code>
 </p>
-<div class="CODE" id="org4c25b41">
-<p>
-name: Update
-</p>
+<div class="org-src-container">
+<pre class="src src-yaml"><span class="org-variable-name">name</span>: Update
 
-<p>
-on:
-  schedule:
-</p>
-<ul class="org-ul">
-<li>cron: "30 3 * * 1,3,6" # At 03:30 on Monday, Wednesday, and Saturday.</li>
-</ul>
+<span class="org-variable-name">on</span>:
+  <span class="org-variable-name">schedule</span>:
+    - <span class="org-variable-name">cron</span>: <span class="org-string">"30 3 * * 1,3,6"</span> <span class="org-comment-delimiter"># </span><span class="org-comment">At 03:30 on Monday, Wednesday, and Saturday.</span>
 
-<p>
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-</p>
+<span class="org-variable-name">jobs</span>:
+  <span class="org-variable-name">build</span>:
+    <span class="org-variable-name">runs-on</span>: ubuntu-latest
+    <span class="org-variable-name">steps</span>:
+      <span class="org-comment-delimiter"># </span><span class="org-comment">Clone repo</span>
+      - <span class="org-variable-name">uses</span>: actions/checkout@v3
+<span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
+<span class="org-yaml-tab">        </span><span class="org-variable-name">  submodules</span>: recursive
+      <span class="org-comment-delimiter"># </span><span class="org-comment">Install nix</span>
+      - <span class="org-variable-name">uses</span>: cachix/install-nix-action@v17
+      - <span class="org-variable-name">name</span>: Cachix setup
+<span class="org-yaml-tab">        </span><span class="org-variable-name">uses</span>: cachix/cachix-action@v10
+<span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
+<span class="org-yaml-tab">        </span><span class="org-variable-name">  name</span>: YOURNAME
+<span class="org-yaml-tab">        </span>  <span class="org-comment-delimiter"># </span><span class="org-comment">you need to create the secret named CACHIX_AUTH_TOKEN</span>
+<span class="org-yaml-tab">        </span>  <span class="org-comment-delimiter"># </span><span class="org-comment">with the personal access token created.</span>
+<span class="org-yaml-tab">        </span><span class="org-variable-name">  authToken</span>: <span class="org-string">'${{ secrets.CACHIX_AUTH_TOKEN }}'</span>
+<span class="org-yaml-tab">        </span><span class="org-variable-name">  skipPush</span>: <span class="org-constant">true</span>
 
-<ul class="org-ul">
-<li>uses: actions/checkout@v3
-with:
-  submodules: recursive</li>
-</ul>
+      <span class="org-comment-delimiter"># </span><span class="org-comment">Do updates of nixpkgs and other dependencies.</span>
+      - <span class="org-variable-name">name</span>: Update all dependencies
+<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: nix-shell --run <span class="org-string">'make update-all'</span>
+<span class="org-yaml-tab">        </span><span class="org-variable-name">env</span>:
+<span class="org-yaml-tab">        </span><span class="org-variable-name">  NIX_PATH</span>: nixpkgs=./nix/nixos-unstable
 
-<ul class="org-ul">
-<li>uses: cachix/install-nix-action@v17</li>
-<li><p>
-name: Cachix setup
-uses: cachix/cachix-action@v10
-with:
-  name: YOURNAME
-</p>
+      <span class="org-comment-delimiter"># </span><span class="org-comment">Build a configuration.nix file that doesn't use flakes</span>
+      <span class="org-comment-delimiter"># </span><span class="org-comment">and push to cachix.</span>
+      - <span class="org-variable-name">name</span>: Build private-laptop system derivation
+<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: nix-build <span class="org-string">'&lt;nixpkgs/nixos&gt;'</span> -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system --no-out-link | cachix push YOURNAME
 
-<p>
-authToken: '${{ secrets.CACHIX<sub>AUTH</sub><sub>TOKEN</sub> }}'
-skipPush: true
-</p></li>
-</ul>
+      <span class="org-comment-delimiter"># </span><span class="org-comment">Add additional builds here&#8230;</span>
 
-<ul class="org-ul">
-<li>name: Update all dependencies
-run: nix-shell &#x2013;run 'make update-all'
-env:
-  NIX<sub>PATH</sub>: nixpkgs=./nix/nixos-unstable</li>
-</ul>
-
-<ul class="org-ul">
-<li>name: Build private-laptop system derivation
-run: nix-build '&lt;nixpkgs/nixos&gt;' -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system &#x2013;no-out-link | cachix push YOURNAME</li>
-</ul>
-
-<ul class="org-ul">
-<li>uses: stefanzweifel/git-auto-commit-action@v4.15.0
-with:
-  commit<sub>message</sub>: "cron(treewide): Upgrade systems"</li>
-</ul>
-
+      <span class="org-comment-delimiter"># </span><span class="org-comment">Finish up by commiting the changes if all builds worked.</span>
+      - <span class="org-variable-name">uses</span>: stefanzweifel/git-auto-commit-action@v4.15.0
+<span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
+<span class="org-yaml-tab">        </span><span class="org-variable-name">  commit_message</span>: <span class="org-string">"cron(treewide): Upgrade systems"</span>
+</pre>
 </div>
 </div>
 </div>
@@ -287,12 +253,11 @@ in the root of the repo on my laptops. Then I read from that file when I
 build. So what I do is that I added the following step before the builds on
 GitHub:
 </p>
-<div class="CODE" id="orgf52da4a">
-<ul class="org-ul">
-<li>name: Populate a fake secrets file
-run: echo '{ hashedEtuPassword = ""; }' &gt; .data-secrets.nix</li>
-</ul>
-
+<div class="org-src-container">
+<pre class="src src-yaml"><span class="org-comment-delimiter"># </span><span class="org-comment">Populate a fake secrets file.</span>
+- <span class="org-variable-name">name</span>: Populate a fake secrets file
+  <span class="org-variable-name">run</span>: echo <span class="org-string">'{ hashedEtuPassword = ""; }'</span> &gt; .data-secrets.nix
+</pre>
 </div>
 
 <p>
