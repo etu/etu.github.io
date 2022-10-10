@@ -6,7 +6,248 @@
 <generator>Emacs webfeeder.el</generator>
 <link>https://elis.nu/</link>
 <atom:link href="https://elis.nu/blog/rss.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Mon, 10 Oct 2022 17:16:20 +0000</lastBuildDate>
+<lastBuildDate>Mon, 10 Oct 2022 18:08:19 +0000</lastBuildDate>
+<item>
+  <author>elis@hirwing.se (Elis Hirwing)</author>
+  <title>Outsourcing NixOS compile time to Microsoft</title>
+  <description><![CDATA[<div id="content" class="content">
+
+ <div id="table-of-contents" role="doc-toc">
+ <h2>Table of Contents</h2>
+ <div id="text-table-of-contents" role="doc-toc">
+ <ul> <li> <a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/#my-first-approach">My first approach (using a remote builder)</a></li>
+ <li> <a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/#outsourcing-the-builds-to-microsoft">Outsourcing the builds to Microsoft (using GitHub actions and cachix)</a>
+ <ul> <li> <a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/#caching-all-systems-on-your-main-branch">Caching all systems on your main branch</a></li>
+ <li> <a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/#automating-updates-of-the-main-branch">Automating updates of the main branch</a></li>
+ <li> <a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/#but-wait-you-have-encrypted-secrets-in-your-repo">But wait, you have encrypted secrets in your repo</a></li>
+</ul></li>
+</ul></div>
+</div>
+ <p>
+ <a href="https://nixos.org">NixOS</a> is a Linux-distribution that may be source-based, but it has a binary
+cache that covers things so you generally don't need to compile things,
+things tends to be cached.
+</p>
+
+ <p>
+However, depending on how you configure your system, you may trigger compiles
+depending on what you do.
+</p>
+
+ <p>
+So a thing I do is that I run Emacs 29 with the native-comp patches that is
+wayland native with the pgtk-branch. This is by no mean the stable Emacs
+release at the point of writing. So to get this Emacs I use the excellent
+ <a href="https://github.com/nix-community/emacs-overlay">nix-community/emacs-overlay</a> (that is maintained by my friend
+ <a href="https://github.com/adisbladis">@adisbladis</a>). However, this means that I will get Emacs from a development
+branch of Emacs, then I need to build all the Emacs packages that I use in my
+configuration as well for this version of Emacs.
+</p>
+
+ <p>
+Emacs with native comp is also quite slow to build. So building it… takes
+time… and I need the Emacs built on two laptops for different use.
+</p>
+
+ <article id="outline-container-my-first-approach" class="outline-2"> <h2 id="my-first-approach">My first approach (using a remote builder)</h2>
+ <div class="outline-text-2" id="text-my-first-approach">
+ <p>
+So I started by using my home server as a remote builder on both laptops,
+this way… most of the time Emacs would be compiled on the remote builder… so
+when one system had been updated and the second system would try to do the
+same build on the same server… it would been cached there and not needed
+building.
+</p>
+
+ <p>
+This was pretty simple, this didn't take much time to set up… but not a
+proper binary cache and wouldn't always match due to the chance of not
+running that build on the remote system.
+</p>
+
+ <p>
+However it worked for quite some time, but it had side-effects… like… when I
+started the build I still had to wait for it to complete… and more notably
+now compared to before. I'm the one paying the power draw for the home
+server.
+</p>
+</div>
+</article> <article id="outline-container-outsourcing-the-builds-to-microsoft" class="outline-2"> <h2 id="outsourcing-the-builds-to-microsoft">Outsourcing the builds to Microsoft (using GitHub actions and cachix)</h2>
+ <div class="outline-text-2" id="text-outsourcing-the-builds-to-microsoft">
+ <p>
+So with this I had to set up and use a proper binary cache, I decided to give
+ <a href="https://cachix.org">cachix</a> a try (haven't managed it myself before). I must say it's really nice.
+It's really easy to push builds there and then you have it as a binary cache
+on your system and just get the pushed builds. It's also free to use for open
+source projects and you can cache up to 5GiB data (and it won't cache things
+that are in the cache.nixos.org cache) so it's really plenty enough for me.
+</p>
+
+ <p>
+So first, go to cachix, then you need to configure your systems to use cachix
+like this:
+</p>
+ <div class="CODE" id="org0b0d773">
+ <p>
+{
+</p>
+
+ <p>
+nix.settings.substituters = [
+  " <a href="https://yourname.cachix.org">https://yourname.cachix.org</a>"
+];
+</p>
+
+ <p>
+nix.settings.trusted-public-keys = [
+  "YOURNAME.cachix.org-…"
+];
+</p>
+
+ <p>
+}
+</p>
+
+</div>
+</div>
+
+ <div id="outline-container-caching-all-systems-on-your-main-branch" class="outline-3">
+ <h3 id="caching-all-systems-on-your-main-branch">Caching all systems on your main branch</h3>
+ <div class="outline-text-3" id="text-caching-all-systems-on-your-main-branch">
+ <p>
+This is really quite simple, you create a  <a href="https://app.cachix.org/personal-auth-tokens">Personal Access Token</a> at cachix and
+then you create a GitHub workflow in your repository. So I just created the
+file named  <code>.github/workflows/cachix.yml</code>:
+</p>
+ <div class="CODE" id="org515b320">
+ <p>
+name: Cachix
+</p>
+
+ <p>
+on:
+  push:
+    branches:
+</p>
+ <ul class="org-ul"> <li>main</li>
+</ul> <p>
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+</p>
+
+ <ul class="org-ul"> <li>uses: actions/checkout@v3
+with:
+  submodules: recursive</li>
+</ul> <ul class="org-ul"> <li>uses: cachix/install-nix-action@v17</li>
+ <li> <p>
+name: Cachix setup
+uses: cachix/cachix-action@v10
+with:
+  name: YOURNAME
+</p>
+
+ <p>
+authToken: '${{ secrets.CACHIX <sub>AUTH</sub> <sub>TOKEN</sub> }}'
+skipPush: true
+</p></li>
+</ul> <ul class="org-ul"> <li>name: Build private-laptop system derivation
+run: nix-build '<nixpkgs/nixos>' -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system –no-out-link | cachix push YOURNAME</li>
+</ul></div>
+
+ <p>
+This should be enough to make sure that you always have a cached main branch.
+</p>
+</div>
+</div>
+
+ <div id="outline-container-automating-updates-of-the-main-branch" class="outline-3">
+ <h3 id="automating-updates-of-the-main-branch">Automating updates of the main branch</h3>
+ <div class="outline-text-3" id="text-automating-updates-of-the-main-branch">
+ <p>
+This looks quite similar to the above, but it runs on a schedule and has an
+additional step, which is to update nixpkgs and all other dependencies.
+</p>
+
+ <p>
+So I have a file named  <code>.github/workflows/update.yml</code>
+</p>
+ <div class="CODE" id="org4c25b41">
+ <p>
+name: Update
+</p>
+
+ <p>
+on:
+  schedule:
+</p>
+ <ul class="org-ul"> <li>cron: "30 3 * * 1,3,6" # At 03:30 on Monday, Wednesday, and Saturday.</li>
+</ul> <p>
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+</p>
+
+ <ul class="org-ul"> <li>uses: actions/checkout@v3
+with:
+  submodules: recursive</li>
+</ul> <ul class="org-ul"> <li>uses: cachix/install-nix-action@v17</li>
+ <li> <p>
+name: Cachix setup
+uses: cachix/cachix-action@v10
+with:
+  name: YOURNAME
+</p>
+
+ <p>
+authToken: '${{ secrets.CACHIX <sub>AUTH</sub> <sub>TOKEN</sub> }}'
+skipPush: true
+</p></li>
+</ul> <ul class="org-ul"> <li>name: Update all dependencies
+run: nix-shell –run 'make update-all'
+env:
+  NIX <sub>PATH</sub>: nixpkgs=./nix/nixos-unstable</li>
+</ul> <ul class="org-ul"> <li>name: Build private-laptop system derivation
+run: nix-build '<nixpkgs/nixos>' -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system –no-out-link | cachix push YOURNAME</li>
+</ul> <ul class="org-ul"> <li>uses: stefanzweifel/git-auto-commit-action@v4.15.0
+with:
+  commit <sub>message</sub>: "cron(treewide): Upgrade systems"</li>
+</ul></div>
+</div>
+</div>
+
+ <div id="outline-container-but-wait-you-have-encrypted-secrets-in-your-repo" class="outline-3">
+ <h3 id="but-wait-you-have-encrypted-secrets-in-your-repo">But wait, you have encrypted secrets in your repo</h3>
+ <div class="outline-text-3" id="text-but-wait-you-have-encrypted-secrets-in-your-repo">
+ <p>
+Yes, that's correct and I don't give GitHub a key to decrypt that or cache it
+in cachix, however, I store those secrets in a file name  <code>.data-secrets.nix</code>
+in the root of the repo on my laptops. Then I read from that file when I
+build. So what I do is that I added the following step before the builds on
+GitHub:
+</p>
+ <div class="CODE" id="orgf52da4a">
+ <ul class="org-ul"> <li>name: Populate a fake secrets file
+run: echo '{ hashedEtuPassword = ""; }' > .data-secrets.nix</li>
+</ul></div>
+
+ <p>
+This way the build will at least find empty strings and the keys will contain
+something. So all the builds will succeed. This also means that it won't
+cache all the things fully or properly. However, my secrets contains things
+like hashed passwords and that shouldn't trigger any big compiles. So having
+to build those things locally and symlink together the rest of the system
+isn't a big deal.
+</p>
+</div>
+</div>
+</article></div>]]></description>
+  <link>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/index.html</link>
+  <guid isPermaLink="false">https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/index.html</guid>
+  <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+</item>
 <item>
   <author>elis@hirwing.se (Elis Hirwing)</author>
   <title>Keeping LG webOS Developer Mode alive with Home Assistant</title>
@@ -417,7 +658,7 @@ WiFi details among other things.
  <h5 id="issues-downloading-updates-gui">Had some problem downloading updates in the GUI application</h5>
  <div class="outline-text-5" id="text-issues-downloading-updates-gui">
 
- <div id="orgb737620" class="figure">
+ <div id="org9ed680b" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./failed-upgrade.png" alt="Failure to download upgrades from the store"></img></p>
  <p> <span class="figure-number">Figure 1: </span>Failure to download upgrades from the store</p>
 </div>
@@ -428,7 +669,7 @@ WiFi details among other things.
  <h5 id="apt-upgrade">However, upgrading using  <code>apt</code> in the terminal worked fine though</h5>
  <div class="outline-text-5" id="text-apt-upgrade">
 
- <div id="orgcc9617d" class="figure">
+ <div id="org1021e55" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./terminal-upgrade.png" alt="Successful upgrade using apt in the terminal"></img></p>
  <p> <span class="figure-number">Figure 2: </span>Successful upgrade using  <code>apt</code> in the terminal</p>
 </div>
@@ -439,7 +680,7 @@ WiFi details among other things.
  <h5 id="kernel-version">Kernel version</h5>
  <div class="outline-text-5" id="text-kernel-version">
 
- <div id="org030bcc9" class="figure">
+ <div id="org188c4f6" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./kernel.png" alt="It's using a 5.13.0 mainline kernel"></img></p>
  <p> <span class="figure-number">Figure 3: </span>It's using a 5.13.0 mainline kernel</p>
 </div>
@@ -450,7 +691,7 @@ WiFi details among other things.
  <h5 id="mounted-filesystems">Mounted filesystems</h5>
  <div class="outline-text-5" id="text-mounted-filesystems">
 
- <div id="org63a407c" class="figure">
+ <div id="orgf09529e" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./mounts.png" alt="We have a two partition layout with ext2 boot and encrypted ext4 root"></img></p>
  <p> <span class="figure-number">Figure 4: </span>We have a two partition layout with ext2 boot and encrypted ext4 root</p>
 </div>
@@ -461,7 +702,7 @@ WiFi details among other things.
  <h5 id="app-drawer-and-workspace">App drawer and workspace</h5>
  <div class="outline-text-5" id="text-app-drawer-and-workspace">
 
- <div id="org76a8942" class="figure">
+ <div id="org0c649c0" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./app-drawer.png" alt="Searchable app drawer seems to be the main workspace"></img></p>
  <p> <span class="figure-number">Figure 5: </span>Searchable app drawer seems to be the main workspace</p>
 </div>
@@ -472,7 +713,7 @@ WiFi details among other things.
  <h5 id="browser">Browser</h5>
  <div class="outline-text-5" id="text-browser">
 
- <div id="orgc5e3c03" class="figure">
+ <div id="org5463468" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./browser.png" alt="Web browser with my website, defaults to blocking ads and tracking"></img></p>
  <p> <span class="figure-number">Figure 6: </span>Web browser with my website, defaults to blocking ads and tracking</p>
 </div>
@@ -483,7 +724,7 @@ WiFi details among other things.
  <h5 id="app-drawer-and-switcher">App drawer and switcher</h5>
  <div class="outline-text-5" id="text-app-drawer-and-switcher">
 
- <div id="orga554dfa" class="figure">
+ <div id="org95b5d81" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./app-drawer-and-switcher.png" alt="App drawer when having apps running also shows the app switcher on top"></img></p>
  <p> <span class="figure-number">Figure 7: </span>App drawer when having apps running also shows the app switcher on top</p>
 </div>
@@ -494,7 +735,7 @@ WiFi details among other things.
  <h5 id="camera-live-preview">Camera live preview</h5>
  <div class="outline-text-5" id="text-camera-live-preview">
 
- <div id="org04af696" class="figure">
+ <div id="org16b2ac7" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./camera-live-preview.png" alt="Camera preview before taking a photo is super dark, even in bright light"></img></p>
  <p> <span class="figure-number">Figure 8: </span>Camera preview before taking a photo is super dark, even in bright light</p>
 </div>
@@ -505,7 +746,7 @@ WiFi details among other things.
  <h5 id="resulting-photo">Resulting photo</h5>
  <div class="outline-text-5" id="text-resulting-photo">
 
- <div id="org7926881" class="figure">
+ <div id="orgb22c72a" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./camera-resulting-image.png" alt="Resulting photo is better than the preview, but nowhere close to what anyone would like to use"></img></p>
  <p> <span class="figure-number">Figure 9: </span>Resulting photo is better than the preview, but nowhere close to what anyone would like to use</p>
 </div>
@@ -516,7 +757,7 @@ WiFi details among other things.
  <h5 id="reference-photo">Reference in same light and place with my OnePlus Nord</h5>
  <div class="outline-text-5" id="text-reference-photo">
 
- <div id="org23793f9" class="figure">
+ <div id="org473ad46" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./oneplus-nord-reference-photo.png" alt="Reference photo in the same light taken with a OnePlus Nord"></img></p>
  <p> <span class="figure-number">Figure 10: </span>Reference photo in the same light taken with a OnePlus Nord</p>
 </div>
@@ -527,7 +768,7 @@ WiFi details among other things.
  <h5 id="swedish-dvorak-is-qwerty">Swedish Dvorak seems to be… QWERTY</h5>
  <div class="outline-text-5" id="text-swedish-dvorak-is-qwerty">
 
- <div id="org800f2a5" class="figure">
+ <div id="org632ec0e" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./swedish-dvorak-seems-to-be-qwerty.png" alt="The Swedish Dvorak layout known as Svorak has the same layout as Swedish Qwerty"></img></p>
  <p> <span class="figure-number">Figure 11: </span>The Swedish Dvorak layout known as Svorak has the same layout as Swedish Qwerty</p>
 </div>
@@ -544,7 +785,7 @@ favorite emoji is.
 </p>
 
 
- <div id="org9fd4966" class="figure">
+ <div id="org27bf51f" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./emoji-keyboard.png" alt="Emoji Keyboard with numeric paginations to find other emojis"></img></p>
  <p> <span class="figure-number">Figure 12: </span>Emoji Keyboard with numeric paginations to find other emojis</p>
 </div>
@@ -560,7 +801,7 @@ people, in chat rooms it seems fine:
 </p>
 
 
- <div id="org099debb" class="figure">
+ <div id="org21ef63e" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./unencrypted-chat-fails-on-encryption.png" alt="XMPP client complaining about encryption errors in an un-encrypted chat"></img></p>
  <p> <span class="figure-number">Figure 13: </span>XMPP client complaining about encryption errors in an un-encrypted chat</p>
 </div>
@@ -571,7 +812,7 @@ people, in chat rooms it seems fine:
  <h5 id="this-phone-is-a-laptop">Apparently this phone thinks it's a laptop</h5>
  <div class="outline-text-5" id="text-this-phone-is-a-laptop">
 
- <div id="org6f20f4b" class="figure">
+ <div id="org2725e77" class="figure">
  <p> <img src="/blog/2021/10/first-impressions-of-purism-librem-5/./this-phone-is-a-laptop.png" alt="Notification regarding critically low battery saying that the "Laptop" battery is low"></img></p>
  <p> <span class="figure-number">Figure 14: </span>Notification regarding critically low battery saying that the "Laptop" battery is low</p>
 </div>
@@ -634,24 +875,24 @@ background where it's supposed to be used.
 So how do I use these colors is practice?
 </p>
 
- <article id="outline-container-org925d6b9" class="outline-2"> <h2 id="org925d6b9">Raw color themes</h2>
- <div class="outline-text-2" id="text-org925d6b9">
+ <article id="outline-container-org52d6e63" class="outline-2"> <h2 id="org52d6e63">Raw color themes</h2>
+ <div class="outline-text-2" id="text-org52d6e63">
 
- <div id="orgf17a368" class="figure">
+ <div id="orgc20b173" class="figure">
  <p> <img src="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/./raw-themes.png" alt="Raw color themes which have some colors with too little contrast and some with too much contrast."></img></p>
  <p> <span class="figure-number">Figure 1: </span>Raw color themes which have some colors with too little contrast and some with too much contrast.</p>
 </div>
 </div>
-</article> <article id="outline-container-org48f032a" class="outline-2"> <h2 id="org48f032a">Adjusted contrast themes</h2>
- <div class="outline-text-2" id="text-org48f032a">
+</article> <article id="outline-container-orgf40b0c1" class="outline-2"> <h2 id="orgf40b0c1">Adjusted contrast themes</h2>
+ <div class="outline-text-2" id="text-orgf40b0c1">
 
- <div id="orgecc587f" class="figure">
+ <div id="org65db3c8" class="figure">
  <p> <img src="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/./adjusted-themes.png" alt="Adjusted color themes which have all the colors contrast adjusted to the background."></img></p>
  <p> <span class="figure-number">Figure 2: </span>Adjusted color themes which have all the colors contrast adjusted to the background.</p>
 </div>
 </div>
-</article> <article id="outline-container-orgb3b75ba" class="outline-2"> <h2 id="orgb3b75ba">How is this accomplished at build time?</h2>
- <div class="outline-text-2" id="text-orgb3b75ba">
+</article> <article id="outline-container-orgdd364ac" class="outline-2"> <h2 id="orgdd364ac">How is this accomplished at build time?</h2>
+ <div class="outline-text-2" id="text-orgdd364ac">
  <p>
 Mozilla has a page about  <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast">Color contrast</a>, they also refer to  <a href="https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio">Web Content
 Accessibility Guidelines (WCAG) 2.1</a>. So there's a clear definition to how to
@@ -857,8 +1098,8 @@ right after activation to make sure that you'd never lock yourself out, multi
 system management and it's own secrets support.
 </p>
 
- <article id="outline-container-orgc8e79d3" class="outline-2"> <h2 id="orgc8e79d3">Pulling in the nixus module using  <code>niv</code></h2>
- <div class="outline-text-2" id="text-orgc8e79d3">
+ <article id="outline-container-orga6f47e2" class="outline-2"> <h2 id="orga6f47e2">Pulling in the nixus module using  <code>niv</code></h2>
+ <div class="outline-text-2" id="text-orga6f47e2">
  <p>
 I've use  <code>niv</code> to pull in the nixus modules:
 </p>
@@ -874,8 +1115,8 @@ parses a file called  <code>sources.json</code> which contains the repositories 
 by  <code>niv</code> and which git commit they are locked to.
 </p>
 </div>
-</article> <article id="outline-container-org89daaa1" class="outline-2"> <h2 id="org89daaa1">Setting up a deployment file using nixus</h2>
- <div class="outline-text-2" id="text-org89daaa1">
+</article> <article id="outline-container-orgf0acc65" class="outline-2"> <h2 id="orgf0acc65">Setting up a deployment file using nixus</h2>
+ <div class="outline-text-2" id="text-orgf0acc65">
  <p>
 This is also fairly straightforward, it needs to import the nixus module from
 niv to then use it to declare a nixus module.
@@ -933,8 +1174,8 @@ nixus ({ config, ... }: {
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-orgf2a00b9" class="outline-2"> <h2 id="orgf2a00b9">Building and deploying systems</h2>
- <div class="outline-text-2" id="text-orgf2a00b9">
+</article> <article id="outline-container-org18755d6" class="outline-2"> <h2 id="org18755d6">Building and deploying systems</h2>
+ <div class="outline-text-2" id="text-org18755d6">
  <p>
 Building and deploying your system couldn't be simpler! It's as easy as
 running  <code>nix-build path/to/deployment.nix</code> where the path is to the file that
@@ -976,8 +1217,8 @@ The bad news:
 Back from complaining to actually solving the problem though.
 </p>
 
- <article id="outline-container-org7b30166" class="outline-2"> <h2 id="org7b30166">Mumble does have a patch for a future release</h2>
- <div class="outline-text-2" id="text-org7b30166">
+ <article id="outline-container-org92c4bb0" class="outline-2"> <h2 id="org92c4bb0">Mumble does have a patch for a future release</h2>
+ <div class="outline-text-2" id="text-org92c4bb0">
  <p>
 So there's the issue about  <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
 been followed up by a patch  <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
@@ -989,8 +1230,8 @@ A thing with mumble is that they aren't quick at releasing new versions, so
 sitting around and waiting for a new release might… take a while.
 </p>
 </div>
-</article> <article id="outline-container-orgabe1335" class="outline-2"> <h2 id="orgabe1335">Sway has patches for this</h2>
- <div class="outline-text-2" id="text-orgabe1335">
+</article> <article id="outline-container-org8cad754" class="outline-2"> <h2 id="org8cad754">Sway has patches for this</h2>
+ <div class="outline-text-2" id="text-org8cad754">
  <p>
 Since version 1.5 Sway has a patch to be able to bind keys that doesn't
 repeat it's action, but it still works to bind them to trigger a release
@@ -1002,8 +1243,8 @@ Here's the patch that was applied to Sway:  <a href="https://github.com/swaywm/s
 bindings</a>.
 </p>
 </div>
-</article> <article id="outline-container-orgc9e2ffa" class="outline-2"> <h2 id="orgc9e2ffa">Actually making use of these things in NixOS</h2>
- <div class="outline-text-2" id="text-orgc9e2ffa">
+</article> <article id="outline-container-orgebb9934" class="outline-2"> <h2 id="orgebb9934">Actually making use of these things in NixOS</h2>
+ <div class="outline-text-2" id="text-orgebb9934">
  <p>
 I started by patching mumble to support the dbus calls:
 </p>
@@ -1276,8 +1517,8 @@ systemctl --user status xdg-desktop-portal-wlr.service
 </pre>
 </div>
 
- <article id="outline-container-org538f655" class="outline-2"> <h2 id="org538f655">Required environment variables</h2>
- <div class="outline-text-2" id="text-org538f655">
+ <article id="outline-container-orgd289f0c" class="outline-2"> <h2 id="orgd289f0c">Required environment variables</h2>
+ <div class="outline-text-2" id="text-orgd289f0c">
  <ul class="org-ul"> <li> <code>XDG_SESSION_TYPE=wayland</code></li>
  <li> <code>XDG_CURRENT_DESKTOP=sway</code></li>
 </ul> <p>
@@ -1306,9 +1547,9 @@ activation when you start sharing your screen.
 </p>
 </div>
 
- <div id="outline-container-org310a251" class="outline-3">
- <h3 id="org310a251">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
- <div class="outline-text-3" id="text-org310a251">
+ <div id="outline-container-org42f0caa" class="outline-3">
+ <h3 id="org42f0caa">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
+ <div class="outline-text-3" id="text-org42f0caa">
  <p>
 Reported issue here  <a href="https://github.com/NixOS/nixpkgs/issues/119445">https://github.com/NixOS/nixpkgs/issues/119445</a>.
 </p>
@@ -1325,8 +1566,8 @@ config to import the right things to the right places:
 </div>
 </div>
 </div>
-</article> <article id="outline-container-org5a3b3d5" class="outline-2"> <h2 id="org5a3b3d5">Testing screen sharing</h2>
- <div class="outline-text-2" id="text-org5a3b3d5">
+</article> <article id="outline-container-org4eb3520" class="outline-2"> <h2 id="org4eb3520">Testing screen sharing</h2>
+ <div class="outline-text-2" id="text-org4eb3520">
  <p>
 Testing screen sharing can easily be done with a patched <sup> <a id="fnr.1" class="footref" href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/#fn.1" role="doc-backlink">1</a></sup>
 Firefox started with  <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
@@ -1338,8 +1579,8 @@ To actually test screen sharing I'd recommend using Mozilla's  <a href="https://
 then just start your screen share on that page.
 </p>
 </div>
-</article> <article id="outline-container-org907a552" class="outline-2"> <h2 id="org907a552">What should happen?</h2>
- <div class="outline-text-2" id="text-org907a552">
+</article> <article id="outline-container-org78816c7" class="outline-2"> <h2 id="org78816c7">What should happen?</h2>
+ <div class="outline-text-2" id="text-org78816c7">
  <p>
 Starting the screen share should trigger the socket activation for the user
 services for  <code>pipewire.service</code>,  <code>xdg-desktop-portal.service</code> and
@@ -1353,8 +1594,8 @@ point since they require the environment variables to work regardless if they
 run or not.
 </p>
 </div>
-</article> <article id="outline-container-org565dea8" class="outline-2"> <h2 id="org565dea8">What if the services doesn't start?</h2>
- <div class="outline-text-2" id="text-org565dea8">
+</article> <article id="outline-container-orgc7e4bfd" class="outline-2"> <h2 id="orgc7e4bfd">What if the services doesn't start?</h2>
+ <div class="outline-text-2" id="text-orgc7e4bfd">
  <p>
 Then it doesn't work. You can just stop the services that may have started,
 then try to adjust your environment variables and try again.
@@ -1409,8 +1650,8 @@ project was new. At that point (if I remember correctly), not even the window
 decorations looked like the ones in i3wm.
 </p>
 
- <article id="outline-container-org8b9f9d2" class="outline-2"> <h2 id="org8b9f9d2">Key map</h2>
- <div class="outline-text-2" id="text-org8b9f9d2">
+ <article id="outline-container-org024cf7f" class="outline-2"> <h2 id="org024cf7f">Key map</h2>
+ <div class="outline-text-2" id="text-org024cf7f">
  <p>
 As a US Dvorak typist that sometimes types Swedish, I have opinions about key
 maps. Since I used xmodmap before to customize my key map to make it work for
@@ -1453,8 +1694,8 @@ configuration:
 </pre>
 </div>
 </div>
-</article> <article id="outline-container-org5cdfc05" class="outline-2"> <h2 id="org5cdfc05">Browsers</h2>
- <div class="outline-text-2" id="text-org5cdfc05">
+</article> <article id="outline-container-org1aa0293" class="outline-2"> <h2 id="org1aa0293">Browsers</h2>
+ <div class="outline-text-2" id="text-org1aa0293">
  <p>
 I use Firefox as my main browser, it works mostly fine native on Wayland. It
 happens now and then that I encounter things that are less than perfect
@@ -1467,8 +1708,8 @@ Firefox just needs some convincing with  <code>MOZ_ENABLE_WAYLAND=1</code> in th
 environment set.
 </p>
 </div>
-</article> <article id="outline-container-org9c0d311" class="outline-2"> <h2 id="org9c0d311">Editor</h2>
- <div class="outline-text-2" id="text-org9c0d311">
+</article> <article id="outline-container-org11120f0" class="outline-2"> <h2 id="org11120f0">Editor</h2>
+ <div class="outline-text-2" id="text-org11120f0">
  <p>
 As a long time Emacs user I'll just keep using Emacs. To begin with I did so
 in Xwayland - but it had some issues at some point which pushed me to try out
@@ -1477,8 +1718,8 @@ it and that branch is now accepted as a feature branch on Savannah, so now I
 hope it's mainlined before Emacs 28.
 </p>
 </div>
-</article> <article id="outline-container-org089ffa2" class="outline-2"> <h2 id="org089ffa2">Screen sharing</h2>
- <div class="outline-text-2" id="text-org089ffa2">
+</article> <article id="outline-container-orgc0f4678" class="outline-2"> <h2 id="orgc0f4678">Screen sharing</h2>
+ <div class="outline-text-2" id="text-orgc0f4678">
  <p>
 It works!  <code>*</code>
 </p>
@@ -1519,8 +1760,8 @@ specify which screen to share. I'm not sure how to manage that easily in a
 multi screen environment.
 </p>
 </div>
-</article> <article id="outline-container-org47c0cd3" class="outline-2"> <h2 id="org47c0cd3">Miscellaneous applications</h2>
- <div class="outline-text-2" id="text-org47c0cd3">
+</article> <article id="outline-container-orgb586707" class="outline-2"> <h2 id="orgb586707">Miscellaneous applications</h2>
+ <div class="outline-text-2" id="text-orgb586707">
  <ul class="org-ul"> <li>Screenshots:  <code>grim -g $(slurp) - | swappy -f -</code></li>
  <li>Back light:  <code>acpiilight</code></li>
  <li>Lock screen:  <code>swaylock</code> &  <code>swayidle</code></li>
@@ -1531,8 +1772,8 @@ multi screen environment.
  <li>Graphical display settings:  <code>wdisplays</code> is great!</li>
  <li>Command line display settings:  <code>wlr-randr</code></li>
 </ul></div>
-</article> <article id="outline-container-orgdc63ff2" class="outline-2"> <h2 id="orgdc63ff2">Conclusions</h2>
- <div class="outline-text-2" id="text-orgdc63ff2">
+</article> <article id="outline-container-orgec3b563" class="outline-2"> <h2 id="orgec3b563">Conclusions</h2>
+ <div class="outline-text-2" id="text-orgec3b563">
  <p>
 My road to Wayland with Sway have for sure have had a couple of road bumps.
 The only real bump that has been a software limitation has been how screen
@@ -1596,7 +1837,7 @@ Here are some sketches l've made of how big and wide this monster really is.
 </p>
 
 
- <div id="org5ebe6c3" class="figure">
+ <div id="orgb05388e" class="figure">
  <p> <img src="/blog/2021/02/ultra-wide-monitor/./drawing_thumb.png" alt="Drawn sketch of the monitor size"></img></p>
  <p> <span class="figure-number">Figure 1: </span>Drawn sketch of the monitor size</p>
 </div>
@@ -1630,8 +1871,8 @@ QHD gives me over FHD. I have more use for the extra 33% height. It's even
 rare that I need the full FHD width.
 </p>
 
- <article id="outline-container-org3faafb6" class="outline-2"> <h2 id="org3faafb6">So why go ultra wide?</h2>
- <div class="outline-text-2" id="text-org3faafb6">
+ <article id="outline-container-orgd8062fe" class="outline-2"> <h2 id="orgd8062fe">So why go ultra wide?</h2>
+ <div class="outline-text-2" id="text-orgd8062fe">
  <p>
 This ultra wide monitor has the size of two 27" QHD displays in one panel.
 This gives me the insane resolution of 5120×1440. It still gives me the extra
@@ -1705,8 +1946,8 @@ So by having both of these ideologies in mind I can only come to the
 following conclusions.
 </p>
 
- <article id="outline-container-orgbf2fc02" class="outline-2"> <h2 id="orgbf2fc02">Conclusions about the free software communities</h2>
- <div class="outline-text-2" id="text-orgbf2fc02">
+ <article id="outline-container-orgb8505dc" class="outline-2"> <h2 id="orgb8505dc">Conclusions about the free software communities</h2>
+ <div class="outline-text-2" id="text-orgb8505dc">
  <p>
 It's only natural for an ethical community that is ethical towards human
 animals to extend these ethical values to non-human animals as well.
@@ -1724,8 +1965,8 @@ I don't find promotion of consumption of these items to fit within the
 extended ethical values of the Free Software movement.
 </p>
 </div>
-</article> <article id="outline-container-orgf997920" class="outline-2"> <h2 id="orgf997920">Conclusions about vegans views on software</h2>
- <div class="outline-text-2" id="text-orgf997920">
+</article> <article id="outline-container-orgd7920c1" class="outline-2"> <h2 id="orgd7920c1">Conclusions about vegans views on software</h2>
+ <div class="outline-text-2" id="text-orgd7920c1">
  <p>
 My experiences with Vegans is quite limited, but within my own circles I
 happen to see that most Vegans use primarily Free Software - but I don't
@@ -1740,8 +1981,8 @@ about - which I totally get and respect, especially if this non-free software
 is used to promote veganism, which I nowadays find to be of higher value.
 </p>
 </div>
-</article> <article id="outline-container-org9fa7e21" class="outline-2"> <h2 id="org9fa7e21">General conclusions</h2>
- <div class="outline-text-2" id="text-org9fa7e21">
+</article> <article id="outline-container-orge82e1f9" class="outline-2"> <h2 id="orge82e1f9">General conclusions</h2>
+ <div class="outline-text-2" id="text-orge82e1f9">
  <p>
 A general rule in today's society is the following: "vote with your wallet".
 </p>
@@ -1862,7 +2103,7 @@ victims that Veganism wants to protect.
 </p>
 
 
- <div id="orgce1636e" class="figure">
+ <div id="orga8dcb71" class="figure">
  <p> <img src="/blog/2021/01/why-i-got-into-veganism/./metric-for-ethics.jpg" alt="metric-for-ethics.jpg"></img></p>
 </div>
  <div id="footnotes">
@@ -3244,7 +3485,7 @@ flexibility, being reproducible and being minimalistic at the same time.
 </ul></div>
 </div>
 
- <div id="org8c2ea4a" class="figure">
+ <div id="org2c9630e" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_front_and_side_thumb.png" alt="Friendly front and side of penguin beanie"></img></p>
  <p> <span class="figure-number">Figure 1: </span>Friendly front and side of penguin beanie</p>
 </div>
@@ -3271,7 +3512,7 @@ of the outside. And the inside kinda became the evil twin of the outside.
  <article id="outline-container-pattern-chart" class="outline-2"> <h2 id="pattern-chart">Pattern chart</h2>
  <div class="outline-text-2" id="text-pattern-chart">
 
- <div id="org0f72aa3" class="figure">
+ <div id="org41f22dc" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./small_chart.png" alt="Chart of the knitting pattern"></img></p>
  <p> <span class="figure-number">Figure 2: </span>Chart of the knitting pattern</p>
 </div>
@@ -3356,7 +3597,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="friendly-penguin">Friendly penguin</h3>
  <div class="outline-text-3" id="text-friendly-penguin">
 
- <div id="orgbebd195" class="figure">
+ <div id="org8e9b013" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_front_thumb.jpg" alt="Friendly penguin front"></img></p>
  <p> <span class="figure-number">Figure 3: </span>Friendly penguin front</p>
 </div>
@@ -3366,7 +3607,7 @@ black stitches and the white yarn through the final white stitches.
 </p>
 
 
- <div id="orgda261a8" class="figure">
+ <div id="orgdc73f0b" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./friendly_penguin_side_thumb.jpg" alt="Friendly penguin side"></img></p>
  <p> <span class="figure-number">Figure 4: </span>Friendly penguin side</p>
 </div>
@@ -3381,7 +3622,7 @@ black stitches and the white yarn through the final white stitches.
  <h3 id="evil-penguin-inside">Evil penguin inside</h3>
  <div class="outline-text-3" id="text-evil-penguin-inside">
 
- <div id="orgfdfddfd" class="figure">
+ <div id="orga8ffc0d" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_front_thumb.jpg" alt="Evil penguin front"></img></p>
  <p> <span class="figure-number">Figure 5: </span>Evil penguin front</p>
 </div>
@@ -3391,7 +3632,7 @@ black stitches and the white yarn through the final white stitches.
 </p>
 
 
- <div id="org351377b" class="figure">
+ <div id="org6ed34ac" class="figure">
  <p> <img src="/blog/2020/02/double-stitched-penguin-beanie/./evil_penguin_side_thumb.jpg" alt="Evil penguin side"></img></p>
  <p> <span class="figure-number">Figure 6: </span>Evil penguin side</p>
 </div>
@@ -3725,12 +3966,12 @@ This is a block quote element.
 This is an inline  <code>code</code> block.
 </p>
 
- <article id="outline-container-orged85fa9" class="outline-2"> <h2 id="orged85fa9">Test of syntax highlighting</h2>
- <div class="outline-text-2" id="text-orged85fa9">
+ <article id="outline-container-orgdda0970" class="outline-2"> <h2 id="orgdda0970">Test of syntax highlighting</h2>
+ <div class="outline-text-2" id="text-orgdda0970">
 </div>
- <div id="outline-container-org79d8b73" class="outline-3">
- <h3 id="org79d8b73">elisp</h3>
- <div class="outline-text-3" id="text-org79d8b73">
+ <div id="outline-container-orgf955803" class="outline-3">
+ <h3 id="orgf955803">elisp</h3>
+ <div class="outline-text-3" id="text-orgf955803">
  <div class="org-src-container">
  <pre class="src src-elisp"> <span class="org-comment-delimiter">;; </span> <span class="org-comment">Define the hello function</span>
 ( <span class="org-keyword">defun</span>  <span class="org-function-name">hello</span> ()
@@ -3746,9 +3987,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-orgac8ebaa" class="outline-3">
- <h3 id="orgac8ebaa">Nix</h3>
- <div class="outline-text-3" id="text-orgac8ebaa">
+ <div id="outline-container-org036c387" class="outline-3">
+ <h3 id="org036c387">Nix</h3>
+ <div class="outline-text-3" id="text-org036c387">
  <div class="org-src-container">
  <pre class="src src-nix">{
    <span class="org-comment"># Define the hello function</span>
@@ -3766,9 +4007,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-org036e3de" class="outline-3">
- <h3 id="org036e3de">Go</h3>
- <div class="outline-text-3" id="text-org036e3de">
+ <div id="outline-container-org3d27395" class="outline-3">
+ <h3 id="org3d27395">Go</h3>
+ <div class="outline-text-3" id="text-org3d27395">
  <div class="org-src-container">
  <pre class="src src-go"> <span class="org-keyword">package</span> main
 
@@ -3782,9 +4023,9 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 
- <div id="outline-container-orgd741336" class="outline-3">
- <h3 id="orgd741336">PHP</h3>
- <div class="outline-text-3" id="text-orgd741336">
+ <div id="outline-container-org3ce8169" class="outline-3">
+ <h3 id="org3ce8169">PHP</h3>
+ <div class="outline-text-3" id="text-org3ce8169">
  <div class="org-src-container">
  <pre class="src src-php"> <span class="org-php-php-tag"><?php</span>
  <span class="org-comment-delimiter"># </span> <span class="org-comment">Define the hello function</span>
@@ -3798,8 +4039,8 @@ This is an inline  <code>code</code> block.
 </div>
 </div>
 </div>
-</article> <article id="outline-container-orgfc04685" class="outline-2"> <h2 id="orgfc04685">Sample text</h2>
- <div class="outline-text-2" id="text-orgfc04685">
+</article> <article id="outline-container-orgb825c9b" class="outline-2"> <h2 id="orgb825c9b">Sample text</h2>
+ <div class="outline-text-2" id="text-orgb825c9b">
  <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus
