@@ -22,8 +22,7 @@ jobs:
         run: nix-build default.nix
 
       # Deploy the build artifact to another branch
-      - name: Deploy
-        uses: s0/git-publish-subdir-action@develop
+      - uses: s0/git-publish-subdir-action@v2.4.0
         env:
           REPO: self
           BRANCH: gh-pages
