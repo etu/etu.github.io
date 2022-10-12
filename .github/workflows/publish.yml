@@ -1,4 +1,4 @@
-name: "Publish blog"
+name: Publish
 
 on:
   push:
@@ -6,11 +6,8 @@ on:
       - main
 
 jobs:
-  build:
-    name: "Build and publish blog"
-
+  publish:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v17
