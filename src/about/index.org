@@ -50,11 +50,11 @@ Ways to contact me:
 | Email    | [[mailto:elis@hirwing.se][elis@hirwing.se]] (use GPG if possible, details below) |
 | GitHub   | [[https://github.com/etu]]                               |
 | Matrix   | [[https://matrix.to/#/@etu:failar.nu][@etu:failar.nu]]                                       |
-| IRC      | <etu@(freenode,oftc,efnet)>                          |
-| LinkedIn | [[https://se.linkedin.com/in/elishirwing/][Elis Hirwing]]                                         |
+| XMPP     | [[mailto:etu_failar.nu@matrix.org][etu_failar.nu@matrix.org]]                             |
 | Mastodon | [[https://chaos.social/@sa0bse]]                         |
+| IRC      | <etu@(freenode,oftc,efnet)>                          |
 | Telegram | [[https://t.me/ehirwing][ehirwing]]                                             |
-| XMPP     | [[mailto:etu@failar.nu][etu@failar.nu]]                                        |
+| LinkedIn | [[https://se.linkedin.com/in/elishirwing/][Elis Hirwing]]                                         |
 
 ** ./about/contact/gpg/
 :PROPERTIES:
