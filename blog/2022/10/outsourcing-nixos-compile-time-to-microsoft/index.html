@@ -172,7 +172,9 @@ file named <code>.github/workflows/cachix.yml</code>:
       <span class="org-comment-delimiter"># </span><span class="org-comment">Build a configuration.nix file that doesn't use flakes</span>
       <span class="org-comment-delimiter"># </span><span class="org-comment">and push to cachix.</span>
       - <span class="org-variable-name">name</span>: Build private-laptop system derivation
-<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: nix-build <span class="org-string">'&lt;nixpkgs/nixos&gt;'</span> -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system --no-out-link | cachix push YOURNAME
+<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: nix-build <span class="org-string">'&lt;nixpkgs/nixos&gt;'</span> -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system
+      - <span class="org-variable-name">name</span>: Cache private-laptop system derivation
+<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: realpath result | cachix push YOURNAME
 
       <span class="org-comment-delimiter"># </span><span class="org-comment">Add additional builds here&#8230;</span>
 </pre>
@@ -230,7 +232,9 @@ So I have a file named <code>.github/workflows/update.yml</code>
       <span class="org-comment-delimiter"># </span><span class="org-comment">Build a configuration.nix file that doesn't use flakes</span>
       <span class="org-comment-delimiter"># </span><span class="org-comment">and push to cachix.</span>
       - <span class="org-variable-name">name</span>: Build private-laptop system derivation
-<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: nix-build <span class="org-string">'&lt;nixpkgs/nixos&gt;'</span> -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system --no-out-link | cachix push YOURNAME
+<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: nix-build <span class="org-string">'&lt;nixpkgs/nixos&gt;'</span> -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system
+      - <span class="org-variable-name">name</span>: Cache private-laptop system derivation
+<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: realpath result | cachix push YOURNAME
 
       <span class="org-comment-delimiter"># </span><span class="org-comment">Add additional builds here&#8230;</span>
 
