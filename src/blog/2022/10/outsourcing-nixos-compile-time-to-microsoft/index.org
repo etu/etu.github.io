@@ -106,7 +106,9 @@ jobs:
       # Build a configuration.nix file that doesn't use flakes
       # and push to cachix.
       - name: Build private-laptop system derivation
-        run: nix-build '<nixpkgs/nixos>' -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system --no-out-link | cachix push YOURNAME
+        run: nix-build '<nixpkgs/nixos>' -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system
+      - name: Cache private-laptop system derivation
+        run: realpath result | cachix push YOURNAME
 
       # Add additional builds here…
 #+END_SRC
@@ -157,7 +159,9 @@ jobs:
       # Build a configuration.nix file that doesn't use flakes
       # and push to cachix.
       - name: Build private-laptop system derivation
-        run: nix-build '<nixpkgs/nixos>' -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system --no-out-link | cachix push YOURNAME
+        run: nix-build '<nixpkgs/nixos>' -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system
+      - name: Cache private-laptop system derivation
+        run: realpath result | cachix push YOURNAME
 
       # Add additional builds here…
 
