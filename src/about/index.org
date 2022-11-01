@@ -47,14 +47,15 @@ I have a presence on places like IRC, GitHub, LinkedIn and other places
 around the internet.
 
 Ways to contact me:
-| Email    | [[mailto:elis@hirwing.se][elis@hirwing.se]] (use GPG if possible, details below) |
-| GitHub   | [[https://github.com/etu]]                               |
-| Matrix   | [[https://matrix.to/#/@etu:failar.nu][@etu:failar.nu]]                                       |
-| XMPP     | [[mailto:etu_failar.nu@matrix.org][etu_failar.nu@matrix.org]]                             |
-| Mastodon | [[https://chaos.social/@sa0bse]]                         |
-| IRC      | <etu@(freenode,oftc,efnet)>                          |
-| Telegram | [[https://t.me/ehirwing][ehirwing]]                                             |
-| LinkedIn | [[https://se.linkedin.com/in/elishirwing/][Elis Hirwing]]                                         |
+ - Email: [[mailto:elis@hirwing.se][elis@hirwing.se]]
+   (use GPG if possible, details below)
+ - GitHub: [[https://github.com/etu][github.com/etu]]
+ - Matrix: [[https://matrix.to/#/@etu:failar.nu][@etu:failar.nu]]
+ - XMPP: @@html:<a href="gtalk:chat?jid=etu_failar.nu@matrix.org">etu_failar.nu@matrix.org</a>@@
+ - Mastodon: @@html:<a rel="me" href="https://chaos.social/@sa0bse">@sa0bse@chaos.social</a>@@
+ - IRC: <etu@(oftc,efnet)>
+ - Telegram: [[https://t.me/ehirwing][ehirwing]]
+ - LinkedIn: [[https://se.linkedin.com/in/elishirwing/][Elis Hirwing]]
 
 ** ./about/contact/gpg/
 :PROPERTIES:
