@@ -21,7 +21,8 @@ gtag('config', 'G-52Z9NBYBDY');
 </head>
 <body>
 <div id="preamble" class="status">
-<nav>
+<a rel="me" href="https://chaos.social/@sa0bse"></a>
+   <nav>
      <ul>
        <li><a href="/">~elis/</a></li>
        <li><a href="/about/">./about/</a></li>
@@ -66,9 +67,9 @@ right after activation to make sure that you'd never lock yourself out, multi
 system management and it's own secrets support.
 </p>
 
-<article id="outline-container-org8c64c4e" class="outline-2">
-<h2 id="org8c64c4e">Pulling in the nixus module using <code>niv</code></h2>
-<div class="outline-text-2" id="text-org8c64c4e">
+<article id="outline-container-orgd30cd93" class="outline-2">
+<h2 id="orgd30cd93">Pulling in the nixus module using <code>niv</code></h2>
+<div class="outline-text-2" id="text-orgd30cd93">
 <p>
 I've use <code>niv</code> to pull in the nixus modules:
 </p>
@@ -86,9 +87,9 @@ by <code>niv</code> and which git commit they are locked to.
 </div>
 </article>
 
-<article id="outline-container-org9caa82d" class="outline-2">
-<h2 id="org9caa82d">Setting up a deployment file using nixus</h2>
-<div class="outline-text-2" id="text-org9caa82d">
+<article id="outline-container-org43781b8" class="outline-2">
+<h2 id="org43781b8">Setting up a deployment file using nixus</h2>
+<div class="outline-text-2" id="text-org43781b8">
 <p>
 This is also fairly straightforward, it needs to import the nixus module from
 niv to then use it to declare a nixus module.
@@ -148,9 +149,9 @@ nixus ({ config, ... }: {
 </div>
 </article>
 
-<article id="outline-container-orgad427cf" class="outline-2">
-<h2 id="orgad427cf">Building and deploying systems</h2>
-<div class="outline-text-2" id="text-orgad427cf">
+<article id="outline-container-org85458d8" class="outline-2">
+<h2 id="org85458d8">Building and deploying systems</h2>
+<div class="outline-text-2" id="text-org85458d8">
 <p>
 Building and deploying your system couldn't be simpler! It's as easy as
 running <code>nix-build path/to/deployment.nix</code> where the path is to the file that

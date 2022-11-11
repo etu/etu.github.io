@@ -21,7 +21,8 @@ gtag('config', 'G-52Z9NBYBDY');
 </head>
 <body>
 <div id="preamble" class="status">
-<nav>
+<a rel="me" href="https://chaos.social/@sa0bse"></a>
+   <nav>
      <ul>
        <li><a href="/">~elis/</a></li>
        <li><a href="/about/">./about/</a></li>
@@ -61,9 +62,9 @@ The bad news:
 Back from complaining to actually solving the problem though.
 </p>
 
-<article id="outline-container-org9bc7056" class="outline-2">
-<h2 id="org9bc7056">Mumble does have a patch for a future release</h2>
-<div class="outline-text-2" id="text-org9bc7056">
+<article id="outline-container-org00bae4d" class="outline-2">
+<h2 id="org00bae4d">Mumble does have a patch for a future release</h2>
+<div class="outline-text-2" id="text-org00bae4d">
 <p>
 So there's the issue about <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
 been followed up by a patch <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
@@ -77,9 +78,9 @@ sitting around and waiting for a new release might… take a while.
 </div>
 </article>
 
-<article id="outline-container-org2f9d8ca" class="outline-2">
-<h2 id="org2f9d8ca">Sway has patches for this</h2>
-<div class="outline-text-2" id="text-org2f9d8ca">
+<article id="outline-container-org95c974c" class="outline-2">
+<h2 id="org95c974c">Sway has patches for this</h2>
+<div class="outline-text-2" id="text-org95c974c">
 <p>
 Since version 1.5 Sway has a patch to be able to bind keys that doesn't
 repeat it's action, but it still works to bind them to trigger a release
@@ -93,9 +94,9 @@ bindings</a>.
 </div>
 </article>
 
-<article id="outline-container-org5c85103" class="outline-2">
-<h2 id="org5c85103">Actually making use of these things in NixOS</h2>
-<div class="outline-text-2" id="text-org5c85103">
+<article id="outline-container-orge9a5313" class="outline-2">
+<h2 id="orge9a5313">Actually making use of these things in NixOS</h2>
+<div class="outline-text-2" id="text-orge9a5313">
 <p>
 I started by patching mumble to support the dbus calls:
 </p>
