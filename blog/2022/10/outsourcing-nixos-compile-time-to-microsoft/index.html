@@ -153,16 +153,16 @@ file named <code>.github/workflows/cachix.yml</code>:
 
 <span class="org-variable-name">jobs</span>:
   <span class="org-variable-name">build</span>:
-    <span class="org-variable-name">runs-on</span>: ubuntu-latest
+    <span class="org-variable-name">runs-on</span>: ubuntu-20.04
     <span class="org-variable-name">steps</span>:
       <span class="org-comment-delimiter"># </span><span class="org-comment">Clone repo</span>
       - <span class="org-variable-name">uses</span>: actions/checkout@v3
 <span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
 <span class="org-yaml-tab">        </span><span class="org-variable-name">  submodules</span>: recursive
       <span class="org-comment-delimiter"># </span><span class="org-comment">Install nix</span>
-      - <span class="org-variable-name">uses</span>: cachix/install-nix-action@v17
+      - <span class="org-variable-name">uses</span>: cachix/install-nix-action@v18
       - <span class="org-variable-name">name</span>: Cachix setup
-<span class="org-yaml-tab">        </span><span class="org-variable-name">uses</span>: cachix/cachix-action@v10
+<span class="org-yaml-tab">        </span><span class="org-variable-name">uses</span>: cachix/cachix-action@v12
 <span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
 <span class="org-yaml-tab">        </span><span class="org-variable-name">  name</span>: YOURNAME
 <span class="org-yaml-tab">        </span>  <span class="org-comment-delimiter"># </span><span class="org-comment">you need to create the secret named CACHIX_AUTH_TOKEN</span>
@@ -207,16 +207,16 @@ So I have a file named <code>.github/workflows/update.yml</code>
 
 <span class="org-variable-name">jobs</span>:
   <span class="org-variable-name">build</span>:
-    <span class="org-variable-name">runs-on</span>: ubuntu-latest
+    <span class="org-variable-name">runs-on</span>: ubuntu-20.04
     <span class="org-variable-name">steps</span>:
       <span class="org-comment-delimiter"># </span><span class="org-comment">Clone repo</span>
       - <span class="org-variable-name">uses</span>: actions/checkout@v3
 <span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
 <span class="org-yaml-tab">        </span><span class="org-variable-name">  submodules</span>: recursive
       <span class="org-comment-delimiter"># </span><span class="org-comment">Install nix</span>
-      - <span class="org-variable-name">uses</span>: cachix/install-nix-action@v17
+      - <span class="org-variable-name">uses</span>: cachix/install-nix-action@v18
       - <span class="org-variable-name">name</span>: Cachix setup
-<span class="org-yaml-tab">        </span><span class="org-variable-name">uses</span>: cachix/cachix-action@v10
+<span class="org-yaml-tab">        </span><span class="org-variable-name">uses</span>: cachix/cachix-action@v12
 <span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
 <span class="org-yaml-tab">        </span><span class="org-variable-name">  name</span>: YOURNAME
 <span class="org-yaml-tab">        </span>  <span class="org-comment-delimiter"># </span><span class="org-comment">you need to create the secret named CACHIX_AUTH_TOKEN</span>
