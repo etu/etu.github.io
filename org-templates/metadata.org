@@ -6,15 +6,6 @@
 #+HTML_HEAD_EXTRA: <link rel="me" href="https://chaos.social/@sa0bse" />
 #+HTML_HEAD_EXTRA: <meta name="referrer" content="no-referrer" />
 
-#+HTML_HEAD_EXTRA: <!-- Global site tag (gtag.js) - Google Analytics -->
-#+HTML_HEAD_EXTRA: <script async src="https://www.googletagmanager.com/gtag/js?id=G-52Z9NBYBDY"></script>
-#+HTML_HEAD_EXTRA: <script>
-#+HTML_HEAD_EXTRA:   window.dataLayer = window.dataLayer || [];
-#+HTML_HEAD_EXTRA:   function gtag(){dataLayer.push(arguments);}
-#+HTML_HEAD_EXTRA:   gtag('js', new Date());
-#+HTML_HEAD_EXTRA:   gtag('config', 'G-52Z9NBYBDY');
-#+HTML_HEAD_EXTRA: </script>
-
 # Disable timestamp of when page was exported by org mode.
 #+OPTIONS: timestamp:nil
 
