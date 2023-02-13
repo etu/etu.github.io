@@ -53,7 +53,7 @@ Ways to contact me:
  - Matrix: [[https://matrix.to/#/@etu:failar.nu][@etu:failar.nu]]
  - XMPP: @@html:<a href="gtalk:chat?jid=etu_failar.nu@matrix.org">etu_failar.nu@matrix.org</a>@@
  - Mastodon: [[https://chaos.social/@sa0bse][@sa0bse@chaos.social]]
- - IRC: <etu@(oftc,efnet)>
+ - IRC: <etu@(oftc)>
  - Telegram: [[https://t.me/ehirwing][ehirwing]]
  - LinkedIn: [[https://se.linkedin.com/in/elishirwing/][Elis Hirwing]]
 
