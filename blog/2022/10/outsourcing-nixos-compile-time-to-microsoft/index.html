@@ -149,25 +149,25 @@ file named <code>.github/workflows/cachix.yml</code>:
     <span class="org-variable-name">steps</span>:
       <span class="org-comment-delimiter"># </span><span class="org-comment">Clone repo</span>
       - <span class="org-variable-name">uses</span>: actions/checkout@v3
-<span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  submodules</span>: recursive
+        <span class="org-variable-name">with</span>:
+          <span class="org-variable-name">submodules</span>: recursive
       <span class="org-comment-delimiter"># </span><span class="org-comment">Install nix</span>
       - <span class="org-variable-name">uses</span>: cachix/install-nix-action@v18
       - <span class="org-variable-name">name</span>: Cachix setup
-<span class="org-yaml-tab">        </span><span class="org-variable-name">uses</span>: cachix/cachix-action@v12
-<span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  name</span>: YOURNAME
-<span class="org-yaml-tab">        </span>  <span class="org-comment-delimiter"># </span><span class="org-comment">you need to create the secret named CACHIX_AUTH_TOKEN</span>
-<span class="org-yaml-tab">        </span>  <span class="org-comment-delimiter"># </span><span class="org-comment">with the personal access token created.</span>
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  authToken</span>: <span class="org-string">'${{ secrets.CACHIX_AUTH_TOKEN }}'</span>
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  skipPush</span>: <span class="org-constant">true</span>
+        <span class="org-variable-name">uses</span>: cachix/cachix-action@v12
+        <span class="org-variable-name">with</span>:
+          <span class="org-variable-name">name</span>: YOURNAME
+          <span class="org-comment-delimiter"># </span><span class="org-comment">you need to create the secret named CACHIX_AUTH_TOKEN</span>
+          <span class="org-comment-delimiter"># </span><span class="org-comment">with the personal access token created.</span>
+          <span class="org-variable-name">authToken</span>: <span class="org-string">'${{ secrets.CACHIX_AUTH_TOKEN }}'</span>
+          <span class="org-variable-name">skipPush</span>: <span class="org-constant">true</span>
 
       <span class="org-comment-delimiter"># </span><span class="org-comment">Build a configuration.nix file that doesn't use flakes</span>
       <span class="org-comment-delimiter"># </span><span class="org-comment">and push to cachix.</span>
       - <span class="org-variable-name">name</span>: Build private-laptop system derivation
-<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: nix-build <span class="org-string">'&lt;nixpkgs/nixos&gt;'</span> -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system
+        <span class="org-variable-name">run</span>: nix-build <span class="org-string">'&lt;nixpkgs/nixos&gt;'</span> -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system
       - <span class="org-variable-name">name</span>: Cache private-laptop system derivation
-<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: realpath result | cachix push YOURNAME
+        <span class="org-variable-name">run</span>: realpath result | cachix push YOURNAME
 
       <span class="org-comment-delimiter"># </span><span class="org-comment">Add additional builds here&#8230;</span>
 </pre>
@@ -203,38 +203,38 @@ So I have a file named <code>.github/workflows/update.yml</code>
     <span class="org-variable-name">steps</span>:
       <span class="org-comment-delimiter"># </span><span class="org-comment">Clone repo</span>
       - <span class="org-variable-name">uses</span>: actions/checkout@v3
-<span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  submodules</span>: recursive
+        <span class="org-variable-name">with</span>:
+          <span class="org-variable-name">submodules</span>: recursive
       <span class="org-comment-delimiter"># </span><span class="org-comment">Install nix</span>
       - <span class="org-variable-name">uses</span>: cachix/install-nix-action@v18
       - <span class="org-variable-name">name</span>: Cachix setup
-<span class="org-yaml-tab">        </span><span class="org-variable-name">uses</span>: cachix/cachix-action@v12
-<span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  name</span>: YOURNAME
-<span class="org-yaml-tab">        </span>  <span class="org-comment-delimiter"># </span><span class="org-comment">you need to create the secret named CACHIX_AUTH_TOKEN</span>
-<span class="org-yaml-tab">        </span>  <span class="org-comment-delimiter"># </span><span class="org-comment">with the personal access token created.</span>
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  authToken</span>: <span class="org-string">'${{ secrets.CACHIX_AUTH_TOKEN }}'</span>
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  skipPush</span>: <span class="org-constant">true</span>
+        <span class="org-variable-name">uses</span>: cachix/cachix-action@v12
+        <span class="org-variable-name">with</span>:
+          <span class="org-variable-name">name</span>: YOURNAME
+          <span class="org-comment-delimiter"># </span><span class="org-comment">you need to create the secret named CACHIX_AUTH_TOKEN</span>
+          <span class="org-comment-delimiter"># </span><span class="org-comment">with the personal access token created.</span>
+          <span class="org-variable-name">authToken</span>: <span class="org-string">'${{ secrets.CACHIX_AUTH_TOKEN }}'</span>
+          <span class="org-variable-name">skipPush</span>: <span class="org-constant">true</span>
 
       <span class="org-comment-delimiter"># </span><span class="org-comment">Do updates of nixpkgs and other dependencies.</span>
       - <span class="org-variable-name">name</span>: Update all dependencies
-<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: nix-shell --run <span class="org-string">'make update-all'</span>
-<span class="org-yaml-tab">        </span><span class="org-variable-name">env</span>:
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  NIX_PATH</span>: nixpkgs=./nix/nixos-unstable
+        <span class="org-variable-name">run</span>: nix-shell --run <span class="org-string">'make update-all'</span>
+        <span class="org-variable-name">env</span>:
+          <span class="org-variable-name">NIX_PATH</span>: nixpkgs=./nix/nixos-unstable
 
       <span class="org-comment-delimiter"># </span><span class="org-comment">Build a configuration.nix file that doesn't use flakes</span>
       <span class="org-comment-delimiter"># </span><span class="org-comment">and push to cachix.</span>
       - <span class="org-variable-name">name</span>: Build private-laptop system derivation
-<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: nix-build <span class="org-string">'&lt;nixpkgs/nixos&gt;'</span> -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system
+        <span class="org-variable-name">run</span>: nix-build <span class="org-string">'&lt;nixpkgs/nixos&gt;'</span> -I nixos-config=./hosts/private-laptop/configuration.nix -I nixpkgs=./nix/nixos-unstable -A system
       - <span class="org-variable-name">name</span>: Cache private-laptop system derivation
-<span class="org-yaml-tab">        </span><span class="org-variable-name">run</span>: realpath result | cachix push YOURNAME
+        <span class="org-variable-name">run</span>: realpath result | cachix push YOURNAME
 
       <span class="org-comment-delimiter"># </span><span class="org-comment">Add additional builds here&#8230;</span>
 
       <span class="org-comment-delimiter"># </span><span class="org-comment">Finish up by commiting the changes if all builds worked.</span>
       - <span class="org-variable-name">uses</span>: stefanzweifel/git-auto-commit-action@v4.15.0
-<span class="org-yaml-tab">        </span><span class="org-variable-name">with</span>:
-<span class="org-yaml-tab">        </span><span class="org-variable-name">  commit_message</span>: <span class="org-string">"cron(treewide): Upgrade systems"</span>
+        <span class="org-variable-name">with</span>:
+          <span class="org-variable-name">commit_message</span>: <span class="org-string">"cron(treewide): Upgrade systems"</span>
 </pre>
 </div>
 </div>
