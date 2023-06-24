@@ -32,7 +32,7 @@ pkgs.stdenv.mkDerivation {
     cp src/CNAME output/html/
     sassc --style=compressed src/style.scss output/html/style.css
 
-    cp output/html/imgs/etu.jpg output/html/imgs/favicon.jpg
+    cp output/html/imgs/elis.jpg output/html/imgs/favicon.jpg
   '';
 
   installPhase = ''
