@@ -43,8 +43,8 @@ I'm also fluent in both English and Swedish.
 :CUSTOM_ID: contact
 :END:
 
-I have a presence on places like IRC, GitHub, LinkedIn and other places
-around the internet.
+I have a presence on places like Matrix, Telegram, Mastodon, GitHub, LinkedIn
+and other places around the internet.
 
 Ways to contact me:
  - Email: [[mailto:elis@hirwing.se][elis@hirwing.se]]
@@ -53,7 +53,6 @@ Ways to contact me:
  - Matrix: [[https://matrix.to/#/@etu:failar.nu][@etu:failar.nu]]
  - XMPP: @@html:<a href="gtalk:chat?jid=etu_failar.nu@matrix.org">etu_failar.nu@matrix.org</a>@@
  - Mastodon: [[https://chaos.social/@sa0bse][@sa0bse@chaos.social]]
- - IRC: <etu@(oftc)>
  - Telegram: [[https://t.me/ehirwing][ehirwing]]
  - LinkedIn: [[https://se.linkedin.com/in/elishirwing/][Elis Hirwing]]
 
