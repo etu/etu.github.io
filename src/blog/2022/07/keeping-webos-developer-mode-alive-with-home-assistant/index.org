@@ -87,6 +87,9 @@ This is pulled from my ~scripts.yaml~:
     - service: wake_on_lan.send_magic_packet
       data:
         mac: "" # INSERT YOUR TV's MAC ADDRESS HERE
+        # The following options may be required in some network setups.
+        broadcast_address: "xxx.xxx.xxx.xxx"
+        broadcast_port: 9
     - delay:
         hours: 0
         minutes: 0
