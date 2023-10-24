@@ -1,27 +1,24 @@
+---
 name: Publish
 
-on:
+'on':
   push:
     branches:
       - main
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4.1.1
-      - uses: cachix/install-nix-action@v23
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v6
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
+
+      - run: nix build .#
+
+      - uses: peaceiris/actions-gh-pages@v3
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
-
-      # Build blog
-      - name: Build blog
-        run: nix-build default.nix
-
-      # Deploy the build artifact to another branch
-      - uses: s0/git-publish-subdir-action@v2.6.0
-        env:
-          REPO: self
-          BRANCH: gh-pages
-          FOLDER: ./result
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./result

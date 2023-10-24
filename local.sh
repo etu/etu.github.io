@@ -9,7 +9,7 @@
 # ./local.sh src/blog/hello-world
 #
 
-nix-build default.nix
+nix build .#
 
 if test -L result
 then
