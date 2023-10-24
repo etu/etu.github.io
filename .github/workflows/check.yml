@@ -1,0 +1,24 @@
+---
+name: Check
+
+'on':
+  push:
+  pull_request:
+
+jobs:
+  format:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@v6
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
+      - uses: DeterminateSystems/flake-checker-action@v5
+
+      - name: Check nix file formatting ❄️
+        run: 'nix fmt . -- --check'
+      - name: Check yaml file formatting 📂
+        run: 'nix run nixpkgs#yamllint -- --strict --format github .'
+      - name: Check deadnix file formatting ❄️
+        run: 'nix run nixpkgs#deadnix -- --fail .'
+      - name: Chack flake ❄️
+        run: 'nix flake check'
