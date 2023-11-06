@@ -41,7 +41,7 @@ fancy tea.
  - All tea that comes in big packs from Lipton
  - Most teas that doesn't have a name other than a color such as "black" or
    "green"
- - Tea that smells more like perfume but tastes like nothing like hot water
+ - Tea that smells more like perfume but tastes like nothing but hot water
  - Most versions of Earl Gray
  - Rooibos, it's not tea though, I just include it anyways
 
