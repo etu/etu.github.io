@@ -1,0 +1,34 @@
+---
+baseURL: 'https://elis.nu/'
+defaultContentLanguage: en
+title: 'Elis Hirwing'
+theme: elisnu
+
+params:
+  copyrightOwner: '2010 Elis Hirwing'
+
+  # ogImagePath: /img/og-image.png
+  iconPath: /img/elis.jpg
+
+  extraHeadContent: |-
+    <link rel="me" href="https://chaos.social/@sa0bse" />
+
+languages:
+  en:
+    menu:
+      main:
+        - name: '~elis/'
+          url: /
+          weight: 10
+        - name: './about/'
+          url: /about/
+          weight: 20
+        - name: './work/'
+          url: /work/
+          weight: 30
+        - name: './talks/'
+          url: /talks/
+          weight: 40
+        - name: './blog/'
+          url: /blog/
+          weight: 50

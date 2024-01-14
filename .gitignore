@@ -1,2 +1,11 @@
-# Ignore nix result directory
-result
+# Ignore nix build results
+result*
+
+# Hugo files
+src/.hugo_build.lock
+src/public/
+src/resources/
+
+# Other build artifacts that doesn't need to be commited
+src/themes/elisnu/assets/scss/fontawesome/
+src/themes/elisnu/static/

@@ -1,0 +1,45 @@
+<head>
+    <title>{{ if (.Title | len) }}{{ .Title }} :: {{ end }}{{ .Site.Title }}</title>
+
+    <!-- Set page encoding -->
+    <meta charset="utf-8" />
+
+    <!-- Disable referrers on external links -->
+    <meta name="referrer" content="no-referrer" />
+
+    <!-- Make mobile pages responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Add link to atom feed -->
+    <link rel="alternate" type="application/atom+xml" href="{{ printf "%sindex.xml" .Site.Params.homeUrl | absURL }}" title="{{ .Site.Title }}" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ .Site.Params.iconPath | absURL }}" />
+
+    <!-- Open graph -->
+    <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+    <meta property="og:locale" content="{{ slicestr .Site.LanguageCode 0 2 }}" />
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:title" content="{{ if ne .Page.RelPermalink "/" }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    {{ if .Params.ogImagePath }}
+    <meta property="og:image" content="{{ .Params.ogImagePath | absURL }}" />
+    {{ else }}
+    <meta property="og:image" content="{{ .Site.Params.ogImagePath | absURL }}" />
+    {{ end }}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Extra head content -->
+    {{ .Site.Params.extraHeadContent | safeHTML }}
+
+    <!-- SCSS -->
+    {{ $options := (dict "targetPath" "css/style.css"
+    "vars" site.Params.style
+    "transpiler" "dartsass"
+    "outputStyle" "compressed"
+    "enableSourceMap" (not hugo.IsProduction)
+    "includePaths" (slice "node_modules/myscss")) }}
+    {{ $style := resources.Get "scss/main.scss" | resources.ToCSS $options | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" media="screen" />
+</head>

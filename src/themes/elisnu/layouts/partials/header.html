@@ -1,0 +1,14 @@
+<header>
+    <nav>
+        {{ if (isset .Site.Menus "main") }}
+        <ul>
+            {{ if isset .Site.Params "home"}}
+            <li><a href="{{ .Site.Params.homeUrl | relURL }}">{{ .Site.Params.home }}</a></li>
+            {{ end }}
+            {{ range .Site.Menus.main }}
+            <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </nav>
+</header>

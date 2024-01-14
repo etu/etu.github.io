@@ -1,0 +1,367 @@
+/*********************************************************************
+ * Import fontawesome
+ */
+$fa-font-path: "/fonts/fontawesome";
+@import "./fontawesome/fontawesome.scss";
+@import "./fontawesome/solid.scss";
+@import "./fontawesome/brands.scss";
+
+/*********************************************************************
+ * Import math and helper functions
+ */
+@import "./functions.scss";
+
+
+/********************************************************************
+ * Variables
+ */
+
+/* Base font size in px */
+$fontSize: 16;
+$pageWidth: #{$fontSize * 50}px;
+
+/* Colors */
+$darkBackgroundColor: #171717;
+$darkForegroundColor: #FFFFFF;
+$lightBackgroundColor: #F4F4F4;
+$lightForegroundColor: #000000;
+
+$linkColor: #00B0FB;
+$visitedLinkColor: #FF047E;
+
+/* Dark colors */
+$darkMenuHoverColor: lighten($darkBackgroundColor, 10%);
+$darkCodeLanguageBoxColor: $darkMenuHoverColor;
+$darkContentDelimiters: contrast-color($darkForegroundColor, $darkBackgroundColor);
+$darkForegroundColor: contrast-color($darkForegroundColor, $darkBackgroundColor);
+
+$lightMenuHoverColor: darken($lightBackgroundColor, 10%);
+$lightCodeLanguageBoxColor: $lightMenuHoverColor;
+$lightContentDelimiters: contrast-color($lightForegroundColor, $lightBackgroundColor);
+$lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundColor);
+
+
+/********************************************************************
+ * Mixins
+ */
+@mixin rem-attributes($name, $remSize) {
+    #{$name}: #{$fontSize * $remSize}px;
+    #{$name}: #{$remSize}rem;
+}
+
+// Mixins with the variables for the color themes.
+@mixin light-theme() {
+    --background-color: #{$lightBackgroundColor};
+    --blockquote-background-color: #{$lightCodeLanguageBoxColor};
+    --blockquote-before-foreground-color: #{contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor, 2)};
+    --blockquote-foreground-color: #{contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor)};
+    --content-delimiter-color: #{$lightContentDelimiters};
+    --external-link-image: url("/img/external-arrow-dark.svg");
+    --foreground-color: #{$lightForegroundColor};
+    --link-color: #{contrast-color($linkColor, $lightBackgroundColor)};
+    --link-menu-hover-visited-color: #{contrast-color($visitedLinkColor, $lightMenuHoverColor)};
+    --link-visited-color: #{contrast-color($visitedLinkColor, $lightBackgroundColor)};
+    --menu-hover-background-color: #{$lightMenuHoverColor};
+    --menu-hover-foreground-color: #{contrast-color($linkColor, $lightMenuHoverColor)};
+}
+
+@mixin dark-theme() {
+    --background-color: #{$darkBackgroundColor};
+    --blockquote-background-color: #{$darkCodeLanguageBoxColor};
+    --blockquote-before-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor, 2)};
+    --blockquote-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor)};
+    --content-delimiter-color: #{$darkContentDelimiters};
+    --external-link-image: url("/img/external-arrow-light.svg");
+    --foreground-color: #{$darkForegroundColor};
+    --link-color: #{contrast-color($linkColor, $darkBackgroundColor)};
+    --link-menu-hover-visited-color: #{contrast-color($visitedLinkColor, $darkMenuHoverColor)};
+    --link-visited-color: #{contrast-color($visitedLinkColor, $darkBackgroundColor)};
+    --menu-hover-background-color: #{$darkMenuHoverColor};
+    --menu-hover-foreground-color: #{contrast-color($linkColor, $darkMenuHoverColor)};
+}
+
+
+/********************************************************************
+ * Define CSS variables for theme support
+ */
+:root {
+    --font-size: #{$fontSize}px;
+
+    @include light-theme();
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include dark-theme();
+    }
+}
+
+
+/********************************************************************
+ * Apply a natural box layout model to all elements
+ */
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 1;
+    position: relative;
+}
+
+
+/********************************************************************
+ * NAVIGATION
+ */
+nav {
+    font-family: monospace;
+
+    /* Make a border on top and bottom */
+    border-width: 0;
+    @include rem-attributes(border-bottom-width, 0.2);
+    @include rem-attributes(border-top-width, 0.2);
+    border-color: var(--content-delimiter-color);
+    border-style: solid;
+
+    /* Center items */
+    text-align: center;
+
+    /* http://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
+    font-size: 0;
+
+    ul {
+        display: inline-block;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+
+        li {
+            float: left;
+
+            a {
+                display: inline-block;
+
+                @include rem-attributes(font-size, 1.2);
+                @include rem-attributes(line-height, 3.4);
+                @include rem-attributes(padding-right, 1);
+                @include rem-attributes(padding-left, 1);
+
+                color: var(--link-color);
+
+                &:visited {
+                    color: var(--link-visited-color);
+                }
+
+                &:hover {
+                    background-color: var(--menu-hover-background-color);
+                    color: var(--menu-hover-foreground-color);
+
+                    &:visited {
+                        color: var(--link-menu-hover-visited-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/********************************************************************
+ * THEME
+ */
+html {
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    font-family: sans;
+    font-size: var(--font-size);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: sans;
+}
+
+body {
+    line-height: 1.5;
+    margin: 2em auto;
+    max-width: $pageWidth;
+    padding: 1em;
+
+    .figure p {
+        text-align: center;
+
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+a {
+    color: var(--link-color);
+
+    &:visited {
+        color: var(--link-visited-color);
+    }
+
+    &[href^="mailto"]::after,
+    &[href^="http://"]::after,
+    &[href^="https://"]::after {
+        content: "";
+        @include rem-attributes(width, 0.7);
+        @include rem-attributes(height, 0.7);
+        @include rem-attributes(margin-left, 0.3);
+        background-image: var(--external-link-image);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: inline-block;
+    }
+}
+
+blockquote {
+    margin: 0;
+    @include rem-attributes(margin-top, 0.5);
+    @include rem-attributes(margin-bottom, 0.5);
+
+    @include rem-attributes(padding-top, 0.4);
+    @include rem-attributes(padding-bottom, 0.4);
+    @include rem-attributes(padding-left, 1.5);
+    @include rem-attributes(padding-right, 1.5);
+
+    background: var(--blockquote-background-color);
+    color: var(--blockquote-foreground-color);
+
+    &:before {
+        content: '”';
+        position: absolute;
+        right: 0;
+        @include rem-attributes(top, -1);
+        @include rem-attributes(font-size, 4);
+        color: var(--blockquote-before-foreground-color);
+    }
+}
+
+div.highlight {
+    code {
+        &::before {
+            display: block;
+            font-family: sans;
+            font-size: 0.8em;
+            margin-bottom: 0.5em;
+            text-align: center;
+        }
+
+        &.language- {
+            &bash::before {
+                content: "Bash";
+            }
+
+            &elisp::before {
+                content: "Emacs Lisp";
+            }
+
+            &go::before {
+                content: "Go";
+            }
+
+            &nix::before {
+                content: "Nix";
+            }
+
+            &org::before {
+                content: "Org Mode";
+            }
+
+            &php::before {
+                content: "PHP";
+            }
+
+            &scss::before {
+                content: "SCSS";
+            }
+
+            &sh::before {
+                content: "Shell";
+            }
+
+            &sql::before {
+                content: "SQL";
+            }
+
+            &xml::before {
+                content: "XML";
+            }
+
+            &yaml::before {
+                content: "YAML";
+            }
+        }
+    }
+
+    >pre {
+        @include rem-attributes(padding, 1);
+
+        overflow-x: scroll;
+    }
+}
+
+div.pagination {
+    text-align: center;
+
+    ul.pagination {
+        display: inline-block;
+        list-style: none;
+
+        li {
+            float: left;
+
+            @include rem-attributes(padding-right, 0.1);
+            @include rem-attributes(padding-left, 0.1);
+
+            a {
+                display: inline-block;
+
+                @include rem-attributes(font-size, 1.2);
+                @include rem-attributes(line-height, 2.6);
+                @include rem-attributes(padding-right, 1);
+                @include rem-attributes(padding-left, 1);
+
+                @include rem-attributes(border-radius, 0.3);
+
+                color: var(--link-color);
+
+                /* Make a border */
+                @include rem-attributes(border-width, 0.1);
+                border-color: var(--content-delimiter-color);
+                border-style: solid;
+
+                &:visited {
+                    color: var(--link-visited-color);
+                }
+
+                &:hover {
+                    background-color: var(--menu-hover-background-color);
+                    color: var(--menu-hover-foreground-color);
+
+                    &:visited {
+                        color: var(--link-menu-hover-visited-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    /* Make a border on top and bottom */
+    border-width: 0;
+    @include rem-attributes(border-bottom-width, 0.2);
+    @include rem-attributes(border-top-width, 0.2);
+    border-color: var(--content-delimiter-color);
+    border-style: solid;
+}

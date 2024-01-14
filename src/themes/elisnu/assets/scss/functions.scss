@@ -1,0 +1,84 @@
+@import "math";
+
+/**
+ * Calculate values used to calculate the luminance.
+ */
+@function linear-channel-value ($c) {
+    $c: calc($c / 255);
+    $v: 0;
+
+    @if $c < 0.03928 {
+        $v: calc($c / 12.92);
+    }
+
+    @else {
+        $v: pow(calc(($c + 0.055) / 1.055), 2.4);
+    }
+
+    @return $v;
+}
+
+
+// Pre-calculate some values for faster lookups
+$linearChannelValues: (
+);
+
+@for $i from 0 through 255 {
+    $linearChannelValues: append($linearChannelValues, linear-channel-value($i));
+}
+
+
+/**
+ * https://medium.com/dev-channel/using-sass-to-automatically-pick-text-colors-4ba7645d2796
+ *
+ * Calculate the luminance for a color.
+ * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+ */
+@function luminance($color) {
+    $red: nth($linearChannelValues, red($color) + 1);
+    $green: nth($linearChannelValues, green($color) + 1);
+    $blue: nth($linearChannelValues, blue($color) + 1);
+
+    @return (0.2126 * $red) + (0.7152 * $green) + (0.0722 * $blue);
+}
+
+
+@function contrast($bg, $fg) {
+    $bgLum: luminance($bg) + .05;
+    $fgLum: luminance($fg) + .05;
+
+    @return calc(max($bgLum, $fgLum) / min($bgLum, $fgLum));
+}
+
+
+/**
+ * Generate the darkest color with enough color contrast for a dark background
+ */
+@function contrast-color($fg, $bg, $minContrast: 7.0) {
+    $maxContrast: $minContrast + .1;
+    $isDarkBg: luminance($bg) < 0.5;
+
+    // Calculate initial contrast
+    $contrast: contrast($fg, $bg);
+
+    @while ($contrast > $maxContrast or $contrast < $minContrast) {
+
+        // If it's a dark background and "too much" contrast, or it's a light
+        // background and too little contrast. Then we we make the color darker.
+        @if (($isDarkBg and $contrast > $maxContrast) or (not $isDarkBg and $contrast < $minContrast)) {
+            $fg: darken($fg, 0.1%);
+        }
+
+        @else {
+            // Otherwise we make it lighter.
+            $fg: lighten($fg, 0.1%);
+        }
+
+        // And recalculate the contrast.
+        $contrast: contrast($fg, $bg);
+
+        // @debug "contrast-color: while new contrast: #{$contrast}, #{$fg}, #{$bg}";
+    }
+
+    @return $fg;
+}

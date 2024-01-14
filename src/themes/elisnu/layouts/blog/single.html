@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="content">
+    {{ if (.Title | len) }}
+    <h1>{{ .Title }}</h1>
+    {{ end }}
+    <span class="post-date">
+        {{ .Date.Format "2006-01-02" }}
+        {{ if not .Site.Params.hideReadingTime }}
+        &middot; {{ .ReadingTime }} {{ i18n "minute-read" }}
+        {{ end }}
+    </span>
+    {{ .Content }}
+</div>
+{{ end }}

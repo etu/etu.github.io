@@ -1,0 +1,11 @@
+---
+baseURL: https://example.org/
+title: My New Hugo Site
+theme: elisnu
+
+disableKinds:
+  - taxonomy
+  - term
+
+params:
+  homeUrl: /

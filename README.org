@@ -1,1 +1,0 @@
-[[https://github.com/etu/etu.github.io/actions/workflows/publish.yml][https://github.com/etu/etu.github.io/actions/workflows/publish.yml/badge.svg]]

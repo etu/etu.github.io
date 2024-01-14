@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ slicestr .Site.LanguageCode 0 2 }}" lang="{{ .Site.LanguageCode }}">
+    {{- partial "head.html" . -}}
+    {{- block "headcontent" . }}{{- end }}
+    <body>
+        {{- partial "header.html" . -}}
+        <div class="wrapper">
+            {{- block "main" . }}{{- end }}
+        </div>
+        {{- partial "footer.html" . -}}
+        {{- block "footerjs" . }}{{- end }}
+    </body>
+</html>
