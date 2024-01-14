@@ -35,7 +35,7 @@
     
     
     
-    <link rel="stylesheet" href="https://elis.nu/css/style.20527d246698aea942f2544b136d71a4d13592501368a85c739bf55211e1a5a4.css" integrity="sha256-IFJ9JGaYrqlC8lRLE21xpNE1klATaKhcc5v1UhHhpaQ=" media="screen" />
+    <link rel="stylesheet" href="https://elis.nu/css/style.cbb5a14acaa4bb50e7aa1b077555b4e765d7fcfc9e204db0045062530c4ce597.css" integrity="sha256-y7WhSsqku1DnqhsHdVW052XX/PyeIE2wBFBiUwxM5Zc=" media="screen" />
 </head>
 
     <body><header>
@@ -98,12 +98,12 @@ on. Suggested default port is <code>9000</code>, but you need to chose something
 unique on your system. This is especially important if you have a multi user
 system. Setting a <code>{password}</code> is also especially important if you have a
 multi user system.</p>
-<pre tabindex="0"><code># Add a relay
-/relay add weechat {port}
-
-# Add a relay password
-/set relay.network.password &#34;{password}&#34;
-</code></pre><h2 id="weechat-android-configuration">Weechat Android configuration</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span># Add a relay
+</span></span><span style="display:flex;"><span>/relay add weechat {port}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Add a relay password
+</span></span><span style="display:flex;"><span>/set relay.network.password &#34;{password}&#34;
+</span></span></code></pre></div><h2 id="weechat-android-configuration">Weechat Android configuration</h2>
 <h3 id="ssh-setup">SSH setup</h3>
 <h4 id="generating-an-ssh-key">Generating an SSH key</h4>
 <p>You need to generate a separate private key for storage on the phone to be
@@ -111,12 +111,12 @@ able to connect to the server securely. So what I do is that I generate a new
 private key on a laptop, then I transfer the private key in some secure
 enough way to the phone and then make sure to deploy the public key to the
 server where weechat runs.</p>
-<pre tabindex="0"><code># Generate a private RSA key using openssl.
-openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:4096
-
-# Get the public SSH key from the private RSA key.
-ssh-keygen -y -f private.pem
-</code></pre><p>I know what you&rsquo;re thinking: “Why not just use ssh-keygen to begin with?”.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Generate a private RSA key using openssl.</span>
+</span></span><span style="display:flex;"><span>openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:4096
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get the public SSH key from the private RSA key.</span>
+</span></span><span style="display:flex;"><span>ssh-keygen -y -f private.pem
+</span></span></code></pre></div><p>I know what you&rsquo;re thinking: “Why not just use ssh-keygen to begin with?”.
 This is because of this which still seems to be an issue:
 <a href="https://github.com/ubergeek42/weechat-android/issues/317#issuecomment-421756006">https://github.com/ubergeek42/weechat-android/issues/317#issuecomment-421756006</a></p>
 <h4 id="add-the-public-key-to-your-server">Add the public key to your server</h4>
@@ -125,9 +125,9 @@ your server to allow connections. You get the public key by running
 <code>ssh-keygen -y -f private.pem</code> as described above.</p>
 <p>If you want some extra limitations on how this key may be used you can
 prepend the key with the following string:</p>
-<pre tabindex="0"><code>no-agent-forwarding,no-X11-forwarding,permitopen=&#34;127.0.0.1:{port}&#34;,
-command=&#34;echo &#39;This account can only be used for weechat relays&#39;&#34;
-</code></pre><p>Remember to replace <code>{port}</code> in there. The IP in there may be replaced by a
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span>no-agent-forwarding,no-X11-forwarding,permitopen=&#34;127.0.0.1:{port}&#34;,
+</span></span><span style="display:flex;"><span>command=&#34;echo &#39;This account can only be used for weechat relays&#39;&#34;
+</span></span></code></pre></div><p>Remember to replace <code>{port}</code> in there. The IP in there may be replaced by a
 local host name. But that must be reflected in the relay host settings in the
 app.</p>
 <h4 id="connection-settings-in-weechat-android">Connection settings in Weechat Android</h4>
@@ -136,56 +136,56 @@ of them needs to be “just right”, otherwise it will fail and you will have n
 idea why.</p>
 <p>So this is an ASCII reflection of the settings menu with descriptions of what
 to insert:</p>
-<pre tabindex="0"><code>Settings/
-`-- Connection/
-    |-- Connection type        =&gt; SSH tunnel
-    |-- SSH tunnel settings/
-    |   |-- SSH host           =&gt; Public DNS name or IP
-    |   |
-    |   |-- SSH port           =&gt; Public SSH port number
-    |   |
-    |   |-- SSH username       =&gt; Your SSH username
-    |   |
-    |   |-- Private key        =&gt; Paste the contents of private.pem here.
-    |   |                      =&gt; You have to find your own way of
-    |   |                      =&gt; transferring this file to your phone in
-    |   |                      =&gt; a way that you think is “secure enough”
-    |   |
-    |   `-- Known hosts        =&gt; Paste the output of the command
-    |                          =&gt; &#34;ssh-keyscan {ssh-host}&#34; in this field.
-    |                          =&gt; This is less sensitive than the private key
-    |                          =&gt; but it&#39;s still easiest to run it on a
-    |                          =&gt; computer and transfer it to the phone and
-    |                          =&gt; paste it.
-    |
-    |-- Relay host             =&gt; 127.0.0.1 is probably fine. This is the IP
-    |                          =&gt; to connect to after you have tunneled over
-    |                          =&gt; SSH. So that&#39;s why it becomes localhost.
-    |
-    |-- Relay port             =&gt; Port defined in weechat settings.
-    |
-    `-- Relay password         =&gt; Password defined in weechat settings.
-</code></pre><h3 id="other-weechat-android-settings">Other Weechat Android settings</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span>Settings/
+</span></span><span style="display:flex;"><span>`-- Connection/
+</span></span><span style="display:flex;"><span>    |-- Connection type        =&gt; SSH tunnel
+</span></span><span style="display:flex;"><span>    |-- SSH tunnel settings/
+</span></span><span style="display:flex;"><span>    |   |-- SSH host           =&gt; Public DNS name or IP
+</span></span><span style="display:flex;"><span>    |   |
+</span></span><span style="display:flex;"><span>    |   |-- SSH port           =&gt; Public SSH port number
+</span></span><span style="display:flex;"><span>    |   |
+</span></span><span style="display:flex;"><span>    |   |-- SSH username       =&gt; Your SSH username
+</span></span><span style="display:flex;"><span>    |   |
+</span></span><span style="display:flex;"><span>    |   |-- Private key        =&gt; Paste the contents of private.pem here.
+</span></span><span style="display:flex;"><span>    |   |                      =&gt; You have to find your own way of
+</span></span><span style="display:flex;"><span>    |   |                      =&gt; transferring this file to your phone in
+</span></span><span style="display:flex;"><span>    |   |                      =&gt; a way that you think is “secure enough”
+</span></span><span style="display:flex;"><span>    |   |
+</span></span><span style="display:flex;"><span>    |   `-- Known hosts        =&gt; Paste the output of the command
+</span></span><span style="display:flex;"><span>    |                          =&gt; &#34;ssh-keyscan {ssh-host}&#34; in this field.
+</span></span><span style="display:flex;"><span>    |                          =&gt; This is less sensitive than the private key
+</span></span><span style="display:flex;"><span>    |                          =&gt; but it&#39;s still easiest to run it on a
+</span></span><span style="display:flex;"><span>    |                          =&gt; computer and transfer it to the phone and
+</span></span><span style="display:flex;"><span>    |                          =&gt; paste it.
+</span></span><span style="display:flex;"><span>    |
+</span></span><span style="display:flex;"><span>    |-- Relay host             =&gt; 127.0.0.1 is probably fine. This is the IP
+</span></span><span style="display:flex;"><span>    |                          =&gt; to connect to after you have tunneled over
+</span></span><span style="display:flex;"><span>    |                          =&gt; SSH. So that&#39;s why it becomes localhost.
+</span></span><span style="display:flex;"><span>    |
+</span></span><span style="display:flex;"><span>    |-- Relay port             =&gt; Port defined in weechat settings.
+</span></span><span style="display:flex;"><span>    |
+</span></span><span style="display:flex;"><span>    `-- Relay password         =&gt; Password defined in weechat settings.
+</span></span></code></pre></div><h3 id="other-weechat-android-settings">Other Weechat Android settings</h3>
 <p>These are more a documentation of my personal preferences, nothing really
 required for it to work. Just my preferences.</p>
-<pre tabindex="0"><code>Settings/
-|-- Connection/
-|   |-- Reconnect on connection loss     =&gt; [X]
-|   |-- Connect on system boot           =&gt; [ ]
-|   |-- Only sync open buffers           =&gt; [ ]
-|   `-- Sync buffer read status          =&gt; [X]
-|-- Buffer list/
-|   |-- Sort buffer list                 =&gt; [ ]
-|   |-- Hide non-conversation buffers    =&gt; [X]
-|   |-- Hide hidden buffers              =&gt; [X]
-|   `-- Show buffer filter               =&gt; [ ]
-|-- Look &amp; feel/
-|   `-- Dim down non-human lines         =&gt; [X]
-`-- Buttons/
-    |-- Show tab button                  =&gt; [X]
-    |-- Show send button                 =&gt; [X]
-    `-- Volume buttons change text size  =&gt; [ ]
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span>Settings/
+</span></span><span style="display:flex;"><span>|-- Connection/
+</span></span><span style="display:flex;"><span>|   |-- Reconnect on connection loss     =&gt; [X]
+</span></span><span style="display:flex;"><span>|   |-- Connect on system boot           =&gt; [ ]
+</span></span><span style="display:flex;"><span>|   |-- Only sync open buffers           =&gt; [ ]
+</span></span><span style="display:flex;"><span>|   `-- Sync buffer read status          =&gt; [X]
+</span></span><span style="display:flex;"><span>|-- Buffer list/
+</span></span><span style="display:flex;"><span>|   |-- Sort buffer list                 =&gt; [ ]
+</span></span><span style="display:flex;"><span>|   |-- Hide non-conversation buffers    =&gt; [X]
+</span></span><span style="display:flex;"><span>|   |-- Hide hidden buffers              =&gt; [X]
+</span></span><span style="display:flex;"><span>|   `-- Show buffer filter               =&gt; [ ]
+</span></span><span style="display:flex;"><span>|-- Look &amp; feel/
+</span></span><span style="display:flex;"><span>|   `-- Dim down non-human lines         =&gt; [X]
+</span></span><span style="display:flex;"><span>`-- Buttons/
+</span></span><span style="display:flex;"><span>    |-- Show tab button                  =&gt; [X]
+</span></span><span style="display:flex;"><span>    |-- Show send button                 =&gt; [X]
+</span></span><span style="display:flex;"><span>    `-- Volume buttons change text size  =&gt; [ ]
+</span></span></code></pre></div>
 </div>
 
         </div><footer class="footer">
