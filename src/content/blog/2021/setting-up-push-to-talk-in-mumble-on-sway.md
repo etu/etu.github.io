@@ -66,7 +66,7 @@ I started by patching mumble to support the dbus calls:
 
 Then I've added the following lines to my sway configuration:
 
-```
+```plain
 # Add PTT button for mumble:
 bindsym --no-repeat           Super_L exec gdbus call -e -d net.sourceforge.mumble.mumble -o / -m net.sourceforge.mumble.Mumble.startTalking
 bindsym --no-repeat --release Super_L exec gdbus call -e -d net.sourceforge.mumble.mumble -o / -m net.sourceforge.mumble.Mumble.stopTalking

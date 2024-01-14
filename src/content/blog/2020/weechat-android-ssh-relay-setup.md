@@ -20,7 +20,7 @@ unique on your system. This is especially important if you have a multi user
 system. Setting a `{password}` is also especially important if you have a
 multi user system.
 
-```
+```plain
 # Add a relay
 /relay add weechat {port}
 
@@ -40,7 +40,7 @@ private key on a laptop, then I transfer the private key in some secure
 enough way to the phone and then make sure to deploy the public key to the
 server where weechat runs.
 
-```
+```sh
 # Generate a private RSA key using openssl.
 openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:4096
 
@@ -61,7 +61,7 @@ your server to allow connections. You get the public key by running
 If you want some extra limitations on how this key may be used you can
 prepend the key with the following string:
 
-```
+```plain
 no-agent-forwarding,no-X11-forwarding,permitopen="127.0.0.1:{port}",
 command="echo 'This account can only be used for weechat relays'"
 ```
@@ -79,7 +79,7 @@ idea why.
 So this is an ASCII reflection of the settings menu with descriptions of what
 to insert:
 
-```
+```plain
 Settings/
 `-- Connection/
     |-- Connection type        => SSH tunnel
@@ -116,7 +116,7 @@ Settings/
 These are more a documentation of my personal preferences, nothing really
 required for it to work. Just my preferences.
 
-```
+```plain
 Settings/
 |-- Connection/
 |   |-- Reconnect on connection loss     => [X]

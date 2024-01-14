@@ -38,7 +38,7 @@ then scrubbed the pool to confirm how bad it was.
 
 This was the output from `zpool status -v`:
 
-```
+```plain
 [root@nixos:/home/nixos]# zpool status -v
   pool: zroot
  state: DEGRADED
@@ -69,7 +69,7 @@ errors: Permanent errors have been detected in the following files:
 
 While doing this scrub I had my kernel spamming messages like this:
 
-```
+```plain
 [ 358.895359] blk_update_request: critical medium error, dev nvme0n1, sector
               279163624 op 0x0:(READ) flags 0x0 phys_seg 11 prio class 0
 ```

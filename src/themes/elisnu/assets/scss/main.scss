@@ -110,65 +110,6 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
     position: relative;
 }
 
-
-/********************************************************************
- * NAVIGATION
- */
-nav {
-    font-family: monospace;
-
-    /* Make a border on top and bottom */
-    border-width: 0;
-    @include rem-attributes(border-bottom-width, 0.2);
-    @include rem-attributes(border-top-width, 0.2);
-    border-color: var(--content-delimiter-color);
-    border-style: solid;
-
-    /* Center items */
-    text-align: center;
-
-    /* http://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
-    font-size: 0;
-
-    ul {
-        display: inline-block;
-
-        margin: 0;
-        padding: 0;
-
-        list-style: none;
-
-        li {
-            float: left;
-
-            a {
-                display: inline-block;
-
-                @include rem-attributes(font-size, 1.2);
-                @include rem-attributes(line-height, 3.4);
-                @include rem-attributes(padding-right, 1);
-                @include rem-attributes(padding-left, 1);
-
-                color: var(--link-color);
-
-                &:visited {
-                    color: var(--link-visited-color);
-                }
-
-                &:hover {
-                    background-color: var(--menu-hover-background-color);
-                    color: var(--menu-hover-foreground-color);
-
-                    &:visited {
-                        color: var(--link-menu-hover-visited-color);
-                    }
-                }
-            }
-        }
-    }
-}
-
-
 /********************************************************************
  * THEME
  */
@@ -177,191 +118,253 @@ html {
     color: var(--foreground-color);
     font-family: sans;
     font-size: var(--font-size);
-}
 
-h1,
-h2,
-h3,
-h4 {
-    font-family: sans;
-}
 
-body {
-    line-height: 1.5;
-    margin: 2em auto;
-    max-width: $pageWidth;
-    padding: 1em;
+    body {
+        line-height: 1.5;
+        margin: 2em auto;
+        max-width: $pageWidth;
+        padding: 1em;
 
-    .figure p {
-        text-align: center;
-
-        img {
-            max-width: 100%;
-        }
-    }
-}
-
-a {
-    color: var(--link-color);
-
-    &:visited {
-        color: var(--link-visited-color);
-    }
-
-    &[href^="mailto"]::after,
-    &[href^="http://"]::after,
-    &[href^="https://"]::after {
-        content: "";
-        @include rem-attributes(width, 0.7);
-        @include rem-attributes(height, 0.7);
-        @include rem-attributes(margin-left, 0.3);
-        background-image: var(--external-link-image);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        display: inline-block;
-    }
-}
-
-blockquote {
-    margin: 0;
-    @include rem-attributes(margin-top, 0.5);
-    @include rem-attributes(margin-bottom, 0.5);
-
-    @include rem-attributes(padding-top, 0.4);
-    @include rem-attributes(padding-bottom, 0.4);
-    @include rem-attributes(padding-left, 1.5);
-    @include rem-attributes(padding-right, 1.5);
-
-    background: var(--blockquote-background-color);
-    color: var(--blockquote-foreground-color);
-
-    &:before {
-        content: '”';
-        position: absolute;
-        right: 0;
-        @include rem-attributes(top, -1);
-        @include rem-attributes(font-size, 4);
-        color: var(--blockquote-before-foreground-color);
-    }
-}
-
-div.highlight {
-    code {
-        &::before {
-            display: block;
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: sans;
-            font-size: 0.8em;
-            margin-bottom: 0.5em;
+        }
+
+        a {
+            color: var(--link-color);
+
+            &:visited {
+                color: var(--link-visited-color);
+            }
+
+            &[href^="mailto"]::after,
+            &[href^="http://"]::after,
+            &[href^="https://"]::after {
+                content: "";
+                @include rem-attributes(width, 0.7);
+                @include rem-attributes(height, 0.7);
+                @include rem-attributes(margin-left, 0.3);
+                background-image: var(--external-link-image);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                display: inline-block;
+            }
+        }
+
+        /****************************************************************
+         * NAVIGATION
+         */
+        header nav {
+            font-family: monospace;
+
+            /* Make a border on top and bottom */
+            border-width: 0;
+            @include rem-attributes(border-bottom-width, 0.2);
+            @include rem-attributes(border-top-width, 0.2);
+            border-color: var(--content-delimiter-color);
+            border-style: solid;
+
+            /* Center items */
             text-align: center;
-        }
 
-        &.language- {
-            &bash::before {
-                content: "Bash";
-            }
+            /* http://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
+            font-size: 0;
 
-            &elisp::before {
-                content: "Emacs Lisp";
-            }
-
-            &go::before {
-                content: "Go";
-            }
-
-            &nix::before {
-                content: "Nix";
-            }
-
-            &org::before {
-                content: "Org Mode";
-            }
-
-            &php::before {
-                content: "PHP";
-            }
-
-            &scss::before {
-                content: "SCSS";
-            }
-
-            &sh::before {
-                content: "Shell";
-            }
-
-            &sql::before {
-                content: "SQL";
-            }
-
-            &xml::before {
-                content: "XML";
-            }
-
-            &yaml::before {
-                content: "YAML";
-            }
-        }
-    }
-
-    >pre {
-        @include rem-attributes(padding, 1);
-
-        overflow-x: scroll;
-    }
-}
-
-div.pagination {
-    text-align: center;
-
-    ul.pagination {
-        display: inline-block;
-        list-style: none;
-
-        li {
-            float: left;
-
-            @include rem-attributes(padding-right, 0.1);
-            @include rem-attributes(padding-left, 0.1);
-
-            a {
+            ul {
                 display: inline-block;
 
-                @include rem-attributes(font-size, 1.2);
-                @include rem-attributes(line-height, 2.6);
-                @include rem-attributes(padding-right, 1);
-                @include rem-attributes(padding-left, 1);
+                margin: 0;
+                padding: 0;
 
-                @include rem-attributes(border-radius, 0.3);
+                list-style: none;
 
-                color: var(--link-color);
+                li {
+                    float: left;
 
-                /* Make a border */
-                @include rem-attributes(border-width, 0.1);
-                border-color: var(--content-delimiter-color);
-                border-style: solid;
+                    a {
+                        display: inline-block;
 
-                &:visited {
-                    color: var(--link-visited-color);
-                }
+                        @include rem-attributes(font-size, 1.2);
+                        @include rem-attributes(line-height, 3.4);
+                        @include rem-attributes(padding-right, 1);
+                        @include rem-attributes(padding-left, 1);
 
-                &:hover {
-                    background-color: var(--menu-hover-background-color);
-                    color: var(--menu-hover-foreground-color);
+                        color: var(--link-color);
 
-                    &:visited {
-                        color: var(--link-menu-hover-visited-color);
+                        &:visited {
+                            color: var(--link-visited-color);
+                        }
+
+                        &:hover {
+                            background-color: var(--menu-hover-background-color);
+                            color: var(--menu-hover-foreground-color);
+
+                            &:visited {
+                                color: var(--link-menu-hover-visited-color);
+                            }
+                        }
                     }
                 }
             }
         }
-    }
-}
 
-footer {
-    /* Make a border on top and bottom */
-    border-width: 0;
-    @include rem-attributes(border-bottom-width, 0.2);
-    @include rem-attributes(border-top-width, 0.2);
-    border-color: var(--content-delimiter-color);
-    border-style: solid;
+        div.wrapper div.content {
+            p {
+                img {
+                    max-width: 100%;
+                }
+
+                code {
+                    font-family: monospace;
+                }
+            }
+
+            blockquote {
+                margin: 0;
+                @include rem-attributes(margin-top, 0.5);
+                @include rem-attributes(margin-bottom, 0.5);
+
+                @include rem-attributes(padding-top, 0.4);
+                @include rem-attributes(padding-bottom, 0.4);
+                @include rem-attributes(padding-left, 1.5);
+                @include rem-attributes(padding-right, 1.5);
+
+                background: var(--blockquote-background-color);
+                color: var(--blockquote-foreground-color);
+
+                &:before {
+                    content: '”';
+                    position: absolute;
+                    right: 0;
+                    @include rem-attributes(top, -1);
+                    @include rem-attributes(font-size, 4);
+                    color: var(--blockquote-before-foreground-color);
+                }
+            }
+
+            div.highlight {
+                code {
+                    &::before {
+                        display: block;
+                        font-family: sans;
+                        font-size: 0.8em;
+                        margin-bottom: 0.5em;
+                        text-align: center;
+                    }
+
+                    &.language- {
+                        &bash::before {
+                            content: "Bash";
+                        }
+
+                        &elisp::before {
+                            content: "Emacs Lisp";
+                        }
+
+                        &go::before {
+                            content: "Go";
+                        }
+
+                        &nix::before {
+                            content: "Nix";
+                        }
+
+                        &org::before {
+                            content: "Org Mode";
+                        }
+
+                        &php::before {
+                            content: "PHP";
+                        }
+
+                        &scss::before {
+                            content: "SCSS";
+                        }
+
+                        &sh::before {
+                            content: "Shell";
+                        }
+
+                        &sql::before {
+                            content: "SQL";
+                        }
+
+                        &xml::before {
+                            content: "XML";
+                        }
+
+                        &yaml::before {
+                            content: "YAML";
+                        }
+                    }
+                }
+
+                >pre {
+                    @include rem-attributes(padding, 1);
+
+                    overflow-x: scroll;
+                }
+            }
+
+            div.pagination {
+                text-align: center;
+
+                ul.pagination {
+                    display: inline-block;
+                    list-style: none;
+
+                    li {
+                        float: left;
+
+                        @include rem-attributes(padding-right, 0.1);
+                        @include rem-attributes(padding-left, 0.1);
+
+                        a {
+                            display: inline-block;
+
+                            @include rem-attributes(font-size, 1.2);
+                            @include rem-attributes(line-height, 2.6);
+                            @include rem-attributes(padding-right, 1);
+                            @include rem-attributes(padding-left, 1);
+
+                            @include rem-attributes(border-radius, 0.3);
+
+                            color: var(--link-color);
+
+                            /* Make a border */
+                            @include rem-attributes(border-width, 0.1);
+                            border-color: var(--content-delimiter-color);
+                            border-style: solid;
+
+                            &:visited {
+                                color: var(--link-visited-color);
+                            }
+
+                            &:hover {
+                                background-color: var(--menu-hover-background-color);
+                                color: var(--menu-hover-foreground-color);
+
+                                &:visited {
+                                    color: var(--link-menu-hover-visited-color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        footer {
+            /* Make a border on top and bottom */
+            border-width: 0;
+            @include rem-attributes(border-bottom-width, 0.2);
+            @include rem-attributes(border-top-width, 0.2);
+            border-color: var(--content-delimiter-color);
+            border-style: solid;
+        }
+    }
 }
