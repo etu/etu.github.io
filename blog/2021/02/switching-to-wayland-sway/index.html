@@ -1,69 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Switching to Wayland (Sway)</title>
-<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;" />
-<meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/style.css" />
-<link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
-<link rel="icon" href="/imgs/favicon.jpg">
-<link rel="me" href="https://chaos.social/@sa0bse" />
-<meta name="referrer" content="no-referrer" />
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Switching to Wayland (Sway) :: Elis Hirwing</title>
+
+    
+    <meta charset="utf-8" />
+
+    
+    <meta name="referrer" content="no-referrer" />
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+    <link rel="alternate" type="application/atom+xml" href="https://elis.nu/index.xml" title="Elis Hirwing" />
+
+    
+    <link rel="icon" type="image/png" href="https://elis.nu/img/elis.jpg" />
+
+    
+    <meta property="og:description" content="" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:site_name" content="Elis Hirwing" />
+    <meta property="og:title" content="Switching to Wayland (Sway) &middot; Elis Hirwing"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://elis.nu/blog/2021/02/switching-to-wayland-sway/" />
+    
+    <meta property="og:image" content="https://elis.nu/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse" />
+
+    
+    
+    
+    <link rel="stylesheet" href="https://elis.nu/css/style.20527d246698aea942f2544b136d71a4d13592501368a85c739bf55211e1a5a4.css" integrity="sha256-IFJ9JGaYrqlC8lRLE21xpNE1klATaKhcc5v1UhHhpaQ=" media="screen" />
 </head>
-<body>
-<div id="preamble" class="status">
-<nav>
-     <ul>
-       <li><a href="/">~elis/</a></li>
-       <li><a href="/about/">./about/</a></li>
-       <li><a href="/work/">./work/</a></li>
-       <li><a href="/talks/">./talks/</a></li>
-       <li><a href="/blog/">./blog/</a></li>
-     </ul>
-   </nav>
-</div>
-<div id="content" class="content">
-<h1 class="title">Switching to Wayland (Sway)</h1>
-<p>
-Like every other desktop Linux user for the past many years I've used X11. I
-was on i3wm<sup><a id="fnr.1" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.1" role="doc-backlink">1</a></sup> for quite some time until I was introduced to
-EXWM<sup><a id="fnr.2" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.2" role="doc-backlink">2</a></sup> which I used exclusively for about 18 months, I've even held a
-talk<sup><a id="fnr.3" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.3" role="doc-backlink">3</a></sup> about it. But at some point it got too annoying, for
-example in multi monitor use cases.
-</p>
 
-<p>
-At this point my first step was to go back to set up i3wm again. With that
-set up I wanted to give SwayWM<sup><a id="fnr.4" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.4" role="doc-backlink">4</a></sup> another attempt, it was years ago
-I've checked it out before. I think my previous experience was when the
+    <body><header>
+    <nav>
+        
+        <ul>
+            
+            
+            <li><a href="/">~elis/</a></li>
+            
+            <li><a href="/about/">./about/</a></li>
+            
+            <li><a href="/work/">./work/</a></li>
+            
+            <li><a href="/talks/">./talks/</a></li>
+            
+            <li><a href="/blog/">./blog/</a></li>
+            
+        </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+    <h1>Switching to Wayland (Sway)</h1>
+    
+    <span class="post-date">
+        2021-02-17
+        
+        &middot; 4 minutes read
+        
+    </span>
+    <p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I
+was on <a href="https://i3wm.org/">i3wm</a> for quite some time until I was introduced to
+<a href="https://github.com/ch11ng/exwm">Emacs X11 Window Manager</a> which I used
+exclusively for about 18 months, I&rsquo;ve even held a <a href="/talks/">talk</a> about it.
+But at some point it got too annoying, for example in multi monitor use cases.</p>
+<p>At this point my first step was to go back to set up i3wm again. With that
+set up I wanted to give <a href="https://swaywm.org/">SwayWM</a> another attempt, it was
+years ago I&rsquo;ve checked it out before. I think my previous experience was when the
 project was new. At that point (if I remember correctly), not even the window
-decorations looked like the ones in i3wm.
-</p>
-
-<article id="outline-container-org348114c" class="outline-2">
-<h2 id="org348114c">Key map</h2>
-<div class="outline-text-2" id="text-org348114c">
-<p>
-As a US Dvorak typist that sometimes types Swedish, I have opinions about key
+decorations looked like the ones in i3wm.</p>
+<h2 id="key-map">Key map</h2>
+<p>As a US Dvorak typist that sometimes types Swedish, I have opinions about key
 maps. Since I used xmodmap before to customize my key map to make it work for
-me, I needed to replicate this for Sway.
-</p>
-
-<p>
-It took some tinkering, but I've ended up with the following custom key map:
-</p>
-<div class="org-src-container">
-<pre class="src src-conf">// This file defines my own custom keymap. More information about
+me, I needed to replicate this for Sway.</p>
+<p>It took some tinkering, but I&rsquo;ve ended up with the following custom key map:</p>
+<pre tabindex="0"><code class="language-config" data-lang="config">// This file defines my own custom keymap. More information about
 // which parts that gets included are available in the different
 // subfolders in: /usr/share/X11/xkb/
-<span class="org-type">xkb_keymap</span> {
-  xkb_keycodes { include <span class="org-string">"evdev+aliases(qwerty)"</span> };
-  xkb_types    { include <span class="org-string">"default"</span> };
-  xkb_compat   { include <span class="org-string">"complete"</span> };
-  <span class="org-type">xkb_symbols</span>  {
-    include <span class="org-string">"pc+us(dvorak)+inet(evdev)+ctrl(nocaps)+eurosign(e)+kpdl(dot)"</span>
+xkb_keymap {
+  xkb_keycodes { include &#34;evdev+aliases(qwerty)&#34; };
+  xkb_types    { include &#34;default&#34; };
+  xkb_compat   { include &#34;complete&#34; };
+  xkb_symbols  {
+    include &#34;pc+us(dvorak)+inet(evdev)+ctrl(nocaps)+eurosign(e)+kpdl(dot)&#34;
 
     // Less than/Greater than/Pipe key on Swedish keyboards becomes Compose
     replace key &lt;LSGT&gt; { [ Multi_key ] };
@@ -71,103 +100,47 @@ It took some tinkering, but I've ended up with the following custom key map:
     // Scroll Lock becomes Compose
     replace key &lt;SCLK&gt; { [ Multi_key ] };
   };
-  xkb_geometry { include <span class="org-string">"pc(pc105)"</span> };
+  xkb_geometry { include &#34;pc(pc105)&#34; };
 };
-</pre>
-</div>
-
-<p>
-I put that as a file somewhere, and then I have the following in my sway
-configuration:
-</p>
-<div class="org-src-container">
-<pre class="src src-conf">input <span class="org-string">"type:keyboard"</span> {
+</code></pre><p>I put that as a file somewhere, and then I have the following in my sway
+configuration:</p>
+<pre tabindex="0"><code class="language-config" data-lang="config">input &#34;type:keyboard&#34; {
   xkb_file /path/to/xkb/file
 }
-</pre>
-</div>
-</div>
-</article>
-
-<article id="outline-container-org0911259" class="outline-2">
-<h2 id="org0911259">Browsers</h2>
-<div class="outline-text-2" id="text-org0911259">
-<p>
-I use Firefox as my main browser, it works mostly fine native on Wayland. It
+</code></pre><h2 id="browsers">Browsers</h2>
+<p>I use Firefox as my main browser, it works mostly fine native on Wayland. It
 happens now and then that I encounter things that are less than perfect
-(especially at work) where I'll give in and run some Blink based browser in
-Xwayland.
-</p>
-
-<p>
-Firefox just needs some convincing with <code>MOZ_ENABLE_WAYLAND=1</code> in the
-environment set.
-</p>
-</div>
-</article>
-
-<article id="outline-container-orgb659e7c" class="outline-2">
-<h2 id="orgb659e7c">Editor</h2>
-<div class="outline-text-2" id="text-orgb659e7c">
-<p>
-As a long time Emacs user I'll just keep using Emacs. To begin with I did so
+(especially at work) where I&rsquo;ll give in and run some Blink based browser in
+Xwayland.</p>
+<p>Firefox just needs some convincing with <code>MOZ_ENABLE_WAYLAND=1</code> in the
+environment set.</p>
+<h2 id="editor">Editor</h2>
+<p>As a long time Emacs user I&rsquo;ll just keep using Emacs. To begin with I did so
 in Xwayland - but it had some issues at some point which pushed me to try out
-the pgtk branch from a user on GitHub. It's been great since I started using
+the pgtk branch from a user on GitHub. It&rsquo;s been great since I started using
 it and that branch is now accepted as a feature branch on Savannah, so now I
-hope it's mainlined before Emacs 28.
-</p>
-</div>
-</article>
-
-<article id="outline-container-org2776394" class="outline-2">
-<h2 id="org2776394">Screen sharing</h2>
-<div class="outline-text-2" id="text-org2776394">
-<p>
-It works! <code>*</code>
-</p>
-
-<p>
-See <a href="/blog/2021/02/switching-to-wayland-sway/../detailed-setup-of-screen-sharing-in-sway">Detailed setup of screen sharing in Wayland (Sway)</a> for more detailed
-notes on getting this to work.
-</p>
-
-<p>
-<code>*</code> It works to do full screen sharing using <code>pipewire</code>,
+hope it&rsquo;s mainlined before Emacs 28.</p>
+<h2 id="screen-sharing">Screen sharing</h2>
+<p>It works! <code>*</code></p>
+<p>See <a href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">Detailed setup of screen sharing in Wayland (Sway)</a> for more detailed
+notes on getting this to work.</p>
+<p><code>*</code> It works to do full screen sharing using <code>pipewire</code>,
 <code>xdg-desktop-portals</code> and <code>xdg-desktop-portals-wlr</code>. This requires the right
 environment variables - then it works fine, with the limitation that you can
-only share the entire screen - but not single windows.
-</p>
-
-<p>
-This limitation is extra annoying when using an ultra wide
-monitor<sup><a id="fnr.5" class="footref" href="/blog/2021/02/switching-to-wayland-sway/#fn.5" role="doc-backlink">5</a></sup> since nobody else can actually see this stream
+only share the entire screen - but not single windows.</p>
+<p>This limitation is extra annoying when using an <a href="/blog/2021/02/ultra-wide-monitor/">ultra wide monitor</a> since nobody else can actually see this stream
 properly. One hacky workaround I have for this is to run a browser in
 Xwayland which makes it possible to share other Xwayland applications. Then
 to have an Emacs instance running in Xwayland, then I can share that Emacs
-window. Since Emacs is so flexible I can share most things through that.
-</p>
-
-<p>
-To get Firefox screen share to work, NixOS have pulled in some patches from
-Fedora, then you just run it in Wayland mode and it's fine.
-</p>
-
-<p>
-Chrome has a flag to enable pipewire support.
-</p>
-
-<p>
-I know there's a flag that can be provided to <code>xdg-desktop-portals-wlr</code> to
-specify which screen to share. I'm not sure how to manage that easily in a
-multi screen environment.
-</p>
-</div>
-</article>
-
-<article id="outline-container-orgb44a40e" class="outline-2">
-<h2 id="orgb44a40e">Miscellaneous applications</h2>
-<div class="outline-text-2" id="text-orgb44a40e">
-<ul class="org-ul">
+window. Since Emacs is so flexible I can share most things through that.</p>
+<p>To get Firefox screen share to work, NixOS have pulled in some patches from
+Fedora, then you just run it in Wayland mode and it&rsquo;s fine.</p>
+<p>Chrome has a flag to enable pipewire support.</p>
+<p>I know there&rsquo;s a flag that can be provided to <code>xdg-desktop-portals-wlr</code> to
+specify which screen to share. I&rsquo;m not sure how to manage that easily in a
+multi screen environment.</p>
+<h2 id="miscellaneous-applications">Miscellaneous applications</h2>
+<ul>
 <li>Screenshots: <code>grim -g $(slurp) - | swappy -f -</code></li>
 <li>Back light: <code>acpiilight</code></li>
 <li>Lock screen: <code>swaylock</code> &amp; <code>swayidle</code></li>
@@ -178,55 +151,23 @@ multi screen environment.
 <li>Graphical display settings: <code>wdisplays</code> is great!</li>
 <li>Command line display settings: <code>wlr-randr</code></li>
 </ul>
-</div>
-</article>
-
-<article id="outline-container-orgc9d2d96" class="outline-2">
-<h2 id="orgc9d2d96">Conclusions</h2>
-<div class="outline-text-2" id="text-orgc9d2d96">
-<p>
-My road to Wayland with Sway have for sure have had a couple of road bumps.
+<h2 id="conclusions">Conclusions</h2>
+<p>My road to Wayland with Sway have for sure have had a couple of road bumps.
 The only real bump that has been a software limitation has been how screen
-sharing works, but I've found workarounds for these situations that works for
-me.
-</p>
-
-<p>
-The overall experience have been a much nicer Linux desktop, there's no
-tearing, everything just gives the perception and feels faster and smoother.
-</p>
-</div>
-</article>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-i3wm &#x2013; <a href="https://i3wm.org/">https://i3wm.org/</a>
-</p></div></div>
-
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-Emacs X Window Manager &#x2013; <a href="https://github.com/ch11ng/exwm">https://github.com/ch11ng/exwm</a>
-</p></div></div>
-
-<div class="footdef"><sup><a id="fn.3" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-EXWM Talk &#x2013; <a href="/blog/2021/02/switching-to-wayland-sway/../../../../talks/">~/talks/</a>
-</p></div></div>
-
-<div class="footdef"><sup><a id="fn.4" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-SwayWM &#x2013; <a href="https://swaywm.org/">https://swaywm.org/</a>
-</p></div></div>
-
-<div class="footdef"><sup><a id="fn.5" class="footnum" href="/blog/2021/02/switching-to-wayland-sway/#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-Previous post: <a href="/blog/2021/02/switching-to-wayland-sway/../ultra-wide-monitor/">Ultra wide monitor</a>
-</p></div></div>
-
+sharing works, but I&rsquo;ve found workarounds for these situations that works for
+me.</p>
+<p>The overall experience have been a much nicer Linux desktop, there&rsquo;s no
+tearing, everything just gives the perception and feels faster and smoother.</p>
 
 </div>
-</div></div>
-<div id="postamble" class="status">
-<p class="date">Date: 2021-02-17 Wed 22:00</p>
-<p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-</div>
-</body>
+
+        </div><footer class="footer">
+    <div class="content">
+        <p>
+            Copyright &copy; 2010 Elis Hirwing.
+        </p>
+    </div>
+</footer>
+
+    </body>
 </html>

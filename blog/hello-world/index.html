@@ -1,130 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hello World!</title>
-<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;" />
-<meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/style.css" />
-<link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
-<link rel="icon" href="/imgs/favicon.jpg">
-<link rel="me" href="https://chaos.social/@sa0bse" />
-<meta name="referrer" content="no-referrer" />
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Hello World! :: Elis Hirwing</title>
+
+    
+    <meta charset="utf-8" />
+
+    
+    <meta name="referrer" content="no-referrer" />
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+    <link rel="alternate" type="application/atom+xml" href="https://elis.nu/index.xml" title="Elis Hirwing" />
+
+    
+    <link rel="icon" type="image/png" href="https://elis.nu/img/elis.jpg" />
+
+    
+    <meta property="og:description" content="" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:site_name" content="Elis Hirwing" />
+    <meta property="og:title" content="Hello World! &middot; Elis Hirwing"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://elis.nu/blog/hello-world/" />
+    
+    <meta property="og:image" content="https://elis.nu/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse" />
+
+    
+    
+    
+    <link rel="stylesheet" href="https://elis.nu/css/style.20527d246698aea942f2544b136d71a4d13592501368a85c739bf55211e1a5a4.css" integrity="sha256-IFJ9JGaYrqlC8lRLE21xpNE1klATaKhcc5v1UhHhpaQ=" media="screen" />
 </head>
-<body>
-<div id="preamble" class="status">
-<nav>
-     <ul>
-       <li><a href="/">~elis/</a></li>
-       <li><a href="/about/">./about/</a></li>
-       <li><a href="/work/">./work/</a></li>
-       <li><a href="/talks/">./talks/</a></li>
-       <li><a href="/blog/">./blog/</a></li>
-     </ul>
-   </nav>
-</div>
-<div id="content" class="content">
-<h1 class="title">Hello World!</h1>
-<p>
-Hello world! This is a test blog post.
-</p>
 
-<p>
-This is an external link <a href="https://example.org/">example.org</a>. Internal link <a href="file:///">start page</a>.
-</p>
-
+    <body><header>
+    <nav>
+        
+        <ul>
+            
+            
+            <li><a href="/">~elis/</a></li>
+            
+            <li><a href="/about/">./about/</a></li>
+            
+            <li><a href="/work/">./work/</a></li>
+            
+            <li><a href="/talks/">./talks/</a></li>
+            
+            <li><a href="/blog/">./blog/</a></li>
+            
+        </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+    <h1>Hello World!</h1>
+    
+    <span class="post-date">
+        2019-06-08
+        
+        &middot; 1 minutes read
+        
+    </span>
+    <p>Hello world! This is a test blog post.</p>
+<p>This is an external link <a href="https://example.org/">example.org</a>. Internal link <a href="/">start page</a>.</p>
 <blockquote>
-<p>
-This is a block quote element.
-</p>
+<p>This is a block quote element.</p>
 </blockquote>
-
-<p>
-This is an inline <code>code</code> block.
-</p>
-
-<article id="outline-container-org01d4463" class="outline-2">
-<h2 id="org01d4463">Test of syntax highlighting</h2>
-<div class="outline-text-2" id="text-org01d4463">
-</div>
-<div id="outline-container-orga28390f" class="outline-3">
-<h3 id="orga28390f">elisp</h3>
-<div class="outline-text-3" id="text-orga28390f">
-<div class="org-src-container">
-<pre class="src src-elisp"><span class="org-comment-delimiter">;; </span><span class="org-comment">Define the hello function</span>
-(<span class="org-keyword">defun</span> <span class="org-function-name">hello</span> ()
-  <span class="org-doc">"This</span>
-<span class="org-doc">   is my</span>
-<span class="org-doc">   docstring"</span>
-  (message <span class="org-string">"world"</span>))
-
-<span class="org-comment-delimiter">;; </span><span class="org-comment">Call the hello function</span>
-(hello)
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org5f318c4" class="outline-3">
-<h3 id="org5f318c4">Nix</h3>
-<div class="outline-text-3" id="text-org5f318c4">
-<div class="org-src-container">
-<pre class="src src-nix">{
-  <span class="org-comment"># Define the hello function</span>
-  <span class="org-nix-attribute">hello</span> = {}: <span class="org-string">"world"</span>;
-
-  <span class="org-comment"># More tests</span>
-  <span class="org-nix-attribute">boolean</span> = <span class="org-nix-builtin">true</span>;
-  <span class="org-nix-attribute">fileimport</span> = <span class="org-nix-builtin">import</span> <span class="org-nix-constant">./src/file.nix</span>;
-
-  <span class="org-comment"># Call the hello function</span>
-  <span class="org-nix-attribute">message</span> = hello {};
-}
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org1ec897a" class="outline-3">
-<h3 id="org1ec897a">Go</h3>
-<div class="outline-text-3" id="text-org1ec897a">
-<div class="org-src-container">
-<pre class="src src-go"><span class="org-keyword">package</span> main
-
-<span class="org-keyword">import</span> <span class="org-string">"fmt"</span>
-
-<span class="org-keyword">func</span> <span class="org-function-name">main</span>() {
-    fmt.<span class="org-function-name">Println</span>(<span class="org-string">"Hello world"</span>)
-}
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org068c0ae" class="outline-3">
-<h3 id="org068c0ae">PHP</h3>
-<div class="outline-text-3" id="text-org068c0ae">
-<div class="org-src-container">
-<pre class="src src-php"><span class="org-php-php-tag">&lt;?php</span>
-<span class="org-comment-delimiter"># </span><span class="org-comment">Define the hello function</span>
-<span class="org-php-keyword">function</span> <span class="org-php-function-name">hello</span>() : <span class="org-type">void</span> {
-    <span class="org-php-keyword">echo</span> <span class="org-php-string">"world"</span>;
-}
-
-<span class="org-comment-delimiter">// </span><span class="org-comment">Call the hello function</span>
-<span class="org-php-function-call">hello</span>();
-</pre>
-</div>
-</div>
-</div>
-</article>
-
-<article id="outline-container-orgacdccc9" class="outline-2">
-<h2 id="orgacdccc9">Sample text</h2>
-<div class="outline-text-2" id="text-orgacdccc9">
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+<p>This is an inline <code>code</code> block.</p>
+<h2 id="test-of-syntax-highlighting">Test of syntax highlighting</h2>
+<h3 id="elisp">elisp</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elisp" data-lang="elisp"><span style="display:flex;"><span><span style="color:#75715e">;; Define the hello function</span>
+</span></span><span style="display:flex;"><span>(defun hello ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;This
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">   is my
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">   docstring&#34;</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;world&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Call the hello function</span>
+</span></span><span style="display:flex;"><span>(hello)
+</span></span></code></pre></div><h3 id="nix">Nix</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Define the hello function</span>
+</span></span><span style="display:flex;"><span>  hello <span style="color:#f92672">=</span> {}: <span style="color:#e6db74">&#34;world&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># More tests</span>
+</span></span><span style="display:flex;"><span>  boolean <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>  fileimport <span style="color:#f92672">=</span> <span style="color:#f92672">import</span> <span style="color:#e6db74">./src/file.nix</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Call the hello function</span>
+</span></span><span style="display:flex;"><span>  message <span style="color:#f92672">=</span> hello {};
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="go">Go</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hello world&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="php">PHP</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define the hello function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">hello</span>() <span style="color:#f92672">:</span> <span style="color:#a6e22e">void</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;world&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Call the hello function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">hello</span>();
+</span></span></code></pre></div><h2 id="sample-text">Sample text</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus
 ultrices in iaculis nunc sed augue lacus. Donec ac odio tempor orci dapibus
 ultrices in. Faucibus vitae aliquet nec ullamcorper sit amet risus. Pulvinar
@@ -132,14 +124,17 @@ sapien et ligula ullamcorper malesuada proin libero. Magna sit amet purus
 gravida quis blandit turpis cursus in. Elit ullamcorper dignissim cras
 tincidunt lobortis feugiat vivamus at augue. Ut morbi tincidunt augue
 interdum. Enim ut tellus elementum sagittis vitae et. At augue eget arcu
-dictum varius duis.
-</p>
+dictum varius duis.</p>
+
 </div>
-</article>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: 2019-06-08 Sat 20:10</p>
-<p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-</div>
-</body>
+
+        </div><footer class="footer">
+    <div class="content">
+        <p>
+            Copyright &copy; 2010 Elis Hirwing.
+        </p>
+    </div>
+</footer>
+
+    </body>
 </html>

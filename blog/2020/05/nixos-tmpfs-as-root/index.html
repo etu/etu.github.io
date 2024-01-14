@@ -1,406 +1,280 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>NixOS ❄: tmpfs as root</title>
-<meta name="author" content="Elis Hirwing &lt;elis@hirwing.se&gt;" />
-<meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/style.css" />
-<link rel="alternate" type="application/rss+xml" title="~elis/blog/" href="/blog/rss.xml" />
-<link rel="icon" href="/imgs/favicon.jpg">
-<link rel="me" href="https://chaos.social/@sa0bse" />
-<meta name="referrer" content="no-referrer" />
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>NixOS ❄: tmpfs as root :: Elis Hirwing</title>
+
+    
+    <meta charset="utf-8" />
+
+    
+    <meta name="referrer" content="no-referrer" />
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+    <link rel="alternate" type="application/atom+xml" href="https://elis.nu/index.xml" title="Elis Hirwing" />
+
+    
+    <link rel="icon" type="image/png" href="https://elis.nu/img/elis.jpg" />
+
+    
+    <meta property="og:description" content="" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:site_name" content="Elis Hirwing" />
+    <meta property="og:title" content="NixOS ❄: tmpfs as root &middot; Elis Hirwing"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/" />
+    
+    <meta property="og:image" content="https://elis.nu/" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse" />
+
+    
+    
+    
+    <link rel="stylesheet" href="https://elis.nu/css/style.20527d246698aea942f2544b136d71a4d13592501368a85c739bf55211e1a5a4.css" integrity="sha256-IFJ9JGaYrqlC8lRLE21xpNE1klATaKhcc5v1UhHhpaQ=" media="screen" />
 </head>
-<body>
-<div id="preamble" class="status">
-<nav>
-     <ul>
-       <li><a href="/">~elis/</a></li>
-       <li><a href="/about/">./about/</a></li>
-       <li><a href="/work/">./work/</a></li>
-       <li><a href="/talks/">./talks/</a></li>
-       <li><a href="/blog/">./blog/</a></li>
-     </ul>
-   </nav>
-</div>
-<div id="content" class="content">
-<h1 class="title">NixOS ❄: tmpfs as root</h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-1-partitioning">Step 1 - Partitioning on EFI</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-1-partitioning-for-legacy-boot">Step 1 - Partitioning for legacy boot</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-2-creating-the-file-systems">Step 2 - Creating the file systems</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-configuration">Step 4 - Configuration</a>
-<ul>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-1-configure-disks">Step 4.1 - Configure disks</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-2-configure-users">Step 4.2 - Configure users</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-4-the-boot-loader">Step 4.4 - Configure the boot loader</a></li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-4-5-configure-the-rest-of-your-system">Step 4.5 - Configure the rest of your system</a></li>
-</ul>
-</li>
-<li><a href="/blog/2020/05/nixos-tmpfs-as-root/#step-5-perform-install">Step 5 - Perform install</a></li>
-</ul>
-</div>
-</div>
-<p>
-This post covers both EFI and legacy boot setups.
-</p>
 
-<p>
-One fairly unique property of NixOS is the ability to boot with only <code>/boot</code>
+    <body><header>
+    <nav>
+        
+        <ul>
+            
+            
+            <li><a href="/">~elis/</a></li>
+            
+            <li><a href="/about/">./about/</a></li>
+            
+            <li><a href="/work/">./work/</a></li>
+            
+            <li><a href="/talks/">./talks/</a></li>
+            
+            <li><a href="/blog/">./blog/</a></li>
+            
+        </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+    <h1>NixOS ❄: tmpfs as root</h1>
+    
+    <span class="post-date">
+        2020-05-02
+        
+        &middot; 6 minutes read
+        
+    </span>
+    <p>This post covers both EFI and legacy boot setups.</p>
+<p>One fairly unique property of NixOS is the ability to boot with only <code>/boot</code>
 and <code>/nix</code>. Nothing else is actually required. This supports doing all sorts
-of weird things with your root file system.
-</p>
-
-<p>
-One way is to do like <a href="https://grahamc.com/blog/erase-your-darlings">Graham's post "erase your darlings"</a> describes and empty
+of weird things with your root file system.</p>
+<p>One way is to do like <a href="https://grahamc.com/blog/erase-your-darlings">Graham&rsquo;s post &ldquo;erase your darlings&rdquo;</a> describes and empty
 your root file system each boot using ZFS snapshots. This way have some cool
 things that you could do on top of his setup, such as doing snapshots when
-it's running and roll-back to empty on boot. That way you actually can go
-back to recover files you lost but still have an empty state.
-</p>
-
-<p>
-Another way is to go the tmpfs way which is probably why you're here. So I'm
-going to walk through the install with tmpfs as root file system.
-</p>
-
-<article id="outline-container-step-1-partitioning" class="outline-2">
-<h2 id="step-1-partitioning">Step 1 - Partitioning on EFI</h2>
-<div class="outline-text-2" id="text-step-1-partitioning">
-<p>
-I'm going to do the most basic setup when it comes to file systems, just a
+it&rsquo;s running and roll-back to empty on boot. That way you actually can go
+back to recover files you lost but still have an empty state.</p>
+<p>Another way is to go the tmpfs way which is probably why you&rsquo;re here. So I&rsquo;m
+going to walk through the install with tmpfs as root file system.</p>
+<h2 id="step-1---partitioning-on-efi">Step 1 - Partitioning on EFI</h2>
+<p>I&rsquo;m going to do the most basic setup when it comes to file systems, just a
 <code>/boot</code> as <code>fat32</code> and <code>/nix</code> as <code>ext4</code> without encryption. If you want to
 have another file system or use LUKS or something it should be trivial to
-just format the drive differently and mount it.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Defining a helper variable to make the following commands shorter.</span>
-<span class="org-variable-name">DISK</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Create partition table</span>
-parted $<span class="org-variable-name">DISK</span> -- mklabel gpt
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Create a /boot as $DISK-part1</span>
-parted $<span class="org-variable-name">DISK</span> -- mkpart ESP fat32 1MiB 512MiB
-parted $<span class="org-variable-name">DISK</span> -- set 1 boot on
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Create a /nix as $DISK-part2</span>
-parted $<span class="org-variable-name">DISK</span> -- mkpart Nix 512MiB 100%
-</pre>
-</div>
-</div>
-</article>
-
-<article id="outline-container-step-1-partitioning-for-legacy-boot" class="outline-2">
-<h2 id="step-1-partitioning-for-legacy-boot">Step 1 - Partitioning for legacy boot</h2>
-<div class="outline-text-2" id="text-step-1-partitioning-for-legacy-boot">
-<p>
-I'm going to do the most basic setup when it comes to file systems, just a
+just format the drive differently and mount it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Defining a helper variable to make the following</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># commands shorter.</span>
+</span></span><span style="display:flex;"><span>DISK<span style="color:#f92672">=</span>/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create partition table</span>
+</span></span><span style="display:flex;"><span>parted $DISK -- mklabel gpt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a /boot as $DISK-part1</span>
+</span></span><span style="display:flex;"><span>parted $DISK -- mkpart ESP fat32 1MiB 512MiB
+</span></span><span style="display:flex;"><span>parted $DISK -- set <span style="color:#ae81ff">1</span> boot on
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a /nix as $DISK-part2</span>
+</span></span><span style="display:flex;"><span>parted $DISK -- mkpart Nix 512MiB 100%
+</span></span></code></pre></div><h2 id="step-1---partitioning-for-legacy-boot">Step 1 - Partitioning for legacy boot</h2>
+<p>I&rsquo;m going to do the most basic setup when it comes to file systems, just a
 <code>/boot</code> as <code>ext4</code> and <code>/nix</code> as <code>ext4</code> without encryption. If you want to
 have another file system or use LUKS or something it should be trivial to
-just format the drive differently and mount it.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Defining a helper variable to make the following commands shorter.</span>
-<span class="org-variable-name">DISK</span>=/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Create partition table</span>
-parted $<span class="org-variable-name">DISK</span> -- mklabel msdos
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Create a /boot as $DISK-part1</span>
-parted $<span class="org-variable-name">DISK</span> -- mkpart primary ext4 1M 512M
-parted $<span class="org-variable-name">DISK</span> -- set 1 boot on
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Create a /nix as $DISK-part2</span>
-parted $<span class="org-variable-name">DISK</span> -- mkpart primary ext4 512MiB 100%
-</pre>
-</div>
-</div>
-</article>
-
-<article id="outline-container-step-2-creating-the-file-systems" class="outline-2">
-<h2 id="step-2-creating-the-file-systems">Step 2 - Creating the file systems</h2>
-<div class="outline-text-2" id="text-step-2-creating-the-file-systems">
-<p>
-This is fairly straight forward in my example:
-</p>
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">/boot partition for EFI</span>
-mkfs.vfat $<span class="org-variable-name">DISK</span>-part1
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">/boot partition for legacy boot</span>
-mkfs.ext4 $<span class="org-variable-name">DISK</span>-part1
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">/nix partition</span>
-mkfs.ext4 $<span class="org-variable-name">DISK</span>-part2
-</pre>
-</div>
-</div>
-</article>
-
-<article id="outline-container-step-3-mounting-the-file-systems" class="outline-2">
-<h2 id="step-3-mounting-the-file-systems">Step 3 - Mounting the file systems</h2>
-<div class="outline-text-2" id="text-step-3-mounting-the-file-systems">
-<p>
-Here we do one of the neat tricks, we mount tmpfs instead of a partition and
-then we mount the partitions we just created.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sh"><span class="org-comment-delimiter"># </span><span class="org-comment">Mount your root file system</span>
-mount -t tmpfs none /mnt
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Create directories</span>
-mkdir -p /mnt/{boot,nix,etc/nixos,var/log}
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Mount /boot and /nix</span>
-mount $<span class="org-variable-name">DISK</span>-part1 /mnt/boot
-mount $<span class="org-variable-name">DISK</span>-part2 /mnt/nix
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Create a directory for persistent directories</span>
-mkdir -p /mnt/nix/persist/{etc/nixos,var/log}
-
-<span class="org-comment-delimiter"># </span><span class="org-comment">Bind mount the persistent configuration / logs</span>
-mount -o bind /mnt/nix/persist/etc/nixos /mnt/etc/nixos
-mount -o bind /mnt/nix/persist/var/log /mnt/var/log
-</pre>
-</div>
-</div>
-</article>
-
-<article id="outline-container-step-4-configuration" class="outline-2">
-<h2 id="step-4-configuration">Step 4 - Configuration</h2>
-<div class="outline-text-2" id="text-step-4-configuration">
-<p>
-Then go ahead and do a <code>nixos-generate-config --root /mnt</code> to get a basic
-configuration for your system.
-</p>
-</div>
-
-<div id="outline-container-step-4-1-configure-disks" class="outline-3">
-<h3 id="step-4-1-configure-disks">Step 4.1 - Configure disks</h3>
-<div class="outline-text-3" id="text-step-4-1-configure-disks">
-<p>
-One thing you <i>want</i> to do that isn't needed when you install on a normal
-file system is that you want to set options for your root file system.
-</p>
-
-<p>
-So go ahead, open up <code>hardware-configuration.nix</code> and add the following
-options to your root file system.
-</p>
-
-<p>
-The most important bit is the <code>mode</code>, otherwise certain software (such as
-openssh) won't be happy with the permissions of the file system.
-</p>
-
-<p>
-The <code>size</code> is something you can adjust depending on how much garbage you are
+just format the drive differently and mount it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Defining a helper variable to make the following</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># commands shorter.</span>
+</span></span><span style="display:flex;"><span>DISK<span style="color:#f92672">=</span>/dev/disk/by-id/ata-VENDOR-ID-OF-THE-DRIVE
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create partition table</span>
+</span></span><span style="display:flex;"><span>parted $DISK -- mklabel msdos
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a /boot as $DISK-part1</span>
+</span></span><span style="display:flex;"><span>parted $DISK -- mkpart primary ext4 1M 512M
+</span></span><span style="display:flex;"><span>parted $DISK -- set <span style="color:#ae81ff">1</span> boot on
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a /nix as $DISK-part2</span>
+</span></span><span style="display:flex;"><span>parted $DISK -- mkpart primary ext4 512MiB 100%
+</span></span></code></pre></div><h2 id="step-2---creating-the-file-systems">Step 2 - Creating the file systems</h2>
+<p>This is fairly straight forward in my example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># /boot partition for EFI</span>
+</span></span><span style="display:flex;"><span>mkfs.vfat $DISK-part1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># /boot partition for legacy boot</span>
+</span></span><span style="display:flex;"><span>mkfs.ext4 $DISK-part1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># /nix partition</span>
+</span></span><span style="display:flex;"><span>mkfs.ext4 $DISK-part2
+</span></span></code></pre></div><h2 id="step-3---mounting-the-file-systems">Step 3 - Mounting the file systems</h2>
+<p>Here we do one of the neat tricks, we mount tmpfs instead of a partition and
+then we mount the partitions we just created.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Mount your root file system</span>
+</span></span><span style="display:flex;"><span>mount -t tmpfs none /mnt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create directories</span>
+</span></span><span style="display:flex;"><span>mkdir -p /mnt/<span style="color:#f92672">{</span>boot,nix,etc/nixos,var/log<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Mount /boot and /nix</span>
+</span></span><span style="display:flex;"><span>mount $DISK-part1 /mnt/boot
+</span></span><span style="display:flex;"><span>mount $DISK-part2 /mnt/nix
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a directory for persistent directories</span>
+</span></span><span style="display:flex;"><span>mkdir -p /mnt/nix/persist/<span style="color:#f92672">{</span>etc/nixos,var/log<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Bind mount the persistent configuration / logs</span>
+</span></span><span style="display:flex;"><span>mount -o bind /mnt/nix/persist/etc/nixos /mnt/etc/nixos
+</span></span><span style="display:flex;"><span>mount -o bind /mnt/nix/persist/var/log /mnt/var/log
+</span></span></code></pre></div><h2 id="step-4---configuration">Step 4 - Configuration</h2>
+<p>Then go ahead and do a <code>nixos-generate-config --root /mnt</code> to get a basic
+configuration for your system.</p>
+<h3 id="step-41---configure-disks">Step 4.1 - Configure disks</h3>
+<p>One thing you <em>want</em> to do that isn&rsquo;t needed when you install on a normal
+file system is that you want to set options for your root file system.</p>
+<p>So go ahead, open up <code>hardware-configuration.nix</code> and add the following
+options to your root file system.</p>
+<p>The most important bit is the <code>mode</code>, otherwise certain software (such as
+openssh) won&rsquo;t be happy with the permissions of the file system.</p>
+<p>The <code>size</code> is something you can adjust depending on how much garbage you are
 willing to store in ram until you run out of space on your root. 2G is
-usually big enough for most of my systems.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-nix">{
-  <span class="org-comment"># &#8230;</span>
-
-  fileSystems.<span class="org-string">"/"</span> = {
-    <span class="org-nix-attribute">device</span> = <span class="org-string">"none"</span>;
-    <span class="org-nix-attribute">fsType</span> = <span class="org-string">"tmpfs"</span>;
-    <span class="org-nix-attribute">options</span> = [ <span class="org-string">"defaults"</span> <span class="org-string">"size=2G"</span> <span class="org-string">"mode=755"</span> ];
-  };
-
-  <span class="org-comment"># &#8230;</span>
-}
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-step-4-2-configure-users" class="outline-3">
-<h3 id="step-4-2-configure-users">Step 4.2 - Configure users</h3>
-<div class="outline-text-3" id="text-step-4-2-configure-users">
-<p>
-When you have a system with a tmpfs root you have to configure all users and
-passwords in <code>configuration.nix</code>, otherwise you won't have any user or a
-password on the next boot.
-</p>
-
-<p>
-You probably want to have immutable users as well since it doesn't make any
-sense to have mutability of users if it's going to reset anyways.
-</p>
-
-<p>
-<b>Note:</b> Don't use the options <b>password</b> or <b>hashedPassword</b> for users
-because it won't work. It has to be the options named <b>initialPassword</b> or
-<b>initialHashedPassword</b>.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-nix">{
-  <span class="org-comment"># &#8230;</span>
-
-  <span class="org-comment"># Don't allow mutation of users outside of the config.</span>
-  <span class="org-nix-attribute">users.mutableUsers</span> = <span class="org-nix-builtin">false</span>;
-
-  <span class="org-comment"># Set a root password, consider using initialHashedPassword instead.</span>
-  <span class="org-comment">#</span>
-  <span class="org-comment"># To generate a hash to put in initialHashedPassword</span>
-  <span class="org-comment"># you can do this:</span>
-  <span class="org-comment"># $ nix-shell --run 'mkpasswd -m SHA-512 -s' -p mkpasswd</span>
-  <span class="org-nix-attribute">users.users.root.initialPassword</span> = <span class="org-string">"hunter2"</span>;
-
-  <span class="org-comment"># &#8230;</span>
-}
-</pre>
-</div>
-
-<p>
-Make sure to add your own user with a password. The password for the root
-user is of course optional. But it may be quite useful.
-</p>
-</div>
-</div>
-
-<div id="outline-container-step-4-3-configure-persistent-files-directories" class="outline-3">
-<h3 id="step-4-3-configure-persistent-files-directories">Step 4.3 - Configure persistent files / directories</h3>
-<div class="outline-text-3" id="text-step-4-3-configure-persistent-files-directories">
-<p>
-You probably want to have some more persistent files than the two bind mounts
-we already have created during the setup.
-</p>
-
-<p>
-Adding persistent files from etc:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-nix">{
-  <span class="org-comment"># &#8230;</span>
-
-  <span class="org-comment"># machine-id is used by systemd for the journal, if you don't</span>
-  <span class="org-comment"># persist this file you won't be able to easily use journalctl to</span>
-  <span class="org-comment"># look at journals for previous boots.</span>
-  environment.etc.<span class="org-string">"machine-id"</span>.source
-    = <span class="org-string">"/nix/persist/etc/machine-id"</span>;
-
-
-  <span class="org-comment"># if you want to run an openssh daemon, you may want to store the</span>
-  <span class="org-comment"># host keys across reboots.</span>
-  <span class="org-comment">#</span>
-  <span class="org-comment"># For this to work you will need to create the directory yourself:</span>
-  <span class="org-comment"># $ mkdir /nix/persist/etc/ssh</span>
-  environment.etc.<span class="org-string">"ssh/ssh_host_rsa_key"</span>.source
-    = <span class="org-string">"/nix/persist/etc/ssh/ssh_host_rsa_key"</span>;
-  environment.etc.<span class="org-string">"ssh/ssh_host_rsa_key.pub"</span>.source
-    = <span class="org-string">"/nix/persist/etc/ssh/ssh_host_rsa_key.pub"</span>;
-  environment.etc.<span class="org-string">"ssh/ssh_host_ed25519_key"</span>.source
-    = <span class="org-string">"/nix/persist/etc/ssh/ssh_host_ed25519_key"</span>;
-  environment.etc.<span class="org-string">"ssh/ssh_host_ed25519_key.pub"</span>.source
-    = <span class="org-string">"/nix/persist/etc/ssh/ssh_host_ed25519_key.pub"</span>;
-
-  <span class="org-comment"># &#8230;</span>
-}
-</pre>
-</div>
-
-<p>
-From here you can probably figure out how to do more bind-mounts and symbolic
-links in <code>/etc</code> for the files you want to live across reboots.
-</p>
-
-<p>
-A useful tool to discovering files in your tmpfs is <b>ncdu</b>, I tend to run
-<b>sudo ncdu -x /</b> to walk around the directory tree to see if there's
-something I want to make persistent.
-</p>
-
-<p>
-You may want to make your <code>/home</code> persistent, that can be done by a mount or
+usually big enough for most of my systems.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  fileSystems<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    device <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;none&#34;</span>;
+</span></span><span style="display:flex;"><span>    fsType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;tmpfs&#34;</span>;
+</span></span><span style="display:flex;"><span>    options <span style="color:#f92672">=</span> [ <span style="color:#e6db74">&#34;defaults&#34;</span> <span style="color:#e6db74">&#34;size=2G&#34;</span> <span style="color:#e6db74">&#34;mode=755&#34;</span> ];
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="step-42---configure-users">Step 4.2 - Configure users</h3>
+<p>When you have a system with a tmpfs root you have to configure all users and
+passwords in <code>configuration.nix</code>, otherwise you won&rsquo;t have any user or a
+password on the next boot.</p>
+<p>You probably want to have immutable users as well since it doesn&rsquo;t make any
+sense to have mutability of users if it&rsquo;s going to reset anyways.</p>
+<p><strong>Note:</strong> Don&rsquo;t use the options <code>password</code> or <code>hashedPassword</code> for users
+because it won&rsquo;t work. It has to be the options named <code>initialPassword</code> or
+<code>initialHashedPassword</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Don&#39;t allow mutation of users outside of the config.</span>
+</span></span><span style="display:flex;"><span>  users<span style="color:#f92672">.</span>mutableUsers <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Set a root password, consider using initialHashedPassword instead.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># To generate a hash to put in initialHashedPassword</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># you can do this:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># $ nix-shell --run &#39;mkpasswd -m SHA-512 -s&#39; -p mkpasswd</span>
+</span></span><span style="display:flex;"><span>  users<span style="color:#f92672">.</span>users<span style="color:#f92672">.</span>root<span style="color:#f92672">.</span>initialPassword <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hunter2&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Make sure to add your own user with a password. The password for the root
+user is of course optional. But it may be quite useful.</p>
+<h3 id="step-43---configure-persistent-files--directories">Step 4.3 - Configure persistent files / directories</h3>
+<p>You probably want to have some more persistent files than the two bind mounts
+we already have created during the setup.</p>
+<p>Adding persistent files from etc:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># machine-id is used by systemd for the journal, if you don&#39;t</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># persist this file you won&#39;t be able to easily use journalctl to</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># look at journals for previous boots.</span>
+</span></span><span style="display:flex;"><span>  environment<span style="color:#f92672">.</span>etc<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;machine-id&#34;</span><span style="color:#f92672">.</span>source
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/nix/persist/etc/machine-id&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># if you want to run an openssh daemon, you may want to store the</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># host keys across reboots.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># For this to work you will need to create the directory yourself:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># $ mkdir /nix/persist/etc/ssh</span>
+</span></span><span style="display:flex;"><span>  environment<span style="color:#f92672">.</span>etc<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;ssh/ssh_host_rsa_key&#34;</span><span style="color:#f92672">.</span>source
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/nix/persist/etc/ssh/ssh_host_rsa_key&#34;</span>;
+</span></span><span style="display:flex;"><span>  environment<span style="color:#f92672">.</span>etc<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;ssh/ssh_host_rsa_key.pub&#34;</span><span style="color:#f92672">.</span>source
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/nix/persist/etc/ssh/ssh_host_rsa_key.pub&#34;</span>;
+</span></span><span style="display:flex;"><span>  environment<span style="color:#f92672">.</span>etc<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;ssh/ssh_host_ed25519_key&#34;</span><span style="color:#f92672">.</span>source
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/nix/persist/etc/ssh/ssh_host_ed25519_key&#34;</span>;
+</span></span><span style="display:flex;"><span>  environment<span style="color:#f92672">.</span>etc<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;ssh/ssh_host_ed25519_key.pub&#34;</span><span style="color:#f92672">.</span>source
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/nix/persist/etc/ssh/ssh_host_ed25519_key.pub&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>From here you can probably figure out how to do more bind-mounts and symbolic
+links in <code>/etc</code> for the files you want to live across reboots.</p>
+<p>A useful tool to discovering files in your tmpfs is <em>ncdu</em>, I tend to run
+<code>sudo ncdu -x /</code> to walk around the directory tree to see if there&rsquo;s
+something I want to make persistent.</p>
+<p>You may want to make your <code>/home</code> persistent, that can be done by a mount or
 bind-mount. I have that as tmpfs as well, but that is probably enough content
-for it's own post.
-</p>
-
-<p>
-<b>Update:</b> Now there's a follow-up post for putting tmpfs on <code>/home</code> as well,
-it's located here: <a href="/blog/2020/05/nixos-tmpfs-as-root/../../06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as home</a>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-step-4-4-the-boot-loader" class="outline-3">
-<h3 id="step-4-4-the-boot-loader">Step 4.4 - Configure the boot loader</h3>
-<div class="outline-text-3" id="text-step-4-4-the-boot-loader">
-<p>
-Here you can choose your boot loader.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-nix">{
-  <span class="org-comment"># &#8230;</span>
-
-  <span class="org-comment"># Use systemd boot (EFI only)</span>
-  <span class="org-nix-attribute">boot.loader.systemd-boot.enable</span> = <span class="org-nix-builtin">true</span>;
-  <span class="org-nix-attribute">boot.loader.efi.canTouchEfiVariables</span> = <span class="org-nix-builtin">true</span>;
-
-  <span class="org-comment"># Use the GRUB 2 boot loader (Both EFI and legacy boot supported).</span>
-  <span class="org-nix-attribute">boot.loader.grub.enable</span> = <span class="org-nix-builtin">true</span>;
-
-  <span class="org-comment"># This is for GRUB in EFI mode</span>
-  <span class="org-nix-attribute">boot.loader.grub.efiSupport</span> = <span class="org-nix-builtin">true</span>;
-  <span class="org-nix-attribute">boot.loader.grub.device</span> = <span class="org-string">"nodev"</span>;
-
-  <span class="org-comment"># This is for GRUB for legacy boot</span>
-  <span class="org-nix-attribute">boot.loader.grub.version</span> = 2;
-  <span class="org-nix-attribute">boot.loader.grub.device</span> = <span class="org-string">"/dev/sda"</span>;
-
-  <span class="org-comment"># &#8230;</span>
-}
-</pre>
-</div>
-</div>
+for it&rsquo;s own post.</p>
+<p><strong>Update:</strong> Now there&rsquo;s a follow-up post for putting tmpfs on =/home= as well,
+it&rsquo;s located here: <a href="/blog/2020/06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as home</a>.</p>
+<h3 id="step-44---configure-the-boot-loader">Step 4.4 - Configure the boot loader</h3>
+<p>Here you can choose your boot loader.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Use systemd boot (EFI only)</span>
+</span></span><span style="display:flex;"><span>  boot<span style="color:#f92672">.</span>loader<span style="color:#f92672">.</span>systemd-boot<span style="color:#f92672">.</span>enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>  boot<span style="color:#f92672">.</span>loader<span style="color:#f92672">.</span>efi<span style="color:#f92672">.</span>canTouchEfiVariables <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Use the GRUB 2 boot loader (Both EFI and legacy boot supported).</span>
+</span></span><span style="display:flex;"><span>  boot<span style="color:#f92672">.</span>loader<span style="color:#f92672">.</span>grub<span style="color:#f92672">.</span>enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># This is for GRUB in EFI mode</span>
+</span></span><span style="display:flex;"><span>  boot<span style="color:#f92672">.</span>loader<span style="color:#f92672">.</span>grub<span style="color:#f92672">.</span>efiSupport <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>  boot<span style="color:#f92672">.</span>loader<span style="color:#f92672">.</span>grub<span style="color:#f92672">.</span>device <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;nodev&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># This is for GRUB for legacy boot</span>
+</span></span><span style="display:flex;"><span>  boot<span style="color:#f92672">.</span>loader<span style="color:#f92672">.</span>grub<span style="color:#f92672">.</span>version <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>  boot<span style="color:#f92672">.</span>loader<span style="color:#f92672">.</span>grub<span style="color:#f92672">.</span>device <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/dev/sda&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="step-45---configure-the-rest-of-your-system">Step 4.5 - Configure the rest of your system</h3>
+<p>You should make sure to go through <code>configuration.nix</code> to make all necessary
+configuration you want such as boot loader, <code>hostname</code>, <code>timezone</code>, <code>keymap</code>,
+personal user, network settings, etc.</p>
+<h2 id="step-5---perform-install">Step 5 - Perform install</h2>
+<p>Perform the actual install. We can ignore setting the roots password at the
+end of the install since it won&rsquo;t be there after reboot anyway.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>nixos-install --no-root-passwd
+</span></span></code></pre></div>
 </div>
 
-<div id="outline-container-step-4-5-configure-the-rest-of-your-system" class="outline-3">
-<h3 id="step-4-5-configure-the-rest-of-your-system">Step 4.5 - Configure the rest of your system</h3>
-<div class="outline-text-3" id="text-step-4-5-configure-the-rest-of-your-system">
-<p>
-You should make sure to go through <code>configuration.nix</code> to make all necessary
-configuration you want such as boot loader, <code>hostname</code>, <code>timezone</code>, keymap,
-personal user, network settings, etc.
-</p>
-</div>
-</div>
-</article>
+        </div><footer class="footer">
+    <div class="content">
+        <p>
+            Copyright &copy; 2010 Elis Hirwing.
+        </p>
+    </div>
+</footer>
 
-<article id="outline-container-step-5-perform-install" class="outline-2">
-<h2 id="step-5-perform-install">Step 5 - Perform install</h2>
-<div class="outline-text-2" id="text-step-5-perform-install">
-<p>
-Perform the actual install. We can ignore setting the roots password at the
-end of the install since it won't be there after reboot anyway.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sh">nixos-install --no-root-passwd
-</pre>
-</div>
-</div>
-</article>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: 2020-05-02 Sat 10:00</p>
-<p class="author">Author: Elis Hirwing &lt;elis@hirwing.se&gt;</p>
-</div>
-</body>
+    </body>
 </html>
