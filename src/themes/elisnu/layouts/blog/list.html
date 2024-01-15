@@ -3,6 +3,7 @@
     {{ if (.Title | len) }}
     <h1>{{ .Title }}</h1>
     {{ end }}
+    {{ .Content }}
     <div class="posts">
         {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
         {{ range $paginator.Pages }}
