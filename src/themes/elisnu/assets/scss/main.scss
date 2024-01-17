@@ -44,10 +44,6 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
 /********************************************************************
  * Mixins
  */
-@mixin rem-attributes($name, $remSize) {
-    #{$name}: #{$fontSize * $remSize}px;
-    #{$name}: #{$remSize}rem;
-}
 
 // Mixins with the variables for the color themes.
 @mixin light-theme() {
@@ -144,9 +140,9 @@ html {
             &[href^="http://"]::after,
             &[href^="https://"]::after {
                 content: "";
-                @include rem-attributes(width, 0.7);
-                @include rem-attributes(height, 0.7);
-                @include rem-attributes(margin-left, 0.3);
+                width: 0.7rem;
+                height: 0.7rem;
+                margin-left: 0.3rem;
                 background-image: var(--external-link-image);
                 background-position: center;
                 background-repeat: no-repeat;
@@ -163,8 +159,8 @@ html {
 
             /* Make a border on top and bottom */
             border-width: 0;
-            @include rem-attributes(border-bottom-width, 0.2);
-            @include rem-attributes(border-top-width, 0.2);
+            border-bottom-width: 0.2rem;
+            border-top-width: 0.2rem;
             border-color: var(--content-delimiter-color);
             border-style: solid;
 
@@ -188,10 +184,10 @@ html {
                     a {
                         display: inline-block;
 
-                        @include rem-attributes(font-size, 1.2);
-                        @include rem-attributes(line-height, 3.4);
-                        @include rem-attributes(padding-right, 1);
-                        @include rem-attributes(padding-left, 1);
+                        font-size: 1.2rem;
+                        line-height: 3.4rem;
+                        padding-right: 1rem;
+                        padding-left: 1rem;
 
                         color: var(--link-color);
 
@@ -225,13 +221,13 @@ html {
 
             blockquote {
                 margin: 0;
-                @include rem-attributes(margin-top, 0.5);
-                @include rem-attributes(margin-bottom, 0.5);
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
 
-                @include rem-attributes(padding-top, 0.4);
-                @include rem-attributes(padding-bottom, 0.4);
-                @include rem-attributes(padding-left, 1.5);
-                @include rem-attributes(padding-right, 1.5);
+                padding-top: 0.4rem;
+                padding-bottom: 0.4rem;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
 
                 background: var(--blockquote-background-color);
                 color: var(--blockquote-foreground-color);
@@ -240,8 +236,8 @@ html {
                     content: '”';
                     position: absolute;
                     right: 0;
-                    @include rem-attributes(top, -1);
-                    @include rem-attributes(font-size, 4);
+                    top: -1rem;
+                    font-size: 4rem;
                     color: var(--blockquote-before-foreground-color);
                 }
             }
@@ -304,7 +300,7 @@ html {
                 }
 
                 >pre {
-                    @include rem-attributes(padding, 1);
+                    padding: 1rem;
 
                     overflow-x: scroll;
                 }
@@ -320,23 +316,23 @@ html {
                     li {
                         float: left;
 
-                        @include rem-attributes(padding-right, 0.1);
-                        @include rem-attributes(padding-left, 0.1);
+                        padding-right: 0.1rem;
+                        padding-left: 0.1rem;
 
                         a {
                             display: inline-block;
 
-                            @include rem-attributes(font-size, 1.2);
-                            @include rem-attributes(line-height, 2.6);
-                            @include rem-attributes(padding-right, 1);
-                            @include rem-attributes(padding-left, 1);
+                            font-size: 1.2rem;
+                            line-height: 2.6rem;
+                            padding-right: 1rem;
+                            padding-left: 1rem;
 
-                            @include rem-attributes(border-radius, 0.3);
+                            border-radius: 0.3rem;
 
                             color: var(--link-color);
 
                             /* Make a border */
-                            @include rem-attributes(border-width, 0.1);
+                            border-width: 0.1rem;
                             border-color: var(--content-delimiter-color);
                             border-style: solid;
 
@@ -361,8 +357,8 @@ html {
         footer {
             /* Make a border on top and bottom */
             border-width: 0;
-            @include rem-attributes(border-bottom-width, 0.2);
-            @include rem-attributes(border-top-width, 0.2);
+            border-bottom-width: 0.2rem;
+            border-top-width: 0.2rem;
             border-color: var(--content-delimiter-color);
             border-style: solid;
         }
