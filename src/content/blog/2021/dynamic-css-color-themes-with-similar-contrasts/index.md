@@ -41,10 +41,10 @@ they also refer to [Web Content Accessibility Guidelines (WCAG) 2.1](https://www
 calculate the color contrast. It required a bunch of math and calculations to do a single comparison.
 
 I've found some functions on the internet that already had been written that
-I've improved upon. So I have the plain math functions in my [`math.scss`](https://github.com/etu/etu.github.io/blob/master/src/scss/math.scss)
+I've improved upon. So I have the plain math functions in my [`math.scss`](https://github.com/etu/etu.github.io/blob/5a61bb61b26c503014b9793ad771de417774c6cd/src/themes/elisnu/assets/scss/math.scss)
 file. With some additional functions to calculate the contrast I've found in
 other places that resulted in a function named `contrast-color` located in
-[`functions.scss`](https://github.com/etu/etu.github.io/blob/master/src/scss/functions.scss).
+[`functions.scss`](https://github.com/etu/etu.github.io/blob/5a61bb61b26c503014b9793ad771de417774c6cd/src/themes/elisnu/assets/scss/functions.scss).
 
 The usage of these functions is quite simple, here's a SCSS example:
 
