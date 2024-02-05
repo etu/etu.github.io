@@ -118,9 +118,9 @@ html {
 
     body {
         line-height: 1.5;
-        margin: 2em auto;
+        margin: 1rem auto 1rem auto;
         max-width: $pageWidth;
-        padding: 1em;
+        padding: 1rem 1rem 1rem 1rem;
 
         h1,
         h2,
@@ -155,6 +155,33 @@ html {
          * NAVIGATION
          */
         header {
+            aside#advert a {
+                display: block;
+                text-decoration: none;
+                margin: 0 4rem 2rem 4rem;
+                padding: 2rem 1.5rem 1.5rem 1.5rem;
+                border: 0.1rem solid var(--content-delimiter-color);
+                text-align: center;
+                background-color: #26101b;
+                color: #d58bcc;
+
+                &::after {
+                    content: "Ad";
+                    font-size: .75rem;
+                    background-image: none;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: fit-content;
+                    height: fit-content;
+                    padding: .4rem .6rem;
+                    margin-left: 0;
+                    background-color: #4a2739;
+                    color: #e6c0e1;
+                    border-radius: 0 0 0.25rem 0;
+                }
+            }
+
             nav {
                 font-family: monospace;
 
