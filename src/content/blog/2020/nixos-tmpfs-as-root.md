@@ -220,7 +220,7 @@ You may want to make your `/home` persistent, that can be done by a mount or
 bind-mount. I have that as tmpfs as well, but that is probably enough content
 for it's own post.
 
-**Update:** Now there's a follow-up post for putting tmpfs on =/home= as well,
+**Update:** Now there's a follow-up post for putting tmpfs on `/home` as well,
 it's located here: [NixOS ❄: tmpfs as home](/blog/2020/06/nixos-tmpfs-as-home/).
 
 ### Step 4.4 - Configure the boot loader
