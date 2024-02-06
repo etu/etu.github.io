@@ -61,6 +61,11 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
     --link-visited-color: #{contrast-color($visitedLinkColor, $lightBackgroundColor)};
     --menu-hover-background-color: #{$lightMenuHoverColor};
     --menu-hover-foreground-color: #{contrast-color($linkColor, $lightMenuHoverColor)};
+    --advert-background-color: #26101b;
+    --advert-foreground-color: #d58bcc;
+    --advert-border-color: #{$lightContentDelimiters};
+    --advert-marker-background-color: #4a2739;
+    --advert-marker-foreground-color: #e6c0e1;
 }
 
 @mixin dark-theme() {
@@ -78,6 +83,11 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
     --link-visited-color: #{contrast-color($visitedLinkColor, $darkBackgroundColor)};
     --menu-hover-background-color: #{$darkMenuHoverColor};
     --menu-hover-foreground-color: #{contrast-color($linkColor, $darkMenuHoverColor)};
+    --advert-background-color: #26101b;
+    --advert-foreground-color: #d58bcc;
+    --advert-border-color: #{$darkContentDelimiters};
+    --advert-marker-background-color: #4a2739;
+    --advert-marker-foreground-color: #e6c0e1;
 }
 
 
@@ -164,10 +174,10 @@ html {
                 text-decoration: none;
                 margin: 0 4rem 2rem 4rem;
                 padding: 2rem 1.5rem 1.5rem 1.5rem;
-                border: 0.1rem solid var(--content-delimiter-color);
+                border: 0.1rem solid var(--advert-border-color);
                 text-align: center;
-                background-color: #26101b;
-                color: #d58bcc;
+                background-color: var(--advert-background-color);
+                color: var(--advert-foreground-color);
                 border-radius: .25rem;
 
                 &::after {
@@ -181,8 +191,8 @@ html {
                     height: fit-content;
                     padding: .4rem .6rem;
                     margin-left: 0;
-                    background-color: #4a2739;
-                    color: #e6c0e1;
+                    background-color: var(--advert-marker-background-color);
+                    color: var(--advert-marker-foreground-color);
                     border-radius: .25rem 0 .25rem 0;
                 }
             }
