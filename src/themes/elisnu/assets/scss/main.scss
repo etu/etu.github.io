@@ -56,6 +56,8 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
     --foreground-color: #{$lightForegroundColor};
     --content-tag-background-color: #{$lightCodeLanguageBoxColor};
     --content-tag-foreground-color: #{contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor)};
+    --content-code-background-color: #{$lightCodeLanguageBoxColor};
+    --content-code-foreground-color: #{contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor)};
     --link-color: #{contrast-color($linkColor, $lightBackgroundColor)};
     --link-menu-hover-visited-color: #{contrast-color($visitedLinkColor, $lightMenuHoverColor)};
     --link-visited-color: #{contrast-color($visitedLinkColor, $lightBackgroundColor)};
@@ -78,6 +80,8 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
     --foreground-color: #{$darkForegroundColor};
     --content-tag-background-color: #{$darkCodeLanguageBoxColor};
     --content-tag-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor)};
+    --content-code-background-color: #{$darkCodeLanguageBoxColor};
+    --content-code-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor)};
     --link-color: #{contrast-color($linkColor, $darkBackgroundColor)};
     --link-menu-hover-visited-color: #{contrast-color($visitedLinkColor, $darkMenuHoverColor)};
     --link-visited-color: #{contrast-color($visitedLinkColor, $darkBackgroundColor)};
@@ -271,6 +275,10 @@ html {
 
                 code {
                     font-family: monospace;
+                    padding: .25rem;
+                    border-radius: .25rem;
+                    background: var(--content-code-background-color);
+                    color: var(--content-code-foreground-color);
                 }
             }
 
