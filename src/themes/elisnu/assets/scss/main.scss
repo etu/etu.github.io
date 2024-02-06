@@ -54,6 +54,8 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
     --content-delimiter-color: #{$lightContentDelimiters};
     --external-link-image: url("/img/external-arrow-dark.svg");
     --foreground-color: #{$lightForegroundColor};
+    --content-tag-background-color: #{$lightCodeLanguageBoxColor};
+    --content-tag-foreground-color: #{contrast-color($lightForegroundColor, $lightCodeLanguageBoxColor)};
     --link-color: #{contrast-color($linkColor, $lightBackgroundColor)};
     --link-menu-hover-visited-color: #{contrast-color($visitedLinkColor, $lightMenuHoverColor)};
     --link-visited-color: #{contrast-color($visitedLinkColor, $lightBackgroundColor)};
@@ -69,6 +71,8 @@ $lightForegroundColor: contrast-color($lightForegroundColor, $lightBackgroundCol
     --content-delimiter-color: #{$darkContentDelimiters};
     --external-link-image: url("/img/external-arrow-light.svg");
     --foreground-color: #{$darkForegroundColor};
+    --content-tag-background-color: #{$darkCodeLanguageBoxColor};
+    --content-tag-foreground-color: #{contrast-color($darkForegroundColor, $darkCodeLanguageBoxColor)};
     --link-color: #{contrast-color($linkColor, $darkBackgroundColor)};
     --link-menu-hover-visited-color: #{contrast-color($visitedLinkColor, $darkMenuHoverColor)};
     --link-visited-color: #{contrast-color($visitedLinkColor, $darkBackgroundColor)};
@@ -239,6 +243,17 @@ html {
         }
 
         div.wrapper div.content {
+            span.post-meta a.tag {
+                display: inline-block;
+                padding: .25rem .75rem;
+                margin: 0 .5rem;
+                border-radius: .25rem;
+                white-space: nowrap;
+
+                background: var(--content-tag-background-color);
+                color: var(--content-tag-foreground-color);
+            }
+
             p {
                 img {
                     max-width: 100%;
