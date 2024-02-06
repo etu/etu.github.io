@@ -133,12 +133,11 @@ html {
     font-family: sans;
     font-size: var(--font-size);
 
-
     body {
         line-height: 1.5;
-        margin: 1rem auto 1rem auto;
+        margin: 1rem auto;
         max-width: $pageWidth;
-        padding: 1rem 1rem 1rem 1rem;
+        padding: 1rem;
 
         h1,
         h2,
@@ -197,7 +196,7 @@ html {
                     margin-left: 0;
                     background-color: var(--advert-marker-background-color);
                     color: var(--advert-marker-foreground-color);
-                    border-radius: .25rem 0 .25rem 0;
+                    border-radius: .25rem 0;
                 }
             }
 
