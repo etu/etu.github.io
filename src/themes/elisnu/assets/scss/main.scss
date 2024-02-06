@@ -164,9 +164,10 @@ html {
                 text-align: center;
                 background-color: #26101b;
                 color: #d58bcc;
+                border-radius: .25rem;
 
                 &::after {
-                    content: "Ad";
+                    content: 'Ad';
                     font-size: .75rem;
                     background-image: none;
                     position: absolute;
