@@ -44,6 +44,9 @@
     <loc>https://elis.nu/tags/linux/</loc>
     <lastmod>2022-10-10T20:00:00+01:00</lastmod>
   </url><url>
+    <loc>https://elis.nu/tags/nix/</loc>
+    <lastmod>2022-10-10T20:00:00+01:00</lastmod>
+  </url><url>
     <loc>https://elis.nu/tags/nixos/</loc>
     <lastmod>2022-10-10T20:00:00+01:00</lastmod>
   </url><url>
@@ -75,9 +78,6 @@
     <lastmod>2021-09-30T21:10:00+01:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/github-pages/</loc>
-    <lastmod>2021-09-30T21:10:00+01:00</lastmod>
-  </url><url>
-    <loc>https://elis.nu/tags/nix/</loc>
     <lastmod>2021-09-30T21:10:00+01:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/scss/</loc>

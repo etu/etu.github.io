@@ -96,6 +96,25 @@
   <div class="posts">
     
     <div class="post">
+      <h2><a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Outsourcing NixOS compile time to Microsoft</a></h2>
+      <span class="post-meta">
+        2022-10-10
+
+        
+        &middot; 5 minutes read
+        
+
+        
+        &middot;
+        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/nix">Nix</a><a class="tag" href="/tags/linux">Linux</a><a class="tag" href="/tags/cachix">Cachix</a><a class="tag" href="/tags/github-actions">GitHub Actions</a>
+        
+      </span>
+      <p>NixOS is a Linux-distribution that may be source-based, but it has a binary cache that covers things so you generally don&rsquo;t need to compile things, things tends to be cached.
+However, depending on how you configure your system, you may trigger compiles depending on what you do.
+So a thing I do is that I run Emacs 29 with the native-comp patches that is wayland native with the pgtk-branch. This is by no mean the stable Emacs release at the point of writing.</p>
+    </div>
+    
+    <div class="post">
       <h2><a href="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/">Dynamic CSS color themes with similar contrasts</a></h2>
       <span class="post-meta">
         2021-09-30
@@ -106,11 +125,66 @@
 
         
         &middot;
-        <a class="tag" href="/tags/scss">SCSS</a><a class="tag" href="/tags/nix">Nix</a><a class="tag" href="/tags/github-pages">GitHub Pages</a>
+        <a class="tag" href="/tags/nix">Nix</a><a class="tag" href="/tags/scss">SCSS</a><a class="tag" href="/tags/github-pages">GitHub Pages</a>
         
       </span>
       <p>This blog is built with Emacs, SCSS using Nix and deployed as static files to GitHub Pages. This blog also has quite some colors due to the syntax highlighting for code that is performed using CSS rules on HTML classes.
 So in total I have 15 different colors defined, in which four of them is background and foreground colors, two of them is related to link and visited link colors. Then I have nine colors remaining which are related to syntax highlighting of code.</p>
+    </div>
+    
+    <div class="post">
+      <h2><a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Simple deployments of NixOS machines with nixus</a></h2>
+      <span class="post-meta">
+        2021-07-23
+
+        
+        &middot; 3 minutes read
+        
+
+        
+        &middot;
+        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/nix">Nix</a><a class="tag" href="/tags/linux">Linux</a><a class="tag" href="/tags/nixus">nixus</a>
+        
+      </span>
+      <p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any tools to do central deployments of machines. But I&rsquo;ve always read and known that NixOS is excellent at this. NixOS can easily build another systems configuration, then copy the system to the target systems nix store and then activate it there.
+Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A while ago the need for this changed because one of my VPSes started running low on RAM, low enough to not be able to build new generations of it&rsquo;s own system.</p>
+    </div>
+    
+    <div class="post">
+      <h2><a href="/blog/2021/02/switching-to-wayland-sway/">Switching to Wayland (Sway)</a></h2>
+      <span class="post-meta">
+        2021-02-17
+
+        
+        &middot; 4 minutes read
+        
+
+        
+        &middot;
+        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/nix">Nix</a><a class="tag" href="/tags/linux">Linux</a><a class="tag" href="/tags/sway">Sway</a><a class="tag" href="/tags/wayland">Wayland</a><a class="tag" href="/tags/x11">X11</a>
+        
+      </span>
+      <p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I was on i3wm for quite some time until I was introduced to Emacs X11 Window Manager which I used exclusively for about 18 months, I&rsquo;ve even held a talk about it. But at some point it got too annoying, for example in multi monitor use cases.
+At this point my first step was to go back to set up i3wm again.</p>
+    </div>
+    
+    <div class="post">
+      <h2><a href="/blog/2020/04/php-packaging-in-nixos/">PHP packaging in NixOS ❄</a></h2>
+      <span class="post-meta">
+        2020-04-05
+
+        
+        &middot; 4 minutes read
+        
+
+        
+        &middot;
+        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/nix">Nix</a><a class="tag" href="/tags/php">PHP</a>
+        
+      </span>
+      <p>This is a sneak peak into the future 20.09 release of NixOS.
+The PHP packaging ecosystem in NixOS has been in a quite sad state for a long time. Partly because of the lack of people caring about PHP in Nix, but also that PHP is a bit weird when it comes to packaging.
+State of PHP before NixOS 20.09 Due to the lack of ability to do clever things like the python community does with =withPackages= to compose a package with the dependencies you need we have defaulted to provide a huge default package to accommodate all needs.</p>
     </div>
     
   </div>
