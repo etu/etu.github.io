@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Librem 5 on Elis Hirwing</title>
+    <link>https://elis.nu/tags/librem-5/</link>
+    <description>Recent content in Librem 5 on Elis Hirwing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Oct 2021 23:40:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/librem-5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First impressions of Purism Librem 5</title>
+      <link>https://elis.nu/blog/2021/10/first-impressions-of-purism-librem-5/</link>
+      <pubDate>Fri, 15 Oct 2021 23:40:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/10/first-impressions-of-purism-librem-5/</guid>
+      <description>Back in 2017, this fairly small company Purism launched a crowdfunding on their own crowdfunding platform for their future phone known as Librem 5. I went back and forth a bit, I thought through some of the history about the company and decided that I thought they may deliver some day. At least I wanted to support the effort to make a modern Linux that could fill the hole that the demise of the Nokia N900 with no worthy device following up.</description>
+    </item>
+  </channel>
+</rss>

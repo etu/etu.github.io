@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wayland on Elis Hirwing</title>
+    <link>https://elis.nu/tags/wayland/</link>
+    <description>Recent content in Wayland on Elis Hirwing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 26 Jun 2021 22:40:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/wayland/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
+      <link>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</link>
+      <pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</guid>
+      <description>Switching to Wayland has it&amp;rsquo;s side-effects, one of which is the improved security from X11 where applications can&amp;rsquo;t just randomly spy on each other at any point.&#xA;This is both good news and bad news.&#xA;The good news:&#xA;Applications can&amp;rsquo;t just randomly spy on each other. The bad news:&#xA;Things like global hot-keys in for example Mumble won&amp;rsquo;t work. Back from complaining to actually solving the problem though.&#xA;Mumble does have a patch for a future release So there&amp;rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</description>
+    </item>
+    <item>
+      <title>Detailed setup of screen sharing in Wayland (Sway)</title>
+      <link>https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/</link>
+      <pubDate>Fri, 19 Feb 2021 23:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/</guid>
+      <description>Getting screen sharing to work on Wayland seems to be surprisingly hard. Maybe it is compared to X11 that doesn&amp;rsquo;t require any additional setup at all.&#xA;To have working screen sharing on Sway you really need three components installed and set up with correct environment variables.&#xA;These three components are:&#xA;pipewire (I have version: 0.3.21) xdg-desktop-portal (I have version: 1.8.0) xdg-desktop-portal-wlr (I have version: 0.1.0) These three components has to have systemd user services.</description>
+    </item>
+    <item>
+      <title>Switching to Wayland (Sway)</title>
+      <link>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</link>
+      <pubDate>Wed, 17 Feb 2021 22:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</guid>
+      <description>Like every other desktop Linux user for the past many years I&amp;rsquo;ve used X11. I was on i3wm for quite some time until I was introduced to Emacs X11 Window Manager which I used exclusively for about 18 months, I&amp;rsquo;ve even held a talk about it. But at some point it got too annoying, for example in multi monitor use cases.&#xA;At this point my first step was to go back to set up i3wm again.</description>
+    </item>
+  </channel>
+</rss>

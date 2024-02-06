@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Elis Hirwing</title>
+    <link>https://elis.nu/tags/linux/</link>
+    <description>Recent content in Linux on Elis Hirwing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 10 Oct 2022 20:00:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Outsourcing NixOS compile time to Microsoft</title>
+      <link>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</link>
+      <pubDate>Mon, 10 Oct 2022 20:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</guid>
+      <description>NixOS is a Linux-distribution that may be source-based, but it has a binary cache that covers things so you generally don&amp;rsquo;t need to compile things, things tends to be cached.&#xA;However, depending on how you configure your system, you may trigger compiles depending on what you do.&#xA;So a thing I do is that I run Emacs 29 with the native-comp patches that is wayland native with the pgtk-branch. This is by no mean the stable Emacs release at the point of writing.</description>
+    </item>
+    <item>
+      <title>Keeping LG webOS Developer Mode alive with Home Assistant</title>
+      <link>https://elis.nu/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/</link>
+      <pubDate>Mon, 25 Jul 2022 20:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/</guid>
+      <description>For over 10 years I&amp;rsquo;ve used Kodi on a separate PC connected to a TV to play back local media.&#xA;A couple of weeks ago everything changed in a matter of days. I listened to Late Night Linux – Episode 179 where they talked about Jellyfin. I have looked into Jellyfin before, however I&amp;rsquo;ve disregarded it due to the lack of app for LG webOS. This changed because the podcast episode told that there was a webOS app for Jellyfin.</description>
+    </item>
+    <item>
+      <title>Simple deployments of NixOS machines with nixus</title>
+      <link>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</link>
+      <pubDate>Fri, 23 Jul 2021 16:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</guid>
+      <description>Since I&amp;rsquo;ve started using NixOS about four years ago I haven&amp;rsquo;t really used any tools to do central deployments of machines. But I&amp;rsquo;ve always read and known that NixOS is excellent at this. NixOS can easily build another systems configuration, then copy the system to the target systems nix store and then activate it there.&#xA;Despite knowing all this, I haven&amp;rsquo;t gotten around to doing this centrally. A while ago the need for this changed because one of my VPSes started running low on RAM, low enough to not be able to build new generations of it&amp;rsquo;s own system.</description>
+    </item>
+    <item>
+      <title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
+      <link>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</link>
+      <pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</guid>
+      <description>Switching to Wayland has it&amp;rsquo;s side-effects, one of which is the improved security from X11 where applications can&amp;rsquo;t just randomly spy on each other at any point.&#xA;This is both good news and bad news.&#xA;The good news:&#xA;Applications can&amp;rsquo;t just randomly spy on each other. The bad news:&#xA;Things like global hot-keys in for example Mumble won&amp;rsquo;t work. Back from complaining to actually solving the problem though.&#xA;Mumble does have a patch for a future release So there&amp;rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</description>
+    </item>
+    <item>
+      <title>The day when ZFS saved my data</title>
+      <link>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</link>
+      <pubDate>Fri, 21 May 2021 20:45:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</guid>
+      <description>Today my work day didn&amp;rsquo;t turn out the way I expected. It started like a normal day, I woke up around the regular time, did my morning routine, sat at my desk and started my work-issued laptop.&#xA;It booted up just fine, I connected it to my Ultrawide display, started going through Slack and Email and catch up on some news while drinking my morning tea and waking up.&#xA;Then after around an hour of work things started to hang up, most notably Firefox totally froze up.</description>
+    </item>
+    <item>
+      <title>Detailed setup of screen sharing in Wayland (Sway)</title>
+      <link>https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/</link>
+      <pubDate>Fri, 19 Feb 2021 23:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/</guid>
+      <description>Getting screen sharing to work on Wayland seems to be surprisingly hard. Maybe it is compared to X11 that doesn&amp;rsquo;t require any additional setup at all.&#xA;To have working screen sharing on Sway you really need three components installed and set up with correct environment variables.&#xA;These three components are:&#xA;pipewire (I have version: 0.3.21) xdg-desktop-portal (I have version: 1.8.0) xdg-desktop-portal-wlr (I have version: 0.1.0) These three components has to have systemd user services.</description>
+    </item>
+    <item>
+      <title>Switching to Wayland (Sway)</title>
+      <link>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</link>
+      <pubDate>Wed, 17 Feb 2021 22:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</guid>
+      <description>Like every other desktop Linux user for the past many years I&amp;rsquo;ve used X11. I was on i3wm for quite some time until I was introduced to Emacs X11 Window Manager which I used exclusively for about 18 months, I&amp;rsquo;ve even held a talk about it. But at some point it got too annoying, for example in multi monitor use cases.&#xA;At this point my first step was to go back to set up i3wm again.</description>
+    </item>
+    <item>
+      <title>NixOS ❄: tmpfs as home</title>
+      <link>https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/</link>
+      <pubDate>Sat, 27 Jun 2020 22:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/</guid>
+      <description>This is a follow-up post for my earlier post: NixOS ❄: tmpfs as root.&#xA;When you start to go down the route of setting up a “pure” system that is as clean as you want it to be on each boot. You may start with the lazy route of using a persistent partition for your home directory. But it never feels quite right. But initially it&amp;rsquo;s so convenient to choose this path.</description>
+    </item>
+    <item>
+      <title>NixOS ❄: tmpfs as root</title>
+      <link>https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/</link>
+      <pubDate>Sat, 02 May 2020 10:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/</guid>
+      <description>This post covers both EFI and legacy boot setups.&#xA;One fairly unique property of NixOS is the ability to boot with only /boot and /nix. Nothing else is actually required. This supports doing all sorts of weird things with your root file system.&#xA;One way is to do like Graham&amp;rsquo;s post &amp;ldquo;erase your darlings&amp;rdquo; describes and empty your root file system each boot using ZFS snapshots. This way have some cool things that you could do on top of his setup, such as doing snapshots when it&amp;rsquo;s running and roll-back to empty on boot.</description>
+    </item>
+    <item>
+      <title>Encrypted ZFS mirror with mirrored boot on NixOS</title>
+      <link>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</link>
+      <pubDate>Sun, 04 Aug 2019 10:20:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</guid>
+      <description>So for a long time I have wanted to replace my file server, because it&amp;rsquo;s an old HP Microserver that is really slow. And at the same time I have had this beast of a desktop tower PC that I haven&amp;rsquo;t used with a Xeon and 32GiB ECC memory that has just been turned off due to noise. The obvious solution is to re-purpose that install and move it to a location where noise doesn&amp;rsquo;t matter, e.</description>
+    </item>
+  </channel>
+</rss>
