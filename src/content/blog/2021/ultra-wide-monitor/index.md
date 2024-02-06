@@ -2,6 +2,7 @@
 title: Ultra wide monitor
 date: '2021-02-15T21:15:00+0100'
 url: /blog/2021/02/ultra-wide-monitor/
+tags: [Ultrawide, Samsung]
 ---
 
 A couple of months (after at least half a year of thinking) I finally decided

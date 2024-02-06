@@ -2,6 +2,7 @@
 title: Why I use Free Software
 date: '2021-01-16T23:30:00+0100'
 url: /blog/2021/01/why-i-use-free-software/
+tags: [Free Software, Veganism, Personal]
 ---
 
 This has been followed up by: [Why I got into Veganism](/blog/2021/01/why-i-got-into-veganism/),

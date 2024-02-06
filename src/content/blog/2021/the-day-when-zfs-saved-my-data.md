@@ -2,6 +2,7 @@
 title: The day when ZFS saved my data
 date: '2021-05-21T20:45:00+0100'
 url: /blog/2021/05/the-day-when-zfs-saved-my-data/
+tags: [NixOS, ZFS, Linux, Backup]
 ---
 
 Today my work day didn't turn out the way I expected. It started like a

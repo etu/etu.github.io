@@ -2,6 +2,7 @@
 title: PHP packaging in NixOS ❄
 date: '2020-04-05T20:00:00+0200'
 url: /blog/2020/04/php-packaging-in-nixos/
+tags: [NixOS, Nix, PHP]
 ---
 
 This is a sneak peak into the future 20.09 release of NixOS.

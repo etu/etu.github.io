@@ -2,6 +2,7 @@
 title: My battle with wrist pains
 date: '2020-08-09T18:00:00+0100'
 url: /blog/2020/08/my-battle-with-wrist-pains/
+tags: [Personal, Health]
 ---
 
 > **Note:** I'm not a doctor, dietitian or ergonomics expert. I just have spent a

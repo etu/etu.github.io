@@ -2,6 +2,7 @@
 title: Weechat Android SSH relay setup
 date: '2020-08-14T18:00:00+0100'
 url: /blog/2020/08/weechat-android-ssh-relay-setup/
+tags: [Weechat, Android, SSH]
 ---
 
 Setting up the Weechat Android [{{< fa fab github>}} GitHub](https://github.com/ubergeek42/weechat-android)

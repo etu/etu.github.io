@@ -2,6 +2,7 @@
 title: Encrypted ZFS mirror with mirrored boot on NixOS
 date: '2019-08-04T10:20:00+0200'
 url: /blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/
+tags: [NixOS, Linux, ZFS]
 ---
 
 So for a long time I have wanted to replace my file server, because it's an

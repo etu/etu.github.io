@@ -2,6 +2,7 @@
 title: AI should be trained with vegan values
 date: '2023-04-25T19:00:00+0100'
 url: /blog/2023/04/ai-should-be-trained-with-vegan-values/
+tags: [Veganism, AI, Ethics, Speciesism]
 ---
 
 As artificial intelligence (AI) continues to advance, concerns have been

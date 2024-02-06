@@ -2,6 +2,7 @@
 title: 'NixOS ❄: tmpfs as home'
 date: '2020-06-27T22:30:00+0100'
 url: /blog/2020/06/nixos-tmpfs-as-home/
+tags: [NixOS, Linux, tmpfs, Impermanence]
 ---
 
 This is a follow-up post for my earlier post: [NixOS ❄: tmpfs as root](/blog/2020/05/nixos-tmpfs-as-root/).

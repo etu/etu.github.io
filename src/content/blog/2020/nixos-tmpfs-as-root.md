@@ -2,6 +2,7 @@
 title: 'NixOS ❄: tmpfs as root'
 date: '2020-05-02T10:00:00+0100'
 url: /blog/2020/05/nixos-tmpfs-as-root/
+tags: [NixOS, Linux, tmpfs, Impermanence]
 ---
 
 This post covers both EFI and legacy boot setups.

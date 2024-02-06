@@ -2,6 +2,7 @@
 title: A personal adventure with hot beverages
 date: '2023-11-05T22:30:00+0100'
 url: /blog/2023/11/a-personal-adventure-with-hot-beverages/
+tags: [Coffee, Personal]
 ---
 
 ## My history with coffee

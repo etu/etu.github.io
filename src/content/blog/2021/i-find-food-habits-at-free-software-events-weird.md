@@ -2,6 +2,7 @@
 title: I find food habits at Free Software events weird
 date: '2021-01-26T21:30:00+0100'
 url: /blog/2021/01/i-find-food-habits-at-free-software-events-weird/
+tags: [Free Software, Veganism, Speciesism, Personal]
 ---
 
 This is a follow-up on: [Why I use Free Software](/blog/2021/01/why-i-use-free-software/),

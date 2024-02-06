@@ -2,6 +2,7 @@
 title: Detailed setup of screen sharing in Wayland (Sway)
 date: '2021-02-19T23:00:00+0100'
 url: /blog/2021/02/detailed-setup-of-screen-sharing-in-sway/
+tags: [Sway, Wayland, Linux]
 ---
 
 Getting screen sharing to work on Wayland seems to be surprisingly hard.

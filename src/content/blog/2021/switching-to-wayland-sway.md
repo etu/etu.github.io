@@ -2,6 +2,7 @@
 title: Switching to Wayland (Sway)
 date: '2021-02-17T22:00:00+0100'
 url: /blog/2021/02/switching-to-wayland-sway/
+tags: [NixOS, Nix, Linux, Sway, Wayland, X11]
 ---
 
 Like every other desktop Linux user for the past many years I've used X11. I

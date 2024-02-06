@@ -1,6 +1,7 @@
 ---
 title: Hello World!
 date: '2019-06-08T20:10:00+0100'
+tags: [Meta]
 ---
 
 Hello world! This is a test blog post.

@@ -2,6 +2,7 @@
 title: Mobile org-mode use with Orgzly and Syncthing
 date: '2021-08-02T21:30:00+0100'
 url: /blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/
+tags: [Emacs, Org-mode, Orgzly, Syncthing]
 ---
 
 I've been an Emacs user for 13+ years, during this time I've been using

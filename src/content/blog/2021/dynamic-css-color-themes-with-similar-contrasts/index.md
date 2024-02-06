@@ -2,6 +2,7 @@
 title: Dynamic CSS color themes with similar contrasts
 date: '2021-09-30T21:10:00+0100'
 url: /blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/
+tags: [Nix, SCSS, GitHub Pages]
 ---
 
 This blog is built with Emacs, SCSS using Nix and deployed as static files to

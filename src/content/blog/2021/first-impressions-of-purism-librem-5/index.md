@@ -2,6 +2,7 @@
 title: First impressions of Purism Librem 5
 date: '2021-10-15T23:40:00+0100'
 url: /blog/2021/10/first-impressions-of-purism-librem-5/
+tags: [Purism, Librem 5]
 ---
 
 Back in 2017, this fairly small company [Purism](https://puri.sm) launched a crowdfunding on

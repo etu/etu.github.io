@@ -2,6 +2,7 @@
 title: Keeping LG webOS Developer Mode alive with Home Assistant
 date: '2022-07-25T20:00:00+0100'
 url: /blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/
+tags: [Jellyfin, LG, Home Assistant, Linux]
 ---
 
 For over 10 years I've used [Kodi](https://kodi.tv/) on a separate PC connected to a TV to play

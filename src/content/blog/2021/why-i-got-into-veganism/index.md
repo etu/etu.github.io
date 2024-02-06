@@ -2,6 +2,7 @@
 title: Why I got into Veganism
 date: '2021-01-20T21:00:00+0100'
 url: /blog/2021/01/why-i-got-into-veganism/
+tags: [Veganism, Free Software, Speciesism, Personal]
 ---
 
 ![Metric for ethics](./metric-for-ethics.jpg)

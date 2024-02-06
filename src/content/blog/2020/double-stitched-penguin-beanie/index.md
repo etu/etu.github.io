@@ -2,6 +2,7 @@
 title: Double stitched Penguin Beanie
 date: '2020-02-08T17:00:00+0100'
 url: /blog/2020/02/double-stitched-penguin-beanie/
+tags: [Knitting, Personal]
 ---
 
 ![Friendly front and side of penguin beanie](./friendly_penguin_front_and_side_thumb.png)

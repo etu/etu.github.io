@@ -2,6 +2,7 @@
 title: 'NixOS: Setting up Push To Talk in Mumble on Sway'
 date: '2021-06-26T22:40:00+0100'
 url: /blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/
+tags: [NixOS, Linux, Mumble, Sway, Wayland]
 ---
 
 Switching to Wayland has it's side-effects, one of which is the improved

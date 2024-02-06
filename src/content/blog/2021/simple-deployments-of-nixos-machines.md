@@ -2,6 +2,7 @@
 title: Simple deployments of NixOS machines with nixus
 date: '2021-07-23T16:30:00+0100'
 url: /blog/2021/07/simple-deployments-of-nixos-machines/
+tags: [NixOS, Nix, Linux, nixus]
 ---
 
 Since I've started using NixOS about four years ago I haven't really used any

@@ -2,6 +2,7 @@
 title: Outsourcing NixOS compile time to Microsoft
 date: '2022-10-10T20:00:00+0100'
 url: /blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/
+tags: [NixOS, Nix, Linux, Cachix, GitHub Actions]
 ---
 
 [NixOS](https://nixos.org/) is a Linux-distribution that may be source-based, but it has a binary
