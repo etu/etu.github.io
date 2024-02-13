@@ -4,3 +4,4 @@
 [![pages-build-deployment](https://github.com/etu/etu.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/etu/etu.github.io/actions/workflows/pages/pages-build-deployment)
 
 # Personal website: [elis.nu](https://elis.nu)
+Published using [Hugo](https://gohugo.io) using [nix](https://nixos.org).
