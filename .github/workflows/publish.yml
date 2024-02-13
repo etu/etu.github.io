@@ -8,6 +8,7 @@ name: Publish
 
 jobs:
   publish:
+    name: Publish website
     runs-on: ubuntu-22.04
     permissions:
       contents: write
@@ -16,7 +17,7 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@v9
       - uses: DeterminateSystems/magic-nix-cache-action@v3
 
-      - run: nix build .#
+      - run: nix build .#website
 
       - uses: peaceiris/actions-gh-pages@v3
         with:

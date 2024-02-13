@@ -47,7 +47,7 @@
           '';
         };
 
-      packages.default = pkgs.stdenv.mkDerivation {
+      packages.website = pkgs.stdenv.mkDerivation {
         name = domain;
 
         src = ./src;
