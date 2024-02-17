@@ -8,9 +8,14 @@ locations on the internet. Further on it may contain blog articles about
 my computer-related journey trough life to get to where I am now and the
 systems I use today. A lot has changed over the years, mostly for good.
 
-Things I enjoy to do and talk about:
+Some tags from my blog:
+- [NixOS](/tags/nixos/)
+- [Linux](/tags/linux/)
+- [Veganism](/tags/veganism/)
+- [Health](/tags/health/)
+- [Ethics](/tags/ethics/)
 
-- [NixOS](https://nixos.org/)
+Things I enjoy to do:
 - Computer conferences such as [CCC](https://en.wikipedia.org/wiki/Chaos_Communication_Congress) and [FOSDEM](https://en.wikipedia.org/wiki/FOSDEM).
 - Building a web of trust with GPG/PGP
 
