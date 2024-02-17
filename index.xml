@@ -6,8 +6,15 @@
     <description>Recent content in ~elis/ on Elis Hirwing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Nov 2023 22:30:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 17 Feb 2024 18:00:00 +0100</lastBuildDate>
     <atom:link href="https://elis.nu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NixOS superpower: specialisations</title>
+      <link>https://elis.nu/blog/2024/02/nixos-superpower-specialisations/</link>
+      <pubDate>Sat, 17 Feb 2024 18:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2024/02/nixos-superpower-specialisations/</guid>
+      <description>NixOS has a lot of configurability and features. One feature that I&amp;rsquo;ve known about for a while that I think is both really cool, but also a bit lesser known is the ability to have declarative specialisations. To me, this is a superpower of NixOS that I have a hard time to see any other Linux Distribution having.&#xA;What&amp;rsquo;s a specialisation? The name doesn&amp;rsquo;t do it justice, it&amp;rsquo;s a bit of a weird name for it.</description>
+    </item>
     <item>
       <title>A personal adventure with hot beverages</title>
       <link>https://elis.nu/blog/2023/11/a-personal-adventure-with-hot-beverages/</link>
