@@ -13,7 +13,7 @@
       <link>https://elis.nu/blog/2024/02/nixos-superpower-specialisations/</link>
       <pubDate>Sat, 17 Feb 2024 20:30:00 +0100</pubDate>
       <guid>https://elis.nu/blog/2024/02/nixos-superpower-specialisations/</guid>
-      <description>NixOS has a lot of configurability and features. One feature that I&amp;rsquo;ve known about for a while that I think is both really cool, but also a bit lesser known is the ability to have declarative specialisations. To me, this is a superpower of NixOS that I have a hard time to see any other Linux Distribution having.&#xA;What&amp;rsquo;s a specialisation? The name doesn&amp;rsquo;t do it justice, it&amp;rsquo;s a bit of a weird name for it.</description>
+      <description>NixOS has a lot of configurability and features. One feature that I&amp;rsquo;ve known about for a while that I think is both really cool, but also a bit lesser known is the ability to have declarative Specialisations. To me, this is a superpower of NixOS that I have a hard time to see any other Linux Distribution having.&#xA;What&amp;rsquo;s a Specialisation? The name doesn&amp;rsquo;t do it justice, it&amp;rsquo;s a bit of a weird name for it.</description>
     </item>
     <item>
       <title>Outsourcing NixOS compile time to Microsoft</title>
