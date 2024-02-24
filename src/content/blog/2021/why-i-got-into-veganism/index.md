@@ -5,7 +5,7 @@ url: /blog/2021/01/why-i-got-into-veganism/
 tags: [Veganism, Free Software, Speciesism, Personal]
 ---
 
-![Metric for ethics](./metric-for-ethics.jpg)
+![Metric for ethics](./metric-for-ethics.webp)
 
 This is a follow-up on: [Why I use Free Software](/blog/2021/01/why-i-use-free-software/). This has been followed up
 by: [I find food habits at Free Software events weird](/blog/2021/01/i-find-food-habits-at-free-software-events-weird/).

@@ -27,13 +27,13 @@ So how do I use these colors is practice?
 
 Raw color themes which have some colors with too little contrast and some with too much contrast:
 
-![Raw color themes which have some colors with too little contrast and some with too much contrast](./raw-themes.png)
+![Raw color themes which have some colors with too little contrast and some with too much contrast](./raw-themes.webp)
 
 ## Adjusted contrast themes
 
 Adjusted color themes which have all the colors contrast adjusted to the background:
 
-![Adjusted color themes which have all the colors contrast adjusted to the background](./adjusted-themes.png)
+![Adjusted color themes which have all the colors contrast adjusted to the background](./adjusted-themes.webp)
 
 ## How is this accomplished at build time?
 

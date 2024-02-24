@@ -8,7 +8,7 @@ params:
   copyrightOwner: '2010 Elis Hirwing'
 
   # ogImagePath: /img/og-image.png
-  iconPath: /img/elis.jpg
+  iconPath: /img/elis.webp
   showLogo: false
 
   extraHeaderContent: |-

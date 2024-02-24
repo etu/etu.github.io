@@ -15,9 +15,7 @@ item to a store.
 
 Here are some sketches l've made of how big and wide this monster really is.
 
-![Drawn sketch of the monitor size](./drawing_thumb.png)
-
-[Drawing in full resolution](./drawing.png)
+![Drawn sketch of the monitor size](./drawing.webp)
 
 It truly have been a boost in productivity, much more that I expected.
 

@@ -5,7 +5,7 @@ url: /blog/2020/02/double-stitched-penguin-beanie/
 tags: [Knitting, Personal]
 ---
 
-![Friendly front and side of penguin beanie](./friendly_penguin_front_and_side_thumb.png)
+![Friendly front and side of penguin beanie](./friendly_penguin_front_and_side.webp)
 
 This is a quite unusual post for this blog, it's not what I've expected to
 put on here. But I wanted to share it somewhere more permanent than many
@@ -22,9 +22,9 @@ of the outside. And the inside kinda became the evil twin of the outside.
 
 ## Pattern chart
 
-![Chart of the knitting pattern](./small_chart.png)
+![Chart of the knitting pattern](./medium_chart.webp)
 
-[Link to bigger chart](./medium_chart.png). [Link to full pattern](https://www.stitchfiddle.com/en/c/sifm3s-xp37/quickview).
+[Link to full pattern](https://www.stitchfiddle.com/en/c/sifm3s-xp37/quickview).
 
 ## Pattern description
 
@@ -80,20 +80,12 @@ black stitches and the white yarn through the final white stitches.
 
 ### Friendly penguin
 
-![Friendly penguin front](./friendly_penguin_front_thumb.jpg)
+![Friendly penguin front](./friendly_penguin_front.webp)
 
-[Friendly Penguin Front in bigger size](./friendly_penguin_front.jpg).
-
-![Friendly penguin side](./friendly_penguin_side_thumb.jpg)
-
-[Friendly Penguin Side in bigger size](./friendly_penguin_side.jpg).
+![Friendly penguin side](./friendly_penguin_side.webp)
 
 ### Evil penguin inside
 
-![Evil penguin front](./evil_penguin_front_thumb.jpg)
+![Evil penguin front](./evil_penguin_front.webp)
 
-[Evil Penguin Front in bigger size](./evil_penguin_front.jpg).
-
-![Evil penguin side](./evil_penguin_side_thumb.jpg)
-
-[Evil Penguin Side in bigger size](./evil_penguin_side.jpg).
+![Evil penguin side](./evil_penguin_side.webp)

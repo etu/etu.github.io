@@ -2,7 +2,7 @@
 title: ~elis/about/
 ---
 
-![Photo of me](/img/elis.jpg)
+![Photo of me](/img/elis.webp)
 
 My name is Elis (SA4BSE) and I currently live in Arvika, Sweden and work
 remotely in Stockholm, Sweden.

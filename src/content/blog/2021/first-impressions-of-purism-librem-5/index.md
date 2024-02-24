@@ -130,67 +130,67 @@ WiFi details among other things.
 
 Failure to download upgrades from the store:
 
-![Failure to download upgrades from the store](./failed-upgrade.png)
+![Failure to download upgrades from the store](./failed-upgrade.webp)
 
 ##### However, upgrading using `apt` in the terminal worked fine though
 
 Successful upgrade using ~apt~ in the terminal:
 
-![Successful upgrade using apt in the terminal](./terminal-upgrade.png)
+![Successful upgrade using apt in the terminal](./terminal-upgrade.webp)
 
 ##### Kernel version
 
 It's using a 5.13.0 mainline kernel:
 
-![It's using a 5.13.0 mainline kernel](./kernel.png)
+![It's using a 5.13.0 mainline kernel](./kernel.webp)
 
 ##### Mounted filesystems
 
 We have a two partition layout with ext2 boot and encrypted ext4 root
 
-![We have a two partition layout with ext2 boot and encrypted ext4 root](./mounts.png)
+![We have a two partition layout with ext2 boot and encrypted ext4 root](./mounts.webp)
 
 ##### App drawer and workspace
 
 Searchable app drawer seems to be the main workspace:
 
-![Searchable app drawer seems to be the main workspace](./app-drawer.png)
+![Searchable app drawer seems to be the main workspace](./app-drawer.webp)
 
 ##### Browser
 
 Web browser with my website, defaults to blocking ads and tracking:
 
-![Web browser with my website, defaults to blocking ads and tracking](./browser.png)
+![Web browser with my website, defaults to blocking ads and tracking](./browser.webp)
 
 ##### App drawer and switcher
 
 App drawer when having apps running also shows the app switcher on top:
 
-![App drawer when having apps running also shows the app switcher on top](./app-drawer-and-switcher.png)
+![App drawer when having apps running also shows the app switcher on top](./app-drawer-and-switcher.webp)
 
 ##### Camera live preview
 
 Camera preview before taking a photo is super dark, even in bright light:
 
-![Camera preview before taking a photo is super dark, even in bright light](./camera-live-preview.png)
+![Camera preview before taking a photo is super dark, even in bright light](./camera-live-preview.webp)
 
 ##### Resulting photo
 
 Resulting photo is better than the preview, but nowhere close to what anyone would like to use:
 
-![Resulting photo is better than the preview, but nowhere close to what anyone would like to use](./camera-resulting-image.png)
+![Resulting photo is better than the preview, but nowhere close to what anyone would like to use](./camera-resulting-image.webp)
 
 ##### Reference in same light and place with my OnePlus Nord
 
 Reference photo in the same light taken with a OnePlus Nord:
 
-![Reference photo in the same light taken with a OnePlus Nord](./oneplus-nord-reference-photo.png)
+![Reference photo in the same light taken with a OnePlus Nord](./oneplus-nord-reference-photo.webp)
 
 ##### Swedish Dvorak seems to be… QWERTY
 
 The Swedish Dvorak layout known as Svorak has the same layout as Swedish Qwerty:
 
-![The Swedish Dvorak layout known as Svorak has the same layout as Swedish Qwerty](./swedish-dvorak-seems-to-be-qwerty.png)
+![The Swedish Dvorak layout known as Svorak has the same layout as Swedish Qwerty](./swedish-dvorak-seems-to-be-qwerty.webp)
 
 ##### Emoji keyboard
 
@@ -200,7 +200,7 @@ favorite emoji is.
 
 Emoji Keyboard with numeric paginations to find other emojis:
 
-![Emoji Keyboard with numeric paginations to find other emojis](./emoji-keyboard.png)
+![Emoji Keyboard with numeric paginations to find other emojis](./emoji-keyboard.webp)
 
 ##### XMPP client
 
@@ -209,13 +209,13 @@ people, in chat rooms it seems fine:
 
 XMPP client complaining about encryption errors in an un-encrypted chat:
 
-![XMPP client complaining about encryption errors in an un-encrypted chat](./unencrypted-chat-fails-on-encryption.png)
+![XMPP client complaining about encryption errors in an un-encrypted chat](./unencrypted-chat-fails-on-encryption.webp)
 
 ##### Apparently this phone thinks it's a laptop
 
 Notification regarding critically low battery saying that the "Laptop" battery is low:
 
-![Notification regarding critically low battery saying that the "Laptop" battery is low](./this-phone-is-a-laptop.png)
+![Notification regarding critically low battery saying that the "Laptop" battery is low](./this-phone-is-a-laptop.webp)
 
 ## Summary of first impressions
 
