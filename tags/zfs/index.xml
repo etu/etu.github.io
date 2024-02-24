@@ -1,26 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ZFS on Elis Hirwing</title>
-    <link>https://elis.nu/tags/zfs/</link>
-    <description>Recent content in ZFS on Elis Hirwing</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 21 May 2021 20:45:00 +0100</lastBuildDate>
-    <atom:link href="https://elis.nu/tags/zfs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>The day when ZFS saved my data</title>
-      <link>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</link>
-      <pubDate>Fri, 21 May 2021 20:45:00 +0100</pubDate>
-      <guid>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</guid>
-      <description>Today my work day didn&amp;rsquo;t turn out the way I expected. It started like a normal day, I woke up around the regular time, did my morning routine, sat at my desk and started my work-issued laptop.&#xA;It booted up just fine, I connected it to my Ultrawide display, started going through Slack and Email and catch up on some news while drinking my morning tea and waking up.&#xA;Then after around an hour of work things started to hang up, most notably Firefox totally froze up.</description>
-    </item>
-    <item>
-      <title>Encrypted ZFS mirror with mirrored boot on NixOS</title>
-      <link>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</link>
-      <pubDate>Sun, 04 Aug 2019 10:20:00 +0200</pubDate>
-      <guid>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</guid>
-      <description>So for a long time I have wanted to replace my file server, because it&amp;rsquo;s an old HP Microserver that is really slow. And at the same time I have had this beast of a desktop tower PC that I haven&amp;rsquo;t used with a Xeon and 32GiB ECC memory that has just been turned off due to noise. The obvious solution is to re-purpose that install and move it to a location where noise doesn&amp;rsquo;t matter, e.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ZFS on Elis Hirwing</title><link>https://elis.nu/tags/zfs/</link><description>Recent content in ZFS on Elis Hirwing</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 21 May 2021 20:45:00 +0100</lastBuildDate><atom:link href="https://elis.nu/tags/zfs/index.xml" rel="self" type="application/rss+xml"/><item><title>The day when ZFS saved my data</title><link>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</link><pubDate>Fri, 21 May 2021 20:45:00 +0100</pubDate><guid>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</guid><description>Today my work day didn&amp;rsquo;t turn out the way I expected. It started like a normal day, I woke up around the regular time, did my morning routine, sat at my desk and started my work-issued laptop.
+It booted up just fine, I connected it to my Ultrawide display, started going through Slack and Email and catch up on some news while drinking my morning tea and waking up.
+Then after around an hour of work things started to hang up, most notably Firefox totally froze up.</description></item><item><title>Encrypted ZFS mirror with mirrored boot on NixOS</title><link>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</link><pubDate>Sun, 04 Aug 2019 10:20:00 +0200</pubDate><guid>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</guid><description>So for a long time I have wanted to replace my file server, because it&amp;rsquo;s an old HP Microserver that is really slow. And at the same time I have had this beast of a desktop tower PC that I haven&amp;rsquo;t used with a Xeon and 32GiB ECC memory that has just been turned off due to noise. The obvious solution is to re-purpose that install and move it to a location where noise doesn&amp;rsquo;t matter, e.</description></item></channel></rss>

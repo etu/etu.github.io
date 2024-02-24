@@ -1,40 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Veganism on Elis Hirwing</title>
-    <link>https://elis.nu/tags/veganism/</link>
-    <description>Recent content in Veganism on Elis Hirwing</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 25 Apr 2023 19:00:00 +0100</lastBuildDate>
-    <atom:link href="https://elis.nu/tags/veganism/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>AI should be trained with vegan values</title>
-      <link>https://elis.nu/blog/2023/04/ai-should-be-trained-with-vegan-values/</link>
-      <pubDate>Tue, 25 Apr 2023 19:00:00 +0100</pubDate>
-      <guid>https://elis.nu/blog/2023/04/ai-should-be-trained-with-vegan-values/</guid>
-      <description>As artificial intelligence (AI) continues to advance, concerns have been raised about the potential dangers of AI becoming too powerful and taking over human civilization. In a recent interview, entrepreneur and CEO Elon Musk expressed his concerns about the risks associated with developing super-intelligent AI. However, his views were challenged by Larry Page, co-founder of Google, who referred to Musk as a “speciesist” for not wanting AI to become a “digital god”.</description>
-    </item>
-    <item>
-      <title>I find food habits at Free Software events weird</title>
-      <link>https://elis.nu/blog/2021/01/i-find-food-habits-at-free-software-events-weird/</link>
-      <pubDate>Tue, 26 Jan 2021 21:30:00 +0100</pubDate>
-      <guid>https://elis.nu/blog/2021/01/i-find-food-habits-at-free-software-events-weird/</guid>
-      <description>This is a follow-up on: Why I use Free Software, Why I got into Veganism.&#xA;Since the Free Software movement in it&amp;rsquo;s core is an ethical movement, which cares about human rights and humans access and ability to study, share and improve on the software they use. I&amp;rsquo;m well aware that not everyone in the Free Software community is in it for ethical reasons - but I&amp;rsquo;m pretty sure that there&amp;rsquo;s enough of us that care about ethics for this to be important.</description>
-    </item>
-    <item>
-      <title>Why I got into Veganism</title>
-      <link>https://elis.nu/blog/2021/01/why-i-got-into-veganism/</link>
-      <pubDate>Wed, 20 Jan 2021 21:00:00 +0100</pubDate>
-      <guid>https://elis.nu/blog/2021/01/why-i-got-into-veganism/</guid>
-      <description>This is a follow-up on: Why I use Free Software. This has been followed up by: I find food habits at Free Software events weird.&#xA;People who turn to Veganism can do this for different reasons, some do it for health reasons, others for climate reasons. But in it&amp;rsquo;s core, the Vegan movement in itself is an ethical movement about saving the animals. The other reasons are more or less side effects.</description>
-    </item>
-    <item>
-      <title>Why I use Free Software</title>
-      <link>https://elis.nu/blog/2021/01/why-i-use-free-software/</link>
-      <pubDate>Sat, 16 Jan 2021 23:30:00 +0100</pubDate>
-      <guid>https://elis.nu/blog/2021/01/why-i-use-free-software/</guid>
-      <description>This has been followed up by: Why I got into Veganism, I find food habits at Free Software events weird.&#xA;People in general may have different reasons for choosing to use Free Software, some may use it for the price, others because of pragmatic reasons, simply put it&amp;rsquo;s the best tool for the job. Others may choose it for ethical reasons.&#xA;I didn&amp;rsquo;t get into Free Software for any of the said reasons above, I got into Free Software because it seemed different and fun.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Veganism on Elis Hirwing</title><link>https://elis.nu/tags/veganism/</link><description>Recent content in Veganism on Elis Hirwing</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 25 Apr 2023 19:00:00 +0100</lastBuildDate><atom:link href="https://elis.nu/tags/veganism/index.xml" rel="self" type="application/rss+xml"/><item><title>AI should be trained with vegan values</title><link>https://elis.nu/blog/2023/04/ai-should-be-trained-with-vegan-values/</link><pubDate>Tue, 25 Apr 2023 19:00:00 +0100</pubDate><guid>https://elis.nu/blog/2023/04/ai-should-be-trained-with-vegan-values/</guid><description>As artificial intelligence (AI) continues to advance, concerns have been raised about the potential dangers of AI becoming too powerful and taking over human civilization. In a recent interview, entrepreneur and CEO Elon Musk expressed his concerns about the risks associated with developing super-intelligent AI. However, his views were challenged by Larry Page, co-founder of Google, who referred to Musk as a “speciesist” for not wanting AI to become a “digital god”.</description></item><item><title>I find food habits at Free Software events weird</title><link>https://elis.nu/blog/2021/01/i-find-food-habits-at-free-software-events-weird/</link><pubDate>Tue, 26 Jan 2021 21:30:00 +0100</pubDate><guid>https://elis.nu/blog/2021/01/i-find-food-habits-at-free-software-events-weird/</guid><description>This is a follow-up on: Why I use Free Software, Why I got into Veganism.
+Since the Free Software movement in it&amp;rsquo;s core is an ethical movement, which cares about human rights and humans access and ability to study, share and improve on the software they use. I&amp;rsquo;m well aware that not everyone in the Free Software community is in it for ethical reasons - but I&amp;rsquo;m pretty sure that there&amp;rsquo;s enough of us that care about ethics for this to be important.</description></item><item><title>Why I got into Veganism</title><link>https://elis.nu/blog/2021/01/why-i-got-into-veganism/</link><pubDate>Wed, 20 Jan 2021 21:00:00 +0100</pubDate><guid>https://elis.nu/blog/2021/01/why-i-got-into-veganism/</guid><description>This is a follow-up on: Why I use Free Software. This has been followed up by: I find food habits at Free Software events weird.
+People who turn to Veganism can do this for different reasons, some do it for health reasons, others for climate reasons. But in it&amp;rsquo;s core, the Vegan movement in itself is an ethical movement about saving the animals. The other reasons are more or less side effects.</description></item><item><title>Why I use Free Software</title><link>https://elis.nu/blog/2021/01/why-i-use-free-software/</link><pubDate>Sat, 16 Jan 2021 23:30:00 +0100</pubDate><guid>https://elis.nu/blog/2021/01/why-i-use-free-software/</guid><description>This has been followed up by: Why I got into Veganism, I find food habits at Free Software events weird.
+People in general may have different reasons for choosing to use Free Software, some may use it for the price, others because of pragmatic reasons, simply put it&amp;rsquo;s the best tool for the job. Others may choose it for ethical reasons.
+I didn&amp;rsquo;t get into Free Software for any of the said reasons above, I got into Free Software because it seemed different and fun.</description></item></channel></rss>

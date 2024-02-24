@@ -1,300 +1,81 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
-    <title>NixOS :: Elis Hirwing</title>
-
-    
-    <meta charset="utf-8" />
-
-    
-    <meta name="referrer" content="no-referrer" />
-
-    
-    <link rel="canonical" href="https://elis.nu/tags/nixos/" />
-
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    
-    <link rel="alternate" type="application/atom+xml" href="https://elis.nu/index.xml" title="Elis Hirwing" />
-
-    
-    <link rel="icon" type="image/png" href="https://elis.nu/img/elis.jpg" />
-
-    
-    <meta property="og:description" content="" />
-    <meta property="og:locale" content="en" />
-    <meta property="og:site_name" content="Elis Hirwing" />
-    <meta property="og:title" content="NixOS &middot; Elis Hirwing"/>
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://elis.nu/tags/nixos/" />
-    
-    <meta property="og:image" content="https://elis.nu/" />
-    
-    <meta name="twitter:card" content="summary_large_image" />
-
-    
-    <link rel="me" href="https://chaos.social/@sa0bse" />
-
-<!-- Matomo -->
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension"
-     should be called before "trackPageView" */
-  _paq.push(['disableCookies']);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//matomo.taserud.net/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '3']);
-    var d=document,
-        g=d.createElement('script'),
-        s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
-
-    
-    
-    
-    <link rel="stylesheet" href="https://elis.nu/css/style.cf27a61ca9a4283ccb706091d684b1d155b4d2e257f996cbd215674df8979146.css" integrity="sha256-zyemHKmkKDzLcGCR1oSx0VW00uJX&#43;ZbL0hVnTfiXkUY=" media="screen" />
-</head>
-
-    <body><header>
-    <aside id="advert">
-        <a href="https://taserud.net/en/?mtm_campaign=ElisNuTopBanner" target="_blank">
-            Are you looking for IT consultancy services in the NixOS, Linux,
-            Kubernetes, DevOps space? Check out <u>Taserud Consulting AB</u>.
-        </a>
-    </aside>
-
-    <nav>
-        
-        <ul>
-            
-            
-            <li><a href="/">~elis/</a></li>
-            
-            <li><a href="/about/">./about/</a></li>
-            
-            <li><a href="/work/">./work/</a></li>
-            
-            <li><a href="/talks/">./talks/</a></li>
-            
-            <li><a href="/blog/">./blog/</a></li>
-            
-        </ul>
-        
-    </nav>
-</header>
-<div class="wrapper">
-<div class="content">
-  
-  <h1>Posts about: nixos</h1>
-  
-
-  
-
-  <div class="posts">
-    
-    <div class="post">
-      <h2><a href="/blog/2024/02/nixos-superpower-specialisations/">NixOS superpower: specialisations</a></h2>
-      <span class="post-meta">
-        2024-02-17
-
-        
-        &middot; 3 minutes read
-        
-
-        
-        &middot;
-        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/linux">Linux</a>
-        
-      </span>
-      <p>NixOS has a lot of configurability and features. One feature that I&rsquo;ve known about for a while that I think is both really cool, but also a bit lesser known is the ability to have declarative Specialisations. To me, this is a superpower of NixOS that I have a hard time to see any other Linux Distribution having.
-What&rsquo;s a Specialisation? The name doesn&rsquo;t do it justice, it&rsquo;s a bit of a weird name for it.</p>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Outsourcing NixOS compile time to Microsoft</a></h2>
-      <span class="post-meta">
-        2022-10-10
-
-        
-        &middot; 5 minutes read
-        
-
-        
-        &middot;
-        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/nix">Nix</a><a class="tag" href="/tags/linux">Linux</a><a class="tag" href="/tags/cachix">Cachix</a><a class="tag" href="/tags/github-actions">GitHub Actions</a>
-        
-      </span>
-      <p>NixOS is a Linux-distribution that may be source-based, but it has a binary cache that covers things so you generally don&rsquo;t need to compile things, things tends to be cached.
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en><head><title>NixOS - Elis Hirwing</title>
+<meta charset=utf-8><meta name=referrer content="no-referrer"><link rel=canonical href=https://elis.nu/tags/nixos/><meta name=viewport content="width=device-width,initial-scale=1"><link href=https://elis.nu/tags/nixos/index.xml rel=alternate type=application/rss+xml title="Elis Hirwing"><link href=https://elis.nu/tags/nixos/index.xml rel=feed type=application/rss+xml title="Elis Hirwing"><link rel=icon type=image/png href=https://elis.nu/img/elis.jpg><meta property="description" content><meta property="og:description" content><meta property="og:locale" content="en"><meta property="og:site_name" content="Elis Hirwing"><meta property="og:title" content="NixOS &#183; Elis Hirwing"><meta property="og:type" content="website"><meta property="og:url" content="https://elis.nu/tags/nixos/"><meta property="og:image" content="https://elis.nu/img/albatross_logo.png"><meta name=twitter:card content="summary_large_image"><link rel=me href=https://chaos.social/@sa0bse><script>var _paq=window._paq=window._paq||[];_paq.push(["disableCookies"]),_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){e="//matomo.taserud.net/",_paq.push(["setTrackerUrl",e+"matomo.php"]),_paq.push(["setSiteId","3"]);var e,n=document,t=n.createElement("script"),s=n.getElementsByTagName("script")[0];t.async=!0,t.src=e+"matomo.js",s.parentNode.insertBefore(t,s)}()</script><link rel=stylesheet href=https://elis.nu/css/style.7d2e6e8db628694b88698a19d8efa6bbcfdbab78a1ea83102fac316a5efc1a1d.css integrity="sha256-fS5ujbYoaUuIaYoZ2O+mu8/bq3ih6oMQL6wxal78Gh0=" media=screen></head><body><header><aside id=advert><a href="https://taserud.net/en/?mtm_campaign=ElisNuTopBanner" target=_blank>Are you looking for IT consultancy services in the NixOS, Linux,
+Kubernetes, DevOps space? Check out <u>Taserud Consulting AB</u>.</a></aside><style>aside#advert{max-width:48rem;margin:2rem auto 0}aside#advert a{background:#26101b;color:#d58bcc;display:block;text-decoration:none;margin:0 4rem 2rem;padding:2rem 1.5rem 1.5rem;text-align:center;border-radius:.25rem;border:.1rem solid #a6a6a6}aside#advert a::after{content:'Ad';font-size:.75rem;background-image:none;position:absolute;top:0;left:0;width:fit-content;height:fit-content;padding:.4rem .6rem;margin-left:0;background-color:#4a2739;color:#e6c0e1;border-radius:.25rem 0}</style><nav><ul><li><a href=/>~elis/</a></li><li><a href=/about/>./about/</a></li><li><a href=/work/>./work/</a></li><li><a href=/talks/>./talks/</a></li><li><a href=/blog/>./blog/</a></li></ul></nav></header><div class=wrapper><div class=content><h1>Posts about: NixOS</h1><p></p><div class=posts><div class=post><h2><a href=/blog/2024/02/nixos-superpower-specialisations/>NixOS superpower: specialisations</a></h2><span class=post-meta>2024-02-17
+&#183; 3 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a></span><p>NixOS has a lot of configurability and features. One feature that I&rsquo;ve known about for a while that I think is both really cool, but also a bit lesser known is the ability to have declarative Specialisations. To me, this is a superpower of NixOS that I have a hard time to see any other Linux Distribution having.
+What&rsquo;s a Specialisation? The name doesn&rsquo;t do it justice, it&rsquo;s a bit of a weird name for it.</p><a href=/blog/2024/02/nixos-superpower-specialisations/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/>Outsourcing NixOS compile time to Microsoft</a></h2><span class=post-meta>2022-10-10
+&#183; 5 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/nix/>Nix</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/cachix/>Cachix</a>
+<a class=tag href=/tags/github-actions/>GitHub Actions</a></span><p>NixOS is a Linux-distribution that may be source-based, but it has a binary cache that covers things so you generally don&rsquo;t need to compile things, things tends to be cached.
 However, depending on how you configure your system, you may trigger compiles depending on what you do.
-So a thing I do is that I run Emacs 29 with the native-comp patches that is wayland native with the pgtk-branch. This is by no mean the stable Emacs release at the point of writing.</p>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Simple deployments of NixOS machines with nixus</a></h2>
-      <span class="post-meta">
-        2021-07-23
-
-        
-        &middot; 3 minutes read
-        
-
-        
-        &middot;
-        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/nix">Nix</a><a class="tag" href="/tags/linux">Linux</a><a class="tag" href="/tags/nixus">nixus</a>
-        
-      </span>
-      <p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any tools to do central deployments of machines. But I&rsquo;ve always read and known that NixOS is excellent at this. NixOS can easily build another systems configuration, then copy the system to the target systems nix store and then activate it there.
-Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A while ago the need for this changed because one of my VPSes started running low on RAM, low enough to not be able to build new generations of it&rsquo;s own system.</p>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">NixOS: Setting up Push To Talk in Mumble on Sway</a></h2>
-      <span class="post-meta">
-        2021-06-26
-
-        
-        &middot; 2 minutes read
-        
-
-        
-        &middot;
-        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/linux">Linux</a><a class="tag" href="/tags/mumble">Mumble</a><a class="tag" href="/tags/sway">Sway</a><a class="tag" href="/tags/wayland">Wayland</a>
-        
-      </span>
-      <p>Switching to Wayland has it&rsquo;s side-effects, one of which is the improved security from X11 where applications can&rsquo;t just randomly spy on each other at any point.
+So a thing I do is that I run Emacs 29 with the native-comp patches that is wayland native with the pgtk-branch. This is by no mean the stable Emacs release at the point of writing.</p><a href=/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2021/07/simple-deployments-of-nixos-machines/>Simple deployments of NixOS machines with nixus</a></h2><span class=post-meta>2021-07-23
+&#183; 3 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/nix/>Nix</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/nixus/>Nixus</a></span><p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any tools to do central deployments of machines. But I&rsquo;ve always read and known that NixOS is excellent at this. NixOS can easily build another systems configuration, then copy the system to the target systems nix store and then activate it there.
+Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A while ago the need for this changed because one of my VPSes started running low on RAM, low enough to not be able to build new generations of it&rsquo;s own system.</p><a href=/blog/2021/07/simple-deployments-of-nixos-machines/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/>NixOS: Setting up Push To Talk in Mumble on Sway</a></h2><span class=post-meta>2021-06-26
+&#183; 2 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/mumble/>Mumble</a>
+<a class=tag href=/tags/sway/>Sway</a>
+<a class=tag href=/tags/wayland/>Wayland</a></span><p>Switching to Wayland has it&rsquo;s side-effects, one of which is the improved security from X11 where applications can&rsquo;t just randomly spy on each other at any point.
 This is both good news and bad news.
 The good news:
 Applications can&rsquo;t just randomly spy on each other. The bad news:
 Things like global hot-keys in for example Mumble won&rsquo;t work. Back from complaining to actually solving the problem though.
-Mumble does have a patch for a future release So there&rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</p>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/blog/2021/05/the-day-when-zfs-saved-my-data/">The day when ZFS saved my data</a></h2>
-      <span class="post-meta">
-        2021-05-21
-
-        
-        &middot; 5 minutes read
-        
-
-        
-        &middot;
-        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/zfs">ZFS</a><a class="tag" href="/tags/linux">Linux</a><a class="tag" href="/tags/backup">Backup</a>
-        
-      </span>
-      <p>Today my work day didn&rsquo;t turn out the way I expected. It started like a normal day, I woke up around the regular time, did my morning routine, sat at my desk and started my work-issued laptop.
+Mumble does have a patch for a future release So there&rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</p><a href=/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2021/05/the-day-when-zfs-saved-my-data/>The day when ZFS saved my data</a></h2><span class=post-meta>2021-05-21
+&#183; 5 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/zfs/>ZFS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/backup/>Backup</a></span><p>Today my work day didn&rsquo;t turn out the way I expected. It started like a normal day, I woke up around the regular time, did my morning routine, sat at my desk and started my work-issued laptop.
 It booted up just fine, I connected it to my Ultrawide display, started going through Slack and Email and catch up on some news while drinking my morning tea and waking up.
-Then after around an hour of work things started to hang up, most notably Firefox totally froze up.</p>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/blog/2021/02/switching-to-wayland-sway/">Switching to Wayland (Sway)</a></h2>
-      <span class="post-meta">
-        2021-02-17
-
-        
-        &middot; 4 minutes read
-        
-
-        
-        &middot;
-        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/nix">Nix</a><a class="tag" href="/tags/linux">Linux</a><a class="tag" href="/tags/sway">Sway</a><a class="tag" href="/tags/wayland">Wayland</a><a class="tag" href="/tags/x11">X11</a>
-        
-      </span>
-      <p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I was on i3wm for quite some time until I was introduced to Emacs X11 Window Manager which I used exclusively for about 18 months, I&rsquo;ve even held a talk about it. But at some point it got too annoying, for example in multi monitor use cases.
-At this point my first step was to go back to set up i3wm again.</p>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/blog/2020/06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as home</a></h2>
-      <span class="post-meta">
-        2020-06-27
-
-        
-        &middot; 4 minutes read
-        
-
-        
-        &middot;
-        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/linux">Linux</a><a class="tag" href="/tags/tmpfs">tmpfs</a><a class="tag" href="/tags/impermanence">Impermanence</a>
-        
-      </span>
-      <p>This is a follow-up post for my earlier post: NixOS ❄: tmpfs as root.
-When you start to go down the route of setting up a “pure” system that is as clean as you want it to be on each boot. You may start with the lazy route of using a persistent partition for your home directory. But it never feels quite right. But initially it&rsquo;s so convenient to choose this path.</p>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/blog/2020/05/nixos-tmpfs-as-root/">NixOS ❄: tmpfs as root</a></h2>
-      <span class="post-meta">
-        2020-05-02
-
-        
-        &middot; 6 minutes read
-        
-
-        
-        &middot;
-        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/linux">Linux</a><a class="tag" href="/tags/tmpfs">tmpfs</a><a class="tag" href="/tags/impermanence">Impermanence</a>
-        
-      </span>
-      <p>This post covers both EFI and legacy boot setups.
+Then after around an hour of work things started to hang up, most notably Firefox totally froze up.</p><a href=/blog/2021/05/the-day-when-zfs-saved-my-data/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2021/02/switching-to-wayland-sway/>Switching to Wayland (Sway)</a></h2><span class=post-meta>2021-02-17
+&#183; 4 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/nix/>Nix</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/sway/>Sway</a>
+<a class=tag href=/tags/wayland/>Wayland</a>
+<a class=tag href=/tags/x11/>X11</a></span><p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I was on i3wm for quite some time until I was introduced to Emacs X11 Window Manager which I used exclusively for about 18 months, I&rsquo;ve even held a talk about it. But at some point it got too annoying, for example in multi monitor use cases.
+At this point my first step was to go back to set up i3wm again.</p><a href=/blog/2021/02/switching-to-wayland-sway/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2020/06/nixos-tmpfs-as-home/>NixOS ❄: tmpfs as home</a></h2><span class=post-meta>2020-06-27
+&#183; 4 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/tmpfs/>Tmpfs</a>
+<a class=tag href=/tags/impermanence/>Impermanence</a></span><p>This is a follow-up post for my earlier post: NixOS ❄: tmpfs as root.
+When you start to go down the route of setting up a “pure” system that is as clean as you want it to be on each boot. You may start with the lazy route of using a persistent partition for your home directory. But it never feels quite right. But initially it&rsquo;s so convenient to choose this path.</p><a href=/blog/2020/06/nixos-tmpfs-as-home/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2020/05/nixos-tmpfs-as-root/>NixOS ❄: tmpfs as root</a></h2><span class=post-meta>2020-05-02
+&#183; 6 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/tmpfs/>Tmpfs</a>
+<a class=tag href=/tags/impermanence/>Impermanence</a></span><p>This post covers both EFI and legacy boot setups.
 One fairly unique property of NixOS is the ability to boot with only /boot and /nix. Nothing else is actually required. This supports doing all sorts of weird things with your root file system.
-One way is to do like Graham&rsquo;s post &ldquo;erase your darlings&rdquo; describes and empty your root file system each boot using ZFS snapshots. This way have some cool things that you could do on top of his setup, such as doing snapshots when it&rsquo;s running and roll-back to empty on boot.</p>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/blog/2020/04/php-packaging-in-nixos/">PHP packaging in NixOS ❄</a></h2>
-      <span class="post-meta">
-        2020-04-05
-
-        
-        &middot; 4 minutes read
-        
-
-        
-        &middot;
-        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/nix">Nix</a><a class="tag" href="/tags/php">PHP</a>
-        
-      </span>
-      <p>This is a sneak peak into the future 20.09 release of NixOS.
+One way is to do like Graham&rsquo;s post &ldquo;erase your darlings&rdquo; describes and empty your root file system each boot using ZFS snapshots. This way have some cool things that you could do on top of his setup, such as doing snapshots when it&rsquo;s running and roll-back to empty on boot.</p><a href=/blog/2020/05/nixos-tmpfs-as-root/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2020/04/php-packaging-in-nixos/>PHP packaging in NixOS ❄</a></h2><span class=post-meta>2020-04-05
+&#183; 4 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/nix/>Nix</a>
+<a class=tag href=/tags/php/>PHP</a></span><p>This is a sneak peak into the future 20.09 release of NixOS.
 The PHP packaging ecosystem in NixOS has been in a quite sad state for a long time. Partly because of the lack of people caring about PHP in Nix, but also that PHP is a bit weird when it comes to packaging.
-State of PHP before NixOS 20.09 Due to the lack of ability to do clever things like the python community does with =withPackages= to compose a package with the dependencies you need we have defaulted to provide a huge default package to accommodate all needs.</p>
-    </div>
-    
-    <div class="post">
-      <h2><a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/">Encrypted ZFS mirror with mirrored boot on NixOS</a></h2>
-      <span class="post-meta">
-        2019-08-04
-
-        
-        &middot; 6 minutes read
-        
-
-        
-        &middot;
-        <a class="tag" href="/tags/nixos">NixOS</a><a class="tag" href="/tags/linux">Linux</a><a class="tag" href="/tags/zfs">ZFS</a>
-        
-      </span>
-      <p>So for a long time I have wanted to replace my file server, because it&rsquo;s an old HP Microserver that is really slow. And at the same time I have had this beast of a desktop tower PC that I haven&rsquo;t used with a Xeon and 32GiB ECC memory that has just been turned off due to noise. The obvious solution is to re-purpose that install and move it to a location where noise doesn&rsquo;t matter, e.</p>
-    </div>
-    
-  </div>
-</div>
-
-        </div><footer class="footer">
-    <div class="content">
-        <p>
-            Copyright &copy; 2010 Elis Hirwing.
-        </p>
-    </div>
-</footer>
-
-    </body>
-</html>
+State of PHP before NixOS 20.09 Due to the lack of ability to do clever things like the python community does with =withPackages= to compose a package with the dependencies you need we have defaulted to provide a huge default package to accommodate all needs.</p><a href=/blog/2020/04/php-packaging-in-nixos/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/>Encrypted ZFS mirror with mirrored boot on NixOS</a></h2><span class=post-meta>2019-08-04
+&#183; 6 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/zfs/>ZFS</a></span><p>So for a long time I have wanted to replace my file server, because it&rsquo;s an old HP Microserver that is really slow. And at the same time I have had this beast of a desktop tower PC that I haven&rsquo;t used with a Xeon and 32GiB ECC memory that has just been turned off due to noise. The obvious solution is to re-purpose that install and move it to a location where noise doesn&rsquo;t matter, e.</p><a href=/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/>Read On &rarr;</a></div></div></div></div><footer class=footer><div class=content><p>Copyright &copy; 2010 Elis Hirwing</p><p>Made with <i class="fa-solid fa-heart" style=color:red></i> in Arvika
+by <a href="https://taserud.net/en/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target=_blank>Taserud Consulting AB</a>.</p></div></footer></body></html>
