@@ -2,13 +2,55 @@
 baseURL: 'https://elis.nu/'
 defaultContentLanguage: en
 title: 'Elis Hirwing'
-theme: elisnu
+theme: albatross
 
 params:
   copyrightOwner: '2010 Elis Hirwing'
 
   # ogImagePath: /img/og-image.png
   iconPath: /img/elis.jpg
+  showLogo: false
+
+  extraHeaderContent: |-
+    <aside id="advert">
+      <a href="https://taserud.net/en/?mtm_campaign=ElisNuTopBanner"
+        target="_blank">
+        Are you looking for IT consultancy services in the NixOS, Linux,
+        Kubernetes, DevOps space? Check out <u>Taserud Consulting AB</u>.
+      </a>
+    </aside>
+    <style>
+      aside#advert {
+        max-width: 48rem;
+        margin: 2rem auto 0 auto;
+      }
+      aside#advert a {
+        background: #26101b;
+        color: #d58bcc;
+        display: block;
+        text-decoration: none;
+        margin: 0 4rem 2rem 4rem;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        text-align: center;
+        border-radius: .25rem;
+        border: .1rem solid #a6a6a6;
+      }
+      aside#advert a::after {
+        content: 'Ad';
+        font-size: .75rem;
+        background-image: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: fit-content;
+        height: fit-content;
+        padding: .4rem .6rem;
+        margin-left: 0;
+        background-color: #4a2739;
+        color: #e6c0e1;
+        border-radius: .25rem 0;
+      }
+    </style>
 
   extraHeadContent: |-
     <link rel="me" href="https://chaos.social/@sa0bse" />
@@ -32,6 +74,33 @@ params:
       })();
     </script>
     <!-- End Matomo Code -->
+
+  style:
+    # Base font size in px
+    font-size: 16
+
+    # Page content width factor
+    page-content-width-factor: 48
+
+    # Toggle to enable or disable the CSS rules for the food menu layout,
+    # set to 'true' to enable or 'false' to disable.
+    page-include-food-menu-styles: 'false'
+
+    # Light colors
+    light-background-color: '#F4F4F4'
+    light-border-color: '#525252'
+    light-link-default-color: 'contrast-color(#00B0FB, $light-background-color)'
+    light-link-visited-color: 'contrast-color(#FF047E, $light-background-color)'
+    light-menu-background: '#F4F4F4'
+    light-menu-foreground: 'contrast-color(#00B0FB, $light-menu-background)'
+
+    # Dark colors
+    dark-background-color: '#171717'
+    dark-border-color: '#a6a6a6'
+    dark-link-default-color: 'contrast-color(#00B0FB, $dark-background-color)'
+    dark-link-visited-color: 'contrast-color(#FF147E, $dark-background-color)'
+    dark-menu-background: '#171717'
+    dark-menu-foreground: 'contrast-color(#00B0FB, $dark-menu-background)'
 
 languages:
   en:

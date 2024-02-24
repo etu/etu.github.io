@@ -1,9 +1,0 @@
-<!-- https://matze.rocks/posts/fontawesome_in_hugo/ -->
-
-<!-- use default fontawesome class 'fas' or use a specified one like 'fab' for brands -->
-{{ $faStylePrefix := "fas" }}
-{{ if in (slice "fas" "far" "fal" "fad" "fab") (.Get 0) }}
-{{ $faStylePrefix = (.Get 0) }}
-{{ end }}
-
-<i class="{{ $faStylePrefix }} {{ range $iconName := .Params }} fa-{{ $iconName }} {{ end }}"></i>
