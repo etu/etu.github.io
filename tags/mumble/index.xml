@@ -1,6 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mumble on Elis Hirwing</title><link>https://elis.nu/tags/mumble/</link><description>Recent content in Mumble on Elis Hirwing</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 26 Jun 2021 22:40:00 +0100</lastBuildDate><atom:link href="https://elis.nu/tags/mumble/index.xml" rel="self" type="application/rss+xml"/><item><title>NixOS: Setting up Push To Talk in Mumble on Sway</title><link>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</link><pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate><guid>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</guid><description>Switching to Wayland has it&amp;rsquo;s side-effects, one of which is the improved security from X11 where applications can&amp;rsquo;t just randomly spy on each other at any point.
-This is both good news and bad news.
-The good news:
-Applications can&amp;rsquo;t just randomly spy on each other. The bad news:
-Things like global hot-keys in for example Mumble won&amp;rsquo;t work. Back from complaining to actually solving the problem though.
-Mumble does have a patch for a future release So there&amp;rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mumble on Elis Hirwing</title>
+    <link>https://elis.nu/tags/mumble/</link>
+    <description>Recent content in Mumble on Elis Hirwing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 26 Jun 2021 22:40:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/mumble/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
+      <link>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</link>
+      <pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</guid>
+      <description>Switching to Wayland has it&amp;rsquo;s side-effects, one of which is the improved security from X11 where applications can&amp;rsquo;t just randomly spy on each other at any point.&#xA;This is both good news and bad news.&#xA;The good news:&#xA;Applications can&amp;rsquo;t just randomly spy on each other. The bad news:&#xA;Things like global hot-keys in for example Mumble won&amp;rsquo;t work. Back from complaining to actually solving the problem though.&#xA;Mumble does have a patch for a future release So there&amp;rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</description>
+    </item>
+  </channel>
+</rss>
