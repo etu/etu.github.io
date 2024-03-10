@@ -39,7 +39,7 @@
           ln -s ${tpkgs.theme} themes/${tpkgs.theme.theme-name}
 
           # Build page
-          hugo --logLevel debug --minify
+          hugo --logLevel debug
         '';
 
         installPhase = ''

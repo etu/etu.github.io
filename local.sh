@@ -13,4 +13,4 @@ cd src/
 sleep 1 && xdg-open "http://localhost:1313/" &
 
 # Run pinned version of hugo
-nix run .#hugo -- server --logLevel debug --disableFastRender --minify
+nix run .#hugo -- server --logLevel debug --disableFastRender --gc
