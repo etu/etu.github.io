@@ -19,6 +19,10 @@ params:
         Kubernetes, DevOps space? Check out <u>Taserud Consulting AB</u>.
       </a>
     </aside>
+
+  extraHeadContent: |-
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
     <style>
       aside#advert {
         max-width: 48rem;
@@ -51,9 +55,6 @@ params:
         border-radius: .25rem 0;
       }
     </style>
-
-  extraHeadContent: |-
-    <link rel="me" href="https://chaos.social/@sa0bse" />
 
     <!-- Matomo -->
     <script>
