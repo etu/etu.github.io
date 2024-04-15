@@ -1,5 +1,28 @@
 {
   "nodes": {
+    "_3dmodels": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1713201413,
+        "narHash": "sha256-nswGHBO6dTfoTqdpdZEQVk7PNhhaYIiJ/QTn+vaYE3c=",
+        "owner": "etu",
+        "repo": "3d-models",
+        "rev": "b51c70572bfa5cfb529e7ae329db18d6b8d6ba0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "etu",
+        "repo": "3d-models",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -65,6 +88,7 @@
     },
     "root": {
       "inputs": {
+        "_3dmodels": "_3dmodels",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "taserud-theme-albatross": "taserud-theme-albatross"
@@ -94,11 +118,11 @@
         "web-iso-flags": "web-iso-flags"
       },
       "locked": {
-        "lastModified": 1713149194,
-        "narHash": "sha256-84tf/4dVIlpCvNkBS1seFAANqXG8IICqfxOYGeDmCtU=",
+        "lastModified": 1713201062,
+        "narHash": "sha256-0XB9iDXTLJuGadkx3ADbXyGpH+Vd3DmuJ7gfMJYEX5Q=",
         "owner": "TaserudConsulting",
         "repo": "theme-albatross",
-        "rev": "3ae9409f56ce1ac4b9722c50e868fbbebf5a9737",
+        "rev": "228c8df3eafc69b9c05227f56ba00fbdf1471917",
         "type": "github"
       },
       "original": {

@@ -122,3 +122,6 @@ languages:
         - name: './blog/'
           url: /blog/
           weight: 50
+        - name: './3d-models/'
+          url: /3d-models/
+          weight: 60

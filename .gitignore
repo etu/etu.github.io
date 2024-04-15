@@ -6,3 +6,7 @@ src/.hugo_build.lock
 src/public/
 src/resources/
 src/themes/
+
+# Generated content files
+src/content/3d-models.md
+src/static/3d-models
