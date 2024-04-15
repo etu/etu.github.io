@@ -191,6 +191,13 @@
       <description>Hello world! This is a test blog post.&#xA;This is an external link example.org. Internal link start page.&#xA;This is a block quote element.&#xA;This is an inline code block.&#xA;Test of syntax highlighting elisp ;; Define the hello function (defun hello () &amp;#34;This is my docstring&amp;#34; (message &amp;#34;world&amp;#34;)) ;; Call the hello function (hello) Nix { # Define the hello function hello = {}: &amp;#34;world&amp;#34;; # More tests boolean = true; fileimport = import .</description>
     </item>
     <item>
+      <title>~elis/3d-models/</title>
+      <link>https://elis.nu/3d-models/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/3d-models/</guid>
+      <description>This is an overview of different 3D models that I have created.</description>
+    </item>
+    <item>
       <title>~elis/about/</title>
       <link>https://elis.nu/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
