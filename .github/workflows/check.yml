@@ -17,7 +17,7 @@ jobs:
 
       - run: 'nix fmt . -- --check'
       - run: 'nix run nixpkgs#yamllint -- --strict --format github .'
-      - run: 'nix run nixpkgs#deadnix -- .'
+      - run: 'nix run nixpkgs#deadnix -- --fail .'
       - run: 'nix run nixpkgs#statix -- check --config .statix.toml'
 
   check:
