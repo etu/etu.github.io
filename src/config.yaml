@@ -7,7 +7,7 @@ theme: albatross
 params:
   copyrightOwner: '2010 Elis Hirwing'
 
-  # ogImagePath: /img/og-image.png
+  ogImagePath: ''
   iconPath: /img/elis.webp
   showLogo: false
 
