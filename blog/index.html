@@ -151,6 +151,29 @@
         
         
             <div class="post">
+                <h2><a href="/blog/2024/07/prune-gh-pages-branches/">Prune gh-pages Branches Using GitHub Actions</a></h2><span class="post-meta">
+    2024-07-07
+
+    
+        &middot; 2 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/github/">GitHub</a>
+        
+            <a class="tag" href="/tags/github-actions/">GitHub Actions</a>
+        
+    
+</span>
+<p>This website is hosted on GitHub Pages, built using nix and hugo with a custom theme that I maintain. I have automated updates for the nix flake to get new versions of hugo and nixpkgs, which applies to both my theme and the website itself.
+This automation generates numerous commits and deployments to the gh-pages branch, mainly due to minor version bumps of hugo and other changes to the theme. While this hasn’t been a problem for my static website, which primarily consists of text, a recent addition has created some challenges.</p>
+
+                <a href="/blog/2024/07/prune-gh-pages-branches/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
                 <h2><a href="/blog/2024/02/nixos-superpower-specialisations/">NixOS superpower: specialisations</a></h2><span class="post-meta">
     2024-02-17
 
@@ -379,39 +402,6 @@ Deployment of this website Making of presentation slides Project read me files N
 Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A while ago the need for this changed because one of my VPSes started running low on RAM, low enough to not be able to build new generations of it&rsquo;s own system.</p>
 
                 <a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">NixOS: Setting up Push To Talk in Mumble on Sway</a></h2><span class="post-meta">
-    2021-06-26
-
-    
-        &middot; 2 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/nixos/">NixOS</a>
-        
-            <a class="tag" href="/tags/linux/">Linux</a>
-        
-            <a class="tag" href="/tags/mumble/">Mumble</a>
-        
-            <a class="tag" href="/tags/sway/">Sway</a>
-        
-            <a class="tag" href="/tags/wayland/">Wayland</a>
-        
-    
-</span>
-<p>Switching to Wayland has it&rsquo;s side-effects, one of which is the improved security from X11 where applications can&rsquo;t just randomly spy on each other at any point.
-This is both good news and bad news.
-The good news:
-Applications can&rsquo;t just randomly spy on each other. The bad news:
-Things like global hot-keys in for example Mumble won&rsquo;t work. Back from complaining to actually solving the problem though.
-Mumble does have a patch for a future release So there&rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</p>
-
-                <a href="/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">Read On &rarr;</a>
             </div>
         
 

@@ -151,6 +151,39 @@
         
         
             <div class="post">
+                <h2><a href="/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">NixOS: Setting up Push To Talk in Mumble on Sway</a></h2><span class="post-meta">
+    2021-06-26
+
+    
+        &middot; 2 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/mumble/">Mumble</a>
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+    
+</span>
+<p>Switching to Wayland has it&rsquo;s side-effects, one of which is the improved security from X11 where applications can&rsquo;t just randomly spy on each other at any point.
+This is both good news and bad news.
+The good news:
+Applications can&rsquo;t just randomly spy on each other. The bad news:
+Things like global hot-keys in for example Mumble won&rsquo;t work. Back from complaining to actually solving the problem though.
+Mumble does have a patch for a future release So there&rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</p>
+
+                <a href="/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
                 <h2><a href="/blog/2021/05/the-day-when-zfs-saved-my-data/">The day when ZFS saved my data</a></h2><span class="post-meta">
     2021-05-21
 
@@ -386,33 +419,6 @@ Placeholders such as {port} and {password} will be used here and later on. Sugge
 In parts of the IT industry abbreviations like RSI and CTS gets thrown around fairly often. I&rsquo;m guilty myself of doing this.</p>
 
                 <a href="/blog/2020/08/my-battle-with-wrist-pains/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2020/06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as home</a></h2><span class="post-meta">
-    2020-06-27
-
-    
-        &middot; 4 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/nixos/">NixOS</a>
-        
-            <a class="tag" href="/tags/linux/">Linux</a>
-        
-            <a class="tag" href="/tags/tmpfs/">Tmpfs</a>
-        
-            <a class="tag" href="/tags/impermanence/">Impermanence</a>
-        
-    
-</span>
-<p>This is a follow-up post for my earlier post: NixOS ❄: tmpfs as root.
-When you start to go down the route of setting up a “pure” system that is as clean as you want it to be on each boot. You may start with the lazy route of using a persistent partition for your home directory. But it never feels quite right. But initially it&rsquo;s so convenient to choose this path.</p>
-
-                <a href="/blog/2020/06/nixos-tmpfs-as-home/">Read On &rarr;</a>
             </div>
         
 

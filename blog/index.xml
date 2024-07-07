@@ -6,8 +6,15 @@
     <description>Recent content in ~elis/blog/ on Elis Hirwing</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 17 Feb 2024 20:30:00 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jul 2024 11:30:00 +0200</lastBuildDate>
     <atom:link href="https://elis.nu/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prune gh-pages Branches Using GitHub Actions</title>
+      <link>https://elis.nu/blog/2024/07/prune-gh-pages-branches/</link>
+      <pubDate>Sun, 07 Jul 2024 11:30:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/07/prune-gh-pages-branches/</guid>
+      <description>This website is hosted on GitHub Pages, built using nix and hugo with a custom theme that I maintain. I have automated updates for the nix flake to get new versions of hugo and nixpkgs, which applies to both my theme and the website itself.&#xA;This automation generates numerous commits and deployments to the gh-pages branch, mainly due to minor version bumps of hugo and other changes to the theme. While this hasn’t been a problem for my static website, which primarily consists of text, a recent addition has created some challenges.</description>
+    </item>
     <item>
       <title>NixOS superpower: specialisations</title>
       <link>https://elis.nu/blog/2024/02/nixos-superpower-specialisations/</link>

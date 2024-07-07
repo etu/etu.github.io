@@ -3,10 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://elis.nu/</loc>
-    <lastmod>2024-02-17T20:30:00+01:00</lastmod>
+    <lastmod>2024-07-07T11:30:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/blog/</loc>
-    <lastmod>2024-02-17T20:30:00+01:00</lastmod>
+    <lastmod>2024-07-07T11:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/tags/github/</loc>
+    <lastmod>2024-07-07T11:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/tags/github-actions/</loc>
+    <lastmod>2024-07-07T11:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/blog/2024/07/prune-gh-pages-branches/</loc>
+    <lastmod>2024-07-07T11:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/tags/</loc>
+    <lastmod>2024-07-07T11:30:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/linux/</loc>
     <lastmod>2024-02-17T20:30:00+01:00</lastmod>
@@ -15,9 +27,6 @@
     <lastmod>2024-02-17T20:30:00+01:00</lastmod>
   </url><url>
     <loc>https://elis.nu/blog/2024/02/nixos-superpower-specialisations/</loc>
-    <lastmod>2024-02-17T20:30:00+01:00</lastmod>
-  </url><url>
-    <loc>https://elis.nu/tags/</loc>
     <lastmod>2024-02-17T20:30:00+01:00</lastmod>
   </url><url>
     <loc>https://elis.nu/blog/2023/11/a-personal-adventure-with-hot-beverages/</loc>
@@ -45,9 +54,6 @@
     <lastmod>2023-04-25T19:00:00+01:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/cachix/</loc>
-    <lastmod>2022-10-10T20:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://elis.nu/tags/github-actions/</loc>
     <lastmod>2022-10-10T20:00:00+01:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/nix/</loc>
