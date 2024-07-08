@@ -8,7 +8,6 @@
     taserud-theme-albatross.inputs.flake-utils.follows = "flake-utils";
     _3dmodels.url = "github:etu/3d-models";
     _3dmodels.inputs.flake-utils.follows = "flake-utils";
-    _3dmodels.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
