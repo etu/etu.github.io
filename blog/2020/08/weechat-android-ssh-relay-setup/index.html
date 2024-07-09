@@ -97,7 +97,7 @@
         
             
                 
-                <link rel="stylesheet" href="/css/style.min.fb3d96e77a2d8a9bf9a41748b4e5bad661d8a90d927078cc6c4e3373569307a7.css" integrity="sha256-&#43;z2W53otipv5pBdItOW61mHYqQ2ScHjMbE4zc1aTB6c=" crossorigin="anonymous" media="screen">
+                <link rel="stylesheet" href="/css/style.min.2a1dd4ecc22330e82b04db2994c7999533a8d1339be0d14669c0a75081d20852.css" integrity="sha256-Kh3U7MIjMOgrBNsplMeZlTOo0TOb4NFGacCnUIHSCFI=" crossorigin="anonymous" media="screen">
                 
             
         
@@ -188,11 +188,11 @@ on. Suggested default port is <code>9000</code>, but you need to chose something
 unique on your system. This is especially important if you have a multi user
 system. Setting a <code>{password}</code> is also especially important if you have a
 multi user system.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span># Add a relay
-</span></span><span style="display:flex;"><span>/relay add weechat {port}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span># Add a relay password
-</span></span><span style="display:flex;"><span>/set relay.network.password &#34;{password}&#34;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl"># Add a relay
+</span></span><span class="line"><span class="cl">/relay add weechat {port}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Add a relay password
+</span></span><span class="line"><span class="cl">/set relay.network.password &#34;{password}&#34;
 </span></span></code></pre></div><h2 id="weechat-android-configuration">Weechat Android configuration</h2>
 <h3 id="ssh-setup">SSH setup</h3>
 <h4 id="generating-an-ssh-key">Generating an SSH key</h4>
@@ -201,11 +201,11 @@ able to connect to the server securely. So what I do is that I generate a new
 private key on a laptop, then I transfer the private key in some secure
 enough way to the phone and then make sure to deploy the public key to the
 server where weechat runs.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Generate a private RSA key using openssl.</span>
-</span></span><span style="display:flex;"><span>openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:4096
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get the public SSH key from the private RSA key.</span>
-</span></span><span style="display:flex;"><span>ssh-keygen -y -f private.pem
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Generate a private RSA key using openssl.</span>
+</span></span><span class="line"><span class="cl">openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:4096
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get the public SSH key from the private RSA key.</span>
+</span></span><span class="line"><span class="cl">ssh-keygen -y -f private.pem
 </span></span></code></pre></div><p>I know what you&rsquo;re thinking: “Why not just use ssh-keygen to begin with?”.
 This is because of this which still seems to be an issue:
 <a href="https://github.com/ubergeek42/weechat-android/issues/317#issuecomment-421756006">https://github.com/ubergeek42/weechat-android/issues/317#issuecomment-421756006</a></p>
@@ -215,8 +215,8 @@ your server to allow connections. You get the public key by running
 <code>ssh-keygen -y -f private.pem</code> as described above.</p>
 <p>If you want some extra limitations on how this key may be used you can
 prepend the key with the following string:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span>no-agent-forwarding,no-X11-forwarding,permitopen=&#34;127.0.0.1:{port}&#34;,
-</span></span><span style="display:flex;"><span>command=&#34;echo &#39;This account can only be used for weechat relays&#39;&#34;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">no-agent-forwarding,no-X11-forwarding,permitopen=&#34;127.0.0.1:{port}&#34;,
+</span></span><span class="line"><span class="cl">command=&#34;echo &#39;This account can only be used for weechat relays&#39;&#34;
 </span></span></code></pre></div><p>Remember to replace <code>{port}</code> in there. The IP in there may be replaced by a
 local host name. But that must be reflected in the relay host settings in the
 app.</p>
@@ -226,55 +226,55 @@ of them needs to be “just right”, otherwise it will fail and you will have n
 idea why.</p>
 <p>So this is an ASCII reflection of the settings menu with descriptions of what
 to insert:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span>Settings/
-</span></span><span style="display:flex;"><span>`-- Connection/
-</span></span><span style="display:flex;"><span>    |-- Connection type        =&gt; SSH tunnel
-</span></span><span style="display:flex;"><span>    |-- SSH tunnel settings/
-</span></span><span style="display:flex;"><span>    |   |-- SSH host           =&gt; Public DNS name or IP
-</span></span><span style="display:flex;"><span>    |   |
-</span></span><span style="display:flex;"><span>    |   |-- SSH port           =&gt; Public SSH port number
-</span></span><span style="display:flex;"><span>    |   |
-</span></span><span style="display:flex;"><span>    |   |-- SSH username       =&gt; Your SSH username
-</span></span><span style="display:flex;"><span>    |   |
-</span></span><span style="display:flex;"><span>    |   |-- Private key        =&gt; Paste the contents of private.pem here.
-</span></span><span style="display:flex;"><span>    |   |                      =&gt; You have to find your own way of
-</span></span><span style="display:flex;"><span>    |   |                      =&gt; transferring this file to your phone in
-</span></span><span style="display:flex;"><span>    |   |                      =&gt; a way that you think is “secure enough”
-</span></span><span style="display:flex;"><span>    |   |
-</span></span><span style="display:flex;"><span>    |   `-- Known hosts        =&gt; Paste the output of the command
-</span></span><span style="display:flex;"><span>    |                          =&gt; &#34;ssh-keyscan {ssh-host}&#34; in this field.
-</span></span><span style="display:flex;"><span>    |                          =&gt; This is less sensitive than the private key
-</span></span><span style="display:flex;"><span>    |                          =&gt; but it&#39;s still easiest to run it on a
-</span></span><span style="display:flex;"><span>    |                          =&gt; computer and transfer it to the phone and
-</span></span><span style="display:flex;"><span>    |                          =&gt; paste it.
-</span></span><span style="display:flex;"><span>    |
-</span></span><span style="display:flex;"><span>    |-- Relay host             =&gt; 127.0.0.1 is probably fine. This is the IP
-</span></span><span style="display:flex;"><span>    |                          =&gt; to connect to after you have tunneled over
-</span></span><span style="display:flex;"><span>    |                          =&gt; SSH. So that&#39;s why it becomes localhost.
-</span></span><span style="display:flex;"><span>    |
-</span></span><span style="display:flex;"><span>    |-- Relay port             =&gt; Port defined in weechat settings.
-</span></span><span style="display:flex;"><span>    |
-</span></span><span style="display:flex;"><span>    `-- Relay password         =&gt; Password defined in weechat settings.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">Settings/
+</span></span><span class="line"><span class="cl">`-- Connection/
+</span></span><span class="line"><span class="cl">    |-- Connection type        =&gt; SSH tunnel
+</span></span><span class="line"><span class="cl">    |-- SSH tunnel settings/
+</span></span><span class="line"><span class="cl">    |   |-- SSH host           =&gt; Public DNS name or IP
+</span></span><span class="line"><span class="cl">    |   |
+</span></span><span class="line"><span class="cl">    |   |-- SSH port           =&gt; Public SSH port number
+</span></span><span class="line"><span class="cl">    |   |
+</span></span><span class="line"><span class="cl">    |   |-- SSH username       =&gt; Your SSH username
+</span></span><span class="line"><span class="cl">    |   |
+</span></span><span class="line"><span class="cl">    |   |-- Private key        =&gt; Paste the contents of private.pem here.
+</span></span><span class="line"><span class="cl">    |   |                      =&gt; You have to find your own way of
+</span></span><span class="line"><span class="cl">    |   |                      =&gt; transferring this file to your phone in
+</span></span><span class="line"><span class="cl">    |   |                      =&gt; a way that you think is “secure enough”
+</span></span><span class="line"><span class="cl">    |   |
+</span></span><span class="line"><span class="cl">    |   `-- Known hosts        =&gt; Paste the output of the command
+</span></span><span class="line"><span class="cl">    |                          =&gt; &#34;ssh-keyscan {ssh-host}&#34; in this field.
+</span></span><span class="line"><span class="cl">    |                          =&gt; This is less sensitive than the private key
+</span></span><span class="line"><span class="cl">    |                          =&gt; but it&#39;s still easiest to run it on a
+</span></span><span class="line"><span class="cl">    |                          =&gt; computer and transfer it to the phone and
+</span></span><span class="line"><span class="cl">    |                          =&gt; paste it.
+</span></span><span class="line"><span class="cl">    |
+</span></span><span class="line"><span class="cl">    |-- Relay host             =&gt; 127.0.0.1 is probably fine. This is the IP
+</span></span><span class="line"><span class="cl">    |                          =&gt; to connect to after you have tunneled over
+</span></span><span class="line"><span class="cl">    |                          =&gt; SSH. So that&#39;s why it becomes localhost.
+</span></span><span class="line"><span class="cl">    |
+</span></span><span class="line"><span class="cl">    |-- Relay port             =&gt; Port defined in weechat settings.
+</span></span><span class="line"><span class="cl">    |
+</span></span><span class="line"><span class="cl">    `-- Relay password         =&gt; Password defined in weechat settings.
 </span></span></code></pre></div><h3 id="other-weechat-android-settings">Other Weechat Android settings</h3>
 <p>These are more a documentation of my personal preferences, nothing really
 required for it to work. Just my preferences.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span>Settings/
-</span></span><span style="display:flex;"><span>|-- Connection/
-</span></span><span style="display:flex;"><span>|   |-- Reconnect on connection loss     =&gt; [X]
-</span></span><span style="display:flex;"><span>|   |-- Connect on system boot           =&gt; [ ]
-</span></span><span style="display:flex;"><span>|   |-- Only sync open buffers           =&gt; [ ]
-</span></span><span style="display:flex;"><span>|   `-- Sync buffer read status          =&gt; [X]
-</span></span><span style="display:flex;"><span>|-- Buffer list/
-</span></span><span style="display:flex;"><span>|   |-- Sort buffer list                 =&gt; [ ]
-</span></span><span style="display:flex;"><span>|   |-- Hide non-conversation buffers    =&gt; [X]
-</span></span><span style="display:flex;"><span>|   |-- Hide hidden buffers              =&gt; [X]
-</span></span><span style="display:flex;"><span>|   `-- Show buffer filter               =&gt; [ ]
-</span></span><span style="display:flex;"><span>|-- Look &amp; feel/
-</span></span><span style="display:flex;"><span>|   `-- Dim down non-human lines         =&gt; [X]
-</span></span><span style="display:flex;"><span>`-- Buttons/
-</span></span><span style="display:flex;"><span>    |-- Show tab button                  =&gt; [X]
-</span></span><span style="display:flex;"><span>    |-- Show send button                 =&gt; [X]
-</span></span><span style="display:flex;"><span>    `-- Volume buttons change text size  =&gt; [ ]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">Settings/
+</span></span><span class="line"><span class="cl">|-- Connection/
+</span></span><span class="line"><span class="cl">|   |-- Reconnect on connection loss     =&gt; [X]
+</span></span><span class="line"><span class="cl">|   |-- Connect on system boot           =&gt; [ ]
+</span></span><span class="line"><span class="cl">|   |-- Only sync open buffers           =&gt; [ ]
+</span></span><span class="line"><span class="cl">|   `-- Sync buffer read status          =&gt; [X]
+</span></span><span class="line"><span class="cl">|-- Buffer list/
+</span></span><span class="line"><span class="cl">|   |-- Sort buffer list                 =&gt; [ ]
+</span></span><span class="line"><span class="cl">|   |-- Hide non-conversation buffers    =&gt; [X]
+</span></span><span class="line"><span class="cl">|   |-- Hide hidden buffers              =&gt; [X]
+</span></span><span class="line"><span class="cl">|   `-- Show buffer filter               =&gt; [ ]
+</span></span><span class="line"><span class="cl">|-- Look &amp; feel/
+</span></span><span class="line"><span class="cl">|   `-- Dim down non-human lines         =&gt; [X]
+</span></span><span class="line"><span class="cl">`-- Buttons/
+</span></span><span class="line"><span class="cl">    |-- Show tab button                  =&gt; [X]
+</span></span><span class="line"><span class="cl">    |-- Show send button                 =&gt; [X]
+</span></span><span class="line"><span class="cl">    `-- Volume buttons change text size  =&gt; [ ]
 </span></span></code></pre></div>
 </div>
 

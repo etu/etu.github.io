@@ -97,7 +97,7 @@
         
             
                 
-                <link rel="stylesheet" href="/css/style.min.fb3d96e77a2d8a9bf9a41748b4e5bad661d8a90d927078cc6c4e3373569307a7.css" integrity="sha256-&#43;z2W53otipv5pBdItOW61mHYqQ2ScHjMbE4zc1aTB6c=" crossorigin="anonymous" media="screen">
+                <link rel="stylesheet" href="/css/style.min.2a1dd4ecc22330e82b04db2994c7999533a8d1339be0d14669c0a75081d20852.css" integrity="sha256-Kh3U7MIjMOgrBNsplMeZlTOo0TOb4NFGacCnUIHSCFI=" crossorigin="anonymous" media="screen">
                 
             
         
@@ -181,36 +181,36 @@ This is cool, but a bit too much in most cases.</p>
 <h2 id="how-to-use-specialisations">How to Use Specialisations</h2>
 <p>To illustrate, let&rsquo;s consider a basic NixOS setup with GNOME as the
 desktop environment:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{ <span style="color:#f92672">...</span> }:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  services<span style="color:#f92672">.</span>xserver<span style="color:#f92672">.</span>enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
-</span></span><span style="display:flex;"><span>  services<span style="color:#f92672">.</span>xserver<span style="color:#f92672">.</span>desktopManager<span style="color:#f92672">.</span>gnome3<span style="color:#f92672">.</span>enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">desktopManager</span><span class="o">.</span><span class="n">gnome3</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Suppose we want to create a specialisation to use KDE Plasma instead. We
 can achieve this by adding the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{ lib<span style="color:#f92672">,</span> <span style="color:#f92672">...</span> }:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  services<span style="color:#f92672">.</span>xserver<span style="color:#f92672">.</span>enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
-</span></span><span style="display:flex;"><span>  services<span style="color:#f92672">.</span>xserver<span style="color:#f92672">.</span>desktopManager<span style="color:#f92672">.</span>gnome3<span style="color:#f92672">.</span>enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  specialisation<span style="color:#f92672">.</span>plasma <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Disable GNOME</span>
-</span></span><span style="display:flex;"><span>    services<span style="color:#f92672">.</span>xserver<span style="color:#f92672">.</span>desktopManager<span style="color:#f92672">.</span>gnome3<span style="color:#f92672">.</span>enable <span style="color:#f92672">=</span> lib<span style="color:#f92672">.</span>mkForce <span style="color:#66d9ef">false</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Enable Plasma</span>
-</span></span><span style="display:flex;"><span>    services<span style="color:#f92672">.</span>xserver<span style="color:#f92672">.</span>desktopManager<span style="color:#f92672">.</span>plasma5<span style="color:#f92672">.</span>enable <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span> <span class="n">lib</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">desktopManager</span><span class="o">.</span><span class="n">gnome3</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">specialisation</span><span class="o">.</span><span class="n">plasma</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Disable GNOME</span>
+</span></span><span class="line"><span class="cl">    <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">desktopManager</span><span class="o">.</span><span class="n">gnome3</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">mkForce</span> <span class="no">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Enable Plasma</span>
+</span></span><span class="line"><span class="cl">    <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">desktopManager</span><span class="o">.</span><span class="n">plasma5</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>After defining the specialisation, it becomes available as a boot option.
 When applying the configuration with <code>nixos-rebuild switch</code>, specify
 <code>--specialisation plasma</code> to activate the Plasma specialisation.</p>
@@ -220,22 +220,22 @@ your laptop, adhering to compliance requirements. Creating a
 specialisation for your work environment with a separate ZFS dataset for
 the home partition allows for distinct management of work-related data.</p>
 <p>For instance, to override the home directory in the work specialisation:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{ lib<span style="color:#f92672">,</span> <span style="color:#f92672">...</span> }:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  fileSystems<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;/home&#34;</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    device <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;zroot/safe/home&#34;</span>;
-</span></span><span style="display:flex;"><span>    fsType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;zfs&#34;</span>;
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  specialisation<span style="color:#f92672">.</span>work <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    fileSystems<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;/home&#34;</span><span style="color:#f92672">.</span>device <span style="color:#f92672">=</span> lib<span style="color:#f92672">.</span>mkForce <span style="color:#e6db74">&#34;zroot/safe/work-home&#34;</span>;
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># …</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span> <span class="n">lib</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">fileSystems</span><span class="o">.</span><span class="s2">&#34;/home&#34;</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">device</span> <span class="o">=</span> <span class="s2">&#34;zroot/safe/home&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fsType</span> <span class="o">=</span> <span class="s2">&#34;zfs&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">specialisation</span><span class="o">.</span><span class="n">work</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fileSystems</span><span class="o">.</span><span class="s2">&#34;/home&#34;</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">mkForce</span> <span class="s2">&#34;zroot/safe/work-home&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This setup enables focused work environments with separate backups and
 snapshots, facilitating data management and compliance adherence.</p>
 <p>By leveraging NixOS specialisations, you can tailor your system

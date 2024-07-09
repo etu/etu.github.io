@@ -97,7 +97,7 @@
         
             
                 
-                <link rel="stylesheet" href="/css/style.min.fb3d96e77a2d8a9bf9a41748b4e5bad661d8a90d927078cc6c4e3373569307a7.css" integrity="sha256-&#43;z2W53otipv5pBdItOW61mHYqQ2ScHjMbE4zc1aTB6c=" crossorigin="anonymous" media="screen">
+                <link rel="stylesheet" href="/css/style.min.2a1dd4ecc22330e82b04db2994c7999533a8d1339be0d14669c0a75081d20852.css" integrity="sha256-Kh3U7MIjMOgrBNsplMeZlTOo0TOb4NFGacCnUIHSCFI=" crossorigin="anonymous" media="screen">
                 
             
         
@@ -233,10 +233,10 @@ system out there when it comes to the following properties:</p>
 <li>Flexibility to select exactly which extensions you want</li>
 </ul>
 <p>Example to build a PHP with exactly the extensions I want:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>php<span style="color:#f92672">.</span>withExtensions ({ enabled<span style="color:#f92672">,</span> all }: <span style="color:#66d9ef">with</span> all; [
-</span></span><span style="display:flex;"><span>  curl imagick opcache redis pdo_mysql pdo mysqlnd
-</span></span><span style="display:flex;"><span>  openssl posix sodium sockets
-</span></span><span style="display:flex;"><span>])
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="n">php</span><span class="o">.</span><span class="n">withExtensions</span> <span class="p">({</span> <span class="n">enabled</span><span class="o">,</span> <span class="n">all</span> <span class="p">}:</span> <span class="k">with</span> <span class="n">all</span><span class="p">;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="n">curl</span> <span class="n">imagick</span> <span class="n">opcache</span> <span class="n">redis</span> <span class="n">pdo_mysql</span> <span class="n">pdo</span> <span class="n">mysqlnd</span>
+</span></span><span class="line"><span class="cl">  <span class="n">openssl</span> <span class="n">posix</span> <span class="n">sodium</span> <span class="n">sockets</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
 </span></span></code></pre></div><p>And since Nix can be used to build Docker images and be used for deployments,
 this becomes a damn powerful packaging even for users that don&rsquo;t want to run
 NixOS but want to have the power of quickly customizing PHP to exactly their
