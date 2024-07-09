@@ -4,6 +4,11 @@ defaultContentLanguage: en
 title: 'Elis Hirwing'
 theme: albatross
 
+# Style code highlights with classes rather than inline styles.
+markup:
+  highlight:
+    noClasses: false
+
 params:
   copyrightOwner: '2010 Elis Hirwing'
 
