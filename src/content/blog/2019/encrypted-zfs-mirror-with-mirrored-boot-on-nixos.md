@@ -28,7 +28,7 @@ if one disk die.
 
 ## Step 1 - Partitioning
 
-I followed these steps of partitioning grabbed from the [NixOS on ZFS](https://nixos.wiki/wiki/NixOS_on_ZFS#Single-disk) page but
+I followed these steps of partitioning grabbed from the [NixOS on ZFS](https://wiki.nixos.org/wiki/ZFS#Simple_NixOS_ZFS_installation) page but
 modified my steps.
 
 ```sh
@@ -62,7 +62,7 @@ fiddling around.
 
 You can read more about these flags on these locations:
 
-- https://nixos.wiki/wiki/NixOS_on_ZFS
+- https://wiki.nixos.org/wiki/ZFS
 - https://wiki.archlinux.org/index.php/ZFS#Advanced_Format_disks
 
 And many more places around the web…
@@ -222,4 +222,4 @@ I have tested the entire process to make sure it works on my hardware by:
 
 So now that computer have moved to the closet (a.k.a. the server room) and
 I've configured it so I can unlock the drive over SSH on boot following:
-https://nixos.wiki/wiki/NixOS_on_ZFS#Unlock_encrypted_zfs_via_ssh_on_boot
+https://wiki.nixos.org/wiki/ZFS#Unlock_encrypted_zfs_via_ssh_on_boot

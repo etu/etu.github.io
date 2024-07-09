@@ -7,7 +7,7 @@ tags: [NixOS, Linux]
 [NixOS](https://nixos.org/) has a lot of configurability and features. One
 feature that I've known about for a while that I think is both really cool,
 but also a bit lesser known is the ability to have declarative
-[Specialisations](https://nixos.wiki/wiki/Specialisation). To me, this is a
+[Specialisations](https://wiki.nixos.org/wiki/Specialisation). To me, this is a
 superpower of NixOS that I have a hard time to see any other Linux
 Distribution having.
 
