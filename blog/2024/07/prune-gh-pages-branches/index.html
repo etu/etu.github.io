@@ -145,7 +145,7 @@
     2024-07-07
 
     
-        &middot; 2 minutes read
+        &middot; 3 minutes read
     
 
     
@@ -226,6 +226,8 @@ representing the entire previous history.</p>
 </span></span><span class="line"><span class="cl"><span class="m">296830</span>
 </span></span></code></pre></div><p>This shows a reduction from approximately 386 MiB to 296 MiB. However,
 I believe GitHub can further optimize the repository size internally.</p>
+<p><em>Update:</em> After squashing some more commits, the repository size
+reported by the API is now about 161 MiB.</p>
 <p>Upon inspecting my local clone of the repository, it was about 680 MiB
 before the squash. After running <code>git gc --aggressive --prune=now</code>, it
 shrank to about 354 MiB.</p>
