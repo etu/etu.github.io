@@ -96,6 +96,9 @@ $ curl -s https://api.github.com/repos/etu/etu.github.io | jq '.size'
 This shows a reduction from approximately 386 MiB to 296 MiB. However,
 I believe GitHub can further optimize the repository size internally.
 
+*Update:* After squashing some more commits, the repository size
+reported by the API is now about 161 MiB.
+
 Upon inspecting my local clone of the repository, it was about 680 MiB
 before the squash. After running `git gc --aggressive --prune=now`, it
 shrank to about 354 MiB.
