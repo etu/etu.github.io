@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Elis Hirwing</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 07 Jul 2024 11:30:00 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jul 2024 16:40:00 +0200</lastBuildDate>
     <atom:link href="https://elis.nu/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hyprland</title>
+      <link>https://elis.nu/tags/hyprland/</link>
+      <pubDate>Tue, 23 Jul 2024 16:40:00 +0200</pubDate>
+      <guid>https://elis.nu/tags/hyprland/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://elis.nu/tags/linux/</link>
+      <pubDate>Tue, 23 Jul 2024 16:40:00 +0200</pubDate>
+      <guid>https://elis.nu/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NixOS</title>
+      <link>https://elis.nu/tags/nixos/</link>
+      <pubDate>Tue, 23 Jul 2024 16:40:00 +0200</pubDate>
+      <guid>https://elis.nu/tags/nixos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sway</title>
+      <link>https://elis.nu/tags/sway/</link>
+      <pubDate>Tue, 23 Jul 2024 16:40:00 +0200</pubDate>
+      <guid>https://elis.nu/tags/sway/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wayland</title>
+      <link>https://elis.nu/tags/wayland/</link>
+      <pubDate>Tue, 23 Jul 2024 16:40:00 +0200</pubDate>
+      <guid>https://elis.nu/tags/wayland/</guid>
+      <description></description>
+    </item>
     <item>
       <title>GitHub</title>
       <link>https://elis.nu/tags/github/</link>
@@ -20,20 +55,6 @@
       <link>https://elis.nu/tags/github-actions/</link>
       <pubDate>Sun, 07 Jul 2024 11:30:00 +0200</pubDate>
       <guid>https://elis.nu/tags/github-actions/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>https://elis.nu/tags/linux/</link>
-      <pubDate>Sat, 17 Feb 2024 20:30:00 +0100</pubDate>
-      <guid>https://elis.nu/tags/linux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>NixOS</title>
-      <link>https://elis.nu/tags/nixos/</link>
-      <pubDate>Sat, 17 Feb 2024 20:30:00 +0100</pubDate>
-      <guid>https://elis.nu/tags/nixos/</guid>
       <description></description>
     </item>
     <item>
@@ -181,20 +202,6 @@
       <link>https://elis.nu/tags/mumble/</link>
       <pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate>
       <guid>https://elis.nu/tags/mumble/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Sway</title>
-      <link>https://elis.nu/tags/sway/</link>
-      <pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate>
-      <guid>https://elis.nu/tags/sway/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Wayland</title>
-      <link>https://elis.nu/tags/wayland/</link>
-      <pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate>
-      <guid>https://elis.nu/tags/wayland/</guid>
       <description></description>
     </item>
     <item>
