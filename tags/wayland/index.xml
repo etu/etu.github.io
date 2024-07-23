@@ -6,8 +6,15 @@
     <description>Recent content in Wayland on Elis Hirwing</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Jun 2021 22:40:00 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jul 2024 16:40:00 +0200</lastBuildDate>
     <atom:link href="https://elis.nu/tags/wayland/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switching from Sway to Hyprland</title>
+      <link>https://elis.nu/blog/2024/07/switching-to-hyprland/</link>
+      <pubDate>Tue, 23 Jul 2024 16:40:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/07/switching-to-hyprland/</guid>
+      <description>Introduction After four years with Sway, I&amp;rsquo;ve decided to transition to Hyprland. My journey from EXWM to Sway began about four years ago, and I documented the experience in this post three years ago. While Sway has served me well, it has its limitations that I&amp;rsquo;ve used hacks and workarounds to circumvent.&#xA;The Limitations of Sway One major drawback of Sway is its screen sharing capabilities. Although I managed to get screen sharing somewhat functional, it only allows sharing the full screen.</description>
+    </item>
     <item>
       <title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
       <link>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</link>
