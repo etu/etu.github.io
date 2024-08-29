@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cosmic on Elis Hirwing</title>
+    <link>https://elis.nu/tags/cosmic/</link>
+    <description>Recent content in Cosmic on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Aug 2024 21:30:00 +0200</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/cosmic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Back from Hyprland to Sway</title>
+      <link>https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/</link>
+      <pubDate>Thu, 29 Aug 2024 21:30:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/</guid>
+      <description>After a brief experiment with Hyprland, I&amp;rsquo;m back to using Sway. My experiment lasted less than a month, as I hoped Hyprland&amp;rsquo;s window selector would resolve my window-sharing woes.&#xA;It turns out it wasn&amp;rsquo;t, because the first week back at work I had the need to share a slideshow in full screen. Then it doesn&amp;rsquo;t matter if you can select a window anymore. So my workarounds with Sway would have worked in that use case while my Hyprland set up… didn&amp;rsquo;t.</description>
+    </item>
+  </channel>
+</rss>
