@@ -3,30 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://elis.nu/</loc>
-    <lastmod>2024-07-23T16:40:00+02:00</lastmod>
+    <lastmod>2024-08-29T21:30:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/blog/</loc>
-    <lastmod>2024-07-23T16:40:00+02:00</lastmod>
+    <lastmod>2024-08-29T21:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/</loc>
+    <lastmod>2024-08-29T21:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/tags/cosmic/</loc>
+    <lastmod>2024-08-29T21:30:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/hyprland/</loc>
-    <lastmod>2024-07-23T16:40:00+02:00</lastmod>
+    <lastmod>2024-08-29T21:30:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/linux/</loc>
-    <lastmod>2024-07-23T16:40:00+02:00</lastmod>
+    <lastmod>2024-08-29T21:30:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/nixos/</loc>
-    <lastmod>2024-07-23T16:40:00+02:00</lastmod>
+    <lastmod>2024-08-29T21:30:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/sway/</loc>
-    <lastmod>2024-07-23T16:40:00+02:00</lastmod>
-  </url><url>
-    <loc>https://elis.nu/blog/2024/07/switching-to-hyprland/</loc>
-    <lastmod>2024-07-23T16:40:00+02:00</lastmod>
+    <lastmod>2024-08-29T21:30:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/</loc>
-    <lastmod>2024-07-23T16:40:00+02:00</lastmod>
+    <lastmod>2024-08-29T21:30:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/wayland/</loc>
+    <lastmod>2024-08-29T21:30:00+02:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/blog/2024/07/switching-to-hyprland/</loc>
     <lastmod>2024-07-23T16:40:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/github/</loc>
