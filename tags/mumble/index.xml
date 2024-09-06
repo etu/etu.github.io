@@ -13,7 +13,7 @@
       <link>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</link>
       <pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate>
       <guid>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</guid>
-      <description>Switching to Wayland has it&amp;rsquo;s side-effects, one of which is the improved security from X11 where applications can&amp;rsquo;t just randomly spy on each other at any point.&#xA;This is both good news and bad news.&#xA;The good news:&#xA;Applications can&amp;rsquo;t just randomly spy on each other. The bad news:&#xA;Things like global hot-keys in for example Mumble won&amp;rsquo;t work. Back from complaining to actually solving the problem though.&#xA;Mumble does have a patch for a future release So there&amp;rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</description>
+      <description>&lt;p&gt;Switching to Wayland has it&amp;rsquo;s side-effects, one of which is the improved&#xA;security from X11 where applications can&amp;rsquo;t just randomly spy on each other at&#xA;any point.&lt;/p&gt;&#xA;&lt;p&gt;This is both good news and bad news.&lt;/p&gt;&#xA;&lt;p&gt;The good news:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Applications can&amp;rsquo;t just randomly spy on each other.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The bad news:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Things like global hot-keys in for example Mumble won&amp;rsquo;t work.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Back from complaining to actually solving the problem though.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
