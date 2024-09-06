@@ -171,9 +171,20 @@
         
     
 </span>
-<p>I&rsquo;ve been an Emacs user for 13+ years, during this time I&rsquo;ve been using org-mode on and off for different thing.
-Some examples where I currently use org-mode:
-Deployment of this website Making of presentation slides Project read me files Notes files Time reporting I&rsquo;ve tried to use it for to do&rsquo;s but never really managed, partly because I wanted to have a good interface for my to do&rsquo;s on my phone.</p>
+<p><p>I&rsquo;ve been an Emacs user for 13+ years, during this time I&rsquo;ve been using
+<a href="https://orgmode.org/">org-mode</a> on and off for different thing.</p>
+<p>Some examples where I currently use org-mode:</p>
+<ul>
+<li>Deployment of this website</li>
+<li>Making of presentation slides</li>
+<li>Project read me files</li>
+<li>Notes files</li>
+<li>Time reporting</li>
+</ul>
+<p>I&rsquo;ve tried to use it for to do&rsquo;s but never really managed, partly because I
+wanted to have a good interface for my to do&rsquo;s on my phone. Then I wanted
+quick synchronization to my computers to be able to pick up the changes
+there.</p></p>
 
                 <a href="/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/">Read On &rarr;</a>
             </div>
@@ -199,8 +210,18 @@ Deployment of this website Making of presentation slides Project read me files N
         
     
 </span>
-<p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any tools to do central deployments of machines. But I&rsquo;ve always read and known that NixOS is excellent at this. NixOS can easily build another systems configuration, then copy the system to the target systems nix store and then activate it there.
-Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A while ago the need for this changed because one of my VPSes started running low on RAM, low enough to not be able to build new generations of it&rsquo;s own system.</p>
+<p><p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any
+tools to do central deployments of machines. But I&rsquo;ve always read and known
+that NixOS is excellent at this. NixOS can easily build another systems
+configuration, then copy the system to the target systems nix store and then
+activate it there.</p>
+<p>Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A
+while ago the need for this changed because one of my VPSes started running
+low on RAM, low enough to not be able to build new generations of it&rsquo;s own
+system. Which posed a problem for future upgrades. One way to solve it would
+be to pay more money for resources that aren&rsquo;t really needed except from when
+doing system upgrades. The other way would be to push pre-built systems from
+another location. Using the second way is simpler and fixes the issue.</p></p>
 
                 <a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Read On &rarr;</a>
             </div>
@@ -228,12 +249,19 @@ Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally.
         
     
 </span>
-<p>Switching to Wayland has it&rsquo;s side-effects, one of which is the improved security from X11 where applications can&rsquo;t just randomly spy on each other at any point.
-This is both good news and bad news.
-The good news:
-Applications can&rsquo;t just randomly spy on each other. The bad news:
-Things like global hot-keys in for example Mumble won&rsquo;t work. Back from complaining to actually solving the problem though.
-Mumble does have a patch for a future release So there&rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</p>
+<p><p>Switching to Wayland has it&rsquo;s side-effects, one of which is the improved
+security from X11 where applications can&rsquo;t just randomly spy on each other at
+any point.</p>
+<p>This is both good news and bad news.</p>
+<p>The good news:</p>
+<ul>
+<li>Applications can&rsquo;t just randomly spy on each other.</li>
+</ul>
+<p>The bad news:</p>
+<ul>
+<li>Things like global hot-keys in for example Mumble won&rsquo;t work.</li>
+</ul>
+<p>Back from complaining to actually solving the problem though.</p></p>
 
                 <a href="/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">Read On &rarr;</a>
             </div>
@@ -259,9 +287,12 @@ Mumble does have a patch for a future release So there&rsquo;s the issue about P
         
     
 </span>
-<p>Today my work day didn&rsquo;t turn out the way I expected. It started like a normal day, I woke up around the regular time, did my morning routine, sat at my desk and started my work-issued laptop.
-It booted up just fine, I connected it to my Ultrawide display, started going through Slack and Email and catch up on some news while drinking my morning tea and waking up.
-Then after around an hour of work things started to hang up, most notably Firefox totally froze up.</p>
+<p><p>Today my work day didn&rsquo;t turn out the way I expected. It started like a
+normal day, I woke up around the regular time, did my morning routine, sat at
+my desk and started my work-issued laptop.</p>
+<p>It booted up just fine, I connected it to my Ultrawide display, started going
+through Slack and Email and catch up on some news while drinking my morning
+tea and waking up.</p></p>
 
                 <a href="/blog/2021/05/the-day-when-zfs-saved-my-data/">Read On &rarr;</a>
             </div>
@@ -285,10 +316,19 @@ Then after around an hour of work things started to hang up, most notably Firefo
         
     
 </span>
-<p>Getting screen sharing to work on Wayland seems to be surprisingly hard. Maybe it is compared to X11 that doesn&rsquo;t require any additional setup at all.
-To have working screen sharing on Sway you really need three components installed and set up with correct environment variables.
-These three components are:
-pipewire (I have version: 0.3.21) xdg-desktop-portal (I have version: 1.8.0) xdg-desktop-portal-wlr (I have version: 0.1.0) These three components has to have systemd user services.</p>
+<p><p>Getting screen sharing to work on Wayland seems to be surprisingly hard.
+Maybe it is compared to X11 that doesn&rsquo;t require any additional setup at all.</p>
+<p>To have working screen sharing on Sway you really need three components
+installed and set up with correct environment variables.</p>
+<p>These three components are:</p>
+<ul>
+<li><code>pipewire</code> (I have version: 0.3.21)</li>
+<li><code>xdg-desktop-portal</code> (I have version: 1.8.0)</li>
+<li><code>xdg-desktop-portal-wlr</code> (I have version: 0.1.0)</li>
+</ul>
+<p>These three components has to have systemd user services. You should be able
+to see them in the list if you run <code>systemctl --user</code>, just look for the
+different programs name ending in <code>.service</code>.</p></p>
 
                 <a href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">Read On &rarr;</a>
             </div>
@@ -318,8 +358,16 @@ pipewire (I have version: 0.3.21) xdg-desktop-portal (I have version: 1.8.0) xdg
         
     
 </span>
-<p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I was on i3wm for quite some time until I was introduced to Emacs X11 Window Manager which I used exclusively for about 18 months, I&rsquo;ve even held a talk about it. But at some point it got too annoying, for example in multi monitor use cases.
-At this point my first step was to go back to set up i3wm again.</p>
+<p><p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I
+was on <a href="https://i3wm.org/">i3wm</a> for quite some time until I was introduced to
+<a href="https://github.com/ch11ng/exwm">Emacs X11 Window Manager</a> which I used
+exclusively for about 18 months, I&rsquo;ve even held a <a href="/talks/">talk</a> about it.
+But at some point it got too annoying, for example in multi monitor use cases.</p>
+<p>At this point my first step was to go back to set up i3wm again. With that
+set up I wanted to give <a href="https://swaywm.org/">SwayWM</a> another attempt, it was
+years ago I&rsquo;ve checked it out before. I think my previous experience was when the
+project was new. At that point (if I remember correctly), not even the window
+decorations looked like the ones in i3wm.</p></p>
 
                 <a href="/blog/2021/02/switching-to-wayland-sway/">Read On &rarr;</a>
             </div>
@@ -341,7 +389,13 @@ At this point my first step was to go back to set up i3wm again.</p>
         
     
 </span>
-<p>A couple of months (after at least half a year of thinking) I finally decided to do it. I decided to buy a Ultra wide screen for my home office. The one I had been looking at for months is the Samsung Odyssey G9 C49G95. It happens to be the opposite of cheap. Part of the triggering factor was a conversation on IRC in #nixos-chat where a person admitted that she had one of those.</p>
+<p><p>A couple of months (after at least half a year of thinking) I finally decided
+to do it. I decided to buy a Ultra wide screen for my home office. The one I
+had been looking at for months is the <a href="https://pricespy.co.uk/computers-accessories/monitors/samsung-odyssey-c49g95t--p5258106">Samsung Odyssey G9 C49G95</a>. It happens
+to be the opposite of cheap. Part of the triggering factor was a conversation
+on IRC in <a href="https://logs.nix.samueldr.com/nixos-chat/2020-12-06#1607250103-1607250291;">#nixos-chat</a> where a person admitted that she had one of those. Then
+the real trigger to buy it was to find it at 23% discount. It was a return
+item to a store.</p></p>
 
                 <a href="/blog/2021/02/ultra-wide-monitor/">Read On &rarr;</a>
             </div>
@@ -367,8 +421,13 @@ At this point my first step was to go back to set up i3wm again.</p>
         
     
 </span>
-<p>This is a follow-up on: Why I use Free Software, Why I got into Veganism.
-Since the Free Software movement in it&rsquo;s core is an ethical movement, which cares about human rights and humans access and ability to study, share and improve on the software they use. I&rsquo;m well aware that not everyone in the Free Software community is in it for ethical reasons - but I&rsquo;m pretty sure that there&rsquo;s enough of us that care about ethics for this to be important.</p>
+<p><p>This is a follow-up on: <a href="/blog/2021/01/why-i-use-free-software/">Why I use Free Software</a>,
+<a href="/blog/2021/01/why-i-got-into-veganism/">Why I got into Veganism</a>.</p>
+<p>Since the Free Software movement in it&rsquo;s core is an ethical movement, which
+cares about human rights and humans access and ability to study, share and
+improve on the software they use. I&rsquo;m well aware that not everyone in the
+Free Software community is in it for ethical reasons - but I&rsquo;m pretty sure
+that there&rsquo;s enough of us that care about ethics for this to be important.</p></p>
 
                 <a href="/blog/2021/01/i-find-food-habits-at-free-software-events-weird/">Read On &rarr;</a>
             </div>
@@ -394,8 +453,13 @@ Since the Free Software movement in it&rsquo;s core is an ethical movement, whic
         
     
 </span>
-<p>This is a follow-up on: Why I use Free Software. This has been followed up by: I find food habits at Free Software events weird.
-People who turn to Veganism can do this for different reasons, some do it for health reasons, others for climate reasons. But in it&rsquo;s core, the Vegan movement in itself is an ethical movement about saving the animals. The other reasons are more or less side effects.</p>
+<p><p><img alt="Metric for ethics" src="/blog/2021/01/why-i-got-into-veganism/metric-for-ethics.webp"></p>
+<p>This is a follow-up on: <a href="/blog/2021/01/why-i-use-free-software/">Why I use Free Software</a>. This has been followed up
+by: <a href="/blog/2021/01/i-find-food-habits-at-free-software-events-weird/">I find food habits at Free Software events weird</a>.</p>
+<p>People who turn to <a href="https://en.wikipedia.org/wiki/Veganism#Ethical_veganism">Veganism</a> can do this for different reasons,
+some do it for health reasons, others for climate reasons. But in it&rsquo;s core,
+the Vegan movement in itself is an ethical movement about saving the animals.
+The other reasons are more or less side effects.</p></p>
 
                 <a href="/blog/2021/01/why-i-got-into-veganism/">Read On &rarr;</a>
             </div>
@@ -419,9 +483,16 @@ People who turn to Veganism can do this for different reasons, some do it for he
         
     
 </span>
-<p>This has been followed up by: Why I got into Veganism, I find food habits at Free Software events weird.
-People in general may have different reasons for choosing to use Free Software, some may use it for the price, others because of pragmatic reasons, simply put it&rsquo;s the best tool for the job. Others may choose it for ethical reasons.
-I didn&rsquo;t get into Free Software for any of the said reasons above, I got into Free Software because it seemed different and fun.</p>
+<p><p>This has been followed up by: <a href="/blog/2021/01/why-i-got-into-veganism/">Why I got into Veganism</a>,
+<a href="/blog/2021/01/i-find-food-habits-at-free-software-events-weird/">I find food habits at Free Software events weird</a>.</p>
+<p>People in general may have different reasons for choosing to use
+<a href="https://en.wikipedia.org/wiki/Free_software">Free Software</a>, some
+may use it for the price, others because of pragmatic reasons,
+simply put it&rsquo;s the best tool for the job. Others may choose it for
+ethical reasons.</p>
+<p>I didn&rsquo;t get into Free Software for any of the said reasons above, I got into
+Free Software because it seemed different and fun. The free price point is
+what made it possible for me as a teenager to play around with it as I did.</p></p>
 
                 <a href="/blog/2021/01/why-i-use-free-software/">Read On &rarr;</a>
             </div>
