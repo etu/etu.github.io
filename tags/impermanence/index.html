@@ -170,8 +170,11 @@
         
     
 </span>
-<p>This is a follow-up post for my earlier post: NixOS ❄: tmpfs as root.
-When you start to go down the route of setting up a “pure” system that is as clean as you want it to be on each boot. You may start with the lazy route of using a persistent partition for your home directory. But it never feels quite right. But initially it&rsquo;s so convenient to choose this path.</p>
+<p><p>This is a follow-up post for my earlier post: <a href="/blog/2020/05/nixos-tmpfs-as-root/">NixOS ❄: tmpfs as root</a>.</p>
+<p>When you start to go down the route of setting up a “pure” system that is as
+clean as you want it to be on each boot. You may start with the lazy route of
+using a persistent partition for your home directory. But it never feels
+quite right. But initially it&rsquo;s so convenient to choose this path.</p></p>
 
                 <a href="/blog/2020/06/nixos-tmpfs-as-home/">Read On &rarr;</a>
             </div>
@@ -197,9 +200,15 @@ When you start to go down the route of setting up a “pure” system that is as
         
     
 </span>
-<p>This post covers both EFI and legacy boot setups.
-One fairly unique property of NixOS is the ability to boot with only /boot and /nix. Nothing else is actually required. This supports doing all sorts of weird things with your root file system.
-One way is to do like Graham&rsquo;s post &ldquo;erase your darlings&rdquo; describes and empty your root file system each boot using ZFS snapshots. This way have some cool things that you could do on top of his setup, such as doing snapshots when it&rsquo;s running and roll-back to empty on boot.</p>
+<p><p>This post covers both EFI and legacy boot setups.</p>
+<p>One fairly unique property of NixOS is the ability to boot with only <code>/boot</code>
+and <code>/nix</code>. Nothing else is actually required. This supports doing all sorts
+of weird things with your root file system.</p>
+<p>One way is to do like <a href="https://grahamc.com/blog/erase-your-darlings">Graham&rsquo;s post &ldquo;erase your darlings&rdquo;</a> describes and empty
+your root file system each boot using ZFS snapshots. This way have some cool
+things that you could do on top of his setup, such as doing snapshots when
+it&rsquo;s running and roll-back to empty on boot. That way you actually can go
+back to recover files you lost but still have an empty state.</p></p>
 
                 <a href="/blog/2020/05/nixos-tmpfs-as-root/">Read On &rarr;</a>
             </div>

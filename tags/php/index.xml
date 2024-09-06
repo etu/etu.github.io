@@ -13,7 +13,7 @@
       <link>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</link>
       <pubDate>Sun, 05 Apr 2020 20:00:00 +0200</pubDate>
       <guid>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</guid>
-      <description>This is a sneak peak into the future 20.09 release of NixOS.&#xA;The PHP packaging ecosystem in NixOS has been in a quite sad state for a long time. Partly because of the lack of people caring about PHP in Nix, but also that PHP is a bit weird when it comes to packaging.&#xA;State of PHP before NixOS 20.09 Due to the lack of ability to do clever things like the python community does with =withPackages= to compose a package with the dependencies you need we have defaulted to provide a huge default package to accommodate all needs.</description>
+      <description>&lt;p&gt;This is a sneak peak into the future 20.09 release of NixOS.&lt;/p&gt;&#xA;&lt;p&gt;The PHP packaging ecosystem in NixOS has been in a quite sad state for a long&#xA;time. Partly because of the lack of people caring about PHP in Nix, but also&#xA;that PHP is a bit weird when it comes to packaging.&lt;/p&gt;&#xA;&lt;h2 id=&#34;state-of-php-before-nixos-2009&#34;&gt;State of PHP before NixOS 20.09&lt;/h2&gt;&#xA;&lt;p&gt;Due to the lack of ability to do clever things like the python community does&#xA;with =withPackages= to compose a package with the dependencies you need we&#xA;have defaulted to provide a huge default package to accommodate all needs.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
