@@ -170,8 +170,18 @@
         
     
 </span>
-<p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any tools to do central deployments of machines. But I&rsquo;ve always read and known that NixOS is excellent at this. NixOS can easily build another systems configuration, then copy the system to the target systems nix store and then activate it there.
-Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A while ago the need for this changed because one of my VPSes started running low on RAM, low enough to not be able to build new generations of it&rsquo;s own system.</p>
+<p><p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any
+tools to do central deployments of machines. But I&rsquo;ve always read and known
+that NixOS is excellent at this. NixOS can easily build another systems
+configuration, then copy the system to the target systems nix store and then
+activate it there.</p>
+<p>Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A
+while ago the need for this changed because one of my VPSes started running
+low on RAM, low enough to not be able to build new generations of it&rsquo;s own
+system. Which posed a problem for future upgrades. One way to solve it would
+be to pay more money for resources that aren&rsquo;t really needed except from when
+doing system upgrades. The other way would be to push pre-built systems from
+another location. Using the second way is simpler and fixes the issue.</p></p>
 
                 <a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Read On &rarr;</a>
             </div>

@@ -172,9 +172,18 @@
         
     
 </span>
-<p>NixOS is a Linux-distribution that may be source-based, but it has a binary cache that covers things so you generally don&rsquo;t need to compile things, things tends to be cached.
-However, depending on how you configure your system, you may trigger compiles depending on what you do.
-So a thing I do is that I run Emacs 29 with the native-comp patches that is wayland native with the pgtk-branch. This is by no mean the stable Emacs release at the point of writing.</p>
+<p><p><a href="https://nixos.org/">NixOS</a> is a Linux-distribution that may be source-based, but it has a binary
+cache that covers things so you generally don&rsquo;t need to compile things,
+things tends to be cached.</p>
+<p>However, depending on how you configure your system, you may trigger compiles
+depending on what you do.</p>
+<p>So a thing I do is that I run Emacs 29 with the native-comp patches that is
+wayland native with the pgtk-branch. This is by no mean the stable Emacs
+release at the point of writing. So to get this Emacs I use the excellent
+<a href="https://github.com/nix-community/emacs-overlay">nix-community/emacs-overlay</a> (that is maintained by my friend
+<a href="https://github.com/adisbladis">@adisbladis</a>). However, this means that I will get Emacs from a development
+branch of Emacs, then I need to build all the Emacs packages that I use in my
+configuration as well for this version of Emacs.</p></p>
 
                 <a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Read On &rarr;</a>
             </div>
@@ -198,8 +207,13 @@ So a thing I do is that I run Emacs 29 with the native-comp patches that is wayl
         
     
 </span>
-<p>This blog is built with Emacs, SCSS using Nix and deployed as static files to GitHub Pages. This blog also has quite some colors due to the syntax highlighting for code that is performed using CSS rules on HTML classes.
-So in total I have 15 different colors defined, in which four of them is background and foreground colors, two of them is related to link and visited link colors. Then I have nine colors remaining which are related to syntax highlighting of code.</p>
+<p><p>This blog is built with Emacs, SCSS using Nix and deployed as static files to
+GitHub Pages. This blog also has quite some colors due to the syntax
+highlighting for code that is performed using CSS rules on HTML classes.</p>
+<p>So in total I have 15 different colors defined, in which four of them is
+background and foreground colors, two of them is related to link and visited
+link colors. Then I have nine colors remaining which are related to syntax
+highlighting of code.</p></p>
 
                 <a href="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/">Read On &rarr;</a>
             </div>
@@ -225,8 +239,18 @@ So in total I have 15 different colors defined, in which four of them is backgro
         
     
 </span>
-<p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any tools to do central deployments of machines. But I&rsquo;ve always read and known that NixOS is excellent at this. NixOS can easily build another systems configuration, then copy the system to the target systems nix store and then activate it there.
-Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A while ago the need for this changed because one of my VPSes started running low on RAM, low enough to not be able to build new generations of it&rsquo;s own system.</p>
+<p><p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any
+tools to do central deployments of machines. But I&rsquo;ve always read and known
+that NixOS is excellent at this. NixOS can easily build another systems
+configuration, then copy the system to the target systems nix store and then
+activate it there.</p>
+<p>Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A
+while ago the need for this changed because one of my VPSes started running
+low on RAM, low enough to not be able to build new generations of it&rsquo;s own
+system. Which posed a problem for future upgrades. One way to solve it would
+be to pay more money for resources that aren&rsquo;t really needed except from when
+doing system upgrades. The other way would be to push pre-built systems from
+another location. Using the second way is simpler and fixes the issue.</p></p>
 
                 <a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Read On &rarr;</a>
             </div>
@@ -256,8 +280,16 @@ Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally.
         
     
 </span>
-<p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I was on i3wm for quite some time until I was introduced to Emacs X11 Window Manager which I used exclusively for about 18 months, I&rsquo;ve even held a talk about it. But at some point it got too annoying, for example in multi monitor use cases.
-At this point my first step was to go back to set up i3wm again.</p>
+<p><p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I
+was on <a href="https://i3wm.org/">i3wm</a> for quite some time until I was introduced to
+<a href="https://github.com/ch11ng/exwm">Emacs X11 Window Manager</a> which I used
+exclusively for about 18 months, I&rsquo;ve even held a <a href="/talks/">talk</a> about it.
+But at some point it got too annoying, for example in multi monitor use cases.</p>
+<p>At this point my first step was to go back to set up i3wm again. With that
+set up I wanted to give <a href="https://swaywm.org/">SwayWM</a> another attempt, it was
+years ago I&rsquo;ve checked it out before. I think my previous experience was when the
+project was new. At that point (if I remember correctly), not even the window
+decorations looked like the ones in i3wm.</p></p>
 
                 <a href="/blog/2021/02/switching-to-wayland-sway/">Read On &rarr;</a>
             </div>
@@ -281,9 +313,14 @@ At this point my first step was to go back to set up i3wm again.</p>
         
     
 </span>
-<p>This is a sneak peak into the future 20.09 release of NixOS.
-The PHP packaging ecosystem in NixOS has been in a quite sad state for a long time. Partly because of the lack of people caring about PHP in Nix, but also that PHP is a bit weird when it comes to packaging.
-State of PHP before NixOS 20.09 Due to the lack of ability to do clever things like the python community does with =withPackages= to compose a package with the dependencies you need we have defaulted to provide a huge default package to accommodate all needs.</p>
+<p><p>This is a sneak peak into the future 20.09 release of NixOS.</p>
+<p>The PHP packaging ecosystem in NixOS has been in a quite sad state for a long
+time. Partly because of the lack of people caring about PHP in Nix, but also
+that PHP is a bit weird when it comes to packaging.</p>
+<h2 id="state-of-php-before-nixos-2009">State of PHP before NixOS 20.09</h2>
+<p>Due to the lack of ability to do clever things like the python community does
+with =withPackages= to compose a package with the dependencies you need we
+have defaulted to provide a huge default package to accommodate all needs.</p></p>
 
                 <a href="/blog/2020/04/php-packaging-in-nixos/">Read On &rarr;</a>
             </div>
