@@ -166,8 +166,15 @@
         
     
 </span>
-<p>This website is hosted on GitHub Pages, built using nix and hugo with a custom theme that I maintain. I have automated updates for the nix flake to get new versions of hugo and nixpkgs, which applies to both my theme and the website itself.
-This automation generates numerous commits and deployments to the gh-pages branch, mainly due to minor version bumps of hugo and other changes to the theme. While this hasn’t been a problem for my static website, which primarily consists of text, a recent addition has created some challenges.</p>
+<p><p>This website is hosted on GitHub Pages, built using nix and hugo with
+a custom theme that I maintain. I have automated updates for the nix
+flake to get new versions of hugo and nixpkgs, which applies to both
+my theme and the website itself.</p>
+<p>This automation generates numerous commits and deployments to the
+gh-pages branch, mainly due to minor version bumps of hugo and other
+changes to the theme. While this hasn’t been a problem for my static
+website, which primarily consists of text, a recent addition has
+created some challenges.</p></p>
 
                 <a href="/blog/2024/07/prune-gh-pages-branches/">Read On &rarr;</a>
             </div>
@@ -195,9 +202,18 @@ This automation generates numerous commits and deployments to the gh-pages branc
         
     
 </span>
-<p>NixOS is a Linux-distribution that may be source-based, but it has a binary cache that covers things so you generally don&rsquo;t need to compile things, things tends to be cached.
-However, depending on how you configure your system, you may trigger compiles depending on what you do.
-So a thing I do is that I run Emacs 29 with the native-comp patches that is wayland native with the pgtk-branch. This is by no mean the stable Emacs release at the point of writing.</p>
+<p><p><a href="https://nixos.org/">NixOS</a> is a Linux-distribution that may be source-based, but it has a binary
+cache that covers things so you generally don&rsquo;t need to compile things,
+things tends to be cached.</p>
+<p>However, depending on how you configure your system, you may trigger compiles
+depending on what you do.</p>
+<p>So a thing I do is that I run Emacs 29 with the native-comp patches that is
+wayland native with the pgtk-branch. This is by no mean the stable Emacs
+release at the point of writing. So to get this Emacs I use the excellent
+<a href="https://github.com/nix-community/emacs-overlay">nix-community/emacs-overlay</a> (that is maintained by my friend
+<a href="https://github.com/adisbladis">@adisbladis</a>). However, this means that I will get Emacs from a development
+branch of Emacs, then I need to build all the Emacs packages that I use in my
+configuration as well for this version of Emacs.</p></p>
 
                 <a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Read On &rarr;</a>
             </div>

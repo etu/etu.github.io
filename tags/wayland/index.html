@@ -174,8 +174,14 @@
         
     
 </span>
-<p>After a brief experiment with Hyprland, I&rsquo;m back to using Sway. My experiment lasted less than a month, as I hoped Hyprland&rsquo;s window selector would resolve my window-sharing woes.
-It turns out it wasn&rsquo;t, because the first week back at work I had the need to share a slideshow in full screen. Then it doesn&rsquo;t matter if you can select a window anymore. So my workarounds with Sway would have worked in that use case while my Hyprland set up… didn&rsquo;t.</p>
+<p><p>After a brief experiment with
+<a href="/blog/2024/07/switching-to-hyprland/">Hyprland</a>, I&rsquo;m back to using Sway. My
+experiment lasted less than a month, as I hoped Hyprland&rsquo;s window
+selector would resolve my window-sharing woes.</p>
+<p>It turns out it wasn&rsquo;t, because the first week back at work I had the
+need to share a slideshow in full screen. Then it doesn&rsquo;t matter if
+you can select a window anymore. So my workarounds with Sway would
+have worked in that use case while my Hyprland set up…  didn&rsquo;t.</p></p>
 
                 <a href="/blog/2024/08/back-from-hyprland-to-sway/">Read On &rarr;</a>
             </div>
@@ -203,8 +209,18 @@ It turns out it wasn&rsquo;t, because the first week back at work I had the need
         
     
 </span>
-<p>Introduction After four years with Sway, I&rsquo;ve decided to transition to Hyprland. My journey from EXWM to Sway began about four years ago, and I documented the experience in this post three years ago. While Sway has served me well, it has its limitations that I&rsquo;ve used hacks and workarounds to circumvent.
-The Limitations of Sway One major drawback of Sway is its screen sharing capabilities. Although I managed to get screen sharing somewhat functional, it only allows sharing the full screen.</p>
+<p><h2 id="introduction">Introduction</h2>
+<p>After four years with Sway, I&rsquo;ve decided to transition to Hyprland. My
+journey from EXWM to Sway began about four years ago, and I documented
+the experience in
+<a href="/blog/2021/02/switching-to-wayland-sway/">this post</a> three years ago.
+While Sway has served me well, it has its limitations that I&rsquo;ve used
+hacks and workarounds to circumvent.</p>
+<h2 id="the-limitations-of-sway">The Limitations of Sway</h2>
+<p>One major drawback of Sway is its
+<a href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">screen sharing</a>
+capabilities. Although I managed to get screen sharing somewhat
+functional, it only allows sharing the full screen.</p></p>
 
                 <a href="/blog/2024/07/switching-to-hyprland/">Read On &rarr;</a>
             </div>
@@ -232,12 +248,19 @@ The Limitations of Sway One major drawback of Sway is its screen sharing capabil
         
     
 </span>
-<p>Switching to Wayland has it&rsquo;s side-effects, one of which is the improved security from X11 where applications can&rsquo;t just randomly spy on each other at any point.
-This is both good news and bad news.
-The good news:
-Applications can&rsquo;t just randomly spy on each other. The bad news:
-Things like global hot-keys in for example Mumble won&rsquo;t work. Back from complaining to actually solving the problem though.
-Mumble does have a patch for a future release So there&rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</p>
+<p><p>Switching to Wayland has it&rsquo;s side-effects, one of which is the improved
+security from X11 where applications can&rsquo;t just randomly spy on each other at
+any point.</p>
+<p>This is both good news and bad news.</p>
+<p>The good news:</p>
+<ul>
+<li>Applications can&rsquo;t just randomly spy on each other.</li>
+</ul>
+<p>The bad news:</p>
+<ul>
+<li>Things like global hot-keys in for example Mumble won&rsquo;t work.</li>
+</ul>
+<p>Back from complaining to actually solving the problem though.</p></p>
 
                 <a href="/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">Read On &rarr;</a>
             </div>
@@ -261,10 +284,19 @@ Mumble does have a patch for a future release So there&rsquo;s the issue about P
         
     
 </span>
-<p>Getting screen sharing to work on Wayland seems to be surprisingly hard. Maybe it is compared to X11 that doesn&rsquo;t require any additional setup at all.
-To have working screen sharing on Sway you really need three components installed and set up with correct environment variables.
-These three components are:
-pipewire (I have version: 0.3.21) xdg-desktop-portal (I have version: 1.8.0) xdg-desktop-portal-wlr (I have version: 0.1.0) These three components has to have systemd user services.</p>
+<p><p>Getting screen sharing to work on Wayland seems to be surprisingly hard.
+Maybe it is compared to X11 that doesn&rsquo;t require any additional setup at all.</p>
+<p>To have working screen sharing on Sway you really need three components
+installed and set up with correct environment variables.</p>
+<p>These three components are:</p>
+<ul>
+<li><code>pipewire</code> (I have version: 0.3.21)</li>
+<li><code>xdg-desktop-portal</code> (I have version: 1.8.0)</li>
+<li><code>xdg-desktop-portal-wlr</code> (I have version: 0.1.0)</li>
+</ul>
+<p>These three components has to have systemd user services. You should be able
+to see them in the list if you run <code>systemctl --user</code>, just look for the
+different programs name ending in <code>.service</code>.</p></p>
 
                 <a href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">Read On &rarr;</a>
             </div>
@@ -294,8 +326,16 @@ pipewire (I have version: 0.3.21) xdg-desktop-portal (I have version: 1.8.0) xdg
         
     
 </span>
-<p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I was on i3wm for quite some time until I was introduced to Emacs X11 Window Manager which I used exclusively for about 18 months, I&rsquo;ve even held a talk about it. But at some point it got too annoying, for example in multi monitor use cases.
-At this point my first step was to go back to set up i3wm again.</p>
+<p><p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I
+was on <a href="https://i3wm.org/">i3wm</a> for quite some time until I was introduced to
+<a href="https://github.com/ch11ng/exwm">Emacs X11 Window Manager</a> which I used
+exclusively for about 18 months, I&rsquo;ve even held a <a href="/talks/">talk</a> about it.
+But at some point it got too annoying, for example in multi monitor use cases.</p>
+<p>At this point my first step was to go back to set up i3wm again. With that
+set up I wanted to give <a href="https://swaywm.org/">SwayWM</a> another attempt, it was
+years ago I&rsquo;ve checked it out before. I think my previous experience was when the
+project was new. At that point (if I remember correctly), not even the window
+decorations looked like the ones in i3wm.</p></p>
 
                 <a href="/blog/2021/02/switching-to-wayland-sway/">Read On &rarr;</a>
             </div>
