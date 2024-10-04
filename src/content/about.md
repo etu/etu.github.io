@@ -43,7 +43,7 @@ Ways to contact me:
 - {{< fa fa-solid comments >}} XMPP: [etu_failar.nu@matrix.org](gtalk:chat?jid=etu_failar.nu@matrix.org)
 - {{< fa fab mastodon >}} Mastodon: [@sa0bse@chaos.social](https://chaos.social/@sa0bse)
 - {{< fa fab telegram >}} Telegram: [ehirwing](https://t.me/ehirwing)
-- {{< fa fab linkedin >}} LinkedIn: [Elis Hirwing](https://se.linkedin.com/in/elishirwing/)
+- {{< fa fab linkedin >}} LinkedIn: [Elis Hirwing](https://linkedin.com/in/elishirwing/)
 - {{< fa fab facebook >}} Facebook: [Elis Hirwing](https://facebook.com/elishirwing/)
 
 ## ./about/contact/gpg/
