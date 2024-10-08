@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Prune gh-pages branches using GitHub Actions - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2024/07/prune-gh-pages-branches/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Prune gh-pages branches using GitHub Actions &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2024/07/prune-gh-pages-branches/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#advert {
+    max-width: 48rem;
+    margin: 2rem auto 0 auto;
+  }
+  aside#advert a {
+    background: #26101b;
+    color: #d58bcc;
+    display: block;
+    text-decoration: none;
+    margin: 0 4rem 2rem 4rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+    border-radius: .25rem;
+    border: .1rem solid #a6a6a6;
+  }
+  aside#advert a::after {
+    content: 'Ad';
+    font-size: .75rem;
+    background-image: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: fit-content;
+    height: fit-content;
+    padding: .4rem .6rem;
+    margin-left: 0;
+    background-color: #4a2739;
+    color: #e6c0e1;
+    border-radius: .25rem 0;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.taserud.net/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.fb3d96e77a2d8a9bf9a41748b4e5bad661d8a90d927078cc6c4e3373569307a7.css" integrity="sha256-&#43;z2W53otipv5pBdItOW61mHYqQ2ScHjMbE4zc1aTB6c=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+    
+    
+    <aside id="advert">
+  <a href="https://taserud.net/en/?mtm_campaign=ElisNuTopBanner"
+    target="_blank">
+    Are you looking for IT consultancy services in the NixOS, Linux,
+    Kubernetes, DevOps space? Check out <u>Taserud Consulting AB</u>.
+  </a>
+</aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Prune gh-pages branches using GitHub Actions</h1>
+    <span class="post-meta">
+    2024-07-07
+
+    
+        &middot; 2 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/github/">GitHub</a>
+        
+            <a class="tag" href="/tags/github-actions/">GitHub Actions</a>
+        
+    
+</span>
+<p>This website is hosted on GitHub Pages, built using nix and hugo with
+a custom theme that I maintain. I have automated updates for the nix
+flake to get new versions of hugo and nixpkgs, which applies to both
+my theme and the website itself.</p>
+<p>This automation generates numerous commits and deployments to the
+gh-pages branch, mainly due to minor version bumps of hugo and other
+changes to the theme. While this hasn’t been a problem for my static
+website, which primarily consists of text, a recent addition has
+created some challenges.</p>
+<p>I added a page for my <a href="/3d-models/">./3d-models/</a> containing <code>.3mf</code>,
+<code>.stl</code>, and <code>.glb</code> files. These binary files are not always
+reproducible, particularly with updates to nixpkgs that affect
+openscad and blender, which I use to create glb files from openscad
+sources. Consequently, the repository size has been growing
+continuously.</p>
+<h2 id="identifying-the-problem">Identifying the problem</h2>
+<p>Recently, while on a coffee shop WiFi, I attempted a <code>git pull</code> that
+took too long to complete before I had to leave. This event
+highlighted the growing size of my repository and prompted me to find
+a solution.</p>
+<h2 id="solution-pruning-the-gh-pages-branch">Solution: Pruning the gh-pages branch</h2>
+<p>To address this, I decided to prune the gh-pages branch by squashing
+commits. However, I wanted to retain the latest commits separately to
+easily track recent changes in case of unexpected issues.</p>
+<p>Initially, I considered writing a script for this task, but I found an
+existing action,
+<a href="https://github.com/myactionway/branch-pruner-action"><code>myactionway/branch-pruner-action</code></a>,
+which simplifies the process.</p>
+<p>Here’s my workflow for pruning the branch:
+<code>.github/workflows/squash.yml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#e6db74">&#39;Squash gh-pages&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">NEW_FIRST_COMMIT</span>: <span style="color:#ae81ff">HEAD~19</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">DEFAULT_BRANCH</span>: <span style="color:#e6db74">&#39;gh-pages&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&#39;on&#39;</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">workflow_dispatch</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">schedule</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">cron</span>: <span style="color:#e6db74">&#39;47 7 * * 2&#39;</span>  <span style="color:#75715e"># At 07:47 on Tuesday.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">squash-gh-pages-branch</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-22.04</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">permissions</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">contents</span>: <span style="color:#ae81ff">write</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v4</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">ref</span>: <span style="color:#ae81ff">${{ env.DEFAULT_BRANCH }}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">fetch-depth</span>: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">myactionway/branch-pruner-action@v2.0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">new_first_commit</span>: <span style="color:#ae81ff">${{ env.NEW_FIRST_COMMIT }}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">branch</span>: <span style="color:#ae81ff">${{ env.DEFAULT_BRANCH }}</span>
+</span></span></code></pre></div><p>This workflow runs weekly or can be triggered manually. It keeps the
+19 most recent commits, squashing the rest into a single commit
+representing the entire previous history.</p>
+<h2 id="results">Results</h2>
+<p>Before squashing, the repository size from this API call was:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl -s https://api.github.com/repos/etu/etu.github.io | jq <span style="color:#e6db74">&#39;.size&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">386904</span>
+</span></span></code></pre></div><p>After squashing the gh-pages branch, it reduced to:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ curl -s https://api.github.com/repos/etu/etu.github.io | jq <span style="color:#e6db74">&#39;.size&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">296830</span>
+</span></span></code></pre></div><p>This shows a reduction from approximately 386 MiB to 296 MiB. However,
+I believe GitHub can further optimize the repository size internally.</p>
+<p>Upon inspecting my local clone of the repository, it was about 680 MiB
+before the squash. After running <code>git gc --aggressive --prune=now</code>, it
+shrank to about 354 MiB.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://taserud.net/en/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Taserud Consulting AB</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

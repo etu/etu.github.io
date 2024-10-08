@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backup on Elis Hirwing</title>
+    <link>https://elis.nu/tags/backup/</link>
+    <description>Recent content in Backup on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 21 May 2021 20:45:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/backup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The day when ZFS saved my data</title>
+      <link>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</link>
+      <pubDate>Fri, 21 May 2021 20:45:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</guid>
+      <description>Today my work day didn&amp;rsquo;t turn out the way I expected. It started like a normal day, I woke up around the regular time, did my morning routine, sat at my desk and started my work-issued laptop.&#xA;It booted up just fine, I connected it to my Ultrawide display, started going through Slack and Email and catch up on some news while drinking my morning tea and waking up.&#xA;Then after around an hour of work things started to hang up, most notably Firefox totally froze up.</description>
+    </item>
+  </channel>
+</rss>
