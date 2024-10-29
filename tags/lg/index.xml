@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LG on Elis Hirwing</title>
+    <link>https://elis.nu/tags/lg/</link>
+    <description>Recent content in LG on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 25 Jul 2022 20:00:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/lg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keeping LG webOS Developer Mode alive with Home Assistant</title>
+      <link>https://elis.nu/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/</link>
+      <pubDate>Mon, 25 Jul 2022 20:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/</guid>
+      <description>For over 10 years I&amp;rsquo;ve used Kodi on a separate PC connected to a TV to play back local media.&#xA;A couple of weeks ago everything changed in a matter of days. I listened to Late Night Linux – Episode 179 where they talked about Jellyfin. I have looked into Jellyfin before, however I&amp;rsquo;ve disregarded it due to the lack of app for LG webOS. This changed because the podcast episode told that there was a webOS app for Jellyfin.</description>
+    </item>
+  </channel>
+</rss>

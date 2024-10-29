@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>~elis/blog/ - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <link href="https://elis.nu/blog/index.xml" rel="alternate" type="application/rss+xml" title="Elis Hirwing">
+        <link href="https://elis.nu/blog/index.xml" rel="feed" type="application/rss+xml" title="Elis Hirwing">
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="~elis/blog/ &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#advert {
+    max-width: 48rem;
+    margin: 2rem auto 0 auto;
+  }
+  aside#advert a {
+    background: #26101b;
+    color: #d58bcc;
+    display: block;
+    text-decoration: none;
+    margin: 0 4rem 2rem 4rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+    border-radius: .25rem;
+    border: .1rem solid #a6a6a6;
+  }
+  aside#advert a::after {
+    content: 'Ad';
+    font-size: .75rem;
+    background-image: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: fit-content;
+    height: fit-content;
+    padding: .4rem .6rem;
+    margin-left: 0;
+    background-color: #4a2739;
+    color: #e6c0e1;
+    border-radius: .25rem 0;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.taserud.net/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.2a1dd4ecc22330e82b04db2994c7999533a8d1339be0d14669c0a75081d20852.css" integrity="sha256-Kh3U7MIjMOgrBNsplMeZlTOo0TOb4NFGacCnUIHSCFI=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+    
+    
+    <aside id="advert">
+  <a href="https://taserud.net/en/?mtm_campaign=ElisNuTopBanner"
+    target="_blank">
+    Are you looking for IT consultancy services in the NixOS, Linux,
+    Kubernetes, DevOps space? Check out <u>Taserud Consulting AB</u>.
+  </a>
+</aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>~elis/blog/</h1>
+    
+
+    
+
+    <div class="posts">
+        
+        
+            <div class="post">
+                <h2><a href="/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">NixOS: Setting up Push To Talk in Mumble on Sway</a></h2><span class="post-meta">
+    2021-06-26
+
+    
+        &middot; 2 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/mumble/">Mumble</a>
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+    
+</span>
+<p>Switching to Wayland has it&rsquo;s side-effects, one of which is the improved security from X11 where applications can&rsquo;t just randomly spy on each other at any point.
+This is both good news and bad news.
+The good news:
+Applications can&rsquo;t just randomly spy on each other. The bad news:
+Things like global hot-keys in for example Mumble won&rsquo;t work. Back from complaining to actually solving the problem though.
+Mumble does have a patch for a future release So there&rsquo;s the issue about Push to talk does not work in Wayland, this has been followed up by a patch Add DBus calls to de/-activate push to talk.</p>
+
+                <a href="/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/05/the-day-when-zfs-saved-my-data/">The day when ZFS saved my data</a></h2><span class="post-meta">
+    2021-05-21
+
+    
+        &middot; 5 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/zfs/">ZFS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/backup/">Backup</a>
+        
+    
+</span>
+<p>Today my work day didn&rsquo;t turn out the way I expected. It started like a normal day, I woke up around the regular time, did my morning routine, sat at my desk and started my work-issued laptop.
+It booted up just fine, I connected it to my Ultrawide display, started going through Slack and Email and catch up on some news while drinking my morning tea and waking up.
+Then after around an hour of work things started to hang up, most notably Firefox totally froze up.</p>
+
+                <a href="/blog/2021/05/the-day-when-zfs-saved-my-data/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">Detailed setup of screen sharing in Wayland (Sway)</a></h2><span class="post-meta">
+    2021-02-19
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p>Getting screen sharing to work on Wayland seems to be surprisingly hard. Maybe it is compared to X11 that doesn&rsquo;t require any additional setup at all.
+To have working screen sharing on Sway you really need three components installed and set up with correct environment variables.
+These three components are:
+pipewire (I have version: 0.3.21) xdg-desktop-portal (I have version: 1.8.0) xdg-desktop-portal-wlr (I have version: 0.1.0) These three components has to have systemd user services.</p>
+
+                <a href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/02/switching-to-wayland-sway/">Switching to Wayland (Sway)</a></h2><span class="post-meta">
+    2021-02-17
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+            <a class="tag" href="/tags/x11/">X11</a>
+        
+    
+</span>
+<p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I was on i3wm for quite some time until I was introduced to Emacs X11 Window Manager which I used exclusively for about 18 months, I&rsquo;ve even held a talk about it. But at some point it got too annoying, for example in multi monitor use cases.
+At this point my first step was to go back to set up i3wm again.</p>
+
+                <a href="/blog/2021/02/switching-to-wayland-sway/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/02/ultra-wide-monitor/">Ultra wide monitor</a></h2><span class="post-meta">
+    2021-02-15
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/ultrawide/">Ultrawide</a>
+        
+            <a class="tag" href="/tags/samsung/">Samsung</a>
+        
+    
+</span>
+<p>A couple of months (after at least half a year of thinking) I finally decided to do it. I decided to buy a Ultra wide screen for my home office. The one I had been looking at for months is the Samsung Odyssey G9 C49G95. It happens to be the opposite of cheap. Part of the triggering factor was a conversation on IRC in #nixos-chat where a person admitted that she had one of those.</p>
+
+                <a href="/blog/2021/02/ultra-wide-monitor/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/01/i-find-food-habits-at-free-software-events-weird/">I find food habits at Free Software events weird</a></h2><span class="post-meta">
+    2021-01-26
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/free-software/">Free Software</a>
+        
+            <a class="tag" href="/tags/veganism/">Veganism</a>
+        
+            <a class="tag" href="/tags/speciesism/">Speciesism</a>
+        
+            <a class="tag" href="/tags/personal/">Personal</a>
+        
+    
+</span>
+<p>This is a follow-up on: Why I use Free Software, Why I got into Veganism.
+Since the Free Software movement in it&rsquo;s core is an ethical movement, which cares about human rights and humans access and ability to study, share and improve on the software they use. I&rsquo;m well aware that not everyone in the Free Software community is in it for ethical reasons - but I&rsquo;m pretty sure that there&rsquo;s enough of us that care about ethics for this to be important.</p>
+
+                <a href="/blog/2021/01/i-find-food-habits-at-free-software-events-weird/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/01/why-i-got-into-veganism/">Why I got into Veganism</a></h2><span class="post-meta">
+    2021-01-20
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/veganism/">Veganism</a>
+        
+            <a class="tag" href="/tags/free-software/">Free Software</a>
+        
+            <a class="tag" href="/tags/speciesism/">Speciesism</a>
+        
+            <a class="tag" href="/tags/personal/">Personal</a>
+        
+    
+</span>
+<p>This is a follow-up on: Why I use Free Software. This has been followed up by: I find food habits at Free Software events weird.
+People who turn to Veganism can do this for different reasons, some do it for health reasons, others for climate reasons. But in it&rsquo;s core, the Vegan movement in itself is an ethical movement about saving the animals. The other reasons are more or less side effects.</p>
+
+                <a href="/blog/2021/01/why-i-got-into-veganism/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/01/why-i-use-free-software/">Why I use Free Software</a></h2><span class="post-meta">
+    2021-01-16
+
+    
+        &middot; 2 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/free-software/">Free Software</a>
+        
+            <a class="tag" href="/tags/veganism/">Veganism</a>
+        
+            <a class="tag" href="/tags/personal/">Personal</a>
+        
+    
+</span>
+<p>This has been followed up by: Why I got into Veganism, I find food habits at Free Software events weird.
+People in general may have different reasons for choosing to use Free Software, some may use it for the price, others because of pragmatic reasons, simply put it&rsquo;s the best tool for the job. Others may choose it for ethical reasons.
+I didn&rsquo;t get into Free Software for any of the said reasons above, I got into Free Software because it seemed different and fun.</p>
+
+                <a href="/blog/2021/01/why-i-use-free-software/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2020/08/weechat-android-ssh-relay-setup/">Weechat Android SSH relay setup</a></h2><span class="post-meta">
+    2020-08-14
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/weechat/">Weechat</a>
+        
+            <a class="tag" href="/tags/android/">Android</a>
+        
+            <a class="tag" href="/tags/ssh/">SSH</a>
+        
+    
+</span>
+<p>Setting up the Weechat Android GitHub Play Store
+relay client over SSH can be a bit tricky and quite bad at giving useful error messages. So since I&rsquo;m going through a re-setup of that I&rsquo;m also writing down my notes here.
+Weechat configuration Type the following commands into Weechat.
+Placeholders such as {port} and {password} will be used here and later on. Suggested default port is 9000, but you need to chose something unique on your system.</p>
+
+                <a href="/blog/2020/08/weechat-android-ssh-relay-setup/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2020/08/my-battle-with-wrist-pains/">My battle with wrist pains</a></h2><span class="post-meta">
+    2020-08-09
+
+    
+        &middot; 6 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/personal/">Personal</a>
+        
+            <a class="tag" href="/tags/health/">Health</a>
+        
+    
+</span>
+<p>Note: I&rsquo;m not a doctor, dietitian or ergonomics expert. I just have spent a lot of time to find something that works well for me. This is my experience and you can probably take inspiration for it, but don&rsquo;t do stupid things and seek expert advice if you need it.
+In parts of the IT industry abbreviations like RSI and CTS gets thrown around fairly often. I&rsquo;m guilty myself of doing this.</p>
+
+                <a href="/blog/2020/08/my-battle-with-wrist-pains/">Read On &rarr;</a>
+            </div>
+        
+
+        <div class="pagination">
+            
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/blog/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/page/3/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/page/3/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
+        </div>
+    </div>
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://taserud.net/en/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Taserud Consulting AB</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>~elis/blog/ - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <link href="https://elis.nu/blog/index.xml" rel="alternate" type="application/rss+xml" title="Elis Hirwing">
+        <link href="https://elis.nu/blog/index.xml" rel="feed" type="application/rss+xml" title="Elis Hirwing">
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="~elis/blog/ &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#advert {
+    max-width: 48rem;
+    margin: 2rem auto 0 auto;
+  }
+  aside#advert a {
+    background: #26101b;
+    color: #d58bcc;
+    display: block;
+    text-decoration: none;
+    margin: 0 4rem 2rem 4rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+    border-radius: .25rem;
+    border: .1rem solid #a6a6a6;
+  }
+  aside#advert a::after {
+    content: 'Ad';
+    font-size: .75rem;
+    background-image: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: fit-content;
+    height: fit-content;
+    padding: .4rem .6rem;
+    margin-left: 0;
+    background-color: #4a2739;
+    color: #e6c0e1;
+    border-radius: .25rem 0;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.taserud.net/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.2a1dd4ecc22330e82b04db2994c7999533a8d1339be0d14669c0a75081d20852.css" integrity="sha256-Kh3U7MIjMOgrBNsplMeZlTOo0TOb4NFGacCnUIHSCFI=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+    
+    
+    <aside id="advert">
+  <a href="https://taserud.net/en/?mtm_campaign=ElisNuTopBanner"
+    target="_blank">
+    Are you looking for IT consultancy services in the NixOS, Linux,
+    Kubernetes, DevOps space? Check out <u>Taserud Consulting AB</u>.
+  </a>
+</aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>~elis/blog/</h1>
+    
+
+    
+
+    <div class="posts">
+        
+        
+            <div class="post">
+                <h2><a href="/blog/2020/06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as home</a></h2><span class="post-meta">
+    2020-06-27
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/tmpfs/">Tmpfs</a>
+        
+            <a class="tag" href="/tags/impermanence/">Impermanence</a>
+        
+    
+</span>
+<p>This is a follow-up post for my earlier post: NixOS ❄: tmpfs as root.
+When you start to go down the route of setting up a “pure” system that is as clean as you want it to be on each boot. You may start with the lazy route of using a persistent partition for your home directory. But it never feels quite right. But initially it&rsquo;s so convenient to choose this path.</p>
+
+                <a href="/blog/2020/06/nixos-tmpfs-as-home/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2020/05/nixos-tmpfs-as-root/">NixOS ❄: tmpfs as root</a></h2><span class="post-meta">
+    2020-05-02
+
+    
+        &middot; 6 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/tmpfs/">Tmpfs</a>
+        
+            <a class="tag" href="/tags/impermanence/">Impermanence</a>
+        
+    
+</span>
+<p>This post covers both EFI and legacy boot setups.
+One fairly unique property of NixOS is the ability to boot with only /boot and /nix. Nothing else is actually required. This supports doing all sorts of weird things with your root file system.
+One way is to do like Graham&rsquo;s post &ldquo;erase your darlings&rdquo; describes and empty your root file system each boot using ZFS snapshots. This way have some cool things that you could do on top of his setup, such as doing snapshots when it&rsquo;s running and roll-back to empty on boot.</p>
+
+                <a href="/blog/2020/05/nixos-tmpfs-as-root/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2020/04/php-packaging-in-nixos/">PHP packaging in NixOS ❄</a></h2><span class="post-meta">
+    2020-04-05
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/php/">PHP</a>
+        
+    
+</span>
+<p>This is a sneak peak into the future 20.09 release of NixOS.
+The PHP packaging ecosystem in NixOS has been in a quite sad state for a long time. Partly because of the lack of people caring about PHP in Nix, but also that PHP is a bit weird when it comes to packaging.
+State of PHP before NixOS 20.09 Due to the lack of ability to do clever things like the python community does with =withPackages= to compose a package with the dependencies you need we have defaulted to provide a huge default package to accommodate all needs.</p>
+
+                <a href="/blog/2020/04/php-packaging-in-nixos/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2020/02/double-stitched-penguin-beanie/">Double stitched Penguin Beanie</a></h2><span class="post-meta">
+    2020-02-08
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/knitting/">Knitting</a>
+        
+            <a class="tag" href="/tags/personal/">Personal</a>
+        
+    
+</span>
+<p>This is a quite unusual post for this blog, it&rsquo;s not what I&rsquo;ve expected to put on here. But I wanted to share it somewhere more permanent than many other places where I hang out on the internet. So here it goes.
+I&rsquo;ve been knitting for a bunch of years now, and some years ago I was intrigued by a knitting method that is called double knitting. In theory it&rsquo;s fairly simple because you basically make two knitting&rsquo;s at the same time in parallel and mirror the pattern.</p>
+
+                <a href="/blog/2020/02/double-stitched-penguin-beanie/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/">Encrypted ZFS mirror with mirrored boot on NixOS</a></h2><span class="post-meta">
+    2019-08-04
+
+    
+        &middot; 6 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/zfs/">ZFS</a>
+        
+    
+</span>
+<p>So for a long time I have wanted to replace my file server, because it&rsquo;s an old HP Microserver that is really slow. And at the same time I have had this beast of a desktop tower PC that I haven&rsquo;t used with a Xeon and 32GiB ECC memory that has just been turned off due to noise. The obvious solution is to re-purpose that install and move it to a location where noise doesn&rsquo;t matter, e.</p>
+
+                <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/hello-world/">Hello World!</a></h2><span class="post-meta">
+    2019-06-08
+
+    
+        &middot; 1 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/meta/">Meta</a>
+        
+    
+</span>
+<p>Hello world! This is a test blog post.
+This is an external link example.org. Internal link start page.
+This is a block quote element.
+This is an inline code block.
+Test of syntax highlighting elisp ;; Define the hello function (defun hello () &#34;This is my docstring&#34; (message &#34;world&#34;)) ;; Call the hello function (hello) Nix { # Define the hello function hello = {}: &#34;world&#34;; # More tests boolean = true; fileimport = import .</p>
+
+                <a href="/blog/hello-world/">Read On &rarr;</a>
+            </div>
+        
+
+        <div class="pagination">
+            
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/blog/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/page/2/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
+        </div>
+    </div>
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://taserud.net/en/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Taserud Consulting AB</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

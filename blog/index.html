@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>~elis/blog/ - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <link href="https://elis.nu/blog/index.xml" rel="alternate" type="application/rss+xml" title="Elis Hirwing">
+        <link href="https://elis.nu/blog/index.xml" rel="feed" type="application/rss+xml" title="Elis Hirwing">
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="~elis/blog/ &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#advert {
+    max-width: 48rem;
+    margin: 2rem auto 0 auto;
+  }
+  aside#advert a {
+    background: #26101b;
+    color: #d58bcc;
+    display: block;
+    text-decoration: none;
+    margin: 0 4rem 2rem 4rem;
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+    border-radius: .25rem;
+    border: .1rem solid #a6a6a6;
+  }
+  aside#advert a::after {
+    content: 'Ad';
+    font-size: .75rem;
+    background-image: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: fit-content;
+    height: fit-content;
+    padding: .4rem .6rem;
+    margin-left: 0;
+    background-color: #4a2739;
+    color: #e6c0e1;
+    border-radius: .25rem 0;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.taserud.net/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.2a1dd4ecc22330e82b04db2994c7999533a8d1339be0d14669c0a75081d20852.css" integrity="sha256-Kh3U7MIjMOgrBNsplMeZlTOo0TOb4NFGacCnUIHSCFI=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+    
+    
+    <aside id="advert">
+  <a href="https://taserud.net/en/?mtm_campaign=ElisNuTopBanner"
+    target="_blank">
+    Are you looking for IT consultancy services in the NixOS, Linux,
+    Kubernetes, DevOps space? Check out <u>Taserud Consulting AB</u>.
+  </a>
+</aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>~elis/blog/</h1>
+    
+
+    
+
+    <div class="posts">
+        
+        
+            <div class="post">
+                <h2><a href="/blog/2024/07/prune-gh-pages-branches/">Prune gh-pages branches using GitHub Actions</a></h2><span class="post-meta">
+    2024-07-07
+
+    
+        &middot; 2 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/github/">GitHub</a>
+        
+            <a class="tag" href="/tags/github-actions/">GitHub Actions</a>
+        
+    
+</span>
+<p>This website is hosted on GitHub Pages, built using nix and hugo with a custom theme that I maintain. I have automated updates for the nix flake to get new versions of hugo and nixpkgs, which applies to both my theme and the website itself.
+This automation generates numerous commits and deployments to the gh-pages branch, mainly due to minor version bumps of hugo and other changes to the theme. While this hasn’t been a problem for my static website, which primarily consists of text, a recent addition has created some challenges.</p>
+
+                <a href="/blog/2024/07/prune-gh-pages-branches/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2024/02/nixos-superpower-specialisations/">NixOS superpower: specialisations</a></h2><span class="post-meta">
+    2024-02-17
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p>NixOS has a lot of configurability and features. One feature that I&rsquo;ve known about for a while that I think is both really cool, but also a bit lesser known is the ability to have declarative Specialisations. To me, this is a superpower of NixOS that I have a hard time to see any other Linux Distribution having.
+What&rsquo;s a Specialisation? The name doesn&rsquo;t do it justice, it&rsquo;s a bit of a weird name for it.</p>
+
+                <a href="/blog/2024/02/nixos-superpower-specialisations/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2023/11/a-personal-adventure-with-hot-beverages/">A personal adventure with hot beverages</a></h2><span class="post-meta">
+    2023-11-05
+
+    
+        &middot; 5 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/coffee/">Coffee</a>
+        
+            <a class="tag" href="/tags/personal/">Personal</a>
+        
+    
+</span>
+<p>My history with coffee I&rsquo;ve never been into coffee, every time I&rsquo;ve tried them as a child or young adult they have been terrible. They have just been bitter and it&rsquo;s not a taste profile I to this day enjoy at all.
+I have, a couple of times encountered coffee that friends have made that actually weren&rsquo;t that bitter. So my reaction to it has managed to reach the level of &ldquo;this isn&rsquo;t terrible&rdquo;.</p>
+
+                <a href="/blog/2023/11/a-personal-adventure-with-hot-beverages/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2023/04/ai-should-be-trained-with-vegan-values/">AI should be trained with vegan values</a></h2><span class="post-meta">
+    2023-04-25
+
+    
+        &middot; 2 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/veganism/">Veganism</a>
+        
+            <a class="tag" href="/tags/ai/">AI</a>
+        
+            <a class="tag" href="/tags/ethics/">Ethics</a>
+        
+            <a class="tag" href="/tags/speciesism/">Speciesism</a>
+        
+    
+</span>
+<p>As artificial intelligence (AI) continues to advance, concerns have been raised about the potential dangers of AI becoming too powerful and taking over human civilization. In a recent interview, entrepreneur and CEO Elon Musk expressed his concerns about the risks associated with developing super-intelligent AI. However, his views were challenged by Larry Page, co-founder of Google, who referred to Musk as a “speciesist” for not wanting AI to become a “digital god”.</p>
+
+                <a href="/blog/2023/04/ai-should-be-trained-with-vegan-values/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Outsourcing NixOS compile time to Microsoft</a></h2><span class="post-meta">
+    2022-10-10
+
+    
+        &middot; 5 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/cachix/">Cachix</a>
+        
+            <a class="tag" href="/tags/github-actions/">GitHub Actions</a>
+        
+    
+</span>
+<p>NixOS is a Linux-distribution that may be source-based, but it has a binary cache that covers things so you generally don&rsquo;t need to compile things, things tends to be cached.
+However, depending on how you configure your system, you may trigger compiles depending on what you do.
+So a thing I do is that I run Emacs 29 with the native-comp patches that is wayland native with the pgtk-branch. This is by no mean the stable Emacs release at the point of writing.</p>
+
+                <a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/">Keeping LG webOS Developer Mode alive with Home Assistant</a></h2><span class="post-meta">
+    2022-07-25
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/jellyfin/">Jellyfin</a>
+        
+            <a class="tag" href="/tags/lg/">LG</a>
+        
+            <a class="tag" href="/tags/home-assistant/">Home Assistant</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p>For over 10 years I&rsquo;ve used Kodi on a separate PC connected to a TV to play back local media.
+A couple of weeks ago everything changed in a matter of days. I listened to Late Night Linux – Episode 179 where they talked about Jellyfin. I have looked into Jellyfin before, however I&rsquo;ve disregarded it due to the lack of app for LG webOS. This changed because the podcast episode told that there was a webOS app for Jellyfin.</p>
+
+                <a href="/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/10/first-impressions-of-purism-librem-5/">First impressions of Purism Librem 5</a></h2><span class="post-meta">
+    2021-10-15
+
+    
+        &middot; 6 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/purism/">Purism</a>
+        
+            <a class="tag" href="/tags/librem-5/">Librem 5</a>
+        
+    
+</span>
+<p>Back in 2017, this fairly small company Purism launched a crowdfunding on their own crowdfunding platform for their future phone known as Librem 5. I went back and forth a bit, I thought through some of the history about the company and decided that I thought they may deliver some day. At least I wanted to support the effort to make a modern Linux that could fill the hole that the demise of the Nokia N900 with no worthy device following up.</p>
+
+                <a href="/blog/2021/10/first-impressions-of-purism-librem-5/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/">Dynamic CSS color themes with similar contrasts</a></h2><span class="post-meta">
+    2021-09-30
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/scss/">SCSS</a>
+        
+            <a class="tag" href="/tags/github-pages/">GitHub Pages</a>
+        
+    
+</span>
+<p>This blog is built with Emacs, SCSS using Nix and deployed as static files to GitHub Pages. This blog also has quite some colors due to the syntax highlighting for code that is performed using CSS rules on HTML classes.
+So in total I have 15 different colors defined, in which four of them is background and foreground colors, two of them is related to link and visited link colors. Then I have nine colors remaining which are related to syntax highlighting of code.</p>
+
+                <a href="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/">Mobile org-mode use with Orgzly and Syncthing</a></h2><span class="post-meta">
+    2021-08-02
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/emacs/">Emacs</a>
+        
+            <a class="tag" href="/tags/org-mode/">Org-Mode</a>
+        
+            <a class="tag" href="/tags/orgzly/">Orgzly</a>
+        
+            <a class="tag" href="/tags/syncthing/">Syncthing</a>
+        
+    
+</span>
+<p>I&rsquo;ve been an Emacs user for 13+ years, during this time I&rsquo;ve been using org-mode on and off for different thing.
+Some examples where I currently use org-mode:
+Deployment of this website Making of presentation slides Project read me files Notes files Time reporting I&rsquo;ve tried to use it for to do&rsquo;s but never really managed, partly because I wanted to have a good interface for my to do&rsquo;s on my phone.</p>
+
+                <a href="/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Simple deployments of NixOS machines with nixus</a></h2><span class="post-meta">
+    2021-07-23
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/nixus/">Nixus</a>
+        
+    
+</span>
+<p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any tools to do central deployments of machines. But I&rsquo;ve always read and known that NixOS is excellent at this. NixOS can easily build another systems configuration, then copy the system to the target systems nix store and then activate it there.
+Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A while ago the need for this changed because one of my VPSes started running low on RAM, low enough to not be able to build new generations of it&rsquo;s own system.</p>
+
+                <a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Read On &rarr;</a>
+            </div>
+        
+
+        <div class="pagination">
+            
+    <ul class="pagination pagination-default">
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/blog/page/3/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
+        </div>
+    </div>
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://taserud.net/en/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Taserud Consulting AB</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>
