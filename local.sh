@@ -1,5 +1,5 @@
 #! /usr/bin/env nix-shell
-#! nix-shell -i bash -p xdg_utils
+#! nix-shell -i bash -p xdg-utils
 
 set -euo pipefail
 
