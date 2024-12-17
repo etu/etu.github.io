@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Syncthing on Elis Hirwing</title>
+    <link>https://elis.nu/tags/syncthing/</link>
+    <description>Recent content in Syncthing on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Aug 2021 21:30:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/syncthing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mobile org-mode use with Orgzly and Syncthing</title>
+      <link>https://elis.nu/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/</link>
+      <pubDate>Mon, 02 Aug 2021 21:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/</guid>
+      <description>I&amp;rsquo;ve been an Emacs user for 13+ years, during this time I&amp;rsquo;ve been using org-mode on and off for different thing.&#xA;Some examples where I currently use org-mode:&#xA;Deployment of this website Making of presentation slides Project read me files Notes files Time reporting I&amp;rsquo;ve tried to use it for to do&amp;rsquo;s but never really managed, partly because I wanted to have a good interface for my to do&amp;rsquo;s on my phone.</description>
+    </item>
+  </channel>
+</rss>
