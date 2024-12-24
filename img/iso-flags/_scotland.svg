@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="svg2"
+   version="1.1"
+   width="1280"
+   height="960"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPathFlag">
+      <rect
+         id="clipPathMask"
+         width="1065"
+         height="745"
+         x="107"
+         y="107"
+         rx="67"
+         ry="67" />
+    </clipPath>
+  </defs>
+  <g
+     id="layer_back"
+     style="display:inline">
+    <image
+       id="image_back"
+       x="0"
+       y="0"
+       width="1280"
+       height="960"
+       xlink:href="back.png" />
+  </g>
+  <g
+     id="layer_mask"
+     x="107"
+     y="107"
+     width="1065"
+     height="745"
+     style="display:inline"
+     clip-path="url(#clipPathFlag)">
+    <g
+       id="flag_mask_group"
+       x="106"
+       y="75"
+       width="1280"
+       height="960"
+       transform="translate(106,75) scale(1.667)">
+      <svg
+         version="1"
+         x="0.00000000"
+         y="0.00000000"
+         width="640"
+         height="480"
+         id="svg548">
+        <metadata
+           id="metadata3758">
+          <rdf:RDF>
+            <cc:Work
+               rdf:about="">
+              <dc:format>image/svg+xml</dc:format>
+              <dc:type
+                 rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+              <dc:title />
+            </cc:Work>
+          </rdf:RDF>
+        </metadata>
+        <defs
+           id="defs549">
+          <marker
+             markerUnits="strokeWidth"
+             refX="0.00000000"
+             refY="5.00000000"
+             markerWidth="4.00000000"
+             markerHeight="3.00000000"
+             orient="auto"
+             viewBox="0 0 10 10"
+             id="ArrowEnd">
+            <path
+               d="M 0 0 L 10 5 L 0 10 L 0 0 z "
+               style="font-size:12;"
+               id="path551" />
+          </marker>
+          <marker
+             markerUnits="strokeWidth"
+             refX="10.0000000"
+             refY="5.00000000"
+             markerWidth="4.00000000"
+             markerHeight="3.00000000"
+             orient="auto"
+             viewBox="0 0 10 10"
+             id="ArrowStart">
+            <path
+               d="M 10 0 L 0 5 L 10 10 L 10 0 z "
+               style="font-size:12;"
+               id="path553" />
+          </marker>
+          <clipPath
+             id="a">
+            <rect
+               id="rect5949"
+               height="3"
+               width="5" />
+          </clipPath>
+        </defs>
+        <g
+           id="g5951"
+           clip-path="url(#a)"
+           transform="scale(128,160)">
+          <rect
+             id="rect5953"
+             height="30"
+             width="50"
+             x="0"
+             y="0"
+             style="fill:#0065bd" />
+          <path
+             id="path5955"
+             d="M 0,0 5,3 M 0,3 5,0"
+             style="fill:none;stroke:#ffffff;stroke-width:0.60000002" />
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g
+     id="layer_fore"
+     style="display:inline">
+    <image
+       id="image_fore"
+       x="0"
+       y="0"
+       width="1280"
+       height="960"
+       xlink:href="fore.png" />
+  </g>
+</svg>

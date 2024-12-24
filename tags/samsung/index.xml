@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Samsung on Elis Hirwing</title>
+    <link>https://elis.nu/tags/samsung/</link>
+    <description>Recent content in Samsung on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 15 Feb 2021 21:15:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/samsung/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ultra wide monitor</title>
+      <link>https://elis.nu/blog/2021/02/ultra-wide-monitor/</link>
+      <pubDate>Mon, 15 Feb 2021 21:15:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/ultra-wide-monitor/</guid>
+      <description>A couple of months (after at least half a year of thinking) I finally decided to do it. I decided to buy a Ultra wide screen for my home office. The one I had been looking at for months is the Samsung Odyssey G9 C49G95. It happens to be the opposite of cheap. Part of the triggering factor was a conversation on IRC in #nixos-chat where a person admitted that she had one of those.</description>
+    </item>
+  </channel>
+</rss>
