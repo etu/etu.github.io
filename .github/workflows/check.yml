@@ -11,9 +11,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-
       - uses: DeterminateSystems/nix-installer-action@v16
-      - uses: DeterminateSystems/magic-nix-cache-action@v9
 
       - run: 'nix fmt . -- --check'
       - run: 'nix run nixpkgs#yamllint -- --strict --format github .'
@@ -25,9 +23,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-
       - uses: DeterminateSystems/nix-installer-action@v16
-      - uses: DeterminateSystems/magic-nix-cache-action@v9
 
       - run: 'nix flake check'
       - run: 'nix build .#website'
