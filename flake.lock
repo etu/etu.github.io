@@ -73,11 +73,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1746369265,
-        "narHash": "sha256-tYwCXOsthcVU55iRlxF6ttwAn20sN2PwHtsNDJ7UdMc=",
+        "lastModified": 1746726650,
+        "narHash": "sha256-gSNBS1kgNrovmVq+1U3mkTtue5TsFM3q7BoYPos1DLw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0ab7cd9c1b5f27cf34968a0c7e907abcb09c48c4",
+        "rev": "2cd2decd3aebe7bff63c51b978c27a8e91bbab3d",
         "type": "github"
       },
       "original": {
@@ -89,11 +89,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1746369265,
-        "narHash": "sha256-tYwCXOsthcVU55iRlxF6ttwAn20sN2PwHtsNDJ7UdMc=",
+        "lastModified": 1746726650,
+        "narHash": "sha256-gSNBS1kgNrovmVq+1U3mkTtue5TsFM3q7BoYPos1DLw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "0ab7cd9c1b5f27cf34968a0c7e907abcb09c48c4",
+        "rev": "2cd2decd3aebe7bff63c51b978c27a8e91bbab3d",
         "type": "github"
       },
       "original": {
@@ -105,11 +105,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1746300365,
-        "narHash": "sha256-thYTdWqCRipwPRxWiTiH1vusLuAy0okjOyzRx4hLWh4=",
+        "lastModified": 1746576598,
+        "narHash": "sha256-FshoQvr6Aor5SnORVvh/ZdJ1Sa2U4ZrIMwKBX5k2wu0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f21e4546e3ede7ae34d12a84602a22246b31f7e0",
+        "rev": "b3582c75c7f21ce0b429898980eddbbf05c68e55",
         "type": "github"
       },
       "original": {
@@ -149,11 +149,11 @@
         "web-iso-flags": "web-iso-flags"
       },
       "locked": {
-        "lastModified": 1746408887,
-        "narHash": "sha256-nabSJLRxELhUewPEYsmdALZZuMNBR1yh8/fV2/KEX4s=",
+        "lastModified": 1746754468,
+        "narHash": "sha256-SZJWnhozDKkrTcRZGyHgtrwJgh7wOvhW0x0Y1Oi5kBc=",
         "owner": "TaserudConsulting",
         "repo": "theme-albatross",
-        "rev": "0eced428466d4b13cc6852756a057232372b8b8b",
+        "rev": "fb99a743752101275a04a584e026798645a146fd",
         "type": "github"
       },
       "original": {
@@ -171,11 +171,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1746404914,
-        "narHash": "sha256-I+Gi+9n+ItHK6ViyP2iTrHkcqFqGsCNayUd60M6Cmgw=",
+        "lastModified": 1746750446,
+        "narHash": "sha256-g9qNGKSbdkiK7ksfuCkCTujKoE9VI1Ld+YdWWJ9xaLM=",
         "owner": "TaserudConsulting",
         "repo": "web-iso-flags",
-        "rev": "afc1006dbea9d20a1beec05f16c0682e1867db5c",
+        "rev": "7654ec4bb69c141e0cd4c68efb198420a606f351",
         "type": "github"
       },
       "original": {
