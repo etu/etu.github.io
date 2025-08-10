@@ -166,6 +166,9 @@ languages:
         - name: './arbete/'
           url: /sv/work/
           weight: 30
+        - name: './föredrag/'
+          url: /sv/talks/
+          weight: 40
 
       i18n:
         - name: gb

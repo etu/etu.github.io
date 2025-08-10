@@ -2,8 +2,8 @@
 title: ~elis/talks/
 ---
 
-On this page I link presentation slides and if it exists the recording of me
-holding that presentation.
+On this page I link presentation slides and if it exists the recording
+of me holding that presentation.
 
 They will be sorted by reversed chronological order (newest first).
 
@@ -40,7 +40,7 @@ They will be sorted by reversed chronological order (newest first).
 - Date: 2018-11-28
 - Meetup: Stockholm Emacs Meetup
 
-I held this at the revival event of Stockholm Emacs Meetup when I took over
-that group.
+I held this at the revival event of Stockholm Emacs Meetup when I took
+over that group.
 
 [Org file used for slides](https://github.com/etu/presentations/blob/master/stockholm-emacs-meetup-2018-11-28/presentation.org). [Org file used for live demo](https://github.com/etu/presentations/blob/master/stockholm-emacs-meetup-2018-11-28/shopping-list.org).
