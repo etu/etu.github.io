@@ -7,6 +7,13 @@ holding that presentation.
 
 They will be sorted by reversed chronological order (newest first).
 
+## Nix what?
+
+- Date: 2025-05-20
+- Location: Cloud Native Meetup Värmland
+
+[Org file used for slides](https://github.com/etu/presentations/blob/master/cloud-native-meetup-varmland-2025-05-20/presentation.org).
+
 ## The NixOS Ecosystem -- A brief overview
 
 - Date: 2020-02-22
