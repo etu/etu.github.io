@@ -61,7 +61,6 @@
     in {
       formatter = pkgs.alejandra;
 
-      packages.hugo = tpkgs.hugo;
       packages.theme = tpkgs.theme;
 
       packages._3dmodelsPage = _3dmodelsPage;
@@ -94,6 +93,29 @@
           # Set domain for github pages
           echo ${domain} > $out/CNAME
         '';
+      };
+
+      apps = {
+        default = {
+          type = "app";
+          program = let
+            scriptDrv = pkgs.writeShellScriptBin "local.sh" ''
+              set -euo pipefail
+
+              nix build .#theme --out-link src/themes/${tpkgs.theme.theme-name}
+
+              rm -rf src/static/3d-models src/content/3d-models.md
+              mkdir -p src/static/3d-models
+              install -m 644 -v $(nix build .#_3dmodelsPage --print-out-paths --no-link)/index.md src/content/3d-models.md
+              install -m 644 -v -D $(nix build .#_3dmodelsPage --print-out-paths --no-link)/static/* -t src/static/3d-models
+
+              cd src/
+              sleep 1 && ${pkgs.xdg-utils}/bin/xdg-open "http://localhost:1313/" &
+
+              ${tpkgs.hugo}/bin/hugo server --logLevel debug --disableFastRender --gc
+            '';
+          in "${scriptDrv}/bin/local.sh";
+        };
       };
     });
 }
