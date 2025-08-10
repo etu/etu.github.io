@@ -26,6 +26,18 @@
                 href="https://elis.nu/sv/work/"
                 />
   </url><url>
+    <loc>https://elis.nu/sv/talks/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-gb"
+                href="https://elis.nu/talks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="sv-se"
+                href="https://elis.nu/sv/talks/"
+                />
+  </url><url>
     <loc>https://elis.nu/sv/about/</loc>
     <xhtml:link
                 rel="alternate"

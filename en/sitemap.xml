@@ -280,6 +280,16 @@
                 />
   </url><url>
     <loc>https://elis.nu/talks/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="sv-se"
+                href="https://elis.nu/sv/talks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-gb"
+                href="https://elis.nu/talks/"
+                />
   </url><url>
     <loc>https://elis.nu/work/</loc>
     <xhtml:link
