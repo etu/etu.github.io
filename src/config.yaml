@@ -110,6 +110,11 @@ params:
 
 languages:
   en:
+    languageCode: en-gb
+
+    params:
+      homeUrl: /
+
     menu:
       main:
         - name: '~elis/'
@@ -130,3 +135,39 @@ languages:
         - name: './3d-models/'
           url: /3d-models/
           weight: 60
+
+      i18n:
+        - name: se
+          url: /sv/
+          weight: 10
+  sv:
+    languageCode: sv-se
+
+    params:
+      homeUrl: /sv/
+
+      extraHeaderContent: |-
+        <aside id="advert">
+          <a href="https://taserud.net/?mtm_campaign=ElisNuTopBanner"
+            target="_blank">
+            Letar du efter IT-konsulttjänster inom NixOS, Linux,
+            Kubernetes, DevOps? Kolla in <u>Taserud Consulting AB</u>.
+          </a>
+        </aside>
+
+    menu:
+      main:
+        - name: '~elis/'
+          url: /sv/
+          weight: 10
+        - name: './om/'
+          url: /sv/about/
+          weight: 20
+        - name: './arbete/'
+          url: /sv/work/
+          weight: 30
+
+      i18n:
+        - name: gb
+          url: /
+          weight: 10
