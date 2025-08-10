@@ -26,4 +26,4 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@v19
 
       - run: 'nix flake check'
-      - run: 'nix build .#website'
+      - run: 'nix build'

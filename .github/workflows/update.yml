@@ -18,7 +18,7 @@ jobs:
 
       - run: 'nix flake update'
       - run: 'nix flake check'
-      - run: 'nix build .#website'
+      - run: 'nix build'
 
       - uses: peaceiris/actions-gh-pages@v4
         with:

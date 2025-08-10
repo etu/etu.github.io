@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@v19
 
-      - run: nix build .#website
+      - run: nix build
 
       - uses: peaceiris/actions-gh-pages@v4
         with:

@@ -65,7 +65,7 @@
       packages.theme = tpkgs.theme;
 
       packages._3dmodelsPage = _3dmodelsPage;
-      packages.website = pkgs.stdenv.mkDerivation {
+      packages.default = pkgs.stdenv.mkDerivation {
         name = domain;
 
         src = ./src;
