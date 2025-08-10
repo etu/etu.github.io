@@ -6,6 +6,10 @@ name: Publish
     branches:
       - main
 
+concurrency:
+  group: ci-${{ github.ref }}-deploy
+  cancel-in-progress: true
+
 jobs:
   publish:
     name: Publish website
