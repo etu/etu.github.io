@@ -59,6 +59,10 @@ params:
         color: #e6c0e1;
         border-radius: .25rem 0;
       }
+      html body header div.i18n {
+        /* Ensure the i18n menu is above the aside advert in the header */
+        z-index: 2 !important;
+      }
     </style>
 
     <!-- Matomo -->
