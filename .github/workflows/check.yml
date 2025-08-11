@@ -10,7 +10,7 @@ jobs:
     name: File formatting
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: DeterminateSystems/nix-installer-action@v19
 
       - run: 'nix fmt . -- --check'
@@ -22,7 +22,7 @@ jobs:
     name: Check flake
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: DeterminateSystems/nix-installer-action@v19
 
       - run: 'nix flake check'
