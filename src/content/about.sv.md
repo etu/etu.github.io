@@ -46,3 +46,4 @@ Sätt att kontakta mig:
 - {{< fa fab github >}} GitHub: [github/etu](https://github.com/etu)
 - {{< fa fab linkedin >}} LinkedIn: [Elis Hirwing](https://linkedin.com/in/elishirwing/)
 - {{< fa fab facebook >}} Facebook: [Elis Hirwing](https://facebook.com/elishirwing/)
+- {{< fa fab instagram >}} Instagram: [@elis.hirwing](https://instagram.com/elis.hirwing/)
