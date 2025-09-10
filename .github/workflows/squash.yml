@@ -2,7 +2,7 @@
 name: 'Squash gh-pages'
 
 env:
-  NEW_FIRST_COMMIT: HEAD~19
+  NEW_FIRST_COMMIT: HEAD~4
   DEFAULT_BRANCH: 'gh-pages'
 
 'on':
