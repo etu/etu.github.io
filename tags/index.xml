@@ -6,8 +6,22 @@
     <description>Recent content in Tags on Elis Hirwing</description>
     <generator>Hugo</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 19 Jan 2025 13:20:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 13 Sep 2025 20:00:00 +0200</lastBuildDate>
     <atom:link href="https://elis.nu/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux</title>
+      <link>https://elis.nu/tags/linux/</link>
+      <pubDate>Sat, 13 Sep 2025 20:00:00 +0200</pubDate>
+      <guid>https://elis.nu/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ZFS</title>
+      <link>https://elis.nu/tags/zfs/</link>
+      <pubDate>Sat, 13 Sep 2025 20:00:00 +0200</pubDate>
+      <guid>https://elis.nu/tags/zfs/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Food</title>
       <link>https://elis.nu/tags/food/</link>
@@ -41,13 +55,6 @@
       <link>https://elis.nu/tags/hyprland/</link>
       <pubDate>Thu, 29 Aug 2024 21:30:00 +0200</pubDate>
       <guid>https://elis.nu/tags/hyprland/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>https://elis.nu/tags/linux/</link>
-      <pubDate>Thu, 29 Aug 2024 21:30:00 +0200</pubDate>
-      <guid>https://elis.nu/tags/linux/</guid>
       <description></description>
     </item>
     <item>
@@ -237,13 +244,6 @@
       <link>https://elis.nu/tags/backup/</link>
       <pubDate>Fri, 21 May 2021 20:45:00 +0100</pubDate>
       <guid>https://elis.nu/tags/backup/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>ZFS</title>
-      <link>https://elis.nu/tags/zfs/</link>
-      <pubDate>Fri, 21 May 2021 20:45:00 +0100</pubDate>
-      <guid>https://elis.nu/tags/zfs/</guid>
       <description></description>
     </item>
     <item>

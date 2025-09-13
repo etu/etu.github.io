@@ -166,6 +166,34 @@
     <div class="posts">
         
             <div class="post">
+                <h2><a href="/blog/2025/09/migrating-zfs-mirror-to-raidz2/">Migrating from ZFS mirror to RAIDZ2</a></h2><span class="post-meta">
+    2025-09-13
+
+    
+        &middot; 5 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/zfs/">ZFS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p><p>For a long time I&rsquo;ve been running my storage on a 2-disk ZFS
+mirror. It&rsquo;s been stable, safe, and easy to manage. However, at some
+point, 2 disks just aren&rsquo;t enough, and I wanted to upgrade to RAIDZ2
+so that I could survive up to two simultaneous disk failures.</p>
+<p>I could have added another mirror, which would have been simple, and
+this setup would allow two drives to fail, but not any two drives. I
+wanted the extra safety of being able to lose <strong>any two drives</strong>.</p></p>
+
+                <a href="/blog/2025/09/migrating-zfs-mirror-to-raidz2/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
                 <h2><a href="/blog/2024/08/back-from-hyprland-to-sway/">Back from Hyprland to Sway</a></h2><span class="post-meta">
     2024-08-29
 

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://elis.nu/</loc>
-    <lastmod>2025-01-19T13:20:00+01:00</lastmod>
+    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sv-se"
@@ -16,19 +16,16 @@
                 />
   </url><url>
     <loc>https://elis.nu/blog/</loc>
-    <lastmod>2025-01-19T13:20:00+01:00</lastmod>
+    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://elis.nu/blog/2025/01/elis-tempeh-v1-0/</loc>
-    <lastmod>2025-01-19T13:20:00+01:00</lastmod>
+    <loc>https://elis.nu/tags/linux/</loc>
+    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
   </url><url>
-    <loc>https://elis.nu/tags/food/</loc>
-    <lastmod>2025-01-19T13:20:00+01:00</lastmod>
-  </url><url>
-    <loc>https://elis.nu/tags/recipe/</loc>
-    <lastmod>2025-01-19T13:20:00+01:00</lastmod>
+    <loc>https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/</loc>
+    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/</loc>
-    <lastmod>2025-01-19T13:20:00+01:00</lastmod>
+    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sv-se"
@@ -40,6 +37,18 @@
                 href="https://elis.nu/tags/"
                 />
   </url><url>
+    <loc>https://elis.nu/tags/zfs/</loc>
+    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/blog/2025/01/elis-tempeh-v1-0/</loc>
+    <lastmod>2025-01-19T13:20:00+01:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/tags/food/</loc>
+    <lastmod>2025-01-19T13:20:00+01:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/tags/recipe/</loc>
+    <lastmod>2025-01-19T13:20:00+01:00</lastmod>
+  </url><url>
     <loc>https://elis.nu/tags/vegan/</loc>
     <lastmod>2025-01-19T13:20:00+01:00</lastmod>
   </url><url>
@@ -50,9 +59,6 @@
     <lastmod>2024-08-29T21:30:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/hyprland/</loc>
-    <lastmod>2024-08-29T21:30:00+02:00</lastmod>
-  </url><url>
-    <loc>https://elis.nu/tags/linux/</loc>
     <lastmod>2024-08-29T21:30:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/nixos/</loc>
@@ -173,9 +179,6 @@
     <lastmod>2021-05-21T20:45:00+01:00</lastmod>
   </url><url>
     <loc>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</loc>
-    <lastmod>2021-05-21T20:45:00+01:00</lastmod>
-  </url><url>
-    <loc>https://elis.nu/tags/zfs/</loc>
     <lastmod>2021-05-21T20:45:00+01:00</lastmod>
   </url><url>
     <loc>https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/</loc>

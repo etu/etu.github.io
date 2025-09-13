@@ -6,8 +6,15 @@
     <description>Recent content in ZFS on Elis Hirwing</description>
     <generator>Hugo</generator>
     <language>en-gb</language>
-    <lastBuildDate>Fri, 21 May 2021 20:45:00 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 13 Sep 2025 20:00:00 +0200</lastBuildDate>
     <atom:link href="https://elis.nu/tags/zfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrating from ZFS mirror to RAIDZ2</title>
+      <link>https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/</link>
+      <pubDate>Sat, 13 Sep 2025 20:00:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/</guid>
+      <description>&lt;p&gt;For a long time I&amp;rsquo;ve been running my storage on a 2-disk ZFS&#xA;mirror. It&amp;rsquo;s been stable, safe, and easy to manage. However, at some&#xA;point, 2 disks just aren&amp;rsquo;t enough, and I wanted to upgrade to RAIDZ2&#xA;so that I could survive up to two simultaneous disk failures.&lt;/p&gt;&#xA;&lt;p&gt;I could have added another mirror, which would have been simple, and&#xA;this setup would allow two drives to fail, but not any two drives. I&#xA;wanted the extra safety of being able to lose &lt;strong&gt;any two drives&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The day when ZFS saved my data</title>
       <link>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</link>
