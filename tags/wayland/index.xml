@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wayland on Elis Hirwing</title>
+    <link>https://elis.nu/tags/wayland/</link>
+    <description>Recent content in Wayland on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 29 Aug 2024 21:30:00 +0200</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/wayland/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Back from Hyprland to Sway</title>
+      <link>https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/</link>
+      <pubDate>Thu, 29 Aug 2024 21:30:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/</guid>
+      <description>&lt;p&gt;After a brief experiment with&#xA;&lt;a href=&#34;https://elis.nu/blog/2024/07/switching-to-hyprland/&#34;&gt;Hyprland&lt;/a&gt;, I&amp;rsquo;m back to using Sway. My&#xA;experiment lasted less than a month, as I hoped Hyprland&amp;rsquo;s window&#xA;selector would resolve my window-sharing woes.&lt;/p&gt;&#xA;&lt;p&gt;It turns out it wasn&amp;rsquo;t, because the first week back at work I had the&#xA;need to share a slideshow in full screen. Then it doesn&amp;rsquo;t matter if&#xA;you can select a window anymore. So my workarounds with Sway would&#xA;have worked in that use case while my Hyprland set up…  didn&amp;rsquo;t.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Switching from Sway to Hyprland</title>
+      <link>https://elis.nu/blog/2024/07/switching-to-hyprland/</link>
+      <pubDate>Tue, 23 Jul 2024 16:40:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/07/switching-to-hyprland/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;After four years with Sway, I&amp;rsquo;ve decided to transition to Hyprland. My&#xA;journey from EXWM to Sway began about four years ago, and I documented&#xA;the experience in&#xA;&lt;a href=&#34;https://elis.nu/blog/2021/02/switching-to-wayland-sway/&#34;&gt;this post&lt;/a&gt; three years ago.&#xA;While Sway has served me well, it has its limitations that I&amp;rsquo;ve used&#xA;hacks and workarounds to circumvent.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-limitations-of-sway&#34;&gt;The Limitations of Sway&lt;/h2&gt;&#xA;&lt;p&gt;One major drawback of Sway is its&#xA;&lt;a href=&#34;https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/&#34;&gt;screen sharing&lt;/a&gt;&#xA;capabilities. Although I managed to get screen sharing somewhat&#xA;functional, it only allows sharing the full screen.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
+      <link>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</link>
+      <pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</guid>
+      <description>&lt;p&gt;Switching to Wayland has it&amp;rsquo;s side-effects, one of which is the improved&#xA;security from X11 where applications can&amp;rsquo;t just randomly spy on each other at&#xA;any point.&lt;/p&gt;&#xA;&lt;p&gt;This is both good news and bad news.&lt;/p&gt;&#xA;&lt;p&gt;The good news:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Applications can&amp;rsquo;t just randomly spy on each other.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The bad news:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Things like global hot-keys in for example Mumble won&amp;rsquo;t work.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Back from complaining to actually solving the problem though.&lt;/p&gt;&#xA;&lt;h2 id=&#34;mumble-does-have-a-patch-for-a-future-release&#34;&gt;Mumble does have a patch for a future release&lt;/h2&gt;&#xA;&lt;p&gt;So there&amp;rsquo;s the issue about &lt;a href=&#34;https://github.com/mumble-voip/mumble/issues/3243&#34;&gt;Push to talk does not work in Wayland&lt;/a&gt;, this has&#xA;been followed up by a patch &lt;a href=&#34;https://github.com/mumble-voip/mumble/pull/3675&#34;&gt;Add DBus calls to de/-activate push to talk&lt;/a&gt;. This&#xA;patch will land in the 1.4.0 release though while current stable is 1.3.4.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Detailed setup of screen sharing in Wayland (Sway)</title>
+      <link>https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/</link>
+      <pubDate>Fri, 19 Feb 2021 23:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/</guid>
+      <description>&lt;p&gt;Getting screen sharing to work on Wayland seems to be surprisingly hard.&#xA;Maybe it is compared to X11 that doesn&amp;rsquo;t require any additional setup at all.&lt;/p&gt;&#xA;&lt;p&gt;To have working screen sharing on Sway you really need three components&#xA;installed and set up with correct environment variables.&lt;/p&gt;&#xA;&lt;p&gt;These three components are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;pipewire&lt;/code&gt; (I have version: 0.3.21)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;xdg-desktop-portal&lt;/code&gt; (I have version: 1.8.0)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;xdg-desktop-portal-wlr&lt;/code&gt; (I have version: 0.1.0)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;These three components has to have systemd user services. You should be able&#xA;to see them in the list if you run &lt;code&gt;systemctl --user&lt;/code&gt;, just look for the&#xA;different programs name ending in &lt;code&gt;.service&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Switching to Wayland (Sway)</title>
+      <link>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</link>
+      <pubDate>Wed, 17 Feb 2021 22:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</guid>
+      <description>&lt;p&gt;Like every other desktop Linux user for the past many years I&amp;rsquo;ve used X11. I&#xA;was on &lt;a href=&#34;https://i3wm.org/&#34;&gt;i3wm&lt;/a&gt; for quite some time until I was introduced to&#xA;&lt;a href=&#34;https://github.com/ch11ng/exwm&#34;&gt;Emacs X11 Window Manager&lt;/a&gt; which I used&#xA;exclusively for about 18 months, I&amp;rsquo;ve even held a &lt;a href=&#34;https://elis.nu/talks/&#34;&gt;talk&lt;/a&gt; about it.&#xA;But at some point it got too annoying, for example in multi monitor use cases.&lt;/p&gt;&#xA;&lt;p&gt;At this point my first step was to go back to set up i3wm again. With that&#xA;set up I wanted to give &lt;a href=&#34;https://swaywm.org/&#34;&gt;SwayWM&lt;/a&gt; another attempt, it was&#xA;years ago I&amp;rsquo;ve checked it out before. I think my previous experience was when the&#xA;project was new. At that point (if I remember correctly), not even the window&#xA;decorations looked like the ones in i3wm.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Syncthing on Elis Hirwing</title>
+    <link>https://elis.nu/tags/syncthing/</link>
+    <description>Recent content in Syncthing on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 02 Aug 2021 21:30:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/syncthing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mobile org-mode use with Orgzly and Syncthing</title>
+      <link>https://elis.nu/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/</link>
+      <pubDate>Mon, 02 Aug 2021 21:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been an Emacs user for 13+ years, during this time I&amp;rsquo;ve been using&#xA;&lt;a href=&#34;https://orgmode.org/&#34;&gt;org-mode&lt;/a&gt; on and off for different thing.&lt;/p&gt;&#xA;&lt;p&gt;Some examples where I currently use org-mode:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Deployment of this website&lt;/li&gt;&#xA;&lt;li&gt;Making of presentation slides&lt;/li&gt;&#xA;&lt;li&gt;Project read me files&lt;/li&gt;&#xA;&lt;li&gt;Notes files&lt;/li&gt;&#xA;&lt;li&gt;Time reporting&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve tried to use it for to do&amp;rsquo;s but never really managed, partly because I&#xA;wanted to have a good interface for my to do&amp;rsquo;s on my phone. Then I wanted&#xA;quick synchronization to my computers to be able to pick up the changes&#xA;there.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
