@@ -23,7 +23,7 @@ to keep using and a third one at home, so getting just one additional
 ever being in a state with **no redundancy** during the migration.
 
 This post will show how I migrated from a 2-disk ZFS mirror to a
-4-disk RAIDZ2, step by step, while never being unprotected.
+4-disk RAIDZ2, step by step, while never being without redundancy.
 
 ### Initial setup
 
