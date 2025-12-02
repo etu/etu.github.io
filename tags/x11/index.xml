@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>X11 on Elis Hirwing</title>
+    <link>https://elis.nu/tags/x11/</link>
+    <description>Recent content in X11 on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 17 Feb 2021 22:00:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/x11/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switching to Wayland (Sway)</title>
+      <link>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</link>
+      <pubDate>Wed, 17 Feb 2021 22:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</guid>
+      <description>&lt;p&gt;Like every other desktop Linux user for the past many years I&amp;rsquo;ve used X11. I&#xA;was on &lt;a href=&#34;https://i3wm.org/&#34;&gt;i3wm&lt;/a&gt; for quite some time until I was introduced to&#xA;&lt;a href=&#34;https://github.com/ch11ng/exwm&#34;&gt;Emacs X11 Window Manager&lt;/a&gt; which I used&#xA;exclusively for about 18 months, I&amp;rsquo;ve even held a &lt;a href=&#34;https://elis.nu/talks/&#34;&gt;talk&lt;/a&gt; about it.&#xA;But at some point it got too annoying, for example in multi monitor use cases.&lt;/p&gt;&#xA;&lt;p&gt;At this point my first step was to go back to set up i3wm again. With that&#xA;set up I wanted to give &lt;a href=&#34;https://swaywm.org/&#34;&gt;SwayWM&lt;/a&gt; another attempt, it was&#xA;years ago I&amp;rsquo;ve checked it out before. I think my previous experience was when the&#xA;project was new. At that point (if I remember correctly), not even the window&#xA;decorations looked like the ones in i3wm.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

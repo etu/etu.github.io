@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="svg2"
+   version="1.1"
+   width="1280"
+   height="960"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPathFlag">
+      <rect
+         id="clipPathMask"
+         width="1065"
+         height="745"
+         x="107"
+         y="107"
+         rx="67"
+         ry="67" />
+    </clipPath>
+  </defs>
+  <g
+     id="layer_back"
+     style="display:inline">
+    <image
+       id="image_back"
+       x="0"
+       y="0"
+       width="1280"
+       height="960"
+       xlink:href="back.png" />
+  </g>
+  <g
+     id="layer_mask"
+     x="107"
+     y="107"
+     width="1065"
+     height="745"
+     style="display:inline"
+     clip-path="url(#clipPathFlag)">
+    <g
+       id="flag_mask_group"
+       x="106"
+       y="75"
+       width="1280"
+       height="960"
+       transform="translate(106,75) scale(1.667)">
+      <svg
+         id="svg598"
+         height="480"
+         width="640"
+         version="1.1">
+        <metadata
+           id="metadata9">
+          <rdf:RDF>
+            <cc:Work
+               rdf:about="">
+              <dc:format>image/svg+xml</dc:format>
+              <dc:type
+                 rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+            </cc:Work>
+          </rdf:RDF>
+        </metadata>
+        <defs
+           id="defs600">
+          <clipPath
+             id="clipPath3483"
+             clipPathUnits="userSpaceOnUse">
+            <rect
+               id="rect3485"
+               height="666"
+               width="666"
+               y="-154"
+               x="67.641"
+               fill="#808080" />
+          </clipPath>
+        </defs>
+        <g
+           id="flag"
+           transform="matrix(.96096 0 0 .72072 -65 110.99)"
+           clip-path="url(#clipPath3483)">
+          <g
+             id="g605"
+             fill-rule="evenodd"
+             stroke-width="1pt"
+             transform="matrix(8.325,0,0,8.325,0,-154)">
+            <rect
+               id="rect602"
+               height="80"
+               width="40"
+               y="0"
+               x="0"
+               fill="#319400" />
+            <rect
+               id="rect603"
+               height="40"
+               width="80"
+               y="0"
+               x="40"
+               fill="#ffd600" />
+            <rect
+               id="rect604"
+               height="40"
+               width="80"
+               y="40"
+               x="40"
+               fill="#de2110" />
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g
+     id="layer_fore"
+     style="display:inline">
+    <image
+       id="image_fore"
+       x="0"
+       y="0"
+       width="1280"
+       height="960"
+       xlink:href="fore.png" />
+  </g>
+</svg>
