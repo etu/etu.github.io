@@ -139,6 +139,9 @@ languages:
         - name: './3d-models/'
           url: /3d-models/
           weight: 60
+        - name: './cubing/'
+          url: /cubing/
+          weight: 60
 
       i18n:
         - name: se

@@ -1,0 +1,41 @@
+{{ define "main" }}
+<div class="content">
+    {{ if (.Title | len) }}
+        <h1>{{ .Title }}</h1>
+    {{ end }}
+
+    {{ .Content }}
+
+    {{ if isset .Params "algorithms" }}
+        <div class="algorithms">
+            {{ range $idx, $algo := .Params.algorithms }}
+                <div class="algorithm-card" id="algo-{{ $idx }}">
+                    <h2>{{ $algo.name }}</h2>
+
+                    {{ if isset $algo "description" }}
+                        <p class="description">{{ $algo.description }}</p>
+                    {{ end }}
+
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        <code class="algorithm-notation">{{ $algo.notation }}</code>
+                    </div>
+
+                    {{ if isset $algo "params" }}
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>AnimCube3("{{ $algo.params }}")</script>
+                            </div>
+                        </div>
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
+    {{ end }}
+</div>
+{{ end }}
+
+{{ define "headcontent" }}
+<link rel="stylesheet" href="/css/cubing.css">
+<script src="/js/AnimCube3.js"></script>
+{{ end }}
