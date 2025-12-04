@@ -13,7 +13,7 @@ algorithms:
   - name: CFOP / OLL Cross / Line
     notation: |
       Full:  F (R U R' U') F'
-      Short: F (sexy) F'
+      Short: F (sexy)      F'
     description: |
       The Line Algorithm in the OLL cross is used to orient all four edges of
       the last layer to form a cross on the top face.
@@ -22,7 +22,7 @@ algorithms:
   - name: CFOP / OLL Cross / Hook
     notation: |
       Full:  f (R U R' U') f'
-      Short: f (sexy) f'
+      Short: f (sexy)      f'
     description: |
       The Hook Algorithm in the OLL cross is used to orient all four edges of
       the last layer to form a cross on the top face when two edges are already
@@ -32,7 +32,7 @@ algorithms:
   - name: CFOP / OLL Cross / Dot
     notation: |
       Full:  F (R U R' U') F' f (R U R' U') f'
-      Short: (line) (hook)
+      Short: (line)           (hook)
     description: |
       The Dot Algorithm in the OLL cross is used to orient all four edges of
       the last layer to form a cross on the top face when no edges are
@@ -57,7 +57,7 @@ algorithms:
   - name: CFOP / OLL Corners / Headlights
     notation: |
       Full:  (R U R' U R U2 R') U (R U2 R' U' R U' R')
-      Short: (sune) U (anti-sune)
+      Short: (sune)             U (anti-sune)
     description: |
       My slow Headlights Algorithm in OLL corners is used to orient two
       corners facing the same direction (headlights).
@@ -66,7 +66,7 @@ algorithms:
   - name: CFOP / OLL Corners / Chameleon
     notation: |
       Full:  (R U R' U R U2 R') U' (R U2 R' U' R U' R')
-      Short: (sune) U' (anti-sune)
+      Short: (sune)             U' (anti-sune)
     description: |
       My slow Chameleon Algorithm in OLL corners is used to orient two
       corners facing out from each other (chamelion).
@@ -75,7 +75,7 @@ algorithms:
   - name: CFOP / OLL Corners / Bowtie
     notation: |
       Full:  (R U R' U R U2 R') U2 (R U2 R' U' R U' R')
-      Short: (sune) U2 (anti-sune)
+      Short: (sune)             U2 (anti-sune)
     description: |
       My slow Bowtie Algorithm in OLL corners is used to orient two
       corners facing towards each other (bowtie).
@@ -84,7 +84,7 @@ algorithms:
   - name: CFOP / OLL Corners / Double Sune
     notation: |
       Full:  (R U R' U R U2 R') (R U R' U R U2 R')
-      Short: (sune) (sune)
+      Short: (sune)             (sune)
     description: |
       My slow Double Sune Algorithm in OLL corners is used to orient all
       four corners of the last layer when no corners are correctly oriented.
@@ -93,7 +93,7 @@ algorithms:
   - name: CFOP / OLL Corners / Pi
     notation: |
       Full:  (R U R' U R U2 R') U' (R U R' U R U2 R')
-      Short: (sune) U' (sune)
+      Short: (sune)             U' (sune)
     description: |
       My slow Pi Algorithm in OLL corners is used to orient all four corners
       of the last layer when no corners are correctly oriented.
@@ -102,7 +102,7 @@ algorithms:
   - name: CFOP / PLL Corners / T-Perm (Headlights)
     notation: |
       Full:  (R U R' U') R' F R2 U' R' U' R U R' F'
-      Short: (sexy) R' F R2 U' R' U' R U R' F'
+      Short: (sexy)      R' F R2 U' R' U' R U R' F'
     description: |
       The T-Perm with Headlights Algorithm in PLL corners is used to swap
       two adjacent corners while keeping the other pieces in place, when
@@ -112,7 +112,7 @@ algorithms:
   - name: CFOP / PLL Corners / Y-Perm (No Headlights)
     notation: |
       Full:  F R U' R' U' R U R' F' (R U R' U') R' F R F'
-      Short: F R U' R' U' R U R' F' (sexy) R' F R F'
+      Short: F R U' R' U' R U R' F' (sexy)      R' F R F'
     description: |
       The Y-Perm with No Headlights Algorithm in PLL corners is used to
       swap two adjacent corners while keeping the other pieces in place,
