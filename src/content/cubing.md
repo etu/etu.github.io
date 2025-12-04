@@ -34,7 +34,7 @@ algorithms:
     params: "buttonbar=1&speed=10&initmove=f U R U' R' f' F U R U' R' F'&move=F R U R' U' F' f R U R' U' f'"
 
   - name: CFOP / OLL Corners / Sune
-    notation: (sexy) (R U2 R')
+    notation: (R U R' U) (R U2 R')
     description:
       The Sune Algorithm in OLL corners is used to orient all four corners
       of the last layer when one corner is already correctly oriented.
