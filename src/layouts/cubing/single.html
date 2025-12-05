@@ -21,10 +21,19 @@
                         <code class="algorithm-notation">{{ $algo.notation }}</code>
                     </div>
 
-                    {{ if isset $algo "params" }}
+                    {{ if isset $algo "animCube" }}
                         <div class="cube-wrapper">
                             <div class="cube">
-                                <script>AnimCube3("{{ $algo.params }}")</script>
+                                <script>
+                                    AnimCube{{ $algo.animCube.size | default 3 | safeJS }}(
+                                        "buttonbar={{ $algo.animCube.buttonBar | default 1 }}&" +
+                                        "buttonheight={{ $algo.animCube.buttonHeight | default 25 }}&" +
+                                        "speed={{ $algo.animCube.speed | default 10 }}&" +
+                                        "initmove={{ $algo.animCube.initMove | default }}&" +
+                                        "initrevmove={{ $algo.animCube.initRevMove | default "#" }}&" +
+                                        "move={{ $algo.animCube.move }}"
+                                    )
+                                </script>
                             </div>
                         </div>
                     {{ end }}
