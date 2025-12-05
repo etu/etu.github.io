@@ -16,12 +16,18 @@
                         <p class="description">{{ $algo.description }}</p>
                     {{ end }}
 
+                    {{ if isset $algo.notation "full" }}
                     <div class="notation-section">
                         <h3>Notation</h3>
-                        <code class="algorithm-notation">{{ $algo.notation }}</code>
+                        {{ if isset $algo.notation "short" }}
+                            <code class="algorithm-notation">Full:  <strong>{{ $algo.notation.full }}</strong><br/>Short: <strong>{{ $algo.notation.short }}</strong></code>
+                        {{ else }}
+                            <code class="algorithm-notation"><strong>{{ $algo.notation.full }}</strong></code>
+                        {{ end }}
                     </div>
+                    {{ end }}
 
-                    {{ if isset $algo "animCube" }}
+                    {{ if isset $algo.notation "full" }}
                         <div class="cube-wrapper">
                             <div class="cube">
                                 <script>
@@ -31,7 +37,7 @@
                                         "speed={{ $algo.animCube.speed | default 10 }}&" +
                                         "initmove={{ $algo.animCube.initMove | default }}&" +
                                         "initrevmove={{ $algo.animCube.initRevMove | default "#" }}&" +
-                                        "move={{ $algo.animCube.move }}"
+                                        "move={{ $algo.notation.full }}"
                                     )
                                 </script>
                             </div>
