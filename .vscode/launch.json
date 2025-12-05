@@ -8,7 +8,7 @@
             "name": "Launch hugo server",
             "request": "launch",
             "type": "node-terminal",
-            "command": "nix-shell local.sh"
+            "command": "nix run"
         }
     ]
 }
