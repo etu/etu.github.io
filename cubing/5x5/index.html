@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
-    <title>~elis/cubing/ - Elis Hirwing</title>
+    <title>~elis/cubing/5x5/ - Elis Hirwing</title>
 
     
     <meta charset="utf-8">
@@ -9,14 +9,12 @@
     <meta name="referrer" content="no-referrer">
 
     
-    <link rel="canonical" href="https://elis.nu/cubing/">
+    <link rel="canonical" href="https://elis.nu/cubing/5x5/">
 
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     
-    <link href="https://elis.nu/cubing/index.xml" rel="alternate" type="application/rss+xml" title="Elis Hirwing">
-        <link href="https://elis.nu/cubing/index.xml" rel="feed" type="application/rss+xml" title="Elis Hirwing">
     
 
     
@@ -31,9 +29,9 @@
     <meta property="og:description" content="">
     <meta property="og:locale" content="en">
     <meta property="og:site_name" content="Elis Hirwing">
-    <meta property="og:title" content="~elis/cubing/ &middot; Elis Hirwing">
+    <meta property="og:title" content="~elis/cubing/5x5/ &middot; Elis Hirwing">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://elis.nu/cubing/">
+    <meta property="og:url" content="https://elis.nu/cubing/5x5/">
     
     <meta name="twitter:card" content="summary_large_image">
 
@@ -110,6 +108,9 @@
     
 </head>
 
+<link rel="stylesheet" href="/css/cubing.css">
+<script src="/js/AnimCube5.js"></script>
+
     <body><header>
     
         <div class="i18n">
@@ -159,17 +160,55 @@
 </header>
 <div class="wrapper">
 <div class="content">
-    <h1>~elis/cubing/</h1>
+    
+        <h1>~elis/cubing/5x5/</h1>
+    
 
-    <p>This section contains my personal notes and algorithms for speedcubing. These are mostly for my own reference, but feel free to use them if you find them helpful.</p>
-<p>For a more comprehensive resource, check out <a href="https://www.cube.academy/">cube.academy/</a>.</p>
-<h2 id="available-guides">Available Guides</h2>
-<ul>
-<li><a href="/cubing/3x3-cfop/">3x3x3 CFOP Method</a> - Some algorithms for solving a 3x3x3 Rubik&rsquo;s Cube using the CFOP method</li>
-<li><a href="/cubing/4x4/">4x4x4 Parity</a> - This page contains only parity cases for the 4x4x4 and bigger cubes</li>
-<li><a href="/cubing/5x5/">5x5x5 Parity</a> - Edge parity algorithms for the 5x5x5 Rubik&rsquo;s Cube</li>
-</ul>
+    <p>This page contains only parity cases for the 5x5x5 and bigger cubes.</p>
 
+
+    
+        <div class="algorithms">
+            
+                <div class="algorithm-card" id="algo-0">
+                    <h2>Edge Parity</h2>
+
+                    
+                        <p class="description">Edge parity occurs on 4x4x4 (and larger cubes) when you have a
+single pair of edges that need to be swapped. This algorithm fixes the
+edge parity issue that can occur during the edge pairing stage.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation"><strong>(r2 B2 U2 l U2 r&#39;) (U2 r U2 F2 r F2 l&#39;) (B2 r2)</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube5(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(r2 B2 U2 l U2 r\u0027) (U2 r U2 F2 r F2 l\u0027) (B2 r2)"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
 </div>
 
         </div><footer class="footer">
