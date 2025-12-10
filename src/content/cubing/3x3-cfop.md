@@ -55,6 +55,7 @@ algorithms:
 
       This is a three cycle, so, if you run this three times you see
       different cases.
+    url: https://www.speedsolving.com/wiki/index.php/OLL#OLL_33
     animCube:
       initMove: x2
 
