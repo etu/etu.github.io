@@ -9,4 +9,5 @@ For a more comprehensive resource, check out [cube.academy/](https://www.cube.ac
 
 ## Available Guides
 
-- [3x3x3 CFOP Method](3x3-cfop/) - Algorithms for solving a 3x3x3 Rubik's Cube using the CFOP method
+- [3x3x3 CFOP Method](3x3-cfop/) - Some algorithms for solving a 3x3x3 Rubik's Cube using the CFOP method
+- [4x4x4 Parity](4x4/) - This page contains only parity cases for the 4x4x4 and bigger cubes
