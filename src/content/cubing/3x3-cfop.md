@@ -9,7 +9,6 @@ algorithms:
   #     short: R U R' U'     # Optional: to show easier to remember version like "sexy" instead of full notation
   #   description: |
   #     This is a template algorithm entry. Replace with actual algorithm data.
-  #   params: "buttonheight=25&buttonbar=1&speed=10&initmove=x2&initrevmove=#&move=R U R' U'"
   #   animCube:
   #     initMove: ""         # Recommended: Set to x2 to get yellow side on top
   #     buttonBar: 1         # Default: show button bar (1) or not (0)
