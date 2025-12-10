@@ -1,5 +1,5 @@
 ---
-title: ~elis/cubing/
+title: ~elis/cubing/3x3-cfop/
 type: cubing
 algorithms:
   # - name: Template algorithm

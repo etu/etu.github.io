@@ -1,0 +1,12 @@
+---
+title: ~elis/cubing/
+type: cubing
+---
+
+This section contains my personal notes and algorithms for speedcubing. These are mostly for my own reference, but feel free to use them if you find them helpful.
+
+For a more comprehensive resource, check out [cube.academy/](https://www.cube.academy/).
+
+## Available Guides
+
+- [3x3x3 CFOP Method](3x3-cfop/) - Algorithms for solving a 3x3x3 Rubik's Cube using the CFOP method
