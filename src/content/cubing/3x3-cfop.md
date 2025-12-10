@@ -26,6 +26,15 @@ algorithms:
     animCube:
       initMove: x2
 
+  - name: Sledgehammer
+    notation:
+      full: R' F R F'
+    description: |
+      A very useful algorithm in cubing, it's used within F2L and as
+      part of some other algorithms.
+    animCube:
+      initMove: x2
+
   - name: CFOP / OLL Cross / Line
     notation:
       full:  F (R U R' U') F'
@@ -33,6 +42,19 @@ algorithms:
     description: |
       The Line Algorithm in the OLL cross is used to orient all four edges of
       the last layer to form a cross on the top face.
+    animCube:
+      initMove: x2
+
+  - name: CFOP / OLL Cross / Tying Shoelaces (Line Variant)
+    notation:
+      full:  (R U R' U') (R' F R F')
+      short: (sexy)      (sledgehammer)
+    description: |
+      A second variant of the line that often shows up to go directly
+      to a fully oriented OLL.
+
+      This is a three cycle, so, if you run this three times you see
+      different cases.
     animCube:
       initMove: x2
 
