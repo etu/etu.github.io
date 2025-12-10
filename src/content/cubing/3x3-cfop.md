@@ -1,6 +1,7 @@
 ---
 title: ~elis/cubing/3x3-cfop/
 type: cubing
+cubeSize: 3
 algorithms:
   # - name: Template algorithm
   #   notation:
@@ -11,7 +12,6 @@ algorithms:
   #   params: "buttonheight=25&buttonbar=1&speed=10&initmove=x2&initrevmove=#&move=R U R' U'"
   #   animCube:
   #     initMove: ""         # Recommended: Set to x2 to get yellow side on top
-  #     size: 3              # Default: cube size
   #     buttonBar: 1         # Default: show button bar (1) or not (0)
   #     buttonHeight: 25     # Default: height of buttons in px
   #     speed: 10            # Default: animation speed

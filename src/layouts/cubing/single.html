@@ -31,7 +31,7 @@
                         <div class="cube-wrapper">
                             <div class="cube">
                                 <script>
-                                    AnimCube{{ $algo.animCube.size | default 3 | safeJS }}(
+                                    AnimCube{{ $.Params.CubeSize | default 3 | safeJS }}(
                                         "buttonbar={{ $algo.animCube.buttonBar | default 1 }}&" +
                                         "buttonheight={{ $algo.animCube.buttonHeight | default 25 }}&" +
                                         "speed={{ $algo.animCube.speed | default 10 }}&" +
@@ -52,5 +52,5 @@
 
 {{ define "headcontent" }}
 <link rel="stylesheet" href="/css/cubing.css">
-<script src="/js/AnimCube3.js"></script>
+<script src="/js/AnimCube{{ .Params.CubeSize | default 3 | safeJS }}.js"></script>
 {{ end }}
