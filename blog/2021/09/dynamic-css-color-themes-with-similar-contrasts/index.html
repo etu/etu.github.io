@@ -211,16 +211,16 @@ other places that resulted in a function named <code>contrast-color</code> locat
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// Background colors to calculate the
 </span></span></span><span class="line"><span class="cl"><span class="c1">// colors against.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$darkBackgroundColor</span><span class="o">:</span> <span class="mh">#171717</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="nv">$darkBackgroundColor</span><span class="o">:</span> <span class="mh">#171717</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="nv">$lightBackgroundColor</span><span class="o">:</span> <span class="mh">#F4F4F4</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// The foreground color to use against
 </span></span></span><span class="line"><span class="cl"><span class="c1">// the background colors.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$codeKeywordColor</span><span class="o">:</span> <span class="mh">#FF256F</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="nv">$codeKeywordColor</span><span class="o">:</span> <span class="mh">#FF256F</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// Define the color themes as CSS
 </span></span></span><span class="line"><span class="cl"><span class="c1">// variables for the light theme.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nd">:root</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="nd">:root</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="na">--background</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$lightBackgroundColor</span><span class="si">}</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">  <span class="na">--code-keyword-color</span><span class="o">:</span> <span class="si">#{</span><span class="nf">contrast-color</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="nv">$codeKeywordColor</span><span class="o">,</span> <span class="nv">$lightBackgroundColor</span><span class="p">)</span><span class="si">}</span><span class="p">;</span>
@@ -228,7 +228,7 @@ other places that resulted in a function named <code>contrast-color</code> locat
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// Define the color themes as CSS
 </span></span></span><span class="line"><span class="cl"><span class="c1">// variables for the dark theme.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">@media</span> <span class="p">(</span><span class="n">prefers-color-scheme</span><span class="o">:</span> <span class="ni">dark</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">@media</span> <span class="p">(</span><span class="n">prefers-color-scheme</span><span class="o">:</span> <span class="ni">dark</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nd">:root</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="na">--background</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$darkBackgroundColor</span><span class="si">}</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="na">--code-keyword-color</span><span class="o">:</span> <span class="si">#{</span><span class="nf">contrast-color</span><span class="p">(</span>
@@ -237,7 +237,7 @@ other places that resulted in a function named <code>contrast-color</code> locat
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// Use the colors in your theme
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nt">div</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="nt">div</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="na">background</span><span class="o">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="na">color</span><span class="o">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">code-keyword-color</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>

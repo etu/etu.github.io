@@ -239,13 +239,13 @@ drives plus the loop device.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Create the new pool</span>
 </span></span><span class="line"><span class="cl">zpool create -o <span class="nv">ashift</span><span class="o">=</span><span class="m">12</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -O <span class="nv">mountpoint</span><span class="o">=</span>none <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -O <span class="nv">atime</span><span class="o">=</span>off <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -O <span class="nv">acltype</span><span class="o">=</span>posixacl <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -O <span class="nv">xattr</span><span class="o">=</span>sa <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -O <span class="nv">compression</span><span class="o">=</span>lz4 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -O <span class="nv">encryption</span><span class="o">=</span>aes-256-gcm -O <span class="nv">keyformat</span><span class="o">=</span>passphrase <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  zstorage-ng raidz2 <span class="nv">$DISKC</span> <span class="nv">$DISKD</span> /dev/loop0
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">mountpoint</span><span class="o">=</span>none <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">atime</span><span class="o">=</span>off <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">acltype</span><span class="o">=</span>posixacl <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">xattr</span><span class="o">=</span>sa <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">compression</span><span class="o">=</span>lz4 <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">encryption</span><span class="o">=</span>aes-256-gcm -O <span class="nv">keyformat</span><span class="o">=</span>passphrase <span class="se">\
+</span></span></span><span class="line"><span class="cl">  zstorage-ng raidz2 <span class="nv">$DISKC</span> <span class="nv">$DISKD</span> /dev/loop0
 </span></span></code></pre></div><p>At this point, <code>zstorage-ng</code> was fully functional and healthy, while the
 original <code>zstorage</code> mirror remained intact as a separate pool.</p>
 <p>Then I removed the sparse file to prevent it from taking up space:</p>
