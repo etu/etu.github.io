@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PHP on Elis Hirwing</title>
+    <link>https://elis.nu/tags/php/</link>
+    <description>Recent content in PHP on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 05 Apr 2020 20:00:00 +0200</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PHP packaging in NixOS ❄</title>
+      <link>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</link>
+      <pubDate>Sun, 05 Apr 2020 20:00:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</guid>
+      <description>&lt;p&gt;This is a sneak peak into the future 20.09 release of NixOS.&lt;/p&gt;&#xA;&lt;p&gt;The PHP packaging ecosystem in NixOS has been in a quite sad state for a long&#xA;time. Partly because of the lack of people caring about PHP in Nix, but also&#xA;that PHP is a bit weird when it comes to packaging.&lt;/p&gt;&#xA;&lt;h2 id=&#34;state-of-php-before-nixos-2009&#34;&gt;State of PHP before NixOS 20.09&lt;/h2&gt;&#xA;&lt;p&gt;Due to the lack of ability to do clever things like the python community does&#xA;with =withPackages= to compose a package with the dependencies you need we&#xA;have defaulted to provide a huge default package to accommodate all needs.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
