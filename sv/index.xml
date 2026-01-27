@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>~elis/ on Elis Hirwing</title>
+    <link>https://elis.nu/sv/</link>
+    <description>Recent content in ~elis/ on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>sv-se</language>
+    <atom:link href="https://elis.nu/sv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>~elis/arbete/</title>
+      <link>https://elis.nu/sv/work/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/sv/work/</guid>
+      <description>&lt;p&gt;Som arbetslivserfarenhet har jag mestadels arbetat med PHP och andra&#xA;webbrealterade teknologier. Sedan 2014 har jag fokuserat på&#xA;backendutveckling.&lt;/p&gt;&#xA;&lt;p&gt;Jag har också erfarenhet av att underhålla servrar, nätverk,&#xA;lastbalansering, databaser, sshd, webbservrar och annat som behövs för&#xA;att en stor webbplats ska kunna skala och fungera bra.&lt;/p&gt;&#xA;&lt;h2 id=&#34;arbetenuvarande&#34;&gt;./arbete/nuvarande/&lt;/h2&gt;&#xA;&lt;h3 id=&#34;tvnu-sweden-ab-2016-04--nuvarande&#34;&gt;TVNU Sweden AB (2016-04 &amp;ndash; nuvarande)&lt;/h3&gt;&#xA;&lt;p&gt;Började som Senior Backendutvecklare och blev senare (2019-12)&#xA;teamledare för backendteamet. I denna roll är jag en del av teamet som&#xA;ansvarar för import av data (både streaming och linjär TV-data). Vi&#xA;tar också hand om drift och underhåll av servrar samt bygger ett&#xA;admin-gränssnitt för att enkelt kunna göra manuella ändringar i datan.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/föredrag/</title>
+      <link>https://elis.nu/sv/talks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/sv/talks/</guid>
+      <description>&lt;p&gt;På denna sida länkar jag till presentationsbilder och, om det finns,&#xA;inspelningar av när jag höll presentationen.&lt;/p&gt;&#xA;&lt;p&gt;De är sorterade i omvänd kronologisk ordning (nyast först).&lt;/p&gt;&#xA;&lt;h2 id=&#34;nix-vad&#34;&gt;Nix vad?&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Datum: 2025-05-20&lt;/li&gt;&#xA;&lt;li&gt;Plats: Cloud Native Meetup Värmland&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/etu/presentations/blob/master/cloud-native-meetup-varmland-2025-05-20/presentation.org&#34;&gt;Org-fil för presentation&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;nixos-ekosystemet--en-översikt&#34;&gt;NixOS-ekosystemet &amp;ndash; En översikt&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Datum: 2020-02-22&lt;/li&gt;&#xA;&lt;li&gt;Plats: Oslo NixOS Meetup&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/etu/presentations/blob/master/oslo-nixos-meetup-2020-02-22/presentation.org&#34;&gt;Org-fil för presentation&lt;/a&gt;. &lt;a href=&#34;https://www.youtube.com/watch?v=9Su89RLoh0Q&#34;&gt;Youtube-video&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;lightning-talk-exwm--emacs-x11-window-manager&#34;&gt;Lightning talk: EXWM &amp;ndash; Emacs X11 Window Manager&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Datum: 2019-12-29&lt;/li&gt;&#xA;&lt;li&gt;Plats: 36c3 Lightningtalks track&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/etu/presentations/blob/master/cfp-36c3-lightningtalk-exwm/presentation.org&#34;&gt;Org-fil för presentation&lt;/a&gt;. &lt;a href=&#34;https://www.youtube.com/watch?v=qbtr_a7vBXw&amp;amp;t=1418s&#34;&gt;Youtube med tidsstämpel&lt;/a&gt;. &lt;a href=&#34;https://media.ccc.de/v/36c3-10525-lightning_talks_day_3#t=1418&#34;&gt;media.ccc.de med tidsstämpel&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/om/</title>
+      <link>https://elis.nu/sv/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/sv/about/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://elis.nu/img/elis.webp&#34; alt=&#34;Foto av mig&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Jag heter Elis (SA4BSE) och bor för närvarande i Arvika, Sverige och&#xA;arbetar på distans i Stockholm.&lt;/p&gt;&#xA;&lt;h2 id=&#34;ombra-på&#34;&gt;./om/bra-på/&lt;/h2&gt;&#xA;&lt;p&gt;Jag har ganska mycket erfarenhet av att arbeta med PHP-backender samt&#xA;en del serverunderhåll genom åren, med olika nivåer av ansvar på olika&#xA;arbetsplatser.&lt;/p&gt;&#xA;&lt;p&gt;Under de senaste åren har jag använt flera Linux-distributioner under&#xA;längre perioder (åtminstone några år). Distributioner jag använt&#xA;inkluderar till exempel: NixOS, ArchLinux, Ubuntu, Gentoo, CentOS,&#xA;etc.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
