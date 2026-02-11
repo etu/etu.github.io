@@ -35,6 +35,15 @@ algorithms:
     animCube:
       initMove: x2
 
+  - name: Hedgeslammer
+    notation:
+      full: F R' F' R
+    description: |
+      A very useful algorithm in cubing, it's used within F2L and as
+      part of some other algorithms. Inverse of Sledgehammer.
+    animCube:
+      initMove: x2
+
   - name: CFOP / OLL Cross / Line
     notation:
       full:  F (R U R' U') F'
