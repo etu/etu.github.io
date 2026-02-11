@@ -210,6 +210,16 @@ algorithms:
       pieces in place.
     animCube:
       initMove: x2
+
+  - name: CFOP / PLL Diagonal Swap / Na-Perm
+    notation:
+      full: (r' D r U2) (r' D r U2) (r' D r U2) (r' D r U2) (r' D r U2)
+      short: (r' D r U2') 5
+    description: |
+      The Na-perm Algorithm in PLL switches two opposite corners and
+      two opposite middles.
+    animCube:
+      initMove: x2
 ---
 
 This page is in no way a comprehensive guide to cubing but provides a
