@@ -17,51 +17,14 @@ params:
   showLogo: false
 
   extraHeaderContent: |-
-    <aside id="advert">
-      <a href="https://taserud.net/en/?mtm_campaign=ElisNuTopBanner"
-        target="_blank">
-        Are you looking for IT consultancy services in the NixOS, Linux,
-        Kubernetes, DevOps space? Check out <u>Taserud Consulting AB</u>.
-      </a>
-    </aside>
+    <aside id="padding"></aside>
 
   extraHeadContent: |-
     <link rel="me" href="https://chaos.social/@sa0bse">
 
     <style>
-      aside#advert {
-        max-width: 48rem;
-        margin: 2rem auto 0 auto;
-      }
-      aside#advert a {
-        background: #26101b;
-        color: #d58bcc;
-        display: block;
-        text-decoration: none;
-        margin: 0 4rem 2rem 4rem;
-        padding: 2rem 1.5rem 1.5rem 1.5rem;
-        text-align: center;
-        border-radius: .25rem;
-        border: .1rem solid #a6a6a6;
-      }
-      aside#advert a::after {
-        content: 'Ad';
-        font-size: .75rem;
-        background-image: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: fit-content;
-        height: fit-content;
-        padding: .4rem .6rem;
-        margin-left: 0;
-        background-color: #4a2739;
-        color: #e6c0e1;
-        border-radius: .25rem 0;
-      }
-      html body header div.i18n {
-        /* Ensure the i18n menu is above the aside advert in the header */
-        z-index: 2 !important;
+      aside#padding {
+        padding: 2rem;
       }
     </style>
 
