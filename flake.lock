@@ -105,7 +105,7 @@
         "_3dmodels": "_3dmodels",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs_2",
-        "taserud-theme-albatross": "taserud-theme-albatross"
+        "theme-albatross": "theme-albatross"
       }
     },
     "systems": {
@@ -123,7 +123,7 @@
         "type": "github"
       }
     },
-    "taserud-theme-albatross": {
+    "theme-albatross": {
       "inputs": {
         "flake-utils": [
           "flake-utils"
@@ -132,37 +132,37 @@
         "web-iso-flags": "web-iso-flags"
       },
       "locked": {
-        "lastModified": 1770601045,
-        "narHash": "sha256-/am0Lqz9OxLq9rGuP7vbWA7OuBxvpFGp7PJNtBi8O0Y=",
-        "owner": "TaserudConsulting",
-        "repo": "theme-albatross",
-        "rev": "9720cccbc231861eb85f3c5f79b3526a84aba1f7",
+        "lastModified": 1770923419,
+        "narHash": "sha256-ErJLZk/ptOK46npwI62PYPLkQPWLmb9308dr2fxldvg=",
+        "owner": "etu",
+        "repo": "hugo-theme-albatross",
+        "rev": "770e3e09a543f843d83671ca3d623b13a9490be0",
         "type": "github"
       },
       "original": {
-        "owner": "TaserudConsulting",
-        "repo": "theme-albatross",
+        "owner": "etu",
+        "repo": "hugo-theme-albatross",
         "type": "github"
       }
     },
     "web-iso-flags": {
       "inputs": {
         "flake-utils": [
-          "taserud-theme-albatross",
+          "theme-albatross",
           "flake-utils"
         ],
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1770597483,
-        "narHash": "sha256-AyFYNCuk4zlXLTsYpHpuvAtfQqj5NcBzxrzhlzG3+y4=",
-        "owner": "TaserudConsulting",
+        "lastModified": 1770922995,
+        "narHash": "sha256-yv/xjl3C5TmGtrkBGnZxECwSe/YlMVMrmn6s8ALRqQk=",
+        "owner": "etu",
         "repo": "web-iso-flags",
-        "rev": "c4eb377bcee4960a9ae9619ef709fc58a14a8089",
+        "rev": "8c7f0cbc96a886c4cbfbd55ebc1659d38a571ebd",
         "type": "github"
       },
       "original": {
-        "owner": "TaserudConsulting",
+        "owner": "etu",
         "repo": "web-iso-flags",
         "type": "github"
       }

@@ -4,8 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     flake-utils.url = "flake-utils";
-    taserud-theme-albatross.url = "github:TaserudConsulting/theme-albatross";
-    taserud-theme-albatross.inputs.flake-utils.follows = "flake-utils";
+    theme-albatross.url = "github:etu/hugo-theme-albatross";
+    theme-albatross.inputs.flake-utils.follows = "flake-utils";
     _3dmodels.url = "github:etu/3d-models";
     _3dmodels.inputs.flake-utils.follows = "flake-utils";
   };
@@ -17,7 +17,7 @@
   } @ inputs:
     flake-utils.lib.eachSystem ["x86_64-linux"] (system: let
       pkgs = nixpkgs.legacyPackages.${system};
-      tpkgs = inputs.taserud-theme-albatross.packages.${system};
+      tpkgs = inputs.theme-albatross.packages.${system};
       domain = "elis.nu";
 
       # Helper function to render all the assets for the 3d model page
