@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="svg2"
+   version="1.1"
+   width="1280"
+   height="960"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPathFlag">
+      <rect
+         id="clipPathMask"
+         width="1065"
+         height="745"
+         x="107"
+         y="107"
+         rx="67"
+         ry="67" />
+    </clipPath>
+  </defs>
+  <g
+     id="layer_back"
+     style="display:inline">
+    <image
+       id="image_back"
+       x="0"
+       y="0"
+       width="1280"
+       height="960"
+       xlink:href="back.png" />
+  </g>
+  <g
+     id="layer_mask"
+     x="107"
+     y="107"
+     width="1065"
+     height="745"
+     style="display:inline"
+     clip-path="url(#clipPathFlag)">
+    <g
+       id="flag_mask_group"
+       x="106"
+       y="75"
+       width="1280"
+       height="960"
+       transform="translate(106,75) scale(1.667)">
+      <svg
+         id="svg548"
+         height="480"
+         width="640"
+         version="1.1">
+        <metadata
+           id="metadata3791">
+          <rdf:RDF>
+            <cc:Work
+               rdf:about="">
+              <dc:format>image/svg+xml</dc:format>
+              <dc:type
+                 rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+            </cc:Work>
+          </rdf:RDF>
+        </metadata>
+        <g
+           id="flag"
+           transform="scale(1.25 .93750)">
+          <g
+             id="g9387"
+             fill-rule="evenodd"
+             stroke-width="1pt"
+             transform="matrix(.68236 0 0 1.0202 0 .000015434)">
+            <rect
+               id="rect555"
+               height="251.77"
+               width="750.33"
+               y="-.000015"
+               x="0"
+               fill="#132c77" />
+            <rect
+               id="rect564"
+               height="250.11"
+               width="750.33"
+               y="251.77"
+               x="0"
+               fill="#c00011" />
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g
+     id="layer_fore"
+     style="display:inline">
+    <image
+       id="image_fore"
+       x="0"
+       y="0"
+       width="1280"
+       height="960"
+       xlink:href="fore.png" />
+  </g>
+</svg>

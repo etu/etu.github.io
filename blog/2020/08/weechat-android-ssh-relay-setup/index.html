@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Weechat Android SSH relay setup - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2020/08/weechat-android-ssh-relay-setup/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Weechat Android SSH relay setup &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2020/08/weechat-android-ssh-relay-setup/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Weechat Android SSH relay setup</h1>
+    <span class="post-meta">
+    2020-08-14
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/weechat/">Weechat</a>
+        
+            <a class="tag" href="/tags/android/">Android</a>
+        
+            <a class="tag" href="/tags/ssh/">SSH</a>
+        
+    
+</span>
+<p>Setting up the Weechat Android <a href="https://github.com/ubergeek42/weechat-android">
+
+
+
+
+    
+
+
+<i class="fab  fa-fab  fa-github "></i>
+ GitHub</a>
+<a href="https://play.google.com/store/apps/details?id=com.ubergeek42.WeechatAndroid">
+
+
+
+
+    
+
+
+<i class="fab  fa-fab  fa-google-play "></i>
+ Play Store</a></p>
+<p>relay client over SSH can be a bit tricky and quite bad at giving useful error messages. So since I&rsquo;m
+going through a re-setup of that I&rsquo;m also writing down my notes here.</p>
+<h2 id="weechat-configuration">Weechat configuration</h2>
+<p>Type the following commands into Weechat.</p>
+<p>Placeholders such as <code>{port}</code> and <code>{password}</code> will be used here and later
+on. Suggested default port is <code>9000</code>, but you need to chose something
+unique on your system. This is especially important if you have a multi user
+system. Setting a <code>{password}</code> is also especially important if you have a
+multi user system.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl"># Add a relay
+</span></span><span class="line"><span class="cl">/relay add weechat {port}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Add a relay password
+</span></span><span class="line"><span class="cl">/set relay.network.password &#34;{password}&#34;
+</span></span></code></pre></div><h2 id="weechat-android-configuration">Weechat Android configuration</h2>
+<h3 id="ssh-setup">SSH setup</h3>
+<h4 id="generating-an-ssh-key">Generating an SSH key</h4>
+<p>You need to generate a separate private key for storage on the phone to be
+able to connect to the server securely. So what I do is that I generate a new
+private key on a laptop, then I transfer the private key in some secure
+enough way to the phone and then make sure to deploy the public key to the
+server where weechat runs.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Generate a private RSA key using openssl.</span>
+</span></span><span class="line"><span class="cl">openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:4096
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Get the public SSH key from the private RSA key.</span>
+</span></span><span class="line"><span class="cl">ssh-keygen -y -f private.pem
+</span></span></code></pre></div><p>I know what you&rsquo;re thinking: “Why not just use ssh-keygen to begin with?”.
+This is because of this which still seems to be an issue:
+<a href="https://github.com/ubergeek42/weechat-android/issues/317#issuecomment-421756006">https://github.com/ubergeek42/weechat-android/issues/317#issuecomment-421756006</a></p>
+<h4 id="add-the-public-key-to-your-server">Add the public key to your server</h4>
+<p>Make sure to add the public ssh key to your <code>~/.ssh/authorized_keys</code> file on
+your server to allow connections. You get the public key by running
+<code>ssh-keygen -y -f private.pem</code> as described above.</p>
+<p>If you want some extra limitations on how this key may be used you can
+prepend the key with the following string:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">no-agent-forwarding,no-X11-forwarding,permitopen=&#34;127.0.0.1:{port}&#34;,
+</span></span><span class="line"><span class="cl">command=&#34;echo &#39;This account can only be used for weechat relays&#39;&#34;
+</span></span></code></pre></div><p>Remember to replace <code>{port}</code> in there. The IP in there may be replaced by a
+local host name. But that must be reflected in the relay host settings in the
+app.</p>
+<h4 id="connection-settings-in-weechat-android">Connection settings in Weechat Android</h4>
+<p>This is also part of the tricky bit, there&rsquo;s a big bunch of settings and all
+of them needs to be “just right”, otherwise it will fail and you will have no
+idea why.</p>
+<p>So this is an ASCII reflection of the settings menu with descriptions of what
+to insert:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">Settings/
+</span></span><span class="line"><span class="cl">`-- Connection/
+</span></span><span class="line"><span class="cl">    |-- Connection type        =&gt; SSH tunnel
+</span></span><span class="line"><span class="cl">    |-- SSH tunnel settings/
+</span></span><span class="line"><span class="cl">    |   |-- SSH host           =&gt; Public DNS name or IP
+</span></span><span class="line"><span class="cl">    |   |
+</span></span><span class="line"><span class="cl">    |   |-- SSH port           =&gt; Public SSH port number
+</span></span><span class="line"><span class="cl">    |   |
+</span></span><span class="line"><span class="cl">    |   |-- SSH username       =&gt; Your SSH username
+</span></span><span class="line"><span class="cl">    |   |
+</span></span><span class="line"><span class="cl">    |   |-- Private key        =&gt; Paste the contents of private.pem here.
+</span></span><span class="line"><span class="cl">    |   |                      =&gt; You have to find your own way of
+</span></span><span class="line"><span class="cl">    |   |                      =&gt; transferring this file to your phone in
+</span></span><span class="line"><span class="cl">    |   |                      =&gt; a way that you think is “secure enough”
+</span></span><span class="line"><span class="cl">    |   |
+</span></span><span class="line"><span class="cl">    |   `-- Known hosts        =&gt; Paste the output of the command
+</span></span><span class="line"><span class="cl">    |                          =&gt; &#34;ssh-keyscan {ssh-host}&#34; in this field.
+</span></span><span class="line"><span class="cl">    |                          =&gt; This is less sensitive than the private key
+</span></span><span class="line"><span class="cl">    |                          =&gt; but it&#39;s still easiest to run it on a
+</span></span><span class="line"><span class="cl">    |                          =&gt; computer and transfer it to the phone and
+</span></span><span class="line"><span class="cl">    |                          =&gt; paste it.
+</span></span><span class="line"><span class="cl">    |
+</span></span><span class="line"><span class="cl">    |-- Relay host             =&gt; 127.0.0.1 is probably fine. This is the IP
+</span></span><span class="line"><span class="cl">    |                          =&gt; to connect to after you have tunneled over
+</span></span><span class="line"><span class="cl">    |                          =&gt; SSH. So that&#39;s why it becomes localhost.
+</span></span><span class="line"><span class="cl">    |
+</span></span><span class="line"><span class="cl">    |-- Relay port             =&gt; Port defined in weechat settings.
+</span></span><span class="line"><span class="cl">    |
+</span></span><span class="line"><span class="cl">    `-- Relay password         =&gt; Password defined in weechat settings.
+</span></span></code></pre></div><h3 id="other-weechat-android-settings">Other Weechat Android settings</h3>
+<p>These are more a documentation of my personal preferences, nothing really
+required for it to work. Just my preferences.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl">Settings/
+</span></span><span class="line"><span class="cl">|-- Connection/
+</span></span><span class="line"><span class="cl">|   |-- Reconnect on connection loss     =&gt; [X]
+</span></span><span class="line"><span class="cl">|   |-- Connect on system boot           =&gt; [ ]
+</span></span><span class="line"><span class="cl">|   |-- Only sync open buffers           =&gt; [ ]
+</span></span><span class="line"><span class="cl">|   `-- Sync buffer read status          =&gt; [X]
+</span></span><span class="line"><span class="cl">|-- Buffer list/
+</span></span><span class="line"><span class="cl">|   |-- Sort buffer list                 =&gt; [ ]
+</span></span><span class="line"><span class="cl">|   |-- Hide non-conversation buffers    =&gt; [X]
+</span></span><span class="line"><span class="cl">|   |-- Hide hidden buffers              =&gt; [X]
+</span></span><span class="line"><span class="cl">|   `-- Show buffer filter               =&gt; [ ]
+</span></span><span class="line"><span class="cl">|-- Look &amp; feel/
+</span></span><span class="line"><span class="cl">|   `-- Dim down non-human lines         =&gt; [X]
+</span></span><span class="line"><span class="cl">`-- Buttons/
+</span></span><span class="line"><span class="cl">    |-- Show tab button                  =&gt; [X]
+</span></span><span class="line"><span class="cl">    |-- Show send button                 =&gt; [X]
+</span></span><span class="line"><span class="cl">    `-- Volume buttons change text size  =&gt; [ ]
+</span></span></code></pre></div>
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

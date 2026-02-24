@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Impermanence on Elis Hirwing</title>
+    <link>https://elis.nu/tags/impermanence/</link>
+    <description>Recent content in Impermanence on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 27 Jun 2020 22:30:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/impermanence/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NixOS ❄: tmpfs as home</title>
+      <link>https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/</link>
+      <pubDate>Sat, 27 Jun 2020 22:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/</guid>
+      <description>&lt;p&gt;This is a follow-up post for my earlier post: &lt;a href=&#34;https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/&#34;&gt;NixOS ❄: tmpfs as root&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;When you start to go down the route of setting up a “pure” system that is as&#xA;clean as you want it to be on each boot. You may start with the lazy route of&#xA;using a persistent partition for your home directory. But it never feels&#xA;quite right. But initially it&amp;rsquo;s so convenient to choose this path.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NixOS ❄: tmpfs as root</title>
+      <link>https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/</link>
+      <pubDate>Sat, 02 May 2020 10:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/</guid>
+      <description>&lt;p&gt;This post covers both EFI and legacy boot setups.&lt;/p&gt;&#xA;&lt;p&gt;One fairly unique property of NixOS is the ability to boot with only &lt;code&gt;/boot&lt;/code&gt;&#xA;and &lt;code&gt;/nix&lt;/code&gt;. Nothing else is actually required. This supports doing all sorts&#xA;of weird things with your root file system.&lt;/p&gt;&#xA;&lt;p&gt;One way is to do like &lt;a href=&#34;https://grahamc.com/blog/erase-your-darlings&#34;&gt;Graham&amp;rsquo;s post &amp;ldquo;erase your darlings&amp;rdquo;&lt;/a&gt; describes and empty&#xA;your root file system each boot using ZFS snapshots. This way have some cool&#xA;things that you could do on top of his setup, such as doing snapshots when&#xA;it&amp;rsquo;s running and roll-back to empty on boot. That way you actually can go&#xA;back to recover files you lost but still have an empty state.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

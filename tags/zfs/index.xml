@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ZFS on Elis Hirwing</title>
+    <link>https://elis.nu/tags/zfs/</link>
+    <description>Recent content in ZFS on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 13 Sep 2025 20:00:00 +0200</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/zfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrating from ZFS mirror to RAIDZ2</title>
+      <link>https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/</link>
+      <pubDate>Sat, 13 Sep 2025 20:00:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/</guid>
+      <description>&lt;p&gt;For a long time I&amp;rsquo;ve been running my storage on a 2-disk ZFS&#xA;mirror. It&amp;rsquo;s been stable, safe, and easy to manage. However, at some&#xA;point, 2 disks just aren&amp;rsquo;t enough, and I wanted to upgrade to RAIDZ2&#xA;so that I could survive up to two simultaneous disk failures.&lt;/p&gt;&#xA;&lt;p&gt;I could have added another mirror, which would have been simple, and&#xA;this setup would allow two drives to fail, but not any two drives. I&#xA;wanted the extra safety of being able to lose &lt;strong&gt;any two drives&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The day when ZFS saved my data</title>
+      <link>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</link>
+      <pubDate>Fri, 21 May 2021 20:45:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</guid>
+      <description>&lt;p&gt;Today my work day didn&amp;rsquo;t turn out the way I expected. It started like a&#xA;normal day, I woke up around the regular time, did my morning routine, sat at&#xA;my desk and started my work-issued laptop.&lt;/p&gt;&#xA;&lt;p&gt;It booted up just fine, I connected it to my Ultrawide display, started going&#xA;through Slack and Email and catch up on some news while drinking my morning&#xA;tea and waking up.&lt;/p&gt;&#xA;&lt;p&gt;Then after around an hour of work things started to hang up, most notably&#xA;Firefox totally froze up. I could launch a new terminal but not start &lt;code&gt;htop&lt;/code&gt;,&#xA;I had a &lt;code&gt;htop&lt;/code&gt; session in a terminal already because it&amp;rsquo;s part of what I&#xA;usually have running. So I went there to look.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Encrypted ZFS mirror with mirrored boot on NixOS</title>
+      <link>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</link>
+      <pubDate>Sun, 04 Aug 2019 10:20:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</guid>
+      <description>&lt;p&gt;So for a long time I have wanted to replace my file server, because it&amp;rsquo;s an&#xA;old HP Microserver that is really slow. And at the same time I have had this&#xA;beast of a desktop tower PC that I haven&amp;rsquo;t used with a Xeon and 32GiB ECC&#xA;memory that has just been turned off due to noise. The obvious solution is to&#xA;re-purpose that install and move it to a location where noise doesn&amp;rsquo;t matter,&#xA;e.g. the closet (a.k.a the server room) where the file server lives.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

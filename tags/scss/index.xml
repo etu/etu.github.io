@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SCSS on Elis Hirwing</title>
+    <link>https://elis.nu/tags/scss/</link>
+    <description>Recent content in SCSS on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 30 Sep 2021 21:10:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/scss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dynamic CSS color themes with similar contrasts</title>
+      <link>https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/</link>
+      <pubDate>Thu, 30 Sep 2021 21:10:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/</guid>
+      <description>&lt;p&gt;This blog is built with Emacs, SCSS using Nix and deployed as static files to&#xA;GitHub Pages. This blog also has quite some colors due to the syntax&#xA;highlighting for code that is performed using CSS rules on HTML classes.&lt;/p&gt;&#xA;&lt;p&gt;So in total I have 15 different colors defined, in which four of them is&#xA;background and foreground colors, two of them is related to link and visited&#xA;link colors. Then I have nine colors remaining which are related to syntax&#xA;highlighting of code.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub on Elis Hirwing</title>
+    <link>https://elis.nu/tags/github/</link>
+    <description>Recent content in GitHub on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 07 Jul 2024 11:30:00 +0200</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prune gh-pages branches using GitHub Actions</title>
+      <link>https://elis.nu/blog/2024/07/prune-gh-pages-branches/</link>
+      <pubDate>Sun, 07 Jul 2024 11:30:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/07/prune-gh-pages-branches/</guid>
+      <description>&lt;p&gt;This website is hosted on GitHub Pages, built using nix and hugo with&#xA;a custom theme that I maintain. I have automated updates for the nix&#xA;flake to get new versions of hugo and nixpkgs, which applies to both&#xA;my theme and the website itself.&lt;/p&gt;&#xA;&lt;p&gt;This automation generates numerous commits and deployments to the&#xA;gh-pages branch, mainly due to minor version bumps of hugo and other&#xA;changes to the theme. While this hasn’t been a problem for my static&#xA;website, which primarily consists of text, a recent addition has&#xA;created some challenges.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

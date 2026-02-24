@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Librem 5 on Elis Hirwing</title>
+    <link>https://elis.nu/tags/librem-5/</link>
+    <description>Recent content in Librem 5 on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 15 Oct 2021 23:40:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/librem-5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First impressions of Purism Librem 5</title>
+      <link>https://elis.nu/blog/2021/10/first-impressions-of-purism-librem-5/</link>
+      <pubDate>Fri, 15 Oct 2021 23:40:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/10/first-impressions-of-purism-librem-5/</guid>
+      <description>&lt;p&gt;Back in 2017, this fairly small company &lt;a href=&#34;https://puri.sm&#34;&gt;Purism&lt;/a&gt; launched a crowdfunding on&#xA;their own crowdfunding platform for their future phone known as &lt;a href=&#34;https://puri.sm/products/librem-5/&#34;&gt;Librem 5&lt;/a&gt;. I&#xA;went back and forth a bit, I thought through some of the history about the&#xA;company and decided that I thought they may deliver some day. At least I&#xA;wanted to support the effort to make a modern Linux that could fill the hole&#xA;that the demise of the &lt;a href=&#34;https://en.wikipedia.org/wiki/Nokia_N900&#34;&gt;Nokia N900&lt;/a&gt; with no worthy device following up.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

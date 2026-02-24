@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Linux - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/tags/linux/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <link href="https://elis.nu/tags/linux/index.xml" rel="alternate" type="application/rss+xml" title="Elis Hirwing">
+        <link href="https://elis.nu/tags/linux/index.xml" rel="feed" type="application/rss+xml" title="Elis Hirwing">
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Linux &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/tags/linux/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+    <h1>Posts about: Linux</h1>
+    
+
+    
+
+    <div class="posts">
+        
+            <div class="post">
+                <h2><a href="/blog/2025/09/migrating-zfs-mirror-to-raidz2/">Migrating from ZFS mirror to RAIDZ2</a></h2><span class="post-meta">
+    2025-09-13
+
+    
+        &middot; 5 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/zfs/">ZFS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p><p>For a long time I&rsquo;ve been running my storage on a 2-disk ZFS
+mirror. It&rsquo;s been stable, safe, and easy to manage. However, at some
+point, 2 disks just aren&rsquo;t enough, and I wanted to upgrade to RAIDZ2
+so that I could survive up to two simultaneous disk failures.</p>
+<p>I could have added another mirror, which would have been simple, and
+this setup would allow two drives to fail, but not any two drives. I
+wanted the extra safety of being able to lose <strong>any two drives</strong>.</p></p>
+
+                <a href="/blog/2025/09/migrating-zfs-mirror-to-raidz2/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2024/08/back-from-hyprland-to-sway/">Back from Hyprland to Sway</a></h2><span class="post-meta">
+    2024-08-29
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/hyprland/">Hyprland</a>
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/cosmic/">Cosmic</a>
+        
+    
+</span>
+<p><p>After a brief experiment with
+<a href="/blog/2024/07/switching-to-hyprland/">Hyprland</a>, I&rsquo;m back to using Sway. My
+experiment lasted less than a month, as I hoped Hyprland&rsquo;s window
+selector would resolve my window-sharing woes.</p>
+<p>It turns out it wasn&rsquo;t, because the first week back at work I had the
+need to share a slideshow in full screen. Then it doesn&rsquo;t matter if
+you can select a window anymore. So my workarounds with Sway would
+have worked in that use case while my Hyprland set up…  didn&rsquo;t.</p></p>
+
+                <a href="/blog/2024/08/back-from-hyprland-to-sway/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2024/07/switching-to-hyprland/">Switching from Sway to Hyprland</a></h2><span class="post-meta">
+    2024-07-23
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/hyprland/">Hyprland</a>
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p><h2 id="introduction">Introduction</h2>
+<p>After four years with Sway, I&rsquo;ve decided to transition to Hyprland. My
+journey from EXWM to Sway began about four years ago, and I documented
+the experience in
+<a href="/blog/2021/02/switching-to-wayland-sway/">this post</a> three years ago.
+While Sway has served me well, it has its limitations that I&rsquo;ve used
+hacks and workarounds to circumvent.</p>
+<h2 id="the-limitations-of-sway">The Limitations of Sway</h2>
+<p>One major drawback of Sway is its
+<a href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">screen sharing</a>
+capabilities. Although I managed to get screen sharing somewhat
+functional, it only allows sharing the full screen.</p></p>
+
+                <a href="/blog/2024/07/switching-to-hyprland/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2024/02/nixos-superpower-specialisations/">NixOS superpower: specialisations</a></h2><span class="post-meta">
+    2024-02-17
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p><p><a href="https://nixos.org/">NixOS</a> has a lot of configurability and features. One
+feature that I&rsquo;ve known about for a while that I think is both really cool,
+but also a bit lesser known is the ability to have declarative
+<a href="https://wiki.nixos.org/wiki/Specialisation">Specialisations</a>. To me, this is a
+superpower of NixOS that I have a hard time to see any other Linux
+Distribution having.</p>
+<h2 id="whats-a-specialisation">What&rsquo;s a Specialisation?</h2>
+<p>The name doesn&rsquo;t do it justice, it&rsquo;s a bit of a weird name for it. However
+I couldn&rsquo;t come up with a better name for it either.</p></p>
+
+                <a href="/blog/2024/02/nixos-superpower-specialisations/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Outsourcing NixOS compile time to Microsoft</a></h2><span class="post-meta">
+    2022-10-10
+
+    
+        &middot; 5 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/cachix/">Cachix</a>
+        
+            <a class="tag" href="/tags/github-actions/">GitHub Actions</a>
+        
+    
+</span>
+<p><p><a href="https://nixos.org/">NixOS</a> is a Linux-distribution that may be source-based, but it has a binary
+cache that covers things so you generally don&rsquo;t need to compile things,
+things tends to be cached.</p>
+<p>However, depending on how you configure your system, you may trigger compiles
+depending on what you do.</p>
+<p>So a thing I do is that I run Emacs 29 with the native-comp patches that is
+wayland native with the pgtk-branch. This is by no mean the stable Emacs
+release at the point of writing. So to get this Emacs I use the excellent
+<a href="https://github.com/nix-community/emacs-overlay">nix-community/emacs-overlay</a> (that is maintained by my friend
+<a href="https://github.com/adisbladis">@adisbladis</a>). However, this means that I will get Emacs from a development
+branch of Emacs, then I need to build all the Emacs packages that I use in my
+configuration as well for this version of Emacs.</p></p>
+
+                <a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/">Keeping LG webOS Developer Mode alive with Home Assistant</a></h2><span class="post-meta">
+    2022-07-25
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/jellyfin/">Jellyfin</a>
+        
+            <a class="tag" href="/tags/lg/">LG</a>
+        
+            <a class="tag" href="/tags/home-assistant/">Home Assistant</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p><p>For over 10 years I&rsquo;ve used <a href="https://kodi.tv/">Kodi</a> on a separate PC connected to a TV to play
+back local media.</p>
+<p>A couple of weeks ago everything changed in a matter of days. I listened to
+<a href="https://latenightlinux.com/late-night-linux-episode-179/">Late Night Linux – Episode 179</a>
+where they talked about <a href="https://jellyfin.org/">Jellyfin</a>. I have
+looked into Jellyfin before, however I&rsquo;ve disregarded it due to the lack of
+app for LG webOS. This changed because the podcast episode told that there
+was a webOS app for Jellyfin.</p></p>
+
+                <a href="/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Simple deployments of NixOS machines with nixus</a></h2><span class="post-meta">
+    2021-07-23
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/nixus/">Nixus</a>
+        
+    
+</span>
+<p><p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any
+tools to do central deployments of machines. But I&rsquo;ve always read and known
+that NixOS is excellent at this. NixOS can easily build another systems
+configuration, then copy the system to the target systems nix store and then
+activate it there.</p>
+<p>Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A
+while ago the need for this changed because one of my VPSes started running
+low on RAM, low enough to not be able to build new generations of it&rsquo;s own
+system. Which posed a problem for future upgrades. One way to solve it would
+be to pay more money for resources that aren&rsquo;t really needed except from when
+doing system upgrades. The other way would be to push pre-built systems from
+another location. Using the second way is simpler and fixes the issue.</p></p>
+
+                <a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">NixOS: Setting up Push To Talk in Mumble on Sway</a></h2><span class="post-meta">
+    2021-06-26
+
+    
+        &middot; 2 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/mumble/">Mumble</a>
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+    
+</span>
+<p><p>Switching to Wayland has it&rsquo;s side-effects, one of which is the improved
+security from X11 where applications can&rsquo;t just randomly spy on each other at
+any point.</p>
+<p>This is both good news and bad news.</p>
+<p>The good news:</p>
+<ul>
+<li>Applications can&rsquo;t just randomly spy on each other.</li>
+</ul>
+<p>The bad news:</p>
+<ul>
+<li>Things like global hot-keys in for example Mumble won&rsquo;t work.</li>
+</ul>
+<p>Back from complaining to actually solving the problem though.</p>
+<h2 id="mumble-does-have-a-patch-for-a-future-release">Mumble does have a patch for a future release</h2>
+<p>So there&rsquo;s the issue about <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
+been followed up by a patch <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
+patch will land in the 1.4.0 release though while current stable is 1.3.4.</p></p>
+
+                <a href="/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/05/the-day-when-zfs-saved-my-data/">The day when ZFS saved my data</a></h2><span class="post-meta">
+    2021-05-21
+
+    
+        &middot; 5 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/zfs/">ZFS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/backup/">Backup</a>
+        
+    
+</span>
+<p><p>Today my work day didn&rsquo;t turn out the way I expected. It started like a
+normal day, I woke up around the regular time, did my morning routine, sat at
+my desk and started my work-issued laptop.</p>
+<p>It booted up just fine, I connected it to my Ultrawide display, started going
+through Slack and Email and catch up on some news while drinking my morning
+tea and waking up.</p>
+<p>Then after around an hour of work things started to hang up, most notably
+Firefox totally froze up. I could launch a new terminal but not start <code>htop</code>,
+I had a <code>htop</code> session in a terminal already because it&rsquo;s part of what I
+usually have running. So I went there to look.</p></p>
+
+                <a href="/blog/2021/05/the-day-when-zfs-saved-my-data/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">Detailed setup of screen sharing in Wayland (Sway)</a></h2><span class="post-meta">
+    2021-02-19
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p><p>Getting screen sharing to work on Wayland seems to be surprisingly hard.
+Maybe it is compared to X11 that doesn&rsquo;t require any additional setup at all.</p>
+<p>To have working screen sharing on Sway you really need three components
+installed and set up with correct environment variables.</p>
+<p>These three components are:</p>
+<ul>
+<li><code>pipewire</code> (I have version: 0.3.21)</li>
+<li><code>xdg-desktop-portal</code> (I have version: 1.8.0)</li>
+<li><code>xdg-desktop-portal-wlr</code> (I have version: 0.1.0)</li>
+</ul>
+<p>These three components has to have systemd user services. You should be able
+to see them in the list if you run <code>systemctl --user</code>, just look for the
+different programs name ending in <code>.service</code>.</p></p>
+
+                <a href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/02/switching-to-wayland-sway/">Switching to Wayland (Sway)</a></h2><span class="post-meta">
+    2021-02-17
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+            <a class="tag" href="/tags/x11/">X11</a>
+        
+    
+</span>
+<p><p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I
+was on <a href="https://i3wm.org/">i3wm</a> for quite some time until I was introduced to
+<a href="https://github.com/ch11ng/exwm">Emacs X11 Window Manager</a> which I used
+exclusively for about 18 months, I&rsquo;ve even held a <a href="/talks/">talk</a> about it.
+But at some point it got too annoying, for example in multi monitor use cases.</p>
+<p>At this point my first step was to go back to set up i3wm again. With that
+set up I wanted to give <a href="https://swaywm.org/">SwayWM</a> another attempt, it was
+years ago I&rsquo;ve checked it out before. I think my previous experience was when the
+project was new. At that point (if I remember correctly), not even the window
+decorations looked like the ones in i3wm.</p></p>
+
+                <a href="/blog/2021/02/switching-to-wayland-sway/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2020/06/nixos-tmpfs-as-home/">NixOS ❄: tmpfs as home</a></h2><span class="post-meta">
+    2020-06-27
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/tmpfs/">Tmpfs</a>
+        
+            <a class="tag" href="/tags/impermanence/">Impermanence</a>
+        
+    
+</span>
+<p><p>This is a follow-up post for my earlier post: <a href="/blog/2020/05/nixos-tmpfs-as-root/">NixOS ❄: tmpfs as root</a>.</p>
+<p>When you start to go down the route of setting up a “pure” system that is as
+clean as you want it to be on each boot. You may start with the lazy route of
+using a persistent partition for your home directory. But it never feels
+quite right. But initially it&rsquo;s so convenient to choose this path.</p></p>
+
+                <a href="/blog/2020/06/nixos-tmpfs-as-home/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2020/05/nixos-tmpfs-as-root/">NixOS ❄: tmpfs as root</a></h2><span class="post-meta">
+    2020-05-02
+
+    
+        &middot; 6 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/tmpfs/">Tmpfs</a>
+        
+            <a class="tag" href="/tags/impermanence/">Impermanence</a>
+        
+    
+</span>
+<p><p>This post covers both EFI and legacy boot setups.</p>
+<p>One fairly unique property of NixOS is the ability to boot with only <code>/boot</code>
+and <code>/nix</code>. Nothing else is actually required. This supports doing all sorts
+of weird things with your root file system.</p>
+<p>One way is to do like <a href="https://grahamc.com/blog/erase-your-darlings">Graham&rsquo;s post &ldquo;erase your darlings&rdquo;</a> describes and empty
+your root file system each boot using ZFS snapshots. This way have some cool
+things that you could do on top of his setup, such as doing snapshots when
+it&rsquo;s running and roll-back to empty on boot. That way you actually can go
+back to recover files you lost but still have an empty state.</p></p>
+
+                <a href="/blog/2020/05/nixos-tmpfs-as-root/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/">Encrypted ZFS mirror with mirrored boot on NixOS</a></h2><span class="post-meta">
+    2019-08-04
+
+    
+        &middot; 6 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/zfs/">ZFS</a>
+        
+    
+</span>
+<p><p>So for a long time I have wanted to replace my file server, because it&rsquo;s an
+old HP Microserver that is really slow. And at the same time I have had this
+beast of a desktop tower PC that I haven&rsquo;t used with a Xeon and 32GiB ECC
+memory that has just been turned off due to noise. The obvious solution is to
+re-purpose that install and move it to a location where noise doesn&rsquo;t matter,
+e.g. the closet (a.k.a the server room) where the file server lives.</p></p>
+
+                <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/">Read On &rarr;</a>
+            </div>
+        
+    </div>
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

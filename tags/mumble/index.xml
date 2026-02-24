@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mumble on Elis Hirwing</title>
+    <link>https://elis.nu/tags/mumble/</link>
+    <description>Recent content in Mumble on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 26 Jun 2021 22:40:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/mumble/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
+      <link>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</link>
+      <pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</guid>
+      <description>&lt;p&gt;Switching to Wayland has it&amp;rsquo;s side-effects, one of which is the improved&#xA;security from X11 where applications can&amp;rsquo;t just randomly spy on each other at&#xA;any point.&lt;/p&gt;&#xA;&lt;p&gt;This is both good news and bad news.&lt;/p&gt;&#xA;&lt;p&gt;The good news:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Applications can&amp;rsquo;t just randomly spy on each other.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The bad news:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Things like global hot-keys in for example Mumble won&amp;rsquo;t work.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Back from complaining to actually solving the problem though.&lt;/p&gt;&#xA;&lt;h2 id=&#34;mumble-does-have-a-patch-for-a-future-release&#34;&gt;Mumble does have a patch for a future release&lt;/h2&gt;&#xA;&lt;p&gt;So there&amp;rsquo;s the issue about &lt;a href=&#34;https://github.com/mumble-voip/mumble/issues/3243&#34;&gt;Push to talk does not work in Wayland&lt;/a&gt;, this has&#xA;been followed up by a patch &lt;a href=&#34;https://github.com/mumble-voip/mumble/pull/3675&#34;&gt;Add DBus calls to de/-activate push to talk&lt;/a&gt;. This&#xA;patch will land in the 1.4.0 release though while current stable is 1.3.4.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

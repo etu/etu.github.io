@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SSH on Elis Hirwing</title>
+    <link>https://elis.nu/tags/ssh/</link>
+    <description>Recent content in SSH on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 14 Aug 2020 18:00:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Weechat Android SSH relay setup</title>
+      <link>https://elis.nu/blog/2020/08/weechat-android-ssh-relay-setup/</link>
+      <pubDate>Fri, 14 Aug 2020 18:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/08/weechat-android-ssh-relay-setup/</guid>
+      <description>&lt;p&gt;Setting up the Weechat Android &lt;a href=&#34;https://github.com/ubergeek42/weechat-android&#34;&gt;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;&#xA;&#xA;&lt;i class=&#34;fab  fa-fab  fa-github &#34;&gt;&lt;/i&gt;&#xA; GitHub&lt;/a&gt;&#xA;&lt;a href=&#34;https://play.google.com/store/apps/details?id=com.ubergeek42.WeechatAndroid&#34;&gt;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;&#xA;&#xA;&lt;i class=&#34;fab  fa-fab  fa-google-play &#34;&gt;&lt;/i&gt;&#xA; Play Store&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;relay client over SSH can be a bit tricky and quite bad at giving useful error messages. So since I&amp;rsquo;m&#xA;going through a re-setup of that I&amp;rsquo;m also writing down my notes here.&lt;/p&gt;&#xA;&lt;h2 id=&#34;weechat-configuration&#34;&gt;Weechat configuration&lt;/h2&gt;&#xA;&lt;p&gt;Type the following commands into Weechat.&lt;/p&gt;&#xA;&lt;p&gt;Placeholders such as &lt;code&gt;{port}&lt;/code&gt; and &lt;code&gt;{password}&lt;/code&gt; will be used here and later&#xA;on. Suggested default port is &lt;code&gt;9000&lt;/code&gt;, but you need to chose something&#xA;unique on your system. This is especially important if you have a multi user&#xA;system. Setting a &lt;code&gt;{password}&lt;/code&gt; is also especially important if you have a&#xA;multi user system.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

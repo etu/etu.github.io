@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub Actions on Elis Hirwing</title>
+    <link>https://elis.nu/tags/github-actions/</link>
+    <description>Recent content in GitHub Actions on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 07 Jul 2024 11:30:00 +0200</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/github-actions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prune gh-pages branches using GitHub Actions</title>
+      <link>https://elis.nu/blog/2024/07/prune-gh-pages-branches/</link>
+      <pubDate>Sun, 07 Jul 2024 11:30:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/07/prune-gh-pages-branches/</guid>
+      <description>&lt;p&gt;This website is hosted on GitHub Pages, built using nix and hugo with&#xA;a custom theme that I maintain. I have automated updates for the nix&#xA;flake to get new versions of hugo and nixpkgs, which applies to both&#xA;my theme and the website itself.&lt;/p&gt;&#xA;&lt;p&gt;This automation generates numerous commits and deployments to the&#xA;gh-pages branch, mainly due to minor version bumps of hugo and other&#xA;changes to the theme. While this hasn’t been a problem for my static&#xA;website, which primarily consists of text, a recent addition has&#xA;created some challenges.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Outsourcing NixOS compile time to Microsoft</title>
+      <link>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</link>
+      <pubDate>Mon, 10 Oct 2022 20:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nixos.org/&#34;&gt;NixOS&lt;/a&gt; is a Linux-distribution that may be source-based, but it has a binary&#xA;cache that covers things so you generally don&amp;rsquo;t need to compile things,&#xA;things tends to be cached.&lt;/p&gt;&#xA;&lt;p&gt;However, depending on how you configure your system, you may trigger compiles&#xA;depending on what you do.&lt;/p&gt;&#xA;&lt;p&gt;So a thing I do is that I run Emacs 29 with the native-comp patches that is&#xA;wayland native with the pgtk-branch. This is by no mean the stable Emacs&#xA;release at the point of writing. So to get this Emacs I use the excellent&#xA;&lt;a href=&#34;https://github.com/nix-community/emacs-overlay&#34;&gt;nix-community/emacs-overlay&lt;/a&gt; (that is maintained by my friend&#xA;&lt;a href=&#34;https://github.com/adisbladis&#34;&gt;@adisbladis&lt;/a&gt;). However, this means that I will get Emacs from a development&#xA;branch of Emacs, then I need to build all the Emacs packages that I use in my&#xA;configuration as well for this version of Emacs.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

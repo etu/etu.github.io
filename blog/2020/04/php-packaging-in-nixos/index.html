@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>PHP packaging in NixOS ❄ - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2020/04/php-packaging-in-nixos/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="PHP packaging in NixOS ❄ &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2020/04/php-packaging-in-nixos/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>PHP packaging in NixOS ❄</h1>
+    <span class="post-meta">
+    2020-04-05
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/php/">PHP</a>
+        
+    
+</span>
+<p>This is a sneak peak into the future 20.09 release of NixOS.</p>
+<p>The PHP packaging ecosystem in NixOS has been in a quite sad state for a long
+time. Partly because of the lack of people caring about PHP in Nix, but also
+that PHP is a bit weird when it comes to packaging.</p>
+<h2 id="state-of-php-before-nixos-2009">State of PHP before NixOS 20.09</h2>
+<p>Due to the lack of ability to do clever things like the python community does
+with =withPackages= to compose a package with the dependencies you need we
+have defaulted to provide a huge default package to accommodate all needs.</p>
+<p>We have been quite bad at accommodating all needs though…</p>
+<p>I&rsquo;m gonna give a few examples.</p>
+<p>PHP in NixOS has defaulted to including for example the following modules:</p>
+<ul>
+<li><code>curl</code></li>
+<li><code>pdo_mysql</code></li>
+<li><code>pdo_odbc</code></li>
+<li><code>pdo_pgsql</code></li>
+<li><code>imap</code></li>
+<li><code>ldap</code></li>
+</ul>
+<p>… among many other modules. Some of these are quite convenient to get (such
+as database related extensions). But some of these are totally unreasonable
+to have as default in a distribution. But due to the nature of Nix and the
+lack of easily extending PHP we have just coped with having a huge
+distribution of PHP.</p>
+<p>Also, at the same time we have lacked some other notable extensions in the
+default build, such as <code>opcache</code>, without recompiling PHP…</p>
+<p>So users migrating from another distribution, for example anything based on
+Debian that defaults to having opcache enabled by default will see a drastic
+performance penalty by migrating to NixOS. This can be fixed by enabling the
+opcache flag for the build and recompile the entire PHP package. How fun…</p>
+<h2 id="the-road-to-a-better-php-packaging-ecosystem">The road to a better PHP packaging ecosystem</h2>
+<p>Real work and thought into this project started in December 2019 when I had a
+chat with Grahamc about a packaging in PHP. And he referred me to talk to a
+another person that was doing a modular PHP setup. I got some notes and
+started to work on it but it proved to be a huge project. So it kinda died
+off there.</p>
+<p>Then <a href="https://github.com/NixOS/nixpkgs/pull/79377">PHP: buildEnv function for additional config on the CLI SAPI</a> happened
+that made it easier to extend PHP as it was, and I was really happy to see
+this work happening since it really followed along some of the things I
+wanted to do. So I set off and made <a href="https://github.com/NixOS/nixpkgs/pull/82348">PHP extensions as packages</a> to package
+almost all PHP extensions as separate packages. With this it would be easier
+to pull in official PHP extensions into the PHP package without the need to
+recompile it.</p>
+<p>This led to the end game to have a really small PHP as base, but it&rsquo;s easy to
+extend. This led me to the path to start with <a href="https://github.com/NixOS/nixpkgs/pull/82794">PHP: Make the default package
+more sane</a> of the first iteration.
+But it proved to be a big project, so <a href="https://github.com/talyz/">@talyz</a> and
+me teamed up with to bring this project to what we wanted to achieve.</p>
+<p>This finally ended up as the following pull request: <a href="https://github.com/NixOS/nixpkgs/pull/83896">PHP: Make the default
+package more sane (v3)</a>. That
+now has been merged into nixpkgs. This PR change the entire PHP ecosystem
+in NixOS.</p>
+<h2 id="state-of-php-in-nixos-in-2009-and-beyond">State of PHP in NixOS in 20.09 and beyond</h2>
+<p>The things we have done:</p>
+<ul>
+<li>We have made a really small PHP as base</li>
+<li>But we extend it by default to contain a bigger set of packages to not for
+break our users.</li>
+<li>We provide almost all upstream extensions and a bunch of 3rd party ones for
+inclusion into your PHP.</li>
+<li>We have written the initial documentation for how to use PHP on Nix.</li>
+<li>We have enabled running tests for every upstream extension of PHP by
+default. And we do it when we build each extension in a sandbox separate
+from each other (This has some issues though).</li>
+<li>We have added =opcache= as a default extension.</li>
+</ul>
+<p>So hereby I now make the following claim:</p>
+<p>NixOS now have the best packaging of PHP on any distribution of any operating
+system out there when it comes to the following properties:</p>
+<ul>
+<li>Opportunity for minimalist install</li>
+<li>Flexibility to select exactly which extensions you want</li>
+</ul>
+<p>Example to build a PHP with exactly the extensions I want:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="n">php</span><span class="o">.</span><span class="n">withExtensions</span> <span class="p">({</span> <span class="n">enabled</span><span class="o">,</span> <span class="n">all</span> <span class="p">}:</span> <span class="k">with</span> <span class="n">all</span><span class="p">;</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="n">curl</span> <span class="n">imagick</span> <span class="n">opcache</span> <span class="n">redis</span> <span class="n">pdo_mysql</span> <span class="n">pdo</span> <span class="n">mysqlnd</span>
+</span></span><span class="line"><span class="cl">  <span class="n">openssl</span> <span class="n">posix</span> <span class="n">sodium</span> <span class="n">sockets</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
+</span></span></code></pre></div><p>And since Nix can be used to build Docker images and be used for deployments,
+this becomes a damn powerful packaging even for users that don&rsquo;t want to run
+NixOS but want to have the power of quickly customizing PHP to exactly their
+needs for that specific application.</p>
+<p><strong>Let&rsquo;s say it again:</strong>
+NixOS now has the single best PHP packaging that exists in terms of
+flexibility, being reproducible and being minimalistic at the same time.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

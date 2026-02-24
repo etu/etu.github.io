@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nixus on Elis Hirwing</title>
+    <link>https://elis.nu/tags/nixus/</link>
+    <description>Recent content in Nixus on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 23 Jul 2021 16:30:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/nixus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simple deployments of NixOS machines with nixus</title>
+      <link>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</link>
+      <pubDate>Fri, 23 Jul 2021 16:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</guid>
+      <description>&lt;p&gt;Since I&amp;rsquo;ve started using NixOS about four years ago I haven&amp;rsquo;t really used any&#xA;tools to do central deployments of machines. But I&amp;rsquo;ve always read and known&#xA;that NixOS is excellent at this. NixOS can easily build another systems&#xA;configuration, then copy the system to the target systems nix store and then&#xA;activate it there.&lt;/p&gt;&#xA;&lt;p&gt;Despite knowing all this, I haven&amp;rsquo;t gotten around to doing this centrally. A&#xA;while ago the need for this changed because one of my VPSes started running&#xA;low on RAM, low enough to not be able to build new generations of it&amp;rsquo;s own&#xA;system. Which posed a problem for future upgrades. One way to solve it would&#xA;be to pay more money for resources that aren&amp;rsquo;t really needed except from when&#xA;doing system upgrades. The other way would be to push pre-built systems from&#xA;another location. Using the second way is simpler and fixes the issue.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

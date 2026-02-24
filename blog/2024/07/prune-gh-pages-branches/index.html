@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Prune gh-pages branches using GitHub Actions - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2024/07/prune-gh-pages-branches/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Prune gh-pages branches using GitHub Actions &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2024/07/prune-gh-pages-branches/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Prune gh-pages branches using GitHub Actions</h1>
+    <span class="post-meta">
+    2024-07-07
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/github/">GitHub</a>
+        
+            <a class="tag" href="/tags/github-actions/">GitHub Actions</a>
+        
+    
+</span>
+<p>This website is hosted on GitHub Pages, built using nix and hugo with
+a custom theme that I maintain. I have automated updates for the nix
+flake to get new versions of hugo and nixpkgs, which applies to both
+my theme and the website itself.</p>
+<p>This automation generates numerous commits and deployments to the
+gh-pages branch, mainly due to minor version bumps of hugo and other
+changes to the theme. While this hasn’t been a problem for my static
+website, which primarily consists of text, a recent addition has
+created some challenges.</p>
+<p>I added a page for my <a href="/3d-models/">./3d-models/</a> containing <code>.3mf</code>,
+<code>.stl</code>, and <code>.glb</code> files. These binary files are not always
+reproducible, particularly with updates to nixpkgs that affect
+openscad and blender, which I use to create glb files from openscad
+sources. Consequently, the repository size has been growing
+continuously.</p>
+<h2 id="identifying-the-problem">Identifying the problem</h2>
+<p>Recently, while on a coffee shop WiFi, I attempted a <code>git pull</code> that
+took too long to complete before I had to leave. This event
+highlighted the growing size of my repository and prompted me to find
+a solution.</p>
+<h2 id="solution-pruning-the-gh-pages-branch">Solution: Pruning the gh-pages branch</h2>
+<p>To address this, I decided to prune the gh-pages branch by squashing
+commits. However, I wanted to retain the latest commits separately to
+easily track recent changes in case of unexpected issues.</p>
+<p>Initially, I considered writing a script for this task, but I found an
+existing action,
+<a href="https://github.com/myactionway/branch-pruner-action"><code>myactionway/branch-pruner-action</code></a>,
+which simplifies the process.</p>
+<p>Here’s my workflow for pruning the branch:
+<code>.github/workflows/squash.yml</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Squash gh-pages&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">NEW_FIRST_COMMIT</span><span class="p">:</span><span class="w"> </span><span class="l">HEAD~19</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">DEFAULT_BRANCH</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;gh-pages&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">&#39;on&#39;</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;47 7 * * 2&#39;</span><span class="w">  </span><span class="c"># At 07:47 on Tuesday.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">squash-gh-pages-branch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-22.04</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">permissions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l">${{ env.DEFAULT_BRANCH }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">myactionway/branch-pruner-action@v2.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">new_first_commit</span><span class="p">:</span><span class="w"> </span><span class="l">${{ env.NEW_FIRST_COMMIT }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l">${{ env.DEFAULT_BRANCH }}</span><span class="w">
+</span></span></span></code></pre></div><p>This workflow runs weekly or can be triggered manually. It keeps the
+19 most recent commits, squashing the rest into a single commit
+representing the entire previous history.</p>
+<h2 id="results">Results</h2>
+<p>Before squashing, the repository size from this API call was:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ curl -s https://api.github.com/repos/etu/etu.github.io <span class="p">|</span> jq <span class="s1">&#39;.size&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="m">386904</span>
+</span></span></code></pre></div><p>After squashing the gh-pages branch, it reduced to:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ curl -s https://api.github.com/repos/etu/etu.github.io <span class="p">|</span> jq <span class="s1">&#39;.size&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="m">296830</span>
+</span></span></code></pre></div><p>This shows a reduction from approximately 386 MiB to 296 MiB. However,
+I believe GitHub can further optimize the repository size internally.</p>
+<p><em>Update:</em> After squashing some more commits, the repository size
+reported by the API is now about 161 MiB.</p>
+<p>Upon inspecting my local clone of the repository, it was about 680 MiB
+before the squash. After running <code>git gc --aggressive --prune=now</code>, it
+shrank to about 354 MiB.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

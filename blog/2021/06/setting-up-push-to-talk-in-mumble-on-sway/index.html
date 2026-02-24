@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>NixOS: Setting up Push To Talk in Mumble on Sway - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="NixOS: Setting up Push To Talk in Mumble on Sway &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>NixOS: Setting up Push To Talk in Mumble on Sway</h1>
+    <span class="post-meta">
+    2021-06-26
+
+    
+        &middot; 2 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/mumble/">Mumble</a>
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+    
+</span>
+<p>Switching to Wayland has it&rsquo;s side-effects, one of which is the improved
+security from X11 where applications can&rsquo;t just randomly spy on each other at
+any point.</p>
+<p>This is both good news and bad news.</p>
+<p>The good news:</p>
+<ul>
+<li>Applications can&rsquo;t just randomly spy on each other.</li>
+</ul>
+<p>The bad news:</p>
+<ul>
+<li>Things like global hot-keys in for example Mumble won&rsquo;t work.</li>
+</ul>
+<p>Back from complaining to actually solving the problem though.</p>
+<h2 id="mumble-does-have-a-patch-for-a-future-release">Mumble does have a patch for a future release</h2>
+<p>So there&rsquo;s the issue about <a href="https://github.com/mumble-voip/mumble/issues/3243">Push to talk does not work in Wayland</a>, this has
+been followed up by a patch <a href="https://github.com/mumble-voip/mumble/pull/3675">Add DBus calls to de/-activate push to talk</a>. This
+patch will land in the 1.4.0 release though while current stable is 1.3.4.</p>
+<p>A thing with mumble is that they aren&rsquo;t quick at releasing new versions, so
+sitting around and waiting for a new release might… take a while.</p>
+<h2 id="sway-has-patches-for-this">Sway has patches for this</h2>
+<p>Since version 1.5 Sway has a patch to be able to bind keys that doesn&rsquo;t
+repeat it&rsquo;s action, but it still works to bind them to trigger a release
+event which sounds a lot like a push to talk buttons function to me.</p>
+<p>Here&rsquo;s the patch that was applied to Sway: <a href="https://github.com/swaywm/sway/pull/5132">add &ndash;no-repeat option for bindings</a>.</p>
+<h2 id="actually-making-use-of-these-things-in-nixos">Actually making use of these things in NixOS</h2>
+<p>I started by patching mumble to support the dbus calls:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">environment</span><span class="o">.</span><span class="n">systemPackages</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Add a patch to mumble to be able to use dbus for push to talk</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="n">pkgs</span><span class="o">.</span><span class="n">mumble</span><span class="o">.</span><span class="n">overrideAttrs</span> <span class="p">(</span><span class="n">oa</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># Here we keep the patches from the package while we import the</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># patch from the pull request that did add the dbus features needed.</span>
+</span></span><span class="line"><span class="cl">      <span class="n">patches</span> <span class="o">=</span> <span class="n">oa</span><span class="o">.</span><span class="n">patches</span> <span class="o">++</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Download the patch from pull request 3675.</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="n">pkgs</span><span class="o">.</span><span class="n">fetchpatch</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;https://github.com/mumble-voip/mumble/pull/3675.patch&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">sha256</span> <span class="o">=</span> <span class="s2">&#34;1zmqb8gl2cp0mcw85x9wn5rjw2mih7d2x96jxxqabjcx1kvgyhh3&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">      <span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Then I&rsquo;ve added the following lines to my sway configuration:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plain" data-lang="plain"><span class="line"><span class="cl"># Add PTT button for mumble:
+</span></span><span class="line"><span class="cl">bindsym --no-repeat           Super_L exec gdbus call -e -d net.sourceforge.mumble.mumble -o / -m net.sourceforge.mumble.Mumble.startTalking
+</span></span><span class="line"><span class="cl">bindsym --no-repeat --release Super_L exec gdbus call -e -d net.sourceforge.mumble.mumble -o / -m net.sourceforge.mumble.Mumble.stopTalking
+</span></span></code></pre></div><p>(Note, <code>gdbus</code> comes from the package <code>glib</code>)</p>
+<p>Now you can launch up Mumble, you don&rsquo;t have to actually bind any keybinding
+for this to work since it&rsquo;s not actually a key bind but a dbus event. This
+also means that you can&rsquo;t test this while not connected to a server. When
+connected to a server and in a room where you have permissions to speak it
+works perfectly fine like a Push To Talk button.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

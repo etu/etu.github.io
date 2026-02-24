@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Dynamic CSS color themes with similar contrasts - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Dynamic CSS color themes with similar contrasts &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Dynamic CSS color themes with similar contrasts</h1>
+    <span class="post-meta">
+    2021-09-30
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/scss/">SCSS</a>
+        
+            <a class="tag" href="/tags/github-pages/">GitHub Pages</a>
+        
+    
+</span>
+<p>This blog is built with Emacs, SCSS using Nix and deployed as static files to
+GitHub Pages. This blog also has quite some colors due to the syntax
+highlighting for code that is performed using CSS rules on HTML classes.</p>
+<p>So in total I have 15 different colors defined, in which four of them is
+background and foreground colors, two of them is related to link and visited
+link colors. Then I have nine colors remaining which are related to syntax
+highlighting of code.</p>
+<p>Colors like that can&rsquo;t just be used together with a good result, one have to
+consider the different contrasts of colors against each other. I didn&rsquo;t feel
+like making up all the colors for both the light and the dark background, I
+wanted the same color-scheme for both themes. So what I did was to write a
+SCSS function to adjust the color to get a specific contrast compared to the
+background where it&rsquo;s supposed to be used.</p>
+<p>So how do I use these colors is practice?</p>
+<h2 id="raw-color-themes">Raw color themes</h2>
+<p>Raw color themes which have some colors with too little contrast and some with too much contrast:</p>
+<p><img src="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/raw-themes.webp" alt="Raw color themes which have some colors with too little contrast and some with too much contrast"></p>
+<h2 id="adjusted-contrast-themes">Adjusted contrast themes</h2>
+<p>Adjusted color themes which have all the colors contrast adjusted to the background:</p>
+<p><img src="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/adjusted-themes.webp" alt="Adjusted color themes which have all the colors contrast adjusted to the background"></p>
+<h2 id="how-is-this-accomplished-at-build-time">How is this accomplished at build time?</h2>
+<p>Mozilla has a page about <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast">Color contrast</a>,
+they also refer to <a href="https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio">Web Content Accessibility Guidelines (WCAG) 2.1</a>. So there&rsquo;s a clear definition to how to
+calculate the color contrast. It required a bunch of math and calculations to do a single comparison.</p>
+<p>I&rsquo;ve found some functions on the internet that already had been written that
+I&rsquo;ve improved upon. So I have the plain math functions in my <a href="https://github.com/etu/etu.github.io/blob/5a61bb61b26c503014b9793ad771de417774c6cd/src/themes/elisnu/assets/scss/math.scss"><code>math.scss</code></a>
+file. With some additional functions to calculate the contrast I&rsquo;ve found in
+other places that resulted in a function named <code>contrast-color</code> located in
+<a href="https://github.com/etu/etu.github.io/blob/5a61bb61b26c503014b9793ad771de417774c6cd/src/themes/elisnu/assets/scss/functions.scss"><code>functions.scss</code></a>.</p>
+<p>The usage of these functions is quite simple, here&rsquo;s a SCSS example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="k">@import</span> <span class="s2">&#34;path/to/functions/file&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Background colors to calculate the
+</span></span></span><span class="line"><span class="cl"><span class="c1">// colors against.
+</span></span></span><span class="line"><span class="cl"><span class="nv">$darkBackgroundColor</span><span class="o">:</span> <span class="mh">#171717</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$lightBackgroundColor</span><span class="o">:</span> <span class="mh">#F4F4F4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// The foreground color to use against
+</span></span></span><span class="line"><span class="cl"><span class="c1">// the background colors.
+</span></span></span><span class="line"><span class="cl"><span class="nv">$codeKeywordColor</span><span class="o">:</span> <span class="mh">#FF256F</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Define the color themes as CSS
+</span></span></span><span class="line"><span class="cl"><span class="c1">// variables for the light theme.
+</span></span></span><span class="line"><span class="cl"><span class="nd">:root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="na">--background</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$lightBackgroundColor</span><span class="si">}</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="na">--code-keyword-color</span><span class="o">:</span> <span class="si">#{</span><span class="nf">contrast-color</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$codeKeywordColor</span><span class="o">,</span> <span class="nv">$lightBackgroundColor</span><span class="p">)</span><span class="si">}</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Define the color themes as CSS
+</span></span></span><span class="line"><span class="cl"><span class="c1">// variables for the dark theme.
+</span></span></span><span class="line"><span class="cl"><span class="k">@media</span> <span class="p">(</span><span class="n">prefers-color-scheme</span><span class="o">:</span> <span class="ni">dark</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nd">:root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="na">--background</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$darkBackgroundColor</span><span class="si">}</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="na">--code-keyword-color</span><span class="o">:</span> <span class="si">#{</span><span class="nf">contrast-color</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">$codeKeywordColor</span><span class="o">,</span> <span class="nv">$darkBackgroundColor</span><span class="p">)</span><span class="si">}</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Use the colors in your theme
+</span></span></span><span class="line"><span class="cl"><span class="nt">div</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="na">background</span><span class="o">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="na">color</span><span class="o">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">code-keyword-color</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>So now I can select key colors once and get a consistent color contrast of
+about 7 on all of the colors on the page to not have some colors <em>screaming</em>
+while others have too little contrast that makes them hard to read.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

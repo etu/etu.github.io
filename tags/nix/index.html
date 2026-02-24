@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Nix - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/tags/nix/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <link href="https://elis.nu/tags/nix/index.xml" rel="alternate" type="application/rss+xml" title="Elis Hirwing">
+        <link href="https://elis.nu/tags/nix/index.xml" rel="feed" type="application/rss+xml" title="Elis Hirwing">
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Nix &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/tags/nix/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+    <h1>Posts about: Nix</h1>
+    
+
+    
+
+    <div class="posts">
+        
+            <div class="post">
+                <h2><a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Outsourcing NixOS compile time to Microsoft</a></h2><span class="post-meta">
+    2022-10-10
+
+    
+        &middot; 5 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/cachix/">Cachix</a>
+        
+            <a class="tag" href="/tags/github-actions/">GitHub Actions</a>
+        
+    
+</span>
+<p><p><a href="https://nixos.org/">NixOS</a> is a Linux-distribution that may be source-based, but it has a binary
+cache that covers things so you generally don&rsquo;t need to compile things,
+things tends to be cached.</p>
+<p>However, depending on how you configure your system, you may trigger compiles
+depending on what you do.</p>
+<p>So a thing I do is that I run Emacs 29 with the native-comp patches that is
+wayland native with the pgtk-branch. This is by no mean the stable Emacs
+release at the point of writing. So to get this Emacs I use the excellent
+<a href="https://github.com/nix-community/emacs-overlay">nix-community/emacs-overlay</a> (that is maintained by my friend
+<a href="https://github.com/adisbladis">@adisbladis</a>). However, this means that I will get Emacs from a development
+branch of Emacs, then I need to build all the Emacs packages that I use in my
+configuration as well for this version of Emacs.</p></p>
+
+                <a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/">Dynamic CSS color themes with similar contrasts</a></h2><span class="post-meta">
+    2021-09-30
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/scss/">SCSS</a>
+        
+            <a class="tag" href="/tags/github-pages/">GitHub Pages</a>
+        
+    
+</span>
+<p><p>This blog is built with Emacs, SCSS using Nix and deployed as static files to
+GitHub Pages. This blog also has quite some colors due to the syntax
+highlighting for code that is performed using CSS rules on HTML classes.</p>
+<p>So in total I have 15 different colors defined, in which four of them is
+background and foreground colors, two of them is related to link and visited
+link colors. Then I have nine colors remaining which are related to syntax
+highlighting of code.</p></p>
+
+                <a href="/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Simple deployments of NixOS machines with nixus</a></h2><span class="post-meta">
+    2021-07-23
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/nixus/">Nixus</a>
+        
+    
+</span>
+<p><p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any
+tools to do central deployments of machines. But I&rsquo;ve always read and known
+that NixOS is excellent at this. NixOS can easily build another systems
+configuration, then copy the system to the target systems nix store and then
+activate it there.</p>
+<p>Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A
+while ago the need for this changed because one of my VPSes started running
+low on RAM, low enough to not be able to build new generations of it&rsquo;s own
+system. Which posed a problem for future upgrades. One way to solve it would
+be to pay more money for resources that aren&rsquo;t really needed except from when
+doing system upgrades. The other way would be to push pre-built systems from
+another location. Using the second way is simpler and fixes the issue.</p></p>
+
+                <a href="/blog/2021/07/simple-deployments-of-nixos-machines/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2021/02/switching-to-wayland-sway/">Switching to Wayland (Sway)</a></h2><span class="post-meta">
+    2021-02-17
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+            <a class="tag" href="/tags/x11/">X11</a>
+        
+    
+</span>
+<p><p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I
+was on <a href="https://i3wm.org/">i3wm</a> for quite some time until I was introduced to
+<a href="https://github.com/ch11ng/exwm">Emacs X11 Window Manager</a> which I used
+exclusively for about 18 months, I&rsquo;ve even held a <a href="/talks/">talk</a> about it.
+But at some point it got too annoying, for example in multi monitor use cases.</p>
+<p>At this point my first step was to go back to set up i3wm again. With that
+set up I wanted to give <a href="https://swaywm.org/">SwayWM</a> another attempt, it was
+years ago I&rsquo;ve checked it out before. I think my previous experience was when the
+project was new. At that point (if I remember correctly), not even the window
+decorations looked like the ones in i3wm.</p></p>
+
+                <a href="/blog/2021/02/switching-to-wayland-sway/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
+                <h2><a href="/blog/2020/04/php-packaging-in-nixos/">PHP packaging in NixOS ❄</a></h2><span class="post-meta">
+    2020-04-05
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/php/">PHP</a>
+        
+    
+</span>
+<p><p>This is a sneak peak into the future 20.09 release of NixOS.</p>
+<p>The PHP packaging ecosystem in NixOS has been in a quite sad state for a long
+time. Partly because of the lack of people caring about PHP in Nix, but also
+that PHP is a bit weird when it comes to packaging.</p>
+<h2 id="state-of-php-before-nixos-2009">State of PHP before NixOS 20.09</h2>
+<p>Due to the lack of ability to do clever things like the python community does
+with =withPackages= to compose a package with the dependencies you need we
+have defaulted to provide a huge default package to accommodate all needs.</p></p>
+
+                <a href="/blog/2020/04/php-packaging-in-nixos/">Read On &rarr;</a>
+            </div>
+        
+    </div>
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

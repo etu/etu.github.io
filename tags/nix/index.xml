@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nix on Elis Hirwing</title>
+    <link>https://elis.nu/tags/nix/</link>
+    <description>Recent content in Nix on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 10 Oct 2022 20:00:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/nix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Outsourcing NixOS compile time to Microsoft</title>
+      <link>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</link>
+      <pubDate>Mon, 10 Oct 2022 20:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nixos.org/&#34;&gt;NixOS&lt;/a&gt; is a Linux-distribution that may be source-based, but it has a binary&#xA;cache that covers things so you generally don&amp;rsquo;t need to compile things,&#xA;things tends to be cached.&lt;/p&gt;&#xA;&lt;p&gt;However, depending on how you configure your system, you may trigger compiles&#xA;depending on what you do.&lt;/p&gt;&#xA;&lt;p&gt;So a thing I do is that I run Emacs 29 with the native-comp patches that is&#xA;wayland native with the pgtk-branch. This is by no mean the stable Emacs&#xA;release at the point of writing. So to get this Emacs I use the excellent&#xA;&lt;a href=&#34;https://github.com/nix-community/emacs-overlay&#34;&gt;nix-community/emacs-overlay&lt;/a&gt; (that is maintained by my friend&#xA;&lt;a href=&#34;https://github.com/adisbladis&#34;&gt;@adisbladis&lt;/a&gt;). However, this means that I will get Emacs from a development&#xA;branch of Emacs, then I need to build all the Emacs packages that I use in my&#xA;configuration as well for this version of Emacs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dynamic CSS color themes with similar contrasts</title>
+      <link>https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/</link>
+      <pubDate>Thu, 30 Sep 2021 21:10:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/</guid>
+      <description>&lt;p&gt;This blog is built with Emacs, SCSS using Nix and deployed as static files to&#xA;GitHub Pages. This blog also has quite some colors due to the syntax&#xA;highlighting for code that is performed using CSS rules on HTML classes.&lt;/p&gt;&#xA;&lt;p&gt;So in total I have 15 different colors defined, in which four of them is&#xA;background and foreground colors, two of them is related to link and visited&#xA;link colors. Then I have nine colors remaining which are related to syntax&#xA;highlighting of code.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Simple deployments of NixOS machines with nixus</title>
+      <link>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</link>
+      <pubDate>Fri, 23 Jul 2021 16:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</guid>
+      <description>&lt;p&gt;Since I&amp;rsquo;ve started using NixOS about four years ago I haven&amp;rsquo;t really used any&#xA;tools to do central deployments of machines. But I&amp;rsquo;ve always read and known&#xA;that NixOS is excellent at this. NixOS can easily build another systems&#xA;configuration, then copy the system to the target systems nix store and then&#xA;activate it there.&lt;/p&gt;&#xA;&lt;p&gt;Despite knowing all this, I haven&amp;rsquo;t gotten around to doing this centrally. A&#xA;while ago the need for this changed because one of my VPSes started running&#xA;low on RAM, low enough to not be able to build new generations of it&amp;rsquo;s own&#xA;system. Which posed a problem for future upgrades. One way to solve it would&#xA;be to pay more money for resources that aren&amp;rsquo;t really needed except from when&#xA;doing system upgrades. The other way would be to push pre-built systems from&#xA;another location. Using the second way is simpler and fixes the issue.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Switching to Wayland (Sway)</title>
+      <link>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</link>
+      <pubDate>Wed, 17 Feb 2021 22:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</guid>
+      <description>&lt;p&gt;Like every other desktop Linux user for the past many years I&amp;rsquo;ve used X11. I&#xA;was on &lt;a href=&#34;https://i3wm.org/&#34;&gt;i3wm&lt;/a&gt; for quite some time until I was introduced to&#xA;&lt;a href=&#34;https://github.com/ch11ng/exwm&#34;&gt;Emacs X11 Window Manager&lt;/a&gt; which I used&#xA;exclusively for about 18 months, I&amp;rsquo;ve even held a &lt;a href=&#34;https://elis.nu/talks/&#34;&gt;talk&lt;/a&gt; about it.&#xA;But at some point it got too annoying, for example in multi monitor use cases.&lt;/p&gt;&#xA;&lt;p&gt;At this point my first step was to go back to set up i3wm again. With that&#xA;set up I wanted to give &lt;a href=&#34;https://swaywm.org/&#34;&gt;SwayWM&lt;/a&gt; another attempt, it was&#xA;years ago I&amp;rsquo;ve checked it out before. I think my previous experience was when the&#xA;project was new. At that point (if I remember correctly), not even the window&#xA;decorations looked like the ones in i3wm.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PHP packaging in NixOS ❄</title>
+      <link>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</link>
+      <pubDate>Sun, 05 Apr 2020 20:00:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</guid>
+      <description>&lt;p&gt;This is a sneak peak into the future 20.09 release of NixOS.&lt;/p&gt;&#xA;&lt;p&gt;The PHP packaging ecosystem in NixOS has been in a quite sad state for a long&#xA;time. Partly because of the lack of people caring about PHP in Nix, but also&#xA;that PHP is a bit weird when it comes to packaging.&lt;/p&gt;&#xA;&lt;h2 id=&#34;state-of-php-before-nixos-2009&#34;&gt;State of PHP before NixOS 20.09&lt;/h2&gt;&#xA;&lt;p&gt;Due to the lack of ability to do clever things like the python community does&#xA;with =withPackages= to compose a package with the dependencies you need we&#xA;have defaulted to provide a huge default package to accommodate all needs.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

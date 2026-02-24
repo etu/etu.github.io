@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>NixOS ❄: tmpfs as home - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="NixOS ❄: tmpfs as home &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>NixOS ❄: tmpfs as home</h1>
+    <span class="post-meta">
+    2020-06-27
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/tmpfs/">Tmpfs</a>
+        
+            <a class="tag" href="/tags/impermanence/">Impermanence</a>
+        
+    
+</span>
+<p>This is a follow-up post for my earlier post: <a href="/blog/2020/05/nixos-tmpfs-as-root/">NixOS ❄: tmpfs as root</a>.</p>
+<p>When you start to go down the route of setting up a “pure” system that is as
+clean as you want it to be on each boot. You may start with the lazy route of
+using a persistent partition for your home directory. But it never feels
+quite right. But initially it&rsquo;s so convenient to choose this path.</p>
+<p>So if you have gone through the first steps to get to a state of having a
+“pure” system, but didn&rsquo;t go “all in” and left your entire home directory as
+a persistent directory. This post will explain how to take it to the next
+level of purity.</p>
+<h2 id="part-1---home-manager">Part 1 - Home Manager</h2>
+<p>The first thing you want to do unless you already done this is to start using
+<a href="https://github.com/nix-community/home-manager/">Home Manager</a> to manage the
+home directory. It&rsquo;s an excellent way to configure many programs as the user
+through a nix configuration file.</p>
+<p>However I would advice to use the NixOS module that home manager provides
+instead of using home manager directly. This way the updates to home manager
+is done as part of the system generations, as well as rollbacks. The set-up
+for using the module is fairly straightforward and simple.</p>
+<p>Sample module that can be imported into <code>configuration.nix</code> using <code>imports</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span> <span class="n">pkgs</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">let</span>
+</span></span><span class="line"><span class="cl">  <span class="n">home-manager</span> <span class="o">=</span> <span class="nb">builtins</span><span class="o">.</span><span class="nb">fetchTarball</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;https://github.com/nix-community/home-manager/archive/master.tar.gz&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">in</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Import the home-manager module.</span>
+</span></span><span class="line"><span class="cl">  <span class="n">imports</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="n">home-manager</span><span class="si">}</span><span class="s2">/nixos&#34;</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Home manager configuration for user jane.</span>
+</span></span><span class="line"><span class="cl">  <span class="n">home-manager</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">jane</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">programs</span><span class="o">.</span><span class="n">home-manager</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># In here you can do settings for home-manager, these are listed</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># in the manual available in: $ man home-configuration.nix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># In here you can use the &#34;home.file&#34; features of home manager to</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># link certain files to certain content. However, that&#39;s not the</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># same as linking it to persistent storage since it will copy the</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># file to the store where it will become read only. That may be</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># perfectly fine for certain files. For other paths (such as</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># &#34;~/Downloads/&#34;), it may be quite unsuitable.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Example: Enable network manager applet for this user:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">services</span><span class="o">.</span><span class="n">network-manager-applet</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>To make this even better, <a href="https://github.com/talyz">talyz</a> spent quite some time to implement modules to
+help doing persistence handling better &ndash; both in NixOS, but also as a Home
+Manager module. These modules became the <a href="https://github.com/nix-community/impermanence">impermanence</a> community project.</p>
+<h2 id="part-2---persistence-module-for-home-manager">Part 2 - Persistence module for Home Manager</h2>
+<p>Based on the previous example we&rsquo;re going to extend it to use the home
+manager module.</p>
+<p>So we&rsquo;re going to extend the code sample from above:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span> <span class="n">pkgs</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">let</span>
+</span></span><span class="line"><span class="cl">  <span class="n">home-manager</span> <span class="o">=</span> <span class="nb">builtins</span><span class="o">.</span><span class="nb">fetchTarball</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;https://github.com/nix-community/home-manager/archive/master.tar.gz&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># New: Load the module</span>
+</span></span><span class="line"><span class="cl">  <span class="n">impermanence</span> <span class="o">=</span> <span class="nb">builtins</span><span class="o">.</span><span class="nb">fetchTarball</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;https://github.com/nix-community/impermanence/archive/master.tar.gz&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">in</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Import the home-manager module.</span>
+</span></span><span class="line"><span class="cl">  <span class="n">imports</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="n">home-manager</span><span class="si">}</span><span class="s2">/nixos&#34;</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Home manager configuration for user jane.</span>
+</span></span><span class="line"><span class="cl">  <span class="n">home-manager</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">jane</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># New: Import a persistence module for home-manager.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">imports</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="n">impermanence</span><span class="si">}</span><span class="s2">/home-manager.nix&#34;</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">programs</span><span class="o">.</span><span class="n">home-manager</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># New: Now we can use the &#34;home.persistence&#34; module, here&#39;s an example:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">home</span><span class="o">.</span><span class="n">persistence</span><span class="o">.</span><span class="s2">&#34;/nix/persist/home/jane&#34;</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">directories</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;.ssh&#34;</span> <span class="s2">&#34;Downloads&#34;</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="n">files</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;.bash_history&#34;</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#+END_SRC</span>
+</span></span></code></pre></div><p>The <code>home.persistence</code> module allows to easily select which files and
+directories you want to have symlinked from your home directory to the
+persistent storage selected.</p>
+<p>This also allows to have different storage for different files in your home
+directory. Say that you have different needs to backup certain files but that
+you still want persistence. Then you can put the ones you want to backup in a
+certain directory and the rest in another place.</p>
+<h2 id="part-3---persistence-module-for-nixos">Part 3 - Persistence module for NixOS</h2>
+<p>This example nix file will import the persistence module for nixos and create
+some symlinks for files in <code>etc</code> that may be useful to have persistence on,
+as well making bind mounts for certain directories.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">let</span>
+</span></span><span class="line"><span class="cl">  <span class="n">impermanence</span> <span class="o">=</span> <span class="nb">builtins</span><span class="o">.</span><span class="nb">fetchTarball</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;https://github.com/nix-community/impermanence/archive/master.tar.gz&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">in</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Import the nixos module.</span>
+</span></span><span class="line"><span class="cl">  <span class="n">imports</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;</span><span class="si">${</span><span class="n">impermanence</span><span class="si">}</span><span class="s2">/nixos.nix&#34;</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">environment</span><span class="o">.</span><span class="n">persistence</span><span class="o">.</span><span class="s2">&#34;/nix/persist&#34;</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">directories</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;/etc/nixos&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;/etc/NetworkManager/system-connections&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">files</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;/etc/machine-id&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;/etc/ssh/ssh_host_rsa_key&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;/etc/ssh/ssh_host_rsa_key.pub&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;/etc/ssh/ssh_host_ed25519_key&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;/etc/ssh/ssh_host_ed25519_key.pub&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

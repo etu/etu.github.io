@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>~elis/ on Elis Hirwing</title>
+    <link>https://elis.nu/</link>
+    <description>Recent content in ~elis/ on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 13 Sep 2025 20:00:00 +0200</lastBuildDate>
+    <atom:link href="https://elis.nu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrating from ZFS mirror to RAIDZ2</title>
+      <link>https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/</link>
+      <pubDate>Sat, 13 Sep 2025 20:00:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/</guid>
+      <description>&lt;p&gt;For a long time I&amp;rsquo;ve been running my storage on a 2-disk ZFS&#xA;mirror. It&amp;rsquo;s been stable, safe, and easy to manage. However, at some&#xA;point, 2 disks just aren&amp;rsquo;t enough, and I wanted to upgrade to RAIDZ2&#xA;so that I could survive up to two simultaneous disk failures.&lt;/p&gt;&#xA;&lt;p&gt;I could have added another mirror, which would have been simple, and&#xA;this setup would allow two drives to fail, but not any two drives. I&#xA;wanted the extra safety of being able to lose &lt;strong&gt;any two drives&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Elis Tempeh v1.0</title>
+      <link>https://elis.nu/blog/2025/01/elis-tempeh-v1-0/</link>
+      <pubDate>Sun, 19 Jan 2025 13:20:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2025/01/elis-tempeh-v1-0/</guid>
+      <description>&lt;p&gt;Tempeh. Ever heard of it? It’s a traditional Indonesian food made from&#xA;fermented soybeans. Packed with protein and a unique nutty flavor,&#xA;tempeh is a fantastic meat substitute for vegans and vegetarians&#xA;alike.&lt;/p&gt;&#xA;&lt;p&gt;In this post, I’ll guide you through what tempeh is, how to make it at&#xA;home, and tackle some of the common challenges, like maintaining the&#xA;right fermentation temperature. So, if you’ve ever thought about&#xA;giving tempeh-making a try, let’s dive in!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Back from Hyprland to Sway</title>
+      <link>https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/</link>
+      <pubDate>Thu, 29 Aug 2024 21:30:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/</guid>
+      <description>&lt;p&gt;After a brief experiment with&#xA;&lt;a href=&#34;https://elis.nu/blog/2024/07/switching-to-hyprland/&#34;&gt;Hyprland&lt;/a&gt;, I&amp;rsquo;m back to using Sway. My&#xA;experiment lasted less than a month, as I hoped Hyprland&amp;rsquo;s window&#xA;selector would resolve my window-sharing woes.&lt;/p&gt;&#xA;&lt;p&gt;It turns out it wasn&amp;rsquo;t, because the first week back at work I had the&#xA;need to share a slideshow in full screen. Then it doesn&amp;rsquo;t matter if&#xA;you can select a window anymore. So my workarounds with Sway would&#xA;have worked in that use case while my Hyprland set up…  didn&amp;rsquo;t.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Switching from Sway to Hyprland</title>
+      <link>https://elis.nu/blog/2024/07/switching-to-hyprland/</link>
+      <pubDate>Tue, 23 Jul 2024 16:40:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/07/switching-to-hyprland/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;After four years with Sway, I&amp;rsquo;ve decided to transition to Hyprland. My&#xA;journey from EXWM to Sway began about four years ago, and I documented&#xA;the experience in&#xA;&lt;a href=&#34;https://elis.nu/blog/2021/02/switching-to-wayland-sway/&#34;&gt;this post&lt;/a&gt; three years ago.&#xA;While Sway has served me well, it has its limitations that I&amp;rsquo;ve used&#xA;hacks and workarounds to circumvent.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-limitations-of-sway&#34;&gt;The Limitations of Sway&lt;/h2&gt;&#xA;&lt;p&gt;One major drawback of Sway is its&#xA;&lt;a href=&#34;https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/&#34;&gt;screen sharing&lt;/a&gt;&#xA;capabilities. Although I managed to get screen sharing somewhat&#xA;functional, it only allows sharing the full screen.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Prune gh-pages branches using GitHub Actions</title>
+      <link>https://elis.nu/blog/2024/07/prune-gh-pages-branches/</link>
+      <pubDate>Sun, 07 Jul 2024 11:30:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/07/prune-gh-pages-branches/</guid>
+      <description>&lt;p&gt;This website is hosted on GitHub Pages, built using nix and hugo with&#xA;a custom theme that I maintain. I have automated updates for the nix&#xA;flake to get new versions of hugo and nixpkgs, which applies to both&#xA;my theme and the website itself.&lt;/p&gt;&#xA;&lt;p&gt;This automation generates numerous commits and deployments to the&#xA;gh-pages branch, mainly due to minor version bumps of hugo and other&#xA;changes to the theme. While this hasn’t been a problem for my static&#xA;website, which primarily consists of text, a recent addition has&#xA;created some challenges.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NixOS superpower: specialisations</title>
+      <link>https://elis.nu/blog/2024/02/nixos-superpower-specialisations/</link>
+      <pubDate>Sat, 17 Feb 2024 20:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2024/02/nixos-superpower-specialisations/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nixos.org/&#34;&gt;NixOS&lt;/a&gt; has a lot of configurability and features. One&#xA;feature that I&amp;rsquo;ve known about for a while that I think is both really cool,&#xA;but also a bit lesser known is the ability to have declarative&#xA;&lt;a href=&#34;https://wiki.nixos.org/wiki/Specialisation&#34;&gt;Specialisations&lt;/a&gt;. To me, this is a&#xA;superpower of NixOS that I have a hard time to see any other Linux&#xA;Distribution having.&lt;/p&gt;&#xA;&lt;h2 id=&#34;whats-a-specialisation&#34;&gt;What&amp;rsquo;s a Specialisation?&lt;/h2&gt;&#xA;&lt;p&gt;The name doesn&amp;rsquo;t do it justice, it&amp;rsquo;s a bit of a weird name for it. However&#xA;I couldn&amp;rsquo;t come up with a better name for it either.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A personal adventure with hot beverages</title>
+      <link>https://elis.nu/blog/2023/11/a-personal-adventure-with-hot-beverages/</link>
+      <pubDate>Sun, 05 Nov 2023 22:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2023/11/a-personal-adventure-with-hot-beverages/</guid>
+      <description>&lt;h2 id=&#34;my-history-with-coffee&#34;&gt;My history with coffee&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve never been into coffee, every time I&amp;rsquo;ve tried them as a child or young&#xA;adult they have been terrible. They have just been bitter and it&amp;rsquo;s not a&#xA;taste profile I to this day enjoy at all.&lt;/p&gt;&#xA;&lt;p&gt;I have, a couple of times encountered coffee that friends have made that&#xA;actually weren&amp;rsquo;t that bitter. So my reaction to it has managed to reach the&#xA;level of &amp;ldquo;this isn&amp;rsquo;t terrible&amp;rdquo;. Not terrible isn&amp;rsquo;t a great review though, not&#xA;really something that one gets back to right away.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AI should be trained with vegan values</title>
+      <link>https://elis.nu/blog/2023/04/ai-should-be-trained-with-vegan-values/</link>
+      <pubDate>Tue, 25 Apr 2023 19:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2023/04/ai-should-be-trained-with-vegan-values/</guid>
+      <description>&lt;p&gt;As artificial intelligence (AI) continues to advance, concerns have been&#xA;raised about the potential dangers of AI becoming too powerful and taking&#xA;over human civilization. In a recent interview, entrepreneur and CEO Elon&#xA;Musk expressed his concerns about the risks associated with developing&#xA;super-intelligent AI. However, his views were challenged by Larry Page,&#xA;co-founder of Google, who referred to Musk as a “speciesist” for not wanting&#xA;AI to become a “digital god”.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Outsourcing NixOS compile time to Microsoft</title>
+      <link>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</link>
+      <pubDate>Mon, 10 Oct 2022 20:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nixos.org/&#34;&gt;NixOS&lt;/a&gt; is a Linux-distribution that may be source-based, but it has a binary&#xA;cache that covers things so you generally don&amp;rsquo;t need to compile things,&#xA;things tends to be cached.&lt;/p&gt;&#xA;&lt;p&gt;However, depending on how you configure your system, you may trigger compiles&#xA;depending on what you do.&lt;/p&gt;&#xA;&lt;p&gt;So a thing I do is that I run Emacs 29 with the native-comp patches that is&#xA;wayland native with the pgtk-branch. This is by no mean the stable Emacs&#xA;release at the point of writing. So to get this Emacs I use the excellent&#xA;&lt;a href=&#34;https://github.com/nix-community/emacs-overlay&#34;&gt;nix-community/emacs-overlay&lt;/a&gt; (that is maintained by my friend&#xA;&lt;a href=&#34;https://github.com/adisbladis&#34;&gt;@adisbladis&lt;/a&gt;). However, this means that I will get Emacs from a development&#xA;branch of Emacs, then I need to build all the Emacs packages that I use in my&#xA;configuration as well for this version of Emacs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Keeping LG webOS Developer Mode alive with Home Assistant</title>
+      <link>https://elis.nu/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/</link>
+      <pubDate>Mon, 25 Jul 2022 20:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/</guid>
+      <description>&lt;p&gt;For over 10 years I&amp;rsquo;ve used &lt;a href=&#34;https://kodi.tv/&#34;&gt;Kodi&lt;/a&gt; on a separate PC connected to a TV to play&#xA;back local media.&lt;/p&gt;&#xA;&lt;p&gt;A couple of weeks ago everything changed in a matter of days. I listened to&#xA;&lt;a href=&#34;https://latenightlinux.com/late-night-linux-episode-179/&#34;&gt;Late Night Linux – Episode 179&lt;/a&gt;&#xA;where they talked about &lt;a href=&#34;https://jellyfin.org/&#34;&gt;Jellyfin&lt;/a&gt;. I have&#xA;looked into Jellyfin before, however I&amp;rsquo;ve disregarded it due to the lack of&#xA;app for LG webOS. This changed because the podcast episode told that there&#xA;was a webOS app for Jellyfin.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>First impressions of Purism Librem 5</title>
+      <link>https://elis.nu/blog/2021/10/first-impressions-of-purism-librem-5/</link>
+      <pubDate>Fri, 15 Oct 2021 23:40:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/10/first-impressions-of-purism-librem-5/</guid>
+      <description>&lt;p&gt;Back in 2017, this fairly small company &lt;a href=&#34;https://puri.sm&#34;&gt;Purism&lt;/a&gt; launched a crowdfunding on&#xA;their own crowdfunding platform for their future phone known as &lt;a href=&#34;https://puri.sm/products/librem-5/&#34;&gt;Librem 5&lt;/a&gt;. I&#xA;went back and forth a bit, I thought through some of the history about the&#xA;company and decided that I thought they may deliver some day. At least I&#xA;wanted to support the effort to make a modern Linux that could fill the hole&#xA;that the demise of the &lt;a href=&#34;https://en.wikipedia.org/wiki/Nokia_N900&#34;&gt;Nokia N900&lt;/a&gt; with no worthy device following up.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dynamic CSS color themes with similar contrasts</title>
+      <link>https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/</link>
+      <pubDate>Thu, 30 Sep 2021 21:10:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/</guid>
+      <description>&lt;p&gt;This blog is built with Emacs, SCSS using Nix and deployed as static files to&#xA;GitHub Pages. This blog also has quite some colors due to the syntax&#xA;highlighting for code that is performed using CSS rules on HTML classes.&lt;/p&gt;&#xA;&lt;p&gt;So in total I have 15 different colors defined, in which four of them is&#xA;background and foreground colors, two of them is related to link and visited&#xA;link colors. Then I have nine colors remaining which are related to syntax&#xA;highlighting of code.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mobile org-mode use with Orgzly and Syncthing</title>
+      <link>https://elis.nu/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/</link>
+      <pubDate>Mon, 02 Aug 2021 21:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been an Emacs user for 13+ years, during this time I&amp;rsquo;ve been using&#xA;&lt;a href=&#34;https://orgmode.org/&#34;&gt;org-mode&lt;/a&gt; on and off for different thing.&lt;/p&gt;&#xA;&lt;p&gt;Some examples where I currently use org-mode:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Deployment of this website&lt;/li&gt;&#xA;&lt;li&gt;Making of presentation slides&lt;/li&gt;&#xA;&lt;li&gt;Project read me files&lt;/li&gt;&#xA;&lt;li&gt;Notes files&lt;/li&gt;&#xA;&lt;li&gt;Time reporting&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve tried to use it for to do&amp;rsquo;s but never really managed, partly because I&#xA;wanted to have a good interface for my to do&amp;rsquo;s on my phone. Then I wanted&#xA;quick synchronization to my computers to be able to pick up the changes&#xA;there.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Simple deployments of NixOS machines with nixus</title>
+      <link>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</link>
+      <pubDate>Fri, 23 Jul 2021 16:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</guid>
+      <description>&lt;p&gt;Since I&amp;rsquo;ve started using NixOS about four years ago I haven&amp;rsquo;t really used any&#xA;tools to do central deployments of machines. But I&amp;rsquo;ve always read and known&#xA;that NixOS is excellent at this. NixOS can easily build another systems&#xA;configuration, then copy the system to the target systems nix store and then&#xA;activate it there.&lt;/p&gt;&#xA;&lt;p&gt;Despite knowing all this, I haven&amp;rsquo;t gotten around to doing this centrally. A&#xA;while ago the need for this changed because one of my VPSes started running&#xA;low on RAM, low enough to not be able to build new generations of it&amp;rsquo;s own&#xA;system. Which posed a problem for future upgrades. One way to solve it would&#xA;be to pay more money for resources that aren&amp;rsquo;t really needed except from when&#xA;doing system upgrades. The other way would be to push pre-built systems from&#xA;another location. Using the second way is simpler and fixes the issue.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
+      <link>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</link>
+      <pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</guid>
+      <description>&lt;p&gt;Switching to Wayland has it&amp;rsquo;s side-effects, one of which is the improved&#xA;security from X11 where applications can&amp;rsquo;t just randomly spy on each other at&#xA;any point.&lt;/p&gt;&#xA;&lt;p&gt;This is both good news and bad news.&lt;/p&gt;&#xA;&lt;p&gt;The good news:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Applications can&amp;rsquo;t just randomly spy on each other.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The bad news:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Things like global hot-keys in for example Mumble won&amp;rsquo;t work.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Back from complaining to actually solving the problem though.&lt;/p&gt;&#xA;&lt;h2 id=&#34;mumble-does-have-a-patch-for-a-future-release&#34;&gt;Mumble does have a patch for a future release&lt;/h2&gt;&#xA;&lt;p&gt;So there&amp;rsquo;s the issue about &lt;a href=&#34;https://github.com/mumble-voip/mumble/issues/3243&#34;&gt;Push to talk does not work in Wayland&lt;/a&gt;, this has&#xA;been followed up by a patch &lt;a href=&#34;https://github.com/mumble-voip/mumble/pull/3675&#34;&gt;Add DBus calls to de/-activate push to talk&lt;/a&gt;. This&#xA;patch will land in the 1.4.0 release though while current stable is 1.3.4.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The day when ZFS saved my data</title>
+      <link>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</link>
+      <pubDate>Fri, 21 May 2021 20:45:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</guid>
+      <description>&lt;p&gt;Today my work day didn&amp;rsquo;t turn out the way I expected. It started like a&#xA;normal day, I woke up around the regular time, did my morning routine, sat at&#xA;my desk and started my work-issued laptop.&lt;/p&gt;&#xA;&lt;p&gt;It booted up just fine, I connected it to my Ultrawide display, started going&#xA;through Slack and Email and catch up on some news while drinking my morning&#xA;tea and waking up.&lt;/p&gt;&#xA;&lt;p&gt;Then after around an hour of work things started to hang up, most notably&#xA;Firefox totally froze up. I could launch a new terminal but not start &lt;code&gt;htop&lt;/code&gt;,&#xA;I had a &lt;code&gt;htop&lt;/code&gt; session in a terminal already because it&amp;rsquo;s part of what I&#xA;usually have running. So I went there to look.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Detailed setup of screen sharing in Wayland (Sway)</title>
+      <link>https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/</link>
+      <pubDate>Fri, 19 Feb 2021 23:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/</guid>
+      <description>&lt;p&gt;Getting screen sharing to work on Wayland seems to be surprisingly hard.&#xA;Maybe it is compared to X11 that doesn&amp;rsquo;t require any additional setup at all.&lt;/p&gt;&#xA;&lt;p&gt;To have working screen sharing on Sway you really need three components&#xA;installed and set up with correct environment variables.&lt;/p&gt;&#xA;&lt;p&gt;These three components are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;pipewire&lt;/code&gt; (I have version: 0.3.21)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;xdg-desktop-portal&lt;/code&gt; (I have version: 1.8.0)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;xdg-desktop-portal-wlr&lt;/code&gt; (I have version: 0.1.0)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;These three components has to have systemd user services. You should be able&#xA;to see them in the list if you run &lt;code&gt;systemctl --user&lt;/code&gt;, just look for the&#xA;different programs name ending in &lt;code&gt;.service&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Switching to Wayland (Sway)</title>
+      <link>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</link>
+      <pubDate>Wed, 17 Feb 2021 22:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</guid>
+      <description>&lt;p&gt;Like every other desktop Linux user for the past many years I&amp;rsquo;ve used X11. I&#xA;was on &lt;a href=&#34;https://i3wm.org/&#34;&gt;i3wm&lt;/a&gt; for quite some time until I was introduced to&#xA;&lt;a href=&#34;https://github.com/ch11ng/exwm&#34;&gt;Emacs X11 Window Manager&lt;/a&gt; which I used&#xA;exclusively for about 18 months, I&amp;rsquo;ve even held a &lt;a href=&#34;https://elis.nu/talks/&#34;&gt;talk&lt;/a&gt; about it.&#xA;But at some point it got too annoying, for example in multi monitor use cases.&lt;/p&gt;&#xA;&lt;p&gt;At this point my first step was to go back to set up i3wm again. With that&#xA;set up I wanted to give &lt;a href=&#34;https://swaywm.org/&#34;&gt;SwayWM&lt;/a&gt; another attempt, it was&#xA;years ago I&amp;rsquo;ve checked it out before. I think my previous experience was when the&#xA;project was new. At that point (if I remember correctly), not even the window&#xA;decorations looked like the ones in i3wm.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ultra wide monitor</title>
+      <link>https://elis.nu/blog/2021/02/ultra-wide-monitor/</link>
+      <pubDate>Mon, 15 Feb 2021 21:15:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/ultra-wide-monitor/</guid>
+      <description>&lt;p&gt;A couple of months (after at least half a year of thinking) I finally decided&#xA;to do it. I decided to buy a Ultra wide screen for my home office. The one I&#xA;had been looking at for months is the &lt;a href=&#34;https://pricespy.co.uk/computers-accessories/monitors/samsung-odyssey-c49g95t--p5258106&#34;&gt;Samsung Odyssey G9 C49G95&lt;/a&gt;. It happens&#xA;to be the opposite of cheap. Part of the triggering factor was a conversation&#xA;on IRC in &lt;a href=&#34;https://logs.nix.samueldr.com/nixos-chat/2020-12-06#1607250103-1607250291;&#34;&gt;#nixos-chat&lt;/a&gt; where a person admitted that she had one of those. Then&#xA;the real trigger to buy it was to find it at 23% discount. It was a return&#xA;item to a store.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>I find food habits at Free Software events weird</title>
+      <link>https://elis.nu/blog/2021/01/i-find-food-habits-at-free-software-events-weird/</link>
+      <pubDate>Tue, 26 Jan 2021 21:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/01/i-find-food-habits-at-free-software-events-weird/</guid>
+      <description>&lt;p&gt;This is a follow-up on: &lt;a href=&#34;https://elis.nu/blog/2021/01/why-i-use-free-software/&#34;&gt;Why I use Free Software&lt;/a&gt;,&#xA;&lt;a href=&#34;https://elis.nu/blog/2021/01/why-i-got-into-veganism/&#34;&gt;Why I got into Veganism&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Since the Free Software movement in it&amp;rsquo;s core is an ethical movement, which&#xA;cares about human rights and humans access and ability to study, share and&#xA;improve on the software they use. I&amp;rsquo;m well aware that not everyone in the&#xA;Free Software community is in it for ethical reasons - but I&amp;rsquo;m pretty sure&#xA;that there&amp;rsquo;s enough of us that care about ethics for this to be important.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Why I got into Veganism</title>
+      <link>https://elis.nu/blog/2021/01/why-i-got-into-veganism/</link>
+      <pubDate>Wed, 20 Jan 2021 21:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/01/why-i-got-into-veganism/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://elis.nu/blog/2021/01/why-i-got-into-veganism/metric-for-ethics.webp&#34; alt=&#34;Metric for ethics&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is a follow-up on: &lt;a href=&#34;https://elis.nu/blog/2021/01/why-i-use-free-software/&#34;&gt;Why I use Free Software&lt;/a&gt;. This has been followed up&#xA;by: &lt;a href=&#34;https://elis.nu/blog/2021/01/i-find-food-habits-at-free-software-events-weird/&#34;&gt;I find food habits at Free Software events weird&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;People who turn to &lt;a href=&#34;https://en.wikipedia.org/wiki/Veganism#Ethical_veganism&#34;&gt;Veganism&lt;/a&gt; can do this for different reasons,&#xA;some do it for health reasons, others for climate reasons. But in it&amp;rsquo;s core,&#xA;the Vegan movement in itself is an ethical movement about saving the animals.&#xA;The other reasons are more or less side effects.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Why I use Free Software</title>
+      <link>https://elis.nu/blog/2021/01/why-i-use-free-software/</link>
+      <pubDate>Sat, 16 Jan 2021 23:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/01/why-i-use-free-software/</guid>
+      <description>&lt;p&gt;This has been followed up by: &lt;a href=&#34;https://elis.nu/blog/2021/01/why-i-got-into-veganism/&#34;&gt;Why I got into Veganism&lt;/a&gt;,&#xA;&lt;a href=&#34;https://elis.nu/blog/2021/01/i-find-food-habits-at-free-software-events-weird/&#34;&gt;I find food habits at Free Software events weird&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;People in general may have different reasons for choosing to use&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Free_software&#34;&gt;Free Software&lt;/a&gt;, some&#xA;may use it for the price, others because of pragmatic reasons,&#xA;simply put it&amp;rsquo;s the best tool for the job. Others may choose it for&#xA;ethical reasons.&lt;/p&gt;&#xA;&lt;p&gt;I didn&amp;rsquo;t get into Free Software for any of the said reasons above, I got into&#xA;Free Software because it seemed different and fun. The free price point is&#xA;what made it possible for me as a teenager to play around with it as I did.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Weechat Android SSH relay setup</title>
+      <link>https://elis.nu/blog/2020/08/weechat-android-ssh-relay-setup/</link>
+      <pubDate>Fri, 14 Aug 2020 18:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/08/weechat-android-ssh-relay-setup/</guid>
+      <description>&lt;p&gt;Setting up the Weechat Android &lt;a href=&#34;https://github.com/ubergeek42/weechat-android&#34;&gt;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;&#xA;&#xA;&lt;i class=&#34;fab  fa-fab  fa-github &#34;&gt;&lt;/i&gt;&#xA; GitHub&lt;/a&gt;&#xA;&lt;a href=&#34;https://play.google.com/store/apps/details?id=com.ubergeek42.WeechatAndroid&#34;&gt;&#xA;&#xA;&#xA;&#xA;&#xA;    &#xA;&#xA;&#xA;&lt;i class=&#34;fab  fa-fab  fa-google-play &#34;&gt;&lt;/i&gt;&#xA; Play Store&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;relay client over SSH can be a bit tricky and quite bad at giving useful error messages. So since I&amp;rsquo;m&#xA;going through a re-setup of that I&amp;rsquo;m also writing down my notes here.&lt;/p&gt;&#xA;&lt;h2 id=&#34;weechat-configuration&#34;&gt;Weechat configuration&lt;/h2&gt;&#xA;&lt;p&gt;Type the following commands into Weechat.&lt;/p&gt;&#xA;&lt;p&gt;Placeholders such as &lt;code&gt;{port}&lt;/code&gt; and &lt;code&gt;{password}&lt;/code&gt; will be used here and later&#xA;on. Suggested default port is &lt;code&gt;9000&lt;/code&gt;, but you need to chose something&#xA;unique on your system. This is especially important if you have a multi user&#xA;system. Setting a &lt;code&gt;{password}&lt;/code&gt; is also especially important if you have a&#xA;multi user system.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My battle with wrist pains</title>
+      <link>https://elis.nu/blog/2020/08/my-battle-with-wrist-pains/</link>
+      <pubDate>Sun, 09 Aug 2020 18:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/08/my-battle-with-wrist-pains/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; I&amp;rsquo;m not a doctor, dietitian or ergonomics expert. I just have spent a&#xA;lot of time to find something that works well for me. This is my experience&#xA;and you can probably take inspiration for it, but don&amp;rsquo;t do stupid things and&#xA;seek expert advice if you need it.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;In parts of the IT industry abbreviations like&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Repetitive_strain_injury&#34;&gt;RSI&lt;/a&gt; and&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Carpal_tunnel_syndrome&#34;&gt;CTS&lt;/a&gt;&#xA;gets thrown around fairly often. I&amp;rsquo;m guilty myself of doing this.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NixOS ❄: tmpfs as home</title>
+      <link>https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/</link>
+      <pubDate>Sat, 27 Jun 2020 22:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/</guid>
+      <description>&lt;p&gt;This is a follow-up post for my earlier post: &lt;a href=&#34;https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/&#34;&gt;NixOS ❄: tmpfs as root&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;When you start to go down the route of setting up a “pure” system that is as&#xA;clean as you want it to be on each boot. You may start with the lazy route of&#xA;using a persistent partition for your home directory. But it never feels&#xA;quite right. But initially it&amp;rsquo;s so convenient to choose this path.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/drafts/health/</title>
+      <link>https://elis.nu/drafts/health/</link>
+      <pubDate>Fri, 19 Jun 2020 23:00:00 +0100</pubDate>
+      <guid>https://elis.nu/drafts/health/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The purpose of this page is to be a summary of my life when it comes to&#xA;mainly physical health. It will include learning&amp;rsquo;s and what I&amp;rsquo;ve applied.&#xA;It&amp;rsquo;s partly to have as personal notes, but also that I hope to inspire&#xA;eventual readers to improve yourself. Change is always possible, but it has&#xA;to come from you.&lt;/p&gt;&#xA;&lt;p&gt;If you feel that you want to talk to me about anything on this page, feel&#xA;free to contact me through any means described on my &lt;a href=&#34;https://elis.nu/about/#contact&#34;&gt;/about&lt;/a&gt; page.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NixOS ❄: tmpfs as root</title>
+      <link>https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/</link>
+      <pubDate>Sat, 02 May 2020 10:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/</guid>
+      <description>&lt;p&gt;This post covers both EFI and legacy boot setups.&lt;/p&gt;&#xA;&lt;p&gt;One fairly unique property of NixOS is the ability to boot with only &lt;code&gt;/boot&lt;/code&gt;&#xA;and &lt;code&gt;/nix&lt;/code&gt;. Nothing else is actually required. This supports doing all sorts&#xA;of weird things with your root file system.&lt;/p&gt;&#xA;&lt;p&gt;One way is to do like &lt;a href=&#34;https://grahamc.com/blog/erase-your-darlings&#34;&gt;Graham&amp;rsquo;s post &amp;ldquo;erase your darlings&amp;rdquo;&lt;/a&gt; describes and empty&#xA;your root file system each boot using ZFS snapshots. This way have some cool&#xA;things that you could do on top of his setup, such as doing snapshots when&#xA;it&amp;rsquo;s running and roll-back to empty on boot. That way you actually can go&#xA;back to recover files you lost but still have an empty state.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PHP packaging in NixOS ❄</title>
+      <link>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</link>
+      <pubDate>Sun, 05 Apr 2020 20:00:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</guid>
+      <description>&lt;p&gt;This is a sneak peak into the future 20.09 release of NixOS.&lt;/p&gt;&#xA;&lt;p&gt;The PHP packaging ecosystem in NixOS has been in a quite sad state for a long&#xA;time. Partly because of the lack of people caring about PHP in Nix, but also&#xA;that PHP is a bit weird when it comes to packaging.&lt;/p&gt;&#xA;&lt;h2 id=&#34;state-of-php-before-nixos-2009&#34;&gt;State of PHP before NixOS 20.09&lt;/h2&gt;&#xA;&lt;p&gt;Due to the lack of ability to do clever things like the python community does&#xA;with =withPackages= to compose a package with the dependencies you need we&#xA;have defaulted to provide a huge default package to accommodate all needs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Double stitched Penguin Beanie</title>
+      <link>https://elis.nu/blog/2020/02/double-stitched-penguin-beanie/</link>
+      <pubDate>Sat, 08 Feb 2020 17:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/02/double-stitched-penguin-beanie/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://elis.nu/blog/2020/02/double-stitched-penguin-beanie/friendly_penguin_front_and_side.webp&#34; alt=&#34;Friendly front and side of penguin beanie&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is a quite unusual post for this blog, it&amp;rsquo;s not what I&amp;rsquo;ve expected to&#xA;put on here. But I wanted to share it somewhere more permanent than many&#xA;other places where I hang out on the internet. So here it goes.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been knitting for a bunch of years now, and some years ago I was&#xA;intrigued by a knitting method that is called double knitting. In theory it&amp;rsquo;s&#xA;fairly simple because you basically make two knitting&amp;rsquo;s at the same time in&#xA;parallel and mirror the pattern.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Encrypted ZFS mirror with mirrored boot on NixOS</title>
+      <link>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</link>
+      <pubDate>Sun, 04 Aug 2019 10:20:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</guid>
+      <description>&lt;p&gt;So for a long time I have wanted to replace my file server, because it&amp;rsquo;s an&#xA;old HP Microserver that is really slow. And at the same time I have had this&#xA;beast of a desktop tower PC that I haven&amp;rsquo;t used with a Xeon and 32GiB ECC&#xA;memory that has just been turned off due to noise. The obvious solution is to&#xA;re-purpose that install and move it to a location where noise doesn&amp;rsquo;t matter,&#xA;e.g. the closet (a.k.a the server room) where the file server lives.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Hello World!</title>
+      <link>https://elis.nu/blog/hello-world/</link>
+      <pubDate>Sat, 08 Jun 2019 20:10:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/hello-world/</guid>
+      <description>&lt;p&gt;Hello world! This is a test blog post.&lt;/p&gt;&#xA;&lt;p&gt;This is an external link &lt;a href=&#34;https://example.org/&#34;&gt;example.org&lt;/a&gt;. Internal link &lt;a href=&#34;https://elis.nu/&#34;&gt;start page&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;This is a block quote element.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This is an inline &lt;code&gt;code&lt;/code&gt; block.&lt;/p&gt;&#xA;&lt;h2 id=&#34;test-of-syntax-highlighting&#34;&gt;Test of syntax highlighting&lt;/h2&gt;&#xA;&lt;h3 id=&#34;elisp&#34;&gt;elisp&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-elisp&#34; data-lang=&#34;elisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;;; Define the hello function&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;defun&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;hello&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;s&#34;&gt;&amp;#34;This&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;   is my&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;   docstring&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;message&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;world&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;;; Call the hello function&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;hello&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;nix&#34;&gt;Nix&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-nix&#34; data-lang=&#34;nix&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;c1&#34;&gt;# Define the hello function&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;hello&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;world&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;c1&#34;&gt;# More tests&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;fileimport&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;sr&#34;&gt;./src/file.nix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;c1&#34;&gt;# Call the hello function&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;message&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hello&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{};&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;go&#34;&gt;Go&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;package&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello world&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;php&#34;&gt;PHP&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;php&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Define the hello function&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;hello&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;world&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Call the hello function&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;hello&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sample-text&#34;&gt;Sample text&lt;/h2&gt;&#xA;&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod&#xA;tempor incididunt ut labore et dolore magna aliqua. Tempor orci dapibus&#xA;ultrices in iaculis nunc sed augue lacus. Donec ac odio tempor orci dapibus&#xA;ultrices in. Faucibus vitae aliquet nec ullamcorper sit amet risus. Pulvinar&#xA;sapien et ligula ullamcorper malesuada proin libero. Magna sit amet purus&#xA;gravida quis blandit turpis cursus in. Elit ullamcorper dignissim cras&#xA;tincidunt lobortis feugiat vivamus at augue. Ut morbi tincidunt augue&#xA;interdum. Enim ut tellus elementum sagittis vitae et. At augue eget arcu&#xA;dictum varius duis.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/3d-models/</title>
+      <link>https://elis.nu/3d-models/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/3d-models/</guid>
+      <description>&lt;p&gt;This is an overview of different 3D models that I have created.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/about/</title>
+      <link>https://elis.nu/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/about/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://elis.nu/img/elis.webp&#34; alt=&#34;Photo of me&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;My name is Elis (SA4BSE) and I currently live in Arvika, Sweden and&#xA;work remotely in Stockholm, Sweden.&lt;/p&gt;&#xA;&lt;h2 id=&#34;aboutgood-with&#34;&gt;./about/good-with/&lt;/h2&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve quite much experience working with PHP backends as well as some&#xA;server maintenance over the years, the levels of responsibility at&#xA;different work-places have been different.&lt;/p&gt;&#xA;&lt;p&gt;Through the past many years I&amp;rsquo;ve been using several Linux&#xA;distributions over extended (at least a few years) periods of&#xA;time. Distros I&amp;rsquo;ve been using includes for example: NixOS, ArchLinux,&#xA;Ubuntu, Gentoo, CentOS, etc.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/cubing/3x3-cfop/</title>
+      <link>https://elis.nu/cubing/3x3-cfop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/cubing/3x3-cfop/</guid>
+      <description>&lt;p&gt;This page is in no way a comprehensive guide to cubing but provides a&#xA;selection of useful algorithms mostly for my own reference of&#xA;algorithms that I use.&lt;/p&gt;&#xA;&lt;p&gt;So for a more complete resource, check out &lt;a href=&#34;https://www.cube.academy/&#34;&gt;cube.academy/&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/cubing/4x4/</title>
+      <link>https://elis.nu/cubing/4x4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/cubing/4x4/</guid>
+      <description>&lt;p&gt;This page contains only parity cases for the 4x4x4 and bigger cubes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/cubing/5x5/</title>
+      <link>https://elis.nu/cubing/5x5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/cubing/5x5/</guid>
+      <description>&lt;p&gt;This page contains only parity cases for the 5x5x5 and bigger cubes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/talks/</title>
+      <link>https://elis.nu/talks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/talks/</guid>
+      <description>&lt;p&gt;On this page I link presentation slides and if it exists the recording&#xA;of me holding that presentation.&lt;/p&gt;&#xA;&lt;p&gt;They will be sorted by reversed chronological order (newest first).&lt;/p&gt;&#xA;&lt;h2 id=&#34;nix-what&#34;&gt;Nix what?&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Date: 2025-05-20&lt;/li&gt;&#xA;&lt;li&gt;Location: Cloud Native Meetup Värmland&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/etu/presentations/blob/master/cloud-native-meetup-varmland-2025-05-20/presentation.org&#34;&gt;Org file used for slides&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-nixos-ecosystem--a-brief-overview&#34;&gt;The NixOS Ecosystem &amp;ndash; A brief overview&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Date: 2020-02-22&lt;/li&gt;&#xA;&lt;li&gt;Location: Oslo NixOS Meetup&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/etu/presentations/blob/master/oslo-nixos-meetup-2020-02-22/presentation.org&#34;&gt;Org file used for slides&lt;/a&gt;. &lt;a href=&#34;https://www.youtube.com/watch?v=9Su89RLoh0Q&#34;&gt;Youtube video&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;lightning-talk-exwm--emacs-x11-window-manager&#34;&gt;Lightning talk: EXWM &amp;ndash; Emacs X11 Window Manager&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Date: 2019-12-29&lt;/li&gt;&#xA;&lt;li&gt;Location: 36c3 Lightningtalks track&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/etu/presentations/blob/master/cfp-36c3-lightningtalk-exwm/presentation.org&#34;&gt;Org file used for slides&lt;/a&gt;. &lt;a href=&#34;https://www.youtube.com/watch?v=qbtr_a7vBXw&amp;amp;t=1418s&#34;&gt;Youtube with timestamp&lt;/a&gt;. &lt;a href=&#34;https://media.ccc.de/v/36c3-10525-lightning_talks_day_3#t=1418&#34;&gt;media.ccc.de with timestamp&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/work/</title>
+      <link>https://elis.nu/work/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/work/</guid>
+      <description>&lt;p&gt;As a work life experience I mostly have been working with PHP and other&#xA;web-related technologies. Since 2014 been focusing on backend development.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve also got experience with maintaining servers, networks, load balancing,&#xA;databases, sshd, web servers among other things you need for a big website to&#xA;scale and work well.&lt;/p&gt;&#xA;&lt;h2 id=&#34;workpresent&#34;&gt;./work/present/&lt;/h2&gt;&#xA;&lt;h3 id=&#34;tvnu-sweden-ab-2016-04--present&#34;&gt;TVNU Sweden AB (2016-04 &amp;ndash; present)&lt;/h3&gt;&#xA;&lt;p&gt;Started out as a Senior Backend developer and later (2019-12) I&amp;rsquo;ve became&#xA;team lead for the backend team. In this role I&amp;rsquo;m part of the team that is&#xA;resposible for imports of data (both streaming and linear TV data). We also&#xA;take care of the ops parts of taking care of the servers and build an admin&#xA;interface to be able to do manual changes in the data easily.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

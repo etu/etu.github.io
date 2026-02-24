@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hyprland on Elis Hirwing</title>
+    <link>https://elis.nu/tags/hyprland/</link>
+    <description>Recent content in Hyprland on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 29 Aug 2024 21:30:00 +0200</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/hyprland/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Back from Hyprland to Sway</title>
+      <link>https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/</link>
+      <pubDate>Thu, 29 Aug 2024 21:30:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/</guid>
+      <description>&lt;p&gt;After a brief experiment with&#xA;&lt;a href=&#34;https://elis.nu/blog/2024/07/switching-to-hyprland/&#34;&gt;Hyprland&lt;/a&gt;, I&amp;rsquo;m back to using Sway. My&#xA;experiment lasted less than a month, as I hoped Hyprland&amp;rsquo;s window&#xA;selector would resolve my window-sharing woes.&lt;/p&gt;&#xA;&lt;p&gt;It turns out it wasn&amp;rsquo;t, because the first week back at work I had the&#xA;need to share a slideshow in full screen. Then it doesn&amp;rsquo;t matter if&#xA;you can select a window anymore. So my workarounds with Sway would&#xA;have worked in that use case while my Hyprland set up…  didn&amp;rsquo;t.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Switching from Sway to Hyprland</title>
+      <link>https://elis.nu/blog/2024/07/switching-to-hyprland/</link>
+      <pubDate>Tue, 23 Jul 2024 16:40:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/07/switching-to-hyprland/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;After four years with Sway, I&amp;rsquo;ve decided to transition to Hyprland. My&#xA;journey from EXWM to Sway began about four years ago, and I documented&#xA;the experience in&#xA;&lt;a href=&#34;https://elis.nu/blog/2021/02/switching-to-wayland-sway/&#34;&gt;this post&lt;/a&gt; three years ago.&#xA;While Sway has served me well, it has its limitations that I&amp;rsquo;ve used&#xA;hacks and workarounds to circumvent.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-limitations-of-sway&#34;&gt;The Limitations of Sway&lt;/h2&gt;&#xA;&lt;p&gt;One major drawback of Sway is its&#xA;&lt;a href=&#34;https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/&#34;&gt;screen sharing&lt;/a&gt;&#xA;capabilities. Although I managed to get screen sharing somewhat&#xA;functional, it only allows sharing the full screen.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

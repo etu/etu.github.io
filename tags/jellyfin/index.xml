@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jellyfin on Elis Hirwing</title>
+    <link>https://elis.nu/tags/jellyfin/</link>
+    <description>Recent content in Jellyfin on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 25 Jul 2022 20:00:00 +0100</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/jellyfin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keeping LG webOS Developer Mode alive with Home Assistant</title>
+      <link>https://elis.nu/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/</link>
+      <pubDate>Mon, 25 Jul 2022 20:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/</guid>
+      <description>&lt;p&gt;For over 10 years I&amp;rsquo;ve used &lt;a href=&#34;https://kodi.tv/&#34;&gt;Kodi&lt;/a&gt; on a separate PC connected to a TV to play&#xA;back local media.&lt;/p&gt;&#xA;&lt;p&gt;A couple of weeks ago everything changed in a matter of days. I listened to&#xA;&lt;a href=&#34;https://latenightlinux.com/late-night-linux-episode-179/&#34;&gt;Late Night Linux – Episode 179&lt;/a&gt;&#xA;where they talked about &lt;a href=&#34;https://jellyfin.org/&#34;&gt;Jellyfin&lt;/a&gt;. I have&#xA;looked into Jellyfin before, however I&amp;rsquo;ve disregarded it due to the lack of&#xA;app for LG webOS. This changed because the podcast episode told that there&#xA;was a webOS app for Jellyfin.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

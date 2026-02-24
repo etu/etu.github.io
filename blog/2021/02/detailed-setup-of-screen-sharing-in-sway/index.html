@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Detailed setup of screen sharing in Wayland (Sway) - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Detailed setup of screen sharing in Wayland (Sway) &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Detailed setup of screen sharing in Wayland (Sway)</h1>
+    <span class="post-meta">
+    2021-02-19
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p>Getting screen sharing to work on Wayland seems to be surprisingly hard.
+Maybe it is compared to X11 that doesn&rsquo;t require any additional setup at all.</p>
+<p>To have working screen sharing on Sway you really need three components
+installed and set up with correct environment variables.</p>
+<p>These three components are:</p>
+<ul>
+<li><code>pipewire</code> (I have version: 0.3.21)</li>
+<li><code>xdg-desktop-portal</code> (I have version: 1.8.0)</li>
+<li><code>xdg-desktop-portal-wlr</code> (I have version: 0.1.0)</li>
+</ul>
+<p>These three components has to have systemd user services. You should be able
+to see them in the list if you run <code>systemctl --user</code>, just look for the
+different programs name ending in <code>.service</code>.</p>
+<p>You can also check on each service individually by running:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl --user status pipewire.service
+</span></span><span class="line"><span class="cl">systemctl --user status xdg-desktop-portal.service
+</span></span><span class="line"><span class="cl">systemctl --user status xdg-desktop-portal-wlr.service
+</span></span></code></pre></div><h2 id="required-environment-variables">Required environment variables</h2>
+<ul>
+<li><code>XDG_SESSION_TYPE=wayland</code></li>
+<li><code>XDG_CURRENT_DESKTOP=sway</code></li>
+</ul>
+<p>How you set this may vary depending on your distribution, in NixOS I did set
+these in a global way. But this, surprisingly to me wasn&rsquo;t enough to make
+them apply all the way through to systemd user services.</p>
+<p>So I had to add the following to command to run before I log into sway:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+</span></span></code></pre></div><p>It may be fine to start it after sway is launched as well, it probably just
+has to be executed before you attempt to do any screen sharing.</p>
+<p>Don&rsquo;t worry if they don&rsquo;t run at this point. They should be started by socket
+activation when you start sharing your screen.</p>
+<h3 id="update-a-recent-update-to-sway-16-in-nixpkgs-broke-screen-sharing">Update: A recent update to sway 1.6 in nixpkgs broke screen sharing</h3>
+<p>Reported issue here <a href="https://github.com/NixOS/nixpkgs/issues/119445">nixpkgs#119445</a>.</p>
+<p>Currently screen sharing works if you have the following lines in your sway
+config to import the right things to the right places:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">exec</span> systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+</span></span><span class="line"><span class="cl"><span class="nb">exec</span> dbus-update-activation-environment WAYLAND_DISPLAY
+</span></span></code></pre></div><h2 id="testing-screen-sharing">Testing screen sharing</h2>
+<p>Testing screen sharing can easily be done with a patched
+Firefox started with <code>MOZ_ENABLE_WAYLAND=1</code> set or with a Blink based browser
+with the <code>pipewire</code> flag enabled in <code>about://flags</code>.</p>
+<blockquote>
+<p>NixOS has pulled in a patch for Firefox (older than 83)
+to support Pipewire. This should mean that it doesn&rsquo;t need patching if it&rsquo;s
+newer than 83. <a href="https://github.com/NixOS/nixpkgs/blob/f30c67cc99b56f3380fe417f361fe84492ee77de/pkgs/applications/networking/browsers/firefox/common.nix#L134-L140">Link to source</a>.</p>
+</blockquote>
+<p>To actually test screen sharing I&rsquo;d recommend using Mozilla&rsquo;s <a href="https://mozilla.github.io/webrtc-landing/gum_test.html">gUM Test Page</a>,
+then just start your screen share on that page.</p>
+<h2 id="what-should-happen">What should happen?</h2>
+<p>Starting the screen share should trigger the socket activation for the user
+services for <code>pipewire.service</code>, <code>xdg-desktop-portal.service</code> and
+<code>xdg-desktop-portal-wlr.service</code>. In other words, these three services
+<em>should</em> be started automatically when you start sharing your screen.</p>
+<p>There&rsquo;s no real use to start them manually if they aren&rsquo;t running at this
+point since they require the environment variables to work regardless if they
+run or not.</p>
+<h2 id="what-if-the-services-doesnt-start">What if the services doesn&rsquo;t start?</h2>
+<p>Then it doesn&rsquo;t work. You can just stop the services that may have started,
+then try to adjust your environment variables and try again.</p>
+<p>You can check on each service with the commands above. If you want to stop
+all or specific services you can run the following to do so:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl --user stop pipewire.service
+</span></span><span class="line"><span class="cl">systemctl --user stop xdg-desktop-portal.service
+</span></span><span class="line"><span class="cl">systemctl --user stop xdg-desktop-portal-wlr.service
+</span></span></code></pre></div>
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

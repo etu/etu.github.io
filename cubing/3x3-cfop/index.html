@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>~elis/cubing/3x3-cfop/ - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/cubing/3x3-cfop/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="~elis/cubing/3x3-cfop/ &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/cubing/3x3-cfop/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+<link rel="stylesheet" href="/css/cubing.css">
+<script src="/js/AnimCube3.js"></script>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>~elis/cubing/3x3-cfop/</h1>
+    
+
+    <p>This page is in no way a comprehensive guide to cubing but provides a
+selection of useful algorithms mostly for my own reference of
+algorithms that I use.</p>
+<p>So for a more complete resource, check out <a href="https://www.cube.academy/">cube.academy/</a>.</p>
+
+
+    
+        <div class="algorithms">
+            
+                <div class="algorithm-card" id="algo-0">
+                    <h2>Sexy Move</h2>
+
+                    
+                        <p class="description">Very useful and recurring algorithm in cubing, is used as part of many
+other algorithms. It is often referred to as the &#34;Sexy Move&#34;. If repeated
+six times, it results in a full rotation of the cube.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation"><strong>R U R&#39; U&#39;</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=R U R\u0027 U\u0027"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-1">
+                    <h2>Sledgehammer</h2>
+
+                    
+                        <p class="description">A very useful algorithm in cubing, it&#39;s used within F2L and as
+part of some other algorithms.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation"><strong>R&#39; F R F&#39;</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=R\u0027 F R F\u0027"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-2">
+                    <h2>Hedgeslammer</h2>
+
+                    
+                        <p class="description">A very useful algorithm in cubing, it&#39;s used within F2L and as
+part of some other algorithms. Inverse of Sledgehammer.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation"><strong>F R&#39; F&#39; R</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=F R\u0027 F\u0027 R"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-3">
+                    <h2>CFOP / OLL Cross / Line</h2>
+
+                    
+                        <p class="description">The Line Algorithm in the OLL cross is used to orient all four edges of
+the last layer to form a cross on the top face.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>F (R U R&#39; U&#39;) F&#39;</strong><br/>Short: <strong>F (sexy)      F&#39;</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=F (R U R\u0027 U\u0027) F\u0027"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-4">
+                    <h2>CFOP / OLL Cross / Tying Shoelaces (Line Variant)</h2>
+
+                    
+                        <p class="description">A second variant of the line that often shows up to go directly
+to a fully oriented OLL.
+
+This is a three cycle, so, if you run this three times you see
+different cases.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>(R U R&#39; U&#39;) (R&#39; F R F&#39;)</strong><br/>Short: <strong>(sexy)      (sledgehammer)</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(R U R\u0027 U\u0027) (R\u0027 F R F\u0027)"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-5">
+                    <h2>CFOP / OLL Cross / Hook</h2>
+
+                    
+                        <p class="description">The Hook Algorithm in the OLL cross is used to orient all four edges of
+the last layer to form a cross on the top face when two edges are already
+correctly oriented.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>f (R U R&#39; U&#39;) f&#39;</strong><br/>Short: <strong>f (sexy)      f&#39;</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=f (R U R\u0027 U\u0027) f\u0027"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-6">
+                    <h2>CFOP / OLL Cross / Dot</h2>
+
+                    
+                        <p class="description">The Dot Algorithm in the OLL cross is used to orient all four edges of
+the last layer to form a cross on the top face when no edges are
+correctly oriented.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>F (R U R&#39; U&#39;) F&#39; f (R U R&#39; U&#39;) f&#39;</strong><br/>Short: <strong>(line)           (hook)</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=F (R U R\u0027 U\u0027) F\u0027 f (R U R\u0027 U\u0027) f\u0027"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-7">
+                    <h2>CFOP / OLL Corners / Sune</h2>
+
+                    
+                        <p class="description">The Sune Algorithm in OLL corners is used to orient all four corners
+of the last layer when one corner is already correctly oriented.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation"><strong>(R U R&#39; U) (R U2 R&#39;)</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(R U R\u0027 U) (R U2 R\u0027)"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-8">
+                    <h2>CFOP / OLL Corners / Anti-Sune</h2>
+
+                    
+                        <p class="description">The Anti-Sune Algorithm in OLL corners is used to orient all four
+corners of the last layer when one corner is already correctly oriented,
+but in the opposite direction compared to the Sune case.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation"><strong>(R U2 R&#39;) (U&#39; R U&#39; R&#39;)</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(R U2 R\u0027) (U\u0027 R U\u0027 R\u0027)"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-9">
+                    <h2>CFOP / OLL Corners / Headlights</h2>
+
+                    
+                        <p class="description">My slow Headlights Algorithm in OLL corners is used to orient two
+corners facing the same direction (headlights).
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>(R U R&#39; U R U2 R&#39;) U (R U2 R&#39; U&#39; R U&#39; R&#39;)</strong><br/>Short: <strong>(sune)             U (anti-sune)</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(R U R\u0027 U R U2 R\u0027) U (R U2 R\u0027 U\u0027 R U\u0027 R\u0027)"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-10">
+                    <h2>CFOP / OLL Corners / Chameleon</h2>
+
+                    
+                        <p class="description">My slow Chameleon Algorithm in OLL corners is used to orient two
+corners facing out from each other (chamelion).
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>(R U R&#39; U R U2 R&#39;) U&#39; (R U2 R&#39; U&#39; R U&#39; R&#39;)</strong><br/>Short: <strong>(sune)             U&#39; (anti-sune)</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(R U R\u0027 U R U2 R\u0027) U\u0027 (R U2 R\u0027 U\u0027 R U\u0027 R\u0027)"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-11">
+                    <h2>CFOP / OLL Corners / Bowtie</h2>
+
+                    
+                        <p class="description">My slow Bowtie Algorithm in OLL corners is used to orient two
+corners facing towards each other (bowtie).
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>(R U R&#39; U R U2 R&#39;) U2 (R U2 R&#39; U&#39; R U&#39; R&#39;)</strong><br/>Short: <strong>(sune)             U2 (anti-sune)</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(R U R\u0027 U R U2 R\u0027) U2 (R U2 R\u0027 U\u0027 R U\u0027 R\u0027)"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-12">
+                    <h2>CFOP / OLL Corners / Double Sune</h2>
+
+                    
+                        <p class="description">My slow Double Sune Algorithm in OLL corners is used to orient all
+four corners of the last layer when no corners are correctly oriented.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>(R U R&#39; U R U2 R&#39;) (R U R&#39; U R U2 R&#39;)</strong><br/>Short: <strong>(sune)             (sune)</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(R U R\u0027 U R U2 R\u0027) (R U R\u0027 U R U2 R\u0027)"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-13">
+                    <h2>CFOP / OLL Corners / Pi</h2>
+
+                    
+                        <p class="description">My slow Pi Algorithm in OLL corners is used to orient all four corners
+of the last layer when no corners are correctly oriented.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>(R U R&#39; U R U2 R&#39;) U&#39; (R U R&#39; U R U2 R&#39;)</strong><br/>Short: <strong>(sune)             U&#39; (sune)</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(R U R\u0027 U R U2 R\u0027) U\u0027 (R U R\u0027 U R U2 R\u0027)"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-14">
+                    <h2>CFOP / PLL Corners / T-Perm (Headlights)</h2>
+
+                    
+                        <p class="description">The T-Perm with Headlights Algorithm in PLL corners is used to swap
+two adjacent corners while keeping the other pieces in place, when
+two corners are facing the same direction (headlights).
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>(R U R&#39; U&#39;) R&#39; F R2 U&#39; R&#39; U&#39; R U R&#39; F&#39;</strong><br/>Short: <strong>(sexy)      R&#39; F R2 U&#39; R&#39; U&#39; R U R&#39; F&#39;</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(R U R\u0027 U\u0027) R\u0027 F R2 U\u0027 R\u0027 U\u0027 R U R\u0027 F\u0027"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-15">
+                    <h2>CFOP / PLL Corners / Y-Perm (No Headlights)</h2>
+
+                    
+                        <p class="description">The Y-Perm with No Headlights Algorithm in PLL corners is used to
+swap two adjacent corners while keeping the other pieces in place,
+when no corners are facing the same direction.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>F R U&#39; R&#39; U&#39; R U R&#39; F&#39; (R U R&#39; U&#39;) R&#39; F R F&#39;</strong><br/>Short: <strong>F R U&#39; R&#39; U&#39; R U R&#39; F&#39; (sexy)      R&#39; F R F&#39;</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=F R U\u0027 R\u0027 U\u0027 R U R\u0027 F\u0027 (R U R\u0027 U\u0027) R\u0027 F R F\u0027"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-16">
+                    <h2>CFOP / PLL Edges / Ua-perm (Counter clockwise)</h2>
+
+                    
+                        <p class="description">The Ua-perm Algorithm in PLL edges is used to cycle three edge pieces
+in the last layer in a counter-clockwise direction while keeping the
+other pieces in place.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation"><strong>(R2 U&#39; R&#39;) U&#39; R (U R) (U R) U&#39; R</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(R2 U\u0027 R\u0027) U\u0027 R (U R) (U R) U\u0027 R"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-17">
+                    <h2>CFOP / PLL Edges / Ub-perm (Clockwise)</h2>
+
+                    
+                        <p class="description">The Ua-perm Algorithm in PLL edges is used to cycle three edge pieces
+in the last layer in a counter-clockwise direction while keeping the
+other pieces in place.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation"><strong>R&#39; U (R&#39; U&#39;) (R&#39; U&#39;) R&#39; U (R U R2)</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=R\u0027 U (R\u0027 U\u0027) (R\u0027 U\u0027) R\u0027 U (R U R2)"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-18">
+                    <h2>CFOP / PLL Edges / H-perm</h2>
+
+                    
+                        <p class="description">The H-perm Algorithm in PLL edges is used to swap two pairs of edge
+pieces on opposite sides of the last layer while keeping the other
+pieces in place.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation"><strong>M2&#39; U&#39; (M2&#39; U2&#39; M2&#39;) U&#39; M2&#39;</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=M2\u0027 U\u0027 (M2\u0027 U2\u0027 M2\u0027) U\u0027 M2\u0027"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-19">
+                    <h2>CFOP / PLL Edges / Z-perm</h2>
+
+                    
+                        <p class="description">The Z-perm Algorithm in PLL edges is used to swap two pairs of edge
+pieces on adjacent sides of the last layer while keeping the other
+pieces in place.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation"><strong>M&#39; U&#39; (M2&#39; U&#39;) (M2&#39; U&#39;) M&#39; U2&#39; M2&#39; U</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=M\u0027 U\u0027 (M2\u0027 U\u0027) (M2\u0027 U\u0027) M\u0027 U2\u0027 M2\u0027 U"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+                <div class="algorithm-card" id="algo-20">
+                    <h2>CFOP / PLL Diagonal Swap / Na-Perm</h2>
+
+                    
+                        <p class="description">The Na-perm Algorithm in PLL switches two opposite corners and
+two opposite middles.
+</p>
+                    
+
+                    
+                    <div class="notation-section">
+                        <h3>Notation</h3>
+                        
+                            <code class="algorithm-notation">Full:  <strong>(r&#39; D r U2) (r&#39; D r U2) (r&#39; D r U2) (r&#39; D r U2) (r&#39; D r U2)</strong><br/>Short: <strong>(r&#39; D r U2&#39;) 5</strong></code>
+                        
+                    </div>
+                    
+
+                    
+                        <div class="cube-wrapper">
+                            <div class="cube">
+                                <script>
+                                    AnimCube3(
+                                        "buttonbar=1&" +
+                                        "buttonheight=25&" +
+                                        "speed=10&" +
+                                        "initmove=x2&" +
+                                        "initrevmove=#&" +
+                                        "move=(r\u0027 D r U2) (r\u0027 D r U2) (r\u0027 D r U2) (r\u0027 D r U2) (r\u0027 D r U2)"
+                                    )
+                                </script>
+                            </div>
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Encrypted ZFS mirror with mirrored boot on NixOS - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Encrypted ZFS mirror with mirrored boot on NixOS &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Encrypted ZFS mirror with mirrored boot on NixOS</h1>
+    <span class="post-meta">
+    2019-08-04
+
+    
+        &middot; 6 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/zfs/">ZFS</a>
+        
+    
+</span>
+<p>So for a long time I have wanted to replace my file server, because it&rsquo;s an
+old HP Microserver that is really slow. And at the same time I have had this
+beast of a desktop tower PC that I haven&rsquo;t used with a Xeon and 32GiB ECC
+memory that has just been turned off due to noise. The obvious solution is to
+re-purpose that install and move it to a location where noise doesn&rsquo;t matter,
+e.g. the closet (a.k.a the server room) where the file server lives.</p>
+<h2 id="my-requirements-on-this-setup">My requirements on this setup</h2>
+<p>To do this move I had a certain list of requirements:</p>
+<ol>
+<li>Mirrored boot disk</li>
+<li>Mirrored ESP</li>
+<li>Encrypted ZFS</li>
+<li>NixOS</li>
+</ol>
+<p>With these requirements, the goal is that whichever disk should be able to
+die and the system should still just boot. Without any issues. Sure the raid
+or system like a raid will complain. But the system should still come up even
+if one disk die.</p>
+<h2 id="step-1---partitioning">Step 1 - Partitioning</h2>
+<p>I followed these steps of partitioning grabbed from the <a href="https://wiki.nixos.org/wiki/ZFS#Simple_NixOS_ZFS_installation">NixOS on ZFS</a> page but
+modified my steps.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Defining some helper variables (these will be used in later code</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># blocks as well, so make sure to use the same terminal session or</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># redefine them later)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DISK1</span><span class="o">=</span>/dev/disk/by-id/ata-VENDOR-ID-OF-THE-FIRST-DRIVE
+</span></span><span class="line"><span class="cl"><span class="nv">DISK2</span><span class="o">=</span>/dev/disk/by-id/ata-VENDOR-ID-OF-THE-SECOND-DRIVE
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Creating partitions</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># This creates the ESP / Boot partition at the beginning of the</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># drive but numbered as the third partition:</span>
+</span></span><span class="line"><span class="cl">sgdisk -n3:1M:+512M -t3:EF00 <span class="nv">$DISK1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># This create the storage partition numbered as the</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># first partition:</span>
+</span></span><span class="line"><span class="cl">sgdisk -n1:0:0 -t1:BF01 <span class="nv">$DISK1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Clone the partitions to the second drive:</span>
+</span></span><span class="line"><span class="cl">sfdisk --dump <span class="nv">$DISK1</span> <span class="p">|</span> sfdisk <span class="nv">$DISK2</span>
+</span></span></code></pre></div><h2 id="step-2---creating-the-pool">Step 2 - Creating the pool</h2>
+<p>Creating a ZFS pool can be intimidating for the first times you do it, there
+is a lot of options and flags. And you have both properties/features that use
+the flag <code>-o</code> and then you have file system properties that use <code>-O</code>.</p>
+<p>To me this is still confusing, but I managed to get it together after some
+fiddling around.</p>
+<p>You can read more about these flags on these locations:</p>
+<ul>
+<li><a href="https://wiki.nixos.org/wiki/ZFS">https://wiki.nixos.org/wiki/ZFS</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/ZFS#Advanced_Format_disks">https://wiki.archlinux.org/index.php/ZFS#Advanced_Format_disks</a></li>
+</ul>
+<p>And many more places around the web…</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Some flags to consider</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Disable ZFS automatic mounting:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   -O mountpoint=none</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Disable writing access time:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   -O atime=off</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Use 4K sectors on the drive, otherwise you can get really</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># bad performance:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   -o ashift=12</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># This is more or less required for certain things to</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># not break:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   -O acltype=posixacl</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># To improve performance of certain extended attributes:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   -O xattr=sa</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># To enable file system compression:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   -O compression=lz4</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># To enable encryption:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   -O encryption=aes-256-gcm -O keyformat=passphrase</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Then we create the pool which is mirrored over both drives and</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># encrypted with ZFS native encryption (if you added those flags):</span>
+</span></span><span class="line"><span class="cl">zpool create &lt;FLAGS&gt; zroot mirror <span class="nv">$DISK1</span>-part1 <span class="nv">$DISK2</span>-part1
+</span></span></code></pre></div><h2 id="step-3---creating-the-file-systems">Step 3 - Creating the file systems</h2>
+<h3 id="step-31---zfs-file-systems">Step 3.1 - ZFS file systems</h3>
+<p>Here you can create which ever you want, this is not exactly how my set up
+mine due to my usage of tmpfs as root, but that&rsquo;s a topic for another post.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">zfs create -o <span class="nv">mountpoint</span><span class="o">=</span>legacy zroot/root      <span class="c1"># For /</span>
+</span></span><span class="line"><span class="cl">zfs create -o <span class="nv">mountpoint</span><span class="o">=</span>legacy zroot/root/home <span class="c1"># For /home</span>
+</span></span><span class="line"><span class="cl">zfs create -o <span class="nv">mountpoint</span><span class="o">=</span>legacy zroot/root/nix  <span class="c1"># For /nix</span>
+</span></span></code></pre></div><h3 id="step-32---the-esp-partitions">Step 3.2 - The ESP partitions</h3>
+<p>This will seem really obvious at this point, but what&rsquo;s not obvious is how to
+keep them in sync. In the past (with MBR) I would make an mdraid level 1
+across the drives and have that as /boot and the system would boot fine from
+any drive. It&rsquo;s not that simple with UEFI.</p>
+<p>Although, this guy have a good write up on how to achieve this same thing on
+Debian/Ubuntu. And that probably works on other distributions as well.
+<a href="https://outflux.net/blog/archives/2018/04/19/uefi-booting-and-raid1/">https://outflux.net/blog/archives/2018/04/19/uefi-booting-and-raid1/</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkfs.vfat <span class="nv">$DISK1</span>-part3
+</span></span><span class="line"><span class="cl">mkfs.vfat <span class="nv">$DISK2</span>-part3
+</span></span></code></pre></div><h2 id="step-4---mounting-the-file-systems">Step 4 - Mounting the file systems</h2>
+<p>This takes a bit of work to do, many drives many steps, etc. If you have
+rebooted your live media because you need to rescue or try again in some way
+with the configuration you should start with importing the pool and loading
+the key to the encrypted disk.</p>
+<p>This isn&rsquo;t needed if you&rsquo;re still up and running on the same session as where
+you created your pool.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">zpool import zroot
+</span></span><span class="line"><span class="cl">zfs load-key zroot
+</span></span></code></pre></div><p>To mount the file systems you probably want to do something like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mount -t zfs zroot/root /mnt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create directories to mount file systems on</span>
+</span></span><span class="line"><span class="cl">mkdir /mnt/<span class="o">{</span>nix,home,boot,boot-fallback<span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Mount the rest of the ZFS file systems</span>
+</span></span><span class="line"><span class="cl">mount -t zfs zroot/root/nix /mnt/nix
+</span></span><span class="line"><span class="cl">mount -t zfs zroot/root/home /mnt/home
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Mount both of the ESP&#39;s</span>
+</span></span><span class="line"><span class="cl">mount <span class="nv">$DISK1</span>-part3 /mnt/boot
+</span></span><span class="line"><span class="cl">mount <span class="nv">$DISK2</span>-part3 /mnt/boot-fallback
+</span></span></code></pre></div><h2 id="step-5---configuration-of-the-boot-loader">Step 5 - Configuration of the boot loader</h2>
+<p>Here we have the magic of the NixOS module systems kicking in that will make
+this entire setup awesome and easy to manage.</p>
+<p>Just start by the regular <code>nixos-generate-config --root /mnt</code>.</p>
+<p>Then you want to use grub as a boot loader and not systemd-boot.</p>
+<p>I have the following configured to make my system support ZFS:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">supportedFilesystems</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;zfs&#34;</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="n">networking</span><span class="o">.</span><span class="n">hostId</span> <span class="o">=</span> <span class="s2">&#34;&lt;8 random numbers&gt;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Then I have the following to boot with grub and keep my two grubs in sync:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># You can probably use his one on true, but my UEFI is buggy.</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">efi</span><span class="o">.</span><span class="n">canTouchEfiVariables</span> <span class="o">=</span> <span class="no">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># This is the regular setup for grub on UEFI which manages /boot</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># automatically.</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">grub</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">grub</span><span class="o">.</span><span class="n">efiSupport</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">grub</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="s2">&#34;nodev&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># This will mirror all UEFI files, kernels, grub menus and things</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># needed to boot to the other drive.</span>
+</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">grub</span><span class="o">.</span><span class="n">mirroredBoots</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span> <span class="n">devices</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;/dev/disk/by-uuid/&lt;FS-ID&gt;&#34;</span> <span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="n">path</span> <span class="o">=</span> <span class="s2">&#34;/boot-fallback&#34;</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>NixOS makes it really easy to set up encrypted ZFS that is reliable when it
+comes to updates and usage.</p>
+<p>And with the module system NixOS makes it easy to keep the two ESP partitions
+in sync.</p>
+<p>I have tested the entire process to make sure it works on my hardware by:</p>
+<ol>
+<li>Shut it down</li>
+<li>Unplug one drive</li>
+<li>Boot it up all the way into the system and watched ZFS be a bit grumpy
+about some missing disk (oh what a surprise!)</li>
+<li>Shut it down</li>
+<li>Plug in he first drive and unplug the other one</li>
+<li>Repeat step 3 again</li>
+<li>Shut it down</li>
+<li>Boot with both disks and tell ZFS that I&rsquo;m sure that there&rsquo;s no issue with
+my hardware and that I don&rsquo;t want to replace my drives.</li>
+</ol>
+<p>So now that computer have moved to the closet (a.k.a. the server room) and
+I&rsquo;ve configured it so I can unlock the drive over SSH on boot following:
+<a href="https://wiki.nixos.org/wiki/ZFS#Unlock_encrypted_zfs_via_ssh_on_boot">https://wiki.nixos.org/wiki/ZFS#Unlock_encrypted_zfs_via_ssh_on_boot</a></p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

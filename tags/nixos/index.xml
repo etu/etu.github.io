@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NixOS on Elis Hirwing</title>
+    <link>https://elis.nu/tags/nixos/</link>
+    <description>Recent content in NixOS on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Thu, 29 Aug 2024 21:30:00 +0200</lastBuildDate>
+    <atom:link href="https://elis.nu/tags/nixos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Back from Hyprland to Sway</title>
+      <link>https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/</link>
+      <pubDate>Thu, 29 Aug 2024 21:30:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/</guid>
+      <description>&lt;p&gt;After a brief experiment with&#xA;&lt;a href=&#34;https://elis.nu/blog/2024/07/switching-to-hyprland/&#34;&gt;Hyprland&lt;/a&gt;, I&amp;rsquo;m back to using Sway. My&#xA;experiment lasted less than a month, as I hoped Hyprland&amp;rsquo;s window&#xA;selector would resolve my window-sharing woes.&lt;/p&gt;&#xA;&lt;p&gt;It turns out it wasn&amp;rsquo;t, because the first week back at work I had the&#xA;need to share a slideshow in full screen. Then it doesn&amp;rsquo;t matter if&#xA;you can select a window anymore. So my workarounds with Sway would&#xA;have worked in that use case while my Hyprland set up…  didn&amp;rsquo;t.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Switching from Sway to Hyprland</title>
+      <link>https://elis.nu/blog/2024/07/switching-to-hyprland/</link>
+      <pubDate>Tue, 23 Jul 2024 16:40:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2024/07/switching-to-hyprland/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;After four years with Sway, I&amp;rsquo;ve decided to transition to Hyprland. My&#xA;journey from EXWM to Sway began about four years ago, and I documented&#xA;the experience in&#xA;&lt;a href=&#34;https://elis.nu/blog/2021/02/switching-to-wayland-sway/&#34;&gt;this post&lt;/a&gt; three years ago.&#xA;While Sway has served me well, it has its limitations that I&amp;rsquo;ve used&#xA;hacks and workarounds to circumvent.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-limitations-of-sway&#34;&gt;The Limitations of Sway&lt;/h2&gt;&#xA;&lt;p&gt;One major drawback of Sway is its&#xA;&lt;a href=&#34;https://elis.nu/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/&#34;&gt;screen sharing&lt;/a&gt;&#xA;capabilities. Although I managed to get screen sharing somewhat&#xA;functional, it only allows sharing the full screen.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NixOS superpower: specialisations</title>
+      <link>https://elis.nu/blog/2024/02/nixos-superpower-specialisations/</link>
+      <pubDate>Sat, 17 Feb 2024 20:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2024/02/nixos-superpower-specialisations/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nixos.org/&#34;&gt;NixOS&lt;/a&gt; has a lot of configurability and features. One&#xA;feature that I&amp;rsquo;ve known about for a while that I think is both really cool,&#xA;but also a bit lesser known is the ability to have declarative&#xA;&lt;a href=&#34;https://wiki.nixos.org/wiki/Specialisation&#34;&gt;Specialisations&lt;/a&gt;. To me, this is a&#xA;superpower of NixOS that I have a hard time to see any other Linux&#xA;Distribution having.&lt;/p&gt;&#xA;&lt;h2 id=&#34;whats-a-specialisation&#34;&gt;What&amp;rsquo;s a Specialisation?&lt;/h2&gt;&#xA;&lt;p&gt;The name doesn&amp;rsquo;t do it justice, it&amp;rsquo;s a bit of a weird name for it. However&#xA;I couldn&amp;rsquo;t come up with a better name for it either.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Outsourcing NixOS compile time to Microsoft</title>
+      <link>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</link>
+      <pubDate>Mon, 10 Oct 2022 20:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://nixos.org/&#34;&gt;NixOS&lt;/a&gt; is a Linux-distribution that may be source-based, but it has a binary&#xA;cache that covers things so you generally don&amp;rsquo;t need to compile things,&#xA;things tends to be cached.&lt;/p&gt;&#xA;&lt;p&gt;However, depending on how you configure your system, you may trigger compiles&#xA;depending on what you do.&lt;/p&gt;&#xA;&lt;p&gt;So a thing I do is that I run Emacs 29 with the native-comp patches that is&#xA;wayland native with the pgtk-branch. This is by no mean the stable Emacs&#xA;release at the point of writing. So to get this Emacs I use the excellent&#xA;&lt;a href=&#34;https://github.com/nix-community/emacs-overlay&#34;&gt;nix-community/emacs-overlay&lt;/a&gt; (that is maintained by my friend&#xA;&lt;a href=&#34;https://github.com/adisbladis&#34;&gt;@adisbladis&lt;/a&gt;). However, this means that I will get Emacs from a development&#xA;branch of Emacs, then I need to build all the Emacs packages that I use in my&#xA;configuration as well for this version of Emacs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Simple deployments of NixOS machines with nixus</title>
+      <link>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</link>
+      <pubDate>Fri, 23 Jul 2021 16:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</guid>
+      <description>&lt;p&gt;Since I&amp;rsquo;ve started using NixOS about four years ago I haven&amp;rsquo;t really used any&#xA;tools to do central deployments of machines. But I&amp;rsquo;ve always read and known&#xA;that NixOS is excellent at this. NixOS can easily build another systems&#xA;configuration, then copy the system to the target systems nix store and then&#xA;activate it there.&lt;/p&gt;&#xA;&lt;p&gt;Despite knowing all this, I haven&amp;rsquo;t gotten around to doing this centrally. A&#xA;while ago the need for this changed because one of my VPSes started running&#xA;low on RAM, low enough to not be able to build new generations of it&amp;rsquo;s own&#xA;system. Which posed a problem for future upgrades. One way to solve it would&#xA;be to pay more money for resources that aren&amp;rsquo;t really needed except from when&#xA;doing system upgrades. The other way would be to push pre-built systems from&#xA;another location. Using the second way is simpler and fixes the issue.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NixOS: Setting up Push To Talk in Mumble on Sway</title>
+      <link>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</link>
+      <pubDate>Sat, 26 Jun 2021 22:40:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/</guid>
+      <description>&lt;p&gt;Switching to Wayland has it&amp;rsquo;s side-effects, one of which is the improved&#xA;security from X11 where applications can&amp;rsquo;t just randomly spy on each other at&#xA;any point.&lt;/p&gt;&#xA;&lt;p&gt;This is both good news and bad news.&lt;/p&gt;&#xA;&lt;p&gt;The good news:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Applications can&amp;rsquo;t just randomly spy on each other.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The bad news:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Things like global hot-keys in for example Mumble won&amp;rsquo;t work.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Back from complaining to actually solving the problem though.&lt;/p&gt;&#xA;&lt;h2 id=&#34;mumble-does-have-a-patch-for-a-future-release&#34;&gt;Mumble does have a patch for a future release&lt;/h2&gt;&#xA;&lt;p&gt;So there&amp;rsquo;s the issue about &lt;a href=&#34;https://github.com/mumble-voip/mumble/issues/3243&#34;&gt;Push to talk does not work in Wayland&lt;/a&gt;, this has&#xA;been followed up by a patch &lt;a href=&#34;https://github.com/mumble-voip/mumble/pull/3675&#34;&gt;Add DBus calls to de/-activate push to talk&lt;/a&gt;. This&#xA;patch will land in the 1.4.0 release though while current stable is 1.3.4.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The day when ZFS saved my data</title>
+      <link>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</link>
+      <pubDate>Fri, 21 May 2021 20:45:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/05/the-day-when-zfs-saved-my-data/</guid>
+      <description>&lt;p&gt;Today my work day didn&amp;rsquo;t turn out the way I expected. It started like a&#xA;normal day, I woke up around the regular time, did my morning routine, sat at&#xA;my desk and started my work-issued laptop.&lt;/p&gt;&#xA;&lt;p&gt;It booted up just fine, I connected it to my Ultrawide display, started going&#xA;through Slack and Email and catch up on some news while drinking my morning&#xA;tea and waking up.&lt;/p&gt;&#xA;&lt;p&gt;Then after around an hour of work things started to hang up, most notably&#xA;Firefox totally froze up. I could launch a new terminal but not start &lt;code&gt;htop&lt;/code&gt;,&#xA;I had a &lt;code&gt;htop&lt;/code&gt; session in a terminal already because it&amp;rsquo;s part of what I&#xA;usually have running. So I went there to look.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Switching to Wayland (Sway)</title>
+      <link>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</link>
+      <pubDate>Wed, 17 Feb 2021 22:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</guid>
+      <description>&lt;p&gt;Like every other desktop Linux user for the past many years I&amp;rsquo;ve used X11. I&#xA;was on &lt;a href=&#34;https://i3wm.org/&#34;&gt;i3wm&lt;/a&gt; for quite some time until I was introduced to&#xA;&lt;a href=&#34;https://github.com/ch11ng/exwm&#34;&gt;Emacs X11 Window Manager&lt;/a&gt; which I used&#xA;exclusively for about 18 months, I&amp;rsquo;ve even held a &lt;a href=&#34;https://elis.nu/talks/&#34;&gt;talk&lt;/a&gt; about it.&#xA;But at some point it got too annoying, for example in multi monitor use cases.&lt;/p&gt;&#xA;&lt;p&gt;At this point my first step was to go back to set up i3wm again. With that&#xA;set up I wanted to give &lt;a href=&#34;https://swaywm.org/&#34;&gt;SwayWM&lt;/a&gt; another attempt, it was&#xA;years ago I&amp;rsquo;ve checked it out before. I think my previous experience was when the&#xA;project was new. At that point (if I remember correctly), not even the window&#xA;decorations looked like the ones in i3wm.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NixOS ❄: tmpfs as home</title>
+      <link>https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/</link>
+      <pubDate>Sat, 27 Jun 2020 22:30:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/06/nixos-tmpfs-as-home/</guid>
+      <description>&lt;p&gt;This is a follow-up post for my earlier post: &lt;a href=&#34;https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/&#34;&gt;NixOS ❄: tmpfs as root&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;When you start to go down the route of setting up a “pure” system that is as&#xA;clean as you want it to be on each boot. You may start with the lazy route of&#xA;using a persistent partition for your home directory. But it never feels&#xA;quite right. But initially it&amp;rsquo;s so convenient to choose this path.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NixOS ❄: tmpfs as root</title>
+      <link>https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/</link>
+      <pubDate>Sat, 02 May 2020 10:00:00 +0100</pubDate>
+      <guid>https://elis.nu/blog/2020/05/nixos-tmpfs-as-root/</guid>
+      <description>&lt;p&gt;This post covers both EFI and legacy boot setups.&lt;/p&gt;&#xA;&lt;p&gt;One fairly unique property of NixOS is the ability to boot with only &lt;code&gt;/boot&lt;/code&gt;&#xA;and &lt;code&gt;/nix&lt;/code&gt;. Nothing else is actually required. This supports doing all sorts&#xA;of weird things with your root file system.&lt;/p&gt;&#xA;&lt;p&gt;One way is to do like &lt;a href=&#34;https://grahamc.com/blog/erase-your-darlings&#34;&gt;Graham&amp;rsquo;s post &amp;ldquo;erase your darlings&amp;rdquo;&lt;/a&gt; describes and empty&#xA;your root file system each boot using ZFS snapshots. This way have some cool&#xA;things that you could do on top of his setup, such as doing snapshots when&#xA;it&amp;rsquo;s running and roll-back to empty on boot. That way you actually can go&#xA;back to recover files you lost but still have an empty state.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PHP packaging in NixOS ❄</title>
+      <link>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</link>
+      <pubDate>Sun, 05 Apr 2020 20:00:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</guid>
+      <description>&lt;p&gt;This is a sneak peak into the future 20.09 release of NixOS.&lt;/p&gt;&#xA;&lt;p&gt;The PHP packaging ecosystem in NixOS has been in a quite sad state for a long&#xA;time. Partly because of the lack of people caring about PHP in Nix, but also&#xA;that PHP is a bit weird when it comes to packaging.&lt;/p&gt;&#xA;&lt;h2 id=&#34;state-of-php-before-nixos-2009&#34;&gt;State of PHP before NixOS 20.09&lt;/h2&gt;&#xA;&lt;p&gt;Due to the lack of ability to do clever things like the python community does&#xA;with =withPackages= to compose a package with the dependencies you need we&#xA;have defaulted to provide a huge default package to accommodate all needs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Encrypted ZFS mirror with mirrored boot on NixOS</title>
+      <link>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</link>
+      <pubDate>Sun, 04 Aug 2019 10:20:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/</guid>
+      <description>&lt;p&gt;So for a long time I have wanted to replace my file server, because it&amp;rsquo;s an&#xA;old HP Microserver that is really slow. And at the same time I have had this&#xA;beast of a desktop tower PC that I haven&amp;rsquo;t used with a Xeon and 32GiB ECC&#xA;memory that has just been turned off due to noise. The obvious solution is to&#xA;re-purpose that install and move it to a location where noise doesn&amp;rsquo;t matter,&#xA;e.g. the closet (a.k.a the server room) where the file server lives.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

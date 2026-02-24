@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Back from Hyprland to Sway - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Back from Hyprland to Sway &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2024/08/back-from-hyprland-to-sway/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Back from Hyprland to Sway</h1>
+    <span class="post-meta">
+    2024-08-29
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/hyprland/">Hyprland</a>
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/cosmic/">Cosmic</a>
+        
+    
+</span>
+<p>After a brief experiment with
+<a href="/blog/2024/07/switching-to-hyprland/">Hyprland</a>, I&rsquo;m back to using Sway. My
+experiment lasted less than a month, as I hoped Hyprland&rsquo;s window
+selector would resolve my window-sharing woes.</p>
+<p>It turns out it wasn&rsquo;t, because the first week back at work I had the
+need to share a slideshow in full screen. Then it doesn&rsquo;t matter if
+you can select a window anymore. So my workarounds with Sway would
+have worked in that use case while my Hyprland set up…  didn&rsquo;t.</p>
+<h2 id="detour-via-cosmic">Detour via Cosmic</h2>
+<p><a href="https://system76.com/cosmic">System76 announced Cosmic</a> in an Alpha
+version which seemed fun to experiment with. So I&rsquo;ve pulled in the
+<a href="https://github.com/lilyinstarlight/nixos-cosmic">flake for Cosmic</a> to
+try it out. It was fairly straightforward to set up, configure and
+use. However it has some bugs (all known upstream) that I find hard to
+accept for daily use. But it gave me some inspiration and ideas at
+least for things I want to have in my desktop.</p>
+<p>After experimenting with Cosmic, I decided to return to Sway, but not
+without incorporating some of the ideas and inspirations I gained.</p>
+<p>Even though I&rsquo;m not using Cosmic, I remain very impressed with the
+work that System76 has done in terms of establishing and building a
+new desktop environment for the modern Linux desktop.</p>
+<h2 id="the-ultrawide-monitor-challenge-turned-sideways">The Ultrawide Monitor Challenge turned sideways?</h2>
+<p>I was listening to a Linux Podcast named <a href="https://linuxmatters.sh/35/">Linux
+Matters</a> where they mentioned a computer
+monitor named <a href="https://www.lg.com/uk/monitors/ergo-monitors/28mq780-b/">LG
+DualUp</a> and
+tempted as I was… I got two of them for myself as well. So instead of
+an Ultrawide challenge I now have an Ultratall challenge which isn&rsquo;t
+much different from wide when it comes to screen sharing. However, I
+do have pre-existing workarounds for that.</p>
+<p>So now I have 2 monitors that both have the aspect ratio of <code>16:18</code>
+and the resolution of <code>2560x2880</code>. So I basically have 2 QHD panels
+above each other, per monitor. It&rsquo;s a glorious set up with a lot of
+height for code and terminals.</p>
+<h2 id="upgrades-to-my-sway-session">Upgrades to my Sway session</h2>
+<h3 id="replaced-lightdm-with-greetd">Replaced lightdm with greetd</h3>
+<p>I&rsquo;ve for a long time used lightdm, but I&rsquo;ve never actually managed to
+log in through lightdm. Not sure why. However, that has very rarely
+been a problem because I&rsquo;ve have had it set to auto login anyway
+which has worked fine.</p>
+<p>So it&rsquo;s a bit of an upgrade to switch to a login manager that works
+for me even though I haven&rsquo;t found any settings for auto login.</p>
+<h3 id="keyboard-configuration">Keyboard configuration</h3>
+<p>While on Cosmic I never figured out if I could use my custom xkb
+configuration file to configure my keyboard layout as I used to on
+Sway. So I found out how to configure it as I want it using xkb
+options instead.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">input &#34;type:keyboard&#34; {
+</span></span><span class="line"><span class="cl">  xkb_layout us
+</span></span><span class="line"><span class="cl">  xkb_model pc105
+</span></span><span class="line"><span class="cl">  xkb_options compose:102,compose:sclk,ctrl:nocaps
+</span></span><span class="line"><span class="cl">  xkb_variant dvorak
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>The bit I was having a hard time to find was <code>compose:102</code> that maps
+the &ldquo;Less Then, Greater Then, Pipe&rdquo; or LSGT button to Compose.</p>
+<p>And with this I&rsquo;ve also found the option <code>console.useXkbConfig</code> in
+NixOS to pick up the console keymap from the <code>services.xserver.xkb</code>
+options so now my Caps Lock actually behaves as Control… even outside
+the graphical environment.</p>
+<h3 id="theme">Theme</h3>
+<p>I&rsquo;ve started to unify applications around the
+<a href="https://catppuccin.com/">Catppuccin</a> theme, it may be a bit pastel
+for me but it seems to have enough contrast. It&rsquo;s also nice and
+consistent and it has a <a href="https://github.com/catppuccin/nix">Nix Flake</a>
+that helps a lot with the set up for different applications.</p>
+<p>Now, the same theme is applied across the TTY, Plymouth (for unlocking
+the disk), the greetd greeter, Sway, Waybar, and other applications.</p>
+<h3 id="running-tray-things">Running tray things</h3>
+<p>I&rsquo;ve done fancy things such as making sure the following nice tray
+programs is started and working:</p>
+<ul>
+<li>Network Manager Applet (home-manager:
+<code>services.network-manager-applet.enable</code>)</li>
+<li>Blueman Manager (home-manager: <code>services.blueman-applet.enable</code>)</li>
+</ul>
+<h3 id="fixing-my-swayidle">Fixing my swayidle</h3>
+<p>Before I had <code>swayidle</code> configured to black the screen but not
+actually suspend the computer… That&rsquo;s also fixed!</p>
+<h3 id="setting-up-wpaperd">Setting up wpaperd</h3>
+<p>I&rsquo;ve switched wall paper for like the first time in 4 years, so I&rsquo;ve
+found some nice space images that fits on my new monitors without
+stretching and then it rotates between a set of a bunch of images on
+random rotation every 30 minutes. It&rsquo;s very pretty!</p>
+<h3 id="music-player-control">Music player control</h3>
+<p>I&rsquo;ve started reading about the
+<a href="https://wiki.archlinux.org/title/MPRIS"><code>mpris</code></a> protocol and
+<code>playerctl</code>, this was super easy to set
+up. <code>services.playerctld.enable</code> and <code>services.mpris-proxy.enable</code> in
+home-manager made it possible to control media players on my Linux
+desktop with Bluetooth devices.</p>
+<p>I&rsquo;ve also managed to add this using the <code>mpris</code> module to <code>waybar</code>
+which was super easy.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Yes I left Sway, for like 3 weeks, which set me on a journey for
+change to land on a better and more fancy sway that does more of the
+things that I didn&rsquo;t know that I wanted it to do.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>
