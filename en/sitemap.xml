@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://elis.nu/</loc>
-    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
+    <lastmod>2026-02-24T21:40:00+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sv-se"
@@ -16,16 +16,19 @@
                 />
   </url><url>
     <loc>https://elis.nu/blog/</loc>
-    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
+    <lastmod>2026-02-24T21:40:00+01:00</lastmod>
   </url><url>
-    <loc>https://elis.nu/tags/linux/</loc>
-    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
+    <loc>https://elis.nu/tags/email/</loc>
+    <lastmod>2026-02-24T21:40:00+01:00</lastmod>
   </url><url>
-    <loc>https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/</loc>
-    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
+    <loc>https://elis.nu/blog/2026/02/migrating-from-g-suite-to-protonmail/</loc>
+    <lastmod>2026-02-24T21:40:00+01:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/tags/privacy/</loc>
+    <lastmod>2026-02-24T21:40:00+01:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/</loc>
-    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
+    <lastmod>2026-02-24T21:40:00+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="sv-se"
@@ -36,6 +39,12 @@
                 hreflang="en-gb"
                 href="https://elis.nu/tags/"
                 />
+  </url><url>
+    <loc>https://elis.nu/tags/linux/</loc>
+    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/</loc>
+    <lastmod>2025-09-13T20:00:00+02:00</lastmod>
   </url><url>
     <loc>https://elis.nu/tags/zfs/</loc>
     <lastmod>2025-09-13T20:00:00+02:00</lastmod>
