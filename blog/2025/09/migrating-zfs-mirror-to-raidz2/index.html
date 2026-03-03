@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Migrating from ZFS mirror to RAIDZ2 - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Migrating from ZFS mirror to RAIDZ2 &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Migrating from ZFS mirror to RAIDZ2</h1>
+    <span class="post-meta">
+    2025-09-13
+
+    
+        &middot; 5 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/zfs/">ZFS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p>For a long time I&rsquo;ve been running my storage on a 2-disk ZFS
+mirror. It&rsquo;s been stable, safe, and easy to manage. However, at some
+point, 2 disks just aren&rsquo;t enough, and I wanted to upgrade to RAIDZ2
+so that I could survive up to two simultaneous disk failures.</p>
+<p>I could have added another mirror, which would have been simple, and
+this setup would allow two drives to fail, but not any two drives. I
+wanted the extra safety of being able to lose <strong>any two drives</strong>.</p>
+<h2 id="the-problem">The problem?</h2>
+<p>I didn&rsquo;t have four new disks lying around. Buying four 18TB drives at
+once would have been expensive. I already had two 18TB drives I wanted
+to keep using and a third one at home, so getting just one additional
+18TB drive would be the cheapest way to expand. I also wanted to avoid
+ever being in a state with <strong>no redundancy</strong> during the migration.</p>
+<p>This post will show how I migrated from a 2-disk ZFS mirror to a
+4-disk RAIDZ2, step by step, while never being without redundancy.</p>
+<h3 id="initial-setup">Initial setup</h3>
+<p>Here&rsquo;s where we started:</p>
+<ul>
+<li><code>zstorage</code> - an existing pool made up of two mirrored drives:
+<ul>
+<li><code>mirror-0</code>
+<ul>
+<li><code>diskA</code></li>
+<li><code>diskB</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="target-setup">Target setup</h3>
+<p>My goal was to end up with this:</p>
+<ul>
+<li><code>zstorage</code> - a new pool, now made up of four drives in RAIDZ2:
+<ul>
+<li><code>raidz2-0</code>
+<ul>
+<li><code>diskA</code></li>
+<li><code>diskB</code></li>
+<li><code>diskC</code></li>
+<li><code>diskD</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>While keeping all data safe throughout the process.</p>
+<h2 id="step-1---add-two-new-drives-and-a-temporary-placeholder">Step 1 - Add two new drives and a temporary placeholder</h2>
+<p>RAIDZ2 requires at least three devices to exist, but I only had two
+new drives. To make this work, I created a <strong>loopback file</strong> to
+temporarily act as a third <em>disk</em>.</p>
+<p>This allowed me to create a degraded RAIDZ2 vdev with the two new
+drives plus the loop device.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Create a sparse file, about the same size as your new drives</span>
+</span></span><span class="line"><span class="cl">truncate -s 18T /mnt/placeholder.img
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Attach it as a loop device</span>
+</span></span><span class="line"><span class="cl">losetup /dev/loop0 /mnt/placeholder.img
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Identify your two new drives</span>
+</span></span><span class="line"><span class="cl"><span class="nv">DISKC</span><span class="o">=</span>/dev/disk/by-id/ata-ST18000NT001-…
+</span></span><span class="line"><span class="cl"><span class="nv">DISKD</span><span class="o">=</span>/dev/disk/by-id/ata-ST18000NE000-…
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create the new pool</span>
+</span></span><span class="line"><span class="cl">zpool create -o <span class="nv">ashift</span><span class="o">=</span><span class="m">12</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">mountpoint</span><span class="o">=</span>none <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">atime</span><span class="o">=</span>off <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">acltype</span><span class="o">=</span>posixacl <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">xattr</span><span class="o">=</span>sa <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">compression</span><span class="o">=</span>lz4 <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -O <span class="nv">encryption</span><span class="o">=</span>aes-256-gcm -O <span class="nv">keyformat</span><span class="o">=</span>passphrase <span class="se">\
+</span></span></span><span class="line"><span class="cl">  zstorage-ng raidz2 <span class="nv">$DISKC</span> <span class="nv">$DISKD</span> /dev/loop0
+</span></span></code></pre></div><p>At this point, <code>zstorage-ng</code> was fully functional and healthy, while the
+original <code>zstorage</code> mirror remained intact as a separate pool.</p>
+<p>Then I removed the sparse file to prevent it from taking up space:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Remove the sparse file</span>
+</span></span><span class="line"><span class="cl">losetup -d /dev/loop0
+</span></span><span class="line"><span class="cl">rm /mnt/placeholder.img
+</span></span></code></pre></div><p>The pool would now be degraded but still fully operational.</p>
+<h2 id="step-2---copy-data-to-the-new-pool">Step 2 - Copy data to the new pool</h2>
+<p>Next, I copied all datasets from the old mirror to the new pool using
+syncoid.</p>
+<p>Make an incremental send/receive from the old pool to the new pool:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">syncoid --recursive zstorage zstorage-ng
+</span></span></code></pre></div><blockquote>
+<p>💡 Tip: Run this multiple times — the first run copies all data,
+subsequent runs are much faster and just catch up incremental
+changes.</p>
+</blockquote>
+<p>This process may take a couple of days, depending on the amount of
+data.</p>
+<p>When the first run was done, I ran it again to catch any changes that
+occurred after the initial copy.</p>
+<p>Once the sync was complete, I stopped all services using the old pool,
+unmounted the old pool, ran the sync one last time, mounted the new
+pool in its place, and verified that everything was working correctly.</p>
+<p>At this point, the new pool was fully functional but degraded and
+still one disk short.</p>
+<p>Parity-wise, I still had the old mirror intact with one-device
+redundancy and the new pool with one-device redundancy - similar to
+having a mirror, but technically degraded since RAIDZ2 expects
+two-device redundancy.</p>
+<h2 id="step-3---remove-a-device-from-the-old-pool">Step 3 - Remove a device from the old pool</h2>
+<p>This step triggers a resilvering operation on the new pool to repair
+it from the missing loop device.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Detach one of the disks from the mirror</span>
+</span></span><span class="line"><span class="cl">zpool detach zstorage /dev/disk/by-id/ata-OLDMIRROR-DISK-B
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Replace the missing loop device in the raidz2</span>
+</span></span><span class="line"><span class="cl">zpool replace zstorage-ng /dev/loop0 /dev/disk/by-id/ata-OLDMIRROR-DISK-B
+</span></span></code></pre></div><p>This will also take time, depending on the amount of data.</p>
+<p>During this stage, I still had the old pool with one remaining disk
+holding a full copy of my data. When the resilver completed, the new
+pool became fully functional and healthy, with full two-disk
+redundancy.</p>
+<p>At this point, I had no extra storage space yet, just a different,
+more resilient layout.</p>
+<h2 id="step-4---destroy-the-old-pool-and-expand">Step 4 - Destroy the old pool and expand</h2>
+<p>Finally, I destroyed the old pool and used the last device in the new
+pool by triggering a RAIDZ expansion.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Destroy the old pool</span>
+</span></span><span class="line"><span class="cl">zpool destroy zstorage
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Attach the last disk to the new pool</span>
+</span></span><span class="line"><span class="cl">zpool attach zstorage-ng /dev/disk/by-id/ata-OLDMIRROR-DISK-A
+</span></span></code></pre></div><p>This took a long time as well - first to recompute all the parity
+during the expansion process, and then to scrub the finished result.</p>
+<p>A zpool status looked like this during the final scrub:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">  pool: zstorage-ng
+</span></span><span class="line"><span class="cl"> state: ONLINE
+</span></span><span class="line"><span class="cl">  scan: scrub repaired 0B in 22:09:24 with 0 errors on Mon Sep  8 14:20:59 2025
+</span></span><span class="line"><span class="cl">expand: expanded raidz2-0 copied 46.0T in 2 days 02:23:56, on Sun Sep  7 16:11:35 2025
+</span></span><span class="line"><span class="cl">config:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	NAME                                  STATE     READ WRITE CKSUM
+</span></span><span class="line"><span class="cl">	zstorage                              ONLINE       0     0     0
+</span></span><span class="line"><span class="cl">	  raidz2-0                            ONLINE       0     0     0
+</span></span><span class="line"><span class="cl">	    ata-ST18000NT001-3LU101_WR50M2VL  ONLINE       0     0     0
+</span></span><span class="line"><span class="cl">	    ata-ST18000NE000-2YY101_ZR585MAG  ONLINE       0     0     0
+</span></span><span class="line"><span class="cl">	    ata-ST18000NE000-2YY101_ZR54LVT1  ONLINE       0     0     0
+</span></span><span class="line"><span class="cl">	    ata-ST18000NE000-2YY101_ZR54FG62  ONLINE       0     0     0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">errors: No known data errors
+</span></span></code></pre></div><h2 id="step-5---final-cleanup">Step 5 - Final cleanup</h2>
+<p>Finally, I renamed my new pool to match the old name, so that all
+mount points and scripts would continue to work without changes.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Export the new pool</span>
+</span></span><span class="line"><span class="cl">zpool <span class="nb">export</span> zstorage-ng
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Import it with the old name</span>
+</span></span><span class="line"><span class="cl">zpool import zstorage-ng zstorage
+</span></span></code></pre></div><h2 id="final-thoughts">Final thoughts</h2>
+<p>This migration took careful planning, but it allowed me to grow from a
+2-disk mirror to a 4-disk RAIDZ2 without ever being unprotected.</p>
+<p>Now I have:</p>
+<ul>
+<li>36T usable space</li>
+<li>Tolerance for two simultaneous disk failures</li>
+</ul>
+<p>ZFS is an incredibly flexible filesystem, and with a bit of
+creativity, you can do major migrations like this without risking your
+data.</p>
+<p>As long as you use ZFS send/receive for copying data, you can always
+be sure that you have a consistent copy of your data on the new pool
+before switching over.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

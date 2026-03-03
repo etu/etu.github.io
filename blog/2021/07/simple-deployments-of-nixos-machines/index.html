@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Simple deployments of NixOS machines with nixus - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Simple deployments of NixOS machines with nixus &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Simple deployments of NixOS machines with nixus</h1>
+    <span class="post-meta">
+    2021-07-23
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/nixus/">Nixus</a>
+        
+    
+</span>
+<p>Since I&rsquo;ve started using NixOS about four years ago I haven&rsquo;t really used any
+tools to do central deployments of machines. But I&rsquo;ve always read and known
+that NixOS is excellent at this. NixOS can easily build another systems
+configuration, then copy the system to the target systems nix store and then
+activate it there.</p>
+<p>Despite knowing all this, I haven&rsquo;t gotten around to doing this centrally. A
+while ago the need for this changed because one of my VPSes started running
+low on RAM, low enough to not be able to build new generations of it&rsquo;s own
+system. Which posed a problem for future upgrades. One way to solve it would
+be to pay more money for resources that aren&rsquo;t really needed except from when
+doing system upgrades. The other way would be to push pre-built systems from
+another location. Using the second way is simpler and fixes the issue.</p>
+<p>There&rsquo;s many ways to achieve remote deployments, one of the main and most
+mentioned one within NixOS is <a href="https://github.com/NixOS/nixops">NixOps</a>, this is because it&rsquo;s the “official”
+tool to do this. But I&rsquo;ve chose to avoid this due to the required state with
+it&rsquo;s database to keep track of remote hosts.</p>
+<p>Then there&rsquo;s something called <a href="https://github.com/DBCDK/morph">morph</a> that seems fairly commonly used as well.
+The one I&rsquo;d liked the most was <a href="https://github.com/Infinisil/nixus">nixus</a>. Partly due to it&rsquo;s simplicity, the
+support to do rollbacks on failed activation or failure to access the system
+right after activation to make sure that you&rsquo;d never lock yourself out, multi
+system management and it&rsquo;s own secrets support.</p>
+<h2 id="pulling-in-the-nixus-module-using-niv">Pulling in the nixus module using <code>niv</code></h2>
+<p>I&rsquo;ve use <code>niv</code> to pull in the nixus modules:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">niv add Infinisil/nixus
+</span></span></code></pre></div><p>If you haven&rsquo;t used <code>niv</code> before it will create a folder called <code>nix/</code> in
+your current directory. This folder will contain a <code>sources.nix</code> file which
+parses a file called <code>sources.json</code> which contains the repositories managed
+by <code>niv</code> and which git commit they are locked to.</p>
+<h2 id="setting-up-a-deployment-file-using-nixus">Setting up a deployment file using nixus</h2>
+<p>This is also fairly straightforward, it needs to import the nixus module from
+niv to then use it to declare a nixus module.</p>
+<p>So what you need to look out for here is the relative path to the niv file
+<code>sources.nix</code> to import the niv sources.</p>
+<p>Then you have to look out for the nixpkgs include in the defaults block, I
+have a checkout that I use for all the systems to have the same version of
+everything on all systems. Then I move all systems forward at the same time
+when I do upgrades.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="k">let</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Load niv sources</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sources</span> <span class="o">=</span> <span class="kn">import</span> <span class="sr">../nix/sources.nix</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Import the nixus module</span>
+</span></span><span class="line"><span class="cl">  <span class="n">nixus</span> <span class="o">=</span> <span class="kn">import</span> <span class="s2">&#34;</span><span class="si">${</span><span class="n">sources</span><span class="o">.</span><span class="n">nixus</span><span class="si">}</span><span class="s2">/default.nix&#34;</span> <span class="p">{</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">in</span>
+</span></span><span class="line"><span class="cl"><span class="n">nixus</span> <span class="p">({</span> <span class="n">config</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Set a nixpkgs version for all nodes</span>
+</span></span><span class="line"><span class="cl">  <span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Use a local nixpkgs checkout</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nixpkgs</span> <span class="o">=</span> <span class="sr">../nix/nixos-unstable</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Alternative: Fetch nixpkgs with fetch tarball</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nixpkgs</span> <span class="o">=</span> <span class="nb">fetchTarball</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;https://github.com/NixOS/nixpkgs/tarball/16fc531784ac226fb268cc59ad573d2746c109c1&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">sha256</span> <span class="o">=</span> <span class="s2">&#34;0qw1jpdfih9y0dycslapzfp8bl4z7vfg9c7qz176wghwybm4sx0a&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">nodes</span><span class="o">.</span><span class="n">node1</span> <span class="o">=</span> <span class="p">{</span> <span class="n">lib</span><span class="o">,</span> <span class="n">config</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># How to reach this node</span>
+</span></span><span class="line"><span class="cl">    <span class="n">host</span> <span class="o">=</span> <span class="s2">&#34;root@node1.example.org&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># What configuration it should have</span>
+</span></span><span class="line"><span class="cl">    <span class="n">configuration</span> <span class="o">=</span> <span class="sr">../hosts/node1/configuration.nix</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">nodes</span><span class="o">.</span><span class="n">node2</span> <span class="o">=</span> <span class="p">{</span> <span class="n">lib</span><span class="o">,</span> <span class="n">config</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># How to reach this node</span>
+</span></span><span class="line"><span class="cl">    <span class="n">host</span> <span class="o">=</span> <span class="s2">&#34;root@node2.example.org&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># What configuration it should have</span>
+</span></span><span class="line"><span class="cl">    <span class="n">configuration</span> <span class="o">=</span> <span class="sr">../hosts/node2/configuration.nix</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></div><h2 id="building-and-deploying-systems">Building and deploying systems</h2>
+<p>Building and deploying your system couldn&rsquo;t be simpler! It&rsquo;s as easy as
+running <code>nix-build path/to/deployment.nix</code> where the path is to the file that
+I had an example of above. When the build is done you&rsquo;ll have a result
+symbolic link in the folder you were executing the command from. This results
+output is a shell script that will run the deploy. So just go ahead and run
+<code>./result</code> to deploy to all the nodes defined in that file.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

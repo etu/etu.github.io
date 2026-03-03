@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Keeping LG webOS Developer Mode alive with Home Assistant - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Keeping LG webOS Developer Mode alive with Home Assistant &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Keeping LG webOS Developer Mode alive with Home Assistant</h1>
+    <span class="post-meta">
+    2022-07-25
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/jellyfin/">Jellyfin</a>
+        
+            <a class="tag" href="/tags/lg/">LG</a>
+        
+            <a class="tag" href="/tags/home-assistant/">Home Assistant</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p>For over 10 years I&rsquo;ve used <a href="https://kodi.tv/">Kodi</a> on a separate PC connected to a TV to play
+back local media.</p>
+<p>A couple of weeks ago everything changed in a matter of days. I listened to
+<a href="https://latenightlinux.com/late-night-linux-episode-179/">Late Night Linux – Episode 179</a>
+where they talked about <a href="https://jellyfin.org/">Jellyfin</a>. I have
+looked into Jellyfin before, however I&rsquo;ve disregarded it due to the lack of
+app for LG webOS. This changed because the podcast episode told that there
+was a webOS app for Jellyfin.</p>
+<p>So I did what most people would do, I went into the LG Content Store and
+searched for &ldquo;jellyfin&rdquo;, no result. So I went and searched on the
+internet. There I found that there was a <a href="https://github.com/jellyfin/jellyfin-webos/">webOS client for Jellyfin</a>. However
+at this point it wasn&rsquo;t pushed to the content store (yet), so I followed
+their directions in the README to enable the Developer Mode and to install it
+myself.</p>
+<p>Some time passed by and then the Jellyfin app just &ldquo;went away&rdquo; and we didn&rsquo;t
+know what happened.</p>
+<p>Since starting to use Jellyfin on webOS they have officially launched a webOS
+app for webOS 6 or newer, however, if you&rsquo;re on an older version of webOS
+it&rsquo;s not out just yet <a href="https://github.com/jellyfin/jellyfin-webos/issues/69#issuecomment-1179454229">Comment in thread for Publish to Store for 10.8</a>.
+However, I manage to have a LG TV from 2021 that has webOS 5.4. So I
+have to wait a bit longer.</p>
+<h2 id="keeping-the-session-alive">Keeping the session alive</h2>
+<p>So the Developer Mode app has a session timer within itself, this is lasting
+50 hours. When 50 hours has passed it will log out and remove your developer
+mode apps.</p>
+<p>This 50 hours doesn&rsquo;t seem to be &ldquo;powered on hours&rdquo;, instead it&rsquo;s human time
+passed amount in hours.</p>
+<p>This is a bit inconvenient since it would mean that you&rsquo;d have to go into the
+Developer Mode app every second day and press a button to not have Jellyfin
+going away.</p>
+<h3 id="first-attempt-using-a-systemd-timer">First attempt using a systemd timer</h3>
+<p>Some time passed by, then I listened to <a href="https://latenightlinux.com/late-night-linux-episode-183/">Late Night Linux – Episode 183</a> where
+they talked about the webOS device manager and that one could use a cron-job
+to renew the session, so I found this script <a href="https://github.com/webosbrew/dev-utils/blob/main/scripts/devmode-reset.sh">devmode-reset.sh from webosbrew</a>.
+So I integrated it into my <a href="https://github.com/etu/nixconfig/commit/e5eb4272f96af0625f59f0c0b23b3bf6e880696b">NixOS configuration</a> to run this script
+every night.</p>
+<p>The script, all the bits worked, like fetching the token from the TV itself
+and posting it to LG all seemed to work. I got a <code>200 OK</code> back from LG with
+some JSON telling me that it seemed fine.</p>
+<p>However, the session never extended from this method.</p>
+<h3 id="second-attempt-using-home-assistant">Second attempt using Home Assistant</h3>
+<p>Then it struck me, <a href="https://www.home-assistant.io/">Home Assistant</a> is capable of running series of commands,
+including sending Wake-On-LAN packages, switching input on TV&rsquo;s, sending fake
+button presses and turning of TV&rsquo;s. So it requires to have the line
+<code>wake_on_lan:</code> in <code>configuration.yaml</code> to enable Wake-On-LAN, then you&rsquo;d have
+to have the Home Assistant integration set up with the TV itself.</p>
+<p>So now I have a script in home assistant that does exactly this:</p>
+<ol>
+<li>Turn on TV (then wait 10 seconds)</li>
+<li>Switch to the Developer Mode app (then wait 5 seconds)</li>
+<li>Loop twice to press the DOWN button (then wait 1 second)</li>
+<li>Press the ENTER button (then wait 5 seconds)</li>
+<li>Turn off the TV</li>
+</ol>
+<p>This script is then put in an automation that is executed in the middle of
+the night (if the TV is off to not disrupt any late night TV watching).</p>
+<p>This is pulled from my <code>scripts.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">tv_extend_developer_session_time</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">alias: &#39;TV</span><span class="p">:</span><span class="w"> </span><span class="l">Extend developer session time&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sequence</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">wake_on_lan.send_magic_packet</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">data</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">mac</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w"> </span><span class="c"># INSERT YOUR TV&#39;s MAC ADDRESS HERE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c"># The following options may be required in some network setups.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">broadcast_address</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;xxx.xxx.xxx.xxx&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">broadcast_port</span><span class="p">:</span><span class="w"> </span><span class="m">9</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">delay</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">hours</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">minutes</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">milliseconds</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">media_player.select_source</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">data</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l">Developer Mode</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">entity_id</span><span class="p">:</span><span class="w"> </span><span class="l">media_player.lg_webos_smart_tv</span><span class="w"> </span><span class="c"># MAKE SURE THIS MATCHES YOUR INTEGRATION SETUP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">delay</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">hours</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">minutes</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">milliseconds</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">repeat</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">count</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">sequence</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">webostv.button</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">data</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">entity_id</span><span class="p">:</span><span class="w"> </span><span class="l">media_player.lg_webos_smart_tv</span><span class="w"> </span><span class="c"># MAKE SURE THIS MATCHES YOUR INTEGRATION SETUP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">button</span><span class="p">:</span><span class="w"> </span><span class="l">DOWN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">delay</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">hours</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">minutes</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">milliseconds</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">webostv.button</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">data</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">entity_id</span><span class="p">:</span><span class="w"> </span><span class="l">media_player.lg_webos_smart_tv</span><span class="w"> </span><span class="c"># MAKE SURE THIS MATCHES YOUR INTEGRATION SETUP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">button</span><span class="p">:</span><span class="w"> </span><span class="l">ENTER</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">delay</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">hours</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">minutes</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">milliseconds</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">media_player.turn_off</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">data</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">entity_id</span><span class="p">:</span><span class="w"> </span><span class="l">media_player.lg_webos_smart_tv</span><span class="w"> </span><span class="c"># MAKE SURE THIS MATCHES YOUR INTEGRATION SETUP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l">single</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l">mdi:remote-tv</span><span class="w">
+</span></span></span></code></pre></div><p>This is pulled from my <code>automations.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">- <span class="nt">alias: &#39;TV</span><span class="p">:</span><span class="w"> </span><span class="l">Extend developer session time automation&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">trigger</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="l">time</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">at</span><span class="p">:</span><span class="w"> </span><span class="m">04</span><span class="p">:</span><span class="m">00</span><span class="p">:</span><span class="m">00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">condition</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l">device</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">device_id</span><span class="p">:</span><span class="w"> </span><span class="l">03387d9e75f0ab1b4e81c6a249f9806e</span><span class="w"> </span><span class="c"># MAKE SURE THIS MATCHES YOUR INTEGRATION SETUP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l">media_player</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">entity_id</span><span class="p">:</span><span class="w"> </span><span class="l">media_player.lg_webos_smart_tv</span><span class="w"> </span><span class="c"># MAKE SURE THIS MATCHES YOUR INTEGRATION SETUP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">is_off</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l">script.tv_extend_developer_session_time</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">data</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l">single</span><span class="w">
+</span></span></span></code></pre></div>
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

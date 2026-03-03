@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Mobile org-mode use with Orgzly and Syncthing - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Mobile org-mode use with Orgzly and Syncthing &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2021/08/mobile-org-mode-use-with-orgzly-and-syncthing/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Mobile org-mode use with Orgzly and Syncthing</h1>
+    <span class="post-meta">
+    2021-08-02
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/emacs/">Emacs</a>
+        
+            <a class="tag" href="/tags/org-mode/">Org-Mode</a>
+        
+            <a class="tag" href="/tags/orgzly/">Orgzly</a>
+        
+            <a class="tag" href="/tags/syncthing/">Syncthing</a>
+        
+    
+</span>
+<p>I&rsquo;ve been an Emacs user for 13+ years, during this time I&rsquo;ve been using
+<a href="https://orgmode.org/">org-mode</a> on and off for different thing.</p>
+<p>Some examples where I currently use org-mode:</p>
+<ul>
+<li>Deployment of this website</li>
+<li>Making of presentation slides</li>
+<li>Project read me files</li>
+<li>Notes files</li>
+<li>Time reporting</li>
+</ul>
+<p>I&rsquo;ve tried to use it for to do&rsquo;s but never really managed, partly because I
+wanted to have a good interface for my to do&rsquo;s on my phone. Then I wanted
+quick synchronization to my computers to be able to pick up the changes
+there.</p>
+<p>Most of my personal files is in a personal git repository which I sync around
+to all the computers where I need them. I&rsquo;d wish to have the security and
+reliability of git when handling my to do lists just to know that they ever
+get corrupted or lost.</p>
+<h2 id="enter-orgzly">Enter Orgzly</h2>
+<p>I&rsquo;ve known about <a href="http://www.orgzly.com/">Orgzly</a> for quite some time. It&rsquo;s an Android app which is
+available on both <a href="https://f-droid.org/packages/com.orgzly/">Orgzly on F-Droid</a> and
+<a href="https://play.google.com/store/apps/details?id=com.orgzly">Orgzly on Play Store 
+
+
+
+
+    
+
+
+<i class="fab  fa-fab  fa-google-play "></i>
+</a>. The thing
+that&rsquo;s been stopping me to actually try Orgzly out is the lack of options
+when it comes to synchronization. For example I would like to synchronize
+using git. There&rsquo;s an open issue for this <a href="https://github.com/orgzly/orgzly-android/issues/24">git synchroniztion #24</a>, it&rsquo;s been
+open since <code>2017-02-27 Mon</code>, so I&rsquo;m not having high hopes to see it resolved
+any day soon.</p>
+<p>I&rsquo;ve also spent some time thinking about this and came to the conclusion that
+I probably don&rsquo;t want git as a synchronization mechanism for something as
+volatile as to do lists and notes. But I still want it somewhere in the back
+end of my system as a way to make sure what changes are actually stored and
+backed up.</p>
+<p>This is when I started to look into Orgzly&rsquo;s other synchronization options,
+this is, as of writing in the current version of the app (1.8.5) the
+available options:</p>
+<ul>
+<li>
+<p><strong>Dropbox</strong> &ndash; I&rsquo;m not a customer of Dropbox so this was a no-go to begin
+with.</p>
+</li>
+<li>
+<p><strong>WebDAV</strong> &ndash; As far as I know I don&rsquo;t have an easily available WebDAV server
+that I can use which makes it easy to get the files to my laptops and
+desktop systems where I can use them with Emacs without doing any fancy
+scripting to sync the files by hand.</p>
+</li>
+<li>
+<p><strong>Directory</strong> &ndash; This just syncs to a directory on the device, doesn&rsquo;t sound
+like much. But it&rsquo;s the option I went for.</p>
+</li>
+</ul>
+<h2 id="enter-syncthing">Enter Syncthing</h2>
+<p><a href="https://syncthing.net/">Syncthing</a> is a project I&rsquo;ve heard a lot of good things about through the
+years, both from people, but also in chat rooms, blogs and podcasts. So I&rsquo;ve
+decided to try it out.
+n
+From my limited testing it seems to sync P2P (at least while on the same
+network). It seems fairly reliable in it&rsquo;s syncing and it picks up the
+changes almost instantly. I&rsquo;m impressed by it so far.</p>
+<h2 id="concusions">Concusions</h2>
+<p>I&rsquo;ve set up Syncthing to synchronize <code>~/org</code> for me to my phone to a folder
+that I&rsquo;ve named <code>org-files</code> in the home directory. Then I&rsquo;ve configured
+Orgzly to synchronize to this folder on disk. Now I have near instant
+synchronization between my phone and my computer. So I can access and make
+changes to my notes and to do list on either device. Then when I&rsquo;m at my
+computer and have &ldquo;a batch of changes&rdquo; that I want to make sure to have
+saved, I can always commit them to git. Because this <code>~/org</code> directory is
+part of a git repository, and has always been.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

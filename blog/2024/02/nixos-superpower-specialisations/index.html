@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>NixOS superpower: specialisations - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2024/02/nixos-superpower-specialisations/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="NixOS superpower: specialisations &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2024/02/nixos-superpower-specialisations/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>NixOS superpower: specialisations</h1>
+    <span class="post-meta">
+    2024-02-17
+
+    
+        &middot; 3 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+    
+</span>
+<p><a href="https://nixos.org/">NixOS</a> has a lot of configurability and features. One
+feature that I&rsquo;ve known about for a while that I think is both really cool,
+but also a bit lesser known is the ability to have declarative
+<a href="https://wiki.nixos.org/wiki/Specialisation">Specialisations</a>. To me, this is a
+superpower of NixOS that I have a hard time to see any other Linux
+Distribution having.</p>
+<h2 id="whats-a-specialisation">What&rsquo;s a Specialisation?</h2>
+<p>The name doesn&rsquo;t do it justice, it&rsquo;s a bit of a weird name for it. However
+I couldn&rsquo;t come up with a better name for it either.</p>
+<p>A <code>specialisation</code> is a way to have a configuration that is only used in a
+specific context. This configuration is then available as a boot option
+alongside the normal configuration generation.</p>
+<p>By default, when you specify a specialisation, it will inherit the parent
+configuration and give you the ability to specify your own configuration
+options specific for that specialisation. Here it&rsquo;s also possible to
+override the parent configuration by using <code>lib.mkForce</code> to undo options
+in the parent configuration..</p>
+<p>However, one can also choose to <em>not</em> inherit the parent configuration. This
+would then require you to specify the whole configuration for the
+specialisation from scratch. Including hardware options and mount options.
+This is cool, but a bit too much in most cases.</p>
+<h2 id="how-to-use-specialisations">How to Use Specialisations</h2>
+<p>To illustrate, let&rsquo;s consider a basic NixOS setup with GNOME as the
+desktop environment:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">desktopManager</span><span class="o">.</span><span class="n">gnome3</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Suppose we want to create a specialisation to use KDE Plasma instead. We
+can achieve this by adding the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span> <span class="n">lib</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">desktopManager</span><span class="o">.</span><span class="n">gnome3</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">specialisation</span><span class="o">.</span><span class="n">plasma</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Disable GNOME</span>
+</span></span><span class="line"><span class="cl">    <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">desktopManager</span><span class="o">.</span><span class="n">gnome3</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">mkForce</span> <span class="no">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Enable Plasma</span>
+</span></span><span class="line"><span class="cl">    <span class="n">services</span><span class="o">.</span><span class="n">xserver</span><span class="o">.</span><span class="n">desktopManager</span><span class="o">.</span><span class="n">plasma5</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>After defining the specialisation, it becomes available as a boot option.
+When applying the configuration with <code>nixos-rebuild switch</code>, specify
+<code>--specialisation plasma</code> to activate the Plasma specialisation.</p>
+<h2 id="real-world-use-case">Real-world Use Case</h2>
+<p>Consider a scenario where you need to separate work and personal data on
+your laptop, adhering to compliance requirements. Creating a
+specialisation for your work environment with a separate ZFS dataset for
+the home partition allows for distinct management of work-related data.</p>
+<p>For instance, to override the home directory in the work specialisation:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span> <span class="n">lib</span><span class="o">,</span> <span class="o">...</span> <span class="p">}:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">fileSystems</span><span class="o">.</span><span class="s2">&#34;/home&#34;</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">device</span> <span class="o">=</span> <span class="s2">&#34;zroot/safe/home&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fsType</span> <span class="o">=</span> <span class="s2">&#34;zfs&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">specialisation</span><span class="o">.</span><span class="n">work</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fileSystems</span><span class="o">.</span><span class="s2">&#34;/home&#34;</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">mkForce</span> <span class="s2">&#34;zroot/safe/work-home&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># …</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This setup enables focused work environments with separate backups and
+snapshots, facilitating data management and compliance adherence.</p>
+<p>By leveraging NixOS specialisations, you can tailor your system
+configurations to meet diverse requirements efficiently.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>NixOS specialisations offer a level of flexibility and customization
+that&rsquo;s unmatched in the Linux world. By understanding how to leverage
+this powerful feature, you can tailor your system configurations to
+meet diverse requirements efficiently. Experiment with specialisations
+in your NixOS setup and unlock a world of possibilities for
+fine-tuning your system to perfection.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

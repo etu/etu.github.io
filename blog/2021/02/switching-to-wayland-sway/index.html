@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Switching to Wayland (Sway) - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2021/02/switching-to-wayland-sway/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="Switching to Wayland (Sway) &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2021/02/switching-to-wayland-sway/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>Switching to Wayland (Sway)</h1>
+    <span class="post-meta">
+    2021-02-17
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/sway/">Sway</a>
+        
+            <a class="tag" href="/tags/wayland/">Wayland</a>
+        
+            <a class="tag" href="/tags/x11/">X11</a>
+        
+    
+</span>
+<p>Like every other desktop Linux user for the past many years I&rsquo;ve used X11. I
+was on <a href="https://i3wm.org/">i3wm</a> for quite some time until I was introduced to
+<a href="https://github.com/ch11ng/exwm">Emacs X11 Window Manager</a> which I used
+exclusively for about 18 months, I&rsquo;ve even held a <a href="/talks/">talk</a> about it.
+But at some point it got too annoying, for example in multi monitor use cases.</p>
+<p>At this point my first step was to go back to set up i3wm again. With that
+set up I wanted to give <a href="https://swaywm.org/">SwayWM</a> another attempt, it was
+years ago I&rsquo;ve checked it out before. I think my previous experience was when the
+project was new. At that point (if I remember correctly), not even the window
+decorations looked like the ones in i3wm.</p>
+<h2 id="key-map">Key map</h2>
+<p>As a US Dvorak typist that sometimes types Swedish, I have opinions about key
+maps. Since I used xmodmap before to customize my key map to make it work for
+me, I needed to replicate this for Sway.</p>
+<p>It took some tinkering, but I&rsquo;ve ended up with the following custom key map:</p>
+<pre tabindex="0"><code class="language-config" data-lang="config">// This file defines my own custom keymap. More information about
+// which parts that gets included are available in the different
+// subfolders in: /usr/share/X11/xkb/
+xkb_keymap {
+  xkb_keycodes { include &#34;evdev+aliases(qwerty)&#34; };
+  xkb_types    { include &#34;default&#34; };
+  xkb_compat   { include &#34;complete&#34; };
+  xkb_symbols  {
+    include &#34;pc+us(dvorak)+inet(evdev)+ctrl(nocaps)+eurosign(e)+kpdl(dot)&#34;
+
+    // Less than/Greater than/Pipe key on Swedish keyboards becomes Compose
+    replace key &lt;LSGT&gt; { [ Multi_key ] };
+
+    // Scroll Lock becomes Compose
+    replace key &lt;SCLK&gt; { [ Multi_key ] };
+  };
+  xkb_geometry { include &#34;pc(pc105)&#34; };
+};
+</code></pre><p>I put that as a file somewhere, and then I have the following in my sway
+configuration:</p>
+<pre tabindex="0"><code class="language-config" data-lang="config">input &#34;type:keyboard&#34; {
+  xkb_file /path/to/xkb/file
+}
+</code></pre><h2 id="browsers">Browsers</h2>
+<p>I use Firefox as my main browser, it works mostly fine native on Wayland. It
+happens now and then that I encounter things that are less than perfect
+(especially at work) where I&rsquo;ll give in and run some Blink based browser in
+Xwayland.</p>
+<p>Firefox just needs some convincing with <code>MOZ_ENABLE_WAYLAND=1</code> in the
+environment set.</p>
+<h2 id="editor">Editor</h2>
+<p>As a long time Emacs user I&rsquo;ll just keep using Emacs. To begin with I did so
+in Xwayland - but it had some issues at some point which pushed me to try out
+the pgtk branch from a user on GitHub. It&rsquo;s been great since I started using
+it and that branch is now accepted as a feature branch on Savannah, so now I
+hope it&rsquo;s mainlined before Emacs 28.</p>
+<h2 id="screen-sharing">Screen sharing</h2>
+<p>It works! <code>*</code></p>
+<p>See <a href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">Detailed setup of screen sharing in Wayland (Sway)</a> for more detailed
+notes on getting this to work.</p>
+<p><code>*</code> It works to do full screen sharing using <code>pipewire</code>,
+<code>xdg-desktop-portals</code> and <code>xdg-desktop-portals-wlr</code>. This requires the right
+environment variables - then it works fine, with the limitation that you can
+only share the entire screen - but not single windows.</p>
+<p>This limitation is extra annoying when using an <a href="/blog/2021/02/ultra-wide-monitor/">ultra wide monitor</a> since nobody else can actually see this stream
+properly. One hacky workaround I have for this is to run a browser in
+Xwayland which makes it possible to share other Xwayland applications. Then
+to have an Emacs instance running in Xwayland, then I can share that Emacs
+window. Since Emacs is so flexible I can share most things through that.</p>
+<p>To get Firefox screen share to work, NixOS have pulled in some patches from
+Fedora, then you just run it in Wayland mode and it&rsquo;s fine.</p>
+<p>Chrome has a flag to enable pipewire support.</p>
+<p>I know there&rsquo;s a flag that can be provided to <code>xdg-desktop-portals-wlr</code> to
+specify which screen to share. I&rsquo;m not sure how to manage that easily in a
+multi screen environment.</p>
+<h2 id="miscellaneous-applications">Miscellaneous applications</h2>
+<ul>
+<li>Screenshots: <code>grim -g $(slurp) - | swappy -f -</code></li>
+<li>Back light: <code>acpiilight</code></li>
+<li>Lock screen: <code>swaylock</code> &amp; <code>swayidle</code></li>
+<li>Notifications: <code>mako</code></li>
+<li>PDF Viewer: <code>emacs</code> with <code>pdf-tools</code></li>
+<li>Launcher: <code>rofi</code> in Xwayland (I should look into <code>wofi</code> some day)</li>
+<li>Image viewer: <code>emacs</code> or <code>feh</code> in Xwayland</li>
+<li>Graphical display settings: <code>wdisplays</code> is great!</li>
+<li>Command line display settings: <code>wlr-randr</code></li>
+</ul>
+<h2 id="conclusions">Conclusions</h2>
+<p>My road to Wayland with Sway have for sure have had a couple of road bumps.
+The only real bump that has been a software limitation has been how screen
+sharing works, but I&rsquo;ve found workarounds for these situations that works for
+me.</p>
+<p>The overall experience have been a much nicer Linux desktop, there&rsquo;s no
+tearing, everything just gives the perception and feels faster and smoother.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>

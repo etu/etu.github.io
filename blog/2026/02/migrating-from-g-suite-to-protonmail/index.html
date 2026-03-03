@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>My experience of migrating from Google G-Suite to ProtonMail - Elis Hirwing</title>
+
+    
+    <meta charset="utf-8">
+
+    
+    <meta name="referrer" content="no-referrer">
+
+    
+    <link rel="canonical" href="https://elis.nu/blog/2026/02/migrating-from-g-suite-to-protonmail/">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    
+
+    
+    
+        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
+    
+
+    
+    <meta property="description" content="">
+
+    
+    <meta property="og:description" content="">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Elis Hirwing">
+    <meta property="og:title" content="My experience of migrating from Google G-Suite to ProtonMail &middot; Elis Hirwing">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elis.nu/blog/2026/02/migrating-from-g-suite-to-protonmail/">
+    
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    <link rel="me" href="https://chaos.social/@sa0bse">
+
+<style>
+  aside#padding {
+    padding: 2rem;
+  }
+</style>
+
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension"
+     should be called before "trackPageView" */
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//matomo.elis.nu/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '3']);
+    var d=document,
+        g=d.createElement('script'),
+        s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    
+    
+        
+        
+            
+                
+                <link rel="stylesheet" href="/css/style.min.b393d301b519cdcd1cb24654c90d84ffc2cd8a7c22483646f1583818a456e18b.css" integrity="sha256-s5PTAbUZzc0cskZUyQ2E/8LNinwiSDZG8Vg4GKRW4Ys=" crossorigin="anonymous" media="screen">
+                
+            
+        
+    
+</head>
+
+    <body><header>
+    
+        <div class="i18n">
+            <ul>
+                
+                    <li>
+                        <a href="/sv/">
+                            <img src="/img/iso-flags/se.svg" alt="se flag">
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    
+    
+    
+    <aside id="padding"></aside>
+    <nav>
+        
+            <ul>
+                
+
+                
+                    <li><a href="/">~elis/</a></li>
+                
+                    <li><a href="/about/">./about/</a></li>
+                
+                    <li><a href="/work/">./work/</a></li>
+                
+                    <li><a href="/talks/">./talks/</a></li>
+                
+                    <li><a href="/blog/">./blog/</a></li>
+                
+                    <li><a href="/3d-models/">./3d-models/</a></li>
+                
+                    <li><a href="/cubing/">./cubing/</a></li>
+                
+            </ul>
+        
+    </nav>
+</header>
+<div class="wrapper">
+<div class="content">
+    
+        <h1>My experience of migrating from Google G-Suite to ProtonMail</h1>
+    <span class="post-meta">
+    2026-02-24
+
+    
+        &middot; 4 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/email/">Email</a>
+        
+            <a class="tag" href="/tags/privacy/">Privacy</a>
+        
+    
+</span>
+<p>For about 9 years, I&rsquo;ve been a customer of Google G-Suite, using it
+for email, file storage, and photos. I&rsquo;ve never fully trusted them,
+however I have always claimed the following.</p>
+<blockquote>
+<p>As a paying customer, I hope that they mine my data less than they
+do for free users.</p>
+</blockquote>
+<p>There&rsquo;s a lot of uncertainty in that sentence. Words like <strong>hope</strong> and
+<strong>less</strong> aren&rsquo;t exactly reassuring, and there&rsquo;s no proof it&rsquo;s actually
+the case either. With a recent price increase warning at renewal time
+and the current state of politics between the EU and USA, I decided to
+switch to an EU provider.</p>
+<p>Here’s how the journey actually went.</p>
+<h2 id="1-planning-and-preparation">1. Planning and Preparation</h2>
+<p>At first, it seemed overwhelming. I had multiple email accounts,
+shared folders, and years of accumulated emails and photos. With one
+of the accounts belonging to a parent who isn&rsquo;t always tech-savvy, I
+wanted to ensure the transition would be smooth for everyone involved.</p>
+<p>I needed to assess:</p>
+<ul>
+<li>How many accounts I had</li>
+<li>How much data was stored</li>
+<li>Which features needed to migrate</li>
+<li>What could stay behind</li>
+</ul>
+<p>Proton&rsquo;s tools for mail import, combined with manually syncing files
+(via Google Takeout and upload to Proton Drive), made the transition
+manageable. Proton&rsquo;s migration interface for email, calendar, and
+contacts is excellent.</p>
+<h2 id="2-mail--calendar--contacts-migration">2. Mail / Calendar / Contacts Migration</h2>
+<p>Migrating mail from Google to Proton was straightforward with the
+built-in import tools. I synced emails using a one-time import through
+Proton Easy Switch, and it worked well.</p>
+<p>It took some time, especially with large mailboxes, but it just works.</p>
+<h2 id="3-files-and-photos">3. Files and Photos</h2>
+<p>Files and photos required more work. Google Takeout was useful for
+export, but it comes with quirks:</p>
+<p>Photos export with separate JSON metadata files containing timestamps
+and location data, rather than embedding them in the actual images.</p>
+<p>Without correcting EXIF metadata, Proton Photos would display
+incorrect dates.</p>
+<p>I wrote a script to read the exported JSON and embed the correct
+timestamps and GPS data back into the photos before uploading. This
+ensured Proton Photos would index most of them correctly.</p>
+<p>With Proton Drive syncing files and photos locally first, uploads and
+indexing afterward worked smoothly.</p>
+<h2 id="4-dns-and-cut-over">4. DNS and Cut-over</h2>
+<p>Once everything was migrated and tested, I pointed my domain’s DNS
+records (MX, SPF, DKIM) to Proton. The cutover was seamless—mail flow
+switched over quickly once DNS propagated.</p>
+<p>Google G Suite stopped delivering mail at that point, as expected.</p>
+<h2 id="5-closing-google-g-suite">5. Closing Google G Suite</h2>
+<p>Here&rsquo;s where things got messy compared to how most subscriptions
+behave.</p>
+<p>If you have a gym membership for a year and cancel it after half a
+year, one of two things would happen:</p>
+<ul>
+<li>(Most likely) You get to use the membership for the remaining period
+of time, you don&rsquo;t get any money back.</li>
+<li>(Less likely) You don&rsquo;t get to use the membership for the remaining
+period of time, but you do get the money back.</li>
+</ul>
+<p>However, Google decided to go the third route:</p>
+<ul>
+<li>You cancel, they lock you out right away even though you&rsquo;ve already
+pre-paid for a period of time. And they don&rsquo;t give you any money
+back.</li>
+</ul>
+<p>However, they do warn about it. So I pressed on and canceled right
+after everything was moved.</p>
+<h2 id="6-preserving-cloud-identities">6. Preserving Cloud Identities</h2>
+<p>When you cancel a G Suite subscription, you&rsquo;ll probably still want to
+keep your Google account for things like YouTube, Play Store, Sign in
+with Google, and other services.</p>
+<p>In the admin console, you can add the <strong>Cloud Identity Free</strong> license
+type and assign it to all users.</p>
+<p>This allows you to keep the account but with zero storage for
+<strong>Email</strong>, <strong>Drive</strong>, and <strong>Photos</strong>. This creates a catch-22: I can&rsquo;t
+access Gmail to delete my emails, so they remain there and I&rsquo;m over my
+storage limit.  But it&rsquo;s not actually a problem for my use case.</p>
+<p>You can still access Google Drive, which is great for viewing shared
+files and folders owned by other users.</p>
+<p>My Sign in with Google, Play Store, and other services still work,
+which is exactly what I wanted.</p>
+<h2 id="7-final-thoughts">7. Final Thoughts</h2>
+<p>Overall, the migration was less risky and more straightforward than
+expected once broken down into steps:</p>
+<ul>
+<li>Mail migrated reliably</li>
+<li>Files and photos moved with mostly correct metadata</li>
+<li>Accounts kept their identity without losing Play purchases or Google
+login capabilities</li>
+</ul>
+<h3 id="71-proton-docs-and-sheets">7.1 Proton Docs and Sheets</h3>
+<p>I&rsquo;m fortunate not to be a demanding user of Google Docs or Sheets.  I
+actually prefer Proton Docs—you can type markdown syntax and it
+formats automatically, which is lovely.</p>
+<p>Proton Sheets is more limited, and I&rsquo;m a heavier user there for
+personal data tracking. Some of my imported sheets needed adjustments.</p>
+<p>But I&rsquo;ll adapt. It&rsquo;ll take some time, but it&rsquo;s manageable.</p>
+<h3 id="72-my-recommendation">7.2 My Recommendation</h3>
+<p>Migrate first, then cancel G Suite. If you want to preserve your
+Google account identity, convert to Cloud Identity Free after
+canceling.</p>
+<p>That&rsquo;s the cleanest path I found. It left me with Proton for daily use
+and a preserved Google identity for the services I still need.</p>
+
+</div>
+
+        </div><footer class="footer">
+    <div class="content">
+        
+            <p>
+                Copyright &copy; 2010 Elis Hirwing
+            </p>
+        
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>
+
+    </body>
+</html>
