@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>~elis/cubing/ on Elis Hirwing</title>
+    <link>https://elis.nu/cubing/</link>
+    <description>Recent content in ~elis/cubing/ on Elis Hirwing</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <atom:link href="https://elis.nu/cubing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>~elis/cubing/3x3-cfop/</title>
+      <link>https://elis.nu/cubing/3x3-cfop/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/cubing/3x3-cfop/</guid>
+      <description>&lt;p&gt;This page is in no way a comprehensive guide to cubing but provides a&#xA;selection of useful algorithms mostly for my own reference of&#xA;algorithms that I use.&lt;/p&gt;&#xA;&lt;p&gt;So for a more complete resource, check out &lt;a href=&#34;https://www.cube.academy/&#34;&gt;cube.academy/&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/cubing/4x4/</title>
+      <link>https://elis.nu/cubing/4x4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/cubing/4x4/</guid>
+      <description>&lt;p&gt;This page contains only parity cases for the 4x4x4 and bigger cubes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>~elis/cubing/5x5/</title>
+      <link>https://elis.nu/cubing/5x5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://elis.nu/cubing/5x5/</guid>
+      <description>&lt;p&gt;This page contains only parity cases for the 5x5x5 and bigger cubes.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
