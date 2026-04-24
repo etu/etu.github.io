@@ -133,6 +133,45 @@
         
         
             <div class="post">
+                <h2><a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Outsourcing NixOS compile time to Microsoft</a></h2><span class="post-meta">
+    2022-10-10
+
+    
+        &middot; 5 minutes read
+    
+
+    
+        &middot;
+        
+            <a class="tag" href="/tags/nixos/">NixOS</a>
+        
+            <a class="tag" href="/tags/nix/">Nix</a>
+        
+            <a class="tag" href="/tags/linux/">Linux</a>
+        
+            <a class="tag" href="/tags/cachix/">Cachix</a>
+        
+            <a class="tag" href="/tags/github-actions/">GitHub Actions</a>
+        
+    
+</span>
+<p><p><a href="https://nixos.org/">NixOS</a> is a Linux-distribution that may be source-based, but it has a binary
+cache that covers things so you generally don&rsquo;t need to compile things,
+things tends to be cached.</p>
+<p>However, depending on how you configure your system, you may trigger compiles
+depending on what you do.</p>
+<p>So a thing I do is that I run Emacs 29 with the native-comp patches that is
+wayland native with the pgtk-branch. This is by no mean the stable Emacs
+release at the point of writing. So to get this Emacs I use the excellent
+<a href="https://github.com/nix-community/emacs-overlay">nix-community/emacs-overlay</a> (that is maintained by my friend
+<a href="https://github.com/adisbladis">@adisbladis</a>). However, this means that I will get Emacs from a development
+branch of Emacs, then I need to build all the Emacs packages that I use in my
+configuration as well for this version of Emacs.</p></p>
+
+                <a href="/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/">Read On &rarr;</a>
+            </div>
+        
+            <div class="post">
                 <h2><a href="/blog/2022/07/keeping-webos-developer-mode-alive-with-home-assistant/">Keeping LG webOS Developer Mode alive with Home Assistant</a></h2><span class="post-meta">
     2022-07-25
 
@@ -450,34 +489,6 @@ project was new. At that point (if I remember correctly), not even the window
 decorations looked like the ones in i3wm.</p></p>
 
                 <a href="/blog/2021/02/switching-to-wayland-sway/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2021/02/ultra-wide-monitor/">Ultra wide monitor</a></h2><span class="post-meta">
-    2021-02-15
-
-    
-        &middot; 3 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/ultrawide/">Ultrawide</a>
-        
-            <a class="tag" href="/tags/samsung/">Samsung</a>
-        
-    
-</span>
-<p><p>A couple of months (after at least half a year of thinking) I finally decided
-to do it. I decided to buy a Ultra wide screen for my home office. The one I
-had been looking at for months is the <a href="https://pricespy.co.uk/computers-accessories/monitors/samsung-odyssey-c49g95t--p5258106">Samsung Odyssey G9 C49G95</a>. It happens
-to be the opposite of cheap. Part of the triggering factor was a conversation
-on IRC in <a href="https://logs.nix.samueldr.com/nixos-chat/2020-12-06#1607250103-1607250291;">#nixos-chat</a> where a person admitted that she had one of those. Then
-the real trigger to buy it was to find it at 23% discount. It was a return
-item to a store.</p></p>
-
-                <a href="/blog/2021/02/ultra-wide-monitor/">Read On &rarr;</a>
             </div>
         
 

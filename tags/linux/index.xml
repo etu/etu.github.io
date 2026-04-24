@@ -6,8 +6,15 @@
     <description>Recent content in Linux on Elis Hirwing</description>
     <generator>Hugo</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 13 Sep 2025 20:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://elis.nu/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NixOS ❄: Remote unlock of encrypted ZFS over SSH</title>
+      <link>https://elis.nu/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/</link>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 +0200</pubDate>
+      <guid>https://elis.nu/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/</guid>
+      <description>&lt;p&gt;This is a follow-up to my earlier post: &lt;a href=&#34;https://elis.nu/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/&#34;&gt;Encrypted ZFS mirror with mirrored&#xA;boot on NixOS&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;At the end of that post I briefly mentioned that I configured remote unlocking&#xA;of my encrypted ZFS pools over SSH on boot, linking off to the NixOS wiki. The&#xA;wiki page is now quite outdated and the approach it describes no longer works&#xA;well with modern NixOS, which uses a systemd-based initrd by default. This post&#xA;covers the current way to do it.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Migrating from ZFS mirror to RAIDZ2</title>
       <link>https://elis.nu/blog/2025/09/migrating-zfs-mirror-to-raidz2/</link>
