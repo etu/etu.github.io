@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="content">
+    {{ if eq .Data.Plural "tags" }}
+    <h1>{{ i18n "posts-about" }}: {{ .Title }}</h1>
+    {{ else }}
+    <h1>{{ .Title }}</h1>
+    {{ end }}
+
+    {{ .Content }}
+
+    <div class="posts">
+        {{ range .Pages }}
+            <div class="post">
+                <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+
+                {{- partial "blog-post-meta.html" . -}}
+
+                <p>{{ .Summary }}</p>
+
+                <a href="{{ .RelPermalink }}">{{ i18n "read-on" }} &rarr;</a>
+            </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,78 @@
+---
+baseURL: /
+title: Albatross theme - Elis Hirwing
+defaultContentLanguage: sv
+theme: albatross
+
+# Style code highlights with classes rather than inline styles.
+markup:
+  highlight:
+    noClasses: false
+
+params:
+  copyrightOwner: 2022 Elis Hirwing
+
+  # Extra head content to render within the <head> tag
+  extraHeadContent: ''
+
+  # Extra header content to render within the <header> tag before the menu
+  extraHeaderContent: ''
+
+  # Dark and light logo paths as well as icon path
+  darkLogoPath: /img/albatross_logo.png
+  lightLogoPath: /img/albatross_logo.png
+
+  # Favicon logo, if set to false, it's hidden
+  iconPath: /img/albatross_icon.png
+
+  # Show logo at top
+  showLogo: true
+
+  # Site wide open graph image to use for sharing
+  ogImagePath: /img/albatross_logo.png
+
+  # Language code to flag name mapping for the language switcher
+  languageCode2FlagName:
+    sv-se: 'se'
+    en-gb: 'gb'
+
+  style:
+    # Base font size in px
+    font-size: 18
+
+    # Page content width factor
+    page-content-width-factor: 42
+    page-i18n-padding: 0
+
+    # Font size for different elements in rems
+    font-size-h1: 1.8
+    font-size-h2: 1.6
+    font-size-h3: 1.4
+    font-size-h4: 1.2
+
+    # Font family
+    font-family: sans
+
+    # Light colors
+    light-background-color: '#FBF9FA'  # Seasalt
+    light-border-color: '#000000'  # Black
+    light-foreground-color: 'contrast-color(#000000, $light-background-color)'  # Black, Seasalt
+    light-link-default-color: 'contrast-color(#0000EE, $light-background-color)'  # Blue, Seasalt
+    light-link-visited-color: 'contrast-color(#551A8B, $light-background-color)'  # Purple, Seasalt
+    light-menu-background: '#E5E6EC'  # Anti-flash white
+    light-menu-foreground: 'contrast-color(#000000, $light-menu-background)'  # Black, Anti-flash white
+    light-menu-item-hover-background: 'darken($light-menu-background, 5%)'  # Anti-flash white
+    light-menu-item-hover-foreground: 'contrast-color(#000000, $light-menu-item-hover-background)'  # Black, Anti-flash white
+    light-tag-background-color: 'darken($light-background-color, 10%)'  # Seasalt
+
+    # Dark colors
+    dark-background-color: '#2A2C31'  # Jet
+    dark-border-color: '#000000'  # Black
+    dark-foreground-color: 'contrast-color(#FFFFFF, $dark-background-color)'  # White, Jet
+    dark-link-default-color: 'contrast-color(#0000EE, $dark-background-color)'  # Blue, Jet
+    dark-link-visited-color: 'contrast-color(#551A8B, $dark-background-color)'  # Purple, Jet
+    dark-menu-background: '#27373F'  # Gunmetal
+    dark-menu-foreground: 'contrast-color(#FFFFFF, $dark-menu-background)'  # White, Gunmetal
+    dark-menu-item-hover-background: 'lighten($dark-menu-background, 5%)'  # Gunmetal
+    dark-menu-item-hover-foreground: 'contrast-color(#FFFFFF, $dark-menu-item-hover-background)'  # White, Gunmetal
+    dark-tag-background-color: 'lighten($dark-background-color, 10%)'  # Jet

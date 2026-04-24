@@ -1,0 +1,13 @@
+<footer class="footer">
+    <div class="content">
+        {{ if isset .Site.Params "copyrightowner" }}
+            <p>
+                Copyright &copy; {{ .Site.Params.copyrightOwner }}
+            </p>
+        {{ end }}
+        <p>
+            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
+            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd={{ .Site.BaseURL | urlize }}" target="_blank">Elis Hirwing</a>.
+        </p>
+    </div>
+</footer>

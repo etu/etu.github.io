@@ -4,8 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     flake-utils.url = "flake-utils";
-    theme-albatross.url = "github:etu/hugo-theme-albatross";
-    theme-albatross.inputs.flake-utils.follows = "flake-utils";
     _3dmodels.url = "github:etu/3d-models";
     _3dmodels.inputs.flake-utils.follows = "flake-utils";
   };
@@ -17,8 +15,18 @@
   } @ inputs:
     flake-utils.lib.eachSystem ["x86_64-linux"] (system: let
       pkgs = nixpkgs.legacyPackages.${system};
-      tpkgs = inputs.theme-albatross.packages.${system};
       domain = "elis.nu";
+
+      hugo = pkgs.symlinkJoin {
+        name = "hugo-${pkgs.hugo.version}-dart-sass-embedded-${pkgs.dart-sass.version}-bundle";
+
+        buildInputs = [pkgs.makeWrapper];
+        paths = [pkgs.hugo pkgs.dart-sass];
+
+        postBuild = "wrapProgram $out/bin/hugo --prefix PATH : ${pkgs.dart-sass}/bin";
+
+        meta.mainProgram = "hugo";
+      };
 
       # Helper function to render all the assets for the 3d model page
       _3dmodelsPage = let
@@ -61,23 +69,15 @@
     in {
       formatter = pkgs.alejandra;
 
-      packages.theme = tpkgs.theme;
-
       packages._3dmodelsPage = _3dmodelsPage;
       packages.default = pkgs.stdenv.mkDerivation {
         name = domain;
 
         src = ./src;
 
-        nativeBuildInputs = [
-          tpkgs.hugo
-        ];
+        nativeBuildInputs = [hugo];
 
         buildPhase = ''
-          # Install theme
-          mkdir -p themes
-          ln -s ${tpkgs.theme} themes/${tpkgs.theme.theme-name}
-
           # Install 3d models
           mkdir -p static/3d-models
           install -m 644 -v ${_3dmodelsPage}/index.md content/3d-models.md
@@ -102,8 +102,6 @@
             scriptDrv = pkgs.writeShellScriptBin "local.sh" ''
               set -euo pipefail
 
-              nix build .#theme --out-link src/themes/${tpkgs.theme.theme-name}
-
               rm -rf src/static/3d-models src/content/3d-models.md
               mkdir -p src/static/3d-models
               install -m 644 -v $(nix build .#_3dmodelsPage --print-out-paths --no-link)/index.md src/content/3d-models.md
@@ -112,7 +110,7 @@
               cd src/
               sleep 1 && ${pkgs.xdg-utils}/bin/xdg-open "http://localhost:1313/" &
 
-              ${tpkgs.hugo}/bin/hugo server --logLevel debug --disableFastRender --gc
+              ${hugo}/bin/hugo server --logLevel debug --disableFastRender --gc
             '';
           in "${scriptDrv}/bin/local.sh";
         };

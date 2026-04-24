@@ -31,7 +31,19 @@ Everything is defined in `flake.nix`:
 
 The Hugo source lives entirely under `src/`. The theme is **not** committed; it is fetched as a flake input and symlinked at build/run time.
 
-**Hugo is pinned through the theme flake** (`tpkgs.hugo`), not nixpkgs. To upgrade Hugo, update the `theme-albatross` input. Both `theme-albatross` and `_3dmodels` share this repo's `flake-utils` via `follows`.
+**Hugo is pinned via nixpkgs** and bundled with `dart-sass` (required for SCSS compilation) using `symlinkJoin`. The theme and all its static dependencies (FontAwesome, flag SVGs, model-viewer) are vendored directly in this repo. The only remaining Nix inputs beyond nixpkgs are `flake-utils` and `_3dmodels` (which shares `flake-utils` via `follows`).
+
+## Vendored Resources
+
+These external resources are committed directly to the repo. To update them, re-fetch manually and commit the result.
+
+| Resource | Location | Source |
+|---|---|---|
+| Hugo theme | `src/themes/albatross/` | `github:etu/hugo-theme-albatross` — copy `src/` from that repo |
+| ISO flag SVGs | `src/static/img/iso-flags/` | `github:etu/web-iso-flags` — only `se.svg` and `gb.svg` are used |
+| model-viewer.min.js | `src/static/js/model-viewer.min.js` | https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js — re-download to update |
+| FontAwesome 6.5.1 SCSS | `src/themes/albatross/assets/scss/fontawesome/` | https://use.fontawesome.com/releases/v6.5.1/fontawesome-free-6.5.1-web.zip — only `solid` and `brands` webfonts are used |
+| FontAwesome 6.5.1 webfonts | `src/themes/albatross/static/fonts/fontawesome/` | Same zip — only `fa-solid-900` and `fa-brands-400` (ttf + woff2) |
 
 ## Content Structure
 

@@ -56,10 +56,6 @@ params:
     # Page content width factor
     page-content-width-factor: 48
 
-    # Toggle to enable or disable the CSS rules for the food menu layout,
-    # set to 'true' to enable or 'false' to disable.
-    page-include-food-menu-styles: 'false'
-
     # Light colors
     light-background-color: '#F4F4F4'
     light-border-color: '#525252'

@@ -1,0 +1,22 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+---
+name: Albatross
+license: ISC
+licenselink: https://github.com/etu/hugo-theme-albatross/blob/main/LICENSE
+description: ""
+homepage: http://albatross.local/
+tags: []
+features: []
+min_version: "0.41.0"
+
+author:
+  name: ""
+  homepage: ""
+
+# If porting an existing theme
+original:
+  name: ""
+  homepage: ""
+  repo: ""

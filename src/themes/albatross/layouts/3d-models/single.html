@@ -1,0 +1,43 @@
+{{ define "footerjs" }}
+<script type="module" src="/js/model-viewer.min.js"></script>
+{{ end }}
+{{ define "main" }}
+<div class="content">
+    {{ if (.Title | len) }}
+        <h1>{{ .Title }}</h1>
+    {{ end }}
+
+    {{ .Content }}
+
+    {{ if isset .Params "model3d" }}
+        <div class="models3d">
+            {{ range $_, $model := .Params.model3d }}
+                <div class="model3d">
+                    <h2>{{ $model.title }}</h2>
+                    {{ if and (isset $model "description") (gt (len $model.description) 0) }}
+                        <p>{{ $model.description }}</p>
+                    {{ end }}
+                    {{ range $_, $file := $model.files }}
+                        <a href="{{ $file.modelFile }}">{{ $file.name }}</a>
+
+                        <div class="model">
+                            <model-viewer
+                              alt="{{ $model.description }}"
+                              src="{{ $file.modelViewer }}"
+                              camera-controls="1"
+                              touch-action="pan-y"
+                              ar-status="not-presenting"></model-viewer>
+                        </div>
+                    {{ end }}
+                    {{ if and (isset $model "homepage") (gt (len $model.homepage) 0) }}
+                        <p>Homepage: <a href="{{ $model.homepage }}">{{ $model.homepage }}</a></p>
+                    {{ end }}
+                    {{ if isset $model "license" }}
+                        <p>License: <a href="{{ $model.license.url }}">{{ $model.license.name }}</a></p>
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
+    {{ end }}
+</div>
+{{ end }}

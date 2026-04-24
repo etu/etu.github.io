@@ -1,0 +1,57 @@
+<header>
+    {{ if (.Translations | len) }}
+        <div class="i18n">
+            <ul>
+                {{ range .Translations }}
+                    {{ if .IsTranslated }}
+                        <li>
+                            <a href="{{ .RelPermalink }}" class="translation">
+                                {{- with index .Site.Params.languageCode2FlagName .Language.LanguageCode -}}
+                                    <img src="{{ printf "/img/iso-flags/%s.svg" . | relURL }}" alt="{{ . }} translation">
+                                {{- end -}}
+                            </a>
+                        </li>
+                    {{ end }}
+                {{ end }}
+            </ul>
+        </div>
+    {{ else if (isset .Site.Menus "i18n") }}
+        <div class="i18n">
+            <ul>
+                {{ range .Site.Menus.i18n }}
+                    <li>
+                        <a href="{{ .URL | relURL }}">
+                            <img src="{{ printf "/img/iso-flags/%s.svg" .Name | relURL }}" alt="{{ .Name }} flag">
+                        </a>
+                    </li>
+                {{ end }}
+            </ul>
+        </div>
+    {{ end }}
+    {{ if .Site.Params.showLogo }}
+        <div class="logo">
+            <a href="{{ .Site.Params.homeUrl | relURL }}">
+                <picture>
+                    <source srcset="{{ .Site.Params.darkLogoPath | relURL }}" media="(prefers-color-scheme: dark)">
+                    <source srcset="{{ .Site.Params.lightLogoPath | relURL }}" media="(prefers-color-scheme: light)">
+                    <img src="{{ .Site.Params.lightLogoPath | relURL }}" alt="Logo of {{ .Site.Title }}">
+                </picture>
+            </a>
+        </div>
+    {{ end }}
+    <!-- Extra header content -->
+    {{ .Site.Params.extraHeaderContent | safeHTML }}
+    <nav>
+        {{ if (isset .Site.Menus "main") }}
+            <ul>
+                {{ if isset .Site.Params "home"}}
+                    <li><a href="{{ .Site.Params.homeUrl | relURL }}">{{ .Site.Params.home }}</a></li>
+                {{ end }}
+
+                {{ range .Site.Menus.main }}
+                    <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        {{ end }}
+    </nav>
+</header>

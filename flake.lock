@@ -70,42 +70,11 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1776969924,
-        "narHash": "sha256-e220PXd6yf0aScZ4FXGbnGbncaSy7P389JN5CeMzz9s=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2d09609e9db9e9871f7260483825b0ba0a7da6d6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable-small",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1776329215,
-        "narHash": "sha256-a8BYi3mzoJ/AcJP8UldOx8emoPRLeWqALZWu4ZvjPXw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b86751bc4085f48661017fa226dee99fab6c651b",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "_3dmodels": "_3dmodels",
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_2",
-        "theme-albatross": "theme-albatross"
+        "nixpkgs": "nixpkgs_2"
       }
     },
     "systems": {
@@ -120,50 +89,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "theme-albatross": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": "nixpkgs_3",
-        "web-iso-flags": "web-iso-flags"
-      },
-      "locked": {
-        "lastModified": 1776994946,
-        "narHash": "sha256-qFIfOFeXDd0864IWxU/ZH6H7vjs0329ocgc3d+lP2j0=",
-        "owner": "etu",
-        "repo": "hugo-theme-albatross",
-        "rev": "b2d05487212315c1be7c8de77f02fe291a2b5ded",
-        "type": "github"
-      },
-      "original": {
-        "owner": "etu",
-        "repo": "hugo-theme-albatross",
-        "type": "github"
-      }
-    },
-    "web-iso-flags": {
-      "inputs": {
-        "flake-utils": [
-          "theme-albatross",
-          "flake-utils"
-        ],
-        "nixpkgs": "nixpkgs_4"
-      },
-      "locked": {
-        "lastModified": 1776645980,
-        "narHash": "sha256-U8Q9nZwHRd3TTmZyS5VSP3rG8LDBxQwZH1Mc3g1RCpk=",
-        "owner": "etu",
-        "repo": "web-iso-flags",
-        "rev": "61ce14130cb80abc63478c15817f8b8534587b7c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "etu",
-        "repo": "web-iso-flags",
         "type": "github"
       }
     }

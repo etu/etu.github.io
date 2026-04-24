@@ -1,0 +1,499 @@
+/*********************************************************************
+ * Import fontawesome
+ */
+$fa-font-path: "/fonts/fontawesome";
+@import "./fontawesome/fontawesome.scss";
+@import "./fontawesome/solid.scss";
+@import "./fontawesome/brands.scss";
+
+
+/*********************************************************************
+ * Import contrast functions and hugo variables
+ */
+@import "lib/contrast";
+@import "hugo:vars";
+
+/*********************************************************************
+ * THEME
+ */
+
+:root {
+    --font-family: #{$font-family};
+    --font-size: #{$font-size}px;
+
+    // Colors
+    --background-color: #{$light-background-color};
+    --border-color: #{$light-border-color};
+
+    --content-tag-background-color: #{$light-tag-background-color};
+    --content-tag-foreground-color: #{contrast-color($light-foreground-color, $light-tag-background-color)};
+    --foreground-color: #{$light-foreground-color};
+    --link-default-color: #{$light-link-default-color};
+    --link-visited-color: #{$light-link-visited-color};
+    --menu-background: #{$light-menu-background};
+    --menu-foreground: #{$light-menu-foreground};
+    --menu-item-hover-background: #{$light-menu-item-hover-background};
+    --menu-item-hover-foreground: #{$light-menu-item-hover-foreground};
+
+    // Code colors for inline code blocks
+    --code-background-color: #272822;
+    --code-foreground-color: #f8f8f2;
+
+    // Code highlight colors
+    --code-chroma-bg: #272822;
+    --code-chroma-fg: #f8f8f2;
+    --code-chroma-dark-red-fg: #960050;
+    --code-chroma-dark-red-bg: #1e0010;
+    --code-chroma-dark-gray-fg: #3c3d38;
+    --code-chroma-light-gray-fg: #7f7f7f;
+    --code-chroma-light-blue-fg: #66d9ef;
+    --code-chroma-red-fg: #f92672;
+    --code-chroma-green-fg: #a6e22e;
+    --code-chroma-purple-fg: #ae81ff;
+    --code-chroma-yellow-fg: #e6db74;
+    --code-chroma-medium-gray-fg: #75715e;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        // Colors
+        --background-color: #{$dark-background-color};
+        --border-color: #{$dark-border-color};
+
+        --content-tag-background-color: #{$dark-tag-background-color};
+        --content-tag-foreground-color: #{contrast-color($dark-foreground-color, $dark-tag-background-color)};
+        --foreground-color: #{$dark-foreground-color};
+        --link-default-color: #{$dark-link-default-color};
+        --link-visited-color: #{$dark-link-visited-color};
+        --menu-background: #{$dark-menu-background};
+        --menu-foreground: #{$dark-menu-foreground};
+        --menu-item-hover-background: #{$dark-menu-item-hover-background};
+        --menu-item-hover-foreground: #{$dark-menu-item-hover-foreground};
+    }
+}
+
+/*
+ * END THEME
+ ********************************************************************/
+
+/*********************************************************************
+ * Apply a natural box layout model to all elements
+ */
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 1;
+    position: relative;
+}
+
+/*********************************************************************
+ * CSS Reset
+ */
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+/*********************************************************************
+ * BEGIN LAYOUT
+ */
+html {
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+
+    body {
+        line-height: 1.5;
+
+        a {
+            color: var(--link-default-color);
+
+            &:visited {
+                color: var(--link-visited-color);
+            }
+
+            &[href^="mailto"]::after,
+            &[href^="http"]::after,
+            &[href^="https://"]::after {
+                content: "";
+                width: 0.6rem;
+                height: 0.6rem;
+                margin-left: 0.2rem;
+                background-image: url("/img/external-arrow-dark.svg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                display: inline-block;
+
+                @media (prefers-color-scheme: dark) {
+                    background-image: url("/img/external-arrow-light.svg");
+                }
+            }
+        }
+
+        /*************************************************************
+         * BEGIN NAVIGATION LAYOUT
+         */
+        header {
+            @media only screen and (max-width: 29rem) {
+                padding-top: #{$page-i18n-padding}rem;
+            }
+
+            div.i18n {
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 1;
+
+                ul {
+                    display: inline-block;
+                    list-style: none;
+                    margin: 0;
+                    padding-right: 0.5rem;
+
+                    li {
+                        float: left;
+
+                        a {
+                            padding-right: 0.25rem;
+                            padding-top: 0.5rem;
+
+                            text-decoration: none;
+                            display: inline-block;
+
+                            img {
+                                height: 2.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            div.logo {
+                text-align: center;
+                z-index: 0;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+
+                a {
+                    display: block;
+                    line-height: 0;
+
+                    img {
+                        max-height: 13.6rem;
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            nav {
+                text-align: center;
+                font-size: 0;
+                border-top: 0.1rem solid var(--border-color);
+                border-bottom: 0.1rem solid var(--border-color);
+                background-color: var(--menu-background);
+
+                ul {
+                    display: inline-block;
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+
+                    li {
+                        float: left;
+
+                        a {
+                            display: inline-block;
+
+                            color: var(--menu-foreground);
+
+                            font-size: 1.2rem;
+                            line-height: 3.4rem;
+                            padding-right: 1rem;
+                            padding-left: 1rem;
+
+                            &:hover {
+                                background-color: var(--menu-item-hover-background);
+                                color: var(--menu-item-hover-foreground);
+                            }
+
+                            &:visited {
+                                color: var(--foreground-color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /*
+         * END NAVIGATION LAYOUT
+         ************************************************************/
+
+        /*************************************************************
+         * BEGIN CONTENT LAYOUT
+         */
+        div.wrapper {
+            text-align: center;
+
+            @media only screen and (max-width: #{$page-content-width-factor * $font-size}px) {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            div.content {
+                text-align: left;
+                display: inline-block;
+                min-width: #{$page-content-width-factor}rem;
+                max-width: #{$page-content-width-factor}rem;
+
+                @media only screen and (max-width: #{$page-content-width-factor * $font-size}px) {
+                    min-width: 100%;
+                    max-width: 100%;
+                }
+
+                h1,
+                h2,
+                h3,
+                h4,
+                div,
+                ul,
+                ol,
+                p {
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+
+                    code {
+                        background: var(--code-background-color);
+                        color: var(--code-foreground-color);
+                        padding: 0.125rem;
+                    }
+                }
+
+                h1 {
+                    font-size: #{$font-size-h1}rem;
+                }
+
+                h2 {
+                    font-size: #{$font-size-h2}rem;
+                }
+
+                h3 {
+                    font-size: #{$font-size-h3}rem;
+                }
+
+                h4 {
+                    font-size: #{$font-size-h4}rem;
+                }
+
+                span.post-meta {
+                    a.tag {
+                        display: inline-block;
+                        padding: .25rem .75rem;
+                        margin: 0 .5rem;
+                        border-radius: .25rem;
+                        white-space: nowrap;
+
+                        background: var(--content-tag-background-color);
+                        color: var(--content-tag-foreground-color);
+                    }
+                }
+
+                // Make lists look decent with some margins
+                ul,
+                ol {
+                    margin-left: 1.5rem;
+
+                    li {
+                        margin-top: 0.5rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
+                // Set max with for images in content
+                img {
+                    max-width: 100%;
+                }
+
+                // Make blockquotes look decent with some margins and
+                // borders and a different font style.
+                blockquote {
+                    font-style: italic;
+
+                    border: 0.1rem solid var(--border-color);
+
+                    margin: 0.5rem;
+
+                    p {
+                        padding: 0.5rem;
+                    }
+                }
+
+                div.highlight {
+                    @import "./code.scss";
+
+                    pre {
+                        border: 0.1rem solid var(--border-color);
+                        overflow-x: scroll;
+
+                        margin: 0.5rem;
+                        padding: 0.5rem;
+                    }
+                }
+
+                div.models3d div.model3d model-viewer {
+                    width: 28rem;
+                    height: 21rem;
+                }
+
+                div.pagination {
+                    text-align: center;
+
+                    ul.pagination {
+                        list-style: none;
+                        display: inline-block;
+
+                        li.page-item {
+                            float: left;
+
+                            margin: 0.5rem;
+
+                            a {
+                                display: inline-block;
+
+                                color: var(--menu-foreground);
+                                background-color: var(--menu-background);
+
+                                line-height: 2.2rem;
+                                padding-right: 1.1rem;
+                                padding-left: 1.1rem;
+
+                                border-radius: 0.25rem;
+                                border: 0.1rem solid var(--border-color);
+
+                                &:hover {
+                                    background-color: var(--menu-item-hover-background);
+                                    color: var(--menu-item-hover-foreground);
+                                }
+
+                                &:visited {
+                                    color: var(--foreground-color);
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        /*
+         * END CONTENT LAYOUT
+         ************************************************************/
+
+        /*************************************************************
+         * BEGIN FOOTER LAYOUT
+         */
+        footer.footer {
+            text-align: center;
+
+            border-top: 0.1rem solid var(--border-color);
+
+            div.content {
+                display: inline-block;
+
+                max-width: #{$page-content-width-factor}rem;
+
+                p {
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+
+        /*
+         * END FOOTER FOOTER LAYOUT
+         ************************************************************/
+    }
+}
+
+/*
+ * END LAYOUT
+ ********************************************************************/

@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="content">
+    {{ if (.Title | len) }}
+        <h1>{{ .Title }}</h1>
+    {{ end }}
+
+    {{- partial "blog-post-meta.html" . -}}
+
+    {{ .Content }}
+</div>
+{{ end }}
