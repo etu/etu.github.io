@@ -1,502 +1,114 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
-    <title>~elis/blog/ - Elis Hirwing</title>
-
-    
-    <meta charset="utf-8">
-
-    
-    <meta name="referrer" content="no-referrer">
-
-    
-    <link rel="canonical" href="https://elis.nu/blog/">
-
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    
-    <link href="https://elis.nu/blog/index.xml" rel="alternate" type="application/rss+xml" title="Elis Hirwing">
-        <link href="https://elis.nu/blog/index.xml" rel="feed" type="application/rss+xml" title="Elis Hirwing">
-    
-
-    
-    
-        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
-    
-
-    
-    <meta property="description" content="">
-
-    
-    <meta property="og:description" content="">
-    <meta property="og:locale" content="en">
-    <meta property="og:site_name" content="Elis Hirwing">
-    <meta property="og:title" content="~elis/blog/ &middot; Elis Hirwing">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://elis.nu/blog/">
-    
-    <meta name="twitter:card" content="summary_large_image">
-
-    
-    <link rel="me" href="https://chaos.social/@sa0bse">
-
-<style>
-  aside#padding {
-    height: 4rem;
-    width: 0;
-  }
-</style>
-
-<!-- Matomo -->
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension"
-     should be called before "trackPageView" */
-  _paq.push(['disableCookies']);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//matomo.elis.nu/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '3']);
-    var d=document,
-        g=d.createElement('script'),
-        s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
-
-    
-    
-        
-        
-            
-                
-                <link rel="stylesheet" href="/css/style.min.460ecdca40964bd0108a94913b647a409f72fd4a0bf1369d37224cacb92a1395.css" integrity="sha256-Rg7NykCWS9AQipSRO2R6QJ9y/UoL8TadNyJMrLkqE5U=" crossorigin="anonymous" media="screen">
-                
-            
-        
-    
-</head>
-
-    <body><header>
-    
-        <div class="i18n">
-            <ul>
-                
-                    <li>
-                        <a href="/sv/">
-                            <img src="/img/iso-flags/se.svg" alt="se flag">
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-    
-    
-    
-    <aside id="padding"></aside>
-    <nav>
-        
-            <ul>
-                
-
-                
-                    <li><a href="/">~elis/</a></li>
-                
-                    <li><a href="/about/">./about/</a></li>
-                
-                    <li><a href="/work/">./work/</a></li>
-                
-                    <li><a href="/talks/">./talks/</a></li>
-                
-                    <li><a href="/blog/">./blog/</a></li>
-                
-                    <li><a href="/3d-models/">./3d-models/</a></li>
-                
-                    <li><a href="/cubing/">./cubing/</a></li>
-                
-            </ul>
-        
-    </nav>
-</header>
-<div class="wrapper">
-<div class="content">
-    
-        <h1>~elis/blog/</h1>
-    
-
-    
-
-    <div class="posts">
-        
-        
-            <div class="post">
-                <h2><a href="/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/">NixOS ❄: Remote unlock of encrypted ZFS over SSH</a></h2><span class="post-meta">
-    2026-04-24
-
-    
-        &middot; 4 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/nixos/">NixOS</a>
-        
-            <a class="tag" href="/tags/linux/">Linux</a>
-        
-            <a class="tag" href="/tags/zfs/">ZFS</a>
-        
-    
-</span>
-<p><p>This is a follow-up to my earlier post: <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/">Encrypted ZFS mirror with mirrored
-boot on NixOS</a>.</p>
-<p>At the end of that post I briefly mentioned that I configured remote unlocking
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en><head><title>~elis/blog/ - Elis Hirwing</title><meta charset=utf-8><meta name=referrer content="no-referrer"><link rel=canonical href=https://elis.nu/blog/><meta name=viewport content="width=device-width,initial-scale=1"><link href=https://elis.nu/blog/index.xml rel=alternate type=application/rss+xml title="Elis Hirwing"><link href=https://elis.nu/blog/index.xml rel=feed type=application/rss+xml title="Elis Hirwing"><link rel=icon type=image/png href=https://elis.nu/img/elis.webp><meta property="description" content><meta property="og:description" content><meta property="og:locale" content="en"><meta property="og:site_name" content="Elis Hirwing"><meta property="og:title" content="~elis/blog/ &#183; Elis Hirwing"><meta property="og:type" content="website"><meta property="og:url" content="https://elis.nu/blog/"><meta name=twitter:card content="summary_large_image"><link rel=me href=https://chaos.social/@sa0bse><style>aside#padding{height:4rem;width:0}</style><script>var _paq=window._paq=window._paq||[];_paq.push(["disableCookies"]),_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){e="//matomo.elis.nu/",_paq.push(["setTrackerUrl",e+"matomo.php"]),_paq.push(["setSiteId","3"]);var e,n=document,t=n.createElement("script"),s=n.getElementsByTagName("script")[0];t.async=!0,t.src=e+"matomo.js",s.parentNode.insertBefore(t,s)}()</script><link rel=stylesheet href=/css/style.min.460ecdca40964bd0108a94913b647a409f72fd4a0bf1369d37224cacb92a1395.css integrity="sha256-Rg7NykCWS9AQipSRO2R6QJ9y/UoL8TadNyJMrLkqE5U=" crossorigin=anonymous media=screen></head><body><header><div class=i18n><ul><li><a href=/sv/><img src=/img/iso-flags/se.svg alt="se flag"></a></li></ul></div><aside id=padding></aside><nav><ul><li><a href=/>~elis/</a></li><li><a href=/about/>./about/</a></li><li><a href=/work/>./work/</a></li><li><a href=/talks/>./talks/</a></li><li><a href=/blog/>./blog/</a></li><li><a href=/3d-models/>./3d-models/</a></li><li><a href=/cubing/>./cubing/</a></li></ul></nav></header><div class=wrapper><div class=content><h1>~elis/blog/</h1><div class=posts><div class=post><h2><a href=/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/>NixOS ❄: Remote unlock of encrypted ZFS over SSH</a></h2><span class=post-meta>2026-04-24
+&#183; 4 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/zfs/>ZFS</a></span><p><p>This is a follow-up to my earlier post: <a href=/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/>Encrypted ZFS mirror with mirrored
+boot on NixOS</a>.</p><p>At the end of that post I briefly mentioned that I configured remote unlocking
 of my encrypted ZFS pools over SSH on boot, linking off to the NixOS wiki. The
 wiki page is now quite outdated and the approach it describes no longer works
 well with modern NixOS, which uses a systemd-based initrd by default. This post
-covers the current way to do it.</p></p>
-
-                <a href="/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2026/02/migrating-from-g-suite-to-protonmail/">My experience of migrating from Google G-Suite to ProtonMail</a></h2><span class="post-meta">
-    2026-02-24
-
-    
-        &middot; 4 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/email/">Email</a>
-        
-            <a class="tag" href="/tags/privacy/">Privacy</a>
-        
-    
-</span>
-<p><p>For about 9 years, I&rsquo;ve been a customer of Google G-Suite, using it
+covers the current way to do it.</p></p><a href=/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2026/02/migrating-from-g-suite-to-protonmail/>My experience of migrating from Google G-Suite to ProtonMail</a></h2><span class=post-meta>2026-02-24
+&#183; 4 minutes read
+&#183;
+<a class=tag href=/tags/email/>Email</a>
+<a class=tag href=/tags/privacy/>Privacy</a></span><p><p>For about 9 years, I&rsquo;ve been a customer of Google G-Suite, using it
 for email, file storage, and photos. I&rsquo;ve never fully trusted them,
-however I have always claimed the following.</p>
-<blockquote>
-<p>As a paying customer, I hope that they mine my data less than they
-do for free users.</p>
-</blockquote>
-<p>There&rsquo;s a lot of uncertainty in that sentence. Words like <strong>hope</strong> and
+however I have always claimed the following.</p><blockquote><p>As a paying customer, I hope that they mine my data less than they
+do for free users.</p></blockquote><p>There&rsquo;s a lot of uncertainty in that sentence. Words like <strong>hope</strong> and
 <strong>less</strong> aren&rsquo;t exactly reassuring, and there&rsquo;s no proof it&rsquo;s actually
 the case either. With a recent price increase warning at renewal time
 and the current state of politics between the EU and USA, I decided to
-switch to an EU provider.</p></p>
-
-                <a href="/blog/2026/02/migrating-from-g-suite-to-protonmail/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2025/09/migrating-zfs-mirror-to-raidz2/">Migrating from ZFS mirror to RAIDZ2</a></h2><span class="post-meta">
-    2025-09-13
-
-    
-        &middot; 5 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/zfs/">ZFS</a>
-        
-            <a class="tag" href="/tags/linux/">Linux</a>
-        
-    
-</span>
-<p><p>For a long time I&rsquo;ve been running my storage on a 2-disk ZFS
+switch to an EU provider.</p></p><a href=/blog/2026/02/migrating-from-g-suite-to-protonmail/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2025/09/migrating-zfs-mirror-to-raidz2/>Migrating from ZFS mirror to RAIDZ2</a></h2><span class=post-meta>2025-09-13
+&#183; 5 minutes read
+&#183;
+<a class=tag href=/tags/zfs/>ZFS</a>
+<a class=tag href=/tags/linux/>Linux</a></span><p><p>For a long time I&rsquo;ve been running my storage on a 2-disk ZFS
 mirror. It&rsquo;s been stable, safe, and easy to manage. However, at some
 point, 2 disks just aren&rsquo;t enough, and I wanted to upgrade to RAIDZ2
-so that I could survive up to two simultaneous disk failures.</p>
-<p>I could have added another mirror, which would have been simple, and
+so that I could survive up to two simultaneous disk failures.</p><p>I could have added another mirror, which would have been simple, and
 this setup would allow two drives to fail, but not any two drives. I
-wanted the extra safety of being able to lose <strong>any two drives</strong>.</p></p>
-
-                <a href="/blog/2025/09/migrating-zfs-mirror-to-raidz2/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2025/01/elis-tempeh-v1-0/">Elis Tempeh v1.0</a></h2><span class="post-meta">
-    2025-01-19
-
-    
-        &middot; 3 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/food/">Food</a>
-        
-            <a class="tag" href="/tags/recipe/">Recipe</a>
-        
-            <a class="tag" href="/tags/vegan/">Vegan</a>
-        
-    
-</span>
-<p><p>Tempeh. Ever heard of it? It’s a traditional Indonesian food made from
+wanted the extra safety of being able to lose <strong>any two drives</strong>.</p></p><a href=/blog/2025/09/migrating-zfs-mirror-to-raidz2/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2025/01/elis-tempeh-v1-0/>Elis Tempeh v1.0</a></h2><span class=post-meta>2025-01-19
+&#183; 3 minutes read
+&#183;
+<a class=tag href=/tags/food/>Food</a>
+<a class=tag href=/tags/recipe/>Recipe</a>
+<a class=tag href=/tags/vegan/>Vegan</a></span><p><p>Tempeh. Ever heard of it? It’s a traditional Indonesian food made from
 fermented soybeans. Packed with protein and a unique nutty flavor,
 tempeh is a fantastic meat substitute for vegans and vegetarians
-alike.</p>
-<p>In this post, I’ll guide you through what tempeh is, how to make it at
+alike.</p><p>In this post, I’ll guide you through what tempeh is, how to make it at
 home, and tackle some of the common challenges, like maintaining the
 right fermentation temperature. So, if you’ve ever thought about
-giving tempeh-making a try, let’s dive in!</p></p>
-
-                <a href="/blog/2025/01/elis-tempeh-v1-0/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2024/08/back-from-hyprland-to-sway/">Back from Hyprland to Sway</a></h2><span class="post-meta">
-    2024-08-29
-
-    
-        &middot; 4 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/hyprland/">Hyprland</a>
-        
-            <a class="tag" href="/tags/sway/">Sway</a>
-        
-            <a class="tag" href="/tags/wayland/">Wayland</a>
-        
-            <a class="tag" href="/tags/nixos/">NixOS</a>
-        
-            <a class="tag" href="/tags/linux/">Linux</a>
-        
-            <a class="tag" href="/tags/cosmic/">Cosmic</a>
-        
-    
-</span>
-<p><p>After a brief experiment with
-<a href="/blog/2024/07/switching-to-hyprland/">Hyprland</a>, I&rsquo;m back to using Sway. My
+giving tempeh-making a try, let’s dive in!</p></p><a href=/blog/2025/01/elis-tempeh-v1-0/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2024/08/back-from-hyprland-to-sway/>Back from Hyprland to Sway</a></h2><span class=post-meta>2024-08-29
+&#183; 4 minutes read
+&#183;
+<a class=tag href=/tags/hyprland/>Hyprland</a>
+<a class=tag href=/tags/sway/>Sway</a>
+<a class=tag href=/tags/wayland/>Wayland</a>
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/cosmic/>Cosmic</a></span><p><p>After a brief experiment with
+<a href=/blog/2024/07/switching-to-hyprland/>Hyprland</a>, I&rsquo;m back to using Sway. My
 experiment lasted less than a month, as I hoped Hyprland&rsquo;s window
-selector would resolve my window-sharing woes.</p>
-<p>It turns out it wasn&rsquo;t, because the first week back at work I had the
+selector would resolve my window-sharing woes.</p><p>It turns out it wasn&rsquo;t, because the first week back at work I had the
 need to share a slideshow in full screen. Then it doesn&rsquo;t matter if
 you can select a window anymore. So my workarounds with Sway would
-have worked in that use case while my Hyprland set up…  didn&rsquo;t.</p></p>
-
-                <a href="/blog/2024/08/back-from-hyprland-to-sway/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2024/07/switching-to-hyprland/">Switching from Sway to Hyprland</a></h2><span class="post-meta">
-    2024-07-23
-
-    
-        &middot; 3 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/hyprland/">Hyprland</a>
-        
-            <a class="tag" href="/tags/sway/">Sway</a>
-        
-            <a class="tag" href="/tags/wayland/">Wayland</a>
-        
-            <a class="tag" href="/tags/nixos/">NixOS</a>
-        
-            <a class="tag" href="/tags/linux/">Linux</a>
-        
-    
-</span>
-<p><h2 id="introduction">Introduction</h2>
-<p>After four years with Sway, I&rsquo;ve decided to transition to Hyprland. My
+have worked in that use case while my Hyprland set up… didn&rsquo;t.</p></p><a href=/blog/2024/08/back-from-hyprland-to-sway/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2024/07/switching-to-hyprland/>Switching from Sway to Hyprland</a></h2><span class=post-meta>2024-07-23
+&#183; 3 minutes read
+&#183;
+<a class=tag href=/tags/hyprland/>Hyprland</a>
+<a class=tag href=/tags/sway/>Sway</a>
+<a class=tag href=/tags/wayland/>Wayland</a>
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a></span><p><h2 id=introduction>Introduction</h2><p>After four years with Sway, I&rsquo;ve decided to transition to Hyprland. My
 journey from EXWM to Sway began about four years ago, and I documented
 the experience in
-<a href="/blog/2021/02/switching-to-wayland-sway/">this post</a> three years ago.
+<a href=/blog/2021/02/switching-to-wayland-sway/>this post</a> three years ago.
 While Sway has served me well, it has its limitations that I&rsquo;ve used
-hacks and workarounds to circumvent.</p>
-<h2 id="the-limitations-of-sway">The Limitations of Sway</h2>
-<p>One major drawback of Sway is its
-<a href="/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/">screen sharing</a>
+hacks and workarounds to circumvent.</p><h2 id=the-limitations-of-sway>The Limitations of Sway</h2><p>One major drawback of Sway is its
+<a href=/blog/2021/02/detailed-setup-of-screen-sharing-in-sway/>screen sharing</a>
 capabilities. Although I managed to get screen sharing somewhat
-functional, it only allows sharing the full screen.</p></p>
-
-                <a href="/blog/2024/07/switching-to-hyprland/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2024/07/prune-gh-pages-branches/">Prune gh-pages branches using GitHub Actions</a></h2><span class="post-meta">
-    2024-07-07
-
-    
-        &middot; 3 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/github/">GitHub</a>
-        
-            <a class="tag" href="/tags/github-actions/">GitHub Actions</a>
-        
-    
-</span>
-<p><p>This website is hosted on GitHub Pages, built using nix and hugo with
+functional, it only allows sharing the full screen.</p></p><a href=/blog/2024/07/switching-to-hyprland/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2024/07/prune-gh-pages-branches/>Prune gh-pages branches using GitHub Actions</a></h2><span class=post-meta>2024-07-07
+&#183; 3 minutes read
+&#183;
+<a class=tag href=/tags/github/>GitHub</a>
+<a class=tag href=/tags/github-actions/>GitHub Actions</a></span><p><p>This website is hosted on GitHub Pages, built using nix and hugo with
 a custom theme that I maintain. I have automated updates for the nix
 flake to get new versions of hugo and nixpkgs, which applies to both
-my theme and the website itself.</p>
-<p>This automation generates numerous commits and deployments to the
+my theme and the website itself.</p><p>This automation generates numerous commits and deployments to the
 gh-pages branch, mainly due to minor version bumps of hugo and other
 changes to the theme. While this hasn’t been a problem for my static
 website, which primarily consists of text, a recent addition has
-created some challenges.</p></p>
-
-                <a href="/blog/2024/07/prune-gh-pages-branches/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2024/02/nixos-superpower-specialisations/">NixOS superpower: specialisations</a></h2><span class="post-meta">
-    2024-02-17
-
-    
-        &middot; 3 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/nixos/">NixOS</a>
-        
-            <a class="tag" href="/tags/linux/">Linux</a>
-        
-    
-</span>
-<p><p><a href="https://nixos.org/">NixOS</a> has a lot of configurability and features. One
+created some challenges.</p></p><a href=/blog/2024/07/prune-gh-pages-branches/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2024/02/nixos-superpower-specialisations/>NixOS superpower: specialisations</a></h2><span class=post-meta>2024-02-17
+&#183; 3 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a></span><p><p><a href=https://nixos.org/>NixOS</a> has a lot of configurability and features. One
 feature that I&rsquo;ve known about for a while that I think is both really cool,
 but also a bit lesser known is the ability to have declarative
-<a href="https://wiki.nixos.org/wiki/Specialisation">Specialisations</a>. To me, this is a
+<a href=https://wiki.nixos.org/wiki/Specialisation>Specialisations</a>. To me, this is a
 superpower of NixOS that I have a hard time to see any other Linux
-Distribution having.</p>
-<h2 id="whats-a-specialisation">What&rsquo;s a Specialisation?</h2>
-<p>The name doesn&rsquo;t do it justice, it&rsquo;s a bit of a weird name for it. However
-I couldn&rsquo;t come up with a better name for it either.</p></p>
-
-                <a href="/blog/2024/02/nixos-superpower-specialisations/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2023/11/a-personal-adventure-with-hot-beverages/">A personal adventure with hot beverages</a></h2><span class="post-meta">
-    2023-11-05
-
-    
-        &middot; 5 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/coffee/">Coffee</a>
-        
-            <a class="tag" href="/tags/personal/">Personal</a>
-        
-    
-</span>
-<p><h2 id="my-history-with-coffee">My history with coffee</h2>
-<p>I&rsquo;ve never been into coffee, every time I&rsquo;ve tried them as a child or young
+Distribution having.</p><h2 id=whats-a-specialisation>What&rsquo;s a Specialisation?</h2><p>The name doesn&rsquo;t do it justice, it&rsquo;s a bit of a weird name for it. However
+I couldn&rsquo;t come up with a better name for it either.</p></p><a href=/blog/2024/02/nixos-superpower-specialisations/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2023/11/a-personal-adventure-with-hot-beverages/>A personal adventure with hot beverages</a></h2><span class=post-meta>2023-11-05
+&#183; 5 minutes read
+&#183;
+<a class=tag href=/tags/coffee/>Coffee</a>
+<a class=tag href=/tags/personal/>Personal</a></span><p><h2 id=my-history-with-coffee>My history with coffee</h2><p>I&rsquo;ve never been into coffee, every time I&rsquo;ve tried them as a child or young
 adult they have been terrible. They have just been bitter and it&rsquo;s not a
-taste profile I to this day enjoy at all.</p>
-<p>I have, a couple of times encountered coffee that friends have made that
+taste profile I to this day enjoy at all.</p><p>I have, a couple of times encountered coffee that friends have made that
 actually weren&rsquo;t that bitter. So my reaction to it has managed to reach the
 level of &ldquo;this isn&rsquo;t terrible&rdquo;. Not terrible isn&rsquo;t a great review though, not
-really something that one gets back to right away.</p></p>
-
-                <a href="/blog/2023/11/a-personal-adventure-with-hot-beverages/">Read On &rarr;</a>
-            </div>
-        
-            <div class="post">
-                <h2><a href="/blog/2023/04/ai-should-be-trained-with-vegan-values/">AI should be trained with vegan values</a></h2><span class="post-meta">
-    2023-04-25
-
-    
-        &middot; 2 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/veganism/">Veganism</a>
-        
-            <a class="tag" href="/tags/ai/">AI</a>
-        
-            <a class="tag" href="/tags/ethics/">Ethics</a>
-        
-            <a class="tag" href="/tags/speciesism/">Speciesism</a>
-        
-    
-</span>
-<p><p>As artificial intelligence (AI) continues to advance, concerns have been
+really something that one gets back to right away.</p></p><a href=/blog/2023/11/a-personal-adventure-with-hot-beverages/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2023/04/ai-should-be-trained-with-vegan-values/>AI should be trained with vegan values</a></h2><span class=post-meta>2023-04-25
+&#183; 2 minutes read
+&#183;
+<a class=tag href=/tags/veganism/>Veganism</a>
+<a class=tag href=/tags/ai/>AI</a>
+<a class=tag href=/tags/ethics/>Ethics</a>
+<a class=tag href=/tags/speciesism/>Speciesism</a></span><p><p>As artificial intelligence (AI) continues to advance, concerns have been
 raised about the potential dangers of AI becoming too powerful and taking
 over human civilization. In a recent interview, entrepreneur and CEO Elon
 Musk expressed his concerns about the risks associated with developing
 super-intelligent AI. However, his views were challenged by Larry Page,
 co-founder of Google, who referred to Musk as a “speciesist” for not wanting
-AI to become a “digital god”.</p></p>
-
-                <a href="/blog/2023/04/ai-should-be-trained-with-vegan-values/">Read On &rarr;</a>
-            </div>
-        
-
-        <div class="pagination">
-            
-    <ul class="pagination pagination-default">
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
-      </li>
-      <li class="page-item disabled">
-        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
-      </li>
-      <li class="page-item active">
-        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
-      </li>
-      <li class="page-item">
-        <a href="/blog/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
-      </li>
-      <li class="page-item">
-        <a href="/blog/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
-      </li>
-      <li class="page-item">
-        <a href="/blog/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
-      </li>
-      <li class="page-item">
-        <a href="/blog/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/blog/page/4/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
-      </li>
-    </ul>
-        </div>
-    </div>
-</div>
-
-        </div><footer class="footer">
-    <div class="content">
-        
-            <p>
-                Copyright &copy; 2010 Elis Hirwing
-            </p>
-        
-        <p>
-            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
-            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
-        </p>
-    </div>
-</footer>
-
-    </body>
-</html>
+AI to become a “digital god”.</p></p><a href=/blog/2023/04/ai-should-be-trained-with-vegan-values/>Read On &rarr;</a></div><div class=pagination><ul class="pagination pagination-default"><li class="page-item disabled"><a aria-disabled=true aria-label=First class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;&#171;</span></a></li><li class="page-item disabled"><a aria-disabled=true aria-label=Previous class=page-link role=button tabindex=-1><span aria-hidden=true>&#171;</span></a></li><li class="page-item active"><a aria-current=page aria-label="Page 1" class=page-link role=button>1</a></li><li class=page-item><a href=/blog/page/2/ aria-label="Page 2" class=page-link role=button>2</a></li><li class=page-item><a href=/blog/page/3/ aria-label="Page 3" class=page-link role=button>3</a></li><li class=page-item><a href=/blog/page/4/ aria-label="Page 4" class=page-link role=button>4</a></li><li class=page-item><a href=/blog/page/2/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a></li><li class=page-item><a href=/blog/page/4/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a></li></ul></div></div></div></div><footer class=footer><div class=content><p>Copyright &copy; 2010 Elis Hirwing</p><p>Made with <i class="fa-solid fa-heart" style=color:red></i> in Arvika
+by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target=_blank>Elis Hirwing</a>.</p></div></footer></body></html>

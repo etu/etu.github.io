@@ -1,260 +1,82 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
-    <title>NixOS ❄: Remote unlock of encrypted ZFS over SSH - Elis Hirwing</title>
-
-    
-    <meta charset="utf-8">
-
-    
-    <meta name="referrer" content="no-referrer">
-
-    
-    <link rel="canonical" href="https://elis.nu/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/">
-
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    
-    
-
-    
-    
-        <link rel="icon" type="image/png" href="https://elis.nu/img/elis.webp">
-    
-
-    
-    <meta property="description" content="">
-
-    
-    <meta property="og:description" content="">
-    <meta property="og:locale" content="en">
-    <meta property="og:site_name" content="Elis Hirwing">
-    <meta property="og:title" content="NixOS ❄: Remote unlock of encrypted ZFS over SSH &middot; Elis Hirwing">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://elis.nu/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/">
-    
-    <meta name="twitter:card" content="summary_large_image">
-
-    
-    <link rel="me" href="https://chaos.social/@sa0bse">
-
-<style>
-  aside#padding {
-    height: 4rem;
-    width: 0;
-  }
-</style>
-
-<!-- Matomo -->
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension"
-     should be called before "trackPageView" */
-  _paq.push(['disableCookies']);
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//matomo.elis.nu/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '3']);
-    var d=document,
-        g=d.createElement('script'),
-        s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
-
-    
-    
-        
-        
-            
-                
-                <link rel="stylesheet" href="/css/style.min.460ecdca40964bd0108a94913b647a409f72fd4a0bf1369d37224cacb92a1395.css" integrity="sha256-Rg7NykCWS9AQipSRO2R6QJ9y/UoL8TadNyJMrLkqE5U=" crossorigin="anonymous" media="screen">
-                
-            
-        
-    
-</head>
-
-    <body><header>
-    
-        <div class="i18n">
-            <ul>
-                
-                    <li>
-                        <a href="/sv/">
-                            <img src="/img/iso-flags/se.svg" alt="se flag">
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-    
-    
-    
-    <aside id="padding"></aside>
-    <nav>
-        
-            <ul>
-                
-
-                
-                    <li><a href="/">~elis/</a></li>
-                
-                    <li><a href="/about/">./about/</a></li>
-                
-                    <li><a href="/work/">./work/</a></li>
-                
-                    <li><a href="/talks/">./talks/</a></li>
-                
-                    <li><a href="/blog/">./blog/</a></li>
-                
-                    <li><a href="/3d-models/">./3d-models/</a></li>
-                
-                    <li><a href="/cubing/">./cubing/</a></li>
-                
-            </ul>
-        
-    </nav>
-</header>
-<div class="wrapper">
-<div class="content">
-    
-        <h1>NixOS ❄: Remote unlock of encrypted ZFS over SSH</h1>
-    <span class="post-meta">
-    2026-04-24
-
-    
-        &middot; 4 minutes read
-    
-
-    
-        &middot;
-        
-            <a class="tag" href="/tags/nixos/">NixOS</a>
-        
-            <a class="tag" href="/tags/linux/">Linux</a>
-        
-            <a class="tag" href="/tags/zfs/">ZFS</a>
-        
-    
-</span>
-<p>This is a follow-up to my earlier post: <a href="/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/">Encrypted ZFS mirror with mirrored
-boot on NixOS</a>.</p>
-<p>At the end of that post I briefly mentioned that I configured remote unlocking
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en><head><title>NixOS ❄: Remote unlock of encrypted ZFS over SSH - Elis Hirwing</title><meta charset=utf-8><meta name=referrer content="no-referrer"><link rel=canonical href=https://elis.nu/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon type=image/png href=https://elis.nu/img/elis.webp><meta property="description" content><meta property="og:description" content><meta property="og:locale" content="en"><meta property="og:site_name" content="Elis Hirwing"><meta property="og:title" content="NixOS ❄: Remote unlock of encrypted ZFS over SSH &#183; Elis Hirwing"><meta property="og:type" content="website"><meta property="og:url" content="https://elis.nu/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/"><meta name=twitter:card content="summary_large_image"><link rel=me href=https://chaos.social/@sa0bse><style>aside#padding{height:4rem;width:0}</style><script>var _paq=window._paq=window._paq||[];_paq.push(["disableCookies"]),_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){e="//matomo.elis.nu/",_paq.push(["setTrackerUrl",e+"matomo.php"]),_paq.push(["setSiteId","3"]);var e,n=document,t=n.createElement("script"),s=n.getElementsByTagName("script")[0];t.async=!0,t.src=e+"matomo.js",s.parentNode.insertBefore(t,s)}()</script><link rel=stylesheet href=/css/style.min.460ecdca40964bd0108a94913b647a409f72fd4a0bf1369d37224cacb92a1395.css integrity="sha256-Rg7NykCWS9AQipSRO2R6QJ9y/UoL8TadNyJMrLkqE5U=" crossorigin=anonymous media=screen></head><body><header><div class=i18n><ul><li><a href=/sv/><img src=/img/iso-flags/se.svg alt="se flag"></a></li></ul></div><aside id=padding></aside><nav><ul><li><a href=/>~elis/</a></li><li><a href=/about/>./about/</a></li><li><a href=/work/>./work/</a></li><li><a href=/talks/>./talks/</a></li><li><a href=/blog/>./blog/</a></li><li><a href=/3d-models/>./3d-models/</a></li><li><a href=/cubing/>./cubing/</a></li></ul></nav></header><div class=wrapper><div class=content><h1>NixOS ❄: Remote unlock of encrypted ZFS over SSH</h1><span class=post-meta>2026-04-24
+&#183; 4 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/zfs/>ZFS</a></span><p>This is a follow-up to my earlier post: <a href=/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/>Encrypted ZFS mirror with mirrored
+boot on NixOS</a>.</p><p>At the end of that post I briefly mentioned that I configured remote unlocking
 of my encrypted ZFS pools over SSH on boot, linking off to the NixOS wiki. The
 wiki page is now quite outdated and the approach it describes no longer works
 well with modern NixOS, which uses a systemd-based initrd by default. This post
-covers the current way to do it.</p>
-<h2 id="what-changed">What changed</h2>
-<p>The old approach involved writing a script to <code>/root/.profile</code> that would run
+covers the current way to do it.</p><h2 id=what-changed>What changed</h2><p>The old approach involved writing a script to <code>/root/.profile</code> that would run
 <code>zfs load-key -a</code> on SSH login. This worked with the old stage-1 initrd, but
-with the systemd initrd it breaks in two ways:</p>
-<ol>
-<li>Root&rsquo;s home directory in the systemd initrd is <code>/var/empty</code>, not <code>/root</code>,
-so <code>.profile</code> was never sourced.</li>
-<li>After loading keys manually with <code>zfs load-key -a</code>, running <code>systemctl default</code> to advance the boot would trigger systemd&rsquo;s own <code>zfs-load-key</code>
+with the systemd initrd it breaks in two ways:</p><ol><li>Root&rsquo;s home directory in the systemd initrd is <code>/var/empty</code>, not <code>/root</code>,
+so <code>.profile</code> was never sourced.</li><li>After loading keys manually with <code>zfs load-key -a</code>, running <code>systemctl default</code> to advance the boot would trigger systemd&rsquo;s own <code>zfs-load-key</code>
 services, which send password prompts to the <em>physical console</em> through the
 <code>systemd-ask-password</code> mechanism — not to your SSH session. So you&rsquo;d see
-password prompts but entering anything would have no effect.</li>
-</ol>
-<h2 id="the-correct-approach">The correct approach</h2>
-<p>The right tool for the job is <code>systemd-tty-ask-password-agent</code>. When systemd
+password prompts but entering anything would have no effect.</li></ol><h2 id=the-correct-approach>The correct approach</h2><p>The right tool for the job is <code>systemd-tty-ask-password-agent</code>. When systemd
 wants to ask for a passphrase (e.g. from a <code>zfs-load-key@pool.service</code> unit),
 it queues the request through its ask-password mechanism. Running
 <code>systemd-tty-ask-password-agent</code> on your SSH terminal intercepts those queued
 requests and routes the prompts — and your answers — back through systemd
 properly. No manual key loading, no <code>systemctl default</code> needed. Systemd
-continues the boot naturally once all keys are provided.</p>
-<p>The <code>--watch</code> flag is important if you have more than one encrypted pool.
+continues the boot naturally once all keys are provided.</p><p>The <code>--watch</code> flag is important if you have more than one encrypted pool.
 <code>--query</code> only handles <em>currently pending</em> requests and exits. With two pools
 (e.g. <code>zroot</code> and <code>zstorage</code>), the second pool&rsquo;s key request only becomes
 pending after the first is answered, so <code>--query</code> would miss it. <code>--watch</code>
-stays running and catches each request as it appears.</p>
-<h2 id="configuration">Configuration</h2>
-<p>Here is the relevant NixOS configuration. This goes in your
+stays running and catches each request as it appears.</p><h2 id=configuration>Configuration</h2><p>Here is the relevant NixOS configuration. This goes in your
 <code>hardware-configuration.nix</code> or wherever you keep your host-specific boot
-settings.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nix" data-lang="nix"><span class="line"><span class="cl"><span class="p">{</span><span class="o">...</span><span class="p">}:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">initrd</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">availableKernelModules</span> <span class="o">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">      <span class="c1"># ... your kernel modules ...</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="c1"># Make sure your network card&#39;s kernel module is listed here,</span>
-</span></span><span class="line"><span class="cl">      <span class="c1"># otherwise the initrd won&#39;t have network access.</span>
-</span></span><span class="line"><span class="cl">      <span class="s2">&#34;r8169&#34;</span>  <span class="c1"># Example: Realtek NIC</span>
-</span></span><span class="line"><span class="cl">    <span class="p">];</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">network</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># Start an SSH server in the initrd on port 2222.</span>
-</span></span><span class="line"><span class="cl">    <span class="n">network</span><span class="o">.</span><span class="n">ssh</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">enable</span> <span class="o">=</span> <span class="no">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="n">port</span> <span class="o">=</span> <span class="mi">2222</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">      <span class="n">hostKeys</span> <span class="o">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># A host key that lives in persistent storage, separate from</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># your regular SSH host key. You don&#39;t want to share host keys</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># between the initrd and the booted system.</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;/path/to/initrd-ssh-host-key&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">];</span>
-</span></span><span class="line"><span class="cl">      <span class="n">authorizedKeys</span> <span class="o">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;ssh-ed25519 AAAA... your-public-key&#34;</span>
-</span></span><span class="line"><span class="cl">      <span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="p">};</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="c1"># Write a .profile to /var/empty (root&#39;s home in the systemd initrd)</span>
-</span></span><span class="line"><span class="cl">  <span class="c1"># so that logging in over SSH automatically starts the password agent.</span>
-</span></span><span class="line"><span class="cl">  <span class="n">boot</span><span class="o">.</span><span class="n">initrd</span><span class="o">.</span><span class="n">systemd</span><span class="o">.</span><span class="n">services</span><span class="o">.</span><span class="n">zfs-setup-root-profile</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">description</span> <span class="o">=</span> <span class="s2">&#34;Prepare root .profile for ZFS unlocking via SSH&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">wantedBy</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;initrd.target&#34;</span> <span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="n">before</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&#34;initrd-root-fs.target&#34;</span> <span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="n">unitConfig</span><span class="o">.</span><span class="n">DefaultDependencies</span> <span class="o">=</span> <span class="no">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">script</span> <span class="o">=</span> <span class="s1">&#39;&#39;
-</span></span></span><span class="line"><span class="cl"><span class="s1">      mkdir -p /var/empty
-</span></span></span><span class="line"><span class="cl"><span class="s1">      echo &#34;systemd-tty-ask-password-agent --watch&#34; &gt; /var/empty/.profile
-</span></span></span><span class="line"><span class="cl"><span class="s1">    &#39;&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">serviceConfig</span><span class="o">.</span><span class="n">Type</span> <span class="o">=</span> <span class="s2">&#34;oneshot&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>A few things worth noting:</p>
-<ul>
-<li>The <code>&gt;</code> (not <code>&gt;&gt;</code>) matters. Using <code>&gt;&gt;</code> would accumulate entries in
-<code>.profile</code> across reboots.</li>
-<li>Root&rsquo;s home in the systemd initrd is <code>/var/empty</code>. Writing to <code>/root/.profile</code>
-has no effect because that is not where bash looks.</li>
-<li>The host key for the initrd should be a separate key from the one your booted
+settings.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=p>{</span><span class=o>...</span><span class=p>}:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>boot</span><span class=o>.</span><span class=n>initrd</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>availableKernelModules</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>      <span class=c1># ... your kernel modules ...</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>      <span class=c1># Make sure your network card&#39;s kernel module is listed here,</span>
+</span></span><span class=line><span class=cl>      <span class=c1># otherwise the initrd won&#39;t have network access.</span>
+</span></span><span class=line><span class=cl>      <span class=s2>&#34;r8169&#34;</span>  <span class=c1># Example: Realtek NIC</span>
+</span></span><span class=line><span class=cl>    <span class=p>];</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>network</span><span class=o>.</span><span class=n>enable</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Start an SSH server in the initrd on port 2222.</span>
+</span></span><span class=line><span class=cl>    <span class=n>network</span><span class=o>.</span><span class=n>ssh</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=n>enable</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=n>port</span> <span class=o>=</span> <span class=mi>2222</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=n>hostKeys</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=c1># A host key that lives in persistent storage, separate from</span>
+</span></span><span class=line><span class=cl>        <span class=c1># your regular SSH host key. You don&#39;t want to share host keys</span>
+</span></span><span class=line><span class=cl>        <span class=c1># between the initrd and the booted system.</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;/path/to/initrd-ssh-host-key&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>];</span>
+</span></span><span class=line><span class=cl>      <span class=n>authorizedKeys</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;ssh-ed25519 AAAA... your-public-key&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1># Write a .profile to /var/empty (root&#39;s home in the systemd initrd)</span>
+</span></span><span class=line><span class=cl>  <span class=c1># so that logging in over SSH automatically starts the password agent.</span>
+</span></span><span class=line><span class=cl>  <span class=n>boot</span><span class=o>.</span><span class=n>initrd</span><span class=o>.</span><span class=n>systemd</span><span class=o>.</span><span class=n>services</span><span class=o>.</span><span class=n>zfs-setup-root-profile</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;Prepare root .profile for ZFS unlocking via SSH&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>wantedBy</span> <span class=o>=</span> <span class=p>[</span> <span class=s2>&#34;initrd.target&#34;</span> <span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=n>before</span> <span class=o>=</span> <span class=p>[</span> <span class=s2>&#34;initrd-root-fs.target&#34;</span> <span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=n>unitConfig</span><span class=o>.</span><span class=n>DefaultDependencies</span> <span class=o>=</span> <span class=no>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>script</span> <span class=o>=</span> <span class=s1>&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>      mkdir -p /var/empty
+</span></span></span><span class=line><span class=cl><span class=s1>      echo &#34;systemd-tty-ask-password-agent --watch&#34; &gt; /var/empty/.profile
+</span></span></span><span class=line><span class=cl><span class=s1>    &#39;&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>serviceConfig</span><span class=o>.</span><span class=n>Type</span> <span class=o>=</span> <span class=s2>&#34;oneshot&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>A few things worth noting:</p><ul><li>The <code>></code> (not <code>>></code>) matters. Using <code>>></code> would accumulate entries in
+<code>.profile</code> across reboots.</li><li>Root&rsquo;s home in the systemd initrd is <code>/var/empty</code>. Writing to <code>/root/.profile</code>
+has no effect because that is not where bash looks.</li><li>The host key for the initrd should be a separate key from the one your booted
 system uses. This avoids SSH &ldquo;host key changed&rdquo; warnings every time the system
-reboots. On NixOS I manage this with agenix.</li>
-</ul>
-<h2 id="using-it">Using it</h2>
-<p>When the server boots and is waiting for the ZFS passphrases, SSH in on port
-2222:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh root@your-server -p <span class="m">2222</span>
+reboots. On NixOS I manage this with agenix.</li></ul><h2 id=using-it>Using it</h2><p>When the server boots and is waiting for the ZFS passphrases, SSH in on port
+2222:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>ssh root@your-server -p <span class=m>2222</span>
 </span></span></code></pre></div><p>The <code>.profile</code> runs immediately on login and you will be prompted for each pool&rsquo;s
-passphrase in turn:</p>
-<pre tabindex="0"><code>🔐 Enter key for zpool1:
+passphrase in turn:</p><pre tabindex=0><code>🔐 Enter key for zpool1:
 🔐 Enter key for zpool2:
 </code></pre><p>After the last key is entered the SSH session closes as the initrd hands off to
-the booted system. That&rsquo;s it.</p>
-
-</div>
-
-        </div><footer class="footer">
-    <div class="content">
-        
-            <p>
-                Copyright &copy; 2010 Elis Hirwing
-            </p>
-        
-        <p>
-            Made with <i class="fa-solid fa-heart" style="color: red"></i> in Arvika
-            by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target="_blank">Elis Hirwing</a>.
-        </p>
-    </div>
-</footer>
-
-    </body>
-</html>
+the booted system. That&rsquo;s it.</p></div></div><footer class=footer><div class=content><p>Copyright &copy; 2010 Elis Hirwing</p><p>Made with <i class="fa-solid fa-heart" style=color:red></i> in Arvika
+by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target=_blank>Elis Hirwing</a>.</p></div></footer></body></html>
