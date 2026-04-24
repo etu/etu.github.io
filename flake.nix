@@ -84,7 +84,7 @@
           install -m 644 -v -D ${_3dmodelsPage}/static/* -t static/3d-models
 
           # Build page
-          hugo --logLevel debug
+          hugo --logLevel debug --minify
         '';
 
         installPhase = ''

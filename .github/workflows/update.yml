@@ -17,6 +17,9 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@v22
 
       - run: 'nix flake update'
+      - run: 'nix fmt . -- --check'
+      - run: 'nix run nixpkgs#deadnix -- --fail .'
+      - run: 'nix run nixpkgs#statix -- check --config .statix.toml'
       - run: 'nix flake check'
       - run: 'nix build'
 
