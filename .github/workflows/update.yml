@@ -18,7 +18,7 @@ jobs:
 
       - run: 'nix flake update'
       - run: 'nix run .#update-3d-models'
-      - run: 'nix fmt . -- --check'
+      - run: 'nix fmt'
       - run: 'nix run nixpkgs#deadnix -- --fail .'
       - run: 'nix run nixpkgs#statix -- check --config .statix.toml'
       - run: 'nix flake check'
