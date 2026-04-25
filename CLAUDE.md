@@ -13,23 +13,24 @@ Use [Conventional Commits](https://www.conventionalcommits.org/): `type(scope): 
 ## Commands
 
 ```bash
-nix run .          # Local dev server at http://localhost:1313/ (sets up 3D models)
+nix develop        # Enter dev shell (or use direnv)
+just run           # Local dev server at http://localhost:1313/
+just update-3d-models  # Download latest 3D models release and vendor files into repo
 nix build          # Production build to ./result/
 nix fmt            # Format Nix files with alejandra
 nix flake check    # Validate flake configuration
-nix run .#update-3d-models  # Download latest 3D models release and vendor files into repo
 ```
 
 CI also runs `deadnix` and `statix` for Nix linting. There is no test suite.
 
 ## Architecture
 
-Everything is defined in `flake.nix`:
-- `packages.default` — Hugo build using `src = ./.`; runs `hugo --minify` directly (3D model files are vendored in the repo)
-- `apps.default` — dev server; just runs `hugo server` (no model setup needed)
-- `apps.update-3d-models` — downloads latest `github:etu/3d-models` release, generates `content/3d-models.md` via `jq`, and copies model files to `static/3d-models/`
+The flake uses [numtide/blueprint](https://github.com/numtide/blueprint) — outputs are auto-discovered from files in the repo root:
+- `devshell.nix` → `devShells.default` — provides the hugo+dart-sass bundle and `just`
+- `packages/default.nix` — production Hugo build; runs `hugo --minify` (3D model files are vendored)
+- `packages/update-3d-models.nix` — downloads latest `github:etu/3d-models` release, generates `content/3d-models.md` via `jq`, copies model files to `static/3d-models/`
 
-**Hugo is pinned via nixpkgs** and bundled with `dart-sass` (required for SCSS compilation) using `symlinkJoin`. The theme and all its static dependencies are vendored directly in this repo. The only Nix inputs are `nixpkgs` and `flake-utils`.
+**Hugo is pinned via nixpkgs** and bundled with `dart-sass` (required for SCSS compilation) using `symlinkJoin`. The theme and all its static dependencies are vendored directly in this repo. The only Nix inputs are `nixpkgs` and `blueprint`.
 
 **3D models** are vendored directly into the repo (`content/3d-models.md` and `static/3d-models/`). Releases from `github:etu/3d-models` are tagged `YYYY-MM-DD-<short-sha>`. Run `nix run .#update-3d-models` to pull the latest release and regenerate the vendored files, then commit the result.
 

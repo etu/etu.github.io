@@ -1,8 +1,11 @@
-# Ignore nix build results
-result*
+# direnv
+.direnv/
 
-# Hugo files
-.hugo_build.lock
+# nix
+result
+result-*
+
+# hugo
 public/
 resources/
-
+.hugo_build.lock
