@@ -1,22 +1,24 @@
 { pkgs, ... }:
 pkgs.writeShellApplication {
   name = "update-fontawesome";
-  runtimeInputs = [pkgs.curl pkgs.unzip];
+  runtimeInputs = [pkgs.curl pkgs.jq pkgs.unzip];
   text = ''
-    if [ $# -ne 1 ]; then
-      echo "Usage: update-fontawesome VERSION"
-      echo "Example: update-fontawesome 6.5.1"
-      exit 1
+    root="$(git rev-parse --show-toplevel)"
+
+    if [ $# -eq 1 ]; then
+      version="$1"
+    else
+      echo "Fetching latest FontAwesome release..."
+      tag=$(curl -sf "https://api.github.com/repos/FortAwesome/Font-Awesome/releases/latest" | jq -r '.tag_name')
+      version="''${tag#v}"
     fi
 
-    version="$1"
-    root="$(git rev-parse --show-toplevel)"
     url="https://use.fontawesome.com/releases/v''${version}/fontawesome-free-''${version}-web.zip"
+    echo "Downloading FontAwesome ''${version}..."
 
     tmpdir=$(mktemp -d)
     trap 'rm -rf "''${tmpdir}"' EXIT
 
-    echo "Downloading FontAwesome ''${version}..."
     curl -sL "''${url}" -o "''${tmpdir}/fontawesome.zip"
 
     echo "Extracting..."
