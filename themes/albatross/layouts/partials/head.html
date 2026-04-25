@@ -29,7 +29,7 @@
 
     <!-- Open graph -->
     <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-    <meta property="og:locale" content="{{ slicestr .Site.LanguageCode 0 2 }}">
+    <meta property="og:locale" content="{{ slicestr .Site.Language.Locale 0 2 }}">
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <meta property="og:title" content="{{ if (.Page.Title | len) }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}">
     <meta property="og:type" content="website">
@@ -48,7 +48,8 @@
     {{ with resources.Get "scss/main.scss" }}
         {{ $opts := (dict "targetPath" "css/style.css"
                           "vars" site.Params.style
-                          "transpiler" "dartsass") }}
+                          "transpiler" "dartsass"
+                          "silenceDeprecations" (slice "import" "global-builtin" "if-function" "color-functions")) }}
         {{ with . | toCSS $opts }}
             {{ if hugo.IsDevelopment }}
                 <link rel="stylesheet" href="{{ .RelPermalink }}" media="screen">

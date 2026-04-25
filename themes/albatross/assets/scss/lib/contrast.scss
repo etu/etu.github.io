@@ -1,4 +1,6 @@
-@import "math";
+@use "math" as *;
+@use 'sass:color';
+@use 'sass:list';
 
 /**
  * Calculate values used to calculate the luminance.
@@ -20,7 +22,7 @@
 // Pre-calculate some values for faster lookups
 $linearChannelValues: ();
 @for $i from 0 through 255 {
-    $linearChannelValues: append($linearChannelValues, linear-channel-value($i));
+    $linearChannelValues: list.append($linearChannelValues, linear-channel-value($i));
 }
 
 
@@ -31,9 +33,9 @@ $linearChannelValues: ();
  * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
  */
 @function luminance($color) {
-    $red: nth($linearChannelValues, red($color) + 1);
-    $green: nth($linearChannelValues, green($color) + 1);
-    $blue: nth($linearChannelValues, blue($color) + 1);
+    $red: nth($linearChannelValues, color.red($color) + 1);
+    $green: nth($linearChannelValues, color.green($color) + 1);
+    $blue: nth($linearChannelValues, color.blue($color) + 1);
 
     @return .2126 * $red + .7152 * $green + .0722 * $blue;
 }
@@ -73,9 +75,9 @@ $linearChannelValues: ();
         // background and too little contrast. Then we we make the color darker.
         @if (($isDarkBg and $contrast > $maxContrast) or
              (not $isDarkBg and $contrast < $minContrast)) {
-            $fg: darken($fg, abs($minContrast - $contrast));
+            $fg: color.adjust($fg, $lightness: -(abs($minContrast - $contrast) * 1%));
         } @else { // Otherwise we make it lighter.
-            $fg: lighten($fg, abs($minContrast - $contrast));
+            $fg: color.adjust($fg, $lightness: abs($minContrast - $contrast) * 1%);
         }
 
         // And recalculate the contrast.

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ slicestr .Site.LanguageCode 0 2 }}" lang="{{ slicestr .Site.LanguageCode 0 2 }}">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ slicestr .Site.Language.Locale 0 2 }}" lang="{{ slicestr .Site.Language.Locale 0 2 }}">
     {{- partial "head.html" . -}}
     {{- block "headcontent" . }}{{- end }}
     <body>

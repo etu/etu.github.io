@@ -6,7 +6,7 @@
                     {{ if .IsTranslated }}
                         <li>
                             <a href="{{ .RelPermalink }}" class="translation">
-                                {{- with index .Site.Params.languageCode2FlagName .Language.LanguageCode -}}
+                                {{- with index .Site.Params.languageCode2FlagName .Language.Locale -}}
                                     <img src="{{ printf "/img/iso-flags/%s.svg" . | relURL }}" alt="{{ . }} translation">
                                 {{- end -}}
                             </a>

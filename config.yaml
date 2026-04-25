@@ -74,7 +74,7 @@ params:
 
 languages:
   en:
-    languageCode: en-gb
+    locale: en-gb
 
     params:
       homeUrl: /
@@ -108,7 +108,7 @@ languages:
           url: /sv/
           weight: 10
   sv:
-    languageCode: sv-se
+    locale: sv-se
 
     params:
       homeUrl: /sv/

@@ -1,3 +1,5 @@
+@use 'sass:meta';
+
 /**
  * Power function: https://css-tricks.com/snippets/sass/power-function/
  */
@@ -39,7 +41,7 @@
     $sum: 0;
 
     @for $index from $initial to $limit {
-        $sum: $sum + call(get-function($iteratee), $input, $index);
+        $sum: $sum + meta.call(meta.get-function($iteratee), $input, $index);
     }
 
     @return $sum;
