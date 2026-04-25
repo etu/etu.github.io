@@ -93,7 +93,7 @@
       packages.default = pkgs.stdenv.mkDerivation {
         name = domain;
 
-        src = ./src;
+        src = ./.;
 
         nativeBuildInputs = [hugo];
 
@@ -122,12 +122,11 @@
             scriptDrv = pkgs.writeShellScriptBin "local.sh" ''
               set -euo pipefail
 
-              rm -rf src/static/3d-models src/content/3d-models.md
-              mkdir -p src/static/3d-models
-              install -m 644 -v $(nix build .#_3dmodelsPage --print-out-paths --no-link)/index.md src/content/3d-models.md
-              install -m 644 -v -D $(nix build .#_3dmodelsPage --print-out-paths --no-link)/static/* -t src/static/3d-models
+              rm -rf static/3d-models content/3d-models.md
+              mkdir -p static/3d-models
+              install -m 644 -v $(nix build .#_3dmodelsPage --print-out-paths --no-link)/index.md content/3d-models.md
+              install -m 644 -v -D $(nix build .#_3dmodelsPage --print-out-paths --no-link)/static/* -t static/3d-models
 
-              cd src/
               sleep 1 && ${pkgs.xdg-utils}/bin/xdg-open "http://localhost:1313/" &
 
               ${hugo}/bin/hugo server --logLevel debug --disableFastRender --gc
