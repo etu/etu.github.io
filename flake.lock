@@ -1,26 +1,5 @@
 {
   "nodes": {
-    "_3dmodels": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1775069574,
-        "narHash": "sha256-FRojCTaYNFwt46xCUSSIApQi4DHTCZOMi6tl7EYvvC4=",
-        "owner": "etu",
-        "repo": "3d-models",
-        "rev": "2d710b26642700f60f52d91c51e15b6f2448c1a7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "etu",
-        "repo": "3d-models",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -40,22 +19,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1774855581,
-        "narHash": "sha256-YkreHeMgTCYvJ5fESV0YyqQK49bHGe2B51tH6claUh4=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "15c6719d8c604779cf59e03c245ea61d3d7ab69b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1776969924,
         "narHash": "sha256-e220PXd6yf0aScZ4FXGbnGbncaSy7P389JN5CeMzz9s=",
         "owner": "NixOS",
@@ -72,9 +35,8 @@
     },
     "root": {
       "inputs": {
-        "_3dmodels": "_3dmodels",
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {

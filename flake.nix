@@ -4,15 +4,13 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     flake-utils.url = "flake-utils";
-    _3dmodels.url = "github:etu/3d-models";
-    _3dmodels.inputs.flake-utils.follows = "flake-utils";
   };
 
   outputs = {
     flake-utils,
     nixpkgs,
     ...
-  } @ inputs:
+  }:
     flake-utils.lib.eachSystem ["x86_64-linux"] (system: let
       pkgs = nixpkgs.legacyPackages.${system};
       domain = "elis.nu";
@@ -28,48 +26,70 @@
         meta.mainProgram = "hugo";
       };
 
-      # Helper function to render all the assets for the 3d model page
-      _3dmodelsPage = let
-        jsonData = builtins.toJSON (map (pkg: {
-          title = pkg.meta.description or pkg.name;
-          description = pkg.meta.longDescription or "";
-          license.name = pkg.meta.license.spdxId;
-          license.url = pkg.meta.license.url;
-          homepage = pkg.meta.homepage or "";
-          files = [
-            {
-              name = "${pkg.name}.3mf";
-              modelFile = "/3d-models/${pkg.name}.3mf";
-              modelViewer = "/3d-models/${pkg.name}.glb";
-            }
-          ];
-        }) (builtins.attrValues inputs._3dmodels.packages.${system}));
+      # Pre-built release from github:etu/3d-models.
+      # Run `nix run .#update-3d-models` to update the URL and hash.
+      _3dmodelsRelease = pkgs.fetchzip {
+        url = "https://github.com/etu/3d-models/releases/download/2026-04-25-764f1c4/3d-models.tar.gz"; # 3d-models-url
+        hash = "sha256-8kUtfbwc1nqc7vGX72J6aYmMY68OvCD59LNPff6Tld8="; # 3d-models-hash
+      };
 
-        copyCommands = builtins.concatStringsSep "\n" (map (pkg: ''
-          echo ${pkg.name}
-          cp -v ${pkg}/model.3mf $out/static/${pkg.name}.3mf
-          cp -v ${pkg}/model.glb $out/static/${pkg.name}.glb
-        '') (builtins.attrValues inputs._3dmodels.packages.${system}));
+      _3dmodelsPage =
+        pkgs.runCommand "3dmodels" {
+          buildInputs = [pkgs.jq];
+        } ''
+          mkdir -p $out/static
 
-        mkPageMarkdown = pkgs.writeText "3dmodels.md" ''
+          model3d=$(jq -c '[.[] | {
+            title: .title,
+            description: .description,
+            license: {name: .license.spdxId, url: .license.url},
+            homepage: .homepage,
+            files: [{
+              name: (.name + ".3mf"),
+              modelFile: ("/3d-models/" + .name + ".3mf"),
+              modelViewer: ("/3d-models/" + .name + ".glb")
+            }]
+          }]' ${_3dmodelsRelease}/metadata.json)
+
+          cat > $out/index.md << EOF
           ---
           title: ~elis/3d-models/
           type: 3d-models
-          model3d: ${jsonData}
+          model3d: $model3d
           ---
           This is an overview of different 3D models that I have created.
-        '';
-      in
-        pkgs.runCommand "3dmodels" {} ''
-          mkdir -p $out/static
-          cp -v ${mkPageMarkdown} $out/index.md
+          EOF
 
-          ${copyCommands}
+          cp ${_3dmodelsRelease}/models/*.3mf $out/static/
+          cp ${_3dmodelsRelease}/models/*.glb $out/static/
         '';
+
+      update-3d-models = pkgs.writeShellApplication {
+        name = "update-3d-models";
+        runtimeInputs = [pkgs.curl pkgs.jq];
+        text = ''
+          flake="$(git rev-parse --show-toplevel)/flake.nix"
+
+          echo "Fetching latest 3d-models release..."
+          tag=$(curl -sf "https://api.github.com/repos/etu/3d-models/releases/latest" | jq -r '.tag_name')
+          url="https://github.com/etu/3d-models/releases/download/''${tag}/3d-models.tar.gz"
+          echo "Latest release: ''${tag}"
+
+          echo "Fetching hash..."
+          hash=$(nix store prefetch-file --hash-type sha256 --unpack --json "$url" | jq -r '.hash')
+          echo "Hash: ''${hash}"
+
+          sed -i "s|url = \"[^\"]*\"; # 3d-models-url|url = \"''${url}\"; # 3d-models-url|" "$flake"
+          sed -i "s|hash = \"[^\"]*\"; # 3d-models-hash|hash = \"''${hash}\"; # 3d-models-hash|" "$flake"
+
+          echo "Updated flake.nix"
+        '';
+      };
     in {
       formatter = pkgs.alejandra;
 
       packages._3dmodelsPage = _3dmodelsPage;
+      packages.update-3d-models = update-3d-models;
       packages.default = pkgs.stdenv.mkDerivation {
         name = domain;
 
@@ -113,6 +133,11 @@
               ${hugo}/bin/hugo server --logLevel debug --disableFastRender --gc
             '';
           in "${scriptDrv}/bin/local.sh";
+        };
+
+        update-3d-models = {
+          type = "app";
+          program = "${update-3d-models}/bin/update-3d-models";
         };
       };
     });
