@@ -17,7 +17,7 @@ nix run .          # Local dev server at http://localhost:1313/ (sets up 3D mode
 nix build          # Production build to ./result/
 nix fmt            # Format Nix files with alejandra
 nix flake check    # Validate flake configuration
-nix run .#update-3d-models  # Update 3D models release URL and hash
+nix run .#update-3d-models  # Download latest 3D models release and vendor files into repo
 ```
 
 CI also runs `deadnix` and `statix` for Nix linting. There is no test suite.
@@ -25,14 +25,13 @@ CI also runs `deadnix` and `statix` for Nix linting. There is no test suite.
 ## Architecture
 
 Everything is defined in `flake.nix`:
-- `packages.default` — Hugo build using `src = ./.`; installs 3D model assets then runs `hugo --minify`
-- `packages._3dmodelsPage` — fetches pre-built release tarball from `github:etu/3d-models`, uses `jq` to generate `content/3d-models.md` and copies model files to `static/3d-models/`
-- `apps.default` — dev server that installs 3D models then runs `hugo server`
-- `apps.update-3d-models` — queries GitHub API for latest 3d-models release, updates URL and hash in `flake.nix`
+- `packages.default` — Hugo build using `src = ./.`; runs `hugo --minify` directly (3D model files are vendored in the repo)
+- `apps.default` — dev server; just runs `hugo server` (no model setup needed)
+- `apps.update-3d-models` — downloads latest `github:etu/3d-models` release, generates `content/3d-models.md` via `jq`, and copies model files to `static/3d-models/`
 
 **Hugo is pinned via nixpkgs** and bundled with `dart-sass` (required for SCSS compilation) using `symlinkJoin`. The theme and all its static dependencies are vendored directly in this repo. The only Nix inputs are `nixpkgs` and `flake-utils`.
 
-**3D models** are consumed as a pre-built GitHub release from `github:etu/3d-models` (not a flake input). `_3dmodelsRelease` fetches the tarball via `pkgs.fetchzip` with a pinned URL and hash. Releases are tagged `YYYY-MM-DD-<short-sha>`. Run `nix run .#update-3d-models` to update.
+**3D models** are vendored directly into the repo (`content/3d-models.md` and `static/3d-models/`). Releases from `github:etu/3d-models` are tagged `YYYY-MM-DD-<short-sha>`. Run `nix run .#update-3d-models` to pull the latest release and regenerate the vendored files, then commit the result.
 
 ## Vendored Resources
 
@@ -46,12 +45,12 @@ These external resources are committed directly to the repo. To update them, re-
 | AnimCubeJS | `themes/albatross/static/js/` | See `AnimCubeJS.LICENSE` |
 | FontAwesome 6.5.1 SCSS | `themes/albatross/assets/scss/fontawesome/` | https://use.fontawesome.com/releases/v6.5.1/fontawesome-free-6.5.1-web.zip — only `solid` and `brands` webfonts are used |
 | FontAwesome 6.5.1 webfonts | `themes/albatross/static/fonts/fontawesome/` | Same zip — only `fa-solid-900` and `fa-brands-400` (ttf + woff2) |
-| 3D model assets | fetched at build time | GitHub release from `github:etu/3d-models` — run `nix run .#update-3d-models` |
+| 3D model assets | `content/3d-models.md`, `static/3d-models/` | GitHub release from `github:etu/3d-models` — run `nix run .#update-3d-models` to update |
 
 ## Content Structure
 
 - `content/blog/` — posts organized by year (`2019/` … `2026/`)
-- `content/` — top-level pages: `about.md`, `work.md`, `talks.md`, `cubing/`, `3d-models.md` (auto-generated)
+- `content/` — top-level pages: `about.md`, `work.md`, `talks.md`, `cubing/`, `3d-models.md` (vendored, updated via `nix run .#update-3d-models`)
 - Bilingual (English + Swedish): Swedish pages use `.sv.md` suffix or `_index.sv.md`
 - `config.yaml` — Hugo config (base URL, theme name, menus, Matomo analytics, language settings)
 - `themes/albatross/` — vendored theme including all layouts, SCSS, and static assets

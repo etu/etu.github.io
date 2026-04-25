@@ -26,19 +26,24 @@
         meta.mainProgram = "hugo";
       };
 
-      # Pre-built release from github:etu/3d-models.
-      # Run `nix run .#update-3d-models` to update the URL and hash.
-      _3dmodelsRelease = pkgs.fetchzip {
-        url = "https://github.com/etu/3d-models/releases/download/2026-04-25-764f1c4/3d-models.tar.gz"; # 3d-models-url
-        hash = "sha256-8kUtfbwc1nqc7vGX72J6aYmMY68OvCD59LNPff6Tld8="; # 3d-models-hash
-      };
+      update-3d-models = pkgs.writeShellApplication {
+        name = "update-3d-models";
+        runtimeInputs = [pkgs.curl pkgs.jq pkgs.gnutar];
+        text = ''
+          root="$(git rev-parse --show-toplevel)"
 
-      _3dmodelsPage =
-        pkgs.runCommand "3dmodels" {
-          buildInputs = [pkgs.jq];
-        } ''
-          mkdir -p $out/static
+          echo "Fetching latest 3d-models release..."
+          tag=$(curl -sf "https://api.github.com/repos/etu/3d-models/releases/latest" | jq -r '.tag_name')
+          url="https://github.com/etu/3d-models/releases/download/''${tag}/3d-models.tar.gz"
+          echo "Latest release: ''${tag}"
 
+          echo "Downloading release..."
+          tmpdir=$(mktemp -d)
+          trap 'chmod -R u+w "''${tmpdir}"; rm -rf "''${tmpdir}"' EXIT
+
+          curl -sL "''${url}" | tar -xz -C "''${tmpdir}" --strip-components=1
+
+          echo "Generating 3d-models page..."
           model3d=$(jq -c '[.[] | {
             title: .title,
             description: .description,
@@ -49,46 +54,29 @@
               modelFile: ("/3d-models/" + .name + ".3mf"),
               modelViewer: ("/3d-models/" + .name + ".glb")
             }]
-          }]' ${_3dmodelsRelease}/metadata.json)
+          }]' "''${tmpdir}/metadata.json")
 
-          cat > $out/index.md << EOF
+          cat > "''${root}/content/3d-models.md" <<EOF
           ---
           title: ~elis/3d-models/
           type: 3d-models
-          model3d: $model3d
+          model3d: ''${model3d}
           ---
           This is an overview of different 3D models that I have created.
           EOF
 
-          cp ${_3dmodelsRelease}/models/*.3mf $out/static/
-          cp ${_3dmodelsRelease}/models/*.glb $out/static/
-        '';
+          echo "Copying model files..."
+          rm -rf "''${root}/static/3d-models"
+          mkdir -p "''${root}/static/3d-models"
+          cp "''${tmpdir}"/models/*.3mf "''${tmpdir}"/models/*.glb "''${root}/static/3d-models/"
+          chmod -R u+w "''${root}/static/3d-models/"
 
-      update-3d-models = pkgs.writeShellApplication {
-        name = "update-3d-models";
-        runtimeInputs = [pkgs.curl pkgs.jq];
-        text = ''
-          flake="$(git rev-parse --show-toplevel)/flake.nix"
-
-          echo "Fetching latest 3d-models release..."
-          tag=$(curl -sf "https://api.github.com/repos/etu/3d-models/releases/latest" | jq -r '.tag_name')
-          url="https://github.com/etu/3d-models/releases/download/''${tag}/3d-models.tar.gz"
-          echo "Latest release: ''${tag}"
-
-          echo "Fetching hash..."
-          hash=$(nix store prefetch-file --hash-type sha256 --unpack --json "$url" | jq -r '.hash')
-          echo "Hash: ''${hash}"
-
-          sed -i "s|url = \"[^\"]*\"; # 3d-models-url|url = \"''${url}\"; # 3d-models-url|" "$flake"
-          sed -i "s|hash = \"[^\"]*\"; # 3d-models-hash|hash = \"''${hash}\"; # 3d-models-hash|" "$flake"
-
-          echo "Updated flake.nix"
+          echo "Done! Updated to release: ''${tag}"
         '';
       };
     in {
       formatter = pkgs.alejandra;
 
-      packages._3dmodelsPage = _3dmodelsPage;
       packages.update-3d-models = update-3d-models;
       packages.default = pkgs.stdenv.mkDerivation {
         name = domain;
@@ -98,12 +86,6 @@
         nativeBuildInputs = [hugo];
 
         buildPhase = ''
-          # Install 3d models
-          mkdir -p static/3d-models
-          install -m 644 -v ${_3dmodelsPage}/index.md content/3d-models.md
-          install -m 644 -v -D ${_3dmodelsPage}/static/* -t static/3d-models
-
-          # Build page
           hugo --logLevel debug --minify
         '';
 
@@ -121,11 +103,6 @@
           program = let
             scriptDrv = pkgs.writeShellScriptBin "local.sh" ''
               set -euo pipefail
-
-              rm -rf static/3d-models content/3d-models.md
-              mkdir -p static/3d-models
-              install -m 644 -v $(nix build .#_3dmodelsPage --print-out-paths --no-link)/index.md content/3d-models.md
-              install -m 644 -v -D $(nix build .#_3dmodelsPage --print-out-paths --no-link)/static/* -t static/3d-models
 
               sleep 1 && ${pkgs.xdg-utils}/bin/xdg-open "http://localhost:1313/" &
 
