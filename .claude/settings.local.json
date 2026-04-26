@@ -15,7 +15,9 @@
       "Bash(nix run *)",
       "Read(//nix/store/7c02gyah97m4fqgkcwbl4zk8083f7p3p-elis.nu/css/**)",
       "Bash(grep *)",
-      "Bash(hugo --logLevel warn --minify)"
+      "Bash(hugo --logLevel warn --minify)",
+      "Bash(sed -i \"s/light-foreground-color: '#525252'/light-foreground-color: '#AABBCC'/\" config.yaml)",
+      "Bash(echo \"exit: $?\")"
     ]
   }
 }

@@ -149,15 +149,34 @@ pkgs.writers.writePython3Bin "compute-colors" {
   yaml.explicit_start = True
   yaml.width = 120
 
-  path = sys.argv[1] if len(sys.argv) > 1 else "config.yaml"
+  args = sys.argv[1:]
+  validate = "--validate" in args
+  args = [a for a in args if a != "--validate"]
+  path = args[0] if args else "config.yaml"
+
   with open(path) as f:
       config = yaml.load(f)
 
   colors = config["params"]["colors"]
-  config["params"]["style"] = compute_style(colors)
+  expected = compute_style(colors)
 
-  with open(path, "w") as f:
-      yaml.dump(config, f)
-
-  print(f"Updated style in {path}")
+  if validate:
+      actual = dict(config["params"].get("style") or {})
+      diffs = {
+          k: (expected[k], actual.get(k))
+          for k in expected
+          if str(expected[k]) != str(actual.get(k))
+      }
+      if diffs:
+          print(f"ERROR: params.style in {path} is out of date.")
+          print("Run: just compute-colors")
+          for k, (exp, got) in diffs.items():
+              print(f"  {k}: expected {exp!r}, got {got!r}")
+          sys.exit(1)
+      print(f"OK: params.style in {path} is up to date.")
+  else:
+      config["params"]["style"] = expected
+      with open(path, "w") as f:
+          yaml.dump(config, f)
+      print(f"Updated style in {path}")
 ''

@@ -7,6 +7,9 @@ run:
 compute-colors CONFIG="config.yaml":
     nix run .#compute-colors -- {{CONFIG}}
 
+validate-colors CONFIG="config.yaml":
+    nix run .#compute-colors -- --validate {{CONFIG}}
+
 update-3d-models:
     nix run .#update-3d-models
 
