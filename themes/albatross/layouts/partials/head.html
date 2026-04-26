@@ -44,6 +44,9 @@
     <!-- Extra head content -->
     {{ .Site.Params.extraHeadContent | safeHTML }}
 
+    <!-- Matomo -->
+    {{ partial "matomo.html" . }}
+
     <!-- FontAwesome -->
     <link rel="stylesheet" href="/css/fontawesome/fontawesome.css" media="screen">
     <link rel="stylesheet" href="/css/fontawesome/solid.css" media="screen">
