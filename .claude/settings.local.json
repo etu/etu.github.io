@@ -17,7 +17,9 @@
       "Bash(grep *)",
       "Bash(hugo --logLevel warn --minify)",
       "Bash(sed -i \"s/light-foreground-color: '#525252'/light-foreground-color: '#AABBCC'/\" config.yaml)",
-      "Bash(echo \"exit: $?\")"
+      "Bash(echo \"exit: $?\")",
+      "Bash(hugo --minify)",
+      "Bash(hugo --logLevel warn)"
     ]
   }
 }
