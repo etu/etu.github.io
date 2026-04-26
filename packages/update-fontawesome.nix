@@ -25,16 +25,22 @@ pkgs.writeShellApplication {
     unzip -q "''${tmpdir}/fontawesome.zip" -d "''${tmpdir}/extracted"
     base="''${tmpdir}/extracted/fontawesome-free-''${version}-web"
 
-    echo "Copying SCSS files..."
-    cp "''${base}/scss/"*.scss "''${root}/themes/albatross/assets/scss/fontawesome/"
+    echo "Copying CSS files..."
+    mkdir -p "''${root}/themes/albatross/static/css/fontawesome/"
+    for f in fontawesome solid brands; do
+      sed 's|../webfonts/|/fonts/fontawesome/|g' \
+        "''${base}/css/''${f}.css" \
+        > "''${root}/themes/albatross/static/css/fontawesome/''${f}.css"
+    done
 
     echo "Copying webfonts..."
     cp \
-      "''${base}/webfonts/fa-solid-900.ttf" \
       "''${base}/webfonts/fa-solid-900.woff2" \
-      "''${base}/webfonts/fa-brands-400.ttf" \
       "''${base}/webfonts/fa-brands-400.woff2" \
       "''${root}/themes/albatross/static/fonts/fontawesome/"
+    rm -f \
+      "''${root}/themes/albatross/static/fonts/fontawesome/fa-solid-900.ttf" \
+      "''${root}/themes/albatross/static/fonts/fontawesome/fa-brands-400.ttf"
 
     echo "Done! FontAwesome ''${version} updated."
   '';

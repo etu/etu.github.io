@@ -44,13 +44,14 @@
     <!-- Extra head content -->
     {{ .Site.Params.extraHeadContent | safeHTML }}
 
-    <!-- SCSS -->
-    {{ with resources.Get "scss/main.scss" }}
-        {{ $opts := (dict "targetPath" "css/style.css"
-                          "vars" site.Params.style
-                          "transpiler" "dartsass"
-                          "silenceDeprecations" (slice "import" "global-builtin" "if-function" "color-functions")) }}
-        {{ with . | toCSS $opts }}
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="/css/fontawesome/fontawesome.css" media="screen">
+    <link rel="stylesheet" href="/css/fontawesome/solid.css" media="screen">
+    <link rel="stylesheet" href="/css/fontawesome/brands.css" media="screen">
+
+    <!-- CSS -->
+    {{ with resources.Get "css/main.css" }}
+        {{ with . | resources.ExecuteAsTemplate "css/style.css" $ }}
             {{ if hugo.IsDevelopment }}
                 <link rel="stylesheet" href="{{ .RelPermalink }}" media="screen">
             {{ else }}

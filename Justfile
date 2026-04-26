@@ -4,6 +4,9 @@ _default:
 run:
     hugo server --logLevel debug --disableFastRender --gc
 
+compute-colors CONFIG="config.yaml":
+    nix run .#compute-colors -- {{CONFIG}}
+
 update-3d-models:
     nix run .#update-3d-models
 

@@ -2,7 +2,20 @@
   "permissions": {
     "allow": [
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(nix build *)",
+      "Bash(nix eval *)",
+      "Bash(curl -sL \"https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js\" -o /home/etu/code/etu.github.io/src/static/js/model-viewer.min.js)",
+      "Bash(cp '/nix/store/dvqjf1jj9qr48q80w4j43zg4nkjhd5bf-fontawesome-free-6.5.1/scss/*.scss' /home/etu/code/etu.github.io/src/themes/albatross/assets/scss/fontawesome/)",
+      "Bash(cp /nix/store/dvqjf1jj9qr48q80w4j43zg4nkjhd5bf-fontawesome-free-6.5.1/webfonts/fa-solid-900.ttf /nix/store/dvqjf1jj9qr48q80w4j43zg4nkjhd5bf-fontawesome-free-6.5.1/webfonts/fa-solid-900.woff2 /nix/store/dvqjf1jj9qr48q80w4j43zg4nkjhd5bf-fontawesome-free-6.5.1/webfonts/fa-brands-400.ttf /nix/store/dvqjf1jj9qr48q80w4j43zg4nkjhd5bf-fontawesome-free-6.5.1/webfonts/fa-brands-400.woff2 /home/etu/code/etu.github.io/src/themes/albatross/static/fonts/fontawesome/)",
+      "Bash(nix flake *)",
+      "Bash(git commit *)",
+      "Bash(nix develop *)",
+      "Bash(hugo --minify --logLevel warn)",
+      "Bash(nix run *)",
+      "Read(//nix/store/7c02gyah97m4fqgkcwbl4zk8083f7p3p-elis.nu/css/**)",
+      "Bash(grep *)",
+      "Bash(hugo --logLevel warn --minify)"
     ]
   }
 }
