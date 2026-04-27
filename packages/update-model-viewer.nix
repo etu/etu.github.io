@@ -1,7 +1,11 @@
 { pkgs, ... }:
 pkgs.writeShellApplication {
   name = "update-model-viewer";
-  runtimeInputs = [pkgs.curl pkgs.jq pkgs.gnused];
+  runtimeInputs = [
+    pkgs.curl
+    pkgs.jq
+    pkgs.gnused
+  ];
   text = ''
     root="$(git rev-parse --show-toplevel)"
     license="''${root}/themes/albatross/static/js/model-viewer.LICENSE"

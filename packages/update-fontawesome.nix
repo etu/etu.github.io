@@ -1,7 +1,11 @@
 { pkgs, ... }:
 pkgs.writeShellApplication {
   name = "update-fontawesome";
-  runtimeInputs = [pkgs.curl pkgs.jq pkgs.unzip];
+  runtimeInputs = [
+    pkgs.curl
+    pkgs.jq
+    pkgs.unzip
+  ];
   text = ''
     root="$(git rev-parse --show-toplevel)"
 

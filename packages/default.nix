@@ -8,7 +8,10 @@ pkgs.stdenv.mkDerivation {
 
   src = ../.;
 
-  nativeBuildInputs = [ pkgs.hugo computeColors ];
+  nativeBuildInputs = [
+    pkgs.hugo
+    computeColors
+  ];
 
   buildPhase = ''
     compute-colors --validate config.yaml
