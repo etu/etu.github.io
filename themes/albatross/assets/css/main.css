@@ -466,6 +466,22 @@ html {
                         overflow-x: scroll;
                         margin: 0.5rem;
                         padding: 0.5rem;
+                        position: relative;
+
+                        code[data-lang] {
+                            display: block;
+
+                            &::before {
+                                content: attr(data-lang);
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                font-size: 0.75rem;
+                                padding: 0.1rem 0.4rem;
+                                color: var(--code-chroma-light-gray-fg);
+                                background-color: var(--code-chroma-bg);
+                            }
+                        }
                     }
                 }
 
