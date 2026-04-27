@@ -19,7 +19,8 @@
       "Bash(sed -i \"s/light-foreground-color: '#525252'/light-foreground-color: '#AABBCC'/\" config.yaml)",
       "Bash(echo \"exit: $?\")",
       "Bash(hugo --minify)",
-      "Bash(hugo --logLevel warn)"
+      "Bash(hugo --logLevel warn)",
+      "Bash(just compute-colors *)"
     ]
   }
 }

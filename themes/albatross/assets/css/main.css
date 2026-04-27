@@ -15,20 +15,20 @@
     --menu-item-hover-background: {{ index $s "light-menu-item-hover-background" }};
     --menu-item-hover-foreground: {{ index $s "light-menu-item-hover-foreground" }};
 
-    --code-background-color: {{ index $s "code-background-color" }};
-    --code-foreground-color: {{ index $s "code-foreground-color" }};
-    --code-chroma-bg: {{ index $s "code-chroma-bg" }};
-    --code-chroma-fg: {{ index $s "code-chroma-fg" }};
-    --code-chroma-dark-red-fg: {{ index $s "code-chroma-dark-red-fg" }};
-    --code-chroma-dark-red-bg: {{ index $s "code-chroma-dark-red-bg" }};
-    --code-chroma-dark-gray-fg: {{ index $s "code-chroma-dark-gray-fg" }};
-    --code-chroma-light-gray-fg: {{ index $s "code-chroma-light-gray-fg" }};
-    --code-chroma-light-blue-fg: {{ index $s "code-chroma-light-blue-fg" }};
-    --code-chroma-red-fg: {{ index $s "code-chroma-red-fg" }};
-    --code-chroma-green-fg: {{ index $s "code-chroma-green-fg" }};
-    --code-chroma-purple-fg: {{ index $s "code-chroma-purple-fg" }};
-    --code-chroma-yellow-fg: {{ index $s "code-chroma-yellow-fg" }};
-    --code-chroma-medium-gray-fg: {{ index $s "code-chroma-medium-gray-fg" }};
+    --code-background-color: {{ index $s "light-code-background-color" }};
+    --code-foreground-color: {{ index $s "light-code-foreground-color" }};
+    --code-chroma-bg: {{ index $s "light-code-chroma-bg" }};
+    --code-chroma-fg: {{ index $s "light-code-chroma-fg" }};
+    --code-chroma-dark-red-fg: {{ index $s "light-code-chroma-dark-red-fg" }};
+    --code-chroma-dark-red-bg: {{ index $s "light-code-chroma-dark-red-bg" }};
+    --code-chroma-dark-gray-fg: {{ index $s "light-code-chroma-dark-gray-fg" }};
+    --code-chroma-light-gray-fg: {{ index $s "light-code-chroma-light-gray-fg" }};
+    --code-chroma-light-blue-fg: {{ index $s "light-code-chroma-light-blue-fg" }};
+    --code-chroma-red-fg: {{ index $s "light-code-chroma-red-fg" }};
+    --code-chroma-green-fg: {{ index $s "light-code-chroma-green-fg" }};
+    --code-chroma-purple-fg: {{ index $s "light-code-chroma-purple-fg" }};
+    --code-chroma-yellow-fg: {{ index $s "light-code-chroma-yellow-fg" }};
+    --code-chroma-medium-gray-fg: {{ index $s "light-code-chroma-medium-gray-fg" }};
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,6 +44,21 @@
         --menu-foreground: {{ index $s "dark-menu-foreground" }};
         --menu-item-hover-background: {{ index $s "dark-menu-item-hover-background" }};
         --menu-item-hover-foreground: {{ index $s "dark-menu-item-hover-foreground" }};
+
+        --code-background-color: {{ index $s "dark-code-background-color" }};
+        --code-foreground-color: {{ index $s "dark-code-foreground-color" }};
+        --code-chroma-bg: {{ index $s "dark-code-chroma-bg" }};
+        --code-chroma-fg: {{ index $s "dark-code-chroma-fg" }};
+        --code-chroma-dark-red-fg: {{ index $s "dark-code-chroma-dark-red-fg" }};
+        --code-chroma-dark-red-bg: {{ index $s "dark-code-chroma-dark-red-bg" }};
+        --code-chroma-dark-gray-fg: {{ index $s "dark-code-chroma-dark-gray-fg" }};
+        --code-chroma-light-gray-fg: {{ index $s "dark-code-chroma-light-gray-fg" }};
+        --code-chroma-light-blue-fg: {{ index $s "dark-code-chroma-light-blue-fg" }};
+        --code-chroma-red-fg: {{ index $s "dark-code-chroma-red-fg" }};
+        --code-chroma-green-fg: {{ index $s "dark-code-chroma-green-fg" }};
+        --code-chroma-purple-fg: {{ index $s "dark-code-chroma-purple-fg" }};
+        --code-chroma-yellow-fg: {{ index $s "dark-code-chroma-yellow-fg" }};
+        --code-chroma-medium-gray-fg: {{ index $s "dark-code-chroma-medium-gray-fg" }};
     }
 }
 

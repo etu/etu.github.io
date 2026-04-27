@@ -125,21 +125,12 @@ pkgs.writers.writePython3Bin "compute-colors"
             "dark-menu-item-hover-background": dmhb,
             "dark-menu-item-hover-foreground": contrast_color("#FFFFFF", dmhb),
             "dark-tag-background-color": lighten(db, 10),
-            # code highlight (pass-through)
-            "code-background-color": c["code-background-color"],
-            "code-foreground-color": c["code-foreground-color"],
-            "code-chroma-bg": c["code-chroma-bg"],
-            "code-chroma-fg": c["code-chroma-fg"],
-            "code-chroma-dark-red-fg": c["code-chroma-dark-red-fg"],
-            "code-chroma-dark-red-bg": c["code-chroma-dark-red-bg"],
-            "code-chroma-dark-gray-fg": c["code-chroma-dark-gray-fg"],
-            "code-chroma-light-gray-fg": c["code-chroma-light-gray-fg"],
-            "code-chroma-light-blue-fg": c["code-chroma-light-blue-fg"],
-            "code-chroma-red-fg": c["code-chroma-red-fg"],
-            "code-chroma-green-fg": c["code-chroma-green-fg"],
-            "code-chroma-purple-fg": c["code-chroma-purple-fg"],
-            "code-chroma-yellow-fg": c["code-chroma-yellow-fg"],
-            "code-chroma-medium-gray-fg": c["code-chroma-medium-gray-fg"],
+            # light/dark code highlight (pass-through)
+            **{
+                k: c[k]
+                for k in c
+                if k.startswith(("light-code-", "dark-code-"))
+            },
         }
 
 
