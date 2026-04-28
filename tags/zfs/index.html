@@ -1,0 +1,44 @@
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en><head><title>ZFS - Elis Hirwing</title><meta charset=utf-8><meta name=referrer content="no-referrer"><link rel=canonical href=https://elis.nu/tags/zfs/><meta name=viewport content="width=device-width,initial-scale=1"><link href=https://elis.nu/tags/zfs/index.xml rel=alternate type=application/rss+xml title="Elis Hirwing"><link href=https://elis.nu/tags/zfs/index.xml rel=feed type=application/rss+xml title="Elis Hirwing"><link rel=icon type=image/png href=https://elis.nu/img/elis.webp><meta property="description" content><meta property="og:description" content><meta property="og:locale" content="en"><meta property="og:site_name" content="Elis Hirwing"><meta property="og:title" content="ZFS &#183; Elis Hirwing"><meta property="og:type" content="website"><meta property="og:url" content="https://elis.nu/tags/zfs/"><meta name=twitter:card content="summary_large_image"><link rel=me href=https://chaos.social/@sa0bse><style>aside#padding{height:4rem;width:0}</style><script>var _paq=window._paq=window._paq||[];_paq.push(["disableCookies"]),_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){e="https://matomo.elis.nu/",_paq.push(["setTrackerUrl",e+"matomo.php"]),_paq.push(["setSiteId","3"]);var e,n=document,t=n.createElement("script"),s=n.getElementsByTagName("script")[0];t.async=!0,t.src=e+"matomo.js",s.parentNode.insertBefore(t,s)}()</script><noscript><img referrerpolicy=no-referrer-when-downgrade src="https://matomo.elis.nu/matomo.php?idsite=3&amp;rec=1" style=border:0 alt></noscript><link rel=stylesheet href=/css/fontawesome/fontawesome.css media=screen><link rel=stylesheet href=/css/fontawesome/solid.css media=screen><link rel=stylesheet href=/css/fontawesome/brands.css media=screen><link rel=stylesheet href=/css/style.min.4440ddde27797fdebe8ff02b5af8019b4d21223ef4892271803216cfc663b04f.css integrity="sha256-REDd3id5f96+j/ArWvgBm00hIj70iSJxgDIWz8ZjsE8=" crossorigin=anonymous media=screen></head><body><header><div class=i18n><ul><li><a href=/sv/><img src=/img/iso-flags/se.svg alt="se flag"></a></li></ul></div><aside id=padding></aside><nav><ul><li><a href=/>~elis/</a></li><li><a href=/about/>./about/</a></li><li><a href=/work/>./work/</a></li><li><a href=/talks/>./talks/</a></li><li><a href=/blog/>./blog/</a></li><li><a href=/3d-models/>./3d-models/</a></li><li><a href=/cubing/>./cubing/</a></li></ul></nav></header><div class=wrapper><div class=content><h1>Posts about: ZFS</h1><div class=posts><div class=post><h2><a href=/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/>NixOS ❄: Remote unlock of encrypted ZFS over SSH</a></h2><span class=post-meta>2026-04-24
+&#183; 4 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/zfs/>ZFS</a></span><p><p>This is a follow-up to my earlier post: <a href=/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/>Encrypted ZFS mirror with mirrored
+boot on NixOS</a>.</p><p>At the end of that post I briefly mentioned that I configured remote unlocking
+of my encrypted ZFS pools over SSH on boot, linking off to the NixOS wiki. The
+wiki page is now quite outdated and the approach it describes no longer works
+well with modern NixOS, which uses a systemd-based initrd by default. This post
+covers the current way to do it.</p></p><a href=/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2025/09/migrating-zfs-mirror-to-raidz2/>Migrating from ZFS mirror to RAIDZ2</a></h2><span class=post-meta>2025-09-13
+&#183; 5 minutes read
+&#183;
+<a class=tag href=/tags/zfs/>ZFS</a>
+<a class=tag href=/tags/linux/>Linux</a></span><p><p>For a long time I&rsquo;ve been running my storage on a 2-disk ZFS
+mirror. It&rsquo;s been stable, safe, and easy to manage. However, at some
+point, 2 disks just aren&rsquo;t enough, and I wanted to upgrade to RAIDZ2
+so that I could survive up to two simultaneous disk failures.</p><p>I could have added another mirror, which would have been simple, and
+this setup would allow two drives to fail, but not any two drives. I
+wanted the extra safety of being able to lose <strong>any two drives</strong>.</p></p><a href=/blog/2025/09/migrating-zfs-mirror-to-raidz2/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2021/05/the-day-when-zfs-saved-my-data/>The day when ZFS saved my data</a></h2><span class=post-meta>2021-05-21
+&#183; 5 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/zfs/>ZFS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/backup/>Backup</a></span><p><p>Today my work day didn&rsquo;t turn out the way I expected. It started like a
+normal day, I woke up around the regular time, did my morning routine, sat at
+my desk and started my work-issued laptop.</p><p>It booted up just fine, I connected it to my Ultrawide display, started going
+through Slack and Email and catch up on some news while drinking my morning
+tea and waking up.</p><p>Then after around an hour of work things started to hang up, most notably
+Firefox totally froze up. I could launch a new terminal but not start <code>htop</code>,
+I had a <code>htop</code> session in a terminal already because it&rsquo;s part of what I
+usually have running. So I went there to look.</p></p><a href=/blog/2021/05/the-day-when-zfs-saved-my-data/>Read On &rarr;</a></div><div class=post><h2><a href=/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/>Encrypted ZFS mirror with mirrored boot on NixOS</a></h2><span class=post-meta>2019-08-04
+&#183; 6 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/zfs/>ZFS</a></span><p><p>So for a long time I have wanted to replace my file server, because it&rsquo;s an
+old HP Microserver that is really slow. And at the same time I have had this
+beast of a desktop tower PC that I haven&rsquo;t used with a Xeon and 32GiB ECC
+memory that has just been turned off due to noise. The obvious solution is to
+re-purpose that install and move it to a location where noise doesn&rsquo;t matter,
+e.g. the closet (a.k.a the server room) where the file server lives.</p></p><a href=/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/>Read On &rarr;</a></div></div></div></div><footer class=footer><div class=content><p>Copyright &copy; 2010 Elis Hirwing</p><p>Made with <i class="fa-solid fa-heart" style=color:red></i> in Arvika
+by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target=_blank>Elis Hirwing</a>.</p></div></footer></body></html>

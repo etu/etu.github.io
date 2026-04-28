@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSS on Elis Hirwing</title><link>https://elis.nu/tags/css/</link><description>Recent content in CSS on Elis Hirwing</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Sun, 26 Apr 2026 09:00:00 +0200</lastBuildDate><atom:link href="https://elis.nu/tags/css/index.xml" rel="self" type="application/rss+xml"/><item><title>Computing contrast colors without dart-sass</title><link>https://elis.nu/blog/2026/04/computing-contrast-colors-without-dart-sass/</link><pubDate>Sun, 26 Apr 2026 09:00:00 +0200</pubDate><guid>https://elis.nu/blog/2026/04/computing-contrast-colors-without-dart-sass/</guid><description>&lt;p&gt;Back in 2021 I wrote about &lt;a href="https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/"&gt;dynamic CSS color themes with similar
+contrasts&lt;/a&gt;,
+where I used a SCSS function to automatically adjust colors to meet the WCAG
+7:1 contrast ratio against both a light and a dark background. The idea was
+that you specify the &lt;em&gt;intent&lt;/em&gt; — the hue you want — and the build system derives
+the actual color that achieves sufficient contrast.&lt;/p&gt;
+&lt;p&gt;That worked well, but it required dart-sass. Hugo&amp;rsquo;s built-in LibSass was
+removed in Hugo 0.128, leaving dart-sass as the only SCSS transpiler. Getting
+dart-sass into the Nix build required a &lt;code&gt;symlinkJoin&lt;/code&gt; bundle that wrapped Hugo
+with dart-sass on its &lt;code&gt;PATH&lt;/code&gt; — not terrible, but an extra moving part in both
+&lt;code&gt;devshell.nix&lt;/code&gt; and &lt;code&gt;packages/default.nix&lt;/code&gt;.&lt;/p&gt;</description></item></channel></rss>
