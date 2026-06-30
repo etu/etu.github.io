@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nix on Elis Hirwing</title><link>https://elis.nu/tags/nix/</link><description>Recent content in Nix on Elis Hirwing</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Sun, 26 Apr 2026 09:00:00 +0200</lastBuildDate><atom:link href="https://elis.nu/tags/nix/index.xml" rel="self" type="application/rss+xml"/><item><title>Computing contrast colors without dart-sass</title><link>https://elis.nu/blog/2026/04/computing-contrast-colors-without-dart-sass/</link><pubDate>Sun, 26 Apr 2026 09:00:00 +0200</pubDate><guid>https://elis.nu/blog/2026/04/computing-contrast-colors-without-dart-sass/</guid><description>&lt;p&gt;Back in 2021 I wrote about &lt;a href="https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/"&gt;dynamic CSS color themes with similar
+contrasts&lt;/a&gt;,
+where I used a SCSS function to automatically adjust colors to meet the WCAG
+7:1 contrast ratio against both a light and a dark background. The idea was
+that you specify the &lt;em&gt;intent&lt;/em&gt; — the hue you want — and the build system derives
+the actual color that achieves sufficient contrast.&lt;/p&gt;
+&lt;p&gt;That worked well, but it required dart-sass. Hugo&amp;rsquo;s built-in LibSass was
+removed in Hugo 0.128, leaving dart-sass as the only SCSS transpiler. Getting
+dart-sass into the Nix build required a &lt;code&gt;symlinkJoin&lt;/code&gt; bundle that wrapped Hugo
+with dart-sass on its &lt;code&gt;PATH&lt;/code&gt; — not terrible, but an extra moving part in both
+&lt;code&gt;devshell.nix&lt;/code&gt; and &lt;code&gt;packages/default.nix&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Outsourcing NixOS compile time to Microsoft</title><link>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</link><pubDate>Mon, 10 Oct 2022 20:00:00 +0100</pubDate><guid>https://elis.nu/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/</guid><description>&lt;p&gt;&lt;a href="https://nixos.org/"&gt;NixOS&lt;/a&gt; is a Linux-distribution that may be source-based, but it has a binary
+cache that covers things so you generally don&amp;rsquo;t need to compile things,
+things tends to be cached.&lt;/p&gt;
+&lt;p&gt;However, depending on how you configure your system, you may trigger compiles
+depending on what you do.&lt;/p&gt;
+&lt;p&gt;So a thing I do is that I run Emacs 29 with the native-comp patches that is
+wayland native with the pgtk-branch. This is by no mean the stable Emacs
+release at the point of writing. So to get this Emacs I use the excellent
+&lt;a href="https://github.com/nix-community/emacs-overlay"&gt;nix-community/emacs-overlay&lt;/a&gt; (that is maintained by my friend
+&lt;a href="https://github.com/adisbladis"&gt;@adisbladis&lt;/a&gt;). However, this means that I will get Emacs from a development
+branch of Emacs, then I need to build all the Emacs packages that I use in my
+configuration as well for this version of Emacs.&lt;/p&gt;</description></item><item><title>Dynamic CSS color themes with similar contrasts</title><link>https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/</link><pubDate>Thu, 30 Sep 2021 21:10:00 +0100</pubDate><guid>https://elis.nu/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/</guid><description>&lt;p&gt;This blog is built with Emacs, SCSS using Nix and deployed as static files to
+GitHub Pages. This blog also has quite some colors due to the syntax
+highlighting for code that is performed using CSS rules on HTML classes.&lt;/p&gt;
+&lt;p&gt;So in total I have 15 different colors defined, in which four of them is
+background and foreground colors, two of them is related to link and visited
+link colors. Then I have nine colors remaining which are related to syntax
+highlighting of code.&lt;/p&gt;</description></item><item><title>Simple deployments of NixOS machines with nixus</title><link>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</link><pubDate>Fri, 23 Jul 2021 16:30:00 +0100</pubDate><guid>https://elis.nu/blog/2021/07/simple-deployments-of-nixos-machines/</guid><description>&lt;p&gt;Since I&amp;rsquo;ve started using NixOS about four years ago I haven&amp;rsquo;t really used any
+tools to do central deployments of machines. But I&amp;rsquo;ve always read and known
+that NixOS is excellent at this. NixOS can easily build another systems
+configuration, then copy the system to the target systems nix store and then
+activate it there.&lt;/p&gt;
+&lt;p&gt;Despite knowing all this, I haven&amp;rsquo;t gotten around to doing this centrally. A
+while ago the need for this changed because one of my VPSes started running
+low on RAM, low enough to not be able to build new generations of it&amp;rsquo;s own
+system. Which posed a problem for future upgrades. One way to solve it would
+be to pay more money for resources that aren&amp;rsquo;t really needed except from when
+doing system upgrades. The other way would be to push pre-built systems from
+another location. Using the second way is simpler and fixes the issue.&lt;/p&gt;</description></item><item><title>Switching to Wayland (Sway)</title><link>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</link><pubDate>Wed, 17 Feb 2021 22:00:00 +0100</pubDate><guid>https://elis.nu/blog/2021/02/switching-to-wayland-sway/</guid><description>&lt;p&gt;Like every other desktop Linux user for the past many years I&amp;rsquo;ve used X11. I
+was on &lt;a href="https://i3wm.org/"&gt;i3wm&lt;/a&gt; for quite some time until I was introduced to
+&lt;a href="https://github.com/ch11ng/exwm"&gt;Emacs X11 Window Manager&lt;/a&gt; which I used
+exclusively for about 18 months, I&amp;rsquo;ve even held a &lt;a href="https://elis.nu/talks/"&gt;talk&lt;/a&gt; about it.
+But at some point it got too annoying, for example in multi monitor use cases.&lt;/p&gt;
+&lt;p&gt;At this point my first step was to go back to set up i3wm again. With that
+set up I wanted to give &lt;a href="https://swaywm.org/"&gt;SwayWM&lt;/a&gt; another attempt, it was
+years ago I&amp;rsquo;ve checked it out before. I think my previous experience was when the
+project was new. At that point (if I remember correctly), not even the window
+decorations looked like the ones in i3wm.&lt;/p&gt;</description></item><item><title>PHP packaging in NixOS ❄</title><link>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</link><pubDate>Sun, 05 Apr 2020 20:00:00 +0200</pubDate><guid>https://elis.nu/blog/2020/04/php-packaging-in-nixos/</guid><description>&lt;p&gt;This is a sneak peak into the future 20.09 release of NixOS.&lt;/p&gt;
+&lt;p&gt;The PHP packaging ecosystem in NixOS has been in a quite sad state for a long
+time. Partly because of the lack of people caring about PHP in Nix, but also
+that PHP is a bit weird when it comes to packaging.&lt;/p&gt;
+&lt;h2 id="state-of-php-before-nixos-2009"&gt;State of PHP before NixOS 20.09&lt;/h2&gt;
+&lt;p&gt;Due to the lack of ability to do clever things like the python community does
+with =withPackages= to compose a package with the dependencies you need we
+have defaulted to provide a huge default package to accommodate all needs.&lt;/p&gt;</description></item></channel></rss>
