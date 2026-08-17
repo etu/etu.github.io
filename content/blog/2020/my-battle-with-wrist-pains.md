@@ -26,8 +26,7 @@ isn't linear.
 
 ## Ergonomics part 1
 The first thing I did on this field was really when I switched to
-[Svorak](https://svorak.ahall.se/ (A Swedish
-[Dvorak](https://en.wikipedia.org/wiki/Dvorak_keyboard_layout) layout)
+[Svorak](https://svorak.ahall.se/), [a Swedish Dvorak](https://en.wikipedia.org/wiki/Dvorak_keyboard_layout)
 around 2006 because it was different but also later noticed that it
 was more comfortable.
 
