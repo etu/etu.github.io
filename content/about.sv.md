@@ -2,7 +2,7 @@
 title: ~elis/om/
 ---
 
-![Foto av mig](/img/elis.webp)
+![Foto av mig](https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250)
 
 Jag heter Elis (SA4BSE) och bor för närvarande i Arvika, Sverige och
 arbetar på distans i Stockholm.

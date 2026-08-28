@@ -77,7 +77,7 @@ params:
   copyrightOwner: '2010 Elis Hirwing'
 
   ogImagePath: ''
-  iconPath: /img/elis.webp
+  iconPath: https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250
   showLogo: false
 
   extraHeaderContent: |-
