@@ -69,6 +69,11 @@ languages:
       - name: './föredrag/'
         url: /sv/talks/
         weight: 40
+      - name: './sök/'
+        url: /sv/search/
+        weight: 70
+        params:
+          icon: magnifying-glass
 
       i18n:
       - name: gb
