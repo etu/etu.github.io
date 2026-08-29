@@ -2,7 +2,7 @@
 title: ~elis/about/
 ---
 
-![Photo of me](https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250)
+{{< profile-photo "Photo of me" >}}
 
 My name is Elis (SA4BSE) and I currently live in Arvika, Sweden and
 work remotely in Stockholm, Sweden.
