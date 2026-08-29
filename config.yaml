@@ -21,9 +21,6 @@ languages:
       - name: '~elis/'
         url: /
         weight: 10
-      - name: './search/'
-        url: /search/
-        weight: 15
       - name: './about/'
         url: /about/
         weight: 20
@@ -42,6 +39,11 @@ languages:
       - name: './cubing/'
         url: /cubing/
         weight: 60
+      - name: './search/'
+        url: /search/
+        weight: 70
+        params:
+          icon: magnifying-glass
 
       i18n:
       - name: se

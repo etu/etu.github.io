@@ -49,7 +49,16 @@
                 {{ end }}
 
                 {{ range .Site.Menus.main }}
-                    <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+                    {{ $item := . }}
+                    <li>
+                        <a href="{{ .URL | relURL }}"{{ with .Params.icon }} aria-label="{{ $item.Name }}"{{ end }}>
+                            {{ with .Params.icon }}
+                                <i class="fa-solid fa-{{ . }}"></i>
+                            {{ else }}
+                                {{ $item.Name }}
+                            {{ end }}
+                        </a>
+                    </li>
                 {{ end }}
             </ul>
         {{ end }}
