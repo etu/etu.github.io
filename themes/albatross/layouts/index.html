@@ -20,6 +20,16 @@
 
     {{ .Content }}
 
+    {{ $popularPosts := where .Site.RegularPages "Params.popularrank" "!=" nil }}
+    {{ with sort $popularPosts "Params.popularrank" }}
+        <h2>~elis/popular-posts/</h2>
+        <ul>
+            {{ range . }}
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+    {{ end }}
+
     {{ if .Params.showPostsListing }}
         <hr>
         <div class="posts">

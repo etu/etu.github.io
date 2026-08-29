@@ -3,6 +3,7 @@ title: My experience of migrating from Google G-Suite to ProtonMail
 date: '2026-02-24T21:40:00+0100'
 url: /blog/2026/02/migrating-from-g-suite-to-protonmail/
 tags: [Email, Privacy]
+popularRank: 4
 ---
 
 For about 9 years, I've been a customer of Google G-Suite, using it
