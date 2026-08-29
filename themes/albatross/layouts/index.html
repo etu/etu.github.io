@@ -4,10 +4,7 @@
         <h1>{{ .Title }}</h1>
     {{ end }}
 
-    {{ .Content }}
-
     {{ if .Site.Taxonomies.tags }}
-        <h2>{{ i18n "popular-tags" }}</h2>
         <ul class="tags">
             {{ $counts := slice }}
             {{ range $key, $pages := .Site.Taxonomies.tags }}
@@ -20,6 +17,8 @@
             {{ end }}
         </ul>
     {{ end }}
+
+    {{ .Content }}
 
     {{ if .Params.showPostsListing }}
         <hr>
