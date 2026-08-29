@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="content">
+    {{ if (.Title | len) }}
+        <h1>{{ .Title }}</h1>
+    {{ end }}
+
+    {{ .Content }}
+
+    <div id="search"></div>
+</div>
+{{ end }}
+
+{{ define "headcontent" }}
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+{{ end }}
+
+{{ define "footerjs" }}
+<script src="/pagefind/pagefind-ui.js"></script>
+<script>
+    new PagefindUI({ element: "#search", showSubResults: true });
+</script>
+{{ end }}

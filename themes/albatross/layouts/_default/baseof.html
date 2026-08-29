@@ -4,7 +4,7 @@
     {{- block "headcontent" . }}{{- end }}
     <body>
         {{- partial "header.html" . -}}
-        <div class="wrapper">
+        <div class="wrapper" data-pagefind-body>
             {{- block "main" . }}{{- end }}
         </div>
         {{- partial "footer.html" . -}}

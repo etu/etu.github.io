@@ -21,6 +21,9 @@ languages:
       - name: '~elis/'
         url: /
         weight: 10
+      - name: './search/'
+        url: /search/
+        weight: 15
       - name: './about/'
         url: /about/
         weight: 20

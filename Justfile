@@ -4,6 +4,10 @@ _default:
 run:
     hugo server --logLevel debug --disableFastRender --gc
 
+search-index:
+    hugo --minify
+    pagefind --site public
+
 compute-colors CONFIG="config.yaml":
     nix run .#compute-colors -- {{CONFIG}}
 

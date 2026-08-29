@@ -10,12 +10,14 @@ pkgs.stdenv.mkDerivation {
 
   nativeBuildInputs = [
     pkgs.hugo
+    pkgs.pagefind
     computeColors
   ];
 
   buildPhase = ''
     compute-colors --validate config.yaml
     hugo --logLevel debug --minify
+    pagefind --site public
   '';
 
   installPhase = ''
