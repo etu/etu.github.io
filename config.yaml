@@ -69,6 +69,9 @@ languages:
       - name: './föredrag/'
         url: /sv/talks/
         weight: 40
+      - name: './blogg/'
+        url: /sv/blog/
+        weight: 50
       - name: './sök/'
         url: /sv/search/
         weight: 70
