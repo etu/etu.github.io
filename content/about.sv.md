@@ -2,8 +2,6 @@
 title: ~elis/om/
 ---
 
-{{< profile-photo "Foto av mig" >}}
-
 Jag heter Elis (SA4BSE) och bor för närvarande i Arvika, Sverige och
 arbetar på distans i Stockholm.
 

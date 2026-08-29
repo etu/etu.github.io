@@ -353,12 +353,6 @@ html {
                     max-width: 100%;
                 }
 
-                img.profile-photo {
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-
                 blockquote {
                     font-style: italic;
                     border: 0.1rem solid var(--border-color);

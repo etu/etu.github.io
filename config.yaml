@@ -50,9 +50,6 @@ languages:
     params:
       homeUrl: /sv/
 
-      extraHeaderContent: |-
-        <aside id="padding"></aside>
-
     menu:
       main:
       - name: '~elis/'
@@ -78,10 +75,9 @@ params:
 
   ogImagePath: ''
   iconPath: https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250
-  showLogo: false
-
-  extraHeaderContent: |-
-    <aside id="padding"></aside>
+  darkLogoPath: https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250
+  lightLogoPath: https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250
+  showLogo: true
 
   matomo:
     url: matomo.elis.nu
@@ -89,13 +85,6 @@ params:
 
   extraHeadContent: |-
     <link rel="me" href="https://chaos.social/@sa0bse">
-
-    <style>
-      aside#padding {
-        height: 4rem;
-        width: 0;
-      }
-    </style>
 
   # Edit these base colors, then run: just compute-colors
   colors:
