@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="content">
+    <h1>{{ .Title }}</h1>
+
+    {{ .Content }}
+
+    <ul class="tags">
+        {{ range .Data.Terms.Alphabetical }}
+            <li><a class="tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> ({{ .Count }})</li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}
