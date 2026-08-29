@@ -7,13 +7,6 @@ people can find me elsewhere on the internet. Over time, it may
 include blog articles about my journey and interests, which have
 changed and broadened over the years.
 
-Some tags from my blog:
-- [NixOS](/tags/nixos/)
-- [Linux](/tags/linux/)
-- [Veganism](/tags/veganism/)
-- [Health](/tags/health/)
-- [Ethics](/tags/ethics/)
-
 Things I enjoy:
 - I used to attend conferences like
   [CCC](https://en.wikipedia.org/wiki/Chaos_Communication_Congress)

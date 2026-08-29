@@ -328,7 +328,8 @@ html {
                     font-size: {{ index $s "font-size-h4" }}rem;
                 }
 
-                span.post-meta {
+                span.post-meta,
+                ul.tags {
                     a.tag {
                         display: inline-block;
                         padding: .25rem .75rem;
@@ -337,6 +338,18 @@ html {
                         white-space: nowrap;
                         background: var(--content-tag-background-color);
                         color: var(--content-tag-foreground-color);
+                    }
+                }
+
+                ul.tags {
+                    list-style: none;
+                    margin-left: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+
+                    li {
+                        margin: 0;
                     }
                 }
 

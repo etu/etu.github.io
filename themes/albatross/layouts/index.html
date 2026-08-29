@@ -6,6 +6,21 @@
 
     {{ .Content }}
 
+    {{ if .Site.Taxonomies.tags }}
+        <h2>{{ i18n "popular-tags" }}</h2>
+        <ul class="tags">
+            {{ $counts := slice }}
+            {{ range $key, $pages := .Site.Taxonomies.tags }}
+                {{ $counts = $counts | append (dict "key" $key "count" (len $pages)) }}
+            {{ end }}
+            {{ range first 8 (sort $counts "count" "desc") }}
+                {{ with site.GetPage (printf "/tags/%s" .key) }}
+                    <li><a class="tag" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                {{ end }}
+            {{ end }}
+        </ul>
+    {{ end }}
+
     {{ if .Params.showPostsListing }}
         <hr>
         <div class="posts">
