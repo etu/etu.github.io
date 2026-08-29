@@ -34,7 +34,7 @@
                 <picture>
                     <source srcset="{{ .Site.Params.darkLogoPath | relURL }}" media="(prefers-color-scheme: dark)">
                     <source srcset="{{ .Site.Params.lightLogoPath | relURL }}" media="(prefers-color-scheme: light)">
-                    <img src="{{ .Site.Params.lightLogoPath | relURL }}" alt="Logo of {{ .Site.Title }}">
+                    <img src="{{ .Site.Params.lightLogoPath | relURL }}" alt="Logo of {{ .Site.Title }}" width="{{ .Site.Params.logoWidth }}" height="{{ .Site.Params.logoHeight }}">
                 </picture>
             </a>
         </div>

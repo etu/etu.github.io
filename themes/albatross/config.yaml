@@ -22,6 +22,11 @@ params:
   darkLogoPath: /img/albatross_logo.png
   lightLogoPath: /img/albatross_logo.png
 
+  # Intrinsic size of the logo image, used to reserve space and avoid
+  # layout shift while it loads
+  logoWidth: 392
+  logoHeight: 245
+
   # Favicon logo, if set to false, it's hidden
   iconPath: /img/albatross_icon.png
 
