@@ -1,5 +1,12 @@
 ---
 title: ~elis/
+homepageFooter: |
+  ## ~elis/src/
+
+  Den här webbplatsen hanteras av [hugo](https://gohugo.io/), och byggs
+  samt distribueras med [nix](https://nixos.org/). Hela byggprocessen
+  finns i repot:
+  [github/etu/etu.github.io](https://github.com/etu/etu.github.io/).
 ---
 
 Välkommen! Den här sidan har mest fungerat som ett digitalt visitkort
@@ -19,10 +26,3 @@ Saker jag uppskattar:
   bra sätt att träffa folk och lära sig nya saker.
 
 Om du vill kontakta mig, se kontaktsektionen på [om](/sv/about)-sidan.
-
-## ~elis/src/
-
-Den här webbplatsen hanteras av [hugo](https://gohugo.io/), och byggs
-samt distribueras med [nix](https://nixos.org/). Hela byggprocessen
-finns i repot:
-[github/etu/etu.github.io](https://github.com/etu/etu.github.io/).

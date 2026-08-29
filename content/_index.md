@@ -1,5 +1,12 @@
 ---
 title: ~elis/
+homepageFooter: |
+  ## ~elis/src/
+
+  This website is managed by [hugo](https://gohugo.io/), then built and
+  deployed with [nix](https://nixos.org/). The entire build details in
+  the repo at:
+  [github/etu/etu.github.io](https://github.com/etu/etu.github.io/).
 ---
 
 Welcome! This page has mostly served as a digital contact card so
@@ -20,10 +27,3 @@ Things I enjoy:
 
 If you wish to contact me, check the contact section on the
 [about](/about)-page.
-
-## ~elis/src/
-
-This website is managed by [hugo](https://gohugo.io/), then built and
-deployed with [nix](https://nixos.org/). The entire build details in
-the repo at:
-[github/etu/etu.github.io](https://github.com/etu/etu.github.io/).

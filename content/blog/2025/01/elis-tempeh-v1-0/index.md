@@ -2,6 +2,7 @@
 title: Elis Tempeh v1.0
 date: '2025-01-19 13:20:00+0100'
 tags: [Food, Recipe, Vegan]
+featured: true
 ---
 
 Tempeh. Ever heard of it? It’s a traditional Indonesian food made from
