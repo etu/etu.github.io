@@ -26,13 +26,15 @@ I'm also fluent in both English and Swedish.
 
 ## ./about/enjoyment/
 
-- I enjoy a variety of things outside of tech and IT.
+- These days most of my free time goes into yoga, running,
+  mindfulness, and vegan food.
+- I still enjoy [NixOS](/tags/nixos/) and free software, though I'm
+  not as involved as I used to be -- I'm no longer maintaining
+  packages the way I once did.
 - In the past, I often attended conferences like
   [CCC](https://en.wikipedia.org/wiki/Chaos_Communication_Congress)
   and [FOSDEM](https://en.wikipedia.org/wiki/FOSDEM), which were great
   opportunities to meet people and learn new things.
-- I still appreciate NixOS and open source, but my interests have
-  broadened over time.
 
 ## ./about/contact/
 

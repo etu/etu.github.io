@@ -25,13 +25,15 @@ Jag är flytande i både svenska och engelska.
 
 ## ./om/nöje/
 
-- Jag uppskattar numera många saker utanför teknik och IT.
+- Numera går det mesta av min fritid åt till yoga, löpning,
+  mindfulness och vegansk mat.
+- Jag gillar fortfarande [NixOS](/tags/nixos/) och fri mjukvara, även
+  om jag inte är lika engagerad som förr -- jag underhåller inte
+  längre paket på samma sätt som tidigare.
 - Tidigare deltog jag ofta på konferenser som
   [CCC](https://en.wikipedia.org/wiki/Chaos_Communication_Congress)
   och [FOSDEM](https://en.wikipedia.org/wiki/FOSDEM), vilket var bra
   tillfällen att träffa folk och lära sig nya saker.
-- Jag gillar fortfarande NixOS och öppen källkod, men mina intressen
-  har breddats med tiden.
 
 ## ./om/kontakt/
 

@@ -8,12 +8,15 @@ include blog articles about my journey and interests, which have
 changed and broadened over the years.
 
 Things I enjoy:
+- These days most of my free time goes into yoga, running,
+  mindfulness, and vegan food.
+- I still enjoy [NixOS](/tags/nixos/) and free software, though I'm
+  not as involved as I used to be -- I'm no longer maintaining
+  packages the way I once did.
 - I used to attend conferences like
   [CCC](https://en.wikipedia.org/wiki/Chaos_Communication_Congress)
   and [FOSDEM](https://en.wikipedia.org/wiki/FOSDEM) quite often,
   which was a great way to meet people and learn new things.
-- My interests have broadened beyond tech and IT, but I still
-  appreciate open source and community efforts.
 
 If you wish to contact me, check the contact section on the
 [about](/about)-page.
