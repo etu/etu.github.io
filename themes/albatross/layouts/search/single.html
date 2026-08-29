@@ -12,6 +12,16 @@
 
 {{ define "headcontent" }}
 <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+<style>
+    :root {
+        --pagefind-ui-primary: var(--link-default-color);
+        --pagefind-ui-text: var(--foreground-color);
+        --pagefind-ui-background: var(--background-color);
+        --pagefind-ui-border: var(--border-color);
+        --pagefind-ui-tag: var(--content-tag-background-color);
+        --pagefind-ui-font: var(--font-family);
+    }
+</style>
 {{ end }}
 
 {{ define "footerjs" }}

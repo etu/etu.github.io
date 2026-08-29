@@ -4,9 +4,13 @@ _default:
 run:
     hugo server --logLevel debug --disableFastRender --gc
 
+# hugo server renders in-memory and never sees a real public/ dir, so
+# pagefind has to index a real build first; copying its output into
+# static/ is what makes hugo server (and `just run`) actually serve it.
 search-index:
     hugo --minify
-    pagefind --site public
+    rm -rf static/pagefind
+    pagefind --site public --output-path static/pagefind
 
 compute-colors CONFIG="config.yaml":
     nix run .#compute-colors -- {{CONFIG}}

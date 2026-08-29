@@ -9,3 +9,4 @@ result-*
 public/
 resources/
 .hugo_build.lock
+static/pagefind/
