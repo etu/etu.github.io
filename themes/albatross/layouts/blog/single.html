@@ -7,5 +7,7 @@
     {{- partial "blog-post-meta.html" . -}}
 
     {{ .Content }}
+
+    {{ partial "related-posts.html" . }}
 </div>
 {{ end }}

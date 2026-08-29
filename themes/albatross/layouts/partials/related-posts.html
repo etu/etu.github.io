@@ -1,0 +1,23 @@
+{{ $current := . }}
+{{ $currentTags := .Params.tags }}
+{{ if $currentTags }}
+    {{ $related := slice }}
+    {{ range .CurrentSection.RegularPagesRecursive }}
+        {{ if ne .RelPermalink $current.RelPermalink }}
+            {{ $shared := intersect $currentTags .Params.tags }}
+            {{ if $shared }}
+                {{ $related = $related | append (dict "page" . "count" (len $shared)) }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+    {{ if $related }}
+        <div class="related-posts">
+            <h2>{{ i18n "related-posts" }}</h2>
+            <ul>
+                {{ range first 3 (sort $related "count" "desc") }}
+                    <li><a href="{{ .page.RelPermalink }}">{{ .page.Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    {{ end }}
+{{ end }}
