@@ -44,7 +44,7 @@ Shapes](#molds-and-shapes) for your tempeh.
 
 - **5ml (1 tsp) tempeh starter**
 
-  *Source: [Humlegårdens Ekolager 🇸🇪](https://shop.humle.se/jast/fermentering/tempeh-starter-25-gram)*
+  *Source: [Mr. Malt 🇸🇪](https://mr-malt.se/jast/fermentering/tempeh-starter-10-g)*
 
 - **75ml (5 tbsp) apple cider vinegar**
 
@@ -143,5 +143,5 @@ fermenting!
 
 - [What is Tempeh?](https://en.wikipedia.org/wiki/Tempeh)
 - [Soy beans from Mellins](https://mellins.nu/produkter/skafferi-torrvaror-smaksattning/baljvaxter/bonor/sojabonor-skalade-obesprutade/)
-- [Tempeh Starter from Humlegården](https://shop.humle.se/jast/fermentering/tempeh-starter-25-gram)
+- [Tempeh Starter from Mr. Malt](https://mr-malt.se/jast/fermentering/tempeh-starter-10-g)
 - [Bread Proofer Box on Amazon](https://www.amazon.se/dp/B085HTJ8LL)
