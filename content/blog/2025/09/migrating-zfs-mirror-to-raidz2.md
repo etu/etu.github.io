@@ -1,7 +1,6 @@
 ---
 title: Migrating from ZFS mirror to RAIDZ2
 date: '2025-09-13T20:00:00+0200'
-url: /blog/2025/09/migrating-zfs-mirror-to-raidz2/
 tags: [ZFS, Linux]
 ---
 

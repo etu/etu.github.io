@@ -1,7 +1,6 @@
 ---
 title: Computing contrast colors without dart-sass
 date: '2026-04-26T09:00:00+0200'
-url: /blog/2026/04/computing-contrast-colors-without-dart-sass/
 tags: [Nix, CSS, Python, GitHub Pages]
 ---
 

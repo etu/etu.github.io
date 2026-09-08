@@ -1,7 +1,6 @@
 ---
 title: 'NixOS ❄: Remote unlock of encrypted ZFS over SSH'
 date: '2026-04-24T00:00:00+0200'
-url: /blog/2026/04/nixos-zfs-remote-unlock-over-ssh/
 tags: [NixOS, Linux, ZFS]
 ---
 
