@@ -1,0 +1,17 @@
+model-viewer - 3D model viewer web component
+=============================================
+
+Version: 3.4.0
+
+Documentation: https://modelviewer.dev/
+Source: https://github.com/google/model-viewer
+License: Apache License 2.0
+
+Downloads:
+- model-viewer.min.js: https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js
+Downloaded: 2026-04-24
+
+Note:
+Vendored directly rather than fetched at build time. To update, download
+the new version from the URL above (substituting the version number) and
+update the version here.
