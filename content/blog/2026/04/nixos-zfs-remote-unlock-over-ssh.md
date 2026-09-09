@@ -2,6 +2,7 @@
 title: 'NixOS ❄: Remote unlock of encrypted ZFS over SSH'
 date: '2026-04-24T00:00:00+0200'
 tags: [NixOS, Linux, ZFS]
+popularRank: 8
 ---
 
 This is a follow-up to my earlier post: [Encrypted ZFS mirror with mirrored

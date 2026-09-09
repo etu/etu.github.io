@@ -2,6 +2,7 @@
 title: Migrating from ZFS mirror to RAIDZ2
 date: '2025-09-13T20:00:00+0200'
 tags: [ZFS, Linux]
+popularRank: 10
 ---
 
 For a long time I've been running my storage on a 2-disk ZFS
