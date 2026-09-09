@@ -23,7 +23,7 @@ This requires a bearer token for `matomo.elis.nu` (site ID `3`, from
 `config.yaml`'s `params.matomo`). The user needs to generate one:
 
 1. Log in at `https://matomo.elis.nu/`.
-2. Go directly to the token page: `https://matomo.elis.nu/index.php?module=UsersManager&action=securityPage`
+2. Go directly to the token page: `https://matomo.elis.nu/index.php?module=UsersManager&action=userSecurity`
    (or via the UI: **Administration** (gear icon) → **Personal** → **Security**).
 3. Under **Auth tokens**, create a new token — give it a description
    like "popular-posts skill" and, if offered, the shortest reasonable
