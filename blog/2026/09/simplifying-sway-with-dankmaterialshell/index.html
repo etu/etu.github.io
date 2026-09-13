@@ -1,5 +1,5 @@
 <!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en><head><title>Simplifying my Sway setup with DankMaterialShell - Elis Hirwing</title><meta charset=utf-8><meta name=referrer content="no-referrer"><link rel=canonical href=https://elis.nu/blog/2026/09/simplifying-sway-with-dankmaterialshell/><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon type=image/png href="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250"><meta property="description" content><meta property="og:description" content><meta property="og:locale" content="en"><meta property="og:site_name" content="Elis Hirwing"><meta property="og:title" content="Simplifying my Sway setup with DankMaterialShell &#183; Elis Hirwing"><meta property="og:type" content="website"><meta property="og:url" content="https://elis.nu/blog/2026/09/simplifying-sway-with-dankmaterialshell/"><meta name=twitter:card content="summary_large_image"><link rel=me href=https://chaos.social/@sa0bse><script>var _paq=window._paq=window._paq||[];_paq.push(["disableCookies"]),_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){e="https://matomo.elis.nu/",_paq.push(["setTrackerUrl",e+"matomo.php"]),_paq.push(["setSiteId","3"]);var e,n=document,t=n.createElement("script"),s=n.getElementsByTagName("script")[0];t.async=!0,t.src=e+"matomo.js",s.parentNode.insertBefore(t,s)}()</script><noscript><img referrerpolicy=no-referrer-when-downgrade src="https://matomo.elis.nu/matomo.php?idsite=3&amp;rec=1" style=border:0 alt></noscript><link rel=stylesheet href=/css/fontawesome/fontawesome.css media=screen><link rel=stylesheet href=/css/fontawesome/solid.css media=screen><link rel=stylesheet href=/css/fontawesome/brands.css media=screen><link rel=stylesheet href=/css/style.min.279996e850a784005622c82a992494fa316ef153ad3a5ad2d315cfd292898b93.css integrity="sha256-J5mW6FCnhABWIsgqmSSU+jFu8VOtOlrS0xXP0pKJi5M=" crossorigin=anonymous media=screen></head><body><header><div class=i18n><ul><li><a href=/sv/><img src=/img/iso-flags/se.svg alt="se flag"></a></li></ul></div><div class=logo><a href=/><picture><source srcset="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" media="(prefers-color-scheme: dark)"><source srcset="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" media="(prefers-color-scheme: light)"><img src="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" alt="Logo of Elis Hirwing" width=250 height=250></picture></a></div><nav><ul><li><a href=/>~elis/</a></li><li><a href=/about/>./about/</a></li><li><a href=/work/>./work/</a></li><li><a href=/talks/>./talks/</a></li><li><a href=/blog/>./blog/</a></li><li><a href=/3d-models/>./3d-models/</a></li><li><a href=/cubing/>./cubing/</a></li><li><a href=/search/ aria-label=./search/><i class="fa-solid fa-magnifying-glass"></i></a></li></ul></nav></header><div class=wrapper data-pagefind-body><div class=content><h1>Simplifying my Sway setup with DankMaterialShell</h1><span class=post-meta>2026-09-08
-&#183; 6 minutes read
+&#183; 7 minutes read
 &#183;
 <a class=tag href=/tags/nixos/>NixOS</a>
 <a class=tag href=/tags/sway/>Sway</a>
@@ -9,12 +9,12 @@
 independently configured single-purpose tools: a bar, a launcher that also
 doubled as an emoji picker and power menu, a notification daemon, a lock
 screen plus idle daemon, a media-key/Bluetooth setup glued together with a
-few standalone helpers, and a separate screenshot tool. Each one worked, but
-each one was its own little island with its own config format and its own
-opinions about how to talk to the others.</p><p><a href=https://github.com/AvengeMedia/DankMaterialShell>DankMaterialShell</a> (dms-shell)
+few standalone helpers, a separate screenshot tool, and a wallpaper daemon.
+Each one worked, but each one was its own little island with its own config
+format and its own opinions about how to talk to the others.</p><p><a href=https://github.com/AvengeMedia/DankMaterialShell>DankMaterialShell</a> (dms-shell)
 is a <a href=https://quickshell.org/>Quickshell</a>-based Material 3 desktop shell
 that replaces basically all of the above with one daemon and one IPC
-interface (<code>dms ipc call ...</code>). This post covers migrating to it on NixOS.</p><h2 id=the-old-setup>The old setup</h2><ul><li><strong>Bar</strong>: a standalone bar</li><li><strong>Launcher / emoji picker / power menu</strong>: a standalone launcher, three separate modes</li><li><strong>Notifications</strong>: a standalone notification daemon</li><li><strong>Lock / idle</strong>: a standalone lock screen plus idle daemon</li><li><strong>Media keys</strong>: raw exec commands to the usual CLI tools</li><li><strong>Bluetooth</strong>: a standalone applet</li><li><strong>Screenshots</strong>: a standalone screenshot tool</li></ul><h2 id=the-new-setup>The new setup</h2><p>All of the above, replaced by dms-shell, driven through <code>dms ipc call ...</code>
+interface (<code>dms ipc call ...</code>). This post covers migrating to it on NixOS.</p><h2 id=the-old-setup>The old setup</h2><ul><li><strong>Bar</strong>: a standalone bar</li><li><strong>Launcher / emoji picker / power menu</strong>: a standalone launcher, three separate modes</li><li><strong>Notifications</strong>: a standalone notification daemon</li><li><strong>Lock / idle</strong>: a standalone lock screen plus idle daemon</li><li><strong>Media keys</strong>: raw exec commands to the usual CLI tools</li><li><strong>Bluetooth</strong>: a standalone applet</li><li><strong>Screenshots</strong>: a standalone screenshot tool</li><li><strong>Wallpaper</strong>: a standalone wallpaper daemon (<a href=https://github.com/danyspin97/wpaperd>wpaperd</a>)</li></ul><h2 id=the-new-setup>The new setup</h2><p>All of the above, replaced by dms-shell, driven through <code>dms ipc call ...</code>
 from sway&rsquo;s keybindings.</p><h2 id=step-1---enable-the-shell>Step 1 - Enable the shell</h2><p>DankMaterialShell ships a home-manager module, so getting it running was
 mostly a matter of importing that module and enabling it. No bespoke
 integration work needed for the shell itself. The interesting part was
@@ -57,7 +57,31 @@ everything stays in sync with dms-shell&rsquo;s own on-screen-display:</p><div c
 </span></span><span class=line><span class=cl><span class=n>XF86AudioPlay</span> <span class=o>=</span> <span class=s2>&#34;exec dms ipc call mpris playPause&#34;</span><span class=p>;</span>
 </span></span></code></pre></div><p>The old media-player daemon and Bluetooth applet could both be dropped
 outright — dms-shell talks to MPRIS players directly, and has its own
-Bluetooth control-center panel built in.</p><h2 id=dms-ipc-call-returns-exit-0-even-when-it-fails><code>dms ipc call</code> returns exit 0 even when it fails</h2><p>I hooked up a small script that pushes data into dms-shell via <code>dms ipc call</code>. The naive version checked the exit code — which is <em>always</em> 0, even
+Bluetooth control-center panel built in.</p><h2 id=step-5---hand-wallpaper-cycling-over-to-dms-shell>Step 5 - Hand wallpaper cycling over to dms-shell</h2><p>dms-shell renders its own wallpaper layer surface too, but I&rsquo;d initially left
+it disabled (<code>screenPreferences.wallpaper = [ ]</code>) to avoid it fighting with
+wpaperd over who owns the background. Its built-in cycling turned out to be
+a superset of what I was using wpaperd for — folder-based rotation on an
+interval, several fill modes, even per-monitor and light/dark variants I&rsquo;m
+not using yet — so there was no reason to keep a second wallpaper daemon
+running just for that:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=n>programs</span><span class=o>.</span><span class=n>dank-material-shell</span><span class=o>.</span><span class=n>settings</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>screenPreferences</span><span class=o>.</span><span class=n>wallpaper</span> <span class=o>=</span> <span class=p>[</span> <span class=s2>&#34;all&#34;</span> <span class=p>];</span>
+</span></span><span class=line><span class=cl>  <span class=n>wallpaperFillMode</span> <span class=o>=</span> <span class=s2>&#34;Fill&#34;</span><span class=p>;</span> <span class=c1># Scale and crop to fill the screen</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>programs</span><span class=o>.</span><span class=n>dank-material-shell</span><span class=o>.</span><span class=n>session</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>wallpaperPath</span> <span class=o>=</span> <span class=s2>&#34;/path/to/wallpapers/some-image.jpg&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=n>wallpaperCyclingEnabled</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=n>wallpaperCyclingInterval</span> <span class=o>=</span> <span class=mi>1800</span><span class=p>;</span> <span class=c1># 30 minutes, in seconds</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></div><p>That&rsquo;s <code>wpaperd</code> gone too, and one less service depending on its own config
+format.</p><h2 id=wallpaperpath-needs-an-image-not-a-directory><code>wallpaperPath</code> needs an image, not a directory</h2><p>wpaperd points at a directory and cycles through everything in it.
+dms-shell&rsquo;s cycling service instead derives <em>which</em> directory to cycle
+through from <code>wallpaperPath</code> itself — it just chops off everything after the
+last <code>/</code> and lists images in what&rsquo;s left. Point <code>wallpaperPath</code> at the
+wallpaper directory itself, as I did the first time around, and it happily
+lists <code>/nix/store</code> on every cycle instead of the actual wallpapers, since
+that&rsquo;s the directory <em>containing</em> the store path. It needs to be a real file
+that already lives in the directory you want it to cycle through.</p><h2 id=dms-ipc-call-returns-exit-0-even-when-it-fails><code>dms ipc call</code> returns exit 0 even when it fails</h2><p>I hooked up a small script that pushes data into dms-shell via <code>dms ipc call</code>. The naive version checked the exit code — which is <em>always</em> 0, even
 when the actual output is <code>Target not found.</code> (this happens for a genuinely
 invalid IPC target, but also for a real one hit before dms-shell has
 finished registering its IPC handlers on startup). The fix is to check the
@@ -92,8 +116,8 @@ one window I actually wanted:</p><div class=highlight><pre tabindex=0 class=chro
 </span></span><span class=line><span class=cl>  <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>];</span>
 </span></span></code></pre></div><p>I found the exact title by asking sway directly rather than guessing:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>swaymsg -t get_tree
-</span></span></code></pre></div><h2 id=final-thoughts>Final thoughts</h2><p>The net result is fewer moving parts: one daemon instead of six, one IPC
-surface instead of five different config formats, and a small, purely
+</span></span></code></pre></div><h2 id=final-thoughts>Final thoughts</h2><p>The net result is fewer moving parts: one daemon instead of seven, one IPC
+surface instead of six different config formats, and a small, purely
 declarative plugin system for the handful of extras I actually wanted. It&rsquo;s
 not perfectly polished everywhere yet — some of this is quite fresh — but
 even mid-migration it was already a simpler system to reason about than what
