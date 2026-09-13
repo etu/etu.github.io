@@ -8,9 +8,9 @@ Over the years my [Sway](https://swaywm.org/) setup had grown into a pile of
 independently configured single-purpose tools: a bar, a launcher that also
 doubled as an emoji picker and power menu, a notification daemon, a lock
 screen plus idle daemon, a media-key/Bluetooth setup glued together with a
-few standalone helpers, and a separate screenshot tool. Each one worked, but
-each one was its own little island with its own config format and its own
-opinions about how to talk to the others.
+few standalone helpers, a separate screenshot tool, and a wallpaper daemon.
+Each one worked, but each one was its own little island with its own config
+format and its own opinions about how to talk to the others.
 
 [DankMaterialShell](https://github.com/AvengeMedia/DankMaterialShell) (dms-shell)
 is a [Quickshell](https://quickshell.org/)-based Material 3 desktop shell
@@ -26,6 +26,7 @@ interface (`dms ipc call ...`). This post covers migrating to it on NixOS.
 - **Media keys**: raw exec commands to the usual CLI tools
 - **Bluetooth**: a standalone applet
 - **Screenshots**: a standalone screenshot tool
+- **Wallpaper**: a standalone wallpaper daemon ([wpaperd](https://github.com/danyspin97/wpaperd))
 
 ## The new setup
 
@@ -112,6 +113,43 @@ The old media-player daemon and Bluetooth applet could both be dropped
 outright — dms-shell talks to MPRIS players directly, and has its own
 Bluetooth control-center panel built in.
 
+## Step 5 - Hand wallpaper cycling over to dms-shell
+
+dms-shell renders its own wallpaper layer surface too, but I'd initially left
+it disabled (`screenPreferences.wallpaper = [ ]`) to avoid it fighting with
+wpaperd over who owns the background. Its built-in cycling turned out to be
+a superset of what I was using wpaperd for — folder-based rotation on an
+interval, several fill modes, even per-monitor and light/dark variants I'm
+not using yet — so there was no reason to keep a second wallpaper daemon
+running just for that:
+
+```nix
+programs.dank-material-shell.settings = {
+  screenPreferences.wallpaper = [ "all" ];
+  wallpaperFillMode = "Fill"; # Scale and crop to fill the screen
+};
+
+programs.dank-material-shell.session = {
+  wallpaperPath = "/path/to/wallpapers/some-image.jpg";
+  wallpaperCyclingEnabled = true;
+  wallpaperCyclingInterval = 1800; # 30 minutes, in seconds
+};
+```
+
+That's `wpaperd` gone too, and one less service depending on its own config
+format.
+
+## `wallpaperPath` needs an image, not a directory
+
+wpaperd points at a directory and cycles through everything in it.
+dms-shell's cycling service instead derives *which* directory to cycle
+through from `wallpaperPath` itself — it just chops off everything after the
+last `/` and lists images in what's left. Point `wallpaperPath` at the
+wallpaper directory itself, as I did the first time around, and it happily
+lists `/nix/store` on every cycle instead of the actual wallpapers, since
+that's the directory *containing* the store path. It needs to be a real file
+that already lives in the directory you want it to cycle through.
+
 ## `dms ipc call` returns exit 0 even when it fails
 
 I hooked up a small script that pushes data into dms-shell via `dms ipc
@@ -184,8 +222,8 @@ swaymsg -t get_tree
 
 ## Final thoughts
 
-The net result is fewer moving parts: one daemon instead of six, one IPC
-surface instead of five different config formats, and a small, purely
+The net result is fewer moving parts: one daemon instead of seven, one IPC
+surface instead of six different config formats, and a small, purely
 declarative plugin system for the handful of extras I actually wanted. It's
 not perfectly polished everywhere yet — some of this is quite fresh — but
 even mid-migration it was already a simpler system to reason about than what
