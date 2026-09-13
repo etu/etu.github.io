@@ -2,6 +2,7 @@
 title: Simplifying my Sway setup with DankMaterialShell
 date: '2026-09-08T23:00:00+0200'
 tags: [NixOS, Sway, Wayland, Linux, DankMaterialShell]
+popularRank: 7
 ---
 
 Over the years my [Sway](https://swaywm.org/) setup had grown into a pile of
