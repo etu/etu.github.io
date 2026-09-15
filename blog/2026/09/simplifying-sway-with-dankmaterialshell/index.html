@@ -1,0 +1,101 @@
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en><head><title>Simplifying my Sway setup with DankMaterialShell - Elis Hirwing</title><meta charset=utf-8><meta name=referrer content="no-referrer"><link rel=canonical href=https://elis.nu/blog/2026/09/simplifying-sway-with-dankmaterialshell/><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon type=image/png href="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250"><meta property="description" content><meta property="og:description" content><meta property="og:locale" content="en"><meta property="og:site_name" content="Elis Hirwing"><meta property="og:title" content="Simplifying my Sway setup with DankMaterialShell &#183; Elis Hirwing"><meta property="og:type" content="website"><meta property="og:url" content="https://elis.nu/blog/2026/09/simplifying-sway-with-dankmaterialshell/"><meta name=twitter:card content="summary_large_image"><link rel=me href=https://chaos.social/@sa0bse><script>var _paq=window._paq=window._paq||[];_paq.push(["disableCookies"]),_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){e="https://matomo.elis.nu/",_paq.push(["setTrackerUrl",e+"matomo.php"]),_paq.push(["setSiteId","3"]);var e,n=document,t=n.createElement("script"),s=n.getElementsByTagName("script")[0];t.async=!0,t.src=e+"matomo.js",s.parentNode.insertBefore(t,s)}()</script><noscript><img referrerpolicy=no-referrer-when-downgrade src="https://matomo.elis.nu/matomo.php?idsite=3&amp;rec=1" style=border:0 alt></noscript><link rel=stylesheet href=/css/fontawesome/fontawesome.css media=screen><link rel=stylesheet href=/css/fontawesome/solid.css media=screen><link rel=stylesheet href=/css/fontawesome/brands.css media=screen><link rel=stylesheet href=/css/style.min.279996e850a784005622c82a992494fa316ef153ad3a5ad2d315cfd292898b93.css integrity="sha256-J5mW6FCnhABWIsgqmSSU+jFu8VOtOlrS0xXP0pKJi5M=" crossorigin=anonymous media=screen></head><body><header><div class=i18n><ul><li><a href=/sv/><img src=/img/iso-flags/se.svg alt="se flag"></a></li></ul></div><div class=logo><a href=/><picture><source srcset="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" media="(prefers-color-scheme: dark)"><source srcset="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" media="(prefers-color-scheme: light)"><img src="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" alt="Logo of Elis Hirwing" width=250 height=250></picture></a></div><nav><ul><li><a href=/>~elis/</a></li><li><a href=/about/>./about/</a></li><li><a href=/work/>./work/</a></li><li><a href=/talks/>./talks/</a></li><li><a href=/blog/>./blog/</a></li><li><a href=/3d-models/>./3d-models/</a></li><li><a href=/cubing/>./cubing/</a></li><li><a href=/search/ aria-label=./search/><i class="fa-solid fa-magnifying-glass"></i></a></li></ul></nav></header><div class=wrapper data-pagefind-body><div class=content><h1>Simplifying my Sway setup with DankMaterialShell</h1><span class=post-meta>2026-09-08
+&#183; 6 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/sway/>Sway</a>
+<a class=tag href=/tags/wayland/>Wayland</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/dankmaterialshell/>DankMaterialShell</a></span><p>Over the years my <a href=https://swaywm.org/>Sway</a> setup had grown into a pile of
+independently configured single-purpose tools: a bar, a launcher that also
+doubled as an emoji picker and power menu, a notification daemon, a lock
+screen plus idle daemon, a media-key/Bluetooth setup glued together with a
+few standalone helpers, and a separate screenshot tool. Each one worked, but
+each one was its own little island with its own config format and its own
+opinions about how to talk to the others.</p><p><a href=https://github.com/AvengeMedia/DankMaterialShell>DankMaterialShell</a> (dms-shell)
+is a <a href=https://quickshell.org/>Quickshell</a>-based Material 3 desktop shell
+that replaces basically all of the above with one daemon and one IPC
+interface (<code>dms ipc call ...</code>). This post covers migrating to it on NixOS.</p><h2 id=the-old-setup>The old setup</h2><ul><li><strong>Bar</strong>: a standalone bar</li><li><strong>Launcher / emoji picker / power menu</strong>: a standalone launcher, three separate modes</li><li><strong>Notifications</strong>: a standalone notification daemon</li><li><strong>Lock / idle</strong>: a standalone lock screen plus idle daemon</li><li><strong>Media keys</strong>: raw exec commands to the usual CLI tools</li><li><strong>Bluetooth</strong>: a standalone applet</li><li><strong>Screenshots</strong>: a standalone screenshot tool</li></ul><h2 id=the-new-setup>The new setup</h2><p>All of the above, replaced by dms-shell, driven through <code>dms ipc call ...</code>
+from sway&rsquo;s keybindings.</p><h2 id=step-1---enable-the-shell>Step 1 - Enable the shell</h2><p>DankMaterialShell ships a home-manager module, so getting it running was
+mostly a matter of importing that module and enabling it. No bespoke
+integration work needed for the shell itself. The interesting part was
+everything that came after: ripping out the old tools and rewiring sway to
+talk to dms-shell instead.</p><p>The module also exposes a <code>settings</code> attribute that maps straight onto
+dms-shell&rsquo;s own <code>settings.json</code> schema, so anything you&rsquo;d otherwise click
+through in its GUI settings panel — bar layout and widgets, clock format,
+idle timeouts, and so on — can be written declaratively instead:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=n>programs</span><span class=o>.</span><span class=n>dank-material-shell</span><span class=o>.</span><span class=n>settings</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>clockFormat</span> <span class=o>=</span> <span class=s2>&#34;24h&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=n>showSeconds</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=n>barConfigs</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=n>id</span> <span class=o>=</span> <span class=s2>&#34;default&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=n>leftWidgets</span> <span class=o>=</span> <span class=p>[</span> <span class=s2>&#34;cpuUsage&#34;</span> <span class=s2>&#34;memUsage&#34;</span> <span class=s2>&#34;battery&#34;</span> <span class=p>];</span>
+</span></span><span class=line><span class=cl>      <span class=n>centerWidgets</span> <span class=o>=</span> <span class=p>[</span> <span class=s2>&#34;workspaceSwitcher&#34;</span> <span class=p>];</span>
+</span></span><span class=line><span class=cl>      <span class=n>rightWidgets</span> <span class=o>=</span> <span class=p>[</span> <span class=s2>&#34;clock&#34;</span> <span class=s2>&#34;notificationButton&#34;</span> <span class=s2>&#34;systemTray&#34;</span> <span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></div><p>That&rsquo;s also how the idle timeouts in step 3 and the plugins further down get
+configured — no manual clicking required, and the whole thing rebuilds from
+one file.</p><h2 id=step-2---replace-the-bar-launcher-and-lock-screen>Step 2 - Replace the bar, launcher, and lock screen</h2><p>The old bar and notification daemon could be removed outright, and sway&rsquo;s
+keybindings for the launcher and power menu got rewired to call into
+dms-shell instead:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=s2>&#34;</span><span class=si>${</span><span class=n>modifier</span><span class=si>}</span><span class=s2>+e&#34;</span> <span class=o>=</span> <span class=s2>&#34;exec dms ipc launcher open&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=s2>&#34;</span><span class=si>${</span><span class=n>modifier</span><span class=si>}</span><span class=s2>+Escape&#34;</span> <span class=o>=</span> <span class=s2>&#34;exec dms ipc powermenu open&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=s2>&#34;</span><span class=si>${</span><span class=n>modifier</span><span class=si>}</span><span class=s2>+l&#34;</span> <span class=o>=</span> <span class=s2>&#34;exec loginctl lock-session&#34;</span><span class=p>;</span> <span class=c1># caught by an idle-daemon lock event</span>
+</span></span></code></pre></div><p>Locking goes through <code>dms ipc lock lock</code>, triggered either directly or via
+an idle daemon&rsquo;s suspend/lock events.</p><h2 id=step-3---hand-idle-management-over-to-dms-shell>Step 3 - Hand idle management over to dms-shell</h2><p>dms-shell ships its own idle manager, so the timeout-based half of the old
+idle daemon&rsquo;s job could go away entirely. Only event-based locking (on
+suspend, on an explicit lock command) needs to stay external, since those
+aren&rsquo;t idle-<em>timeout</em> based:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=n>acLockTimeout</span> <span class=o>=</span> <span class=mi>300</span><span class=p>;</span> <span class=c1># Lock after 5 minutes idle</span>
+</span></span><span class=line><span class=cl><span class=n>acPostLockMonitorTimeout</span> <span class=o>=</span> <span class=mi>60</span><span class=p>;</span> <span class=c1># Turn the screen off 1 minute after locking</span>
+</span></span><span class=line><span class=cl><span class=n>acSuspendTimeout</span> <span class=o>=</span> <span class=mi>600</span><span class=p>;</span>
+</span></span></code></pre></div><p><code>acPostLockMonitorTimeout</code> turns the monitor off some time <em>after</em> locking —
+something the old idle-timeout list never gave me for free.</p><h2 id=step-4---route-screenshots-media-keys-and-bluetooth-through-dms>Step 4 - Route screenshots, media keys, and Bluetooth through dms</h2><p>Same pattern everywhere: replace a raw exec with a <code>dms ipc call</code>, so
+everything stays in sync with dms-shell&rsquo;s own on-screen-display:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=n>Print</span> <span class=o>=</span> <span class=s2>&#34;exec dms screenshot region&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>XF86AudioMute</span> <span class=o>=</span> <span class=s2>&#34;exec dms ipc call audio mute&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>XF86AudioLowerVolume</span> <span class=o>=</span> <span class=s2>&#34;exec dms ipc call audio decrement 10&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>XF86MonBrightnessUp</span> <span class=o>=</span> <span class=s2>&#34;exec dms ipc call brightness increment 10 &#39;&#39;&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>XF86AudioPlay</span> <span class=o>=</span> <span class=s2>&#34;exec dms ipc call mpris playPause&#34;</span><span class=p>;</span>
+</span></span></code></pre></div><p>The old media-player daemon and Bluetooth applet could both be dropped
+outright — dms-shell talks to MPRIS players directly, and has its own
+Bluetooth control-center panel built in.</p><h2 id=dms-ipc-call-returns-exit-0-even-when-it-fails><code>dms ipc call</code> returns exit 0 even when it fails</h2><p>I hooked up a small script that pushes data into dms-shell via <code>dms ipc call</code>. The naive version checked the exit code — which is <em>always</em> 0, even
+when the actual output is <code>Target not found.</code> (this happens for a genuinely
+invalid IPC target, but also for a real one hit before dms-shell has
+finished registering its IPC handlers on startup). The fix is to check the
+actual text of the output and retry for a bit instead of trusting the exit
+code.</p><h2 id=impermanence-wiped-a-settings-marker-every-boot>Impermanence wiped a settings marker every boot</h2><p>I run an ephemeral root with <a href=https://github.com/nix-community/impermanence>impermanence</a>,
+so anything dms-shell writes under its config directory that isn&rsquo;t
+explicitly persisted gets wiped on every reboot. Most of its runtime markers
+have a sane fallback if missing, but one — a changelog-seen marker — doesn&rsquo;t,
+so a changelog dialog popped up fresh on every single boot until I persisted
+that one file explicitly.</p><h2 id=one-ordering-cycle-two-deadlocked-units>One ordering cycle, two deadlocked units</h2><p>A small helper service I run alongside dms-shell needs to start once dms&rsquo;s
+own service is up. My first attempt hung it off the same systemd target
+dms-shell itself starts from, with an explicit ordering dependency on top —
+but dms-shell&rsquo;s service <em>also</em> has a relationship to that same target, so
+this formed a dependency cycle and deadlocked both units. Hanging the helper
+directly off dms-shell&rsquo;s service instead of the shared target gives a plain
+parent-child edge with no path back through anything else.</p><h2 id=the-plugin-ecosystem>The plugin ecosystem</h2><p>dms-shell has a small plugin system, and a few community plugins replaced
+functionality I used to get from other standalone tools:</p><ul><li><strong><a href=https://github.com/devnullvoid/dms-emoji-launcher>dms-emoji-launcher</a></strong> —
+emoji/unicode search from the launcher.</li><li><strong><a href=https://github.com/iahccc/NixPackageRunner>nix-package-runner</a></strong> —
+search and <code>nix run</code>/<code>nix shell</code> nixpkgs packages ad-hoc from the launcher.</li><li><strong><a href=https://github.com/hthienloc/dms-quick-capture>dms-quick-capture</a></strong> —
+region-select screenshot annotation and screen recording, bound to <code>Print</code>.</li></ul><p>Plugins install declaratively, with one non-obvious catch: a plugin with no
+settings of its own isn&rsquo;t auto-detected as needing its enabled-state
+managed, so its toggle otherwise depends on manually flipping a switch in
+Settings → Plugins after every rebuild rather than being fully declarative.</p><h2 id=a-window-rule-gotcha>A window-rule gotcha</h2><p>One plugin&rsquo;s editor window wouldn&rsquo;t float by default. The fix is a normal
+sway floating-window rule, but the obvious one — matching on the window&rsquo;s
+<code>app_id</code> — doesn&rsquo;t work, because <em>every</em> dms-shell window shares the same
+<code>app_id</code>: the bar, the launcher, the lock screen, and this editor all report
+the same app. Matching on the window title too scopes the rule to just the
+one window I actually wanted:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=n>floating</span><span class=o>.</span><span class=n>criteria</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>app_id</span> <span class=o>=</span> <span class=s2>&#34;com.danklinux.dms&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>title</span> <span class=o>=</span> <span class=s2>&#34;Quick Capture&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>];</span>
+</span></span></code></pre></div><p>I found the exact title by asking sway directly rather than guessing:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>swaymsg -t get_tree
+</span></span></code></pre></div><h2 id=final-thoughts>Final thoughts</h2><p>The net result is fewer moving parts: one daemon instead of six, one IPC
+surface instead of five different config formats, and a small, purely
+declarative plugin system for the handful of extras I actually wanted. It&rsquo;s
+not perfectly polished everywhere yet — some of this is quite fresh — but
+even mid-migration it was already a simpler system to reason about than what
+it replaced.</p><div class=related-posts><h2>Related posts</h2><ul><li><a href=/blog/2024/08/back-from-hyprland-to-sway/>Back from Hyprland to Sway</a></li><li><a href=/blog/2024/07/switching-to-hyprland/>Switching from Sway to Hyprland</a></li><li><a href=/blog/2021/06/setting-up-push-to-talk-in-mumble-on-sway/>NixOS: Setting up Push To Talk in Mumble on Sway</a></li></ul></div></div></div><footer class=footer><div class=content><p>Copyright &copy; 2010 Elis Hirwing</p><p>Made with <i class="fa-solid fa-heart" style=color:red></i> in Arvika
+by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target=_blank>Elis Hirwing</a>.</p></div></footer></body></html>
