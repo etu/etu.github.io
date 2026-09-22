@@ -1,0 +1,52 @@
+/* Cubing page styles */
+
+.algorithms {
+  display: grid;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.algorithm-card {
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  padding: 1.5rem;
+  background: var(--background-color);
+  transition: box-shadow 0.2s ease;
+}
+
+.algorithm-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--foreground-color);
+}
+
+.cube-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cube {
+  display: inline-block;
+  width: 200px;
+  height: 226px;
+}
+
+.algorithm-notation {
+  display: block;
+  padding: 1rem;
+  background-color: var(--code-background-color);
+  color: var(--code-foreground-color);
+  border-radius: 0.25rem;
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
