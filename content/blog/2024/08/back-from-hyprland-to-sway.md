@@ -2,7 +2,7 @@
 title: Back from Hyprland to Sway
 date: '2024-08-29T21:30:00+0200'
 tags: [Hyprland, Sway, Wayland, NixOS, Linux, Cosmic]
-popularRank: 5
+popularRank: 6
 ---
 
 After a brief experiment with

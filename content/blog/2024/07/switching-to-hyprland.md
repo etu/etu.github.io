@@ -2,7 +2,7 @@
 title: Switching from Sway to Hyprland
 date: '2024-07-23T16:40:00+0200'
 tags: [Hyprland, Sway, Wayland, NixOS, Linux]
-popularRank: 2
+popularRank: 3
 ---
 
 ## Introduction
