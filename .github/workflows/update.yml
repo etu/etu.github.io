@@ -8,7 +8,7 @@ name: Update
 
 jobs:
   update:
-    name: Update dependencies
+    name: Update 3D models
     runs-on: ubuntu-22.04
     permissions:
       contents: write
@@ -16,7 +16,6 @@ jobs:
       - uses: actions/checkout@v7
       - uses: DeterminateSystems/nix-installer-action@v23
 
-      - run: 'nix flake update'
       - run: 'nix run .#update-3d-models'
       - run: 'nix fmt'
       - run: 'nix run nixpkgs#deadnix -- --fail .'
@@ -31,4 +30,4 @@ jobs:
 
       - uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          commit_message: 'cron(flake): Update inputs'
+          commit_message: 'cron(3d-models): Update models'
