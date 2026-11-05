@@ -178,7 +178,7 @@ My first attempt referenced the binary directly in `ExecStart`, which
 is what you'd normally do in a systemd service on NixOS. It built just
 fine, but on boot the initrd journal said:
 
-```
+```text
 tailscaled.service: Unable to locate executable '/nix/store/…-tailscaled-initrd/bin/tailscaled': No such file or directory
 tailscaled.service: Failed with result 'exit-code'.
 ```
