@@ -110,9 +110,9 @@ localhost, where the initrd&rsquo;s SSH server is listening.</p><h3 id=only-the-
 for the kernel networking mode, so I copy the unwrapped Go binary into
 its own derivation to keep them out of the initrd.</p><h3 id=the-store-path-gotcha>The store path gotcha</h3><p>My first attempt referenced the binary directly in <code>ExecStart</code>, which
 is what you&rsquo;d normally do in a systemd service on NixOS. It built just
-fine, but on boot the initrd journal said:</p><pre tabindex=0><code>tailscaled.service: Unable to locate executable &#39;/nix/store/…-tailscaled-initrd/bin/tailscaled&#39;: No such file or directory
-tailscaled.service: Failed with result &#39;exit-code&#39;.
-</code></pre><p>Store paths that are only referenced from a unit in the systemd initrd
+fine, but on boot the initrd journal said:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>tailscaled.service: Unable to locate executable &#39;/nix/store/…-tailscaled-initrd/bin/tailscaled&#39;: No such file or directory
+</span></span><span class=line><span class=cl>tailscaled.service: Failed with result &#39;exit-code&#39;.
+</span></span></code></pre></div><p>Store paths that are only referenced from a unit in the systemd initrd
 are <em>not</em> copied into it. They have to be added explicitly, with
 <code>boot.initrd.systemd.storePaths</code> or, as above, with
 <code>boot.initrd.systemd.extraBin</code>, which also puts them in <code>/bin</code>. Having
