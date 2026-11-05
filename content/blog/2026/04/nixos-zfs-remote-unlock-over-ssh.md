@@ -116,7 +116,7 @@ ssh root@your-server -p 2222
 The `.profile` runs immediately on login and you will be prompted for each pool's
 passphrase in turn:
 
-```
+```text
 🔐 Enter key for zpool1:
 🔐 Enter key for zpool2:
 ```
