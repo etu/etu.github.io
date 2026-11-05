@@ -2,6 +2,7 @@
 title: How I ended up on a MacBook (and actually liked it)
 date: '2026-10-19T22:00:00+0200'
 tags: [macOS, Nix, nix-darwin, home-manager, AeroSpace]
+popularRank: 5
 ---
 
 For about 10 years I've worked at the same company, and for about 9 of
