@@ -1,0 +1,147 @@
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en><head><title>NixOS ❄: Remote unlock of encrypted ZFS over Tailscale - Elis Hirwing</title><meta charset=utf-8><meta name=referrer content="no-referrer"><link rel=canonical href=https://elis.nu/blog/2026/11/nixos-zfs-remote-unlock-over-tailscale/><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon type=image/png href="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250"><meta property="description" content><meta property="og:description" content><meta property="og:locale" content="en"><meta property="og:site_name" content="Elis Hirwing"><meta property="og:title" content="NixOS ❄: Remote unlock of encrypted ZFS over Tailscale &#183; Elis Hirwing"><meta property="og:type" content="website"><meta property="og:url" content="https://elis.nu/blog/2026/11/nixos-zfs-remote-unlock-over-tailscale/"><meta name=twitter:card content="summary_large_image"><link rel=me href=https://chaos.social/@sa0bse><script>var _paq=window._paq=window._paq||[];_paq.push(["disableCookies"]),_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){e="https://matomo.elis.nu/",_paq.push(["setTrackerUrl",e+"matomo.php"]),_paq.push(["setSiteId","3"]);var e,n=document,t=n.createElement("script"),s=n.getElementsByTagName("script")[0];t.async=!0,t.src=e+"matomo.js",s.parentNode.insertBefore(t,s)}()</script><noscript><img referrerpolicy=no-referrer-when-downgrade src="https://matomo.elis.nu/matomo.php?idsite=3&amp;rec=1" style=border:0 alt></noscript><link rel=stylesheet href=/css/fontawesome/fontawesome.css media=screen><link rel=stylesheet href=/css/fontawesome/solid.css media=screen><link rel=stylesheet href=/css/fontawesome/brands.css media=screen><link rel=stylesheet href=/css/style.min.279996e850a784005622c82a992494fa316ef153ad3a5ad2d315cfd292898b93.css integrity="sha256-J5mW6FCnhABWIsgqmSSU+jFu8VOtOlrS0xXP0pKJi5M=" crossorigin=anonymous media=screen></head><body><header><div class=i18n><ul><li><a href=/sv/><img src=/img/iso-flags/se.svg alt="se flag"></a></li></ul></div><div class=logo><a href=/><picture><source srcset="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" media="(prefers-color-scheme: dark)"><source srcset="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" media="(prefers-color-scheme: light)"><img src="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" alt="Logo of Elis Hirwing" width=250 height=250></picture></a></div><nav><ul><li><a href=/>~elis/</a></li><li><a href=/about/>./about/</a></li><li><a href=/work/>./work/</a></li><li><a href=/talks/>./talks/</a></li><li><a href=/blog/>./blog/</a></li><li><a href=/3d-models/>./3d-models/</a></li><li><a href=/cubing/>./cubing/</a></li><li><a href=/search/ aria-label=./search/><i class="fa-solid fa-magnifying-glass"></i></a></li></ul></nav></header><div class=wrapper data-pagefind-body><div class=content><h1>NixOS ❄: Remote unlock of encrypted ZFS over Tailscale</h1><span class=post-meta>2026-11-03
+&#183; 7 minutes read
+&#183;
+<a class=tag href=/tags/nixos/>NixOS</a>
+<a class=tag href=/tags/linux/>Linux</a>
+<a class=tag href=/tags/zfs/>ZFS</a>
+<a class=tag href=/tags/tailscale/>Tailscale</a></span><p>This is a follow-up to my earlier post: <a href=/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/>Remote unlock of encrypted ZFS
+over SSH</a>.</p><p>That setup has one limitation: the SSH server in the initrd is only
+reachable on my local network. If my file server reboots while I&rsquo;m
+away, for a power cut or a kernel update, it just sits there waiting
+for passphrases until I get home. I could forward a port on my router,
+but I really don&rsquo;t want an SSH server exposed to the internet, and
+certainly not one running in an initrd.</p><p>All my machines are already on <a href=https://tailscale.com/>Tailscale</a>, so
+the obvious solution is to have the initrd join the tailnet as well.</p><h2 id=the-idea>The idea</h2><p>The initrd joins the tailnet as its own node, <code>server-main-elis-initrd</code>,
+separate from the booted system&rsquo;s <code>server-main-elis</code>. It has its own
+identity, its own address and its own name, which has a few nice
+consequences:</p><ul><li>The booted system&rsquo;s Tailscale state stays on the encrypted pool where
+it belongs, the initrd never needs it.</li><li>The two nodes can have different ACLs. The initrd only needs to
+accept SSH, it never needs to connect to anything.</li><li>Since it&rsquo;s a separate host, the initrd&rsquo;s SSH server can listen on the
+normal port 22 without colliding with anything on the tailnet.</li></ul><p>There is no ready-made NixOS option for this, but with the systemd
+initrd it&rsquo;s just one extra service.</p><h2 id=registering-the-node>Registering the node</h2><p>The initrd can&rsquo;t do an interactive login, so the node is registered
+once beforehand and its state file is then baked into the initrd. I
+did this on the server itself, next to its regular <code>tailscaled</code>.</p><p>First, allow yourself to assign a tag to it in the Tailscale ACL policy:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-jsonc data-lang=jsonc><span class=line><span class=cl><span class=s2>&#34;tagOwners&#34;</span><span class=err>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;tag:initrd&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;autogroup:admin&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl><span class=p>}</span><span class=err>,</span>
+</span></span></code></pre></div><p>Tagged devices have key expiry disabled by default, which is exactly
+what we want here. Otherwise the initrd would get locked out of the
+tailnet after a few months.</p><p>Then start a second <code>tailscaled</code> with its own state directory and
+socket, using userspace networking and a random UDP port so it doesn&rsquo;t
+collide with the one that is already running:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>mkdir -p /root/initrd-ts
+</span></span><span class=line><span class=cl>tailscaled <span class=se>\
+</span></span></span><span class=line><span class=cl>  --tun<span class=o>=</span>userspace-networking <span class=se>\
+</span></span></span><span class=line><span class=cl>  --port<span class=o>=</span><span class=m>0</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  --statedir<span class=o>=</span>/root/initrd-ts <span class=se>\
+</span></span></span><span class=line><span class=cl>  --state<span class=o>=</span>/root/initrd-ts/tailscaled.state <span class=se>\
+</span></span></span><span class=line><span class=cl>  --socket<span class=o>=</span>/root/initrd-ts/tailscaled.sock
+</span></span></code></pre></div><p>In another terminal, bring it up with the hostname and the tag:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>tailscale --socket<span class=o>=</span>/root/initrd-ts/tailscaled.sock up <span class=se>\
+</span></span></span><span class=line><span class=cl>  --hostname<span class=o>=</span>server-main-elis-initrd <span class=se>\
+</span></span></span><span class=line><span class=cl>  --advertise-tags<span class=o>=</span>tag:initrd
+</span></span></code></pre></div><p>Open the login URL it prints and approve the node. Then stop
+<code>tailscaled</code> with Ctrl-C. <strong>Don&rsquo;t</strong> run <code>tailscale logout</code>, that
+invalidates the node key and the state file becomes useless.</p><p>What&rsquo;s left is <code>/root/initrd-ts/tailscaled.state</code>, which contains the
+node&rsquo;s identity, including the hostname and tag. I encrypted it with
+<a href=https://github.com/ryantm/agenix>agenix</a>, like the initrd SSH host
+key, and removed the plaintext copies.</p><h2 id=configuration>Configuration</h2><p>The state file goes into the initrd with <code>boot.initrd.secrets</code>, which
+copies it in when the bootloader is installed. Then a service starts
+<code>tailscaled</code> in the initrd:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=p>{</span> <span class=n>config</span><span class=o>,</span> <span class=n>lib</span><span class=o>,</span> <span class=n>pkgs</span><span class=o>,</span> <span class=o>...</span> <span class=p>}:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=c1># Decrypted by agenix on the booted system, then copied into the</span>
+</span></span><span class=line><span class=cl>  <span class=c1># initrd when the bootloader is installed.</span>
+</span></span><span class=line><span class=cl>  <span class=n>age</span><span class=o>.</span><span class=n>secrets</span><span class=o>.</span><span class=n>initrd-tailscaled-state</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>file</span> <span class=o>=</span> <span class=sr>./secrets/initrd-tailscaled-state.age</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>path</span> <span class=o>=</span> <span class=s2>&#34;/persistent/etc/initrd/tailscaled.state&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>symlink</span> <span class=o>=</span> <span class=no>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=n>boot</span><span class=o>.</span><span class=n>initrd</span><span class=o>.</span><span class=n>secrets</span><span class=o>.</span><span class=s2>&#34;/var/lib/tailscale/tailscaled.state&#34;</span> <span class=o>=</span>
+</span></span><span class=line><span class=cl>    <span class=n>config</span><span class=o>.</span><span class=n>age</span><span class=o>.</span><span class=n>secrets</span><span class=o>.</span><span class=n>initrd-tailscaled-state</span><span class=o>.</span><span class=n>path</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1># Only the Go binary goes into the initrd, see below.</span>
+</span></span><span class=line><span class=cl>  <span class=n>boot</span><span class=o>.</span><span class=n>initrd</span><span class=o>.</span><span class=n>systemd</span><span class=o>.</span><span class=n>extraBin</span> <span class=o>=</span>
+</span></span><span class=line><span class=cl>    <span class=k>let</span>
+</span></span><span class=line><span class=cl>      <span class=n>tailscaled</span> <span class=o>=</span> <span class=n>pkgs</span><span class=o>.</span><span class=n>runCommand</span> <span class=s2>&#34;tailscaled-initrd&#34;</span> <span class=p>{</span> <span class=p>}</span> <span class=s1>&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>        install -Dm755 </span><span class=si>${</span><span class=n>pkgs</span><span class=o>.</span><span class=n>tailscale</span><span class=si>}</span><span class=s1>/bin/.tailscaled-wrapped $out/bin/tailscaled
+</span></span></span><span class=line><span class=cl><span class=s1>      &#39;&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>in</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=n>tailscaled</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=si>${</span><span class=n>tailscaled</span><span class=si>}</span><span class=s2>/bin/tailscaled&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=c1># It&#39;s a multicall binary, called as tailscale it&#39;s the CLI.</span>
+</span></span><span class=line><span class=cl>      <span class=n>tailscale</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=si>${</span><span class=n>tailscaled</span><span class=si>}</span><span class=s2>/bin/tailscaled&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=n>boot</span><span class=o>.</span><span class=n>initrd</span><span class=o>.</span><span class=n>systemd</span><span class=o>.</span><span class=n>services</span><span class=o>.</span><span class=n>tailscaled</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;Tailscale node agent in the initrd&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>wantedBy</span> <span class=o>=</span> <span class=p>[</span> <span class=s2>&#34;initrd.target&#34;</span> <span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=n>after</span> <span class=o>=</span> <span class=p>[</span> <span class=s2>&#34;network.target&#34;</span> <span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=c1># Stop before switching root, so the real tailscaled starts cleanly.</span>
+</span></span><span class=line><span class=cl>    <span class=n>conflicts</span> <span class=o>=</span> <span class=p>[</span> <span class=s2>&#34;initrd-switch-root.target&#34;</span> <span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=n>before</span> <span class=o>=</span> <span class=p>[</span> <span class=s2>&#34;initrd-switch-root.target&#34;</span> <span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=n>unitConfig</span><span class=o>.</span><span class=n>DefaultDependencies</span> <span class=o>=</span> <span class=no>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>serviceConfig</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=n>ExecStart</span> <span class=o>=</span> <span class=n>lib</span><span class=o>.</span><span class=n>concatStringsSep</span> <span class=s2>&#34; &#34;</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;/bin/tailscaled&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;--tun=userspace-networking&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;--statedir=/var/lib/tailscale&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;--state=/var/lib/tailscale/tailscaled.state&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>];</span>
+</span></span><span class=line><span class=cl>      <span class=n>Restart</span> <span class=o>=</span> <span class=s2>&#34;on-failure&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>};</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1># And move the initrd SSH server to the normal port.</span>
+</span></span><span class=line><span class=cl>  <span class=n>boot</span><span class=o>.</span><span class=n>initrd</span><span class=o>.</span><span class=n>network</span><span class=o>.</span><span class=n>ssh</span><span class=o>.</span><span class=n>port</span> <span class=o>=</span> <span class=mi>22</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>This builds on the configuration from the previous post, which sets up
+networking, the SSH server and the password agent in the initrd.</p><h3 id=deploy-the-secret-first>Deploy the secret first</h3><p>There&rsquo;s a chicken and egg problem in the configuration above.
+<code>boot.initrd.secrets</code> reads the decrypted state file from the booted
+system when the bootloader is installed. But when switching to a new
+configuration, NixOS installs the bootloader <em>before</em> it runs the
+activation, which is where agenix decrypts the secrets. So on the
+first deploy the file doesn&rsquo;t exist yet, and installing the bootloader
+fails.</p><p>The solution is to deploy in two steps. First deploy only the
+<code>age.secrets.initrd-tailscaled-state</code> part, so the decrypted file is
+in place. Then add <code>boot.initrd.secrets</code> and the <code>tailscaled</code> service
+and deploy again.</p><h3 id=userspace-networking>Userspace networking</h3><p>With <code>--tun=userspace-networking</code>, <code>tailscaled</code> runs its own network
+stack instead of creating a <code>tailscale0</code> interface. This means the
+initrd needs no <code>tun</code> kernel module and no firewall rules, and incoming
+connections from the tailnet are simply forwarded to the same port on
+localhost, where the initrd&rsquo;s SSH server is listening.</p><h3 id=only-the-binary>Only the binary</h3><p>The <code>tailscale</code> package in nixpkgs wraps <code>tailscaled</code> to put <code>iptables</code>,
+<code>iproute2</code> and a few other tools in its <code>PATH</code>. Those are only needed
+for the kernel networking mode, so I copy the unwrapped Go binary into
+its own derivation to keep them out of the initrd.</p><h3 id=the-store-path-gotcha>The store path gotcha</h3><p>My first attempt referenced the binary directly in <code>ExecStart</code>, which
+is what you&rsquo;d normally do in a systemd service on NixOS. It built just
+fine, but on boot the initrd journal said:</p><pre tabindex=0><code>tailscaled.service: Unable to locate executable &#39;/nix/store/…-tailscaled-initrd/bin/tailscaled&#39;: No such file or directory
+tailscaled.service: Failed with result &#39;exit-code&#39;.
+</code></pre><p>Store paths that are only referenced from a unit in the systemd initrd
+are <em>not</em> copied into it. They have to be added explicitly, with
+<code>boot.initrd.systemd.storePaths</code> or, as above, with
+<code>boot.initrd.systemd.extraBin</code>, which also puts them in <code>/bin</code>. Having
+<code>tailscale</code> in <code>/bin</code> is handy too, it lets you run <code>tailscale status</code>
+from the initrd shell when debugging.</p><h3 id=port-22>Port 22</h3><p>In the previous post the initrd SSH server listened on port 2222, so it
+didn&rsquo;t share an address and port with the booted system&rsquo;s SSH server
+but with a different host key. Over Tailscale that&rsquo;s no longer an
+issue, since the initrd is its own host.</p><p>On the local network the address is still shared, so it will present
+either the initrd&rsquo;s or the booted system&rsquo;s host key depending on the
+boot stage. OpenSSH accepts any of the keys listed for a host, so I
+list both keys for the LAN address in <code>programs.ssh.knownHosts</code>. On
+machines where known hosts aren&rsquo;t managed, add the initrd&rsquo;s key by hand
+once, otherwise SSH refuses to connect with the scary &ldquo;REMOTE HOST
+IDENTIFICATION HAS CHANGED&rdquo; warning.</p><h2 id=locking-it-down>Locking it down</h2><p>The state file is copied into the initrd, and the initrd lives
+unencrypted on the boot partition. So anyone with access to the disk
+can read it and join the tailnet as <code>server-main-elis-initrd</code>. The
+initrd SSH host key has exactly the same problem, it&rsquo;s inherent to
+running anything before the disks are unlocked.</p><p>That&rsquo;s where the tag comes in. Only allow incoming SSH to it, and
+nothing from it:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-jsonc data-lang=jsonc><span class=line><span class=cl><span class=s2>&#34;acls&#34;</span><span class=err>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// ...
+</span></span></span><span class=line><span class=cl>  <span class=p>{</span> <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;accept&#34;</span><span class=p>,</span> <span class=nt>&#34;src&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;autogroup:member&#34;</span><span class=p>],</span> <span class=nt>&#34;dst&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;tag:initrd:22&#34;</span><span class=p>]</span> <span class=p>},</span>
+</span></span><span class=line><span class=cl><span class=p>]</span><span class=err>,</span>
+</span></span></code></pre></div><p>Since no rule has <code>tag:initrd</code> as its source, a stolen state file only
+gets you a node that can be reached on port 22, and can&rsquo;t reach
+anything itself.</p><h2 id=using-it>Using it</h2><p>When the server boots and is waiting for the ZFS passphrases, SSH to
+the initrd&rsquo;s node from anywhere on the tailnet:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>ssh root@server-main-elis-initrd
+</span></span></code></pre></div><p>The password agent from the previous post starts right away and
+prompts for each pool&rsquo;s passphrase. Once the last one is entered, the
+initrd stops its <code>tailscaled</code>, switches to the real root and the
+booted system comes up as <code>server-main-elis</code> on the tailnet. The
+initrd node then just shows as offline until the next reboot.</p><div class=related-posts><h2>Related posts</h2><ul><li><a href=/blog/2026/04/nixos-zfs-remote-unlock-over-ssh/>NixOS ❄: Remote unlock of encrypted ZFS over SSH</a></li><li><a href=/blog/2021/05/the-day-when-zfs-saved-my-data/>The day when ZFS saved my data</a></li><li><a href=/blog/2019/08/encrypted-zfs-mirror-with-mirrored-boot-on-nixos/>Encrypted ZFS mirror with mirrored boot on NixOS</a></li></ul></div></div></div><footer class=footer><div class=content><p>Copyright &copy; 2010 Elis Hirwing</p><p>Made with <i class="fa-solid fa-heart" style=color:red></i> in Arvika
+by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target=_blank>Elis Hirwing</a>.</p></div></footer></body></html>
