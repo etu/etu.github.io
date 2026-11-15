@@ -7,5 +7,15 @@
     blueprint.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs: inputs.blueprint { inherit inputs; };
+  outputs =
+    inputs:
+    inputs.blueprint {
+      inherit inputs;
+      # nixpkgs 26.11 dropped x86_64-darwin
+      systems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
+    };
 }
