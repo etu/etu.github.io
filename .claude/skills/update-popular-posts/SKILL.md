@@ -7,15 +7,15 @@ description: Refresh the homepage's "~elis/popular-posts/" list using real Matom
 
 The homepage (`themes/albatross/layouts/index.html`) renders a "Popular
 posts" section from any blog post whose front matter sets a numeric
-`popularRank` field (1 = most visits), sorted ascending:
+`popularRank` field (1 = most visits), sorted ascending, followed by any
+featured posts. It's hidden automatically when nothing sets either, so
+it's safe to have zero, some, or all ranks change between updates.
 
-```
-{{ $popularPosts := where .Site.RegularPages "Params.popularrank" "!=" nil }}
-{{ with sort $popularPosts "Params.popularrank" }}
-```
-
-It's empty/hidden automatically when nothing sets the field, so it's safe
-to have zero, some, or all ranks change between updates.
+This already runs automatically every Sunday at 03:00 UTC via
+`.github/workflows/popular-posts.yml` (using the `MATOMO_TOKEN` repo
+secret), which also deploys and commits the result. Only run it locally
+when the user wants an ad-hoc refresh or a different window. To just
+trigger the CI job instead, use `gh workflow run popular-posts.yml`.
 
 ## 1. Get a Matomo API token
 
@@ -31,50 +31,36 @@ This requires a bearer token for `matomo.elis.nu` (site ID `3`, from
 4. Paste the token into the conversation.
 
 The user must supply this fresh each time — **never write the token to a
-file, commit, or memory.** It's only ever used inline in a single `curl`
-call for this session. Once done, the user can revoke it from that same
+file, commit, or memory.** It's only ever passed inline to the command
+below for this session. Once done, the user can revoke it from that same
 Security page if they generated a long-lived one.
 
-## 2. Pull page-view data
-
-The endpoint is Matomo's `Actions.getPageUrls` API method, called on the
-Matomo instance itself (`module=API`, not a separate REST host).
-`WebFetch` cannot send custom headers, so use `curl` directly:
+## 2. Run the update
 
 ```bash
-curl -s -H "Authorization: Bearer <TOKEN>" \
-  "https://matomo.elis.nu/?module=API&method=Actions.getPageUrls&idSite=3&period=range&date=last90&format=JSON&flat=1&filter_limit=25" \
-  -o /tmp/matomo-pages.json
-jq -r '.[] | "\(.nb_visits)\t\(.label)"' /tmp/matomo-pages.json | sort -rn
+MATOMO_TOKEN=<TOKEN> nix run .#update-popular-posts
 ```
 
-`last90` is a reasonable default window; adjust if the user wants a
-different period. Delete the temp file when done — it's just working
-data, not something to keep around.
+The script (`packages/update-popular-posts.nix`) fetches page views from
+Matomo, maps them to published English blog posts, picks a cutoff at the
+largest relative drop in visits between positions 5 and 10, clears all
+existing `popularRank` fields, and writes the new ranks. It prints the
+top posts with visit counts and the ranks it applied.
 
-## 3. Pick the cutoff
+Optional environment overrides:
 
-Don't hardcode a fixed top-N. Look at the actual numbers for a natural
-drop-off (e.g. last time: 110+ visits formed a clear top tier, then a gap
-down to 88). Only blog posts count — skip `/`, `/about/`, `/tags/*`, etc.
+- `DAYS` — lookback window (default `90`)
+- `MIN_POSTS` / `MAX_POSTS` — range the cutoff is chosen from (default `5` / `10`)
 
-## 4. Update front matter
+Show the user the printed ranking and the cutoff it chose.
 
-For each post in the new ranking, set/update in its front matter:
-
-```yaml
-popularRank: 1   # 1 = most visits, increasing from there
-```
-
-Remove the field entirely from any post that was ranked before but no
-longer makes the cutoff — don't leave stale ranks lying around.
-
-## 5. Verify and commit
+## 3. Verify and commit
 
 ```bash
+git diff -- content/blog
 hugo --minify -d /tmp/build && grep -o '<h2>~elis/popular-posts/</h2>.\{0,900\}' /tmp/build/index.html
 rm -rf /tmp/build
 ```
 
-Confirm the order matches the new ranking, then commit as a `post:` or
-`feat:` change per this repo's commit conventions (see root `CLAUDE.md`).
+Confirm the order matches the new ranking, then commit as a `feat:`
+change per this repo's commit conventions (see root `CLAUDE.md`).
