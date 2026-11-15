@@ -1,0 +1,50 @@
+---
+name: Popular posts
+
+'on':
+  schedule:
+    - cron: '0 3 * * 0'  # At 03:00 on Sunday.
+  workflow_dispatch:
+
+concurrency:
+  group: ci-popular-posts
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Update popular posts
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: DeterminateSystems/nix-installer-action@v23
+
+      - run: 'nix run .#update-popular-posts'
+        env:
+          MATOMO_TOKEN: ${{ secrets.MATOMO_TOKEN }}
+
+      - id: changes
+        run: |
+          if git diff --quiet -- content/blog; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git diff --stat -- content/blog
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - if: steps.changes.outputs.changed == 'true'
+        run: 'nix build'
+
+      # Commits pushed with GITHUB_TOKEN don't trigger publish.yml, so deploy here.
+      - if: steps.changes.outputs.changed == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./result
+
+      - if: steps.changes.outputs.changed == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: 'cron(popular-posts): Refresh popular posts'
+          file_pattern: 'content/blog/**/*.md'
