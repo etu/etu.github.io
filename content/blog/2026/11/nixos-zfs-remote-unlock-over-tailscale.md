@@ -2,6 +2,7 @@
 title: 'NixOS ❄: Remote unlock of encrypted ZFS over Tailscale'
 date: '2026-11-03T22:00:00+0100'
 tags: [NixOS, Linux, ZFS, Tailscale]
+popularRank: 9
 ---
 
 This is a follow-up to my earlier post: [Remote unlock of encrypted ZFS
