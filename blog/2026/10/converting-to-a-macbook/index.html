@@ -1,0 +1,168 @@
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en><head><title>How I ended up on a MacBook (and actually liked it) - Elis Hirwing</title><meta charset=utf-8><meta name=referrer content="no-referrer"><link rel=canonical href=https://elis.nu/blog/2026/10/converting-to-a-macbook/><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon type=image/png href="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250"><meta property="description" content><meta property="og:description" content><meta property="og:locale" content="en"><meta property="og:site_name" content="Elis Hirwing"><meta property="og:title" content="How I ended up on a MacBook (and actually liked it) &#183; Elis Hirwing"><meta property="og:type" content="website"><meta property="og:url" content="https://elis.nu/blog/2026/10/converting-to-a-macbook/"><meta name=twitter:card content="summary_large_image"><link rel=me href=https://chaos.social/@sa0bse><script>var _paq=window._paq=window._paq||[];_paq.push(["disableCookies"]),_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){e="https://matomo.elis.nu/",_paq.push(["setTrackerUrl",e+"matomo.php"]),_paq.push(["setSiteId","3"]);var e,n=document,t=n.createElement("script"),s=n.getElementsByTagName("script")[0];t.async=!0,t.src=e+"matomo.js",s.parentNode.insertBefore(t,s)}()</script><noscript><img referrerpolicy=no-referrer-when-downgrade src="https://matomo.elis.nu/matomo.php?idsite=3&amp;rec=1" style=border:0 alt></noscript><link rel=stylesheet href=/css/fontawesome/fontawesome.css media=screen><link rel=stylesheet href=/css/fontawesome/solid.css media=screen><link rel=stylesheet href=/css/fontawesome/brands.css media=screen><link rel=stylesheet href=/css/style.min.279996e850a784005622c82a992494fa316ef153ad3a5ad2d315cfd292898b93.css integrity="sha256-J5mW6FCnhABWIsgqmSSU+jFu8VOtOlrS0xXP0pKJi5M=" crossorigin=anonymous media=screen></head><body><header><div class=i18n><ul><li><a href=/sv/><img src=/img/iso-flags/se.svg alt="se flag"></a></li></ul></div><div class=logo><a href=/><picture><source srcset="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" media="(prefers-color-scheme: dark)"><source srcset="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" media="(prefers-color-scheme: light)"><img src="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" alt="Logo of Elis Hirwing" width=250 height=250></picture></a></div><nav><ul><li><a href=/>~elis/</a></li><li><a href=/about/>./about/</a></li><li><a href=/work/>./work/</a></li><li><a href=/talks/>./talks/</a></li><li><a href=/blog/>./blog/</a></li><li><a href=/3d-models/>./3d-models/</a></li><li><a href=/cubing/>./cubing/</a></li><li><a href=/search/ aria-label=./search/><i class="fa-solid fa-magnifying-glass"></i></a></li></ul></nav></header><div class=wrapper data-pagefind-body><div class=content><h1>How I ended up on a MacBook (and actually liked it)</h1><span class=post-meta>2026-10-19
+&#183; 8 minutes read
+&#183;
+<a class=tag href=/tags/macos/>MacOS</a>
+<a class=tag href=/tags/nix/>Nix</a>
+<a class=tag href=/tags/nix-darwin/>Nix-Darwin</a>
+<a class=tag href=/tags/home-manager/>Home-Manager</a>
+<a class=tag href=/tags/aerospace/>AeroSpace</a></span><p>For about 10 years I&rsquo;ve worked at the same company, and for about 9 of
+those years I&rsquo;ve been running <a href=https://nixos.org/>NixOS</a> on my work
+machine with a setup that I&rsquo;ve built and tuned exactly the way I want
+it.</p><p>Then corporate security decided that all devices needed to be
+managed. That&rsquo;s a perfectly reasonable requirement from their side,
+but it&rsquo;s not something that works with a custom NixOS setup. So I got
+handed a MacBook Pro.</p><p>I was absolutely certain that I would hate it.</p><h2 id=bringing-nix-along>Bringing Nix along</h2><p>Instead of giving up on my setup, I started exploring what Nix can do
+on macOS. With <a href=https://github.com/nix-darwin/nix-darwin>nix-darwin</a>
+for the system level and
+<a href=https://github.com/nix-community/home-manager>home-manager</a> for my
+user environment, it turns out that a surprisingly large part of how
+I like to work carries over. It&rsquo;s actually pretty great.</p><p>Getting started was quick. With Nix installed, all I had to do was move
+away the <code>nix.conf</code> that nix-darwin wants to manage, and then do the
+first activation:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>sudo mv /etc/nix/nix.conf /etc/nix/nix.conf.before-nix-darwin
+</span></span><span class=line><span class=cl>sudo nix --extra-experimental-features <span class=s1>&#39;nix-command flakes&#39;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  run nix-darwin -- switch --flake .#macbook-air-elis
+</span></span></code></pre></div><p>After that it&rsquo;s the same workflow as on NixOS: change the config,
+commit, activate. The whole setup is about 50 commits over four days,
+and a lot of them are just moving things I already had into modules
+that both NixOS and nix-darwin can import. My configs for Emacs, fish,
+git and Ghostty are now shared between the platforms, and CI builds the
+Darwin hosts on macOS runners next to the NixOS ones.</p><p>I&rsquo;m pretty sure macOS would be unusable for me without a proper package
+manager like Nix. At the same time, it&rsquo;s kind of nice that I don&rsquo;t have
+to manage <em>everything</em> with it. Firefox, for example, I just installed
+as a normal application and let it update itself.</p><h3 id=making-macos-behave>Making macOS behave</h3><p>A surprising amount of what annoyed me about macOS turned out to be
+settings that nix-darwin exposes as options. This is most of my
+<code>system</code> module:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=c1># Use dark mode.</span>
+</span></span><span class=line><span class=cl>  <span class=n>system</span><span class=o>.</span><span class=n>defaults</span><span class=o>.</span><span class=n>NSGlobalDomain</span><span class=o>.</span><span class=n>AppleInterfaceStyle</span> <span class=o>=</span> <span class=s2>&#34;Dark&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1># Hide the Dock, and don&#39;t show recently used apps in it.</span>
+</span></span><span class=line><span class=cl>  <span class=n>system</span><span class=o>.</span><span class=n>defaults</span><span class=o>.</span><span class=n>dock</span><span class=o>.</span><span class=n>autohide</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=n>system</span><span class=o>.</span><span class=n>defaults</span><span class=o>.</span><span class=n>dock</span><span class=o>.</span><span class=n>show-recents</span> <span class=o>=</span> <span class=no>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1># Show battery percentage and Bluetooth in the menu bar.</span>
+</span></span><span class=line><span class=cl>  <span class=n>system</span><span class=o>.</span><span class=n>defaults</span><span class=o>.</span><span class=n>controlcenter</span><span class=o>.</span><span class=n>BatteryShowPercentage</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=n>system</span><span class=o>.</span><span class=n>defaults</span><span class=o>.</span><span class=n>controlcenter</span><span class=o>.</span><span class=n>Bluetooth</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1># Faster key repeat (in units of 15 ms).</span>
+</span></span><span class=line><span class=cl>  <span class=n>system</span><span class=o>.</span><span class=n>defaults</span><span class=o>.</span><span class=n>NSGlobalDomain</span><span class=o>.</span><span class=n>InitialKeyRepeat</span> <span class=o>=</span> <span class=mi>25</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=n>system</span><span class=o>.</span><span class=n>defaults</span><span class=o>.</span><span class=n>NSGlobalDomain</span><span class=o>.</span><span class=n>KeyRepeat</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1># Caps Lock is Control. Obviously.</span>
+</span></span><span class=line><span class=cl>  <span class=n>system</span><span class=o>.</span><span class=n>keyboard</span><span class=o>.</span><span class=n>enableKeyMapping</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=n>system</span><span class=o>.</span><span class=n>keyboard</span><span class=o>.</span><span class=n>remapCapsLockToControl</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1># Use Touch ID for sudo, also inside tmux.</span>
+</span></span><span class=line><span class=cl>  <span class=n>security</span><span class=o>.</span><span class=n>pam</span><span class=o>.</span><span class=n>services</span><span class=o>.</span><span class=n>sudo_local</span><span class=o>.</span><span class=n>touchIdAuth</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=n>security</span><span class=o>.</span><span class=n>pam</span><span class=o>.</span><span class=n>services</span><span class=o>.</span><span class=n>sudo_local</span><span class=o>.</span><span class=n>reattach</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Touch ID for <code>sudo</code> is one of those things I didn&rsquo;t know I wanted. The
+<code>reattach</code> part is needed for it to work inside tmux, since processes
+started by the tmux server otherwise aren&rsquo;t connected to the login
+session.</p><p>Another nice surprise is SSH. macOS already runs an <code>ssh-agent</code> per
+login session, and Apple&rsquo;s <code>ssh</code> can read key passphrases from the
+Keychain. So instead of setting up my own agent, I just told
+home-manager to use it:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=n>programs</span><span class=o>.</span><span class=n>ssh</span><span class=o>.</span><span class=n>settings</span><span class=o>.</span><span class=s2>&#34;*&#34;</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>AddKeysToAgent</span> <span class=o>=</span> <span class=s2>&#34;yes&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1># UseKeychain only exists in Apple&#39;s ssh, don&#39;t let other ssh builds</span>
+</span></span><span class=line><span class=cl>  <span class=c1># fail on it.</span>
+</span></span><span class=line><span class=cl>  <span class=n>IgnoreUnknown</span> <span class=o>=</span> <span class=s2>&#34;UseKeychain&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=n>UseKeychain</span> <span class=o>=</span> <span class=s2>&#34;yes&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></div><h2 id=the-bad-parts-window-manager-and-terminal>The bad parts: window manager and terminal</h2><p>The two most terrible things about macOS out of the box are the window
+management and the terminal emulator.</p><p>The terminal emulator is the easy one, just replace it. I already use
+<a href=https://ghostty.org/>Ghostty</a> on NixOS, so I shared that home-manager
+module with nix-darwin and only needed a couple of macOS-specific
+tweaks on top:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=n>programs</span><span class=o>.</span><span class=n>ghostty</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=c1># The official macOS build (the source build is Linux-only).</span>
+</span></span><span class=line><span class=cl>  <span class=n>package</span> <span class=o>=</span> <span class=n>pkgs</span><span class=o>.</span><span class=n>ghostty-bin</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=n>settings</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1># Always start fish, regardless of the account&#39;s login shell.</span>
+</span></span><span class=line><span class=cl>    <span class=n>command</span> <span class=o>=</span> <span class=n>lib</span><span class=o>.</span><span class=n>getExe</span> <span class=n>config</span><span class=o>.</span><span class=n>programs</span><span class=o>.</span><span class=n>fish</span><span class=o>.</span><span class=n>package</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Quit when the last window is closed, like on Linux.</span>
+</span></span><span class=line><span class=cl>    <span class=n>quit-after-last-window-closed</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></div><p>The window manager is harder since you can&rsquo;t really replace it, but
+<a href=https://github.com/nikitabobko/AeroSpace>AeroSpace</a> gets me close
+enough to a tiling workflow that it&rsquo;s actually pretty great. It&rsquo;s an
+i3-like tiling window manager for macOS, and nix-darwin has a module
+for it.</p><p>I configured it to mirror my <a href=https://swaywm.org/>Sway</a> keybindings
+as closely as possible. The main difference is using Alt as the
+modifier instead of Super, since Cmd collides with most macOS
+shortcuts. AeroSpace even has a Dvorak key-mapping preset, so the
+bindings end up on the same physical keys as on Sway:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=n>services</span><span class=o>.</span><span class=n>aerospace</span><span class=o>.</span><span class=n>settings</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=c1># Bind keys by Dvorak letters, like on sway.</span>
+</span></span><span class=line><span class=cl>  <span class=n>key-mapping</span><span class=o>.</span><span class=n>preset</span> <span class=o>=</span> <span class=s2>&#34;dvorak&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1># Workspaces I-X always exist, like sway&#39;s numbered workspaces.</span>
+</span></span><span class=line><span class=cl>  <span class=n>persistent-workspaces</span> <span class=o>=</span> <span class=p>[</span> <span class=s2>&#34;Ⅰ&#34;</span> <span class=s2>&#34;Ⅱ&#34;</span> <span class=s2>&#34;Ⅲ&#34;</span> <span class=s2>&#34;Ⅳ&#34;</span> <span class=s2>&#34;Ⅴ&#34;</span> <span class=s2>&#34;Ⅵ&#34;</span> <span class=s2>&#34;Ⅶ&#34;</span> <span class=s2>&#34;Ⅷ&#34;</span> <span class=s2>&#34;Ⅸ&#34;</span> <span class=s2>&#34;Ⅹ&#34;</span> <span class=p>];</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=n>mode</span><span class=o>.</span><span class=n>main</span><span class=o>.</span><span class=n>binding</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;alt-enter&#34;</span> <span class=o>=</span> <span class=s2>&#34;exec-and-forget open -na Ghostty&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;alt-shift-quote&#34;</span> <span class=o>=</span> <span class=s2>&#34;close&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Emacs-style directions to move focus around.</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;alt-b&#34;</span> <span class=o>=</span> <span class=s2>&#34;focus --wrap-around left&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;alt-f&#34;</span> <span class=o>=</span> <span class=s2>&#34;focus --wrap-around right&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;alt-p&#34;</span> <span class=o>=</span> <span class=s2>&#34;focus --wrap-around up&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;alt-n&#34;</span> <span class=o>=</span> <span class=s2>&#34;focus --wrap-around down&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Closest thing to sway&#39;s split h/v.</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;alt-h&#34;</span> <span class=o>=</span> <span class=s2>&#34;join-with right&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;alt-v&#34;</span> <span class=o>=</span> <span class=s2>&#34;join-with down&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># ...and so on for moving windows, layouts and workspaces.</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span></code></pre></div><p>It wasn&rsquo;t all smooth sailing though. A couple of things I ran into:</p><ul><li><strong>Opening a new terminal.</strong> On Sway I just exec the terminal. On
+macOS the obvious way would be to ask Ghostty for a new window over
+AppleScript, but AeroSpace doesn&rsquo;t declare that it sends Apple Events,
+so macOS silently refuses. So instead every Alt+Return starts a new
+Ghostty instance with <code>open -na Ghostty</code>, which is also why
+<code>quit-after-last-window-closed</code> is needed. Otherwise every closed
+terminal leaves an instance running in the Dock.</li><li><strong>Emacs floating above everything.</strong> Emacs started from Spotlight
+refused to tile and floated on top of all workspaces. It turned out
+that the Nix-wrapped <code>Emacs.app</code> execs a wrapper that in turn execs
+the real Emacs binary from <em>another</em> app bundle, and a process
+launched as one bundle but running from another isn&rsquo;t picked up by
+AeroSpace. The fix was to make <code>Emacs.app</code> start the wrapped
+<code>bin/emacs</code> as a separate process instead, just like starting it
+from a terminal.</li></ul><h2 id=the-good-parts-its-solid>The good parts: it&rsquo;s solid</h2><p>With those two things sorted, what&rsquo;s left is a system that feels solid
+and snappy. The hardware is great too:</p><ul><li><strong>Build quality</strong> is excellent.</li><li><strong>Performance</strong> is great.</li><li><strong>It doesn&rsquo;t run hot.</strong></li><li><strong>Battery life</strong> lasts for days.</li></ul><h2 id=getting-a-private-one-as-well>Getting a private one as well</h2><p>After just a few days I decided to get a private MacBook as well, so I
+have something to play with in the evenings and not only the work one.</p><p>For the private one I went with a MacBook Air rather than a Pro. It&rsquo;s
+slightly cheaper, it weighs less, and I don&rsquo;t need the Pro performance
+for what I do on my own time. I did, however, get it with 24 GB of RAM
+so that I have room to play around with development and running some
+AI models locally.</p><p>Having a private one also makes the setup easier to structure. I can
+keep a Darwin configuration in my public GitHub repository, and then
+have my work repository inherit from that and bolt on the
+work-specific things that shouldn&rsquo;t be in a public repository.</p><p>My <a href=https://github.com/etu/nixconfig>public config</a> exports all the
+Darwin modules, so the work flake can import them as
+<code>darwinModules.default</code> and only add what&rsquo;s specific to work. Some
+defaults are set with <code>lib.mkDefault</code> so the work flake can override
+them. One example is recording which git revision the system was built
+from:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=c1># mkDefault so flakes that import these modules, like the work</span>
+</span></span><span class=line><span class=cl><span class=c1># MacBook&#39;s, can record their own revision instead.</span>
+</span></span><span class=line><span class=cl><span class=n>system</span><span class=o>.</span><span class=n>configurationRevision</span> <span class=o>=</span> <span class=n>lib</span><span class=o>.</span><span class=n>mkDefault</span> <span class=p>(</span><span class=n>flake</span><span class=o>.</span><span class=n>rev</span> <span class=n>or</span> <span class=n>flake</span><span class=o>.</span><span class=n>dirtyRev</span> <span class=n>or</span> <span class=no>null</span><span class=p>);</span>
+</span></span></code></pre></div><h2 id=the-one-strange-problem-my-apple-account>The one strange problem: my Apple account</h2><p>There is one strange problem I&rsquo;ve run into, and it has nothing to do
+with Nix.</p><p>Quite some time ago I created an Apple account using my private email
+address. When I tried to sign into it on my new MacBook, I got asked
+to enter a phone number. So I entered my phone number, and was told
+that it <em>can&rsquo;t verify using my phone number at this time</em>.</p><p>Waiting doesn&rsquo;t help. Waiting more doesn&rsquo;t help. Password recovery
+doesn&rsquo;t help. I have no clue what&rsquo;s going on.</p><p>So I called Apple support, and that turned out to be a surprisingly
+pleasant experience. Everyone I talked to was super nice.</p><p>The first person didn&rsquo;t know what was wrong. He tried adding my phone
+number as a trusted number, and all sorts of other things, before
+escalating it to a senior advisor. They didn&rsquo;t know either, so I was
+asked to take some screenshots, try again later, take more screenshots
+and send them all in by email.</p><p>This senior advisor then took personal responsibility for my case. He
+scheduled a follow-up call with me a couple of days later, and called
+me on the exact minute it was scheduled. He had looked through my
+screenshots, asked some follow-up questions, and then escalated the
+issue again, this time to the actual engineers. He&rsquo;ll get back to me
+once it&rsquo;s resolved.</p><p>I usually have very low expectations of support, but so far Apple
+support has been really impressive.</p><h2 id=conclusion>Conclusion</h2><p>I enjoy it much more than I ever expected to. It&rsquo;s actually <em>fun</em> to
+use, more so than my ThinkPad, which is a weird thing for me to say.</p><div class=related-posts><h2>Related posts</h2><ul><li><a href=/blog/2026/04/computing-contrast-colors-without-dart-sass/>Computing contrast colors without dart-sass</a></li><li><a href=/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/>Outsourcing NixOS compile time to Microsoft</a></li><li><a href=/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/>Dynamic CSS color themes with similar contrasts</a></li></ul></div></div></div><footer class=footer><div class=content><p>Copyright &copy; 2010 Elis Hirwing</p><p>Made with <i class="fa-solid fa-heart" style=color:red></i> in Arvika
+by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target=_blank>Elis Hirwing</a>.</p></div></footer></body></html>

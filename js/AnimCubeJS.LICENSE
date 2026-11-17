@@ -1,0 +1,22 @@
+AnimCubeJS - JavaScript Rubik's Cube Animation Library
+======================================================
+
+Version: No proper relases made, unversioned zip archives published on website.
+
+Documentation: https://animcubejs.cubing.net/animcubejs.html
+Source: https://github.com/cubing/AnimCubeJS
+License: MIT License
+
+Downloads:
+- AnimCube3.js: https://animcubejs.cubing.net/sources/zip/3x3x3-AnimCubeJS.zip
+- AnimCube4.js: https://animcubejs.cubing.net/sources/zip/4x4x4-AnimCubeJS.zip
+- AnimCube5.js: https://animcubejs.cubing.net/sources/zip/5x5x5-AnimCubeJS.zip
+Downloaded: 2025-12-10
+
+Note:
+This project does not use semantic versioning or git tags. The source
+files are updated in place without version tracking. This file was
+vendored rather than fetched at build time due to:
+- No release management or versioning
+- Infrequent updates
+- Risk of hash breakage if files change
