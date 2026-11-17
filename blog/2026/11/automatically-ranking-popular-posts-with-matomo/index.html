@@ -1,0 +1,154 @@
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en><head><title>Automatically ranking popular posts with Matomo - Elis Hirwing</title><meta charset=utf-8><meta name=referrer content="no-referrer"><link rel=canonical href=https://elis.nu/blog/2026/11/automatically-ranking-popular-posts-with-matomo/><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon type=image/png href="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250"><meta property="description" content><meta property="og:description" content><meta property="og:locale" content="en"><meta property="og:site_name" content="Elis Hirwing"><meta property="og:title" content="Automatically ranking popular posts with Matomo &#183; Elis Hirwing"><meta property="og:type" content="website"><meta property="og:url" content="https://elis.nu/blog/2026/11/automatically-ranking-popular-posts-with-matomo/"><meta name=twitter:card content="summary_large_image"><link rel=me href=https://chaos.social/@sa0bse><script>var _paq=window._paq=window._paq||[];_paq.push(["disableCookies"]),_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){e="https://matomo.elis.nu/",_paq.push(["setTrackerUrl",e+"matomo.php"]),_paq.push(["setSiteId","3"]);var e,n=document,t=n.createElement("script"),s=n.getElementsByTagName("script")[0];t.async=!0,t.src=e+"matomo.js",s.parentNode.insertBefore(t,s)}()</script><noscript><img referrerpolicy=no-referrer-when-downgrade src="https://matomo.elis.nu/matomo.php?idsite=3&amp;rec=1" style=border:0 alt></noscript><link rel=stylesheet href=/css/fontawesome/fontawesome.css media=screen><link rel=stylesheet href=/css/fontawesome/solid.css media=screen><link rel=stylesheet href=/css/fontawesome/brands.css media=screen><link rel=stylesheet href=/css/style.min.279996e850a784005622c82a992494fa316ef153ad3a5ad2d315cfd292898b93.css integrity="sha256-J5mW6FCnhABWIsgqmSSU+jFu8VOtOlrS0xXP0pKJi5M=" crossorigin=anonymous media=screen></head><body><header><div class=i18n><ul><li><a href=/sv/><img src=/img/iso-flags/se.svg alt="se flag"></a></li></ul></div><div class=logo><a href=/><picture><source srcset="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" media="(prefers-color-scheme: dark)"><source srcset="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" media="(prefers-color-scheme: light)"><img src="https://secure.gravatar.com/avatar/ef152934ac412f2cbf056ee3c1d258e14d8c11922b6d97ae2988df8d5a0a3669?s=250" alt="Logo of Elis Hirwing" width=250 height=250></picture></a></div><nav><ul><li><a href=/>~elis/</a></li><li><a href=/about/>./about/</a></li><li><a href=/work/>./work/</a></li><li><a href=/talks/>./talks/</a></li><li><a href=/blog/>./blog/</a></li><li><a href=/3d-models/>./3d-models/</a></li><li><a href=/cubing/>./cubing/</a></li><li><a href=/search/ aria-label=./search/><i class="fa-solid fa-magnifying-glass"></i></a></li></ul></nav></header><div class=wrapper data-pagefind-body><div class=content><h1>Automatically ranking popular posts with Matomo</h1><span class=post-meta>2026-11-17
+&#183; 7 minutes read
+&#183;
+<a class=tag href=/tags/nix/>Nix</a>
+<a class=tag href=/tags/hugo/>Hugo</a>
+<a class=tag href=/tags/matomo/>Matomo</a>
+<a class=tag href=/tags/github-actions/>GitHub Actions</a>
+<a class=tag href=/tags/github-pages/>GitHub Pages</a></span><p>If you&rsquo;ve been to the <a href=/>start page</a> of this site lately, you may have
+noticed the <code>~elis/popular-posts/</code> section. It lists the blog posts that
+people actually read, based on the last 90 days of traffic. It used to
+be something I updated by hand every now and then, but now it refreshes
+itself every Sunday night.</p><h2 id=how-the-section-works>How the section works</h2><p>The section is driven by a single front matter field, <code>popularRank</code>.
+Any blog post that sets it is listed on the start page, sorted by the
+rank:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nn>---</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>title</span><span class=p>:</span><span class=w> </span><span class=nt>&#39;NixOS ❄</span><span class=p>:</span><span class=w> </span><span class=l>tmpfs as root&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>date</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;2020-05-02T10:00:00+0100&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=l>/blog/2020/05/nixos-tmpfs-as-root/</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>tags</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=l>NixOS, Linux, tmpfs, Impermanence]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>popularRank</span><span class=p>:</span><span class=w> </span><span class=m>2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nn>---</span><span class=w>
+</span></span></span></code></pre></div><p>The template in the theme picks those up, sorts them and appends any
+posts marked as <code>featured</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go-html-template data-lang=go-html-template><span class=line><span class=cl><span class=cp>{{</span><span class=w> </span><span class=nx>$popularPosts</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>sort</span><span class=w> </span><span class=o>(</span><span class=nx>where</span><span class=w> </span><span class=na>.Site.RegularPages</span><span class=w> </span><span class=s>&#34;Params.popularrank&#34;</span><span class=w> </span><span class=s>&#34;!=&#34;</span><span class=w> </span><span class=k>nil</span><span class=o>)</span><span class=w> </span><span class=s>&#34;Params.popularrank&#34;</span><span class=w> </span><span class=cp>}}</span>
+</span></span><span class=line><span class=cl><span class=cp>{{</span><span class=w> </span><span class=nx>$featuredPosts</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>where</span><span class=w> </span><span class=na>.Site.RegularPages</span><span class=w> </span><span class=s>&#34;Params.featured&#34;</span><span class=w> </span><span class=k>true</span><span class=w> </span><span class=cp>}}</span>
+</span></span><span class=line><span class=cl><span class=cp>{{</span><span class=w> </span><span class=k>with</span><span class=w> </span><span class=nx>$popularPosts</span><span class=w> </span><span class=o>|</span><span class=w> </span><span class=nx>append</span><span class=w> </span><span class=nx>$featuredPosts</span><span class=w> </span><span class=cp>}}</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>h2</span><span class=p>&gt;</span>~elis/popular-posts/<span class=p>&lt;/</span><span class=nt>h2</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=cp>{{</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=na>.</span><span class=w> </span><span class=cp>}}</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;</span><span class=cp>{{</span><span class=w> </span><span class=na>.RelPermalink</span><span class=w> </span><span class=cp>}}</span><span class=s>&#34;</span><span class=p>&gt;</span><span class=cp>{{</span><span class=w> </span><span class=na>.Title</span><span class=w> </span><span class=cp>}}</span><span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=cp>{{</span><span class=w> </span><span class=k>end</span><span class=w> </span><span class=cp>}}</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>ul</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=cp>{{</span><span class=w> </span><span class=k>end</span><span class=w> </span><span class=cp>}}</span>
+</span></span></code></pre></div><p>Hugo lowercases front matter keys, which is why it&rsquo;s <code>popularrank</code> in
+the template. Because of the <code>with</code>, the whole section disappears if no
+page sets either field. That&rsquo;s why it doesn&rsquo;t show up on the Swedish
+start page, since only the English posts get ranked.</p><h2 id=where-the-numbers-come-from>Where the numbers come from</h2><p>I already run a self-hosted <a href=https://matomo.org/>Matomo</a> instance for
+the analytics on this site, so all the data I need is there. The
+<code>Actions.getPageUrls</code> API method returns visits per URL over a date
+range:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>curl -sSf -H <span class=s2>&#34;Authorization: Bearer </span><span class=si>${</span><span class=nv>token</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  <span class=s2>&#34;https://</span><span class=si>${</span><span class=nv>matomo_host</span><span class=si>}</span><span class=s2>/?module=API&amp;method=Actions.getPageUrls&amp;idSite=</span><span class=si>${</span><span class=nv>site_id</span><span class=si>}</span><span class=s2>&amp;period=range&amp;date=last</span><span class=si>${</span><span class=nv>days</span><span class=si>}</span><span class=s2>&amp;format=JSON&amp;flat=1&amp;filter_limit=200&#34;</span>
+</span></span></code></pre></div><p>The host and site ID are read from the <code>params.matomo</code> section of
+<code>config.yaml</code>, which the theme already uses for the tracking snippet, so
+there&rsquo;s only one place to change them.</p><p>The first few rounds of this I did by hand, pulling the numbers out of
+Matomo, deciding where the cutoff should be and editing the front
+matter. After doing it a few times it became clear that it&rsquo;s a very
+mechanical process, which made it a good candidate for a script.</p><h2 id=the-script>The script</h2><p>The script is a Nix package in <code>packages/update-popular-posts.nix</code>,
+built with <code>writeShellApplication</code> so it gets <code>curl</code>, <code>jq</code>, <code>gawk</code> and
+<code>hugo</code> on its <code>PATH</code> and is checked with ShellCheck at build time. Since
+the flake uses <a href=https://github.com/numtide/blueprint>blueprint</a>, the
+file is all it takes for it to show up as a package, and running it is
+just:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=nv>MATOMO_TOKEN</span><span class=o>=</span>... nix run .#update-popular-posts
+</span></span></code></pre></div><p>It does roughly this:</p><ol><li>Fetches the visits for the last 90 days from Matomo.</li><li>Normalizes every URL to a path like <code>/blog/2020/05/nixos-tmpfs-as-root/</code>
+by stripping the host, query strings and fragments, and making sure
+it ends with a slash.</li><li>Asks Hugo which content file each permalink belongs to.</li><li>Sums the visits per post, ranks them and picks a cutoff.</li><li>Removes every existing <code>popularRank</code> and writes the new ones.</li></ol><h3 id=mapping-urls-to-files>Mapping URLs to files</h3><p>The part I like the most is step 3. Instead of trying to guess the file
+name from the URL, which breaks as soon as a post sets its own <code>url</code>
+(like the tmpfs post above, which lives in <code>content/blog/2020/</code> but is
+published under <code>/blog/2020/05/</code>) or is a page bundle, the script asks Hugo directly using <code>hugo list all</code>.
+It prints a CSV of every page with its source path, draft status,
+permalink, kind and section:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>hugo list all 2&gt;/dev/null <span class=p>|</span> awk -F, <span class=s1>&#39;NR &gt; 1 {
+</span></span></span><span class=line><span class=cl><span class=s1>  path = $1; draft = $(NF-3); permalink = $(NF-2); kind = $(NF-1); section = $NF
+</span></span></span><span class=line><span class=cl><span class=s1>  if (kind != &#34;page&#34; || section != &#34;blog&#34; || draft != &#34;false&#34; || path ~ /\.sv\.md$/) next
+</span></span></span><span class=line><span class=cl><span class=s1>  sub(/^https?:\/\/[^\/]+/, &#34;&#34;, permalink)
+</span></span></span><span class=line><span class=cl><span class=s1>  print permalink &#34;\t&#34; path
+</span></span></span><span class=line><span class=cl><span class=s1>}&#39;</span>
+</span></span></code></pre></div><p>Titles can contain commas, but the last few columns never do, so
+reading them from the end with <code>$(NF-n)</code> is safe. This gives a mapping
+from permalink to file for published English blog posts, and everything
+else in the Matomo data, such as the start page or the 3D models page,
+simply falls out when it&rsquo;s joined with the visits.</p><p>Several Matomo rows can end up pointing at the same post, for example
+with and without a trailing <code>index</code> or with different query strings, so
+the visits are summed per file before sorting.</p><h3 id=picking-the-cutoff>Picking the cutoff</h3><p>A fixed top 10 would sometimes include a post with barely more visits
+than the ones that didn&rsquo;t make it. Instead the script looks at the
+ranked list between position 5 and 10 and cuts where the relative drop
+in visits to the next post is the largest:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-awk data-lang=awk><span class=line><span class=cl><span class=p>{</span> <span class=nx>v</span><span class=p>[</span><span class=nb>NR</span><span class=p>]</span> <span class=o>=</span> <span class=o>$</span><span class=mi>1</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=nb>END</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nb>NR</span> <span class=o>&lt;=</span> <span class=nx>min</span><span class=p>)</span> <span class=p>{</span> <span class=kr>print</span> <span class=nb>NR</span><span class=p>;</span> <span class=k>exit</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=nx>best</span> <span class=o>=</span> <span class=nx>min</span><span class=p>;</span> <span class=nx>best_ratio</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=nx>i</span> <span class=o>=</span> <span class=nx>min</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=nx>max</span> <span class=o>&amp;&amp;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nb>NR</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>ratio</span> <span class=o>=</span> <span class=p>(</span><span class=nx>v</span><span class=p>[</span><span class=nx>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>)</span> <span class=err>?</span> <span class=nx>v</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>/</span> <span class=nx>v</span><span class=p>[</span><span class=nx>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span> <span class=err>:</span> <span class=mi>1</span><span class=nx>e9</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>ratio</span> <span class=o>&gt;</span> <span class=nx>best_ratio</span><span class=p>)</span> <span class=p>{</span> <span class=nx>best_ratio</span> <span class=o>=</span> <span class=nx>ratio</span><span class=p>;</span> <span class=nx>best</span> <span class=o>=</span> <span class=nx>i</span> <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kr>print</span> <span class=nx>best</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>So the list is always somewhere between five and ten posts long, and it
+ends at a natural boundary between tiers rather than at an arbitrary
+number. The window and the range are all overridable with <code>DAYS</code>,
+<code>MIN_POSTS</code> and <code>MAX_POSTS</code> if I want to experiment.</p><h3 id=editing-front-matter>Editing front matter</h3><p>Finally the script clears all existing ranks and writes the new ones.
+The edits are done with <code>awk</code> and only touch lines inside the leading
+<code>---</code> block, so a post that happens to have the text <code>popularRank:</code> in
+a code block won&rsquo;t get mangled. Clearing everything first means a post
+that drops off the list loses its rank, and the diff in git shows
+exactly what moved.</p><h2 id=running-it-every-week>Running it every week</h2><p>With the script in place, the last step was a scheduled GitHub Actions
+workflow:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>&#39;on&#39;</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>schedule</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span>- <span class=nt>cron</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;0 3 * * 0&#39;</span><span class=w>  </span><span class=c># At 03:00 on Sunday.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>workflow_dispatch</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>jobs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>update</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-22.04</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>permissions</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>contents</span><span class=p>:</span><span class=w> </span><span class=l>write</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v7</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>DeterminateSystems/nix-installer-action@v23</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;nix run .#update-popular-posts&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>env</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>MATOMO_TOKEN</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.MATOMO_TOKEN }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>id</span><span class=p>:</span><span class=w> </span><span class=l>changes</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=p>|</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>          if git diff --quiet -- content/blog; then
+</span></span></span><span class=line><span class=cl><span class=sd>            echo &#34;changed=false&#34; &gt;&gt; &#34;$GITHUB_OUTPUT&#34;
+</span></span></span><span class=line><span class=cl><span class=sd>          else
+</span></span></span><span class=line><span class=cl><span class=sd>            git diff --stat -- content/blog
+</span></span></span><span class=line><span class=cl><span class=sd>            echo &#34;changed=true&#34; &gt;&gt; &#34;$GITHUB_OUTPUT&#34;
+</span></span></span><span class=line><span class=cl><span class=sd>          fi</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>if</span><span class=p>:</span><span class=w> </span><span class=l>steps.changes.outputs.changed == &#39;true&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;nix build&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># Commits pushed with GITHUB_TOKEN don&#39;t trigger publish.yml, so deploy here.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>if</span><span class=p>:</span><span class=w> </span><span class=l>steps.changes.outputs.changed == &#39;true&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>peaceiris/actions-gh-pages@v4</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>github_token</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.GITHUB_TOKEN }}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>publish_dir</span><span class=p>:</span><span class=w> </span><span class=l>./result</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>if</span><span class=p>:</span><span class=w> </span><span class=l>steps.changes.outputs.changed == &#39;true&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>stefanzweifel/git-auto-commit-action@v7</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>commit_message</span><span class=p>:</span><span class=w> </span><span class=nt>&#39;cron(popular-posts)</span><span class=p>:</span><span class=w> </span><span class=l>Refresh popular posts&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>file_pattern</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;content/blog&#39;</span><span class=w>
+</span></span></span></code></pre></div><p>The Matomo token lives as a repository secret and is only passed as an
+environment variable to the script. If nothing changed in the ranking,
+the job stops there.</p><p>One thing that&rsquo;s easy to miss is that pushes made with the built-in
+<code>GITHUB_TOKEN</code> don&rsquo;t trigger other workflows. That&rsquo;s a deliberate
+GitHub feature to avoid workflows triggering each other in a loop, but
+it means that the commit made by this job would never be deployed by
+my regular publish workflow. So the job builds the site and deploys it
+itself, and then commits the result so the repository matches what&rsquo;s
+live.</p><p>I also ran into a small bug on the first run. I originally had the
+file pattern for the auto-commit as <code>content/blog/**/*.md</code>, which looks
+right but gets expanded by the shell without <code>globstar</code>, so <code>**</code> only
+matched a single directory level. Posts under year <em>and</em> month
+directories were updated but never committed. Just using
+<code>content/blog</code> as the pattern fixed it.</p><h2 id=wrapping-up>Wrapping up</h2><p>Now the section mostly takes care of itself. Every Sunday a
+<code>cron(popular-posts): Refresh popular posts</code> commit shows up in the
+history when the ranking has changed, and if I want to see what the
+list would look like with a different window I can still run the script
+locally with a token. It&rsquo;s a small thing, but it&rsquo;s nice that the start
+page reflects what people actually find useful, rather than what I
+remembered to update.</p><div class=related-posts><h2>Related posts</h2><ul><li><a href=/blog/2026/04/computing-contrast-colors-without-dart-sass/>Computing contrast colors without dart-sass</a></li><li><a href=/blog/2022/10/outsourcing-nixos-compile-time-to-microsoft/>Outsourcing NixOS compile time to Microsoft</a></li><li><a href=/blog/2021/09/dynamic-css-color-themes-with-similar-contrasts/>Dynamic CSS color themes with similar contrasts</a></li></ul></div></div></div><footer class=footer><div class=content><p>Copyright &copy; 2010 Elis Hirwing</p><p>Made with <i class="fa-solid fa-heart" style=color:red></i> in Arvika
+by <a href="https://elis.nu/?mtm_campaign=ThemeAlbatrossFooter&mtm_kwd=https%2f%2felis.nu%2f" target=_blank>Elis Hirwing</a>.</p></div></footer></body></html>
