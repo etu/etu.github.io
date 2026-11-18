@@ -14,7 +14,7 @@ that PHP is a bit weird when it comes to packaging.
 ## State of PHP before NixOS 20.09
 
 Due to the lack of ability to do clever things like the python community does
-with =withPackages= to compose a package with the dependencies you need we
+with `withPackages` to compose a package with the dependencies you need we
 have defaulted to provide a huge default package to accommodate all needs.
 
 We have been quite bad at accommodating all needs though…
@@ -84,7 +84,7 @@ The things we have done:
 - We have enabled running tests for every upstream extension of PHP by
   default. And we do it when we build each extension in a sandbox separate
   from each other (This has some issues though).
-- We have added =opcache= as a default extension.
+- We have added `opcache` as a default extension.
 
 So hereby I now make the following claim:
 
