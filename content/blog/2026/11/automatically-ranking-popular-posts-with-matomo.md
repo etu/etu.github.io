@@ -44,8 +44,9 @@ posts marked as `featured`:
 
 Hugo lowercases front matter keys, which is why it's `popularrank` in
 the template. Because of the `with`, the whole section disappears if no
-page sets either field. That's why it doesn't show up on the Swedish
-start page, since only the English posts get ranked.
+page sets either field. `.Site.RegularPages` only contains pages in the
+current language, and only the English posts get ranked, so the Swedish
+start page just lists the featured posts.
 
 ## Where the numbers come from
 
