@@ -31,8 +31,9 @@ posts marked as <code>featured</code>:</p><div class=highlight><pre tabindex=0 c
 </span></span><span class=line><span class=cl><span class=cp>{{</span><span class=w> </span><span class=k>end</span><span class=w> </span><span class=cp>}}</span>
 </span></span></code></pre></div><p>Hugo lowercases front matter keys, which is why it&rsquo;s <code>popularrank</code> in
 the template. Because of the <code>with</code>, the whole section disappears if no
-page sets either field. That&rsquo;s why it doesn&rsquo;t show up on the Swedish
-start page, since only the English posts get ranked.</p><h2 id=where-the-numbers-come-from>Where the numbers come from</h2><p>I already run a self-hosted <a href=https://matomo.org/>Matomo</a> instance for
+page sets either field. <code>.Site.RegularPages</code> only contains pages in the
+current language, and only the English posts get ranked, so the Swedish
+start page just lists the featured posts.</p><h2 id=where-the-numbers-come-from>Where the numbers come from</h2><p>I already run a self-hosted <a href=https://matomo.org/>Matomo</a> instance for
 the analytics on this site, so all the data I need is there. The
 <code>Actions.getPageUrls</code> API method returns visits per URL over a date
 range:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>curl -sSf -H <span class=s2>&#34;Authorization: Bearer </span><span class=si>${</span><span class=nv>token</span><span class=si>}</span><span class=s2>&#34;</span> <span class=se>\
