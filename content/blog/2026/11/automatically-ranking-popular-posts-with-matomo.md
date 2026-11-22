@@ -2,6 +2,7 @@
 title: Automatically ranking popular posts with Matomo
 date: '2026-11-17T09:00:00+0100'
 tags: [Nix, Hugo, Matomo, GitHub Actions, GitHub Pages]
+popularRank: 9
 ---
 
 If you've been to the [start page](/) of this site lately, you may have
